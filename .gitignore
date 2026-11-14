@@ -1,0 +1,39 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+.ipynb_checkpoints/
+
+# Environment and secrets
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+secrets/
+
+# Historical market datasets
+data/
+datasets/
+*.parquet
+*.feather
+*.sqlite
+*.db
+
+# Model checkpoints
+checkpoints/
+models/
+*.pt
+*.pth
+*.ckpt
+
+# Experiments and generated outputs
+runs/
+outputs/
+artifacts/
+logs/
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
