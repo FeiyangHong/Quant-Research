@@ -1,6 +1,6 @@
 # 真实 R1B 日线研究重现说明
 
-本文记录可执行入口、固定输入和验收条件，不声明真实实验已完成，也不填入尚未运行的收益、回撤或检验数字。执行状态以目标目录中的追加注册日志、`matrix_summary.json` 和评估器实际输出为准。准入范围是 **DAILY_SCREEN_ONLY**；`live_enabled=false`，没有实盘授权。
+真实v2矩阵已完成开发224项及验证224项，共448项；[执行工程复核](EXECUTION_REVIEW.md) 已逐项PASS，严格Decimal数值差异为0。[报告评估](RESULTS.md) 已生成，448项账簿复算全部通过；[独立统计审查](STATISTICAL_REVIEW.md) 已完成，结论为DESCRIPTIVE_VALIDATION_ONLY、NO_CONFIRMED_ECONOMIC_INCREMENT。本文记录其固定输入、执行重放与独立报告评估入口。工程PASS和描述性结果均不构成收益确认。准入范围是 **DAILY_SCREEN_ONLY**；`live_enabled=false`，没有实盘授权。
 
 主要统计本金固定为 **100,000 元**；10,000、500,000、1,000,000 元是整手、最低佣金和容量敏感性账户。开发账户从2016年开始、截至2021年；验证账户从2022年重新注资、截至2024年，不继承开发账户持仓或现金。更早价格只作暖启动。**2025—2026最终留出仍锁定**，本流程不能开启它。
 
@@ -32,6 +32,7 @@ python -m venv .venv
 | `configs/r1_build_policy.json` | 历史规则、明确的假设账户、原始/全收益可用时间、事件现金模型、来源哈希 |
 | `data/staged_r1/phase2_build_v3/` | 独立审查所绑定的完整暂存表和构建报告；v2不在此次准入范围内 |
 | `reports/real_data_phase3/admission_attestation.json` | 独立签认、逐门槛限定范围、原始证据与暂存表哈希 |
+| `reports/real_data_phase3/registered_plan_v2.json` | 当前448项修复版运行的冻结源码、样本和配置登记；`registered_plan.json` 保留为已失效v1的原始登记，经济配置未更改 |
 
 ## 2. 采集与原始证据链
 
@@ -119,6 +120,10 @@ Get-FileHash -Algorithm SHA256 -LiteralPath 'work/reproduce/r1_build_policy.json
 
 执行前固定 `src/`、`scripts/`、`configs/`、`tests/`、`requirements.lock`、`pyproject.toml` 和四份研究规范；这正是runner保存源码哈希/快照的范围。两个样本的全部运行必须使用同一源码快照。先完成工程检查，不在矩阵途中修策略、重排源文件或改费用。
 
+本批v2的执行冻结提交为 `b308ccce541b6e60207808d4d55bc1f4dfd61928`，执行源码集合SHA256为 `d8d265eed26337ba8a58e2dff809af3acc71550232ecbddaa2b94a7a3da6ba7a`。已完成的 `runs/real_r1_development_v2/` 与 `runs/real_r1_validation_v2/` 均对应此身份。它用于复现策略决策、订单和账簿；后处理评估提交不能替代执行冻结提交，也不能改写已有表或注册记录。
+
+若要重跑交易账簿，先在独立重放检出中准备上述执行提交及其逐字节源码快照，保留本地证据所需路径。以下身份检查必须通过；仅在当前评估提交下直接运行矩阵命令，会产生不同源码身份。原始v2目录已完成，示例重放使用新的 `replay_01` 目录，若已存在须另选未占用版本。
+
 两组矩阵各224项：四档本金 × E0/R0/E1/R1 × 波动缩放关/开 × 七条路径。E0等权、R0排名、E1等权加趋势、R1排名加趋势；不事后挑一个最好本金或配置作为主要检验。
 
 | 路径 | 非税成本倍数 | 滑点倍数 | 决策后执行间隔 | 模型现金额外延迟 |
@@ -134,34 +139,40 @@ Get-FileHash -Algorithm SHA256 -LiteralPath 'work/reproduce/r1_build_policy.json
 所有路径保留同一月末D信号锚点；基准日期精度导致D+1交易日21:00才决策，基准执行为D+2，delay2为D+3。D+1参考价格/ADV仅用于下单资金与数量，不把信号锚点移到D+1。佣金基准3bp、每实际订单最低5元，是冻结研究场景，不是已核验历史券商报价。
 
 ```powershell
-.\.venv\Scripts\python.exe -m quant_research.cli matrix --data data/admitted_r1/phase2_v1/development --config configs/r1b_real_development.json --output runs/real_r1_development_v2 --stress
-.\.venv\Scripts\python.exe -m quant_research.cli matrix --data data/admitted_r1/phase2_v1/validation --config configs/r1b_real_validation.json --output runs/real_r1_validation_v2 --stress
+.\.venv\Scripts\python.exe -c "from quant_research.provenance import source_provenance; p=source_provenance('.'); assert p['git_commit']=='b308ccce541b6e60207808d4d55bc1f4dfd61928'; assert p['source_hash']=='d8d265eed26337ba8a58e2dff809af3acc71550232ecbddaa2b94a7a3da6ba7a'; print(p['source_hash'])"
+.\.venv\Scripts\python.exe -m quant_research.cli matrix --data data/admitted_r1/phase2_v1/development --config configs/r1b_real_development.json --output runs/real_r1_development_replay_01 --stress
+.\.venv\Scripts\python.exe -m quant_research.cli matrix --data data/admitted_r1/phase2_v1/validation --config configs/r1b_real_validation.json --output runs/real_r1_validation_replay_01 --stress
 ```
 
-旧v1因精确十进制佣金、成交金额和滑点金额的舍入缺陷，已标为 `FAILED_ENGINE_FEE_ROUNDING` 并保留。开发224条及停止前验证128条的工程核证见 [旧v1审查归档](execution_review_v1_failed.json)，不能用它们形成最终结论。上述v2要求修复后的源码重新冻结并完整运行；若v2已经存在，请另用未占用的新重放版本，并将下方审查/评估参数同步修改。不能把再次完整运行追加到已完成矩阵后只留下最后的summary。当前CLI没有自动断点续跑。失败原因及已注册尝试不得删除；异常中断须确认进程确已停止，才可处理残留锁，并记录重跑和修复的对应关系。
+旧v1因精确十进制佣金、成交金额和滑点金额的舍入缺陷，已标为 `FAILED_ENGINE_FEE_ROUNDING` 并保留。开发224条及停止前验证128条的工程核证见 [旧v1审查归档](execution_review_v1_failed.json)，不能用它们形成最终结论。修复并重新冻结后的v2已完整运行；下方审查/评估命令默认读取这批已完成v2。若核验新的重放，应同步改为相应新矩阵目录并使用新的报告目录。不能把再次完整运行追加到已完成矩阵后只留下最后的summary。当前CLI没有自动断点续跑。失败原因及已注册尝试不得删除；异常中断须确认进程确已停止，才可处理残留锁，并记录重跑和修复的对应关系。
 
 每次尝试先写 `trial_registry.jsonl`，再保留配置、环境、源码快照、数据审计、决策、订单及订单事件、拒单、成交、费用、现金事件、持仓、NAV、权益和份额事件。成功有表哈希和 `COMPLETED`，失败有 `failure.json` 和 `FAILED`；只在完整矩阵结束后形成 `matrix_summary.json`。run_id中的时刻可变化；核对的是配置/源码/数据身份和账簿内容，不是要求所有尝试共用一个run_id。
 
 ## 6. 评估与验收
 
-两组矩阵完成、写者锁释放后，运行：
+两组v2矩阵的报告评估已完成，代码单独固定为 `7d6169f0be2138292a1c708ac3e3e44dcd55a620`；其源码集合SHA256为 `0187faf98b8c04b3ae689622238751100f8acaf2b11162b39369b3b904e6af04`。[results_summary.json](results_summary.json) 记录448项账簿 `ALL_PASS`，总状态为 `DESCRIPTIVE_DAILY_SCREEN_ONLY`，正式经济确认仍为 `BLOCKED_HURDLE`。该评估版本本地329项测试通过，Windows CI测试步骤329项通过，详见 [VERIFICATION.md](VERIFICATION.md)。独立统计结论及证据见[STATISTICAL_REVIEW.md](STATISTICAL_REVIEW.md)，不构成经济确认。下面重放报告时使用该评估版本，并输出到新目录，保留正式报告：
 
 ```powershell
-.\.venv\Scripts\python.exe -c "import runpy; runpy.run_path('scripts/evaluate_real_runs.py', run_name='__main__')" --development runs/real_r1_development_v2 --validation runs/real_r1_validation_v2 --output reports/real_data_phase3
+.\.venv\Scripts\python.exe -c "from quant_research.provenance import source_provenance; p=source_provenance('.'); assert p['git_commit']=='7d6169f0be2138292a1c708ac3e3e44dcd55a620'; assert p['source_hash']=='0187faf98b8c04b3ae689622238751100f8acaf2b11162b39369b3b904e6af04'; print(p['source_hash'])"
+.\.venv\Scripts\python.exe -c "import runpy; runpy.run_path('scripts/evaluate_real_runs.py', run_name='__main__')" --development runs/real_r1_development_v2 --validation runs/real_r1_validation_v2 --output work/reproduce/evaluation_v2_01
 ```
 
 评估器要求两个样本分别具备全部224个唯一配置，核对注册/终态、输入配置、源码快照、数据和输出表哈希、账户日历以及保留的失败尝试；独立重算现金、持仓、应收与NAV账簿算术和收益指标。失败时拒绝发布新的结果，不能用残留旧结果充当本次验收。此独立算术核对不替代市场数据事实审查。
 
-执行工程复核代码与toy故障注入源码保存在 [review_code](review_code/README.md)，不依赖临时未归档实现，不复制供应商raw。先验证审查器能检出预设错误，再读取完整矩阵：
+**执行版本与评估版本分开记录。** v2执行引擎已先以Decimal操作数计算金额再舍入；执行快照内旧版 `scripts/summarize_runs.py` 的核对helper仍可能先作float乘法，误判正确的半分金额。`0840aa9` 修复了报告金额复算并增加评估版本记录；`7d6169f` 进一步允许报告编排与核算脚本独立修复，同时强制统计核 `src/quant_research/evaluation.py` 和身份逻辑 `src/quant_research/provenance.py` 仍等于b308/d8执行快照。0840是中间版本，不是本次最终评估版本。这些后处理修订不改引擎、策略、运行表或参数，无须重新生成v2回测。
+
+报告目录中的 [evaluation_provenance.json](evaluation_provenance.json) 保存实际评估Git提交、源码集合哈希、逐文件哈希及环境；[evaluation_source_snapshot/](evaluation_source_snapshot/) 保存该集合的原始源码字节。`results_summary.json` 的 `evaluation_provenance` 同样绑定评估身份，其 `provenance.source_hash` 则继续绑定b308/d8执行身份。运行目录各自的 `provenance.json`、`source_snapshot/` 仍是执行凭据；两套快照应分别重放、核对，不能以旧执行helper替代已修复的报告helper。评估结束时还会重新核对源文件字节，拒绝评估期间的源码变化；不同评估快照须使用新输出版本。
+
+执行工程复核代码与toy故障注入源码保存在 [review_code](review_code/README.md)，不依赖临时未归档实现，不复制供应商raw。先验证审查器能检出预设错误，再读取完整矩阵，把重放结果写入新目录：
 
 ```powershell
 .\.venv\Scripts\python.exe -c "import runpy; runpy.run_path('reports/real_data_phase3/review_code/test_execution_review_toy.py', run_name='__main__')"
-.\.venv\Scripts\python.exe -c "import runpy; runpy.run_path('reports/real_data_phase3/review_code/review_real_execution.py', run_name='__main__')" --development runs/real_r1_development_v2 --validation runs/real_r1_validation_v2 --data data/admitted_r1/phase2_v1 --output reports/real_data_phase3
+.\.venv\Scripts\python.exe -c "import runpy; runpy.run_path('reports/real_data_phase3/review_code/review_real_execution.py', run_name='__main__')" --development runs/real_r1_development_v2 --validation runs/real_r1_validation_v2 --data data/admitted_r1/phase2_v1 --output work/reproduce/execution_review_v2_01
 ```
 
-该脚本只读已有运行，不调用策略或执行引擎。未完成的矩阵标为待完成，全部448条实际核验通过才会写总状态PASS；任何数值差异均保留，不作容差吞并。输出为 `EXECUTION_REVIEW.md` 和 `execution_review.json`，代码SHA与逐运行表SHA随报告绑定。本复核由实现者进行，不能替代另行出具的独立统计和库存审查。
+审查脚本只读已有运行，不调用策略或执行引擎。当前448条已全部核验PASS：67,016笔成交、1,459,715条持仓估值，严格Decimal差异为0，16项toy故障注入自检通过。正式报告已由 `publish_execution_review_v2.py --input work/execution_review_v2_final --output reports/real_data_phase3` 发布；普通重放核对新目录中的报告即可。发布脚本不改变审查判定，仅在两批均PASS、执行源码/摘要/自检哈希及旧v1归档核对一致后更新当前 `EXECUTION_REVIEW.md` 和 `execution_review.json`，绑定审查、自检、发布代码和逐运行表SHA。本复核由实现者进行，不能替代另行出具的独立统计和库存审查。发布脚本特指本批冻结v2，不应改写其门槛来接受别的执行身份。
 
-只有成功后才产生 `results_summary.json` 和 `RESULTS.md`。报告须展示全部448项、年度贡献、费用/滑点、现金/敞口/集中、换手、拒单及配对压力结果。主本金base路径的排名配对诊断分别为R0−E0、R1−E1，并保留两个缩放设置；不能将开发和验证拼成一次最终测试。
+本次成功评估已产生 `results_summary.json` 和 `RESULTS.md`，覆盖全部448项、年度贡献、费用/滑点、现金/敞口/集中、换手、拒单及配对压力结果。主本金base路径的排名配对诊断分别为R0−E0、R1−E1，并保留两个缩放设置；不能将开发和验证拼成一次最终测试。独立全矩阵库存和统计核验的重放入口见 [独立v2审查说明](review_code/README_INDEPENDENT_REVIEW_V2.md)。
 
 未知年度增量运行费用保持 `annual_incremental_cost=null`、正式经济确认 `BLOCKED_HURDLE`。探索性零固定费用假设下的bootstrap只是有标签的辅助诊断；四假设族未就绪的p=1是占位值，不是证实结果。没有因子收益输入便没有因子Alpha，日线成交不证明分钟窗口/队列可实施，所有输出都不等于个人真实盈亏。后续边界见 [DATA_LIMITATIONS.md](DATA_LIMITATIONS.md)。
 

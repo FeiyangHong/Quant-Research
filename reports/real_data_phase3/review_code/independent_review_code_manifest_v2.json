@@ -1,0 +1,44 @@
+{
+  "schema_version": 2,
+  "created_at": "2026-11-14T18:09:54.163355+00:00",
+  "status": "V2_ADAPTER_ARCHIVE_OLD_BYTES_RETAINED",
+  "reviewer": "/root/independent_admission",
+  "prior_archive_manifest_sha256": "ea858714048bfc15eb170fb8354b815c7d6d39ac697982dbbe1256275a9184f1",
+  "files": [
+    {
+      "original_path": "work/audit_invalidated_v1_history.py",
+      "archived_path": "reports/real_data_phase3/review_code/audit_invalidated_v1_history.py",
+      "sha256": "33f3c4b3f27e468972b832f826cdcb8491657dfd99f312582eefe1337efc604b"
+    },
+    {
+      "original_path": "work/independent_statistical_diagnostics_v2.py",
+      "archived_path": "reports/real_data_phase3/review_code/independent_statistical_diagnostics_v2.py",
+      "sha256": "7a1f2ff411c08224af9bf1848fbc83d8f0302d7436b9f551b45e6302bf3b3c28"
+    },
+    {
+      "original_path": "work/run_independent_inventory_matrix_v3.py",
+      "archived_path": "reports/real_data_phase3/review_code/run_independent_inventory_matrix_v3.py",
+      "sha256": "0ee88e2af2c1276f1f51b10bab5041e356af74e753e4af7f147f781c63c36060"
+    },
+    {
+      "original_path": "work/run_independent_inventory_development_v2.py",
+      "archived_path": "reports/real_data_phase3/review_code/run_independent_inventory_development_v2.py",
+      "sha256": "e20c9d13a1e231fe33d33b09b81ab088e4ad4b780865a37463c6a56f4fb22c8a"
+    },
+    {
+      "original_path": "work/independent_v2_review_adaptation.json",
+      "archived_path": "reports/real_data_phase3/review_code/independent_v2_review_adaptation.json",
+      "sha256": "22c013641469acdee309f1e7aec24c66b14ac1d53bff2a860440a2e42225d389"
+    }
+  ],
+  "required_unchanged_core": {
+    "original_path": "work/independent_inventory_review.py",
+    "archived_path": "reports/real_data_phase3/review_code/independent_inventory_review.py",
+    "sha256": "18f1b3cde4a74ae43ea8ba81c27fb6c69934c5d6311c30fdeca9308172e14242"
+  },
+  "active_full_matrix_wrapper": "work/run_independent_inventory_matrix_v3.py",
+  "active_development_wrapper": "work/run_independent_inventory_development_v2.py",
+  "active_statistics": "work/independent_statistical_diagnostics_v2.py",
+  "active_failure_history_auditor": "work/audit_invalidated_v1_history.py",
+  "old_output_scope": "All353 v1 attempts remain invalidated despite earlier limited unit-flow PASS. No v1 performance evidence is rehabilitated."
+}

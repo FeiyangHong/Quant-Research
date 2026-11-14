@@ -1,0 +1,30 @@
+{
+  "created_at": "2026-11-14T18:57:34.211700+00:00",
+  "files": [
+    {
+      "archived_path": "reports/real_data_phase3/review_code/independent_year_attribution.py",
+      "original_path": "work/independent_year_attribution.py",
+      "sha256": "e9fd5fb074e32f5d158277d2795874231401ee7000765b86bbf01725864c5dd6"
+    },
+    {
+      "archived_path": "reports/real_data_phase3/review_code/publish_independent_statistical_review.py",
+      "original_path": "work/publish_independent_statistical_review.py",
+      "sha256": "320dfb0f08f30487e4c4d371080ac1e590d64018dd86b85ddaad982d93d65d38"
+    }
+  ],
+  "main_results_sha256": "c238b235722bc73468ef1cc3af29f083c160a92d0ff18edead6c36d3b129aebb",
+  "prior_review_manifest": "reports/real_data_phase3/review_code/independent_review_code_manifest_v2.json",
+  "prior_review_manifest_sha256": "485f3fefe7e331db7c9853e092b72c0801012c46f2ed1be57cc6c45f3d5a2703",
+  "replay": [
+    "Restore original_path files from archived_path after SHA256 verification; do not overwrite differing bytes.",
+    "Use repository root and locked .venv Python; retain absolute matrix paths and source/data snapshots.",
+    "See README_INDEPENDENT_REVIEW_V2.md for the full inventory and diagnostic replay commands.",
+    "Year-attribution original script writes its fixed output with exclusive creation; replay in a separate checkout, or use runpy.run_path to load calculate(), then JSON-serialize calculate() into a new work/replayed_year_attribution.json file.",
+    "This publisher assembles reports from the fixed original diagnostics; it does not rerun strategies or inference.",
+    "Replay the publisher in a separate checkout or preserve existing reports first; reviewed_at timestamps change hashes."
+  ],
+  "reviewer": "/root/independent_admission",
+  "schema_version": 1,
+  "status": "FINAL_REPORT_ASSEMBLY_AND_DESCRIPTIVE_YEAR_DIAGNOSTIC",
+  "year_rules": "Report candidate best compounded calendar-year net return and maximum paired annual CNY PnL increment simultaneously; also retain previously announced maximum annual mean-daily increment. Remove identical dates from both series, earliest-year ties, no new p-values."
+}

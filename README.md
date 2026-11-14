@@ -4,6 +4,13 @@
 
 首个研究策略为阶段一预注册的 R1B：ETF 中期相对强弱；透明基线为同池等权。四组 E0/R0/E1/R1 分离排名和趋势效应，共同波动缩放单独比较。所有结果都必须区分合成工程验证、真实日线筛查和最终确认性证据。
 
+## 当前真实历史回测里程碑（2026-11-15）
+
+E0/R0/E1/R1的448条既定真实日频实验全部完成：开发2016—2021、验证2022—2024，两种波动缩放、四档本金和七条成本/执行/到账压力路径；主要本金固定10万元。免费路线已完成限定数据准入，保留历史退出产品；修复会计边界后，全部账簿/执行检查通过，本地及GitHub Windows CI均329项测试通过。
+
+10万元base验证期的四组策略累计净收益均为负；R1的缩放关/开结果为−27.14%/−18.05%。相对基线的改善不等于已证实Alpha。正式经济确认仍BLOCKED_HURDLE，2025—2026最终测试集继续锁定，没有实盘。旧v1的353次完成/中止尝试全部保留并标记失效，当前只读评估与执行代码分别版本化。
+
+当前入口：[里程碑审查包](reports/real_data_phase3/REVIEW_PACKET.md)、[全部448结果](reports/real_data_phase3/RESULTS.md)、[独立统计审查](reports/real_data_phase3/STATISTICAL_REVIEW.md)、[重现步骤](reports/real_data_phase3/REPRODUCE.md)、[数据限制](reports/real_data_phase3/DATA_LIMITATIONS.md)、[实现状态](docs/IMPLEMENTATION_STATUS.md)。下方免费探针与七产品采集段落是早期历史阶段，原320个NOT_RUN状态不代表当前已完成的448项矩阵。
 ## 安装与测试（Windows PowerShell）
 
 ```powershell
@@ -41,7 +48,7 @@ R1I、财务 R2、股票 R3 和事件 R4 按其各自数据门槛推进。分钟
 
 进度与缺口见 `docs/IMPLEMENTATION_STATUS.md`、`docs/M0_DATA_AUDIT.md`；决策见 `docs/DECISION_LOG.md`；里程碑报告见 `reports/m0_m1/REVIEW_PACKET.md`。
 
-## 免费数据源探针
+## 历史记录：免费数据源探针
 
 用户已确认主要统计本金10万元。免费数据源选择及实际接口记录见 `reports/data_sources/DATA_SOURCE_DECISION.md`。先评估BaoStock日线与交易日历，再与东财及官方公告对账。探针只取2023/2024固定小样本，不生成策略收益、不替代完整数据准入。
 
@@ -56,7 +63,7 @@ python -m venv work/provider_env
 
 本次原始探测实际执行成功；上面整理后的两份重放脚本通过语法校验，未重复联网执行。供应商错误或空响应也保存，不将空值填成0。原始快照只留本地，不自动提交供应商数据到Git。
 
-## 真实样本采集与审计
+## 历史记录：首批真实样本采集与审计
 
 已实际采集2019—2024七只ETF、十二个历史ETF截面及交易日历，保留512320退市样本。可在上面的独立provider_env中重放：
 

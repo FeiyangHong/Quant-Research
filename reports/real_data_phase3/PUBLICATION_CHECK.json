@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "scope": "evaluation source snapshot and committed bytes; complete preregistered config identities; not an additional statistical test",
+  "source_files_verified": 71,
+  "evaluation_git_commit": "7d6169f0be2138292a1c708ac3e3e44dcd55a620",
+  "evaluation_source_hash": "0187faf98b8c04b3ae689622238751100f8acaf2b11162b39369b3b904e6af04",
+  "execution_source_hash": "d8d265eed26337ba8a58e2dff809af3acc71550232ecbddaa2b94a7a3da6ba7a",
+  "configurations": 448,
+  "results_summary_sha256": "c238b235722bc73468ef1cc3af29f083c160a92d0ff18edead6c36d3b129aebb",
+  "evaluation_provenance_sha256": "5fee85fff14345efdbc8ce16e46619472c47fb1c7bfcd424917055250fe0f4b7"
+}

@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "status": "SUPERSEDED_V1_HISTORY_COMPLETE_ENGINE_FAILED",
+  "reviewer": "/root/independent_admission",
+  "reviewed_at": "2026-11-14T18:08:16.560873+00:00",
+  "attempts_retained": 353,
+  "completed_but_invalidated": 352,
+  "aborted_and_invalidated": 1,
+  "expected_full_replacement_configurations": 448,
+  "periods": {
+    "development": {
+      "registered": 224,
+      "terminal_counts": {
+        "COMPLETED": 224
+      },
+      "unique_final_invalidation_marker_verified": true,
+      "archive_includes_invalidation_marker": true
+    },
+    "validation": {
+      "registered": 129,
+      "terminal_counts": {
+        "COMPLETED": 128,
+        "FAILED": 1
+      },
+      "unique_final_invalidation_marker_verified": true,
+      "archive_includes_invalidation_marker": true
+    }
+  },
+  "preserved_completed_table_files_hash_verified": 3872,
+  "preserved_artifact_identity_hash_count": 4579,
+  "preserved_artifact_inventory_sha256": "4a2a2541455c56b122a22f57cfc6ac609b95e11b47e07600e399637a0cb88f06",
+  "engineering_finding_counts": {
+    "DECIMAL_COMMISSION_ROUNDING": 46,
+    "DECIMAL_NOTIONAL_ROUNDING": 6,
+    "DECIMAL_SLIPPAGE_AMOUNT_ROUNDING": 11
+  },
+  "evidence_files": {
+    "reports/real_data_phase3/superseded_v1/invalidated_attempts.json": "d526fbb1feedadfa34f1cfbeca638c9d23433ad387479a5d5c6b77c9fbfabf80",
+    "reports/real_data_phase3/execution_review_v1_failed.json": "18321d305197c4b051b2a2f4790bdc629837e17906197041cd7040cae9eba654",
+    "reports/real_data_phase3/registered_plan.json": "8c254b5452bf072598dea740dad8ab5126e11a1449c1cb5608ed497a3933d7ba",
+    "reports/real_data_phase3/superseded_v1/development_trial_registry.jsonl": "d060bfe5857d2c9d0a5b52a7eae3544f25d3613db1fdd7e3d9e7ad7de08a7179",
+    "runs/real_r1_development_v1/trial_registry.jsonl": "d060bfe5857d2c9d0a5b52a7eae3544f25d3613db1fdd7e3d9e7ad7de08a7179",
+    "reports/real_data_phase3/superseded_v1/validation_trial_registry.jsonl": "617f7b850bcdf0b32a67adc6508fe73698cb9dd733aae28f15d9c940ea2a53a0",
+    "runs/real_r1_validation_v1/trial_registry.jsonl": "617f7b850bcdf0b32a67adc6508fe73698cb9dd733aae28f15d9c940ea2a53a0",
+    "work/independent_inventory_development_review.json": "a5f6d4989d495fe7bb99e3b5eb479a4645e48c3da55bc300410f6b78320022a4"
+  },
+  "history_auditor_sha256": "33f3c4b3f27e468972b832f826cdcb8491657dfd99f312582eefe1337efc604b",
+  "old_inventory_verdict_scope": "Earlier PASS applies only to funded sessions, units/share rounding and dividend entitlement/model dates. It does not override failed price/fee/notional/slippage arithmetic or make v1 returns usable.",
+  "failed_terminal_timestamp_note": "The aborted attempt archive retains failure.json fields; its append-time recorded_at is supplied by the hash-bound registry. Other terminal fields must agree exactly.",
+  "old_performance_fields_analyzed_or_used_for_selection": false,
+  "incidental_display_disclosure": "A bounded initial structure read displayed the first invalidated attempt's embedded metrics. No configuration, endpoint or window choice was based on it; subsequent reads project identity/status/hash fields only.",
+  "scope": "Local registry and failure-history completeness. No old-return comparison, statistical confirmation or new source admission."
+}

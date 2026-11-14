@@ -1,0 +1,14 @@
+{
+  "archive_path": "reports/real_data_phase3/review_code/independent_bootstrap_reference.py",
+  "created_at": "2026-11-14T18:44:40.002142+00:00",
+  "execution_source_hash": "d8d265eed26337ba8a58e2dff809af3acc71550232ecbddaa2b94a7a3da6ba7a",
+  "input_plan_sha256": "bcb82aba5cc05300cc9ec5603933c5d03b4903712823b658f43ecd44976217e3",
+  "input_summary_sha256": "c238b235722bc73468ef1cc3af29f083c160a92d0ff18edead6c36d3b129aebb",
+  "restore_instruction": "Restore to repo/work/independent_bootstrap_reference.py; install locked numpy; run --selfcheck then the script against its exact released summary/plan inputs.",
+  "schema_version": "independent-bootstrap-reference-code-1.0",
+  "scope": "Independent reference for16primary100k/base NAVs,eight existing rank contrasts,24 block diagnostics; no production evaluator imports or new hypotheses.",
+  "selfcheck": "PASS before actual comparison: scalar BartlettHAC,circular blocks,linear quantiles,constant degeneracy,full inconclusive bootstrap.",
+  "sha256": "070eab4d800b964754cf4d67cf03e358f6d6ec3bca1a02966bd57e9aa2190d3d",
+  "source_work_path": "work/independent_bootstrap_reference.py",
+  "status_at_archive": "ACTUAL_REFERENCE_NOT_YET_RUN"
+}

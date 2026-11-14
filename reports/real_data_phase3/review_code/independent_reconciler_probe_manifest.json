@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "status": "INVENTED_PRE_FIX_REGRESSION_ARCHIVE",
+  "files": [
+    {
+      "original_path": "work/test_evaluator_decimal_notional.py",
+      "archived_path": "reports/real_data_phase3/review_code/test_evaluator_decimal_notional.py",
+      "sha256": "4b3d92723e4aa555a3685fcaad9518e1226444447c451c29c5698beee21214d7"
+    },
+    {
+      "original_path": "work/evaluator_decimal_notional_review.json",
+      "archived_path": "reports/real_data_phase3/review_code/evaluator_decimal_notional_review.json",
+      "sha256": "141db786afcc2bda0f8df719c88bafdc7211ba71e5ed713acaac0fc8554d4d8f"
+    }
+  ]
+}

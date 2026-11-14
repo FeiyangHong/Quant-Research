@@ -1,0 +1,16 @@
+{
+  "archive_path": "reports/real_data_phase3/review_code/run_independent_inventory_validation_v2.py",
+  "created_at": "2026-11-14T18:27:03.479045+00:00",
+  "dependency_sha256": {
+    "independent_inventory_review.py": "18f1b3cde4a74ae43ea8ba81c27fb6c69934c5d6311c30fdeca9308172e14242",
+    "run_independent_inventory_matrix_v3.py": "0ee88e2af2c1276f1f51b10bab5041e356af74e753e4af7f147f781c63c36060"
+  },
+  "expected_execution_source_hash": "d8d265eed26337ba8a58e2dff809af3acc71550232ecbddaa2b94a7a3da6ba7a",
+  "purpose": "Parent-released v2 validation-only inventory/calendar/share-rounding/dividend-model review; no return metrics or overall engine certification.",
+  "restore_instruction": "Restore this script and both dependency scripts to their original repo/work paths before running; archived copies are byte-preservation artifacts.",
+  "result_status_at_archive": "NOT_YET_RUN",
+  "schema_version": "validation-inventory-review-code-1.0",
+  "selfcheck": "PASS: invented v2 paths/source, omitted cash-delay zero, and v1-root rejection; compiled before archive.",
+  "sha256": "147ee4bd077604c9b4c48064b1b6894b80a6f92e065ecb5b14b81ae4a6f0dcbd",
+  "source_work_path": "work/run_independent_inventory_validation_v2.py"
+}
