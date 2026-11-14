@@ -5,7 +5,7 @@
   "universe": "R1B",
   "variant": "E0",
   "initial_cash": 100000,
-  "primary_capital_confirmed": false,
+  "primary_capital_confirmed": true,
   "annual_incremental_cost": null,
   "risk_scaling": false,
   "execution_delay": 1,

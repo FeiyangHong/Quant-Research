@@ -40,3 +40,18 @@ python -m venv .venv
 R1I、财务 R2、股票 R3 和事件 R4 按其各自数据门槛推进。分钟撮合、完整股票公司行为和税务、历史行业穿透及实际费用核验未完成时，不能声称整个 A 股回测框架已验收。
 
 进度与缺口见 `docs/IMPLEMENTATION_STATUS.md`、`docs/M0_DATA_AUDIT.md`；决策见 `docs/DECISION_LOG.md`；里程碑报告见 `reports/m0_m1/REVIEW_PACKET.md`。
+
+## 免费数据源探针
+
+用户已确认主要统计本金10万元。免费数据源选择及实际接口记录见 `reports/data_sources/DATA_SOURCE_DECISION.md`。先评估BaoStock日线与交易日历，再与东财及官方公告对账。探针只取2023/2024固定小样本，不生成策略收益、不替代完整数据准入。
+
+```powershell
+# 标准库HTTP探针，无新增依赖
+.\.venv\Scripts\python.exe scripts/probe_free_etf.py --output data/provider_probes/http
+# 可选BaoStock通道放在独立环境，避免改变回测环境
+python -m venv work/provider_env
+.\work\provider_env\Scripts\python.exe -m pip install baostock==0.9.4 pandas==2.2.3
+.\work\provider_env\Scripts\python.exe scripts/probe_baostock.py --output data/provider_probes/baostock
+```
+
+本次原始探测实际执行成功；上面整理后的两份重放脚本通过语法校验，未重复联网执行。供应商错误或空响应也保存，不将空值填成0。原始快照只留本地，不自动提交供应商数据到Git。

@@ -58,3 +58,9 @@ seed=20261114；dataset_id=`synthetic-r1-fixture`，dataset_version=`1.0`，sche
 - synthetic永不升级为performance_evidence；真实来源、许可、覆盖/PIT证据缺失时默认加载失败；隔离读取仍为BLOCKED_DATA。
 
 根协调任务负责生成运行级manifest、代码/环境绑定、全套测试与实验review packet。本审计不提前声称集成测试或真实策略实验已通过。
+
+## 用户补充后的数据源实测
+
+用户随后指定主要本金10万元，并要求优先选择免费数据源。已追加真实的、无账户凭证的接口探针，详见 `reports/data_sources/FREE_SOURCE_AUDIT.md`、`probe_results.json` 和 `DATA_SOURCE_DECISION.md`。因此上文“未实施供应商API抽样”描述的是初始仓库盘点时点；后续已取得少量真实原始样本用于接口和单位核验，仍未取得完整且通过准入的研究数据集。
+
+BaoStock与东财活跃ETF样本可对账，但已退市ETF出现主表缺失、零量平价或空响应，足以说明仍需官方生命周期、停牌和公司行为重建。真实Alpha回测仍为BLOCKED_DATA，不能以接口可访问替代M0验收。没有使用真实2025—2026行情进行策略实验。
