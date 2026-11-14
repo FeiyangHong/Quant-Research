@@ -1,0 +1,425 @@
+{
+  "blockers": [
+    {
+      "field": "historical_universe_and_benchmark_mapping",
+      "impact": "Seven selected instruments and sparse snapshots cannot define the full R1B candidate pool or quarterly representatives.",
+      "status": "INCOMPLETE_COVERAGE"
+    },
+    {
+      "field": "listed_on/delisted_on/suspended",
+      "impact": "Current/empty master and trade flags do not prove historical lifespan, suspension or liquidation rights.",
+      "status": "NEEDS_OFFICIAL_RECONCILIATION"
+    },
+    {
+      "field": "cash_dividend/split/liquidation",
+      "impact": "Selected notices prove individual events; absence of an event needs complete interval evidence before total-return construction.",
+      "status": "NEEDS_COMPLETE_EVENT_LEDGER"
+    },
+    {
+      "field": "upper_limit/lower_limit/historical_rules",
+      "impact": "Do not derive all products' limits from a fixed percentage or execute on unverified historical rules.",
+      "status": "NOT_IN_PROVIDER_RESPONSE"
+    },
+    {
+      "field": "published_at/available_at/revision_id",
+      "impact": "Today's download is not historical first availability; original vintages or justified public-asof reconstruction required.",
+      "status": "NOT_IN_PROVIDER_RESPONSE"
+    },
+    {
+      "field": "CSI300_total_return_index_H00300",
+      "impact": "This BaoStock collection does not contain the benchmark; separately captured CSI observations still need PIT admission. A price index or ETF proxy cannot replace total return.",
+      "status": "SEPARATE_SOURCE_REQUIRES_ADMISSION"
+    },
+    {
+      "field": "dual_source_reconciliation/license/account_permissions/historical_fees",
+      "impact": "Read access and a single successful response cannot declare all Dataset evidence gates verified.",
+      "status": "REVIEW_REQUIRED"
+    }
+  ],
+  "calendar_rows": 2192,
+  "collection_sha256": "40bcf6819226987cc525275a4920a5b9de49117f3b7f3c9076f7a925460f8dd3",
+  "current_master_queries": [
+    {
+      "code": "sh.510300",
+      "pit_eligible": false,
+      "reason": "Current metadata or empty; not historical lifespan proof",
+      "row_count": 1
+    },
+    {
+      "code": "sh.510330",
+      "pit_eligible": false,
+      "reason": "Current metadata or empty; not historical lifespan proof",
+      "row_count": 1
+    },
+    {
+      "code": "sh.510500",
+      "pit_eligible": false,
+      "reason": "Current metadata or empty; not historical lifespan proof",
+      "row_count": 1
+    },
+    {
+      "code": "sh.512100",
+      "pit_eligible": false,
+      "reason": "Current metadata or empty; not historical lifespan proof",
+      "row_count": 1
+    },
+    {
+      "code": "sz.159915",
+      "pit_eligible": false,
+      "reason": "Current metadata or empty; not historical lifespan proof",
+      "row_count": 1
+    },
+    {
+      "code": "sh.588000",
+      "pit_eligible": false,
+      "reason": "Current metadata or empty; not historical lifespan proof",
+      "row_count": 1
+    },
+    {
+      "code": "sh.512320",
+      "pit_eligible": false,
+      "reason": "Current metadata or empty; not historical lifespan proof",
+      "row_count": 0
+    }
+  ],
+  "errors": [],
+  "histories": [
+    {
+      "code": "sh.510300",
+      "development_rows": 730,
+      "internal_missing_sessions": [],
+      "non_session_rows": [],
+      "normalization_issue_counts": {},
+      "observed_first": "2019-01-02",
+      "observed_last": "2024-12-31",
+      "observed_state_counts": {
+        "NORMAL": 1456
+      },
+      "ohlc_error_dates": [],
+      "row_count": 1456,
+      "tail_policy": "No rows created before/after observations; lifecycle evidence required",
+      "validation_rows": 726,
+      "zero_turnover_marked_tradable_dates": []
+    },
+    {
+      "code": "sh.510330",
+      "development_rows": 730,
+      "internal_missing_sessions": [],
+      "non_session_rows": [],
+      "normalization_issue_counts": {},
+      "observed_first": "2019-01-02",
+      "observed_last": "2024-12-31",
+      "observed_state_counts": {
+        "NORMAL": 1456
+      },
+      "ohlc_error_dates": [],
+      "row_count": 1456,
+      "tail_policy": "No rows created before/after observations; lifecycle evidence required",
+      "validation_rows": 726,
+      "zero_turnover_marked_tradable_dates": []
+    },
+    {
+      "code": "sh.510500",
+      "development_rows": 730,
+      "internal_missing_sessions": [],
+      "non_session_rows": [],
+      "normalization_issue_counts": {},
+      "observed_first": "2019-01-02",
+      "observed_last": "2024-12-31",
+      "observed_state_counts": {
+        "NORMAL": 1456
+      },
+      "ohlc_error_dates": [],
+      "row_count": 1456,
+      "tail_policy": "No rows created before/after observations; lifecycle evidence required",
+      "validation_rows": 726,
+      "zero_turnover_marked_tradable_dates": []
+    },
+    {
+      "code": "sh.512100",
+      "development_rows": 730,
+      "internal_missing_sessions": [],
+      "non_session_rows": [],
+      "normalization_issue_counts": {},
+      "observed_first": "2019-01-02",
+      "observed_last": "2024-12-31",
+      "observed_state_counts": {
+        "NORMAL": 1455,
+        "SUSPENDED": 1
+      },
+      "ohlc_error_dates": [],
+      "row_count": 1456,
+      "tail_policy": "No rows created before/after observations; lifecycle evidence required",
+      "validation_rows": 726,
+      "zero_turnover_marked_tradable_dates": []
+    },
+    {
+      "code": "sz.159915",
+      "development_rows": 730,
+      "internal_missing_sessions": [],
+      "non_session_rows": [],
+      "normalization_issue_counts": {},
+      "observed_first": "2019-01-02",
+      "observed_last": "2024-12-31",
+      "observed_state_counts": {
+        "NORMAL": 1455,
+        "SUSPENDED": 1
+      },
+      "ohlc_error_dates": [],
+      "row_count": 1456,
+      "tail_policy": "No rows created before/after observations; lifecycle evidence required",
+      "validation_rows": 726,
+      "zero_turnover_marked_tradable_dates": []
+    },
+    {
+      "code": "sh.588000",
+      "development_rows": 277,
+      "internal_missing_sessions": [],
+      "non_session_rows": [],
+      "normalization_issue_counts": {},
+      "observed_first": "2020-11-16",
+      "observed_last": "2024-12-31",
+      "observed_state_counts": {
+        "NORMAL": 1003
+      },
+      "ohlc_error_dates": [],
+      "row_count": 1003,
+      "tail_policy": "No rows created before/after observations; lifecycle evidence required",
+      "validation_rows": 726,
+      "zero_turnover_marked_tradable_dates": []
+    },
+    {
+      "code": "sh.512320",
+      "development_rows": 342,
+      "internal_missing_sessions": [],
+      "non_session_rows": [],
+      "normalization_issue_counts": {},
+      "observed_first": "2020-08-07",
+      "observed_last": "2024-04-15",
+      "observed_state_counts": {
+        "NORMAL": 828,
+        "SUSPENDED": 36,
+        "ZERO_TURNOVER": 29
+      },
+      "ohlc_error_dates": [],
+      "row_count": 893,
+      "tail_policy": "No rows created before/after observations; lifecycle evidence required",
+      "validation_rows": 551,
+      "zero_turnover_marked_tradable_dates": [
+        "2022-03-02",
+        "2022-04-19",
+        "2022-08-15",
+        "2022-08-24",
+        "2022-08-30",
+        "2022-09-20",
+        "2022-09-22",
+        "2022-09-26",
+        "2022-10-21",
+        "2022-11-01",
+        "2022-11-10",
+        "2022-11-24",
+        "2022-12-23",
+        "2023-03-27",
+        "2023-03-28",
+        "2023-04-10",
+        "2023-04-11",
+        "2023-04-12",
+        "2023-07-24",
+        "2023-08-02",
+        "2023-08-09",
+        "2023-08-10",
+        "2023-08-15",
+        "2023-08-17",
+        "2023-09-26",
+        "2023-10-18",
+        "2023-11-22",
+        "2023-11-28",
+        "2023-12-13"
+      ]
+    }
+  ],
+  "holdout": {
+    "current_metadata_used_as_historical_features": false,
+    "historical_observations_after_2024": 0,
+    "historical_requests_after_2024": 0,
+    "scope": "Hash/identity/response-validated queries only; rejected evidence is never admitted",
+    "status": "LOCKED"
+  },
+  "integrity_status": "PASS",
+  "interpretation": "Observed-data integrity audit only. Not an admitted Dataset or a historical strategy backtest.",
+  "performance_evidence": false,
+  "planned_queries": 27,
+  "queries_requested": 27,
+  "queries_verified": 27,
+  "request_plan_sha256": "66043a140cb30e7d631be64a2c2afc25a78566f5f123c95276a33b320895daeb",
+  "schema_version": "real-staging-audit-1.0",
+  "status": "BLOCKED_DATA",
+  "strategy_runs_permitted": false,
+  "synthetic": false,
+  "trading_sessions": 1456,
+  "universe_snapshots": [
+    {
+      "audit_cohort_present": [
+        "sh.510300",
+        "sh.510330",
+        "sh.510500",
+        "sh.512100",
+        "sz.159915"
+      ],
+      "completeness": "OBSERVED_ONLY_NOT_AUTHORITATIVE_LIFETIME_UNIVERSE",
+      "date": "2019-12-31",
+      "row_count": 263
+    },
+    {
+      "audit_cohort_present": [
+        "sh.510300",
+        "sh.510330",
+        "sh.510500",
+        "sh.512100",
+        "sh.512320",
+        "sh.588000",
+        "sz.159915"
+      ],
+      "completeness": "OBSERVED_ONLY_NOT_AUTHORITATIVE_LIFETIME_UNIVERSE",
+      "date": "2020-12-31",
+      "row_count": 371
+    },
+    {
+      "audit_cohort_present": [
+        "sh.510300",
+        "sh.510330",
+        "sh.510500",
+        "sh.512100",
+        "sh.512320",
+        "sh.588000",
+        "sz.159915"
+      ],
+      "completeness": "OBSERVED_ONLY_NOT_AUTHORITATIVE_LIFETIME_UNIVERSE",
+      "date": "2021-03-31",
+      "row_count": 441
+    },
+    {
+      "audit_cohort_present": [
+        "sh.510300",
+        "sh.510330",
+        "sh.510500",
+        "sh.512100",
+        "sh.512320",
+        "sh.588000",
+        "sz.159915"
+      ],
+      "completeness": "OBSERVED_ONLY_NOT_AUTHORITATIVE_LIFETIME_UNIVERSE",
+      "date": "2021-12-31",
+      "row_count": 635
+    },
+    {
+      "audit_cohort_present": [
+        "sh.510300",
+        "sh.510330",
+        "sh.510500",
+        "sh.512100",
+        "sh.512320",
+        "sh.588000",
+        "sz.159915"
+      ],
+      "completeness": "OBSERVED_ONLY_NOT_AUTHORITATIVE_LIFETIME_UNIVERSE",
+      "date": "2022-03-31",
+      "row_count": 678
+    },
+    {
+      "audit_cohort_present": [
+        "sh.510300",
+        "sh.510330",
+        "sh.510500",
+        "sh.512100",
+        "sh.512320",
+        "sh.588000",
+        "sz.159915"
+      ],
+      "completeness": "OBSERVED_ONLY_NOT_AUTHORITATIVE_LIFETIME_UNIVERSE",
+      "date": "2022-12-30",
+      "row_count": 753
+    },
+    {
+      "audit_cohort_present": [
+        "sh.510300",
+        "sh.510330",
+        "sh.510500",
+        "sh.512100",
+        "sh.512320",
+        "sh.588000",
+        "sz.159915"
+      ],
+      "completeness": "OBSERVED_ONLY_NOT_AUTHORITATIVE_LIFETIME_UNIVERSE",
+      "date": "2023-03-31",
+      "row_count": 775
+    },
+    {
+      "audit_cohort_present": [
+        "sh.510300",
+        "sh.510330",
+        "sh.510500",
+        "sh.512100",
+        "sh.512320",
+        "sh.588000",
+        "sz.159915"
+      ],
+      "completeness": "OBSERVED_ONLY_NOT_AUTHORITATIVE_LIFETIME_UNIVERSE",
+      "date": "2023-12-29",
+      "row_count": 889
+    },
+    {
+      "audit_cohort_present": [
+        "sh.510300",
+        "sh.510330",
+        "sh.510500",
+        "sh.512100",
+        "sh.512320",
+        "sh.588000",
+        "sz.159915"
+      ],
+      "completeness": "OBSERVED_ONLY_NOT_AUTHORITATIVE_LIFETIME_UNIVERSE",
+      "date": "2024-03-29",
+      "row_count": 923
+    },
+    {
+      "audit_cohort_present": [
+        "sh.510300",
+        "sh.510330",
+        "sh.510500",
+        "sh.512100",
+        "sh.588000",
+        "sz.159915"
+      ],
+      "completeness": "OBSERVED_ONLY_NOT_AUTHORITATIVE_LIFETIME_UNIVERSE",
+      "date": "2024-06-28",
+      "row_count": 967
+    },
+    {
+      "audit_cohort_present": [
+        "sh.510300",
+        "sh.510330",
+        "sh.510500",
+        "sh.512100",
+        "sh.588000",
+        "sz.159915"
+      ],
+      "completeness": "OBSERVED_ONLY_NOT_AUTHORITATIVE_LIFETIME_UNIVERSE",
+      "date": "2024-09-30",
+      "row_count": 986
+    },
+    {
+      "audit_cohort_present": [
+        "sh.510300",
+        "sh.510330",
+        "sh.510500",
+        "sh.512100",
+        "sh.588000",
+        "sz.159915"
+      ],
+      "completeness": "OBSERVED_ONLY_NOT_AUTHORITATIVE_LIFETIME_UNIVERSE",
+      "date": "2024-12-31",
+      "row_count": 1033
+    }
+  ]
+}

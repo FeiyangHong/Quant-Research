@@ -195,7 +195,8 @@ def run_backtest(dataset, decisions, initial_cash, cost_multiplier=1,
             known_versions = sorted(
                 [r for r in revisions.to_dict("records") if _timestamp(r["available_at"]) <= _cutoff(calendar[-1])],
                 key=lambda r: _timestamp(r["available_at"]))
-            terms = ("ex_date", "record_date", "pay_date", "cash_per_share", "share_factor", "recovery_per_share", "action_type")
+            terms = ("instrument_id", "ex_date", "record_date", "pay_date", "cash_per_share", "share_factor", "recovery_per_share", "action_type",
+                     "recognition_date", "entitlement_action_id", "installment_id", "is_final", "settlement_mode", "cash_settlement_verified")
             for previous, revised in zip(known_versions, known_versions[1:]):
                 if (_timestamp(revised["available_at"]) > _cutoff(str(previous["ex_date"])[:10], "09:30:00")
                         and any(str(previous.get(k)) != str(revised.get(k)) for k in terms)):
@@ -225,16 +226,22 @@ def run_backtest(dataset, decisions, initial_cash, cost_multiplier=1,
                 raise ExecutionBlockedError("Corporate action is outside trading calendar")
             if _timestamp(action["available_at"]) > _cutoff(effective, "09:30:00"):
                 raise ExecutionBlockedError("Corporate action not known by its effective open")
-            if action["action_type"] not in ("CASH_DIVIDEND", "SPLIT", "DELISTING"):
+            if action["action_type"] not in ("CASH_DIVIDEND", "SPLIT", "DELISTING", "LIQUIDATION", "LIQUIDATION_PAYMENT"):
                 raise ExecutionBlockedError("Unsupported corporate action")
             events[effective].append(action)
+    action_rank = {"SPLIT": 0, "CASH_DIVIDEND": 1, "LIQUIDATION": 2, "LIQUIDATION_PAYMENT": 3, "DELISTING": 4}
+    for day_events in events.values():
+        day_events.sort(key=lambda action: (action_rank[action["action_type"]], str(action["action_id"])))
 
     cash, withdrawable = float(initial_cash), float(initial_cash)
     lots, marks, stale, receivables = defaultdict(list), {}, defaultdict(int), []
     dead, queues = set(), defaultdict(list)
     risk_exit_started = set()
     record_holdings = {}
-    output = {key: [] for key in ("nav", "positions", "orders", "fills", "rejected_orders", "costs", "exposure", "cash_events", "order_events")}
+    liquidation_rights, retired_instruments, paid_installments = {}, {}, set()
+    observation_replay = False
+    assumed_settlement = False
+    output = {key: [] for key in ("nav", "positions", "orders", "fills", "rejected_orders", "costs", "exposure", "cash_events", "order_events", "rights")}
     sequence = 0
 
     def quantity(sid):
@@ -274,6 +281,23 @@ def run_backtest(dataset, decisions, initial_cash, cost_multiplier=1,
             queues[new["execution_date"]].append(new)
         else:
             reject(order, day, "END_OF_DATA_UNFILLED_RETAIN_HOLDINGS", remainder)
+
+    def new_right(action, entitled, retired):
+        return {"entitlement_action_id": action["action_id"], "instrument_id": action["instrument_id"],
+                "record_date": str(action.get("record_date", ""))[:10], "retirement_date": str(action["ex_date"])[:10],
+                "entitled_quantity": entitled, "retired_quantity": retired, "recognized_amount": 0.,
+                "paid_amount": 0., "final_recognized": False, "late_recognition": False, "assumed_settlement": False}
+
+    # A fresh validation account owns no earlier entitlements, but an already
+    # retired product must not become buyable merely because the ledger starts
+    # after its economic retirement and before its exchange delisting.
+    for effective, day_events in events.items():
+        if effective < start_date:
+            for action in day_events:
+                if action["action_type"] == "LIQUIDATION":
+                    liquidation_rights[action["action_id"]] = new_right(action, 0, 0)
+                    retired_instruments[action["instrument_id"]] = action["action_id"]
+                    dead.add(action["instrument_id"])
 
     for day in calendar:
         # Keep pre-period source rows for ADV and the final pre-period decision,
@@ -320,6 +344,89 @@ def run_backtest(dataset, decisions, initial_cash, cost_multiplier=1,
                     lot["quantity"] = int(round(new_qty))
                 if sid in marks:
                     marks[sid] /= float(factor)
+            elif kind == "LIQUIDATION":
+                if meta["asset_type"] != "ETF":
+                    raise ExecutionBlockedError("Stock liquidation taxation unsupported")
+                if (action.get("terms_verified") is not True or not isinstance(action.get("source_url"), str)
+                        or not action["source_url"].strip()):
+                    raise ExecutionBlockedError("Liquidation requires verified source terms")
+                if any(_valid(action.get(field), True) for field in ("cash_per_share", "recovery_per_share")):
+                    raise ExecutionBlockedError("Liquidation amounts require a separate linked payment event")
+                record_day = str(action.get("record_date", ""))[:10]
+                if record_day not in day_index or record_day >= day:
+                    raise ExecutionBlockedError("Liquidation requires a valid prior record_date")
+                if sid in retired_instruments or action["action_id"] in liquidation_rights:
+                    raise ExecutionBlockedError("Duplicate economic liquidation")
+                right = new_right(action, record_holdings.get((record_day, sid), 0), qty)
+                liquidation_rights[action["action_id"]] = right
+                retired_instruments[sid] = action["action_id"]
+                lots[sid] = []
+                dead.add(sid)
+                marks[sid] = 0.
+                for pending_day, pending_orders in queues.items():
+                    retained = []
+                    for pending_order in pending_orders:
+                        if pending_order["instrument_id"] == sid:
+                            reject(pending_order, day, "ECONOMIC_LIQUIDATION_ORDER_CANCELLED")
+                        else:
+                            retained.append(pending_order)
+                    queues[pending_day] = retained
+                output["cash_events"].append({"date": day, "event": "LIQUIDATION_RIGHT_RECOGNIZED",
+                    "action_id": action["action_id"], "instrument_id": sid, "amount": 0.,
+                    "entitled_quantity": right["entitled_quantity"], "valuation_status": "UNPRICED_RIGHT"})
+            elif kind == "LIQUIDATION_PAYMENT":
+                if (action.get("terms_verified") is not True or not isinstance(action.get("source_url"), str)
+                        or not action["source_url"].strip()):
+                    raise ExecutionBlockedError("Liquidation payment requires verified source terms")
+                entitlement_id = action.get("entitlement_action_id")
+                right = liquidation_rights.get(entitlement_id)
+                if right is None or right["instrument_id"] != sid:
+                    raise ExecutionBlockedError("Liquidation payment lacks matching prior entitlement")
+                installment = action.get("installment_id")
+                if not isinstance(installment, str) or not installment:
+                    raise ExecutionBlockedError("Liquidation payment needs stable installment_id")
+                if (entitlement_id, installment) in paid_installments or right["final_recognized"]:
+                    raise ExecutionBlockedError("Duplicate installment or payment after final liquidation")
+                if str(action.get("recognition_date", ""))[:10] != day:
+                    raise ExecutionBlockedError("Liquidation recognition_date must equal effective ex_date")
+                per_share, pay_day = action.get("cash_per_share"), str(action.get("pay_date", ""))[:10]
+                if not _valid(per_share) or len(pay_day) != 10:
+                    raise ExecutionBlockedError("Invalid liquidation payment amount or date")
+                try:
+                    pd.Timestamp(pay_day)
+                except (ValueError, TypeError):
+                    raise ExecutionBlockedError("Invalid liquidation pay_date")
+                if type(action.get("is_final")) is not bool:
+                    raise ExecutionBlockedError("Liquidation is_final must be explicit boolean")
+                mode = action.get("settlement_mode")
+                if mode not in ("SCHEDULED", "LATE_RECOGNITION", "ASSUMED_SCHEDULED_CREDIT"):
+                    raise ExecutionBlockedError("Unknown liquidation settlement mode")
+                assumed = mode == "ASSUMED_SCHEDULED_CREDIT"
+                if not assumed and action.get("cash_settlement_verified") is not True:
+                    raise ExecutionBlockedError("Liquidation cash date requires verified account settlement")
+                late = pay_day < day
+                if late and mode != "LATE_RECOGNITION":
+                    raise ExecutionBlockedError("Past liquidation payment requires explicit late recognition")
+                if mode == "LATE_RECOGNITION" and not late:
+                    raise ExecutionBlockedError("Late recognition requires an earlier actual pay_date")
+                amount = _money(right["entitled_quantity"] * float(per_share))
+                right["recognized_amount"] = _money(right["recognized_amount"] + amount)
+                right["final_recognized"] = action["is_final"]
+                right["late_recognition"] = right["late_recognition"] or late
+                right["assumed_settlement"] = right["assumed_settlement"] or assumed
+                observation_replay = observation_replay or (late and right["entitled_quantity"] > 0)
+                assumed_settlement = assumed_settlement or (assumed and right["entitled_quantity"] > 0)
+                paid_installments.add((entitlement_id, installment))
+                output["cash_events"].append({"date": day, "event": "LIQUIDATION_RECEIVABLE",
+                    "action_id": action["action_id"], "entitlement_action_id": entitlement_id,
+                    "installment_id": installment, "instrument_id": sid, "amount": amount,
+                    "actual_pay_date": None if assumed else pay_day,
+                    "scheduled_pay_date": pay_day if assumed else None, "settlement_mode": mode})
+                receivables.append({"action_id": action["action_id"], "instrument_id": sid,
+                    "entitlement_action_id": entitlement_id, "installment_id": installment,
+                    "amount": amount, "pay_date": max(day, pay_day), "actual_pay_date": None if assumed else pay_day,
+                    "scheduled_pay_date": pay_day if assumed else None,
+                    "event_type": "LIQUIDATION", "settlement_mode": mode})
             else:
                 recovery = action.get("recovery_per_share", 0.)
                 if pd.notna(recovery) and float(recovery) != 0:
@@ -331,7 +438,17 @@ def run_backtest(dataset, decisions, initial_cash, cost_multiplier=1,
             if receivable["pay_date"] <= day:
                 cash += receivable["amount"]
                 withdrawable += receivable["amount"]
-                output["cash_events"].append({"date": day, "event": "DIVIDEND_PAID", "instrument_id": receivable["instrument_id"], "amount": receivable["amount"]})
+                if receivable.get("event_type") == "LIQUIDATION":
+                    right = liquidation_rights[receivable["entitlement_action_id"]]
+                    right["paid_amount"] = _money(right["paid_amount"] + receivable["amount"])
+                    output["cash_events"].append({"date": day, "event": "LIQUIDATION_PAID",
+                        "action_id": receivable["action_id"], "entitlement_action_id": receivable["entitlement_action_id"],
+                        "installment_id": receivable["installment_id"], "instrument_id": receivable["instrument_id"],
+                        "amount": receivable["amount"], "actual_pay_date": receivable["actual_pay_date"],
+                        "scheduled_pay_date": receivable["scheduled_pay_date"],
+                        "settlement_mode": receivable["settlement_mode"]})
+                else:
+                    output["cash_events"].append({"date": day, "event": "DIVIDEND_PAID", "instrument_id": receivable["instrument_id"], "amount": receivable["amount"]})
                 receivables.remove(receivable)
         # Open marks only affect matching/risk checks, never desired quantities.
         for sid in list(lots):
@@ -509,9 +626,30 @@ def run_backtest(dataset, decisions, initial_cash, cost_multiplier=1,
         if cash < -1e-7 or withdrawable < -1e-7 or withdrawable > cash + 1e-7:
             raise ExecutionBlockedError("Cash conservation failure")
         holdings_value = sum(quantity(sid) * marks.get(sid, 0.) for sid in lots)
+        unpriced_rights = any(right["entitled_quantity"] > 0 and not right["final_recognized"]
+                              for right in liquidation_rights.values())
+        valuation_status = ("ASSUMED_SCHEDULED_CREDIT" if assumed_settlement else
+                            "OBSERVATION_TIME_REPLAY" if observation_replay else
+                            "CONSERVATIVE_UNPRICED_RIGHTS" if unpriced_rights else "PRICED_LEDGER")
         output["nav"].append({"date": day, "nav": nav, "cash_total": cash, "cash": cash,
             "cash_available": cash, "cash_withdrawable": withdrawable, "cash_reserved": 0.,
-            "holdings_value": holdings_value, "receivables": sum(r["amount"] for r in receivables), "mode": "DAILY_SCREEN_ONLY"})
+            "holdings_value": holdings_value, "receivables": float(sum(r["amount"] for r in receivables)), "mode": "DAILY_SCREEN_ONLY",
+            "valuation_status": valuation_status, "valuation_uncertainty": observation_replay or assumed_settlement or unpriced_rights,
+            "assumed_settlement": assumed_settlement, "late_recognition": observation_replay})
+        for right in liquidation_rights.values():
+            if right["entitled_quantity"] == 0 and right["retired_quantity"] == 0:
+                continue
+            outstanding = _money(right["recognized_amount"] - right["paid_amount"])
+            status = ("PAID_FINAL" if right["final_recognized"] and outstanding == 0 else
+                      "FINAL_RECEIVABLE" if right["final_recognized"] else
+                      "PARTIALLY_PRICED_RIGHT" if right["recognized_amount"] else "UNPRICED_RIGHT")
+            output["rights"].append(dict(right, date=day, status=status,
+                outstanding_receivable=outstanding, carrying_value=outstanding,
+                valuation_uncertainty=not right["final_recognized"] or right["late_recognition"] or right["assumed_settlement"]))
+            output["positions"].append({"date": day, "instrument_id": right["instrument_id"],
+                "quantity": 0, "retired_quantity": right["retired_quantity"], "sellable_quantity": 0,
+                "locked_quantity": 0, "price": 0., "market_value": 0., "weight": 0.,
+                "stale_days": 0, "delisted_rights": True})
         industries = defaultdict(float)
         for sid in sorted(lots):
             qty = quantity(sid)
@@ -521,6 +659,7 @@ def run_backtest(dataset, decisions, initial_cash, cost_multiplier=1,
             sellable = sum(lot["quantity"] for lot in lots[sid] if lot["sellable_index"] <= index)
             weight = value / nav if nav > 0 else 0.
             output["positions"].append({"date": day, "instrument_id": sid, "quantity": qty,
+                "retired_quantity": 0,
                 "sellable_quantity": sellable, "locked_quantity": qty - sellable,
                 "price": marks.get(sid, 0.), "market_value": value, "weight": weight,
                 "stale_days": stale[sid], "delisted_rights": sid in dead})
@@ -612,6 +751,8 @@ def run_backtest(dataset, decisions, initial_cash, cost_multiplier=1,
                 pending_sell = any(o["instrument_id"] == sid and o["side"] == "SELL" for pending in queues.values() for o in pending)
                 order = create_order(day, execution, sid, side, abs(delta), float(ref), min(float(supplied_adv), actual_adv))
                 reason = permission(meta, day, side == "BUY")
+                if sid in retired_instruments:
+                    reason = "ECONOMICALLY_RETIRED_INSTRUMENT"
                 if pending_sell:
                     reason = "PENDING_SELL_ALREADY_EXISTS"
                 if side == "BUY" and meta is not None and float(weights.get(sid, 0)) > (.35 if meta["asset_type"] == "ETF" else .05) + 1e-10:
@@ -626,15 +767,21 @@ def run_backtest(dataset, decisions, initial_cash, cost_multiplier=1,
         "fills": ["date", "order_id", "instrument_id", "side", "quantity", "price", "notional", "commission", "stamp_duty", "transfer_fee", "fees", "slippage_cost", "mode"],
         "rejected_orders": ["order_id", "date", "instrument_id", "side", "quantity", "reason"],
         "costs": ["date", "order_id", "instrument_id", "commission", "stamp_duty", "transfer_fee", "total_cost", "slippage_cost"],
-        "positions": ["date", "instrument_id", "quantity", "sellable_quantity", "locked_quantity", "price", "market_value", "weight", "stale_days", "delisted_rights"],
+        "positions": ["date", "instrument_id", "quantity", "retired_quantity", "sellable_quantity", "locked_quantity", "price", "market_value", "weight", "stale_days", "delisted_rights"],
+        "rights": ["date", "entitlement_action_id", "instrument_id", "record_date", "retirement_date",
+                   "entitled_quantity", "retired_quantity", "recognized_amount", "paid_amount",
+                   "outstanding_receivable", "carrying_value", "final_recognized", "late_recognition", "assumed_settlement", "status", "valuation_uncertainty"],
     }
     result = {key: pd.DataFrame(rows, columns=schemas.get(key)) for key, rows in output.items()}
     for key, table in result.items():
         if "date" in table.columns:
             result[key] = table.loc[table["date"] >= start_date].reset_index(drop=True)
     result["mode"] = "DAILY_SCREEN_ONLY"
+    result["accounting_timing_eligible"] = not bool(result["nav"]["valuation_uncertainty"].any())
+    result["confirmation_eligible"] = False  # Daily screening never verifies executable confirmation.
     result["limitations"] = ["Daily bars do not establish opening queue liquidity.",
         "Stock statutory fees require explicit verified dated rules; stock dividend tax is unsupported.",
         "Pending orders are canceled on a corporate-action ex-date; buys are not retried.",
+        "Unpriced liquidation rights carry zero with explicit valuation uncertainty; late recovery observations never backfill cash.",
         "ETF look-through industry exposure is unavailable; observed stock industries only."]
     return result

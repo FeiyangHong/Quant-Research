@@ -342,3 +342,177 @@ def test_stock_missing_status_rejected_and_st_or_permission_change_allows_defens
         result = run_backtest(case, [decision(case, weights=weights)], 100000, tax_rules=rules)
         assert result["fills"].query("side == 'SELL'").iloc[0].date == data["calendar"][24]
         assert result["fills"].query("side == 'SELL'").quantity.sum() == result["fills"].query("side == 'BUY'").quantity.sum()
+
+
+def liquidation_events(data, record=23, retire=24, recognize=24, pay=28, delist=32,
+                       per_share=.77524, mode="SCHEDULED", final=True):
+    dates = data["calendar"]
+    source = "https://www.sse.com.cn/disclosure/fund/announcement/c/new/2024-03-28/512320_20240328_QIII.pdf"
+    return pd.DataFrame([
+        dict(action_id="liquidation", instrument_id="ETF_A", action_type="LIQUIDATION",
+             record_date=dates[record], ex_date=dates[retire], available_at=dates[retire] + "T08:00:00+08:00",
+             terms_verified=True, source_url=source),
+        dict(action_id="installment1", instrument_id="ETF_A", action_type="LIQUIDATION_PAYMENT",
+             entitlement_action_id="liquidation", installment_id="distribution-1",
+             ex_date=dates[recognize], recognition_date=dates[recognize], pay_date=dates[pay],
+             cash_per_share=per_share, is_final=final, settlement_mode=mode,
+             cash_settlement_verified=mode != "ASSUMED_SCHEDULED_CREDIT",
+             available_at=dates[recognize] + "T08:00:00+08:00", terms_verified=True, source_url=source),
+        dict(action_id="delisting", instrument_id="ETF_A", action_type="DELISTING", ex_date=dates[delist],
+             recovery_per_share=0., available_at=dates[delist] + "T08:00:00+08:00")])
+
+
+def test_liquidation_before_delisting_retires_units_and_pays_once_on_actual_pay_date():
+    data = fixture()
+    data["bars"].loc[:, ["open", "close"]] = .8
+    data["bars"].loc[:, ["high", "upper_limit"]] = 1.
+    data["bars"].loc[:, ["low", "lower_limit"]] = .5
+    data["actions"] = liquidation_events(data)
+    # Reverse source row order: runtime must retire units before same-day payment recognition.
+    data["actions"] = data["actions"].iloc[::-1].reset_index(drop=True)
+    result = run_backtest(data, [decision(data)], 100000)
+    fill = result["fills"].iloc[0]
+    amount = round(fill.quantity * .77524, 2)
+    nav = result["nav"].set_index("date")
+    before_cash = 100000 - fill.notional - fill.fees
+    ex, pay, delist = [data["calendar"][i] for i in (24, 28, 32)]
+    assert nav.loc[ex, "holdings_value"] == 0
+    assert nav.loc[ex, "receivables"] == amount
+    assert nav.loc[ex, "cash_total"] == pytest.approx(before_cash)
+    assert nav.loc[data["calendar"][27], "cash_total"] == pytest.approx(before_cash)
+    assert nav.loc[pay, "cash_total"] == pytest.approx(before_cash + amount)
+    assert nav.loc[pay, "receivables"] == 0
+    assert nav.loc[pay, "nav"] == pytest.approx(nav.loc[delist, "nav"])
+    rights = result["rights"].set_index("date")
+    assert rights.loc[ex, "status"] == "FINAL_RECEIVABLE"
+    assert rights.loc[pay, "status"] == "PAID_FINAL"
+    assert rights.loc[delist, "entitled_quantity"] == fill.quantity
+    position = result["positions"].query("date == @delist").iloc[0]
+    assert position.quantity == 0 and position.retired_quantity == fill.quantity
+    assert len(result["cash_events"].query("event == 'LIQUIDATION_PAID'")) == 1
+    assert not result["nav"].valuation_uncertainty.any()
+
+
+@pytest.mark.parametrize("buy_at,sell_at,expected_entitled", [(20, 21, False), (24, None, False), (20, 24, True)])
+def test_liquidation_uses_record_date_not_current_or_postrecord_ownership(buy_at, sell_at, expected_entitled):
+    data = fixture()
+    data["actions"] = liquidation_events(data, record=23, retire=27, recognize=27)
+    decisions = [decision(data, buy_at)]
+    if sell_at is not None:
+        decisions.append(decision(data, sell_at, {}))
+    result = run_backtest(data, decisions, 100000)
+    bought = result["fills"].query("side == 'BUY'").quantity.sum()
+    payment = result["cash_events"].query("event == 'LIQUIDATION_PAID'").amount.sum()
+    assert payment == (round(bought * .77524, 2) if expected_entitled else 0.)
+
+
+def test_liquidation_payment_after_delisting_keeps_receivable_and_no_double_payment():
+    data = fixture()
+    data["actions"] = liquidation_events(data, pay=31, delist=26)
+    result = run_backtest(data, [decision(data)], 100000)
+    nav = result["nav"].set_index("date")
+    assert nav.loc[data["calendar"][26], "receivables"] > 0
+    assert nav.loc[data["calendar"][26], "nav"] == pytest.approx(nav.iloc[-1].nav)
+    assert len(result["cash_events"].query("event == 'LIQUIDATION_PAID'")) == 1
+
+
+def test_unknown_liquidation_recovery_remains_unpriced_until_announcement_prefix_stable():
+    data = fixture()
+    data["actions"] = liquidation_events(data, recognize=30, pay=32)
+    decisions = [decision(data)]
+    result = run_backtest(data, decisions, 100000)
+    cutoff = data["calendar"][29]
+    prefix = copy.deepcopy(data)
+    prefix["calendar"] = prefix["calendar"][:30]
+    earlier = run_backtest(prefix, decisions, 100000)
+    pd.testing.assert_frame_equal(earlier["nav"], result["nav"].query("date <= @cutoff").reset_index(drop=True))
+    before = result["nav"].query("date == @cutoff").iloc[0]
+    assert before.receivables == 0 and before.valuation_uncertainty
+    assert before.valuation_status == "CONSERVATIVE_UNPRICED_RIGHTS"
+    recognized = result["nav"].iloc[30]
+    assert recognized.receivables > 0
+    assert recognized.cash_total == before.cash_total
+
+
+def test_late_liquidation_observation_never_backfills_cash_and_is_flagged():
+    data = fixture()
+    data["actions"] = liquidation_events(data, recognize=32, pay=28, mode="LATE_RECOGNITION")
+    result = run_backtest(data, [decision(data)], 100000)
+    nav = result["nav"]
+    assert nav.iloc[28].cash_total == nav.iloc[31].cash_total
+    assert nav.iloc[32].cash_total > nav.iloc[31].cash_total
+    assert nav.iloc[32].valuation_status == "OBSERVATION_TIME_REPLAY"
+    assert nav.iloc[-1].valuation_uncertainty
+    assert result["confirmation_eligible"] is False
+    paid = result["cash_events"].query("event == 'LIQUIDATION_PAID'").iloc[0]
+    assert paid.date == data["calendar"][32] and paid.actual_pay_date == data["calendar"][28]
+    data["actions"].loc[data["actions"].action_type == "LIQUIDATION_PAYMENT", "settlement_mode"] = "SCHEDULED"
+    with pytest.raises(ExecutionBlockedError, match="explicit late recognition"):
+        run_backtest(data, [decision(data)], 100000)
+
+
+def test_distinct_liquidation_installments_and_duplicate_or_after_final_rejected():
+    data = fixture()
+    data["actions"] = liquidation_events(data, recognize=25, pay=27, per_share=.5, final=False)
+    second = data["actions"].loc[data["actions"].action_type == "LIQUIDATION_PAYMENT"].copy()
+    second.loc[:, ["action_id", "installment_id", "cash_per_share", "is_final"]] = ["installment2", "distribution-2", .27524, True]
+    second["ex_date"] = second["recognition_date"] = data["calendar"][28]
+    second["pay_date"] = data["calendar"][30]
+    second["available_at"] = data["calendar"][28] + "T08:00:00+08:00"
+    data["actions"] = pd.concat([data["actions"], second], ignore_index=True)
+    result = run_backtest(data, [decision(data)], 100000)
+    assert len(result["cash_events"].query("event == 'LIQUIDATION_PAID'")) == 2
+    assert result["rights"].iloc[-1].status == "PAID_FINAL"
+    duplicate = copy.deepcopy(data)
+    duplicate["actions"].loc[duplicate["actions"].action_id == "installment2", "installment_id"] = "distribution-1"
+    with pytest.raises(ExecutionBlockedError, match="Duplicate installment"):
+        run_backtest(duplicate, [decision(duplicate)], 100000)
+    after_final = copy.deepcopy(data)
+    after_final["actions"].loc[after_final["actions"].action_id == "installment1", "is_final"] = True
+    with pytest.raises(ExecutionBlockedError, match="after final"):
+        run_backtest(after_final, [decision(after_final)], 100000)
+
+
+def test_liquidation_cancels_pending_orders_and_disallows_reentry_before_exchange_delist():
+    data = fixture()
+    data["actions"] = liquidation_events(data)
+    result = run_backtest(data, [decision(data), decision(data, 23, {}), decision(data, 25)], 100000)
+    assert len(result["fills"]) == 1
+    reasons = set(result["rejected_orders"].reason)
+    assert "ECONOMIC_LIQUIDATION_ORDER_CANCELLED" in reasons
+    assert "ECONOMICALLY_RETIRED_INSTRUMENT" in reasons
+
+
+def test_late_changed_liquidation_terms_block_instead_of_rewriting_history():
+    data = fixture()
+    data["actions"] = liquidation_events(data)
+    revised = data["actions"].loc[data["actions"].action_type == "LIQUIDATION_PAYMENT"].copy()
+    revised["available_at"] = data["calendar"][30] + "T08:00:00+08:00"
+    revised["cash_per_share"] = .9
+    data["actions"] = pd.concat([data["actions"], revised], ignore_index=True)
+    with pytest.raises(ExecutionBlockedError, match="Post-effective corporate-action revision"):
+        run_backtest(data, [decision(data)], 100000)
+    prefix = copy.deepcopy(data)
+    prefix["calendar"] = prefix["calendar"][:29]
+    base = copy.deepcopy(prefix)
+    base["actions"] = base["actions"].iloc[:-1]
+    pd.testing.assert_frame_equal(run_backtest(prefix, [decision(prefix)], 100000)["nav"],
+                                  run_backtest(base, [decision(base)], 100000)["nav"])
+
+
+def test_assumed_distribution_credit_never_claims_verified_account_arrival():
+    data = fixture()
+    data["actions"] = liquidation_events(data, mode="ASSUMED_SCHEDULED_CREDIT")
+    result = run_backtest(data, [decision(data)], 100000)
+    cash_events = result["cash_events"].query("event in ['LIQUIDATION_RECEIVABLE', 'LIQUIDATION_PAID']")
+    assert cash_events.actual_pay_date.isna().all()
+    assert set(cash_events.scheduled_pay_date) == {data["calendar"][28]}
+    assert result["nav"].iloc[27].cash_total < result["nav"].iloc[28].cash_total
+    assert result["nav"].iloc[-1].valuation_status == "ASSUMED_SCHEDULED_CREDIT"
+    assert result["nav"].iloc[-1].assumed_settlement
+    assert result["rights"].iloc[-1].valuation_uncertainty
+    assert result["accounting_timing_eligible"] is False
+    assert result["confirmation_eligible"] is False
+    data["actions"].loc[data["actions"].action_type == "LIQUIDATION_PAYMENT", "settlement_mode"] = "SCHEDULED"
+    with pytest.raises(ExecutionBlockedError, match="verified account settlement"):
+        run_backtest(data, [decision(data)], 100000)

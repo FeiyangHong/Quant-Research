@@ -16,8 +16,9 @@ from .strategy import generate_targets
 
 
 def _module_fingerprint():
-    return digest({p.name: hashlib.sha256(p.read_bytes()).hexdigest()
-                   for p in sorted(Path(__file__).parent.glob("*.py"))})
+    root = Path(__file__).parent
+    return digest({p.relative_to(root).as_posix(): hashlib.sha256(p.read_bytes()).hexdigest()
+                   for p in sorted(root.rglob("*.py")) if "__pycache__" not in p.parts})
 
 
 IMPORTED_SOURCE_FINGERPRINT = _module_fingerprint()

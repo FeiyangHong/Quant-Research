@@ -9,6 +9,9 @@ description = "Auditable offline A-share research MVP"
 requires-python = ">=3.9,<3.13"
 dependencies = ["numpy==1.26.4", "pandas==2.2.3", "scipy==1.13.1"]
 
+[project.optional-dependencies]
+baostock = ["baostock==0.9.4"]
+
 [project.scripts]
 quant-research = "quant_research.cli:main"
 

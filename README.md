@@ -55,3 +55,24 @@ python -m venv work/provider_env
 ```
 
 本次原始探测实际执行成功；上面整理后的两份重放脚本通过语法校验，未重复联网执行。供应商错误或空响应也保存，不将空值填成0。原始快照只留本地，不自动提交供应商数据到Git。
+
+## 真实样本采集与审计
+
+已实际采集2019—2024七只ETF、十二个历史ETF截面及交易日历，保留512320退市样本。可在上面的独立provider_env中重放：
+
+```powershell
+.\work\provider_env\Scripts\python.exe scripts/collect_real_sample.py --output data/raw_baostock/replay_01
+.\.venv\Scripts\python.exe scripts/audit_real_sample.py data/raw_baostock/replay_01 --output runs/real_audit_replay_01
+```
+
+也可使用本机已隔离解包的SDK：`.venv\Scripts\python.exe scripts/collect_real_sample.py --sdk-path work/data_probe/baostock_sdk`。新机器应优先使用显式安装的provider_env；本机临时SDK目录不随仓库分发。每次必须指定新目录，防止覆盖原始快照。采集器固定BaoStock0.9.4、单次20秒进程上限、请求间隔至少1秒、最多一次暂时错误重试；请求和响应均检查2024年末上界。
+
+`data_audit.json`是观察层审计，`experiment_disposition.json`逐项保存开发/选择验证两区间的320个既定配置；数据尚未准入时均为NOT_RUN_BLOCKED_DATA，结果为null，不生成虚构收益。源码副本、源码哈希、Git状态和输入总清单哈希同时保留。报告见[真实数据里程碑](reports/real_data/REVIEW_PACKET.md)、[采集明细](reports/real_data/DATA_COLLECTION.md)和[独立审查](reports/real_data/INDEPENDENT_REVIEW.md)。历史快照重放可复现其审计；重新联网下载可能遇到供应商修订，因此必须另存并比较新旧哈希。
+
+本轮另已保存中证H00300免费历史响应。使用已保存原件标准化基准（`--raw`为原始HTTP响应，不是ETF代用序列）：
+
+```powershell
+.\.venv\Scripts\python.exe scripts/normalize_csi_benchmark.py --raw data/raw_official/h00300_history_attempt.payload --calendar-collection data/raw_baostock/r1_audit_2019_2024_20261114T153136Z --output data/normalized_csi/replay_01 --expected-sha256 c29d358ab2a3edaa62bbf9c31226032b9513bbb52aebf35425499467012867c3
+```
+
+原始端点见脚本`--help`和`reports/real_data/benchmark_manifest.json`；新下载必须另存并重新审计，不要求与旧快照字节相同。该标准化保留全部原件，将唯一非交易日放入单独日志；1,456个交易日齐全也不代表历史PIT版本已验收。该步骤只处理已获取的原件，不隐式联网。

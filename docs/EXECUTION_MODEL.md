@@ -4,7 +4,7 @@
 
 ## API 与时钟
 
-`run_backtest(dataset, decisions, initial_cash, cost_multiplier=1, slippage_multiplier=1, max_sell_attempts=5, tax_rules=None, start_date=None)` 返回 DataFrame：`nav`、`positions`、`orders`、`fills`、`rejected_orders`、`costs`、`exposure`、`cash_events`、`order_events`，以及模式和限制说明。
+`run_backtest(dataset, decisions, initial_cash, cost_multiplier=1, slippage_multiplier=1, max_sell_attempts=5, tax_rules=None, start_date=None)` 返回 DataFrame：`nav`、`positions`、`orders`、`fills`、`rejected_orders`、`costs`、`exposure`、`cash_events`、`order_events`、`rights`，以及模式和限制说明。
 
 每个决策有 `decision_date`、后续交易日的 `execution_date`、`weights`、`reference_prices`、`adv20`。可选 `decision_at` 必须为北京时间21:00。参考价必须等于当时可见原始收盘价。引擎独立重算当时可见20交易日平均成交额，容量不得超过调用方与引擎历史值的较小者。允许预先指定额外执行延迟；禁止同日或倒序执行。
 
@@ -23,11 +23,38 @@
 
 佣金是统一研究情景：成交金额3bp、每笔实际日委托最低5元，包含约定规费。`cost_multiplier` 只放大佣金；`slippage_multiplier` 独立放大滑点。ETF不套用股票印花税和过户费。股票必须传入有 `effective_from`、`effective_to`、`stamp_duty_sell`、`transfer_fee_both`、`verified=True`、`source_url` 的唯一适用税费记录；没有内建推定法定税率。调用方须对核验记录负责；缺失、重叠或无来源拒单。法定税费不参与倍数压力。
 
-ETF现金股息按明确登记日收盘持仓在除息日记应收，支付日转现金；登记日后卖出仍保留应收权利，登记日后买入不获得旧股息。缺失或无效登记日阻断。原始价格计持仓，TR指数不进入资金账，避免重复分红。拆合份额调整股数与历史估值基准；零碎权利无法准确表示时阻断。退市份额保留权利记录，保守估值为0；正回收款须额外支付模型，目前阻断。股息/拆分生效日旧订单明确撤销，买单不追补，卖单按调整后的持仓及次日参考价重试。生效后修订若改变公司行为条款，因尚无修正账机制而阻断，不追溯改写历史。
+ETF现金股息按明确登记日收盘持仓在除息日记应收，支付日转现金；登记日后卖出仍保留应收权利，登记日后买入不获得旧股息。缺失或无效登记日阻断。原始价格计持仓，TR指数不进入资金账，避免重复分红。拆合份额调整股数与历史估值基准；零碎权利没有经过核验的现金补偿条款时仍阻断，不能舍掉零股或假定回款。单独的交易所退市事件仍保留零估值权利；清算回款必须用下述关联清算事件，不能把正回收率直接塞入 `DELISTING`。股息/拆分生效日旧订单明确撤销，买单不追补，卖单按调整后的持仓及次日参考价重试。生效后修订若改变公司行为条款，因尚无修正账机制而阻断，不追溯改写历史。
+
+### ETF清算：份额、权利、应收与现金分离
+
+`LIQUIDATION` 在 `ex_date` 将活跃交易份额账转换为清算权利账，取消该证券的全部待执行订单，并按先前 `record_date` 收盘持有量建立 `rights`。该日期是会计转换日期，不声明基金份额已在法律上灭失。登记日必须早于转换日；基金停止运作、清算开始、持有人登记及交易所终止上市是不同日期，不能互换。登记日后已卖出的持有人仍取得登记权利；登记日后的买入不增加该笔权利。`positions.quantity` 归零，原交易份额留在 `retired_quantity`，不再复活或重新买入。
+
+金额未知时权利状态为 `UNPRICED_RIGHT`，账面价值保守记0并设置 `valuation_uncertainty=true`，这不表示最终回收为0。仅当金额在当时已可知，才允许通过独立的 `LIQUIDATION_PAYMENT` 增加应收款。两类事件均要求 `terms_verified=true`、非空 `source_url`，且 `available_at` 不晚于事件生效日开盘。引擎不根据后来发布的公告伪造提前可得的金额。
+
+付款事件字段：
+
+| 字段 | 含义 |
+|---|---|
+| `entitlement_action_id` | 对应 `LIQUIDATION.action_id` |
+| `installment_id` | 官方分期的稳定标识，与权利ID组合唯一 |
+| `recognition_date` | 金额首次允许入账的交易日，必须等于该事件 `ex_date` |
+| `cash_per_share` | 本期增量回款/原登记份额，不是累计回款 |
+| `pay_date` | 经核验的账户现金可用日期；不能把托管划款日自动当到账日 |
+| `cash_settlement_verified` | `SCHEDULED`/`LATE_RECOGNITION` 必须为true，独立于分配金额条款核验 |
+| `is_final` | 明确布尔值，是否最后一期；确认最后一期后拒绝额外付款 |
+| `settlement_mode` | `SCHEDULED`、显式 `LATE_RECOGNITION` 或仅敏感性重放的 `ASSUMED_SCHEDULED_CREDIT` |
+
+同日先建立清算权利，再确认付款，最后处理交易所退市。确认日增加应收，支付日将应收转为现金；非交易日支付只能在随后第一个账户会话反映。实际交易所退市早于或晚于清算款支付均不会二次注销应收或二次付款。`rights` 保留登记数量、注销数量、累计确认额、累计付款和未收余额；其 `carrying_value` 是已包括在NAV应收款内的追踪值，不能额外加到NAV。
+
+只有当付款已发生后才获得公告时，`SCHEDULED` 阻断；显式 `LATE_RECOGNITION` 可以在获知日记录应收并收款，保留经核验原 `actual_pay_date`，同时将净值路径标记 `OBSERVATION_TIME_REPLAY`。这种保守观察重放不是实际现金到账时间线，不能用于确认性结论。
+
+官方仅提供计划发放日、实际账户到账未核验时，只能用 `ASSUMED_SCHEDULED_CREDIT` 做事件敏感性重放。该模式的 `pay_date` 仅作假设日期，输出记录为 `scheduled_pay_date`，`actual_pay_date` 始终为空；相应净值及权利永久保留假设结算标记。存在未定价权利、迟到入账或假设到账时 `accounting_timing_eligible=false`。假设模式不具备真实数据确认资格；本日线模型的 `confirmation_eligible` 本来也始终为false。
+
+512320的官方分配公告给出2024-03-29登记、每份0.77524元的分配条款以及2024-04-08资金发放日，但实际到账时间以销售机构为准。仅有该公告不能把4月8日标为已核验的账户现金时间。日期精度只有日时，先应用项目的保守可用时间规则；按3月29日收盘登记权利，4月1日可作为份额到应收款的会计转换日，它不是法律注销日或4月16日交易所终止上市日。[上交所2024-03-28清算财产分配公告](https://www.sse.com.cn/disclosure/fund/announcement/c/new/2024-03-28/512320_20240328_QIII.pdf)
 
 每日21:00独立检查持仓资格、风险状态及已知退市公告，在下个合法窗口发起风险卖单，不等月度调仓。既有卖单按数量/日期复用或明确撤换，取消冲突买单；五次退出失败后保留持仓和警报，不每日重置重试次数。丧失买入资格不妨碍合法风险减仓；股票买入必须有明确正常状态，未知状态拒绝。
 
-股票持有期红利税/追扣、配股、换股、要约、非零退市清偿等未实现，出现相关场景阻断，不造收益。行情缺失的已有持仓保留最后明示估值并报告陈旧天数；已知退市估值为0。缺少ETF历史成分时仅报告直接仓位和股票行业，不能声称已核验ETF穿透行业风险。
+股票持有期红利税/追扣、股票清算、配股、换股、要约及无证据的零碎份额补偿仍未实现，出现相关场景阻断，不造收益。行情缺失的已有持仓保留最后明示估值并报告陈旧天数；已知退市估值为0。缺少ETF历史成分时仅报告直接仓位和股票行业，不能声称已核验ETF穿透行业风险。
 
 每日恒等式：`NAV = cash_total + holdings_value + receivables`。模拟成交费用即刻结清，无隐含应付税费；不能表示的税费事件阻断。预留现金仍属总现金，不减少NAV。`orders` 是不可覆盖的原始意图表，生命周期/预留写 `order_events`，成交写 `fills`，拒绝和未成交余额写 `rejected_orders`。委托状态由这些事件重建。
 

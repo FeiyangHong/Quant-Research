@@ -1,6 +1,6 @@
 # 离线数据 Schema v1
 
-版本 `r1-offline-1.0`；2026-11-14；时区 `Asia/Shanghai`。实现为 `src/quant_research/data.py`。本 Schema 为 R1 离线工程接口，不替代 `DATA_CONTRACT.md` 的真实数据证据要求。
+版本 `r1-offline-1.1`；2026-11-14；时区 `Asia/Shanghai`。实现为 `src/quant_research/data.py`。继续读取不含新清算事件的1.0快照。本 Schema 为 R1 离线工程接口，不替代 `DATA_CONTRACT.md` 的真实数据证据要求。
 
 ## 文件与类型
 
@@ -44,7 +44,17 @@ date_only_available_at(publication_date, calendar, extra_delay=0) -> str
 - bars 是**原始未复权价格**；价格/金额单位人民币元，volume 为股或基金份额。数值必需有限，OHLC 必需一致；每日最终数值不能在当日15:00之前标记为已可得。upper/lower_limit 是该日该品种已核验的价格边界，不按当前板块统一臆造。当前 MVP 必需完整数值；真实“无涨跌幅限制”时期、缺报价或特殊上市阶段应扩展版本化规则模型后再准入，不能塞入 Infinity 或伪造限价。
 - suspended 必须布尔值；停牌记录为显式零量零额。缺记录与停牌不同，审计会逐品种报告挂牌区间缺失交易日。停牌行中的估值价格必须在上游来源中解释，不能用于成交。
 - total_return_index 为独立总收益序列，只在事件已生效后纳入公司行为；不用于成交价，也不能与账本现金分红重复记收益。benchmark 为已在 manifest 固定定义的单一总收益基准，不接受价格指数冒充。
-- actions 支持 `CASH_DIVIDEND` / `SPLIT` / `DELISTING`。cash_per_share 为原持仓每股/份现金，share_factor 为新股数/原股数（普通事件为1），recovery_per_share 为退市每股可核验回收额，未知必须 null。record_date 表示本模型记录权益的前一持仓日期；真实不同登记/到账机制需要适配并审计。pay_date 为空不代表已经到账。配股、合并等其他事件类型当前阻断，不伪装成已支持。
+- actions 支持 `CASH_DIVIDEND` / `SPLIT` / `DELISTING` / `LIQUIDATION` / `LIQUIDATION_PAYMENT`。cash_per_share 为原持仓每股/份现金，share_factor 为新股数/原股数（普通事件为1），recovery_per_share 未知必须 null。正清算回收使用独立付款事件，不能塞入DELISTING。record_date 表示本模型记录权益的前一持仓日期；真实不同登记/到账机制需要适配并审计。pay_date 为空不代表已经到账。配股、合并等其他事件类型当前阻断，不伪装成已支持。
+
+### 1.1清算扩展
+
+两类清算事件均要求 `terms_verified=true` 与非空 `source_url`。`LIQUIDATION.ex_date`是账务上将交易份额转为权利的日期，不声称该日法律上注销；必须晚于record_date。`LIQUIDATION_PAYMENT`额外要求 `entitlement_action_id`、唯一 `installment_id`、布尔 `is_final`、`recognition_date=ex_date`、`pay_date`和显式 `settlement_mode`。
+
+`SCHEDULED`及`LATE_RECOGNITION`要求 `cash_settlement_verified=true`；后者仅用于较晚得知付款的观察时间回放。`ASSUMED_SCHEDULED_CREDIT`只模拟公告安排的发放日，输出actual_pay_date=null及scheduled_pay_date。迟到确认和假设到账都阻断真实Dataset准入，不得将其标记为已核验的账户资金路径。真实数据中的普通 `CASH_DIVIDEND` 也要求 `cash_settlement_verified=true`，否则审计阻断；旧合成夹具不需要外部资金证据。金额未知时保留权利及估值不确定性，不填造回收额。详见[执行模型](EXECUTION_MODEL.md)。
+
+### BaoStock观察区
+
+`providers/baostock.py`输出的 `baostock-observations-1.0` 是另一种暂存格式，不是上述Dataset。它保留供应商原值、精确量额、原始状态及哈希；缺失的available_at、限价、TR和公司行为继续缺失。`real_data.audit_collection`核验文件链和观察覆盖，但不能自动设置任何evidence_gate为VERIFIED。清单标记SUCCESS只代表接口成功，不代表完整历史或策略数据验收。
 
 ## 可用时间与修订
 

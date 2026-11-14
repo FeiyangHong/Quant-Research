@@ -1,0 +1,21 @@
+{
+  "status": "REAL_DATA_STAGING_MILESTONE_NOT_ALPHA_VALIDATION",
+  "source_hash": "527c0697986fea05a69664bb857693d7d7db57bde20661663ea5d97c7d234cf0",
+  "executed_real_strategy_runs": 0,
+  "primary_statistical_capital_cny": 100000,
+  "files": {
+    "audit_provenance.json": "33a9616a075d92a7a1d3bb26d39df24cadf6eb07a84112eeff9102e44977ab1a",
+    "benchmark_manifest.json": "33a9f3ab07f6e662a0fe0f6eaa2aba7c9b5ee187009c3d623c8db01653ba3ce1",
+    "collection_manifest.json": "40bcf6819226987cc525275a4920a5b9de49117f3b7f3c9076f7a925460f8dd3",
+    "crosscheck_eastmoney.json": "3b564f1cc6ec07e5d7433df482c8c0ea78f8e0fdd854af0759e35b9eb73d1d1f",
+    "data_audit.json": "38852a5f99c73df37f47e230d56b0cef384ab569da5b42381932f5414d51292e",
+    "DATA_COLLECTION.md": "fff824c148ab62224b53cf3aaadea324fc544a95bcfbc5918dc3212bc88bb461",
+    "DATA_GAPS_AND_COST.md": "97837ab302ed8d0bc8a6f6d382e566608f048c101b7412897ea12a328dc5922f",
+    "experiment_disposition.json": "dc567a4757e93fb600689a747c7f8aa8a0b0676083836fa3d70f33bc1d0b383c",
+    "INDEPENDENT_REVIEW.md": "898f2916274b2694b288acbba5037a7685f8985005e73c8063a34b57100c774b",
+    "OFFICIAL_EVENT_AUDIT.md": "4a506b93e2dedd36536e06b9f6209655e7ca01c2329fd3209e40212b52f4b8fe",
+    "official_events.json": "9796b1f9dca27b6373a1cd4e8893b432901b6878d1e88c2a50e7e1d395cf12c4",
+    "REVIEW_PACKET.md": "5c09f2558905d59798efe239e57ece70f5d29a0841d758fdbbae6a0d12b3bb95",
+    "VERIFICATION.md": "d9f8d77c6e2a840ceace139478f176fc982a08a8faf87c7834fe3d8d9ff21d16"
+  }
+}

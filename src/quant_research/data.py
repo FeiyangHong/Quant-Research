@@ -17,7 +17,7 @@ import numpy as np
 import pandas as pd
 
 
-SCHEMA_VERSION = "r1-offline-1.0"
+SCHEMA_VERSION = "r1-offline-1.1"
 TIMEZONE = "Asia/Shanghai"
 TABLES = ("instruments", "bars", "actions", "benchmark")
 MODES = {"historical_public_asof", "historical_vendor_asof", "live_capture"}
@@ -149,7 +149,7 @@ def audit_dataset(dataset: Dataset) -> dict[str, Any]:
     warnings: list[str] = []
     manifest = dataset.manifest
     synthetic = manifest.get("synthetic") is True
-    if manifest.get("schema_version") != SCHEMA_VERSION:
+    if manifest.get("schema_version") not in ("r1-offline-1.0", SCHEMA_VERSION):
         errors.append("manifest: unsupported schema_version")
     if not isinstance(manifest.get("synthetic"), bool):
         errors.append("manifest: explicit boolean synthetic is required")
@@ -289,8 +289,11 @@ def audit_dataset(dataset: Dataset) -> dict[str, Any]:
         if benchmark.empty or not np.isfinite(value).all() or (value <= 0).any():
             errors.append("benchmark: finite positive total return series required")
     if actions is not None:
-        if not actions["action_type"].isin(["CASH_DIVIDEND", "SPLIT", "DELISTING"]).all():
+        if not actions["action_type"].isin(["CASH_DIVIDEND", "SPLIT", "DELISTING", "LIQUIDATION", "LIQUIDATION_PAYMENT"]).all():
             errors.append("actions: unsupported event type")
+        extended = actions["action_type"].isin(["LIQUIDATION", "LIQUIDATION_PAYMENT"])
+        if extended.any() and manifest.get("schema_version") == "r1-offline-1.0":
+            errors.append("actions: liquidation events require schema r1-offline-1.1")
         for column in ("cash_per_share", "share_factor"):
             value = pd.to_numeric(actions[column], errors="coerce")
             if not np.isfinite(value).all() or (value < 0).any() or (column == "share_factor" and (value == 0).any()):
@@ -300,8 +303,53 @@ def audit_dataset(dataset: Dataset) -> dict[str, Any]:
             errors.append("actions: invalid recovery_per_share")
         if ((actions["announcement_date"] > actions["ex_date"]) | (actions["record_date"] > actions["ex_date"])).any():
             errors.append("actions: invalid announcement/record/ex chronology")
-        if (actions["pay_date"].notna() & (actions["pay_date"] < actions["ex_date"])).any():
-            errors.append("actions: payment before entitlement")
+        for _, action in actions.iterrows():
+            kind = action["action_type"]
+            if kind == "CASH_DIVIDEND" and not synthetic:
+                cash_verified = action.get("cash_settlement_verified")
+                if not isinstance(cash_verified, (bool, np.bool_)) or not cash_verified:
+                    blockers.append("dividend: actual account cash settlement unverified")
+            late = action.get("settlement_mode") == "LATE_RECOGNITION"
+            assumed = action.get("settlement_mode") == "ASSUMED_SCHEDULED_CREDIT"
+            if kind in ("LIQUIDATION", "LIQUIDATION_PAYMENT"):
+                verified = action.get("terms_verified")
+                if not isinstance(verified, (bool, np.bool_)) or not verified or not isinstance(action.get("source_url"), str) or not action["source_url"].strip():
+                    errors.append("actions: liquidation requires verified terms and source URL")
+            if pd.notna(action["pay_date"]) and action["pay_date"] < action["ex_date"]:
+                if kind != "LIQUIDATION_PAYMENT" or not late:
+                    errors.append("actions: payment before entitlement")
+            if kind == "LIQUIDATION" and action["record_date"] >= action["ex_date"]:
+                errors.append("actions: liquidation record date must precede recognition")
+            if kind == "LIQUIDATION_PAYMENT":
+                if action.get("recognition_date") != action["ex_date"]:
+                    errors.append("actions: liquidation recognition_date must equal ex_date")
+                if late and (pd.isna(action["pay_date"]) or action["pay_date"] >= action["ex_date"]):
+                    errors.append("actions: late recognition requires earlier actual pay date")
+                ref = action.get("entitlement_action_id")
+                parents = actions.loc[(actions["action_id"] == ref) & actions["action_type"].eq("LIQUIDATION")]
+                if parents.empty or not parents["instrument_id"].eq(action["instrument_id"]).all():
+                    errors.append("actions: invalid liquidation entitlement reference")
+                if not isinstance(action.get("is_final"), (bool, np.bool_)) or pd.isna(action["pay_date"]):
+                    errors.append("actions: liquidation payment requires final flag and pay date")
+                if not isinstance(action.get("installment_id"), str) or not action["installment_id"].strip():
+                    errors.append("actions: liquidation payment requires installment_id")
+                if action.get("settlement_mode", "SCHEDULED") not in ("SCHEDULED", "LATE_RECOGNITION", "ASSUMED_SCHEDULED_CREDIT"):
+                    errors.append("actions: unknown liquidation settlement mode")
+                cash_verified = action.get("cash_settlement_verified")
+                if not assumed and (not isinstance(cash_verified, (bool, np.bool_)) or not cash_verified):
+                    errors.append("actions: actual liquidation cash availability requires verification")
+                if assumed:
+                    warnings.append("liquidation: scheduled credit assumption is not verified account cash availability")
+                    if not synthetic:
+                        blockers.append("liquidation: actual account cash settlement unverified")
+                if late:
+                    warnings.append("liquidation: late observation is not the actual historical cash availability")
+                    if not synthetic:
+                        blockers.append("liquidation: unresolved historical payment information timing")
+        payments = actions.loc[actions["action_type"].eq("LIQUIDATION_PAYMENT")]
+        if not payments.empty and {"entitlement_action_id", "installment_id"}.issubset(payments.columns):
+            if payments.duplicated(["entitlement_action_id", "installment_id", "revision_id"]).any():
+                errors.append("actions: duplicate liquidation installment")
     coverage: dict[str, Any] = {"calendar_sessions": len(calendar), "tables": {name: len(getattr(dataset, name)) for name in TABLES}}
     if bars is not None:
         unique_bars = bars.drop_duplicates(["instrument_id", "date"])

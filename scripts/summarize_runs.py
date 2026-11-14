@@ -52,16 +52,20 @@ def reconcile(tables, initial_cash):
     for name, table in tables.items():
         if "date" in table and not set(table.date).issubset(set(dates)):
             raise ValueError(f"{name}: events outside NAV dates")
-    allowed = {"BUY", "SELL", "DIVIDEND_RECEIVABLE", "DIVIDEND_PAID"}
+    allowed = {"BUY", "SELL", "DIVIDEND_RECEIVABLE", "DIVIDEND_PAID",
+               "LIQUIDATION_RIGHT_RECOGNIZED", "LIQUIDATION_RECEIVABLE", "LIQUIDATION_PAID"}
     if not events.empty and not set(events.event).issubset(allowed):
         raise ValueError("Unknown cash event; reconciliation cannot infer its meaning")
     cash = pd.Series(float(initial_cash), index=dates)
     receivables = pd.Series(0., index=dates)
     event_trades = pd.Series(0., index=dates)
     if not events.empty:
-        cash += grouped(events, dates, "amount", events.event.isin(["BUY", "SELL", "DIVIDEND_PAID"])).cumsum()
-        receivables = (grouped(events, dates, "amount", events.event.eq("DIVIDEND_RECEIVABLE"))
-                       - grouped(events, dates, "amount", events.event.eq("DIVIDEND_PAID"))).cumsum()
+        cash += grouped(events, dates, "amount", events.event.isin(["BUY", "SELL", "DIVIDEND_PAID", "LIQUIDATION_PAID"])).cumsum()
+        receivables = (grouped(events, dates, "amount", events.event.isin(["DIVIDEND_RECEIVABLE", "LIQUIDATION_RECEIVABLE"]))
+                       - grouped(events, dates, "amount", events.event.isin(["DIVIDEND_PAID", "LIQUIDATION_PAID"]))).cumsum()
+        recognition = events.loc[events.event.eq("LIQUIDATION_RIGHT_RECOGNIZED"), "amount"]
+        if recognition.ne(0).any():
+            raise ValueError("Right recognition cannot create cash or receivable amounts")
         event_trades = grouped(events, dates, "amount", events.event.isin(["BUY", "SELL"]))
     marked = positions.copy()
     if not marked.empty:

@@ -194,3 +194,48 @@ def test_real_date_only_cannot_be_promoted_to_same_day(small):
         frame["raw_object_hash"] = "0" * 64
     report = audit_dataset(small)
     assert any("availability lower bound" in item for item in report["blockers"])
+
+
+def liquidation_actions(small, mode="SCHEDULED"):
+    parent = {"action_id": "TEST_RIGHT", "instrument_id": "SYN_ETF_300", "action_type": "LIQUIDATION",
+              "announcement_date": small.calendar[0], "record_date": small.calendar[1], "ex_date": small.calendar[2],
+              "pay_date": None, "cash_per_share": 0., "share_factor": 1., "recovery_per_share": None,
+              "available_at": small.calendar[1] + "T20:00:00+08:00", "revision_id": "R0", "supersedes_id": None,
+              "terms_verified": True, "source_url": "TEST_ONLY"}
+    payment = dict(parent, action_id="TEST_PAYMENT", action_type="LIQUIDATION_PAYMENT", revision_id="R1",
+                   recognition_date=small.calendar[2],
+                   pay_date=small.calendar[3], cash_per_share=.8, entitlement_action_id="TEST_RIGHT",
+                   installment_id="FIRST", is_final=True, settlement_mode=mode, cash_settlement_verified=True)
+    return pd.DataFrame([parent, payment])
+
+
+def test_liquidation_events_require_new_schema_and_account_settlement_evidence(small):
+    small.actions = liquidation_actions(small)
+    assert not audit_dataset(small)["errors"]
+    small.manifest["schema_version"] = "r1-offline-1.0"
+    assert any("require schema" in e for e in audit_dataset(small)["errors"])
+    small.manifest["schema_version"] = "r1-offline-1.1"
+    small.actions.loc[1, "cash_settlement_verified"] = False
+    assert any("cash availability" in e for e in audit_dataset(small)["errors"])
+
+
+def test_assumed_credit_cannot_unlock_real_data(small):
+    small.actions = liquidation_actions(small, "ASSUMED_SCHEDULED_CREDIT")
+    small.actions.loc[1, "cash_settlement_verified"] = False
+    assert not audit_dataset(small)["errors"]
+    small.manifest["synthetic"] = False
+    assert any("actual account cash settlement unverified" in e for e in audit_dataset(small)["blockers"])
+
+
+def test_liquidation_rights_cannot_reference_another_instrument(small):
+    small.actions = liquidation_actions(small)
+    small.actions.loc[1, "instrument_id"] = "SYN_ETF_500"
+    assert any("invalid liquidation entitlement" in e for e in audit_dataset(small)["errors"])
+
+
+def test_real_dividend_needs_cash_availability_evidence(small):
+    small.actions = liquidation_actions(small).iloc[[1]].copy()
+    small.actions["action_type"] = "CASH_DIVIDEND"
+    small.actions["cash_settlement_verified"] = False
+    small.manifest["synthetic"] = False
+    assert "dividend: actual account cash settlement unverified" in audit_dataset(small)["blockers"]
