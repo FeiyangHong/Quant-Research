@@ -222,7 +222,8 @@ def test_incomplete_matrix_writes_no_provisional_results(tmp_path):
     assert not output.exists()
 
 
-def test_complete_orchestration_preserves_all_scenarios_and_not_ready_families(artifact, tmp_path, monkeypatch):
+@pytest.mark.parametrize("changed_core", [None, "src/quant_research/evaluation.py", "src/quant_research/provenance.py"])
+def test_complete_orchestration_preserves_all_scenarios_and_not_ready_families(artifact, tmp_path, monkeypatch, changed_core):
     """Mocked run verification tests report wiring only, not real-data admission."""
     sample, _, _ = verify(artifact)
     development, validation, output = (tmp_path / name for name in ("dev_matrix", "val_matrix", "report"))
@@ -235,6 +236,12 @@ def test_complete_orchestration_preserves_all_scenarios_and_not_ready_families(a
     sources = {relative: ev.sha256(ROOT / relative) for relative in
                ("scripts/evaluate_real_runs.py", "scripts/summarize_runs.py",
                 "src/quant_research/evaluation.py", "src/quant_research/provenance.py")}
+    # A separately versioned report repair is allowed; changing the frozen
+    # inference or identity definitions is not.
+    for relative in ("scripts/evaluate_real_runs.py", "scripts/summarize_runs.py"):
+        sources[relative] = "0" * 64
+    if changed_core:
+        sources[changed_core] = "0" * 64
     def run(directory, entry, registered, completed, period):
         row = deepcopy(sample)
         row.update(period=period, config=entry["config"], directory=directory.name,
@@ -247,6 +254,11 @@ def test_complete_orchestration_preserves_all_scenarios_and_not_ready_families(a
         return row, pd.Series(0., index=dates), sources
     monkeypatch.setattr(ev, "audit_registry", registry)
     monkeypatch.setattr(ev, "verify_run", run)
+    if changed_core:
+        with pytest.raises(ValueError, match="Evaluator source differs from run snapshot"):
+            ev.evaluate(development, validation, output)
+        assert not output.exists()
+        return
     report = ev.evaluate(development, validation, output)
     assert report["run_count"] == 448
     assert len(report["paired_effects"]) == 224

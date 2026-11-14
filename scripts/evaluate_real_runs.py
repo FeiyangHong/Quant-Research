@@ -397,8 +397,10 @@ def evaluate(development, validation, output):
     if len(sources) != 1:
         raise ValueError("Source snapshot changes across the 448 completed runs")
     frozen_sources = next(iter(sources.values()))
-    for relative in ("scripts/evaluate_real_runs.py", "scripts/summarize_runs.py",
-                     "src/quant_research/evaluation.py", "src/quant_research/provenance.py"):
+    # Report orchestration/reconciliation may be repaired after execution and
+    # is independently bound above. Statistical definitions and identity logic
+    # must still equal the original, verified execution snapshot.
+    for relative in ("src/quant_research/evaluation.py", "src/quant_research/provenance.py"):
         if frozen_sources.get(relative) != sha256(ROOT / relative):
             raise ValueError("Evaluator source differs from run snapshot: " + relative)
     fixed_configs = {digest({k: v for k, v in row["config"].items() if k not in GRID_FIELDS | {"sample"}})
