@@ -1,0 +1,640 @@
+"""Conservative daily research ledger, never a live execution adapter.
+
+Orders retain decision-day quantities and references. Daily matching is an
+explicit DAILY_SCREEN_ONLY assumption, not evidence of an executable queue.
+"""
+from collections import defaultdict
+from dataclasses import asdict, is_dataclass
+from decimal import Decimal, ROUND_CEILING, ROUND_FLOOR, ROUND_HALF_UP
+from functools import lru_cache
+import math
+
+import pandas as pd
+
+
+class ExecutionBlockedError(ValueError):
+    """Accounting or historical rules cannot safely represent this scenario."""
+
+
+def _get(obj, key, default=None):
+    return obj.get(key, default) if isinstance(obj, dict) else getattr(obj, key, default)
+
+
+@lru_cache(maxsize=32768)
+def _cutoff(day, clock="21:00:00"):
+    return pd.Timestamp(str(day) + " " + clock, tz="Asia/Shanghai")
+
+
+def _timestamp(value):
+    result = pd.Timestamp(value)
+    if result.tzinfo is None:
+        raise ExecutionBlockedError("Timezone required for available_at")
+    return result
+
+
+def _valid(value, positive=False):
+    try:
+        return math.isfinite(float(value)) and (float(value) > 0 if positive else float(value) >= 0)
+    except (ValueError, TypeError):
+        return False
+
+
+def _money(value):
+    return float(Decimal(str(value)).quantize(Decimal("0.01"), rounding=ROUND_HALF_UP))
+
+
+def _tick(value, tick, buy):
+    units = (Decimal(str(value)) / Decimal(str(tick))).to_integral_value(
+        rounding=ROUND_CEILING if buy else ROUND_FLOOR)
+    return float(units * Decimal(str(tick)))
+
+
+def _on_tick(value, tick):
+    units = float(value) / float(tick)
+    return abs(units - round(units)) < 1e-7
+
+
+def run_backtest(dataset, decisions, initial_cash, cost_multiplier=1,
+                 slippage_multiplier=1, max_sell_attempts=5, tax_rules=None,
+                 start_date=None):
+    """Return auditable DataFrames for a cash-only daily backtest.
+
+    ``decisions`` are dictionaries or TargetDecision objects with ISO
+    decision_date/execution_date and weights/reference_prices/adv20 mappings.
+    Each desired quantity is fixed at the decision; a gap can only reduce a
+    fill. Actual sales precede new-buy risk checks. Buy remainders expire;
+    sell remainders retry at most five actual daily orders including the first.
+
+    Optional stock tax_rules must explicitly specify effective_from,
+    effective_to, stamp_duty_sell, transfer_fee_both, verified=True and
+    source_url. No stock statutory rates are guessed. ETF commission is a
+    research scenario: 3bp, minimum CNY5 per actual order, multiplied only by
+    cost_multiplier. Statutory charges are never multiplied.
+    """
+    if not _valid(initial_cash, True):
+        raise ValueError("initial_cash must be positive and finite")
+    if not _valid(cost_multiplier) or not _valid(slippage_multiplier):
+        raise ValueError("Cost/slippage multipliers must be finite and nonnegative")
+    if not isinstance(max_sell_attempts, int) or not 1 <= max_sell_attempts <= 5:
+        raise ValueError("max_sell_attempts must be in 1..5")
+    calendar = [str(d)[:10] for d in _get(dataset, "calendar")]
+    if calendar != sorted(set(calendar)):
+        raise ExecutionBlockedError("Calendar must be sorted and unique")
+    day_index = {day: i for i, day in enumerate(calendar)}
+    start_date = str(start_date)[:10] if start_date is not None else (calendar[0] if calendar else "0001-01-01")
+    if not calendar or not any(day >= start_date for day in calendar):
+        raise ExecutionBlockedError("No account sessions on or after start_date")
+    masters = _get(dataset, "instruments").copy()
+    bars = _get(dataset, "bars").copy()
+    actions = _get(dataset, "actions", pd.DataFrame()).copy()
+    rules = tax_rules if tax_rules is not None else _get(dataset, "tax_rules", pd.DataFrame())
+    if not isinstance(rules, pd.DataFrame):
+        rules = pd.DataFrame(rules)
+    master_rows, bar_rows = defaultdict(list), defaultdict(list)
+    for record in masters.to_dict("records"):
+        record["_available"] = _timestamp(record["available_at"])
+        master_rows[record["instrument_id"]].append(record)
+    for record in bars.to_dict("records"):
+        record["date"] = str(record["date"])[:10]
+        record["_available"] = _timestamp(record["available_at"])
+        bar_rows[(record["instrument_id"], record["date"])].append(record)
+    for rows in list(master_rows.values()) + list(bar_rows.values()):
+        rows.sort(key=lambda row: row["_available"])
+        if len({row["_available"] for row in rows}) != len(rows):
+            raise ExecutionBlockedError("Ambiguous same-time source revisions")
+
+    def master(sid, cutoff):
+        rows = [r for r in master_rows[sid] if r["_available"] <= cutoff]
+        return rows[-1] if rows else None
+
+    def bar(sid, day, cutoff=None):
+        rows = [r for r in bar_rows[(sid, day)] if r["_available"] <= (cutoff or _cutoff(day))]
+        return rows[-1] if rows else None
+
+    def historical_adv(sid, day):
+        index = day_index[day]
+        if index < 19:
+            return None
+        rows = [bar(sid, d, _cutoff(day)) for d in calendar[index - 19:index + 1]]
+        if any(r is None or not _valid(r.get("amount")) for r in rows):
+            return None
+        return sum(float(r["amount"]) for r in rows) / 20
+
+    def permission(meta, day, buying):
+        if meta is None:
+            return "UNKNOWN_INSTRUMENT_ASOF"
+        if str(meta.get("listed_on", "9999"))[:10] > day:
+            return "NOT_LISTED"
+        delisted = meta.get("delisted_on")
+        if pd.notna(delisted) and str(delisted)[:10] <= day:
+            return "DELISTED_RETAIN_RIGHTS"
+        asset = meta.get("asset_type")
+        if buying and asset == "STOCK" and meta.get("board") not in ("MAIN", "CHINEXT"):
+            return "BOARD_PERMISSION_DENIED"
+        if buying and asset == "ETF" and meta.get("account_verified") is not True:
+            return "ETF_PERMISSION_UNVERIFIED"
+        if buying and asset == "STOCK" and meta.get("account_verified") is False:
+            return "ACCOUNT_PERMISSION_REVOKED"
+        if buying and pd.notna(delisted):
+            return "ANNOUNCED_DELISTING"
+        if asset not in ("ETF", "STOCK"):
+            return "UNSUPPORTED_ASSET_TYPE"
+        if meta.get("lot_size") != 100 or meta.get("t_plus") not in (0, 1):
+            return "UNSUPPORTED_TRADING_RULES"
+        if asset == "STOCK" and meta.get("t_plus") != 1:
+            return "UNSUPPORTED_STOCK_SETTLEMENT"
+        if not _valid(meta.get("tick_size"), True):
+            return "MISSING_TICK_RULE"
+        status = meta.get("status") if asset == "STOCK" else meta.get("status", "NORMAL")
+        if buying and (meta.get("is_st") is True or status not in ("NORMAL", "ACTIVE")):
+            return "INSTRUMENT_STATUS_DENIED"
+        return None
+
+    def rates(meta, day):
+        if meta["asset_type"] == "ETF":
+            return 0., 0.
+        matches = []
+        for rule in rules.to_dict("records"):
+            if (str(rule.get("effective_from", "9999"))[:10] <= day <= str(rule.get("effective_to", "0000"))[:10]
+                    and rule.get("verified") is True and rule.get("source_url")):
+                matches.append(rule)
+        if len(matches) != 1:
+            raise ExecutionBlockedError("UNKNOWN_OR_AMBIGUOUS_STOCK_TAX_RULE")
+        rule = matches[0]
+        if not _valid(rule.get("stamp_duty_sell")) or not _valid(rule.get("transfer_fee_both")):
+            raise ExecutionBlockedError("INVALID_STOCK_TAX_RULE")
+        return float(rule["stamp_duty_sell"]), float(rule["transfer_fee_both"])
+
+    def charges(notional, buy, statutory):
+        commission = _money(max(5., notional * .0003) * cost_multiplier)
+        stamp = _money(0. if buy else notional * statutory[0])
+        transfer = _money(notional * statutory[1])
+        return commission, stamp, transfer
+
+    decision_by_day = {}
+    for decision in decisions:
+        d = asdict(decision) if is_dataclass(decision) else dict(decision)
+        day, execution = str(d["decision_date"])[:10], str(d["execution_date"])[:10]
+        if execution < start_date:
+            continue
+        if day not in day_index or execution not in day_index or day_index[execution] <= day_index[day]:
+            raise ExecutionBlockedError("Execution must follow a valid decision session")
+        if day in decision_by_day:
+            raise ExecutionBlockedError("Duplicate decision session")
+        if "decision_at" in d and _timestamp(d["decision_at"]) != _cutoff(day):
+            raise ExecutionBlockedError("Only 21:00 decision cutoff is supported")
+        weights = d["weights"]
+        if any(not _valid(w) for w in weights.values()) or sum(weights.values()) > 1 + 1e-10:
+            raise ExecutionBlockedError("Weights must be finite, long-only and unleveraged")
+        decision_by_day[day] = d
+
+    events = defaultdict(list)
+    if not actions.empty:
+        resolved_actions = []
+        for _, revisions in actions.groupby("action_id", sort=False):
+            known_versions = sorted(
+                [r for r in revisions.to_dict("records") if _timestamp(r["available_at"]) <= _cutoff(calendar[-1])],
+                key=lambda r: _timestamp(r["available_at"]))
+            terms = ("ex_date", "record_date", "pay_date", "cash_per_share", "share_factor", "recovery_per_share", "action_type")
+            for previous, revised in zip(known_versions, known_versions[1:]):
+                if (_timestamp(revised["available_at"]) > _cutoff(str(previous["ex_date"])[:10], "09:30:00")
+                        and any(str(previous.get(k)) != str(revised.get(k)) for k in terms)):
+                    raise ExecutionBlockedError("Post-effective corporate-action revision requires an adjustment ledger")
+            candidates = []
+            for action in revisions.to_dict("records"):
+                effective = str(action["ex_date"])[:10]
+                if effective < calendar[0] or effective > calendar[-1]:
+                    continue
+                available = _timestamp(action["available_at"])
+                if available <= _cutoff(effective, "09:30:00"):
+                    candidates.append((available, action))
+            if not candidates:
+                if any(calendar[0] <= str(d)[:10] <= calendar[-1] for d in revisions["ex_date"]):
+                    raise ExecutionBlockedError("Corporate action not known by its effective open")
+                continue
+            if len({time for time, _ in candidates}) != len(candidates):
+                raise ExecutionBlockedError("Ambiguous same-time corporate-action revisions")
+            resolved_actions.append(max(candidates, key=lambda pair: pair[0])[1])
+        for action in resolved_actions:
+            effective = str(action["ex_date"])[:10]
+            if effective not in day_index:
+                if calendar and effective < calendar[0]:
+                    continue
+                if calendar and effective > calendar[-1]:
+                    continue
+                raise ExecutionBlockedError("Corporate action is outside trading calendar")
+            if _timestamp(action["available_at"]) > _cutoff(effective, "09:30:00"):
+                raise ExecutionBlockedError("Corporate action not known by its effective open")
+            if action["action_type"] not in ("CASH_DIVIDEND", "SPLIT", "DELISTING"):
+                raise ExecutionBlockedError("Unsupported corporate action")
+            events[effective].append(action)
+
+    cash, withdrawable = float(initial_cash), float(initial_cash)
+    lots, marks, stale, receivables = defaultdict(list), {}, defaultdict(int), []
+    dead, queues = set(), defaultdict(list)
+    risk_exit_started = set()
+    record_holdings = {}
+    output = {key: [] for key in ("nav", "positions", "orders", "fills", "rejected_orders", "costs", "exposure", "cash_events", "order_events")}
+    sequence = 0
+
+    def quantity(sid):
+        return sum(lot["quantity"] for lot in lots[sid])
+
+    def equity():
+        return cash + sum(quantity(sid) * marks.get(sid, 0.) for sid in lots) + sum(r["amount"] for r in receivables)
+
+    def reject(order, day, reason, qty=None):
+        output["rejected_orders"].append({"order_id": order["order_id"], "date": day,
+            "instrument_id": order["instrument_id"], "side": order["side"],
+            "quantity": order["quantity"] if qty is None else qty, "reason": reason})
+
+    def create_order(day, execution, sid, side, qty, reference, adv, attempt=1, parent=None,
+                     intent_type="REBALANCE", risk_reason=None):
+        nonlocal sequence
+        sequence += 1
+        order = {"order_id": f"O{sequence:08d}", "parent_order_id": parent,
+            "decision_date": day, "decision_at": str(_cutoff(day)), "execution_date": execution,
+            "instrument_id": sid, "side": side, "quantity": int(qty),
+            "qty_requested": int(qty), "reference_price": reference, "adv20": adv,
+            "attempt": attempt, "mode": "DAILY_SCREEN_ONLY",
+            "intent_type": intent_type, "risk_reason": risk_reason}
+        output["orders"].append(order.copy())
+        return order
+
+    def retry(order, day, remainder):
+        if order["side"] != "SELL" or remainder <= 0:
+            return
+        if order["attempt"] >= max_sell_attempts:
+            reject(order, day, "SELL_RETRY_EXHAUSTED_RETAIN_HOLDINGS", remainder)
+        elif day_index[day] + 1 < len(calendar):
+            sid = order["instrument_id"]
+            new = create_order(day, calendar[day_index[day] + 1], sid, "SELL", remainder,
+                marks.get(sid, order["reference_price"]), historical_adv(sid, day),
+                order["attempt"] + 1, order["order_id"], order["intent_type"], order["risk_reason"])
+            queues[new["execution_date"]].append(new)
+        else:
+            reject(order, day, "END_OF_DATA_UNFILLED_RETAIN_HOLDINGS", remainder)
+
+    for day in calendar:
+        # Keep pre-period source rows for ADV and the final pre-period decision,
+        # but start with fresh cash and no pre-period trades or entitlements.
+        if day < start_date and day not in decision_by_day:
+            continue
+        index, withdrawable = day_index[day], cash
+        effective_sids = set()
+        split_factors = defaultdict(lambda: 1.)
+        # These events occur before trading and before ex-date purchases.
+        for action in (events[day] if day >= start_date else []):
+            sid = action["instrument_id"]
+            effective_sids.add(sid)
+            meta = master(sid, _cutoff(day, "09:30:00"))
+            if meta is None:
+                raise ExecutionBlockedError("Corporate action lacks known instrument")
+            qty, kind = quantity(sid), action["action_type"]
+            if kind == "CASH_DIVIDEND":
+                if meta["asset_type"] != "ETF":
+                    raise ExecutionBlockedError("Stock dividend holding-period taxation unsupported")
+                record_day = str(action.get("record_date", ""))[:10]
+                if record_day not in day_index or record_day >= day:
+                    raise ExecutionBlockedError("Dividend requires a valid prior record_date")
+                per_share, pay_day = action.get("cash_per_share"), str(action.get("pay_date"))[:10]
+                if not _valid(per_share) or pay_day < day or pay_day == "None":
+                    raise ExecutionBlockedError("Invalid dividend terms")
+                entitlement = record_holdings.get((record_day, sid), 0)
+                amount = _money(entitlement * float(per_share))
+                if amount:
+                    receivables.append({"action_id": action["action_id"], "instrument_id": sid,
+                        "amount": amount, "pay_date": pay_day})
+                    output["cash_events"].append({"date": day, "event": "DIVIDEND_RECEIVABLE", "instrument_id": sid, "amount": amount})
+                if sid in marks:
+                    marks[sid] = max(0., marks[sid] - float(per_share))
+            elif kind == "SPLIT":
+                factor = action.get("share_factor")
+                if not _valid(factor, True):
+                    raise ExecutionBlockedError("Invalid split factor")
+                split_factors[sid] *= float(factor)
+                for lot in lots[sid]:
+                    new_qty = lot["quantity"] * float(factor)
+                    if not math.isclose(new_qty, round(new_qty), abs_tol=1e-8):
+                        raise ExecutionBlockedError("Fractional split entitlements unsupported")
+                    lot["quantity"] = int(round(new_qty))
+                if sid in marks:
+                    marks[sid] /= float(factor)
+            else:
+                recovery = action.get("recovery_per_share", 0.)
+                if pd.notna(recovery) and float(recovery) != 0:
+                    raise ExecutionBlockedError("Positive delisting recoveries require a verified payment model")
+                dead.add(sid)
+                marks[sid] = 0.
+            output["order_events"].append({"date": day, "event": kind, "instrument_id": sid, "quantity": qty})
+        for receivable in list(receivables):
+            if receivable["pay_date"] <= day:
+                cash += receivable["amount"]
+                withdrawable += receivable["amount"]
+                output["cash_events"].append({"date": day, "event": "DIVIDEND_PAID", "instrument_id": receivable["instrument_id"], "amount": receivable["amount"]})
+                receivables.remove(receivable)
+        # Open marks only affect matching/risk checks, never desired quantities.
+        for sid in list(lots):
+            meta, row = master(sid, _cutoff(day, "09:30:00")), bar(sid, day)
+            if meta is not None and pd.notna(meta.get("delisted_on")) and str(meta["delisted_on"])[:10] <= day:
+                dead.add(sid)
+            if sid in dead:
+                marks[sid] = 0.
+            elif row is not None and _valid(row.get("open"), True):
+                marks[sid] = float(row["open"])
+        delayed_retries = []
+        daily = sorted(queues.pop(day, []), key=lambda o: (o["side"] != "SELL", o["order_id"]))
+        capacity_used = defaultdict(float)
+        for order in daily:
+            sid, buy = order["instrument_id"], order["side"] == "BUY"
+            meta, row = master(sid, _cutoff(day, "09:30:00")), bar(sid, day)
+            qty, reason = order["quantity"], permission(meta, day, buy)
+            statutory = (0., 0.)
+            if sid in dead:
+                reason = "DELISTED_RETAIN_RIGHTS"
+            if sid in effective_sids:
+                reason = "CORPORATE_ACTION_ORDER_CANCELLED"
+            if reason is None:
+                try:
+                    statutory = rates(meta, day)
+                except ExecutionBlockedError as exc:
+                    reason = str(exc)
+            if reason is None and (row is None or not all(_valid(row.get(k), True) for k in ("open", "high", "low", "upper_limit", "lower_limit"))):
+                reason = "MISSING_PRICE_OR_LIMIT_RULE"
+            if reason is None and (row.get("suspended") is not False):
+                reason = "SUSPENDED_OR_UNKNOWN_STATUS"
+            if reason is None and (not _valid(row.get("volume"), True) or not _valid(row.get("amount"), True)):
+                reason = "NO_MARKET_TRADING"
+            if reason is None:
+                tick = float(meta["tick_size"])
+                if (row["lower_limit"] > row["upper_limit"] or not row["low"] <= row["open"] <= row["high"]
+                    or any(not _on_tick(row[k], tick) for k in ("open", "upper_limit", "lower_limit"))):
+                    reason = "INVALID_PRICE_GRID"
+                elif (buy and row["open"] >= row["upper_limit"] - 1e-10) or (not buy and row["open"] <= row["lower_limit"] + 1e-10):
+                    reason = "OPEN_AT_ADVERSE_LIMIT"
+            if reason is None and (not _valid(order["adv20"], True) or not _valid(order["reference_price"], True)):
+                reason = "MISSING_HISTORICAL_ADV_OR_REFERENCE"
+            if reason is not None:
+                reject(order, day, reason)
+                delayed_retries.append((order, qty))
+                continue
+            slip = (.0003 if meta["asset_type"] == "ETF" else .001) * slippage_multiplier
+            price = _tick(float(row["open"]) * (1 + slip if buy else 1 - slip), tick, buy)
+            if price <= 0 or price < row["lower_limit"] - 1e-10 or price > row["upper_limit"] + 1e-10 or price < row["low"] - 1e-10 or price > row["high"] + 1e-10:
+                reject(order, day, "SLIPPAGE_PRICE_OUTSIDE_VALID_RANGE")
+                delayed_retries.append((order, qty))
+                continue
+            cap_left = max(0., .01 * float(order["adv20"]) - capacity_used[sid])
+            capacity_qty = int(cap_left / max(price, float(order["reference_price"])))
+            fill_qty = min(qty, capacity_qty)
+            limit_reason = "HISTORICAL_ADV_CAPACITY"
+            reserved = 0.
+            if buy:
+                reserve_price = _tick(float(order["reference_price"]) * (1 + slip), tick, True)
+                risk_price = max(reserve_price, price)
+                current_equity = equity()
+                instrument_value = quantity(sid) * marks.get(sid, float(row["open"]))
+                cap = .35 if meta["asset_type"] == "ETF" else .05
+                # Include the incremental commission in post-fill equity caps.
+                risk_budget = max(0., (cap * current_equity - instrument_value - cap * 5 * cost_multiplier) / (1 + cap * .0003 * cost_multiplier))
+                gross = sum(quantity(s) * marks.get(s, 0.) for s in lots)
+                risk_budget = min(risk_budget, max(0., current_equity - gross))
+                if meta["asset_type"] == "STOCK":
+                    industry = meta.get("industry")
+                    if pd.isna(industry) or not industry:
+                        risk_budget = 0.
+                        limit_reason = "MISSING_INDUSTRY"
+                    else:
+                        industry_value = sum(quantity(s) * marks.get(s, 0.) for s in lots
+                            if (master(s, _cutoff(day, "09:30:00")) or {}).get("asset_type") == "STOCK"
+                            and (master(s, _cutoff(day, "09:30:00")) or {}).get("industry") == industry)
+                        risk_budget = min(risk_budget, max(0., .20 * current_equity - industry_value - 5 * cost_multiplier))
+                risk_qty = max(0, int(risk_budget / risk_price))
+                if risk_qty < fill_qty:
+                    limit_reason = "JOINT_EXPOSURE_LIMIT"
+                    fill_qty = risk_qty
+                # Reservation is based on the immutable known reference. A gap
+                # is allowed to consume only this reservation, never extra cash.
+                reserve_qty = min(fill_qty, int(cash / reserve_price)) // 100 * 100
+                while reserve_qty > 0:
+                    reserve_fees = sum(charges(reserve_qty * reserve_price, True, statutory))
+                    reserved = _money(reserve_qty * reserve_price) + reserve_fees
+                    if reserved <= cash + 1e-9:
+                        break
+                    reserve_qty -= 100
+                if reserve_qty <= 0:
+                    reserved = 0.
+                fill_qty = reserve_qty
+                output["order_events"].append({"date": day, "order_id": order["order_id"],
+                    "event": "RESERVE", "cash_reserved": reserved, "cash_total": cash,
+                    "cash_available": cash - reserved, "nav": current_equity})
+                while fill_qty > 0 and _money(fill_qty * price) + sum(charges(fill_qty * price, True, statutory)) > reserved + 1e-9:
+                    fill_qty -= 100
+                    limit_reason = "REFERENCE_RESERVATION_GAP"
+                if reserve_qty == 0:
+                    limit_reason = "INSUFFICIENT_CASH_OR_RISK_BUDGET"
+            else:
+                sellable = sum(lot["quantity"] for lot in lots[sid] if lot["sellable_index"] <= index)
+                if sellable < fill_qty:
+                    limit_reason = "T_PLUS_LOCKED"
+                    fill_qty = sellable
+                fill_qty = min(fill_qty, quantity(sid))
+                # Odd lots are disposed only as the entire available remainder.
+                if fill_qty != quantity(sid):
+                    fill_qty = fill_qty // 100 * 100
+            if buy:
+                # Exact final check includes rounded statutory fees and the
+                # adverse execution price, while holdings remain marked at
+                # the market open. It can only reduce the fixed intention.
+                while fill_qty > 0:
+                    prospective_fees = sum(charges(_money(fill_qty * price), True, statutory))
+                    post_nav = current_equity - prospective_fees - fill_qty * (price - float(row["open"]))
+                    post_value = instrument_value + fill_qty * float(row["open"])
+                    industry_ok = (meta["asset_type"] != "STOCK" or
+                        industry_value + fill_qty * float(row["open"]) <= .20 * post_nav + 1e-8)
+                    if post_value <= cap * post_nav + 1e-8 and industry_ok and gross + fill_qty * float(row["open"]) <= post_nav + 1e-8:
+                        break
+                    fill_qty -= 100
+                    limit_reason = "JOINT_EXPOSURE_LIMIT_AFTER_COSTS"
+            if fill_qty > 0:
+                notional = _money(fill_qty * price)
+                commission, stamp, transfer = charges(notional, buy, statutory)
+                total_fees = commission + stamp + transfer
+                if buy:
+                    debit = notional + total_fees
+                    cash -= debit
+                    withdrawable = max(0., withdrawable - debit)
+                    lots[sid].append({"quantity": fill_qty, "acquired_on": day,
+                        "sellable_index": index + int(meta["t_plus"])})
+                    marks[sid] = float(row["open"])
+                else:
+                    cash += notional - total_fees
+                    remaining = fill_qty
+                    for lot in lots[sid]:
+                        if lot["sellable_index"] <= index:
+                            removed = min(remaining, lot["quantity"])
+                            lot["quantity"] -= removed
+                            remaining -= removed
+                    lots[sid] = [lot for lot in lots[sid] if lot["quantity"]]
+                capacity_used[sid] += fill_qty * max(price, float(order["reference_price"]))
+                output["fills"].append({"date": day, "order_id": order["order_id"], "instrument_id": sid,
+                    "side": order["side"], "quantity": fill_qty, "price": price, "notional": notional,
+                    "commission": commission, "stamp_duty": stamp, "transfer_fee": transfer,
+                    "fees": total_fees, "slippage_cost": _money(fill_qty * abs(price - row["open"])), "mode": "DAILY_SCREEN_ONLY"})
+                output["costs"].append({"date": day, "order_id": order["order_id"], "instrument_id": sid,
+                    "commission": commission, "stamp_duty": stamp, "transfer_fee": transfer,
+                    "total_cost": total_fees, "slippage_cost": _money(fill_qty * abs(price - row["open"]))})
+                output["cash_events"].append({"date": day, "event": "BUY" if buy else "SELL",
+                    "order_id": order["order_id"], "amount": -notional - total_fees if buy else notional - total_fees})
+            if buy:
+                output["order_events"].append({"date": day, "order_id": order["order_id"], "event": "RELEASE_RESERVATION", "cash_reserved": 0., "cash_total": cash, "cash_available": cash})
+            if fill_qty < qty:
+                reject(order, day, limit_reason, qty - fill_qty)
+                delayed_retries.append((order, qty - fill_qty))
+        # Close valuation uses raw price. Total-return indices are never money.
+        for sid in list(lots):
+            row = bar(sid, day)
+            if sid in dead:
+                marks[sid], stale[sid] = 0., 0
+            elif row is not None and _valid(row.get("close"), True):
+                marks[sid], stale[sid] = float(row["close"]), 0
+            else:
+                stale[sid] += 1
+        for order, remainder in delayed_retries:
+            # Corporate action transformed quantities. Retry the actual holding.
+            if order["instrument_id"] in effective_sids:
+                remainder = min(int(remainder * split_factors[order["instrument_id"]]), quantity(order["instrument_id"]))
+            retry(order, day, remainder)
+        nav = equity()
+        if cash < -1e-7 or withdrawable < -1e-7 or withdrawable > cash + 1e-7:
+            raise ExecutionBlockedError("Cash conservation failure")
+        holdings_value = sum(quantity(sid) * marks.get(sid, 0.) for sid in lots)
+        output["nav"].append({"date": day, "nav": nav, "cash_total": cash, "cash": cash,
+            "cash_available": cash, "cash_withdrawable": withdrawable, "cash_reserved": 0.,
+            "holdings_value": holdings_value, "receivables": sum(r["amount"] for r in receivables), "mode": "DAILY_SCREEN_ONLY"})
+        industries = defaultdict(float)
+        for sid in sorted(lots):
+            qty = quantity(sid)
+            if qty == 0:
+                continue
+            value, meta = qty * marks.get(sid, 0.), master(sid, _cutoff(day))
+            sellable = sum(lot["quantity"] for lot in lots[sid] if lot["sellable_index"] <= index)
+            weight = value / nav if nav > 0 else 0.
+            output["positions"].append({"date": day, "instrument_id": sid, "quantity": qty,
+                "sellable_quantity": sellable, "locked_quantity": qty - sellable,
+                "price": marks.get(sid, 0.), "market_value": value, "weight": weight,
+                "stale_days": stale[sid], "delisted_rights": sid in dead})
+            cap = .35 if meta["asset_type"] == "ETF" else .05
+            output["exposure"].append({"date": day, "scope": "INSTRUMENT", "key": sid,
+                "weight": weight, "limit": cap, "breach": weight > cap + 1e-10})
+            if meta["asset_type"] == "STOCK":
+                industries[str(meta.get("industry"))] += weight
+        for industry, weight in industries.items():
+            output["exposure"].append({"date": day, "scope": "STOCK_INDUSTRY", "key": industry,
+                "weight": weight, "limit": .20, "breach": weight > .20 + 1e-10})
+        output["exposure"].append({"date": day, "scope": "GROSS", "key": "ALL",
+            "weight": holdings_value / nav if nav > 0 else 0., "limit": 1., "breach": holdings_value > nav + 1e-7})
+        if day >= start_date:
+            for sid in lots:
+                record_holdings[(day, sid)] = quantity(sid)
+        # Daily qualification exits precede monthly rebalancing. A detected
+        # risk starts one bounded chain; an exhausted chain is not reset by
+        # the same condition appearing on another daily screen.
+        for sid in sorted(lots):
+            if quantity(sid) == 0:
+                risk_exit_started.discard(sid)
+                continue
+            if sid in dead or sid in risk_exit_started:
+                continue
+            meta = master(sid, _cutoff(day))
+            risk_reason = permission(meta, day, True)
+            if risk_reason not in {"BOARD_PERMISSION_DENIED", "ETF_PERMISSION_UNVERIFIED",
+                                   "ACCOUNT_PERMISSION_REVOKED", "ANNOUNCED_DELISTING",
+                                   "INSTRUMENT_STATUS_DENIED"}:
+                continue
+            risk_exit_started.add(sid)
+            output["order_events"].append({"date": day, "event": "DAILY_RISK_EXIT",
+                "instrument_id": sid, "quantity": quantity(sid), "reason": risk_reason})
+            next_day = calendar[index + 1] if index + 1 < len(calendar) else None
+            pending = [order for pending in queues.values() for order in pending
+                       if order["instrument_id"] == sid]
+            pending_sells = [order for order in pending if order["side"] == "SELL"]
+            adequate_exit = any(order["execution_date"] == next_day and
+                                order["quantity"] >= quantity(sid) for order in pending_sells)
+            for queued_day, pending_orders in queues.items():
+                retained = []
+                for order in pending_orders:
+                    replace_order = order["instrument_id"] == sid and (order["side"] == "BUY" or not adequate_exit)
+                    if replace_order:
+                        reject(order, day, "SUPERSEDED_BY_DAILY_RISK_EXIT")
+                    else:
+                        retained.append(order)
+                queues[queued_day] = retained
+            if adequate_exit:
+                continue
+            reference = marks.get(sid)
+            for prior_day in reversed(calendar[:index + 1]):
+                known = bar(sid, prior_day, _cutoff(day))
+                if known is not None and _valid(known.get("close"), True):
+                    reference = float(known["close"])
+                    break
+            attempt = max((order["attempt"] for order in pending_sells), default=1)
+            parent = pending_sells[0]["order_id"] if pending_sells else None
+            risk_order = create_order(day, next_day, sid, "SELL", quantity(sid), reference,
+                                      historical_adv(sid, day), attempt, parent, "RISK_EXIT", risk_reason)
+            if next_day is None:
+                reject(risk_order, day, "END_OF_DATA_UNFILLED_RETAIN_HOLDINGS")
+            else:
+                queues[next_day].append(risk_order)
+        if day in decision_by_day:
+            decision = decision_by_day[day]
+            weights, refs, advs = decision["weights"], decision["reference_prices"], decision["adv20"]
+            execution = str(decision["execution_date"])[:10]
+            for sid in sorted(set(weights) | {s for s in lots if quantity(s)}):
+                meta, row = master(sid, _cutoff(day)), bar(sid, day)
+                ref, supplied_adv = refs.get(sid), advs.get(sid)
+                reason = None
+                if not _valid(ref, True) or row is None or not math.isclose(float(ref), float(row["close"]), rel_tol=1e-8, abs_tol=1e-8):
+                    reason = "REFERENCE_NOT_DECISION_CLOSE"
+                actual_adv = historical_adv(sid, day)
+                if not _valid(supplied_adv, True) or not _valid(actual_adv, True):
+                    reason = reason or "MISSING_HISTORICAL_ADV"
+                if reason:
+                    order = create_order(day, execution, sid, "BUY" if weights.get(sid, 0) > 0 else "SELL", 0, ref, supplied_adv)
+                    reject(order, day, reason)
+                    continue
+                target = int(nav * float(weights.get(sid, 0.)) / float(ref)) // 100 * 100
+                delta = target - quantity(sid)
+                if delta == 0:
+                    continue
+                side = "BUY" if delta > 0 else "SELL"
+                # Preserve active risk-exit retries; no duplicate sell reservation.
+                pending_sell = any(o["instrument_id"] == sid and o["side"] == "SELL" for pending in queues.values() for o in pending)
+                order = create_order(day, execution, sid, side, abs(delta), float(ref), min(float(supplied_adv), actual_adv))
+                reason = permission(meta, day, side == "BUY")
+                if pending_sell:
+                    reason = "PENDING_SELL_ALREADY_EXISTS"
+                if side == "BUY" and meta is not None and float(weights.get(sid, 0)) > (.35 if meta["asset_type"] == "ETF" else .05) + 1e-10:
+                    reason = "TARGET_INSTRUMENT_LIMIT"
+                if reason:
+                    reject(order, day, reason)
+                else:
+                    queues[execution].append(order)
+
+    schemas = {
+        "orders": ["order_id", "parent_order_id", "decision_date", "decision_at", "execution_date", "instrument_id", "side", "quantity", "qty_requested", "reference_price", "adv20", "attempt", "mode", "intent_type", "risk_reason"],
+        "fills": ["date", "order_id", "instrument_id", "side", "quantity", "price", "notional", "commission", "stamp_duty", "transfer_fee", "fees", "slippage_cost", "mode"],
+        "rejected_orders": ["order_id", "date", "instrument_id", "side", "quantity", "reason"],
+        "costs": ["date", "order_id", "instrument_id", "commission", "stamp_duty", "transfer_fee", "total_cost", "slippage_cost"],
+        "positions": ["date", "instrument_id", "quantity", "sellable_quantity", "locked_quantity", "price", "market_value", "weight", "stale_days", "delisted_rights"],
+    }
+    result = {key: pd.DataFrame(rows, columns=schemas.get(key)) for key, rows in output.items()}
+    for key, table in result.items():
+        if "date" in table.columns:
+            result[key] = table.loc[table["date"] >= start_date].reset_index(drop=True)
+    result["mode"] = "DAILY_SCREEN_ONLY"
+    result["limitations"] = ["Daily bars do not establish opening queue liquidity.",
+        "Stock statutory fees require explicit verified dated rules; stock dividend tax is unsupported.",
+        "Pending orders are canceled on a corporate-action ex-date; buys are not retried.",
+        "ETF look-through industry exposure is unavailable; observed stock industries only."]
+    return result

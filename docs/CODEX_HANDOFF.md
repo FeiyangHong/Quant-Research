@@ -10,12 +10,12 @@
 
 依次读取 README.md、AGENTS.md、docs/IMPLEMENTATION_STATUS.md、docs/RESEARCH_BRIEF.md、docs/DATA_CONTRACT.md、docs/STRATEGY_SPEC.md、docs/EXPERIMENT_PLAN.md、docs/RISK_POLICY.md、docs/DECISION_LOG.md。文献/制度边界见 evidence/。
 
-当前状态：没有项目行情数据、回测结果或代码引擎；研究与规范已完成初稿。没有远程GitHub仓库链接；有可写工作区时可初始化本地仓库和提交规范。远程仓库/同步目标按用户提供的连接处理，不假装已与另一模型自动互通。
+第一阶段交接时没有项目行情数据、回测结果或代码引擎；研究与规范已完成初稿。第二阶段已核验远程仓库为 https://github.com/FeiyangHong/Quant-Research.git；当前工程事实以 IMPLEMENTATION_STATUS.md 为准。
 
 ## 2 已确定的研究边界
 
 - 资金四档：1万、10万、50万、100万元人民币，分别做整数份额/最低费用/容量。
-- 无融资杠杆，主要现货做多，允许现金。科创板个股禁止；创业板实际权限待核验；北交所默认只研究；相关ETF逐产品核验。
+- 无融资杠杆，主要现货做多，允许现金。用户确认主板、创业板有权限；科创板个股、北交所没有购买权限；相关ETF逐产品核验。
 - 研究全A与外生信息不等于账户可交易。主题/行业/指数/财务/宏观均使用当时版本。
 - 先R1 ETF同池等权/相对排名×简单趋势开关；R2低频价值+盈利质量、R3短期残差反转随后；R4公告后漂移须PIT通过。
 - 简单规则→线性→有限树模型；HMM/主题NLP/神经网络/高频不在首轮授权搜索中。

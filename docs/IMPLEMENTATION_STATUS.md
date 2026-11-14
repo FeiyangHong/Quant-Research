@@ -1,42 +1,32 @@
 # 实现与实验状态
 
-更新：2026-11-14；phase1-v0.1。此文件是状态记录，不是策略成绩单。
+更新：2026-11-14，Asia/Shanghai；phase2-mvp-0.1。**工程已实现，真实历史 Alpha 验证尚未完成；阶段二不能整体判定验收通过。**
 
-## 当前事实
-
-| 工作项 | 状态 | 证据 |
+| 验收项 | 实际状态 | 证据与边界 |
 |---|---|---|
-| 用户需求与研究范围 | 完成规范 | RESEARCH_BRIEF、RISK_POLICY |
-| 市场/文献/数据来源审查 | 完成第一轮，保留缺口 | evidence/ |
-| 候选策略与统计协议 | 初稿完成，待数据审计后冻结 | STRATEGY_SPEC、EXPERIMENT_PLAN |
-| 独立规范审查 | 已完成一轮并整合修订 | D016—D017；仅文档逻辑审查，非数据/引擎测试 |
-| GitHub远程仓库 | 未创建、未连接 | 本包只给结构与文档 |
-| 数据账号/付费/下载 | 未执行 | 无数据manifest |
-| 真实行情/财报验证 | 未执行 | 无M0审计报告 |
-| 因子/回测/模型代码 | 未开发 | 无engine commit |
-| 策略实验 | NOT_RUN | 无run_id、无净值、无绩效数字 |
-| Paper/live | NOT_STARTED / DISABLED | 无真实订单 |
+| 仓库与规范核对 | REVIEWED | 基础提交2d940c2；八份指定文档齐全，原始evidence附录未交付；见EXECUTION_PLAN_PHASE2 |
+| 账户权限 | REVIEWED | 用户确认主板/创业板可买，科创板/北交所不可买；ETF独立核验；D019 |
+| 数据处理流程 | 工程实现，真实数据BLOCKED_DATA | JSON不可变快照、hash、PIT、质量/覆盖审计；DATA_SCHEMA、M0_DATA_AUDIT |
+| 回测与会计 | 有限MVP实现 | 次日撮合、整手、现金/锁仓、费用、拒单、ETF股息/拆分/退市；EXECUTION_MODEL |
+| 简单基线 | 已实现E0/E1 | 同池等权及趋势对照；STRATEGY_IMPLEMENTATION |
+| 阶段一优先策略 | 已实现R1B R0/R1 | 固定动量、季度代表、月调、共同风险缩放；未证实Alpha |
+| 历史成本后回测与独立OOS | NOT_RUN / BLOCKED_DATA | 未取得通过许可/PIT/生命周期/公司行为审计的真实数据 |
+| 对照与归因 | 合成工程矩阵 | 4变体×2缩放×4本金×5路径；没有真实市场收益含义 |
+| 可复现运行 | 已实现 | README、锁定依赖、CLI、追加trial、源码快照与输出hash |
+| 独立统计/工程审查 | 见独立报告 | reports/m0_m1/INDEPENDENT_REVIEW.md；不以实施者自评替代 |
+| 2025—2026最终留出 | LOCKED / 未访问策略结果 | CLI拒绝最终留出；不用于参数选择 |
+| Paper/live | NOT_STARTED / DISABLED | 无券商连接、无真实订单 |
 
-## 绩效字段
+## 真实数据与未实现范围
 
-所有 R1/R2/R3/R4 的 CAGR、Sharpe、Sortino、Calmar、最大回撤、IC、换手、费用、Alpha、Beta、IR、置信区间、容量：N/A（NOT_RUN）。不使用0占位，因为0会被误读为实际结果。
+R1I缺历史行业映射；R2缺财报原始版本与20个真实重述对账案例；R3缺全存续历史股票状态与规则；R4缺首发公告和预期版本。主板、创业板权限已知不能替代这些数据条件。
 
-## 下一步
+MVP没有实现分钟09:35—10:00撮合、股票红利税追扣、配股换股、非零退市回收、完整历史规则库和ETF持仓穿透。遇到不能表达的公司行为/费用不得当作零成本继续。日线筛查不能证明盘口队列或实际容量；旧价保留也不能证明低风险。
 
-1. 依 CODEX_HANDOFF 完成 M0 数据能力探查和原始规则归档。
-2. 冻结配置/切分/基准/搜索预算，随后实现 M1 账簿与被动基线。
-3. 完成 R1 的 M2 筛查，先判断是否值得继续，再引入基本面/反转/事件。
+已归档部分官方规则原件及哈希，见rule_manifest.json；没有声称补回全部第一阶段证据附录。真实行情、供应商许可与双源核验仍缺。主要本金和年度增量固定费用尚待确认，因此经济确认另为BLOCKED_HURDLE。
 
-## 已知阻断与非阻断问题
+## 结果解释
 
-- 实盘阻断：用户未授权下单；账户权限、券商API、费用和报告未核验。
-- 财务研究阻断：尚无已验收的历史原始财务vintage。
-- 事件研究阻断：R4a尚无公告首发时间、预告快报去重及季报vintage；R4b另缺历史一致预期。
-- 早期交易回测阻断：2010—2015部分规则/费用尚待完整归档。
-- 不阻断离线规范与价格基线：无GitHub链接、具体券商未知、财务PIT暂缺。
+真实R1/R2/R3/R4的CAGR、Sharpe、IC、Alpha、置信区间与容量均为N/A（NOT_RUN），不得填0或借用合成数据值。合成回放只验证程序分支、账簿算术及复现性。最终测试集未开放，2022—2024仅是未来真实实验的选择验证区间，不称独立最终测试。
 
-## 每轮结果追加格式
-
-milestone / run_id / hypothesis_id / git_commit / config_hash / dataset_manifest_hash / rule_snapshot_hash / sample_period / holdout_access / status / metrics_path / trades_path / failed_orders_path / cost_breakdown_path / exposure_path / uncertainty_path / reviewer / next_action。
-
-状态只用 PLANNED、RUNNING、FAILED_DATA、FAILED_ENGINE、COMPLETED_NEGATIVE、COMPLETED_INCONCLUSIVE、COMPLETED_PROMISING、REVIEWED、RETIRED。不得将无显著性自动改为“策略无效”，也不得将初步正收益自动改为“可实盘”。
+每次运行产物和测试汇总以reports/m0_m1/REVIEW_PACKET.md及独立审查为准。下一研究审查点是提供/选择合法数据来源并通过M0，之后按已注册R1协议开展真实开发及选择验证实验。

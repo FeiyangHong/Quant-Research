@@ -1,0 +1,21 @@
+{
+  "protocol": "phase2-mvp-0.1",
+  "registered_on": "2026-11-14",
+  "timezone": "Asia/Shanghai",
+  "research_source_commit": "2d940c21242df5653debb437c2397dd037a07cf6",
+  "engineering_fixture_only": true,
+  "variants": ["E0", "R0", "E1", "R1"],
+  "risk_scaling": [false, true],
+  "capital_scenarios": [10000, 100000, 500000, 1000000],
+  "paths_commission_slippage_delay": [[1,1,1], [2,2,1], [3,3,1], [1,0,1], [1,1,2]],
+  "primary_capital": null,
+  "annual_incremental_fixed_cost": null,
+  "real_alpha_trials_run": 0,
+  "holdout_access": "NONE",
+  "holdout_interval": ["2025-01-01", "2026-11-13"],
+  "known_history": "Research design occurs after historical market events; no project real-strategy performance accessed.",
+  "prior_experiments": "Synthetic smoke/preliminary matrix only; superseded engineering runs retained in local registry.",
+  "historical_research": "BLOCKED_DATA",
+  "economic_confirmation": "BLOCKED_HURDLE",
+  "live_enabled": false
+}
