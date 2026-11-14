@@ -1,0 +1,4446 @@
+{
+  "schema_version": "r1-milestone-decision-1.0",
+  "review_date": "2026-11-15",
+  "reviewer": "/root/r1_milestone_review",
+  "status": "REVIEW_COMPLETE",
+  "milestone_decision": "ARCHIVE_CURRENT_CONFIGURATION",
+  "etf_parameter_search": "STOP_ETF_PARAMETER_SEARCH",
+  "formal_economic_status": "BLOCKED_HURDLE",
+  "evidence_status": "DESCRIPTIVE_VALIDATION_ONLY",
+  "economic_conclusion": "NO_CONFIRMED_ECONOMIC_INCREMENT",
+  "factor_alpha_claimed": false,
+  "formal_primary_p_value": null,
+  "multiplicity_confirmed": false,
+  "parameters_frozen": true,
+  "new_r1_experiments": 0,
+  "new_r1_proposals": [],
+  "new_search_budget_consumed": 0,
+  "final_candidate_selected": false,
+  "holdout_accessed": false,
+  "paper_started": false,
+  "live_enabled": false,
+  "r2_r3_research_requires_positive_r1_return": false,
+  "r2_r3_next_step": "SEPARATE_DATA_AND_ENGINE_ADMISSION_UNDER_PHASE1_PLAN",
+  "claim_of_permanent_absence_of_alpha": false,
+  "scope": {
+    "valid_runs": 448,
+    "runs_per_period": 224,
+    "primary_capital_cny": 100000,
+    "other_capitals_cny": [
+      10000,
+      500000,
+      1000000
+    ],
+    "primary_nav_tables_recomputed": 112,
+    "periods": {
+      "development": [
+        "2016-01-01",
+        "2021-12-31",
+        1461
+      ],
+      "validation": [
+        "2022-01-01",
+        "2024-12-31",
+        726
+      ]
+    },
+    "invalidated_v1_attempts_preserved": 353,
+    "all_attempts_preserved": 801,
+    "daily_screen_only": true,
+    "r1i_evaluated": false
+  },
+  "fixed_cost": {
+    "actual_annual_incremental_cost_cny": null,
+    "formula": "mean_daily_net_increment * 252 * 100000",
+    "one_bp_per_day_equivalent_cny_per_year": 2520,
+    "negative_means_no_sample_mean_advantage_even_at_zero_extra_cost": true,
+    "positive_point_estimate_is_committable_budget": false,
+    "shared_costs_must_not_be_double_counted": true,
+    "not_cagr_or_cash_payment_schedule": true
+  },
+  "inference_reproduction": {
+    "blocks": [
+      60,
+      20,
+      120
+    ],
+    "main_block": 60,
+    "draws_per_diagnostic": 5000,
+    "seed": 20261114,
+    "interval": "marginal_95_percent",
+    "boundary_null_incremental_fixed_cost_cny": 0,
+    "boundary_null_is_actual_cost_assumption": false,
+    "method": "circular_block_bootstrap_t_HAC"
+  },
+  "runtime": {
+    "python": "3.9.19 (main, May  6 2024, 20:12:36) [MSC v.1916 64 bit (AMD64)]",
+    "numpy": "1.26.4"
+  },
+  "module_decisions": [
+    {
+      "module": "ranking",
+      "action": "ARCHIVE_CURRENT_CONFIGURATION",
+      "reason": "R1-E1 changes sign across periods; unscaled validation pairs fail maximum-increment-year deletion; scaled evidence remains exploratory.",
+      "stop_condition": "No further window, universe, rank-count, or filter search to rescue the observed results."
+    },
+    {
+      "module": "trend",
+      "action": "ARCHIVE_CURRENT_CONFIGURATION_AND_REINTERPRET_AS_EXPOSURE_CONTROL",
+      "reason": "All eight main trend increments are negative; lower drawdown accompanies much larger cash allocations; no matched-cash-budget timing-alpha evidence.",
+      "stop_condition": "Do not optimize the moving-average window or add hindsight regimes or drawdown stops."
+    },
+    {
+      "module": "risk_scaling",
+      "action": "ARCHIVE_CURRENT_R1_GENERATION_RETAIN_SHARED_RISK_CONTROL_INTERPRETATION",
+      "reason": "Scaling lowers drawdown but reduces development returns, improves validation returns, and leaves all16 base drawdowns above12%.",
+      "stop_condition": "Do not select a volatility target from observed profits; 10% target is not a realized-risk guarantee."
+    }
+  ],
+  "primary_rank_pairs_all8": [
+    {
+      "period": "development",
+      "candidate": "R0",
+      "baseline": "E0",
+      "risk_scaling": false,
+      "n_dates": 1461,
+      "mean_daily_net_increment": 2.4683452490606644e-05,
+      "bp_per_day": 0.24683452490606644,
+      "signed_annual_fixed_cost_capacity_cny": 622.0230027632874,
+      "inference": [
+        {
+          "block_length": 60,
+          "status": "DESCRIPTIVE_INFERENCE",
+          "degenerate_replicates": 0,
+          "ci95": [
+            -6.77059382628536e-05,
+            0.00010966467421563779
+          ],
+          "capacity_ci95_cny_per_year": [
+            -1706.1896442239108,
+            2763.549790234072
+          ],
+          "p_net_exploratory": 0.30553889222155567,
+          "p_hac_exploratory": 0.3399531580996019,
+          "hac_se": 5.9825478782928374e-05,
+          "hac_lag": 7,
+          "minimum_detectable_daily_effect_80pct": 0.00014875454901258644
+        },
+        {
+          "block_length": 20,
+          "status": "DESCRIPTIVE_INFERENCE",
+          "degenerate_replicates": 0,
+          "ci95": [
+            -9.411378437088977e-05,
+            0.0001344853621790373
+          ],
+          "capacity_ci95_cny_per_year": [
+            -2371.6673661464224,
+            3389.03112691174
+          ],
+          "p_net_exploratory": 0.34573085382923413,
+          "p_hac_exploratory": 0.3399531580996019,
+          "hac_se": 5.9825478782928374e-05,
+          "hac_lag": 7,
+          "minimum_detectable_daily_effect_80pct": 0.00014875454901258644
+        },
+        {
+          "block_length": 120,
+          "status": "DESCRIPTIVE_INFERENCE",
+          "degenerate_replicates": 0,
+          "ci95": [
+            -4.203433280375422e-05,
+            8.010289300008444e-05
+          ],
+          "capacity_ci95_cny_per_year": [
+            -1059.2651866546064,
+            2018.592903602128
+          ],
+          "p_net_exploratory": 0.20335932813437313,
+          "p_hac_exploratory": 0.3399531580996019,
+          "hac_se": 5.9825478782928374e-05,
+          "hac_lag": 7,
+          "minimum_detectable_daily_effect_80pct": 0.00014875454901258644
+        }
+      ],
+      "year_deletion": [
+        {
+          "rule": "candidate_best_year_return",
+          "removed_year": 2020,
+          "remaining_sessions": 1218,
+          "remaining_mean_daily_net_increment": 8.327828782491915e-06,
+          "signed_annual_fixed_cost_capacity_cny": 209.86128531879626
+        },
+        {
+          "rule": "maximum_paired_annual_pnl_increment",
+          "removed_year": 2020,
+          "remaining_sessions": 1218,
+          "remaining_mean_daily_net_increment": 8.327828782491915e-06,
+          "signed_annual_fixed_cost_capacity_cny": 209.86128531879626
+        },
+        {
+          "rule": "maximum_annual_mean_daily_increment",
+          "removed_year": 2020,
+          "remaining_sessions": 1218,
+          "remaining_mean_daily_net_increment": 8.327828782491915e-06,
+          "signed_annual_fixed_cost_capacity_cny": 209.86128531879626
+        }
+      ],
+      "annual": [
+        {
+          "year": 2016,
+          "sessions": 244,
+          "mean_daily_net_increment": 0.0,
+          "pnl_difference_cny": 0.0,
+          "candidate_year_return": -0.06942820000000016
+        },
+        {
+          "year": 2017,
+          "sessions": 244,
+          "mean_daily_net_increment": 0.0,
+          "pnl_difference_cny": 0.0,
+          "candidate_year_return": 0.029476500362464186
+        },
+        {
+          "year": 2018,
+          "sessions": 243,
+          "mean_daily_net_increment": 5.636000733416521e-06,
+          "pnl_difference_cny": 170.56999999999243,
+          "candidate_year_return": -0.2986905661346341
+        },
+        {
+          "year": 2019,
+          "sessions": 244,
+          "mean_daily_net_increment": 2.9500574845811816e-05,
+          "pnl_difference_cny": 843.8499999999913,
+          "candidate_year_return": 0.4205672438292918
+        },
+        {
+          "year": 2020,
+          "sessions": 243,
+          "mean_daily_net_increment": 0.00010666349231152738,
+          "pnl_difference_cny": 3633.4000000000233,
+          "candidate_year_return": 0.5161893731476905
+        },
+        {
+          "year": 2021,
+          "sessions": 243,
+          "mean_daily_net_increment": 6.483979491674298e-06,
+          "pnl_difference_cny": -786.7400000000489,
+          "candidate_year_return": 0.11060789701603091
+        }
+      ],
+      "capacity_is_committable_budget": false
+    },
+    {
+      "period": "development",
+      "candidate": "R1",
+      "baseline": "E1",
+      "risk_scaling": false,
+      "n_dates": 1461,
+      "mean_daily_net_increment": -6.467644761884236e-06,
+      "bp_per_day": -0.06467644761884236,
+      "signed_annual_fixed_cost_capacity_cny": -162.98464799948275,
+      "inference": [
+        {
+          "block_length": 60,
+          "status": "DESCRIPTIVE_INFERENCE",
+          "degenerate_replicates": 0,
+          "ci95": [
+            -8.438208174817509e-05,
+            5.826710084289322e-05
+          ],
+          "capacity_ci95_cny_per_year": [
+            -2126.4284600540122,
+            1468.3309412409092
+          ],
+          "p_net_exploratory": 0.5902819436112777,
+          "p_hac_exploratory": 0.5525278805430145,
+          "hac_se": 4.8978519530483003e-05,
+          "hac_lag": 7,
+          "minimum_detectable_daily_effect_80pct": 0.00012178385751824864
+        },
+        {
+          "block_length": 20,
+          "status": "DESCRIPTIVE_INFERENCE",
+          "degenerate_replicates": 0,
+          "ci95": [
+            -0.00010820719171495273,
+            7.747468589349707e-05
+          ],
+          "capacity_ci95_cny_per_year": [
+            -2726.821231216809,
+            1952.362084516126
+          ],
+          "p_net_exploratory": 0.5594881023795241,
+          "p_hac_exploratory": 0.5525278805430145,
+          "hac_se": 4.8978519530483003e-05,
+          "hac_lag": 7,
+          "minimum_detectable_daily_effect_80pct": 0.00012178385751824864
+        },
+        {
+          "block_length": 120,
+          "status": "INCONCLUSIVE_DEGENERATE_BOOTSTRAP",
+          "degenerate_replicates": 1,
+          "ci95": null,
+          "capacity_ci95_cny_per_year": null,
+          "p_net_exploratory": null,
+          "p_hac_exploratory": null,
+          "hac_se": null
+        }
+      ],
+      "year_deletion": [
+        {
+          "rule": "candidate_best_year_return",
+          "removed_year": 2020,
+          "remaining_sessions": 1218,
+          "remaining_mean_daily_net_increment": -1.2923495999461926e-05,
+          "signed_annual_fixed_cost_capacity_cny": -325.6720991864405
+        },
+        {
+          "rule": "maximum_paired_annual_pnl_increment",
+          "removed_year": 2019,
+          "remaining_sessions": 1217,
+          "remaining_mean_daily_net_increment": -2.257375651373382e-05,
+          "signed_annual_fixed_cost_capacity_cny": -568.8586641460923
+        },
+        {
+          "rule": "maximum_annual_mean_daily_increment",
+          "removed_year": 2019,
+          "remaining_sessions": 1217,
+          "remaining_mean_daily_net_increment": -2.257375651373382e-05,
+          "signed_annual_fixed_cost_capacity_cny": -568.8586641460923
+        }
+      ],
+      "annual": [
+        {
+          "year": 2016,
+          "sessions": 244,
+          "mean_daily_net_increment": 0.0,
+          "pnl_difference_cny": 0.0,
+          "candidate_year_return": -0.03825179999999895
+        },
+        {
+          "year": 2017,
+          "sessions": 244,
+          "mean_daily_net_increment": 0.0,
+          "pnl_difference_cny": 0.0,
+          "candidate_year_return": 0.029825894137363473
+        },
+        {
+          "year": 2018,
+          "sessions": 243,
+          "mean_daily_net_increment": -3.7226335908632357e-05,
+          "pnl_difference_cny": -812.5500000000029,
+          "candidate_year_return": -0.0019945817648289177
+        },
+        {
+          "year": 2019,
+          "sessions": 244,
+          "mean_daily_net_increment": 7.38648880332016e-05,
+          "pnl_difference_cny": 1911.6800000000076,
+          "candidate_year_return": 0.13389758610813773
+        },
+        {
+          "year": 2020,
+          "sessions": 243,
+          "mean_daily_net_increment": 2.58913132931348e-05,
+          "pnl_difference_cny": 645.8799999999756,
+          "candidate_year_return": 0.21193622682456947
+        },
+        {
+          "year": 2021,
+          "sessions": 243,
+          "mean_daily_net_increment": -0.00010171955218785248,
+          "pnl_difference_cny": -4630.6600000000035,
+          "candidate_year_return": 0.08271218758052012
+        }
+      ],
+      "capacity_is_committable_budget": false
+    },
+    {
+      "period": "development",
+      "candidate": "R0",
+      "baseline": "E0",
+      "risk_scaling": true,
+      "n_dates": 1461,
+      "mean_daily_net_increment": 4.158168291982125e-06,
+      "bp_per_day": 0.04158168291982125,
+      "signed_annual_fixed_cost_capacity_cny": 104.78584095794955,
+      "inference": [
+        {
+          "block_length": 60,
+          "status": "DESCRIPTIVE_INFERENCE",
+          "degenerate_replicates": 0,
+          "ci95": [
+            -4.3273449254290226e-05,
+            5.38738393871911e-05
+          ],
+          "capacity_ci95_cny_per_year": [
+            -1090.4909212081136,
+            1357.6207525572156
+          ],
+          "p_net_exploratory": 0.4335132973405319,
+          "p_hac_exploratory": 0.44154069544528335,
+          "hac_se": 2.8274521398455018e-05,
+          "hac_lag": 7,
+          "minimum_detectable_daily_effect_80pct": 7.03038866506172e-05
+        },
+        {
+          "block_length": 20,
+          "status": "DESCRIPTIVE_INFERENCE",
+          "degenerate_replicates": 0,
+          "ci95": [
+            -4.799424953316798e-05,
+            5.602540181954403e-05
+          ],
+          "capacity_ci95_cny_per_year": [
+            -1209.455088235833,
+            1411.8401258525096
+          ],
+          "p_net_exploratory": 0.4321135772845431,
+          "p_hac_exploratory": 0.44154069544528335,
+          "hac_se": 2.8274521398455018e-05,
+          "hac_lag": 7,
+          "minimum_detectable_daily_effect_80pct": 7.03038866506172e-05
+        },
+        {
+          "block_length": 120,
+          "status": "DESCRIPTIVE_INFERENCE",
+          "degenerate_replicates": 0,
+          "ci95": [
+            -4.296376842524342e-05,
+            5.0909855396982484e-05
+          ],
+          "capacity_ci95_cny_per_year": [
+            -1082.6869643161342,
+            1282.9283560039587
+          ],
+          "p_net_exploratory": 0.4539092181563687,
+          "p_hac_exploratory": 0.44154069544528335,
+          "hac_se": 2.8274521398455018e-05,
+          "hac_lag": 7,
+          "minimum_detectable_daily_effect_80pct": 7.03038866506172e-05
+        }
+      ],
+      "year_deletion": [
+        {
+          "rule": "candidate_best_year_return",
+          "removed_year": 2020,
+          "remaining_sessions": 1218,
+          "remaining_mean_daily_net_increment": -2.7229437485167313e-06,
+          "signed_annual_fixed_cost_capacity_cny": -68.61818246262163
+        },
+        {
+          "rule": "maximum_paired_annual_pnl_increment",
+          "removed_year": 2020,
+          "remaining_sessions": 1218,
+          "remaining_mean_daily_net_increment": -2.7229437485167313e-06,
+          "signed_annual_fixed_cost_capacity_cny": -68.61818246262163
+        },
+        {
+          "rule": "maximum_annual_mean_daily_increment",
+          "removed_year": 2020,
+          "remaining_sessions": 1218,
+          "remaining_mean_daily_net_increment": -2.7229437485167313e-06,
+          "signed_annual_fixed_cost_capacity_cny": -68.61818246262163
+        }
+      ],
+      "annual": [
+        {
+          "year": 2016,
+          "sessions": 244,
+          "mean_daily_net_increment": 0.0,
+          "pnl_difference_cny": 0.0,
+          "candidate_year_return": -0.049265000000001336
+        },
+        {
+          "year": 2017,
+          "sessions": 244,
+          "mean_daily_net_increment": 0.0,
+          "pnl_difference_cny": 0.0,
+          "candidate_year_return": 0.0171572520208072
+        },
+        {
+          "year": 2018,
+          "sessions": 243,
+          "mean_daily_net_increment": 3.1783431280426e-05,
+          "pnl_difference_cny": 690.9000000000087,
+          "candidate_year_return": -0.15176097955942158
+        },
+        {
+          "year": 2019,
+          "sessions": 244,
+          "mean_daily_net_increment": 2.5197938087420612e-05,
+          "pnl_difference_cny": 856.2699999999604,
+          "candidate_year_return": 0.26322579780004074
+        },
+        {
+          "year": 2020,
+          "sessions": 243,
+          "mean_daily_net_increment": 3.8648680494976395e-05,
+          "pnl_difference_cny": 1822.5099999999948,
+          "candidate_year_return": 0.30785633034767046
+        },
+        {
+          "year": 2021,
+          "sessions": 243,
+          "mean_daily_net_increment": -7.073339991838488e-05,
+          "pnl_difference_cny": -2143.9099999999744,
+          "candidate_year_return": 0.04376662287520072
+        }
+      ],
+      "capacity_is_committable_budget": false
+    },
+    {
+      "period": "development",
+      "candidate": "R1",
+      "baseline": "E1",
+      "risk_scaling": true,
+      "n_dates": 1461,
+      "mean_daily_net_increment": -9.439162475206395e-06,
+      "bp_per_day": -0.09439162475206396,
+      "signed_annual_fixed_cost_capacity_cny": -237.86689437520116,
+      "inference": [
+        {
+          "block_length": 60,
+          "status": "DESCRIPTIVE_INFERENCE",
+          "degenerate_replicates": 0,
+          "ci95": [
+            -4.859694244370795e-05,
+            3.0108011619390912e-05
+          ],
+          "capacity_ci95_cny_per_year": [
+            -1224.6429495814402,
+            758.721892808651
+          ],
+          "p_net_exploratory": 0.68126374725055,
+          "p_hac_exploratory": 0.6598253123901754,
+          "hac_se": 2.291134359198941e-05,
+          "hac_lag": 7,
+          "minimum_detectable_daily_effect_80pct": 5.696847986231815e-05
+        },
+        {
+          "block_length": 20,
+          "status": "DESCRIPTIVE_INFERENCE",
+          "degenerate_replicates": 0,
+          "ci95": [
+            -5.302904341173721e-05,
+            3.353938379983213e-05
+          ],
+          "capacity_ci95_cny_per_year": [
+            -1336.3318939757776,
+            845.1924717557697
+          ],
+          "p_net_exploratory": 0.6522695460907818,
+          "p_hac_exploratory": 0.6598253123901754,
+          "hac_se": 2.291134359198941e-05,
+          "hac_lag": 7,
+          "minimum_detectable_daily_effect_80pct": 5.696847986231815e-05
+        },
+        {
+          "block_length": 120,
+          "status": "INCONCLUSIVE_DEGENERATE_BOOTSTRAP",
+          "degenerate_replicates": 1,
+          "ci95": null,
+          "capacity_ci95_cny_per_year": null,
+          "p_net_exploratory": null,
+          "p_hac_exploratory": null,
+          "hac_se": null
+        }
+      ],
+      "year_deletion": [
+        {
+          "rule": "candidate_best_year_return",
+          "removed_year": 2020,
+          "remaining_sessions": 1218,
+          "remaining_mean_daily_net_increment": -2.1036101954248185e-05,
+          "signed_annual_fixed_cost_capacity_cny": -530.1097692470543
+        },
+        {
+          "rule": "maximum_paired_annual_pnl_increment",
+          "removed_year": 2020,
+          "remaining_sessions": 1218,
+          "remaining_mean_daily_net_increment": -2.1036101954248185e-05,
+          "signed_annual_fixed_cost_capacity_cny": -530.1097692470543
+        },
+        {
+          "rule": "maximum_annual_mean_daily_increment",
+          "removed_year": 2020,
+          "remaining_sessions": 1218,
+          "remaining_mean_daily_net_increment": -2.1036101954248185e-05,
+          "signed_annual_fixed_cost_capacity_cny": -530.1097692470543
+        }
+      ],
+      "annual": [
+        {
+          "year": 2016,
+          "sessions": 244,
+          "mean_daily_net_increment": 0.0,
+          "pnl_difference_cny": 0.0,
+          "candidate_year_return": -0.041358700000000526
+        },
+        {
+          "year": 2017,
+          "sessions": 244,
+          "mean_daily_net_increment": 0.0,
+          "pnl_difference_cny": 0.0,
+          "candidate_year_return": 0.017739690539099406
+        },
+        {
+          "year": 2018,
+          "sessions": 243,
+          "mean_daily_net_increment": -2.0504423935418612e-05,
+          "pnl_difference_cny": -462.8699999999808,
+          "candidate_year_return": -0.0012747434446853667
+        },
+        {
+          "year": 2019,
+          "sessions": 244,
+          "mean_daily_net_increment": 4.30102384240041e-05,
+          "pnl_difference_cny": 1101.5599999999831,
+          "candidate_year_return": 0.10463487614372635
+        },
+        {
+          "year": 2020,
+          "sessions": 243,
+          "mean_daily_net_increment": 4.86887070123364e-05,
+          "pnl_difference_cny": 1736.4400000000023,
+          "candidate_year_return": 0.2077086276508564
+        },
+        {
+          "year": 2021,
+          "sessions": 243,
+          "mean_daily_net_increment": -0.00012812302608816695,
+          "pnl_difference_cny": -4031.2399999999907,
+          "candidate_year_return": 0.02886548847456827
+        }
+      ],
+      "capacity_is_committable_budget": false
+    },
+    {
+      "period": "validation",
+      "candidate": "R0",
+      "baseline": "E0",
+      "risk_scaling": false,
+      "n_dates": 726,
+      "mean_daily_net_increment": 1.0839472369603655e-05,
+      "bp_per_day": 0.10839472369603655,
+      "signed_annual_fixed_cost_capacity_cny": 273.1547037140121,
+      "inference": [
+        {
+          "block_length": 60,
+          "status": "DESCRIPTIVE_INFERENCE",
+          "degenerate_replicates": 0,
+          "ci95": [
+            -0.00032544263198444574,
+            0.00026831406118296084
+          ],
+          "capacity_ci95_cny_per_year": [
+            -8201.154326008033,
+            6761.514341810614
+          ],
+          "p_net_exploratory": 0.5000999800039992,
+          "p_hac_exploratory": 0.47451829670889323,
+          "hac_se": 0.00016958761319462018,
+          "hac_lag": 6,
+          "minimum_detectable_daily_effect_80pct": 0.0004216753368647567
+        },
+        {
+          "block_length": 20,
+          "status": "DESCRIPTIVE_INFERENCE",
+          "degenerate_replicates": 0,
+          "ci95": [
+            -0.000312405441392903,
+            0.00027030509347527253
+          ],
+          "capacity_ci95_cny_per_year": [
+            -7872.617123101156,
+            6811.688355576868
+          ],
+          "p_net_exploratory": 0.49510097980403917,
+          "p_hac_exploratory": 0.47451829670889323,
+          "hac_se": 0.00016958761319462018,
+          "hac_lag": 6,
+          "minimum_detectable_daily_effect_80pct": 0.0004216753368647567
+        },
+        {
+          "block_length": 120,
+          "status": "DESCRIPTIVE_INFERENCE",
+          "degenerate_replicates": 0,
+          "ci95": [
+            -0.00025326975284296123,
+            0.00023132108789900108
+          ],
+          "capacity_ci95_cny_per_year": [
+            -6382.397771642623,
+            5829.291415054828
+          ],
+          "p_net_exploratory": 0.5008998200359928,
+          "p_hac_exploratory": 0.47451829670889323,
+          "hac_se": 0.00016958761319462018,
+          "hac_lag": 6,
+          "minimum_detectable_daily_effect_80pct": 0.0004216753368647567
+        }
+      ],
+      "year_deletion": [
+        {
+          "rule": "candidate_best_year_return",
+          "removed_year": 2024,
+          "remaining_sessions": 484,
+          "remaining_mean_daily_net_increment": 0.00013346978001791337,
+          "signed_annual_fixed_cost_capacity_cny": 3363.438456451417
+        },
+        {
+          "rule": "maximum_paired_annual_pnl_increment",
+          "removed_year": 2022,
+          "remaining_sessions": 484,
+          "remaining_mean_daily_net_increment": -6.167257839249299e-05,
+          "signed_annual_fixed_cost_capacity_cny": -1554.1489754908232
+        },
+        {
+          "rule": "maximum_annual_mean_daily_increment",
+          "removed_year": 2022,
+          "remaining_sessions": 484,
+          "remaining_mean_daily_net_increment": -6.167257839249299e-05,
+          "signed_annual_fixed_cost_capacity_cny": -1554.1489754908232
+        }
+      ],
+      "annual": [
+        {
+          "year": 2022,
+          "sessions": 242,
+          "mean_daily_net_increment": 0.00015586357389379691,
+          "pnl_difference_cny": 3585.655999999988,
+          "candidate_year_return": -0.1445472000000011
+        },
+        {
+          "year": 2023,
+          "sessions": 242,
+          "mean_daily_net_increment": 0.0001110759861420298,
+          "pnl_difference_cny": 1673.2459999999846,
+          "candidate_year_return": -0.11444617400282031
+        },
+        {
+          "year": 2024,
+          "sessions": 242,
+          "mean_daily_net_increment": -0.00023442114292701577,
+          "pnl_difference_cny": -3132.9040000000095,
+          "candidate_year_return": 0.04914253128013413
+        }
+      ],
+      "capacity_is_committable_budget": false
+    },
+    {
+      "period": "validation",
+      "candidate": "R1",
+      "baseline": "E1",
+      "risk_scaling": false,
+      "n_dates": 726,
+      "mean_daily_net_increment": 6.519941967840867e-05,
+      "bp_per_day": 0.6519941967840867,
+      "signed_annual_fixed_cost_capacity_cny": 1643.0253758958984,
+      "inference": [
+        {
+          "block_length": 60,
+          "status": "DESCRIPTIVE_INFERENCE",
+          "degenerate_replicates": 0,
+          "ci95": [
+            -5.8696740385373e-05,
+            0.0001757363892046099
+          ],
+          "capacity_ci95_cny_per_year": [
+            -1479.1578577113996,
+            4428.557007956169
+          ],
+          "p_net_exploratory": 0.15776844631073786,
+          "p_hac_exploratory": 0.18647756537830434,
+          "hac_se": 7.31795295342934e-05,
+          "hac_lag": 6,
+          "minimum_detectable_daily_effect_80pct": 0.00018195906049202237
+        },
+        {
+          "block_length": 20,
+          "status": "DESCRIPTIVE_INFERENCE",
+          "degenerate_replicates": 0,
+          "ci95": [
+            -7.114245778871886e-05,
+            0.00018269854196762623
+          ],
+          "capacity_ci95_cny_per_year": [
+            -1792.7899362757153,
+            4604.0032575841815
+          ],
+          "p_net_exploratory": 0.16336732653469307,
+          "p_hac_exploratory": 0.18647756537830434,
+          "hac_se": 7.31795295342934e-05,
+          "hac_lag": 6,
+          "minimum_detectable_daily_effect_80pct": 0.00018195906049202237
+        },
+        {
+          "block_length": 120,
+          "status": "DESCRIPTIVE_INFERENCE",
+          "degenerate_replicates": 0,
+          "ci95": [
+            -6.156135686882148e-05,
+            0.00018513645767635547
+          ],
+          "capacity_ci95_cny_per_year": [
+            -1551.3461930943015,
+            4665.438733444158
+          ],
+          "p_net_exploratory": 0.15236952609478105,
+          "p_hac_exploratory": 0.18647756537830434,
+          "hac_se": 7.31795295342934e-05,
+          "hac_lag": 6,
+          "minimum_detectable_daily_effect_80pct": 0.00018195906049202237
+        }
+      ],
+      "year_deletion": [
+        {
+          "rule": "candidate_best_year_return",
+          "removed_year": 2022,
+          "remaining_sessions": 484,
+          "remaining_mean_daily_net_increment": 9.7799129517613e-05,
+          "signed_annual_fixed_cost_capacity_cny": 2464.538063843848
+        },
+        {
+          "rule": "maximum_paired_annual_pnl_increment",
+          "removed_year": 2023,
+          "remaining_sessions": 484,
+          "remaining_mean_daily_net_increment": -6.110776360965128e-06,
+          "signed_annual_fixed_cost_capacity_cny": -153.99156429632123
+        },
+        {
+          "rule": "maximum_annual_mean_daily_increment",
+          "removed_year": 2023,
+          "remaining_sessions": 484,
+          "remaining_mean_daily_net_increment": -6.110776360965128e-06,
+          "signed_annual_fixed_cost_capacity_cny": -153.99156429632123
+        }
+      ],
+      "annual": [
+        {
+          "year": 2022,
+          "sessions": 242,
+          "mean_daily_net_increment": 0.0,
+          "pnl_difference_cny": 0.0,
+          "candidate_year_return": 0.0
+        },
+        {
+          "year": 2023,
+          "sessions": 242,
+          "mean_daily_net_increment": 0.00020781981175715627,
+          "pnl_difference_cny": 4483.270000000004,
+          "candidate_year_return": -0.09228129999999923
+        },
+        {
+          "year": 2024,
+          "sessions": 242,
+          "mean_daily_net_increment": -1.2221552721930256e-05,
+          "pnl_difference_cny": -845.7999999999738,
+          "candidate_year_return": -0.1973706171306151
+        }
+      ],
+      "capacity_is_committable_budget": false
+    },
+    {
+      "period": "validation",
+      "candidate": "R0",
+      "baseline": "E0",
+      "risk_scaling": true,
+      "n_dates": 726,
+      "mean_daily_net_increment": 0.00014229747794504852,
+      "bp_per_day": 1.4229747794504852,
+      "signed_annual_fixed_cost_capacity_cny": 3585.896444215223,
+      "inference": [
+        {
+          "block_length": 60,
+          "status": "DESCRIPTIVE_INFERENCE",
+          "degenerate_replicates": 0,
+          "ci95": [
+            -5.303225899486278e-06,
+            0.000299809640648961
+          ],
+          "capacity_ci95_cny_per_year": [
+            -133.6412926670542,
+            7555.202944353818
+          ],
+          "p_net_exploratory": 0.029994001199760048,
+          "p_hac_exploratory": 0.07317485662653662,
+          "hac_se": 9.796414728057328e-05,
+          "hac_lag": 6,
+          "minimum_detectable_daily_effect_80pct": 0.00024358538944585381
+        },
+        {
+          "block_length": 20,
+          "status": "DESCRIPTIVE_INFERENCE",
+          "degenerate_replicates": 0,
+          "ci95": [
+            -2.7638176155578048e-05,
+            0.00031653616596237705
+          ],
+          "capacity_ci95_cny_per_year": [
+            -696.4820391205668,
+            7976.711382251901
+          ],
+          "p_net_exploratory": 0.05098980203959208,
+          "p_hac_exploratory": 0.07317485662653662,
+          "hac_se": 9.796414728057328e-05,
+          "hac_lag": 6,
+          "minimum_detectable_daily_effect_80pct": 0.00024358538944585381
+        },
+        {
+          "block_length": 120,
+          "status": "DESCRIPTIVE_INFERENCE",
+          "degenerate_replicates": 0,
+          "ci95": [
+            6.2199688669706634e-06,
+            0.00026421482856731494
+          ],
+          "capacity_ci95_cny_per_year": [
+            156.74321544766073,
+            6658.2136798963365
+          ],
+          "p_net_exploratory": 0.021595680863827234,
+          "p_hac_exploratory": 0.07317485662653662,
+          "hac_se": 9.796414728057328e-05,
+          "hac_lag": 6,
+          "minimum_detectable_daily_effect_80pct": 0.00024358538944585381
+        }
+      ],
+      "year_deletion": [
+        {
+          "rule": "candidate_best_year_return",
+          "removed_year": 2024,
+          "remaining_sessions": 484,
+          "remaining_mean_daily_net_increment": 0.0001431879630196203,
+          "signed_annual_fixed_cost_capacity_cny": 3608.3366680944314
+        },
+        {
+          "rule": "maximum_paired_annual_pnl_increment",
+          "removed_year": 2022,
+          "remaining_sessions": 484,
+          "remaining_mean_daily_net_increment": 0.0001262147335046228,
+          "signed_annual_fixed_cost_capacity_cny": 3180.6112843164947
+        },
+        {
+          "rule": "maximum_annual_mean_daily_increment",
+          "removed_year": 2022,
+          "remaining_sessions": 484,
+          "remaining_mean_daily_net_increment": 0.0001262147335046228,
+          "signed_annual_fixed_cost_capacity_cny": 3180.6112843164947
+        }
+      ],
+      "annual": [
+        {
+          "year": 2022,
+          "sessions": 242,
+          "mean_daily_net_increment": 0.00017446296682589998,
+          "pnl_difference_cny": 3865.1199999999953,
+          "candidate_year_return": -0.10023509999999947
+        },
+        {
+          "year": 2023,
+          "sessions": 242,
+          "mean_daily_net_increment": 0.00011191295921334059,
+          "pnl_difference_cny": 1726.1199999999953,
+          "candidate_year_return": -0.1168720851413525
+        },
+        {
+          "year": 2024,
+          "sessions": 242,
+          "mean_daily_net_increment": 0.00014051650779590505,
+          "pnl_difference_cny": 3755.9400000000023,
+          "candidate_year_return": 0.18528116082468293
+        }
+      ],
+      "capacity_is_committable_budget": false
+    },
+    {
+      "period": "validation",
+      "candidate": "R1",
+      "baseline": "E1",
+      "risk_scaling": true,
+      "n_dates": 726,
+      "mean_daily_net_increment": 8.319874032136693e-05,
+      "bp_per_day": 0.8319874032136693,
+      "signed_annual_fixed_cost_capacity_cny": 2096.6082560984464,
+      "inference": [
+        {
+          "block_length": 60,
+          "status": "DESCRIPTIVE_INFERENCE",
+          "degenerate_replicates": 0,
+          "ci95": [
+            2.165320028188628e-05,
+            0.00023710425457893364
+          ],
+          "capacity_ci95_cny_per_year": [
+            545.6606471035343,
+            5975.027215389127
+          ],
+          "p_net_exploratory": 0.003199360127974405,
+          "p_hac_exploratory": 0.02099352862868503,
+          "hac_se": 4.091107388316986e-05,
+          "hac_lag": 6,
+          "minimum_detectable_daily_effect_80pct": 0.00010172435672755763
+        },
+        {
+          "block_length": 20,
+          "status": "DESCRIPTIVE_INFERENCE",
+          "degenerate_replicates": 0,
+          "ci95": [
+            1.0896669096096236e-05,
+            0.0001952384696967589
+          ],
+          "capacity_ci95_cny_per_year": [
+            274.5960612216251,
+            4920.009436358324
+          ],
+          "p_net_exploratory": 0.010597880423915218,
+          "p_hac_exploratory": 0.02099352862868503,
+          "hac_se": 4.091107388316986e-05,
+          "hac_lag": 6,
+          "minimum_detectable_daily_effect_80pct": 0.00010172435672755763
+        },
+        {
+          "block_length": 120,
+          "status": "DESCRIPTIVE_INFERENCE",
+          "degenerate_replicates": 0,
+          "ci95": [
+            1.657461934838796e-05,
+            0.00027769084990232943
+          ],
+          "capacity_ci95_cny_per_year": [
+            417.68040757937655,
+            6997.809417538701
+          ],
+          "p_net_exploratory": 0.004799040191961607,
+          "p_hac_exploratory": 0.02099352862868503,
+          "hac_se": 4.091107388316986e-05,
+          "hac_lag": 6,
+          "minimum_detectable_daily_effect_80pct": 0.00010172435672755763
+        }
+      ],
+      "year_deletion": [
+        {
+          "rule": "candidate_best_year_return",
+          "removed_year": 2022,
+          "remaining_sessions": 484,
+          "remaining_mean_daily_net_increment": 0.0001247981104820504,
+          "signed_annual_fixed_cost_capacity_cny": 3144.91238414767
+        },
+        {
+          "rule": "maximum_paired_annual_pnl_increment",
+          "removed_year": 2023,
+          "remaining_sessions": 484,
+          "remaining_mean_daily_net_increment": 2.882485232158023e-05,
+          "signed_annual_fixed_cost_capacity_cny": 726.3862785038218
+        },
+        {
+          "rule": "maximum_annual_mean_daily_increment",
+          "removed_year": 2023,
+          "remaining_sessions": 484,
+          "remaining_mean_daily_net_increment": 2.882485232158023e-05,
+          "signed_annual_fixed_cost_capacity_cny": 726.3862785038218
+        }
+      ],
+      "annual": [
+        {
+          "year": 2022,
+          "sessions": 242,
+          "mean_daily_net_increment": 0.0,
+          "pnl_difference_cny": 0.0,
+          "candidate_year_return": 0.0
+        },
+        {
+          "year": 2023,
+          "sessions": 242,
+          "mean_daily_net_increment": 0.00019194651632094032,
+          "pnl_difference_cny": 4194.220000000001,
+          "candidate_year_return": -0.08354500000000065
+        },
+        {
+          "year": 2024,
+          "sessions": 242,
+          "mean_daily_net_increment": 5.764970464316046e-05,
+          "pnl_difference_cny": 661.9800000000105,
+          "candidate_year_return": -0.10577627924993582
+        }
+      ],
+      "capacity_is_committable_budget": false
+    }
+  ],
+  "primary_stress_rank_pairs_all56": [
+    {
+      "period": "development",
+      "candidate": "R0",
+      "baseline": "E0",
+      "risk_scaling": false,
+      "path": "base",
+      "mean_daily_net_increment": 2.4683452490606644e-05,
+      "bp_per_day": 0.24683452490606644,
+      "signed_annual_fixed_cost_capacity_cny": 622.0230027632874
+    },
+    {
+      "period": "development",
+      "candidate": "R1",
+      "baseline": "E1",
+      "risk_scaling": false,
+      "path": "base",
+      "mean_daily_net_increment": -6.467644761884236e-06,
+      "bp_per_day": -0.06467644761884236,
+      "signed_annual_fixed_cost_capacity_cny": -162.98464799948275
+    },
+    {
+      "period": "development",
+      "candidate": "R0",
+      "baseline": "E0",
+      "risk_scaling": false,
+      "path": "cost2_slip2",
+      "mean_daily_net_increment": 3.3435987692801964e-05,
+      "bp_per_day": 0.33435987692801966,
+      "signed_annual_fixed_cost_capacity_cny": 842.5868898586094
+    },
+    {
+      "period": "development",
+      "candidate": "R1",
+      "baseline": "E1",
+      "risk_scaling": false,
+      "path": "cost2_slip2",
+      "mean_daily_net_increment": 5.98976342812142e-06,
+      "bp_per_day": 0.0598976342812142,
+      "signed_annual_fixed_cost_capacity_cny": 150.9420383886598
+    },
+    {
+      "period": "development",
+      "candidate": "R0",
+      "baseline": "E0",
+      "risk_scaling": false,
+      "path": "cost3_slip3",
+      "mean_daily_net_increment": 3.249397309239555e-05,
+      "bp_per_day": 0.3249397309239555,
+      "signed_annual_fixed_cost_capacity_cny": 818.8481219283678
+    },
+    {
+      "period": "development",
+      "candidate": "R1",
+      "baseline": "E1",
+      "risk_scaling": false,
+      "path": "cost3_slip3",
+      "mean_daily_net_increment": 4.854742596682742e-06,
+      "bp_per_day": 0.048547425966827415,
+      "signed_annual_fixed_cost_capacity_cny": 122.3395134364051
+    },
+    {
+      "period": "development",
+      "candidate": "R0",
+      "baseline": "E0",
+      "risk_scaling": false,
+      "path": "slip0",
+      "mean_daily_net_increment": 5.355742150693852e-05,
+      "bp_per_day": 0.5355742150693852,
+      "signed_annual_fixed_cost_capacity_cny": 1349.6470219748508
+    },
+    {
+      "period": "development",
+      "candidate": "R1",
+      "baseline": "E1",
+      "risk_scaling": false,
+      "path": "slip0",
+      "mean_daily_net_increment": 1.895911534929138e-05,
+      "bp_per_day": 0.1895911534929138,
+      "signed_annual_fixed_cost_capacity_cny": 477.76970680214276
+    },
+    {
+      "period": "development",
+      "candidate": "R0",
+      "baseline": "E0",
+      "risk_scaling": false,
+      "path": "delay2",
+      "mean_daily_net_increment": 6.350227346858433e-05,
+      "bp_per_day": 0.6350227346858432,
+      "signed_annual_fixed_cost_capacity_cny": 1600.257291408325
+    },
+    {
+      "period": "development",
+      "candidate": "R1",
+      "baseline": "E1",
+      "risk_scaling": false,
+      "path": "delay2",
+      "mean_daily_net_increment": 2.497394874064001e-05,
+      "bp_per_day": 0.24973948740640012,
+      "signed_annual_fixed_cost_capacity_cny": 629.3435082641283
+    },
+    {
+      "period": "development",
+      "candidate": "R0",
+      "baseline": "E0",
+      "risk_scaling": false,
+      "path": "cash_delay1",
+      "mean_daily_net_increment": 2.4683452490606566e-05,
+      "bp_per_day": 0.24683452490606567,
+      "signed_annual_fixed_cost_capacity_cny": 622.0230027632855
+    },
+    {
+      "period": "development",
+      "candidate": "R1",
+      "baseline": "E1",
+      "risk_scaling": false,
+      "path": "cash_delay1",
+      "mean_daily_net_increment": -6.467644761884236e-06,
+      "bp_per_day": -0.06467644761884236,
+      "signed_annual_fixed_cost_capacity_cny": -162.98464799948275
+    },
+    {
+      "period": "development",
+      "candidate": "R0",
+      "baseline": "E0",
+      "risk_scaling": false,
+      "path": "cash_delay3",
+      "mean_daily_net_increment": 2.4467412134656343e-05,
+      "bp_per_day": 0.24467412134656344,
+      "signed_annual_fixed_cost_capacity_cny": 616.5787857933399
+    },
+    {
+      "period": "development",
+      "candidate": "R1",
+      "baseline": "E1",
+      "risk_scaling": false,
+      "path": "cash_delay3",
+      "mean_daily_net_increment": -6.467644761884236e-06,
+      "bp_per_day": -0.06467644761884236,
+      "signed_annual_fixed_cost_capacity_cny": -162.98464799948275
+    },
+    {
+      "period": "development",
+      "candidate": "R0",
+      "baseline": "E0",
+      "risk_scaling": true,
+      "path": "base",
+      "mean_daily_net_increment": 4.158168291982125e-06,
+      "bp_per_day": 0.04158168291982125,
+      "signed_annual_fixed_cost_capacity_cny": 104.78584095794955
+    },
+    {
+      "period": "development",
+      "candidate": "R1",
+      "baseline": "E1",
+      "risk_scaling": true,
+      "path": "base",
+      "mean_daily_net_increment": -9.439162475206395e-06,
+      "bp_per_day": -0.09439162475206396,
+      "signed_annual_fixed_cost_capacity_cny": -237.86689437520116
+    },
+    {
+      "period": "development",
+      "candidate": "R0",
+      "baseline": "E0",
+      "risk_scaling": true,
+      "path": "cost2_slip2",
+      "mean_daily_net_increment": 8.946207487567567e-06,
+      "bp_per_day": 0.08946207487567567,
+      "signed_annual_fixed_cost_capacity_cny": 225.44442868670268
+    },
+    {
+      "period": "development",
+      "candidate": "R1",
+      "baseline": "E1",
+      "risk_scaling": true,
+      "path": "cost2_slip2",
+      "mean_daily_net_increment": -5.340104631274518e-06,
+      "bp_per_day": -0.05340104631274518,
+      "signed_annual_fixed_cost_capacity_cny": -134.57063670811786
+    },
+    {
+      "period": "development",
+      "candidate": "R0",
+      "baseline": "E0",
+      "risk_scaling": true,
+      "path": "cost3_slip3",
+      "mean_daily_net_increment": 6.535705304764245e-06,
+      "bp_per_day": 0.06535705304764246,
+      "signed_annual_fixed_cost_capacity_cny": 164.699773680059
+    },
+    {
+      "period": "development",
+      "candidate": "R1",
+      "baseline": "E1",
+      "risk_scaling": true,
+      "path": "cost3_slip3",
+      "mean_daily_net_increment": -6.201793793608529e-06,
+      "bp_per_day": -0.06201793793608529,
+      "signed_annual_fixed_cost_capacity_cny": -156.28520359893494
+    },
+    {
+      "period": "development",
+      "candidate": "R0",
+      "baseline": "E0",
+      "risk_scaling": true,
+      "path": "slip0",
+      "mean_daily_net_increment": 1.5158054565649683e-06,
+      "bp_per_day": 0.015158054565649682,
+      "signed_annual_fixed_cost_capacity_cny": 38.1982975054372
+    },
+    {
+      "period": "development",
+      "candidate": "R1",
+      "baseline": "E1",
+      "risk_scaling": true,
+      "path": "slip0",
+      "mean_daily_net_increment": -1.4626270522902216e-05,
+      "bp_per_day": -0.14626270522902216,
+      "signed_annual_fixed_cost_capacity_cny": -368.58201717713587
+    },
+    {
+      "period": "development",
+      "candidate": "R0",
+      "baseline": "E0",
+      "risk_scaling": true,
+      "path": "delay2",
+      "mean_daily_net_increment": 1.318335731879255e-05,
+      "bp_per_day": 0.1318335731879255,
+      "signed_annual_fixed_cost_capacity_cny": 332.22060443357225
+    },
+    {
+      "period": "development",
+      "candidate": "R1",
+      "baseline": "E1",
+      "risk_scaling": true,
+      "path": "delay2",
+      "mean_daily_net_increment": -5.105836012883417e-06,
+      "bp_per_day": -0.051058360128834177,
+      "signed_annual_fixed_cost_capacity_cny": -128.66706752466212
+    },
+    {
+      "period": "development",
+      "candidate": "R0",
+      "baseline": "E0",
+      "risk_scaling": true,
+      "path": "cash_delay1",
+      "mean_daily_net_increment": 4.1581682919819735e-06,
+      "bp_per_day": 0.041581682919819736,
+      "signed_annual_fixed_cost_capacity_cny": 104.78584095794574
+    },
+    {
+      "period": "development",
+      "candidate": "R1",
+      "baseline": "E1",
+      "risk_scaling": true,
+      "path": "cash_delay1",
+      "mean_daily_net_increment": -9.439162475206395e-06,
+      "bp_per_day": -0.09439162475206396,
+      "signed_annual_fixed_cost_capacity_cny": -237.86689437520116
+    },
+    {
+      "period": "development",
+      "candidate": "R0",
+      "baseline": "E0",
+      "risk_scaling": true,
+      "path": "cash_delay3",
+      "mean_daily_net_increment": 4.158168291981821e-06,
+      "bp_per_day": 0.04158168291981821,
+      "signed_annual_fixed_cost_capacity_cny": 104.78584095794189
+    },
+    {
+      "period": "development",
+      "candidate": "R1",
+      "baseline": "E1",
+      "risk_scaling": true,
+      "path": "cash_delay3",
+      "mean_daily_net_increment": -9.439162475206395e-06,
+      "bp_per_day": -0.09439162475206396,
+      "signed_annual_fixed_cost_capacity_cny": -237.86689437520116
+    },
+    {
+      "period": "validation",
+      "candidate": "R0",
+      "baseline": "E0",
+      "risk_scaling": false,
+      "path": "base",
+      "mean_daily_net_increment": 1.0839472369603655e-05,
+      "bp_per_day": 0.10839472369603655,
+      "signed_annual_fixed_cost_capacity_cny": 273.1547037140121
+    },
+    {
+      "period": "validation",
+      "candidate": "R1",
+      "baseline": "E1",
+      "risk_scaling": false,
+      "path": "base",
+      "mean_daily_net_increment": 6.519941967840867e-05,
+      "bp_per_day": 0.6519941967840867,
+      "signed_annual_fixed_cost_capacity_cny": 1643.0253758958984
+    },
+    {
+      "period": "validation",
+      "candidate": "R0",
+      "baseline": "E0",
+      "risk_scaling": false,
+      "path": "cost2_slip2",
+      "mean_daily_net_increment": 1.128052598860417e-05,
+      "bp_per_day": 0.1128052598860417,
+      "signed_annual_fixed_cost_capacity_cny": 284.2692549128251
+    },
+    {
+      "period": "validation",
+      "candidate": "R1",
+      "baseline": "E1",
+      "risk_scaling": false,
+      "path": "cost2_slip2",
+      "mean_daily_net_increment": 6.598569763053243e-05,
+      "bp_per_day": 0.6598569763053242,
+      "signed_annual_fixed_cost_capacity_cny": 1662.8395802894172
+    },
+    {
+      "period": "validation",
+      "candidate": "R0",
+      "baseline": "E0",
+      "risk_scaling": false,
+      "path": "cost3_slip3",
+      "mean_daily_net_increment": -1.2689976874859924e-05,
+      "bp_per_day": -0.12689976874859923,
+      "signed_annual_fixed_cost_capacity_cny": -319.7874172464701
+    },
+    {
+      "period": "validation",
+      "candidate": "R1",
+      "baseline": "E1",
+      "risk_scaling": false,
+      "path": "cost3_slip3",
+      "mean_daily_net_increment": 4.963976891827448e-05,
+      "bp_per_day": 0.4963976891827448,
+      "signed_annual_fixed_cost_capacity_cny": 1250.922176740517
+    },
+    {
+      "period": "validation",
+      "candidate": "R0",
+      "baseline": "E0",
+      "risk_scaling": false,
+      "path": "slip0",
+      "mean_daily_net_increment": 0.0001573453694835601,
+      "bp_per_day": 1.573453694835601,
+      "signed_annual_fixed_cost_capacity_cny": 3965.1033109857144
+    },
+    {
+      "period": "validation",
+      "candidate": "R1",
+      "baseline": "E1",
+      "risk_scaling": false,
+      "path": "slip0",
+      "mean_daily_net_increment": 0.00010412516981947014,
+      "bp_per_day": 1.0412516981947013,
+      "signed_annual_fixed_cost_capacity_cny": 2623.9542794506474
+    },
+    {
+      "period": "validation",
+      "candidate": "R0",
+      "baseline": "E0",
+      "risk_scaling": false,
+      "path": "delay2",
+      "mean_daily_net_increment": 0.00017726893171337305,
+      "bp_per_day": 1.7726893171337306,
+      "signed_annual_fixed_cost_capacity_cny": 4467.177079177
+    },
+    {
+      "period": "validation",
+      "candidate": "R1",
+      "baseline": "E1",
+      "risk_scaling": false,
+      "path": "delay2",
+      "mean_daily_net_increment": 7.493946423935088e-05,
+      "bp_per_day": 0.7493946423935088,
+      "signed_annual_fixed_cost_capacity_cny": 1888.4744988316422
+    },
+    {
+      "period": "validation",
+      "candidate": "R0",
+      "baseline": "E0",
+      "risk_scaling": false,
+      "path": "cash_delay1",
+      "mean_daily_net_increment": 1.0839472369603349e-05,
+      "bp_per_day": 0.10839472369603348,
+      "signed_annual_fixed_cost_capacity_cny": 273.15470371400437
+    },
+    {
+      "period": "validation",
+      "candidate": "R1",
+      "baseline": "E1",
+      "risk_scaling": false,
+      "path": "cash_delay1",
+      "mean_daily_net_increment": 6.519941967840867e-05,
+      "bp_per_day": 0.6519941967840867,
+      "signed_annual_fixed_cost_capacity_cny": 1643.0253758958984
+    },
+    {
+      "period": "validation",
+      "candidate": "R0",
+      "baseline": "E0",
+      "risk_scaling": false,
+      "path": "cash_delay3",
+      "mean_daily_net_increment": 1.0839472369603655e-05,
+      "bp_per_day": 0.10839472369603655,
+      "signed_annual_fixed_cost_capacity_cny": 273.1547037140121
+    },
+    {
+      "period": "validation",
+      "candidate": "R1",
+      "baseline": "E1",
+      "risk_scaling": false,
+      "path": "cash_delay3",
+      "mean_daily_net_increment": 6.519941967840867e-05,
+      "bp_per_day": 0.6519941967840867,
+      "signed_annual_fixed_cost_capacity_cny": 1643.0253758958984
+    },
+    {
+      "period": "validation",
+      "candidate": "R0",
+      "baseline": "E0",
+      "risk_scaling": true,
+      "path": "base",
+      "mean_daily_net_increment": 0.00014229747794504852,
+      "bp_per_day": 1.4229747794504852,
+      "signed_annual_fixed_cost_capacity_cny": 3585.896444215223
+    },
+    {
+      "period": "validation",
+      "candidate": "R1",
+      "baseline": "E1",
+      "risk_scaling": true,
+      "path": "base",
+      "mean_daily_net_increment": 8.319874032136693e-05,
+      "bp_per_day": 0.8319874032136693,
+      "signed_annual_fixed_cost_capacity_cny": 2096.6082560984464
+    },
+    {
+      "period": "validation",
+      "candidate": "R0",
+      "baseline": "E0",
+      "risk_scaling": true,
+      "path": "cost2_slip2",
+      "mean_daily_net_increment": 0.00015063255157321236,
+      "bp_per_day": 1.5063255157321236,
+      "signed_annual_fixed_cost_capacity_cny": 3795.9402996449517
+    },
+    {
+      "period": "validation",
+      "candidate": "R1",
+      "baseline": "E1",
+      "risk_scaling": true,
+      "path": "cost2_slip2",
+      "mean_daily_net_increment": 8.620383300948725e-05,
+      "bp_per_day": 0.8620383300948725,
+      "signed_annual_fixed_cost_capacity_cny": 2172.3365918390787
+    },
+    {
+      "period": "validation",
+      "candidate": "R0",
+      "baseline": "E0",
+      "risk_scaling": true,
+      "path": "cost3_slip3",
+      "mean_daily_net_increment": 0.0001612216507231433,
+      "bp_per_day": 1.612216507231433,
+      "signed_annual_fixed_cost_capacity_cny": 4062.7855982232113
+    },
+    {
+      "period": "validation",
+      "candidate": "R1",
+      "baseline": "E1",
+      "risk_scaling": true,
+      "path": "cost3_slip3",
+      "mean_daily_net_increment": 9.497828473649862e-05,
+      "bp_per_day": 0.9497828473649862,
+      "signed_annual_fixed_cost_capacity_cny": 2393.4527753597654
+    },
+    {
+      "period": "validation",
+      "candidate": "R0",
+      "baseline": "E0",
+      "risk_scaling": true,
+      "path": "slip0",
+      "mean_daily_net_increment": 0.00012364312457627358,
+      "bp_per_day": 1.2364312457627358,
+      "signed_annual_fixed_cost_capacity_cny": 3115.8067393220945
+    },
+    {
+      "period": "validation",
+      "candidate": "R1",
+      "baseline": "E1",
+      "risk_scaling": true,
+      "path": "slip0",
+      "mean_daily_net_increment": 8.622261159656974e-05,
+      "bp_per_day": 0.8622261159656973,
+      "signed_annual_fixed_cost_capacity_cny": 2172.8098122335573
+    },
+    {
+      "period": "validation",
+      "candidate": "R0",
+      "baseline": "E0",
+      "risk_scaling": true,
+      "path": "delay2",
+      "mean_daily_net_increment": 0.00012054458492004098,
+      "bp_per_day": 1.2054458492004099,
+      "signed_annual_fixed_cost_capacity_cny": 3037.723539985033
+    },
+    {
+      "period": "validation",
+      "candidate": "R1",
+      "baseline": "E1",
+      "risk_scaling": true,
+      "path": "delay2",
+      "mean_daily_net_increment": 7.767651921666634e-05,
+      "bp_per_day": 0.7767651921666634,
+      "signed_annual_fixed_cost_capacity_cny": 1957.4482842599919
+    },
+    {
+      "period": "validation",
+      "candidate": "R0",
+      "baseline": "E0",
+      "risk_scaling": true,
+      "path": "cash_delay1",
+      "mean_daily_net_increment": 0.00014229747794504852,
+      "bp_per_day": 1.4229747794504852,
+      "signed_annual_fixed_cost_capacity_cny": 3585.896444215223
+    },
+    {
+      "period": "validation",
+      "candidate": "R1",
+      "baseline": "E1",
+      "risk_scaling": true,
+      "path": "cash_delay1",
+      "mean_daily_net_increment": 8.319874032136724e-05,
+      "bp_per_day": 0.8319874032136724,
+      "signed_annual_fixed_cost_capacity_cny": 2096.6082560984546
+    },
+    {
+      "period": "validation",
+      "candidate": "R0",
+      "baseline": "E0",
+      "risk_scaling": true,
+      "path": "cash_delay3",
+      "mean_daily_net_increment": 0.00014229747794504852,
+      "bp_per_day": 1.4229747794504852,
+      "signed_annual_fixed_cost_capacity_cny": 3585.896444215223
+    },
+    {
+      "period": "validation",
+      "candidate": "R1",
+      "baseline": "E1",
+      "risk_scaling": true,
+      "path": "cash_delay3",
+      "mean_daily_net_increment": 8.319874032136739e-05,
+      "bp_per_day": 0.8319874032136738,
+      "signed_annual_fixed_cost_capacity_cny": 2096.6082560984582
+    }
+  ],
+  "primary_rank_trend_contrasts_all16": [
+    {
+      "period": "development",
+      "candidate": "R0",
+      "baseline": "E0",
+      "risk_scaling": false,
+      "effect": "rank_without_trend",
+      "bp_per_day": 0.24683452490606644,
+      "cash_difference_percentage_points": 0.16480993970230778,
+      "exposure_difference_percentage_points": -0.16576219113217566,
+      "drawdown_improvement_percentage_points": 0.27221234272646333
+    },
+    {
+      "period": "development",
+      "candidate": "R1",
+      "baseline": "E1",
+      "risk_scaling": false,
+      "effect": "rank_with_trend",
+      "bp_per_day": -0.06467644761884236,
+      "cash_difference_percentage_points": 0.22839067032463137,
+      "exposure_difference_percentage_points": -0.22902241571209733,
+      "drawdown_improvement_percentage_points": -2.4807865578538535
+    },
+    {
+      "period": "development",
+      "candidate": "E1",
+      "baseline": "E0",
+      "risk_scaling": false,
+      "effect": "trend_equal_weight",
+      "bp_per_day": -0.780530170650054,
+      "cash_difference_percentage_points": 35.82776230879793,
+      "exposure_difference_percentage_points": -35.8257307649831,
+      "drawdown_improvement_percentage_points": 18.49486677146418
+    },
+    {
+      "period": "development",
+      "candidate": "R1",
+      "baseline": "R0",
+      "risk_scaling": false,
+      "effect": "trend_ranked",
+      "bp_per_day": -1.0920411431749628,
+      "cash_difference_percentage_points": 35.89134303942025,
+      "exposure_difference_percentage_points": -35.88899098956303,
+      "drawdown_improvement_percentage_points": 15.741867870883864
+    },
+    {
+      "period": "development",
+      "candidate": "R0",
+      "baseline": "E0",
+      "risk_scaling": true,
+      "effect": "rank_without_trend",
+      "bp_per_day": 0.04158168291982125,
+      "cash_difference_percentage_points": 3.3031022903452967,
+      "exposure_difference_percentage_points": -3.30360237021237,
+      "drawdown_improvement_percentage_points": 0.799683564393161
+    },
+    {
+      "period": "development",
+      "candidate": "R1",
+      "baseline": "E1",
+      "risk_scaling": true,
+      "effect": "rank_with_trend",
+      "bp_per_day": -0.09439162475206396,
+      "cash_difference_percentage_points": 2.1797580785908393,
+      "exposure_difference_percentage_points": -2.180103856305476,
+      "drawdown_improvement_percentage_points": 0.0
+    },
+    {
+      "period": "development",
+      "candidate": "E1",
+      "baseline": "E0",
+      "risk_scaling": true,
+      "effect": "trend_equal_weight",
+      "bp_per_day": -0.33758990962916163,
+      "cash_difference_percentage_points": 17.13561237224389,
+      "exposure_difference_percentage_points": -17.13488062228108,
+      "drawdown_improvement_percentage_points": 10.1096814068401
+    },
+    {
+      "period": "development",
+      "candidate": "R1",
+      "baseline": "R0",
+      "risk_scaling": true,
+      "effect": "trend_ranked",
+      "bp_per_day": -0.4735632173010468,
+      "cash_difference_percentage_points": 16.012268160489434,
+      "exposure_difference_percentage_points": -16.011382108374193,
+      "drawdown_improvement_percentage_points": 9.309997842446938
+    },
+    {
+      "period": "validation",
+      "candidate": "R0",
+      "baseline": "E0",
+      "risk_scaling": false,
+      "effect": "rank_without_trend",
+      "bp_per_day": 0.10839472369603655,
+      "cash_difference_percentage_points": 3.2286952444023043,
+      "exposure_difference_percentage_points": -3.229947647811917,
+      "drawdown_improvement_percentage_points": 4.0550559999999685
+    },
+    {
+      "period": "validation",
+      "candidate": "R1",
+      "baseline": "E1",
+      "risk_scaling": false,
+      "effect": "rank_with_trend",
+      "bp_per_day": 0.6519941967840867,
+      "cash_difference_percentage_points": 0.6324324720776036,
+      "exposure_difference_percentage_points": -0.6337437011599415,
+      "drawdown_improvement_percentage_points": 4.377639028501679
+    },
+    {
+      "period": "validation",
+      "candidate": "E1",
+      "baseline": "E0",
+      "risk_scaling": false,
+      "effect": "trend_equal_weight",
+      "bp_per_day": -2.484761611599606,
+      "cash_difference_percentage_points": 66.07458977663033,
+      "exposure_difference_percentage_points": -66.07154497483279,
+      "drawdown_improvement_percentage_points": 7.360145999999956
+    },
+    {
+      "period": "validation",
+      "candidate": "R1",
+      "baseline": "R0",
+      "risk_scaling": false,
+      "effect": "trend_ranked",
+      "bp_per_day": -1.9411621385115554,
+      "cash_difference_percentage_points": 63.47832700430563,
+      "exposure_difference_percentage_points": -63.47534102818082,
+      "drawdown_improvement_percentage_points": 7.682729028501667
+    },
+    {
+      "period": "validation",
+      "candidate": "R0",
+      "baseline": "E0",
+      "risk_scaling": true,
+      "effect": "rank_without_trend",
+      "bp_per_day": 1.4229747794504852,
+      "cash_difference_percentage_points": 2.317698209928528,
+      "exposure_difference_percentage_points": -2.318606434736915,
+      "drawdown_improvement_percentage_points": 4.055279999999984
+    },
+    {
+      "period": "validation",
+      "candidate": "R1",
+      "baseline": "E1",
+      "risk_scaling": true,
+      "effect": "rank_with_trend",
+      "bp_per_day": 0.8319874032136693,
+      "cash_difference_percentage_points": 0.16571041095240982,
+      "exposure_difference_percentage_points": -0.16636136826555092,
+      "drawdown_improvement_percentage_points": 3.9243198731454654
+    },
+    {
+      "period": "validation",
+      "candidate": "E1",
+      "baseline": "E0",
+      "risk_scaling": true,
+      "effect": "trend_equal_weight",
+      "bp_per_day": -1.7866904864961264,
+      "cash_difference_percentage_points": 43.69938933904444,
+      "exposure_difference_percentage_points": -43.697009723523216,
+      "drawdown_improvement_percentage_points": 12.10177
+    },
+    {
+      "period": "validation",
+      "candidate": "R1",
+      "baseline": "R0",
+      "risk_scaling": true,
+      "effect": "trend_ranked",
+      "bp_per_day": -2.3776778627329427,
+      "cash_difference_percentage_points": 41.54740154006832,
+      "exposure_difference_percentage_points": -41.54476465705185,
+      "drawdown_improvement_percentage_points": 11.970809873145482
+    }
+  ],
+  "primary_scaling_contrasts_all8": [
+    {
+      "period": "development",
+      "variant": "E0",
+      "bp_per_day": -1.4828315713562263,
+      "cash_difference_percentage_points": 38.638897531552544,
+      "exposure_difference_percentage_points": -38.63704631012369,
+      "drawdown_improvement_percentage_points": 14.614288241732565
+    },
+    {
+      "period": "development",
+      "variant": "R0",
+      "bp_per_day": -1.6880844133424715,
+      "cash_difference_percentage_points": 41.77718988219553,
+      "exposure_difference_percentage_points": -41.77488648920388,
+      "drawdown_improvement_percentage_points": 15.141759463399262
+    },
+    {
+      "period": "development",
+      "variant": "E1",
+      "bp_per_day": -1.0398913103353338,
+      "cash_difference_percentage_points": 19.946747594998506,
+      "exposure_difference_percentage_points": -19.946196167421665,
+      "drawdown_improvement_percentage_points": 6.229102877108483
+    },
+    {
+      "period": "development",
+      "variant": "R1",
+      "bp_per_day": -1.0696064874685554,
+      "cash_difference_percentage_points": 21.898115003264714,
+      "exposure_difference_percentage_points": -21.89727760801504,
+      "drawdown_improvement_percentage_points": 8.709889434962337
+    },
+    {
+      "period": "validation",
+      "variant": "E0",
+      "bp_per_day": 0.6274945576319821,
+      "cash_difference_percentage_points": 32.65790537951595,
+      "exposure_difference_percentage_points": -32.65680809043563,
+      "drawdown_improvement_percentage_points": 5.630855999999984
+    },
+    {
+      "period": "validation",
+      "variant": "R0",
+      "bp_per_day": 1.942074613386431,
+      "cash_difference_percentage_points": 31.74690834504218,
+      "exposure_difference_percentage_points": -31.745466877360627,
+      "drawdown_improvement_percentage_points": 5.631079999999999
+    },
+    {
+      "period": "validation",
+      "variant": "E1",
+      "bp_per_day": 1.3255656827354616,
+      "cash_difference_percentage_points": 10.282704941930056,
+      "exposure_difference_percentage_points": -10.282272839126055,
+      "drawdown_improvement_percentage_points": 10.372480000000028
+    },
+    {
+      "period": "validation",
+      "variant": "R1",
+      "bp_per_day": 1.505558889165044,
+      "cash_difference_percentage_points": 9.81598288080486,
+      "exposure_difference_percentage_points": -9.81489050623166,
+      "drawdown_improvement_percentage_points": 9.919160844643816
+    }
+  ],
+  "primary_accounts_all16": [
+    {
+      "period": "development",
+      "variant": "E0",
+      "risk_scaling": false,
+      "total_return": 0.5685228999999998,
+      "max_drawdown": -0.3685580478867784,
+      "mean_cash_weight": 0.009643608820981583,
+      "mean_gross_exposure": 0.9903042831369261,
+      "annual_volatility": 0.23010935626652468,
+      "first_8pct_drawdown_date": "2016-01-11",
+      "first_12pct_drawdown_date": "2016-01-13",
+      "sessions_at_or_below_8pct_drawdown": 829,
+      "sessions_at_or_below_12pct_drawdown": 510
+    },
+    {
+      "period": "development",
+      "variant": "E0",
+      "risk_scaling": true,
+      "total_return": 0.40226609999999985,
+      "max_drawdown": -0.22241516546945272,
+      "mean_cash_weight": 0.39603258413650694,
+      "mean_gross_exposure": 0.6039338200356893,
+      "annual_volatility": 0.13059920178756068,
+      "first_8pct_drawdown_date": "2017-01-13",
+      "first_12pct_drawdown_date": "2017-05-10",
+      "sessions_at_or_below_8pct_drawdown": 336,
+      "sessions_at_or_below_12pct_drawdown": 158
+    },
+    {
+      "period": "development",
+      "variant": "R0",
+      "risk_scaling": false,
+      "total_return": 0.6071336999999994,
+      "max_drawdown": -0.36583592445951374,
+      "mean_cash_weight": 0.01129170821800466,
+      "mean_gross_exposure": 0.9886466612256044,
+      "annual_volatility": 0.23869324331595917,
+      "first_8pct_drawdown_date": "2016-01-11",
+      "first_12pct_drawdown_date": "2016-01-13",
+      "sessions_at_or_below_8pct_drawdown": 871,
+      "sessions_at_or_below_12pct_drawdown": 540
+    },
+    {
+      "period": "development",
+      "variant": "R0",
+      "risk_scaling": true,
+      "total_return": 0.4145237999999998,
+      "max_drawdown": -0.21441832982552111,
+      "mean_cash_weight": 0.42906360703996,
+      "mean_gross_exposure": 0.5708977963335656,
+      "annual_volatility": 0.12711091306949898,
+      "first_8pct_drawdown_date": "2017-01-13",
+      "first_12pct_drawdown_date": "2017-05-10",
+      "sessions_at_or_below_8pct_drawdown": 330,
+      "sessions_at_or_below_12pct_drawdown": 152
+    },
+    {
+      "period": "development",
+      "variant": "E1",
+      "risk_scaling": false,
+      "total_return": 0.49955859999999985,
+      "max_drawdown": -0.18360938017213657,
+      "mean_cash_weight": 0.36792123190896087,
+      "mean_gross_exposure": 0.6320469754870951,
+      "annual_volatility": 0.17092853911016914,
+      "first_8pct_drawdown_date": "2017-01-12",
+      "first_12pct_drawdown_date": "2017-05-10",
+      "sessions_at_or_below_8pct_drawdown": 295,
+      "sessions_at_or_below_12pct_drawdown": 143
+    },
+    {
+      "period": "development",
+      "variant": "E1",
+      "risk_scaling": true,
+      "total_return": 0.3540136999999999,
+      "max_drawdown": -0.12131835140105174,
+      "mean_cash_weight": 0.5673887078589459,
+      "mean_gross_exposure": 0.43258501381287845,
+      "annual_volatility": 0.11008379947877067,
+      "first_8pct_drawdown_date": "2017-01-13",
+      "first_12pct_drawdown_date": "2017-05-23",
+      "sessions_at_or_below_8pct_drawdown": 79,
+      "sessions_at_or_below_12pct_drawdown": 2
+    },
+    {
+      "period": "development",
+      "variant": "R1",
+      "risk_scaling": false,
+      "total_return": 0.47070209999999957,
+      "max_drawdown": -0.2084172457506751,
+      "mean_cash_weight": 0.3702051386122071,
+      "mean_gross_exposure": 0.6297567513299742,
+      "annual_volatility": 0.18066771486781025,
+      "first_8pct_drawdown_date": "2017-01-12",
+      "first_12pct_drawdown_date": "2017-05-10",
+      "sessions_at_or_below_8pct_drawdown": 324,
+      "sessions_at_or_below_12pct_drawdown": 166
+    },
+    {
+      "period": "development",
+      "variant": "R1",
+      "risk_scaling": true,
+      "total_return": 0.3374526,
+      "max_drawdown": -0.12131835140105174,
+      "mean_cash_weight": 0.5891862886448543,
+      "mean_gross_exposure": 0.4107839752498237,
+      "annual_volatility": 0.10778078332158848,
+      "first_8pct_drawdown_date": "2017-01-13",
+      "first_12pct_drawdown_date": "2017-05-23",
+      "sessions_at_or_below_8pct_drawdown": 100,
+      "sessions_at_or_below_12pct_drawdown": 2
+    },
+    {
+      "period": "validation",
+      "variant": "E0",
+      "risk_scaling": false,
+      "total_return": -0.22648258,
+      "max_drawdown": -0.41710245999999995,
+      "mean_cash_weight": 0.039879907502749425,
+      "mean_gross_exposure": 0.9600815926379604,
+      "annual_volatility": 0.24653900224031342,
+      "first_8pct_drawdown_date": "2022-03-08",
+      "first_12pct_drawdown_date": "2022-03-15",
+      "sessions_at_or_below_8pct_drawdown": 654,
+      "sessions_at_or_below_12pct_drawdown": 589
+    },
+    {
+      "period": "validation",
+      "variant": "E0",
+      "risk_scaling": true,
+      "total_return": -0.1516385,
+      "max_drawdown": -0.3607939000000001,
+      "mean_cash_weight": 0.366458961297909,
+      "mean_gross_exposure": 0.6335135117336043,
+      "annual_volatility": 0.16723966727201042,
+      "first_8pct_drawdown_date": "2022-03-09",
+      "first_12pct_drawdown_date": "2022-04-21",
+      "sessions_at_or_below_8pct_drawdown": 646,
+      "sessions_at_or_below_12pct_drawdown": 524
+    },
+    {
+      "period": "validation",
+      "variant": "R0",
+      "risk_scaling": false,
+      "total_return": -0.20522260000000037,
+      "max_drawdown": -0.3765519000000003,
+      "mean_cash_weight": 0.07216685994677247,
+      "mean_gross_exposure": 0.9277821161598414,
+      "annual_volatility": 0.2165548292676683,
+      "first_8pct_drawdown_date": "2022-03-15",
+      "first_12pct_drawdown_date": "2022-04-21",
+      "sessions_at_or_below_8pct_drawdown": 572,
+      "sessions_at_or_below_12pct_drawdown": 448
+    },
+    {
+      "period": "validation",
+      "variant": "R0",
+      "risk_scaling": true,
+      "total_return": -0.05816670000000013,
+      "max_drawdown": -0.3202411000000003,
+      "mean_cash_weight": 0.38963594339719426,
+      "mean_gross_exposure": 0.6103274473862351,
+      "annual_volatility": 0.16527431398631812,
+      "first_8pct_drawdown_date": "2022-04-21",
+      "first_12pct_drawdown_date": "2022-04-26",
+      "sessions_at_or_below_8pct_drawdown": 437,
+      "sessions_at_or_below_12pct_drawdown": 278
+    },
+    {
+      "period": "validation",
+      "variant": "E1",
+      "risk_scaling": false,
+      "total_return": -0.3078130000000002,
+      "max_drawdown": -0.3435010000000004,
+      "mean_cash_weight": 0.7006258052690528,
+      "mean_gross_exposure": 0.29936614288963265,
+      "annual_volatility": 0.10782678692616915,
+      "first_8pct_drawdown_date": "2023-04-25",
+      "first_12pct_drawdown_date": "2023-08-14",
+      "sessions_at_or_below_8pct_drawdown": 403,
+      "sessions_at_or_below_12pct_drawdown": 336
+    },
+    {
+      "period": "validation",
+      "variant": "E1",
+      "risk_scaling": true,
+      "total_return": -0.22904619999999998,
+      "max_drawdown": -0.2397762000000001,
+      "mean_cash_weight": 0.8034528546883533,
+      "mean_gross_exposure": 0.1965434144983721,
+      "annual_volatility": 0.06031316565739876,
+      "first_8pct_drawdown_date": "2023-05-12",
+      "first_12pct_drawdown_date": "2023-08-16",
+      "sessions_at_or_below_8pct_drawdown": 393,
+      "sessions_at_or_below_12pct_drawdown": 333
+    },
+    {
+      "period": "validation",
+      "variant": "R1",
+      "risk_scaling": false,
+      "total_return": -0.2714382999999999,
+      "max_drawdown": -0.2997246097149836,
+      "mean_cash_weight": 0.7069501299898288,
+      "mean_gross_exposure": 0.2930287058780332,
+      "annual_volatility": 0.09463446791528576,
+      "first_8pct_drawdown_date": "2023-08-11",
+      "first_12pct_drawdown_date": "2023-08-23",
+      "sessions_at_or_below_8pct_drawdown": 337,
+      "sessions_at_or_below_12pct_drawdown": 154
+    },
+    {
+      "period": "validation",
+      "variant": "R1",
+      "risk_scaling": true,
+      "total_return": -0.18048419999999987,
+      "max_drawdown": -0.20053300126854545,
+      "mean_cash_weight": 0.8051099587978773,
+      "mean_gross_exposure": 0.1948798008157166,
+      "annual_volatility": 0.056417377043250054,
+      "first_8pct_drawdown_date": "2023-08-15",
+      "first_12pct_drawdown_date": "2023-08-23",
+      "sessions_at_or_below_8pct_drawdown": 335,
+      "sessions_at_or_below_12pct_drawdown": 134
+    }
+  ],
+  "all_capital_base_rank_contrasts_retained_from_frozen_review": [
+    {
+      "annual_differences": [
+        {
+          "additive_return_contribution_difference": 0.0,
+          "mean_daily_net_increment": 0.0,
+          "pnl_difference_cny": 0.0,
+          "year": 2016
+        },
+        {
+          "additive_return_contribution_difference": 0.0,
+          "mean_daily_net_increment": 0.0,
+          "pnl_difference_cny": 0.0,
+          "year": 2017
+        },
+        {
+          "additive_return_contribution_difference": -0.005969999999999975,
+          "mean_daily_net_increment": -3.205132675298454e-05,
+          "pnl_difference_cny": -59.69999999999982,
+          "year": 2018
+        },
+        {
+          "additive_return_contribution_difference": 0.017299999999999927,
+          "mean_daily_net_increment": 8.778715153809802e-05,
+          "pnl_difference_cny": 172.9999999999991,
+          "year": 2019
+        },
+        {
+          "additive_return_contribution_difference": 0.05373000000000028,
+          "mean_daily_net_increment": 0.0001560968321507488,
+          "pnl_difference_cny": 537.3000000000029,
+          "year": 2020
+        },
+        {
+          "additive_return_contribution_difference": -0.002350000000000546,
+          "mean_daily_net_increment": 1.5789065919442906e-05,
+          "pnl_difference_cny": -23.500000000005457,
+          "year": 2021
+        }
+      ],
+      "baseline": "E0",
+      "cagr_difference": 0.007223232239764288,
+      "candidate": "R0",
+      "fee_difference_cny": 40.0,
+      "initial_cash": 10000,
+      "mean_daily_net_increment": 3.7919141550566225e-05,
+      "n_dates": 1461,
+      "one_way_turnover_difference": 5.554401210437969,
+      "path": "base",
+      "period": "development",
+      "risk_scaling": false,
+      "terminal_return_difference": 0.0627099999999996,
+      "uncertainty": {
+        "ci95": null,
+        "p_net": null,
+        "status": "DESCRIPTIVE_SCENARIO_ONLY"
+      }
+    },
+    {
+      "annual_differences": [
+        {
+          "additive_return_contribution_difference": 0.0,
+          "mean_daily_net_increment": 0.0,
+          "pnl_difference_cny": 0.0,
+          "year": 2016
+        },
+        {
+          "additive_return_contribution_difference": 0.0,
+          "mean_daily_net_increment": 0.0,
+          "pnl_difference_cny": 0.0,
+          "year": 2017
+        },
+        {
+          "additive_return_contribution_difference": -0.006870000000000073,
+          "mean_daily_net_increment": -3.1074568790109367e-05,
+          "pnl_difference_cny": -68.70000000000073,
+          "year": 2018
+        },
+        {
+          "additive_return_contribution_difference": 0.01497000000000008,
+          "mean_daily_net_increment": 6.135409570556077e-05,
+          "pnl_difference_cny": 149.70000000000073,
+          "year": 2019
+        },
+        {
+          "additive_return_contribution_difference": 0.022340000000000138,
+          "mean_daily_net_increment": 7.771907518332355e-05,
+          "pnl_difference_cny": 223.40000000000146,
+          "year": 2020
+        },
+        {
+          "additive_return_contribution_difference": -0.04072000000000006,
+          "mean_daily_net_increment": -9.040087336590666e-05,
+          "pnl_difference_cny": -407.2000000000007,
+          "year": 2021
+        }
+      ],
+      "baseline": "E1",
+      "cagr_difference": -0.001261379713093147,
+      "candidate": "R1",
+      "fee_difference_cny": -5.0,
+      "initial_cash": 10000,
+      "mean_daily_net_increment": 2.9689268841838156e-06,
+      "n_dates": 1461,
+      "one_way_turnover_difference": 2.882465526385098,
+      "path": "base",
+      "period": "development",
+      "risk_scaling": false,
+      "terminal_return_difference": -0.010280000000000067,
+      "uncertainty": {
+        "ci95": null,
+        "p_net": null,
+        "status": "DESCRIPTIVE_SCENARIO_ONLY"
+      }
+    },
+    {
+      "annual_differences": [
+        {
+          "additive_return_contribution_difference": 0.0,
+          "mean_daily_net_increment": 0.0,
+          "pnl_difference_cny": 0.0,
+          "year": 2016
+        },
+        {
+          "additive_return_contribution_difference": 0.0,
+          "mean_daily_net_increment": 0.0,
+          "pnl_difference_cny": 0.0,
+          "year": 2017
+        },
+        {
+          "additive_return_contribution_difference": 0.004309999999999953,
+          "mean_daily_net_increment": 1.8928066187533182e-05,
+          "pnl_difference_cny": 43.099999999999454,
+          "year": 2018
+        },
+        {
+          "additive_return_contribution_difference": 0.012860000000000121,
+          "mean_daily_net_increment": 5.059858682896481e-05,
+          "pnl_difference_cny": 128.60000000000127,
+          "year": 2019
+        },
+        {
+          "additive_return_contribution_difference": 0.015269999999999728,
+          "mean_daily_net_increment": 3.66956731200891e-05,
+          "pnl_difference_cny": 152.6999999999971,
+          "year": 2020
+        },
+        {
+          "additive_return_contribution_difference": -0.011450000000000002,
+          "mean_daily_net_increment": -4.214429324520431e-05,
+          "pnl_difference_cny": -114.5,
+          "year": 2021
+        }
+      ],
+      "baseline": "E0",
+      "cagr_difference": 0.0028393944473463772,
+      "candidate": "R0",
+      "fee_difference_cny": 20.0,
+      "initial_cash": 10000,
+      "mean_daily_net_increment": 1.0692375482159466e-05,
+      "n_dates": 1461,
+      "one_way_turnover_difference": 2.0271756002683334,
+      "path": "base",
+      "period": "development",
+      "risk_scaling": true,
+      "terminal_return_difference": 0.020989999999999842,
+      "uncertainty": {
+        "ci95": null,
+        "p_net": null,
+        "status": "DESCRIPTIVE_SCENARIO_ONLY"
+      }
+    },
+    {
+      "annual_differences": [
+        {
+          "additive_return_contribution_difference": 0.0,
+          "mean_daily_net_increment": 0.0,
+          "pnl_difference_cny": 0.0,
+          "year": 2016
+        },
+        {
+          "additive_return_contribution_difference": 0.0,
+          "mean_daily_net_increment": 0.0,
+          "pnl_difference_cny": 0.0,
+          "year": 2017
+        },
+        {
+          "additive_return_contribution_difference": -0.003460000000000218,
+          "mean_daily_net_increment": -1.5810236424239316e-05,
+          "pnl_difference_cny": -34.60000000000218,
+          "year": 2018
+        },
+        {
+          "additive_return_contribution_difference": 0.0046200000000000685,
+          "mean_daily_net_increment": 1.9093045881044947e-05,
+          "pnl_difference_cny": 46.20000000000073,
+          "year": 2019
+        },
+        {
+          "additive_return_contribution_difference": 0.010370000000000074,
+          "mean_daily_net_increment": 3.708622883884598e-05,
+          "pnl_difference_cny": 103.70000000000073,
+          "year": 2020
+        },
+        {
+          "additive_return_contribution_difference": -0.03223999999999996,
+          "mean_daily_net_increment": -0.00010695535804723067,
+          "pnl_difference_cny": -322.39999999999964,
+          "year": 2021
+        }
+      ],
+      "baseline": "E1",
+      "cagr_difference": -0.002841489472976022,
+      "candidate": "R1",
+      "fee_difference_cny": 5.0,
+      "initial_cash": 10000,
+      "mean_daily_net_increment": -1.1061863554929956e-05,
+      "n_dates": 1461,
+      "one_way_turnover_difference": 1.040066627233021,
+      "path": "base",
+      "period": "development",
+      "risk_scaling": true,
+      "terminal_return_difference": -0.020710000000000006,
+      "uncertainty": {
+        "ci95": null,
+        "p_net": null,
+        "status": "DESCRIPTIVE_SCENARIO_ONLY"
+      }
+    },
+    {
+      "annual_differences": [
+        {
+          "additive_return_contribution_difference": 0.0,
+          "mean_daily_net_increment": 0.0,
+          "pnl_difference_cny": 0.0,
+          "year": 2016
+        },
+        {
+          "additive_return_contribution_difference": 0.0,
+          "mean_daily_net_increment": 0.0,
+          "pnl_difference_cny": 0.0,
+          "year": 2017
+        },
+        {
+          "additive_return_contribution_difference": 0.0017056999999999212,
+          "mean_daily_net_increment": 5.636000733416521e-06,
+          "pnl_difference_cny": 170.56999999999243,
+          "year": 2018
+        },
+        {
+          "additive_return_contribution_difference": 0.008438499999999904,
+          "mean_daily_net_increment": 2.9500574845811816e-05,
+          "pnl_difference_cny": 843.8499999999913,
+          "year": 2019
+        },
+        {
+          "additive_return_contribution_difference": 0.036334000000000255,
+          "mean_daily_net_increment": 0.00010666349231152738,
+          "pnl_difference_cny": 3633.4000000000233,
+          "year": 2020
+        },
+        {
+          "additive_return_contribution_difference": -0.007867400000000496,
+          "mean_daily_net_increment": 6.483979491674298e-06,
+          "pnl_difference_cny": -786.7400000000489,
+          "year": 2021
+        }
+      ],
+      "baseline": "E0",
+      "cagr_difference": 0.004383000762878897,
+      "candidate": "R0",
+      "fee_difference_cny": 140.51999999999975,
+      "initial_cash": 100000,
+      "mean_daily_net_increment": 2.4683452490606644e-05,
+      "n_dates": 1461,
+      "one_way_turnover_difference": 5.887133524640154,
+      "path": "base",
+      "period": "development",
+      "risk_scaling": false,
+      "terminal_return_difference": 0.03861079999999961,
+      "uncertainty": {
+        "exploratory_zero_hurdle": {
+          "annual_incremental_cost_assumed_cny": 0,
+          "blocks": [
+            {
+              "block_length": 60,
+              "caveat": "Approximate under weak stationarity; short/nonstationary histories need caution.",
+              "ci95": [
+                -6.77059382628536e-05,
+                0.00010966467421563779
+              ],
+              "daily_hurdle": 0.0,
+              "hac_lag": 7,
+              "hac_se": 5.9825478782928374e-05,
+              "interval_type": "marginal_95_percent",
+              "mean_net_increment": 2.4683452490606644e-05,
+              "method": "circular_block_bootstrap_t_HAC",
+              "minimum_detectable_daily_effect_80pct": 0.00014875454901258647,
+              "n_dates": 1461,
+              "p_hac": 0.33995315809960186,
+              "p_net": 0.30553889222155567,
+              "repetitions": 5000,
+              "seed": 20261114,
+              "status": "DESCRIPTIVE_INFERENCE"
+            },
+            {
+              "block_length": 20,
+              "caveat": "Approximate under weak stationarity; short/nonstationary histories need caution.",
+              "ci95": [
+                -9.411378437088977e-05,
+                0.0001344853621790373
+              ],
+              "daily_hurdle": 0.0,
+              "hac_lag": 7,
+              "hac_se": 5.9825478782928374e-05,
+              "interval_type": "marginal_95_percent",
+              "mean_net_increment": 2.4683452490606644e-05,
+              "method": "circular_block_bootstrap_t_HAC",
+              "minimum_detectable_daily_effect_80pct": 0.00014875454901258647,
+              "n_dates": 1461,
+              "p_hac": 0.33995315809960186,
+              "p_net": 0.34573085382923413,
+              "repetitions": 5000,
+              "seed": 20261114,
+              "status": "DESCRIPTIVE_INFERENCE"
+            },
+            {
+              "block_length": 120,
+              "caveat": "Approximate under weak stationarity; short/nonstationary histories need caution.",
+              "ci95": [
+                -4.203433280375422e-05,
+                8.010289300008444e-05
+              ],
+              "daily_hurdle": 0.0,
+              "hac_lag": 7,
+              "hac_se": 5.9825478782928374e-05,
+              "interval_type": "marginal_95_percent",
+              "mean_net_increment": 2.4683452490606644e-05,
+              "method": "circular_block_bootstrap_t_HAC",
+              "minimum_detectable_daily_effect_80pct": 0.00014875454901258647,
+              "n_dates": 1461,
+              "p_hac": 0.33995315809960186,
+              "p_net": 0.20335932813437313,
+              "repetitions": 5000,
+              "seed": 20261114,
+              "status": "DESCRIPTIVE_INFERENCE"
+            }
+          ],
+          "factor_alpha": false,
+          "interpretation": "Marginal paired diagnostics only; unknown time/operating costs are assumed zero. Not economic confirmation, final testing, or a registered primary-candidate selection.",
+          "main_block_length": 60,
+          "multiplicity_confirmed": false,
+          "status": "EXPLORATORY_ZERO_INCREMENTAL_COST_ASSUMPTION"
+        },
+        "formal": {
+          "block_length": 60,
+          "ci95": null,
+          "interval_type": "marginal_95_percent",
+          "mean_net_increment": 2.4683452490606644e-05,
+          "method": "circular_block_bootstrap_t_HAC",
+          "n_dates": 1461,
+          "p_net": null,
+          "repetitions": 5000,
+          "seed": 20261114,
+          "status": "BLOCKED_HURDLE"
+        }
+      }
+    },
+    {
+      "annual_differences": [
+        {
+          "additive_return_contribution_difference": 0.0,
+          "mean_daily_net_increment": 0.0,
+          "pnl_difference_cny": 0.0,
+          "year": 2016
+        },
+        {
+          "additive_return_contribution_difference": 0.0,
+          "mean_daily_net_increment": 0.0,
+          "pnl_difference_cny": 0.0,
+          "year": 2017
+        },
+        {
+          "additive_return_contribution_difference": -0.008125500000000029,
+          "mean_daily_net_increment": -3.7226335908632357e-05,
+          "pnl_difference_cny": -812.5500000000029,
+          "year": 2018
+        },
+        {
+          "additive_return_contribution_difference": 0.019116800000000073,
+          "mean_daily_net_increment": 7.38648880332016e-05,
+          "pnl_difference_cny": 1911.6800000000076,
+          "year": 2019
+        },
+        {
+          "additive_return_contribution_difference": 0.006458799999999765,
+          "mean_daily_net_increment": 2.58913132931348e-05,
+          "pnl_difference_cny": 645.8799999999756,
+          "year": 2020
+        },
+        {
+          "additive_return_contribution_difference": -0.046306600000000045,
+          "mean_daily_net_increment": -0.00010171955218785248,
+          "pnl_difference_cny": -4630.6600000000035,
+          "year": 2021
+        }
+      ],
+      "baseline": "E1",
+      "cagr_difference": -0.003463331811167869,
+      "candidate": "R1",
+      "fee_difference_cny": 91.15000000000009,
+      "initial_cash": 100000,
+      "mean_daily_net_increment": -6.467644761884236e-06,
+      "n_dates": 1461,
+      "one_way_turnover_difference": 3.101089602562685,
+      "path": "base",
+      "period": "development",
+      "risk_scaling": false,
+      "terminal_return_difference": -0.028856500000000285,
+      "uncertainty": {
+        "exploratory_zero_hurdle": {
+          "annual_incremental_cost_assumed_cny": 0,
+          "blocks": [
+            {
+              "block_length": 60,
+              "caveat": "Approximate under weak stationarity; short/nonstationary histories need caution.",
+              "ci95": [
+                -8.438208174817509e-05,
+                5.826710084289322e-05
+              ],
+              "daily_hurdle": 0.0,
+              "hac_lag": 7,
+              "hac_se": 4.8978519530483003e-05,
+              "interval_type": "marginal_95_percent",
+              "mean_net_increment": -6.467644761884236e-06,
+              "method": "circular_block_bootstrap_t_HAC",
+              "minimum_detectable_daily_effect_80pct": 0.00012178385751824865,
+              "n_dates": 1461,
+              "p_hac": 0.5525278805430145,
+              "p_net": 0.5902819436112777,
+              "repetitions": 5000,
+              "seed": 20261114,
+              "status": "DESCRIPTIVE_INFERENCE"
+            },
+            {
+              "block_length": 20,
+              "caveat": "Approximate under weak stationarity; short/nonstationary histories need caution.",
+              "ci95": [
+                -0.00010820719171495273,
+                7.747468589349707e-05
+              ],
+              "daily_hurdle": 0.0,
+              "hac_lag": 7,
+              "hac_se": 4.8978519530483003e-05,
+              "interval_type": "marginal_95_percent",
+              "mean_net_increment": -6.467644761884236e-06,
+              "method": "circular_block_bootstrap_t_HAC",
+              "minimum_detectable_daily_effect_80pct": 0.00012178385751824865,
+              "n_dates": 1461,
+              "p_hac": 0.5525278805430145,
+              "p_net": 0.5594881023795241,
+              "repetitions": 5000,
+              "seed": 20261114,
+              "status": "DESCRIPTIVE_INFERENCE"
+            },
+            {
+              "block_length": 120,
+              "ci95": null,
+              "daily_hurdle": 0.0,
+              "interval_type": "marginal_95_percent",
+              "mean_net_increment": -6.467644761884236e-06,
+              "method": "circular_block_bootstrap_t_HAC",
+              "n_dates": 1461,
+              "p_net": null,
+              "repetitions": 5000,
+              "seed": 20261114,
+              "status": "INCONCLUSIVE_DEGENERATE_BOOTSTRAP"
+            }
+          ],
+          "factor_alpha": false,
+          "interpretation": "Marginal paired diagnostics only; unknown time/operating costs are assumed zero. Not economic confirmation, final testing, or a registered primary-candidate selection.",
+          "main_block_length": 60,
+          "multiplicity_confirmed": false,
+          "status": "EXPLORATORY_ZERO_INCREMENTAL_COST_ASSUMPTION"
+        },
+        "formal": {
+          "block_length": 60,
+          "ci95": null,
+          "interval_type": "marginal_95_percent",
+          "mean_net_increment": -6.467644761884236e-06,
+          "method": "circular_block_bootstrap_t_HAC",
+          "n_dates": 1461,
+          "p_net": null,
+          "repetitions": 5000,
+          "seed": 20261114,
+          "status": "BLOCKED_HURDLE"
+        }
+      }
+    },
+    {
+      "annual_differences": [
+        {
+          "additive_return_contribution_difference": 0.0,
+          "mean_daily_net_increment": 0.0,
+          "pnl_difference_cny": 0.0,
+          "year": 2016
+        },
+        {
+          "additive_return_contribution_difference": 0.0,
+          "mean_daily_net_increment": 0.0,
+          "pnl_difference_cny": 0.0,
+          "year": 2017
+        },
+        {
+          "additive_return_contribution_difference": 0.006909000000000082,
+          "mean_daily_net_increment": 3.1783431280426e-05,
+          "pnl_difference_cny": 690.9000000000087,
+          "year": 2018
+        },
+        {
+          "additive_return_contribution_difference": 0.00856269999999959,
+          "mean_daily_net_increment": 2.5197938087420612e-05,
+          "pnl_difference_cny": 856.2699999999604,
+          "year": 2019
+        },
+        {
+          "additive_return_contribution_difference": 0.01822509999999994,
+          "mean_daily_net_increment": 3.8648680494976395e-05,
+          "pnl_difference_cny": 1822.5099999999948,
+          "year": 2020
+        },
+        {
+          "additive_return_contribution_difference": -0.021439099999999746,
+          "mean_daily_net_increment": -7.073339991838488e-05,
+          "pnl_difference_cny": -2143.9099999999744,
+          "year": 2021
+        }
+      ],
+      "baseline": "E0",
+      "cagr_difference": 0.001537612157776147,
+      "candidate": "R0",
+      "fee_difference_cny": -135.3699999999999,
+      "initial_cash": 100000,
+      "mean_daily_net_increment": 4.158168291982125e-06,
+      "n_dates": 1461,
+      "one_way_turnover_difference": 2.5784746057864627,
+      "path": "base",
+      "period": "development",
+      "risk_scaling": true,
+      "terminal_return_difference": 0.012257699999999927,
+      "uncertainty": {
+        "exploratory_zero_hurdle": {
+          "annual_incremental_cost_assumed_cny": 0,
+          "blocks": [
+            {
+              "block_length": 60,
+              "caveat": "Approximate under weak stationarity; short/nonstationary histories need caution.",
+              "ci95": [
+                -4.3273449254290226e-05,
+                5.38738393871911e-05
+              ],
+              "daily_hurdle": 0.0,
+              "hac_lag": 7,
+              "hac_se": 2.8274521398455018e-05,
+              "interval_type": "marginal_95_percent",
+              "mean_net_increment": 4.158168291982125e-06,
+              "method": "circular_block_bootstrap_t_HAC",
+              "minimum_detectable_daily_effect_80pct": 7.030388665061722e-05,
+              "n_dates": 1461,
+              "p_hac": 0.44154069544528335,
+              "p_net": 0.4335132973405319,
+              "repetitions": 5000,
+              "seed": 20261114,
+              "status": "DESCRIPTIVE_INFERENCE"
+            },
+            {
+              "block_length": 20,
+              "caveat": "Approximate under weak stationarity; short/nonstationary histories need caution.",
+              "ci95": [
+                -4.799424953316798e-05,
+                5.602540181954403e-05
+              ],
+              "daily_hurdle": 0.0,
+              "hac_lag": 7,
+              "hac_se": 2.8274521398455018e-05,
+              "interval_type": "marginal_95_percent",
+              "mean_net_increment": 4.158168291982125e-06,
+              "method": "circular_block_bootstrap_t_HAC",
+              "minimum_detectable_daily_effect_80pct": 7.030388665061722e-05,
+              "n_dates": 1461,
+              "p_hac": 0.44154069544528335,
+              "p_net": 0.4321135772845431,
+              "repetitions": 5000,
+              "seed": 20261114,
+              "status": "DESCRIPTIVE_INFERENCE"
+            },
+            {
+              "block_length": 120,
+              "caveat": "Approximate under weak stationarity; short/nonstationary histories need caution.",
+              "ci95": [
+                -4.296376842524342e-05,
+                5.0909855396982484e-05
+              ],
+              "daily_hurdle": 0.0,
+              "hac_lag": 7,
+              "hac_se": 2.8274521398455018e-05,
+              "interval_type": "marginal_95_percent",
+              "mean_net_increment": 4.158168291982125e-06,
+              "method": "circular_block_bootstrap_t_HAC",
+              "minimum_detectable_daily_effect_80pct": 7.030388665061722e-05,
+              "n_dates": 1461,
+              "p_hac": 0.44154069544528335,
+              "p_net": 0.4539092181563687,
+              "repetitions": 5000,
+              "seed": 20261114,
+              "status": "DESCRIPTIVE_INFERENCE"
+            }
+          ],
+          "factor_alpha": false,
+          "interpretation": "Marginal paired diagnostics only; unknown time/operating costs are assumed zero. Not economic confirmation, final testing, or a registered primary-candidate selection.",
+          "main_block_length": 60,
+          "multiplicity_confirmed": false,
+          "status": "EXPLORATORY_ZERO_INCREMENTAL_COST_ASSUMPTION"
+        },
+        "formal": {
+          "block_length": 60,
+          "ci95": null,
+          "interval_type": "marginal_95_percent",
+          "mean_net_increment": 4.158168291982125e-06,
+          "method": "circular_block_bootstrap_t_HAC",
+          "n_dates": 1461,
+          "p_net": null,
+          "repetitions": 5000,
+          "seed": 20261114,
+          "status": "BLOCKED_HURDLE"
+        }
+      }
+    },
+    {
+      "annual_differences": [
+        {
+          "additive_return_contribution_difference": 0.0,
+          "mean_daily_net_increment": 0.0,
+          "pnl_difference_cny": 0.0,
+          "year": 2016
+        },
+        {
+          "additive_return_contribution_difference": 0.0,
+          "mean_daily_net_increment": 0.0,
+          "pnl_difference_cny": 0.0,
+          "year": 2017
+        },
+        {
+          "additive_return_contribution_difference": -0.004628699999999808,
+          "mean_daily_net_increment": -2.0504423935418612e-05,
+          "pnl_difference_cny": -462.8699999999808,
+          "year": 2018
+        },
+        {
+          "additive_return_contribution_difference": 0.01101559999999982,
+          "mean_daily_net_increment": 4.30102384240041e-05,
+          "pnl_difference_cny": 1101.5599999999831,
+          "year": 2019
+        },
+        {
+          "additive_return_contribution_difference": 0.01736440000000003,
+          "mean_daily_net_increment": 4.86887070123364e-05,
+          "pnl_difference_cny": 1736.4400000000023,
+          "year": 2020
+        },
+        {
+          "additive_return_contribution_difference": -0.0403123999999999,
+          "mean_daily_net_increment": -0.00012812302608816695,
+          "pnl_difference_cny": -4031.2399999999907,
+          "year": 2021
+        }
+      ],
+      "baseline": "E1",
+      "cagr_difference": -0.002157727430784906,
+      "candidate": "R1",
+      "fee_difference_cny": -101.68999999999994,
+      "initial_cash": 100000,
+      "mean_daily_net_increment": -9.439162475206395e-06,
+      "n_dates": 1461,
+      "one_way_turnover_difference": 1.1988382360367984,
+      "path": "base",
+      "period": "development",
+      "risk_scaling": true,
+      "terminal_return_difference": -0.016561099999999884,
+      "uncertainty": {
+        "exploratory_zero_hurdle": {
+          "annual_incremental_cost_assumed_cny": 0,
+          "blocks": [
+            {
+              "block_length": 60,
+              "caveat": "Approximate under weak stationarity; short/nonstationary histories need caution.",
+              "ci95": [
+                -4.859694244370795e-05,
+                3.0108011619390912e-05
+              ],
+              "daily_hurdle": 0.0,
+              "hac_lag": 7,
+              "hac_se": 2.291134359198941e-05,
+              "interval_type": "marginal_95_percent",
+              "mean_net_increment": -9.439162475206395e-06,
+              "method": "circular_block_bootstrap_t_HAC",
+              "minimum_detectable_daily_effect_80pct": 5.6968479862318156e-05,
+              "n_dates": 1461,
+              "p_hac": 0.6598253123901754,
+              "p_net": 0.68126374725055,
+              "repetitions": 5000,
+              "seed": 20261114,
+              "status": "DESCRIPTIVE_INFERENCE"
+            },
+            {
+              "block_length": 20,
+              "caveat": "Approximate under weak stationarity; short/nonstationary histories need caution.",
+              "ci95": [
+                -5.302904341173721e-05,
+                3.353938379983213e-05
+              ],
+              "daily_hurdle": 0.0,
+              "hac_lag": 7,
+              "hac_se": 2.291134359198941e-05,
+              "interval_type": "marginal_95_percent",
+              "mean_net_increment": -9.439162475206395e-06,
+              "method": "circular_block_bootstrap_t_HAC",
+              "minimum_detectable_daily_effect_80pct": 5.6968479862318156e-05,
+              "n_dates": 1461,
+              "p_hac": 0.6598253123901754,
+              "p_net": 0.6522695460907818,
+              "repetitions": 5000,
+              "seed": 20261114,
+              "status": "DESCRIPTIVE_INFERENCE"
+            },
+            {
+              "block_length": 120,
+              "ci95": null,
+              "daily_hurdle": 0.0,
+              "interval_type": "marginal_95_percent",
+              "mean_net_increment": -9.439162475206395e-06,
+              "method": "circular_block_bootstrap_t_HAC",
+              "n_dates": 1461,
+              "p_net": null,
+              "repetitions": 5000,
+              "seed": 20261114,
+              "status": "INCONCLUSIVE_DEGENERATE_BOOTSTRAP"
+            }
+          ],
+          "factor_alpha": false,
+          "interpretation": "Marginal paired diagnostics only; unknown time/operating costs are assumed zero. Not economic confirmation, final testing, or a registered primary-candidate selection.",
+          "main_block_length": 60,
+          "multiplicity_confirmed": false,
+          "status": "EXPLORATORY_ZERO_INCREMENTAL_COST_ASSUMPTION"
+        },
+        "formal": {
+          "block_length": 60,
+          "ci95": null,
+          "interval_type": "marginal_95_percent",
+          "mean_net_increment": -9.439162475206395e-06,
+          "method": "circular_block_bootstrap_t_HAC",
+          "n_dates": 1461,
+          "p_net": null,
+          "repetitions": 5000,
+          "seed": 20261114,
+          "status": "BLOCKED_HURDLE"
+        }
+      }
+    },
+    {
+      "annual_differences": [
+        {
+          "additive_return_contribution_difference": 0.0,
+          "mean_daily_net_increment": 0.0,
+          "pnl_difference_cny": 0.0,
+          "year": 2016
+        },
+        {
+          "additive_return_contribution_difference": 0.0,
+          "mean_daily_net_increment": 0.0,
+          "pnl_difference_cny": 0.0,
+          "year": 2017
+        },
+        {
+          "additive_return_contribution_difference": 0.0015894000000000186,
+          "mean_daily_net_increment": 4.896769509606702e-06,
+          "pnl_difference_cny": 794.7000000000116,
+          "year": 2018
+        },
+        {
+          "additive_return_contribution_difference": 0.006325940000000252,
+          "mean_daily_net_increment": 1.9986053418968316e-05,
+          "pnl_difference_cny": 3162.9700000001467,
+          "year": 2019
+        },
+        {
+          "additive_return_contribution_difference": 0.03564567999999996,
+          "mean_daily_net_increment": 0.00010705575145632829,
+          "pnl_difference_cny": 17822.839999999967,
+          "year": 2020
+        },
+        {
+          "additive_return_contribution_difference": -0.0092645800000003,
+          "mean_daily_net_increment": 2.3798803698218516e-06,
+          "pnl_difference_cny": -4632.290000000154,
+          "year": 2021
+        }
+      ],
+      "baseline": "E0",
+      "cagr_difference": 0.003877092623189471,
+      "candidate": "R0",
+      "fee_difference_cny": 1805.1799999999998,
+      "initial_cash": 500000,
+      "mean_daily_net_increment": 2.235412084792415e-05,
+      "n_dates": 1461,
+      "one_way_turnover_difference": 5.898858885094302,
+      "path": "base",
+      "period": "development",
+      "risk_scaling": false,
+      "terminal_return_difference": 0.03429643999999987,
+      "uncertainty": {
+        "ci95": null,
+        "p_net": null,
+        "status": "DESCRIPTIVE_SCENARIO_ONLY"
+      }
+    },
+    {
+      "annual_differences": [
+        {
+          "additive_return_contribution_difference": 0.0,
+          "mean_daily_net_increment": 0.0,
+          "pnl_difference_cny": 0.0,
+          "year": 2016
+        },
+        {
+          "additive_return_contribution_difference": 0.0,
+          "mean_daily_net_increment": 0.0,
+          "pnl_difference_cny": 0.0,
+          "year": 2017
+        },
+        {
+          "additive_return_contribution_difference": -0.008189660000000033,
+          "mean_daily_net_increment": -3.743782929323013e-05,
+          "pnl_difference_cny": -4094.8300000000163,
+          "year": 2018
+        },
+        {
+          "additive_return_contribution_difference": 0.014088959999999845,
+          "mean_daily_net_increment": 5.444764185887552e-05,
+          "pnl_difference_cny": 7044.479999999923,
+          "year": 2019
+        },
+        {
+          "additive_return_contribution_difference": 0.005199860000000084,
+          "mean_daily_net_increment": 2.465778930202469e-05,
+          "pnl_difference_cny": 2599.930000000051,
+          "year": 2020
+        },
+        {
+          "additive_return_contribution_difference": -0.04823904000000004,
+          "mean_daily_net_increment": -0.00010509871326228654,
+          "pnl_difference_cny": -24119.52000000002,
+          "year": 2021
+        }
+      ],
+      "baseline": "E1",
+      "cagr_difference": -0.004449058971577768,
+      "candidate": "R1",
+      "fee_difference_cny": 962.7399999999998,
+      "initial_cash": 500000,
+      "mean_daily_net_increment": -1.0512876404539988e-05,
+      "n_dates": 1461,
+      "one_way_turnover_difference": 3.0838064871148987,
+      "path": "base",
+      "period": "development",
+      "risk_scaling": false,
+      "terminal_return_difference": -0.037139880000000014,
+      "uncertainty": {
+        "ci95": null,
+        "p_net": null,
+        "status": "DESCRIPTIVE_SCENARIO_ONLY"
+      }
+    },
+    {
+      "annual_differences": [
+        {
+          "additive_return_contribution_difference": 0.0,
+          "mean_daily_net_increment": 0.0,
+          "pnl_difference_cny": 0.0,
+          "year": 2016
+        },
+        {
+          "additive_return_contribution_difference": 0.0,
+          "mean_daily_net_increment": 0.0,
+          "pnl_difference_cny": 0.0,
+          "year": 2017
+        },
+        {
+          "additive_return_contribution_difference": 0.0072380000000002165,
+          "mean_daily_net_increment": 3.3242745257535464e-05,
+          "pnl_difference_cny": 3619.0000000001164,
+          "year": 2018
+        },
+        {
+          "additive_return_contribution_difference": 0.008214999999999889,
+          "mean_daily_net_increment": 2.3138413779205758e-05,
+          "pnl_difference_cny": 4107.499999999942,
+          "year": 2019
+        },
+        {
+          "additive_return_contribution_difference": 0.017983900000000497,
+          "mean_daily_net_increment": 3.739849742347037e-05,
+          "pnl_difference_cny": 8991.950000000244,
+          "year": 2020
+        },
+        {
+          "additive_return_contribution_difference": -0.0242597800000005,
+          "mean_daily_net_increment": -7.868568188440689e-05,
+          "pnl_difference_cny": -12129.890000000247,
+          "year": 2021
+        }
+      ],
+      "baseline": "E0",
+      "cagr_difference": 0.0011418455469758282,
+      "candidate": "R0",
+      "fee_difference_cny": 640.9400000000005,
+      "initial_cash": 500000,
+      "mean_daily_net_increment": 2.5263341791237175e-06,
+      "n_dates": 1461,
+      "one_way_turnover_difference": 2.636392931653531,
+      "path": "base",
+      "period": "development",
+      "risk_scaling": true,
+      "terminal_return_difference": 0.00917712000000015,
+      "uncertainty": {
+        "ci95": null,
+        "p_net": null,
+        "status": "DESCRIPTIVE_SCENARIO_ONLY"
+      }
+    },
+    {
+      "annual_differences": [
+        {
+          "additive_return_contribution_difference": 0.0,
+          "mean_daily_net_increment": 0.0,
+          "pnl_difference_cny": 0.0,
+          "year": 2016
+        },
+        {
+          "additive_return_contribution_difference": 0.0,
+          "mean_daily_net_increment": 0.0,
+          "pnl_difference_cny": 0.0,
+          "year": 2017
+        },
+        {
+          "additive_return_contribution_difference": -0.004744540000000154,
+          "mean_daily_net_increment": -2.100472215142513e-05,
+          "pnl_difference_cny": -2372.270000000077,
+          "year": 2018
+        },
+        {
+          "additive_return_contribution_difference": 0.010660819999999946,
+          "mean_daily_net_increment": 4.152878734179574e-05,
+          "pnl_difference_cny": 5330.409999999974,
+          "year": 2019
+        },
+        {
+          "additive_return_contribution_difference": 0.015881680000000148,
+          "mean_daily_net_increment": 4.3415767635552756e-05,
+          "pnl_difference_cny": 7940.840000000084,
+          "year": 2020
+        },
+        {
+          "additive_return_contribution_difference": -0.042486459999999955,
+          "mean_daily_net_increment": -0.00013391679646761092,
+          "pnl_difference_cny": -21243.22999999998,
+          "year": 2021
+        }
+      ],
+      "baseline": "E1",
+      "cagr_difference": -0.0026826431510627025,
+      "candidate": "R1",
+      "fee_difference_cny": 272.9499999999998,
+      "initial_cash": 500000,
+      "mean_daily_net_increment": -1.1610454057213062e-05,
+      "n_dates": 1461,
+      "one_way_turnover_difference": 1.2123193720598127,
+      "path": "base",
+      "period": "development",
+      "risk_scaling": true,
+      "terminal_return_difference": -0.02068850000000011,
+      "uncertainty": {
+        "ci95": null,
+        "p_net": null,
+        "status": "DESCRIPTIVE_SCENARIO_ONLY"
+      }
+    },
+    {
+      "annual_differences": [
+        {
+          "additive_return_contribution_difference": 0.0,
+          "mean_daily_net_increment": 0.0,
+          "pnl_difference_cny": 0.0,
+          "year": 2016
+        },
+        {
+          "additive_return_contribution_difference": 0.0,
+          "mean_daily_net_increment": 0.0,
+          "pnl_difference_cny": 0.0,
+          "year": 2017
+        },
+        {
+          "additive_return_contribution_difference": 0.0016204200000001778,
+          "mean_daily_net_increment": 5.099374204428482e-06,
+          "pnl_difference_cny": 1620.4200000001583,
+          "year": 2018
+        },
+        {
+          "additive_return_contribution_difference": 0.0013379499999998656,
+          "mean_daily_net_increment": -3.8052896065779577e-06,
+          "pnl_difference_cny": 1337.949999999837,
+          "year": 2019
+        },
+        {
+          "additive_return_contribution_difference": 0.026660249999999885,
+          "mean_daily_net_increment": 8.733936976403506e-05,
+          "pnl_difference_cny": 26660.249999999884,
+          "year": 2020
+        },
+        {
+          "additive_return_contribution_difference": 0.011042659999999899,
+          "mean_daily_net_increment": 5.496602040523914e-05,
+          "pnl_difference_cny": 11042.659999999916,
+          "year": 2021
+        }
+      ],
+      "baseline": "E0",
+      "cagr_difference": 0.004599367336394211,
+      "candidate": "R0",
+      "fee_difference_cny": 3639.8199999999997,
+      "initial_cash": 1000000,
+      "mean_daily_net_increment": 2.3881496973856765e-05,
+      "n_dates": 1461,
+      "one_way_turnover_difference": 5.63265176032688,
+      "path": "base",
+      "period": "development",
+      "risk_scaling": false,
+      "terminal_return_difference": 0.04066127999999991,
+      "uncertainty": {
+        "ci95": null,
+        "p_net": null,
+        "status": "DESCRIPTIVE_SCENARIO_ONLY"
+      }
+    },
+    {
+      "annual_differences": [
+        {
+          "additive_return_contribution_difference": 0.0,
+          "mean_daily_net_increment": 0.0,
+          "pnl_difference_cny": 0.0,
+          "year": 2016
+        },
+        {
+          "additive_return_contribution_difference": 0.0,
+          "mean_daily_net_increment": 0.0,
+          "pnl_difference_cny": 0.0,
+          "year": 2017
+        },
+        {
+          "additive_return_contribution_difference": -0.008117700000000186,
+          "mean_daily_net_increment": -3.7114593218215704e-05,
+          "pnl_difference_cny": -8117.700000000186,
+          "year": 2018
+        },
+        {
+          "additive_return_contribution_difference": 0.015872409999999906,
+          "mean_daily_net_increment": 5.92571986325573e-05,
+          "pnl_difference_cny": 15872.409999999916,
+          "year": 2019
+        },
+        {
+          "additive_return_contribution_difference": 0.00016331999999982805,
+          "mean_daily_net_increment": 6.8433412675291864e-06,
+          "pnl_difference_cny": 163.31999999983236,
+          "year": 2020
+        },
+        {
+          "additive_return_contribution_difference": -0.04632064999999991,
+          "mean_daily_net_increment": -9.997769533540592e-05,
+          "pnl_difference_cny": -46320.64999999991,
+          "year": 2021
+        }
+      ],
+      "baseline": "E1",
+      "cagr_difference": -0.0046200488623053815,
+      "candidate": "R1",
+      "fee_difference_cny": 1903.12,
+      "initial_cash": 1000000,
+      "mean_daily_net_increment": -1.1767103165076304e-05,
+      "n_dates": 1461,
+      "one_way_turnover_difference": 2.854637723563929,
+      "path": "base",
+      "period": "development",
+      "risk_scaling": false,
+      "terminal_return_difference": -0.038402620000000276,
+      "uncertainty": {
+        "ci95": null,
+        "p_net": null,
+        "status": "DESCRIPTIVE_SCENARIO_ONLY"
+      }
+    },
+    {
+      "annual_differences": [
+        {
+          "additive_return_contribution_difference": 0.0,
+          "mean_daily_net_increment": 0.0,
+          "pnl_difference_cny": 0.0,
+          "year": 2016
+        },
+        {
+          "additive_return_contribution_difference": 0.0,
+          "mean_daily_net_increment": 0.0,
+          "pnl_difference_cny": 0.0,
+          "year": 2017
+        },
+        {
+          "additive_return_contribution_difference": 0.007220110000000335,
+          "mean_daily_net_increment": 3.313341797653679e-05,
+          "pnl_difference_cny": 7220.110000000335,
+          "year": 2018
+        },
+        {
+          "additive_return_contribution_difference": 0.00857150000000001,
+          "mean_daily_net_increment": 2.454147025060982e-05,
+          "pnl_difference_cny": 8571.5,
+          "year": 2019
+        },
+        {
+          "additive_return_contribution_difference": 0.017843389999999848,
+          "mean_daily_net_increment": 3.6501452935375934e-05,
+          "pnl_difference_cny": 17843.389999999898,
+          "year": 2020
+        },
+        {
+          "additive_return_contribution_difference": -0.024684829999999616,
+          "mean_daily_net_increment": -7.992768302589463e-05,
+          "pnl_difference_cny": -24684.82999999961,
+          "year": 2021
+        }
+      ],
+      "baseline": "E0",
+      "cagr_difference": 0.0011127783056228413,
+      "candidate": "R0",
+      "fee_difference_cny": 1662.7299999999996,
+      "initial_cash": 1000000,
+      "mean_daily_net_increment": 2.386697739528536e-06,
+      "n_dates": 1461,
+      "one_way_turnover_difference": 2.6409581343770285,
+      "path": "base",
+      "period": "development",
+      "risk_scaling": true,
+      "terminal_return_difference": 0.008950170000000757,
+      "uncertainty": {
+        "ci95": null,
+        "p_net": null,
+        "status": "DESCRIPTIVE_SCENARIO_ONLY"
+      }
+    },
+    {
+      "annual_differences": [
+        {
+          "additive_return_contribution_difference": 0.0,
+          "mean_daily_net_increment": 0.0,
+          "pnl_difference_cny": 0.0,
+          "year": 2016
+        },
+        {
+          "additive_return_contribution_difference": 0.0,
+          "mean_daily_net_increment": 0.0,
+          "pnl_difference_cny": 0.0,
+          "year": 2017
+        },
+        {
+          "additive_return_contribution_difference": -0.004728460000000079,
+          "mean_daily_net_increment": -2.093857528012196e-05,
+          "pnl_difference_cny": -4728.460000000079,
+          "year": 2018
+        },
+        {
+          "additive_return_contribution_difference": 0.010737719999999853,
+          "mean_daily_net_increment": 4.1786591579153546e-05,
+          "pnl_difference_cny": 10737.719999999856,
+          "year": 2019
+        },
+        {
+          "additive_return_contribution_difference": 0.015701609999999866,
+          "mean_daily_net_increment": 4.2711417212971566e-05,
+          "pnl_difference_cny": 15701.60999999987,
+          "year": 2020
+        },
+        {
+          "additive_return_contribution_difference": -0.04275148999999975,
+          "mean_daily_net_increment": -0.00013466687312563673,
+          "pnl_difference_cny": -42751.48999999976,
+          "year": 2021
+        }
+      ],
+      "baseline": "E1",
+      "cagr_difference": -0.0027266501750111694,
+      "candidate": "R1",
+      "fee_difference_cny": 766.52,
+      "initial_cash": 1000000,
+      "mean_daily_net_increment": -1.1798303377504318e-05,
+      "n_dates": 1461,
+      "one_way_turnover_difference": 1.2126095321743486,
+      "path": "base",
+      "period": "development",
+      "risk_scaling": true,
+      "terminal_return_difference": -0.021040620000000176,
+      "uncertainty": {
+        "ci95": null,
+        "p_net": null,
+        "status": "DESCRIPTIVE_SCENARIO_ONLY"
+      }
+    },
+    {
+      "annual_differences": [
+        {
+          "additive_return_contribution_difference": 0.019057499999999894,
+          "mean_daily_net_increment": 7.867626762603219e-05,
+          "pnl_difference_cny": 190.5749999999989,
+          "year": 2022
+        },
+        {
+          "additive_return_contribution_difference": 0.020571999999999854,
+          "mean_daily_net_increment": 0.00012278512626494653,
+          "pnl_difference_cny": 205.71999999999844,
+          "year": 2023
+        },
+        {
+          "additive_return_contribution_difference": -0.02595899999999983,
+          "mean_daily_net_increment": -0.00018627125562679478,
+          "pnl_difference_cny": -259.5899999999983,
+          "year": 2024
+        }
+      ],
+      "baseline": "E0",
+      "cagr_difference": 0.0053294738714788625,
+      "candidate": "R0",
+      "fee_difference_cny": -30.0,
+      "initial_cash": 10000,
+      "mean_daily_net_increment": 5.063379421394648e-06,
+      "n_dates": 726,
+      "one_way_turnover_difference": 8.303772734328579,
+      "path": "base",
+      "period": "validation",
+      "risk_scaling": false,
+      "terminal_return_difference": 0.013670499999999919,
+      "uncertainty": {
+        "ci95": null,
+        "p_net": null,
+        "status": "DESCRIPTIVE_SCENARIO_ONLY"
+      }
+    },
+    {
+      "annual_differences": [
+        {
+          "additive_return_contribution_difference": 0.0,
+          "mean_daily_net_increment": 0.0,
+          "pnl_difference_cny": 0.0,
+          "year": 2022
+        },
+        {
+          "additive_return_contribution_difference": 0.04458999999999995,
+          "mean_daily_net_increment": 0.00020936825370824032,
+          "pnl_difference_cny": 445.89999999999964,
+          "year": 2023
+        },
+        {
+          "additive_return_contribution_difference": -0.007920000000000094,
+          "mean_daily_net_increment": 1.831471855400371e-06,
+          "pnl_difference_cny": -79.20000000000073,
+          "year": 2024
+        }
+      ],
+      "baseline": "E1",
+      "cagr_difference": 0.015471988908329126,
+      "candidate": "R1",
+      "fee_difference_cny": -225.0,
+      "initial_cash": 10000,
+      "mean_daily_net_increment": 7.039990852121356e-05,
+      "n_dates": 726,
+      "one_way_turnover_difference": 2.683055233162346,
+      "path": "base",
+      "period": "validation",
+      "risk_scaling": false,
+      "terminal_return_difference": 0.03666999999999987,
+      "uncertainty": {
+        "ci95": null,
+        "p_net": null,
+        "status": "DESCRIPTIVE_SCENARIO_ONLY"
+      }
+    },
+    {
+      "annual_differences": [
+        {
+          "additive_return_contribution_difference": 0.029185500000000142,
+          "mean_daily_net_increment": 0.00013536142965397269,
+          "pnl_difference_cny": 291.8550000000014,
+          "year": 2022
+        },
+        {
+          "additive_return_contribution_difference": 0.02035699999999996,
+          "mean_daily_net_increment": 0.0001265804257095031,
+          "pnl_difference_cny": 203.5699999999997,
+          "year": 2023
+        },
+        {
+          "additive_return_contribution_difference": 0.045189499999999855,
+          "mean_daily_net_increment": 0.00021344587417151332,
+          "pnl_difference_cny": 451.8949999999986,
+          "year": 2024
+        }
+      ],
+      "baseline": "E0",
+      "cagr_difference": 0.03563302408581148,
+      "candidate": "R0",
+      "fee_difference_cny": -165.0,
+      "initial_cash": 10000,
+      "mean_daily_net_increment": 0.00015846257651166304,
+      "n_dates": 726,
+      "one_way_turnover_difference": 4.944814679321235,
+      "path": "base",
+      "period": "validation",
+      "risk_scaling": true,
+      "terminal_return_difference": 0.09473200000000004,
+      "uncertainty": {
+        "ci95": null,
+        "p_net": null,
+        "status": "DESCRIPTIVE_SCENARIO_ONLY"
+      }
+    },
+    {
+      "annual_differences": [
+        {
+          "additive_return_contribution_difference": 0.0,
+          "mean_daily_net_increment": 0.0,
+          "pnl_difference_cny": 0.0,
+          "year": 2022
+        },
+        {
+          "additive_return_contribution_difference": 0.03856000000000022,
+          "mean_daily_net_increment": 0.00017821525474371504,
+          "pnl_difference_cny": 385.6000000000022,
+          "year": 2023
+        },
+        {
+          "additive_return_contribution_difference": 0.009669999999999901,
+          "mean_daily_net_increment": 7.518543592787059e-05,
+          "pnl_difference_cny": 96.69999999999891,
+          "year": 2024
+        }
+      ],
+      "baseline": "E1",
+      "cagr_difference": 0.018910398079314827,
+      "candidate": "R1",
+      "fee_difference_cny": -225.0,
+      "initial_cash": 10000,
+      "mean_daily_net_increment": 8.446689689052853e-05,
+      "n_dates": 726,
+      "one_way_turnover_difference": 1.2870383736509172,
+      "path": "base",
+      "period": "validation",
+      "risk_scaling": true,
+      "terminal_return_difference": 0.048230000000000106,
+      "uncertainty": {
+        "ci95": null,
+        "p_net": null,
+        "status": "DESCRIPTIVE_SCENARIO_ONLY"
+      }
+    },
+    {
+      "annual_differences": [
+        {
+          "additive_return_contribution_difference": 0.0358565599999999,
+          "mean_daily_net_increment": 0.00015586357389379691,
+          "pnl_difference_cny": 3585.655999999988,
+          "year": 2022
+        },
+        {
+          "additive_return_contribution_difference": 0.016732459999999852,
+          "mean_daily_net_increment": 0.0001110759861420298,
+          "pnl_difference_cny": 1673.2459999999846,
+          "year": 2023
+        },
+        {
+          "additive_return_contribution_difference": -0.031329040000000086,
+          "mean_daily_net_increment": -0.00023442114292701577,
+          "pnl_difference_cny": -3132.9040000000095,
+          "year": 2024
+        }
+      ],
+      "baseline": "E0",
+      "cagr_difference": 0.00835334903890983,
+      "candidate": "R0",
+      "fee_difference_cny": -111.65000000000009,
+      "initial_cash": 100000,
+      "mean_daily_net_increment": 1.0839472369603655e-05,
+      "n_dates": 726,
+      "one_way_turnover_difference": 8.948641992734244,
+      "path": "base",
+      "period": "validation",
+      "risk_scaling": false,
+      "terminal_return_difference": 0.021259979999999623,
+      "uncertainty": {
+        "exploratory_zero_hurdle": {
+          "annual_incremental_cost_assumed_cny": 0,
+          "blocks": [
+            {
+              "block_length": 60,
+              "caveat": "Approximate under weak stationarity; short/nonstationary histories need caution.",
+              "ci95": [
+                -0.00032544263198444574,
+                0.00026831406118296084
+              ],
+              "daily_hurdle": 0.0,
+              "hac_lag": 6,
+              "hac_se": 0.00016958761319462018,
+              "interval_type": "marginal_95_percent",
+              "mean_net_increment": 1.0839472369603655e-05,
+              "method": "circular_block_bootstrap_t_HAC",
+              "minimum_detectable_daily_effect_80pct": 0.0004216753368647568,
+              "n_dates": 726,
+              "p_hac": 0.47451829670889323,
+              "p_net": 0.5000999800039992,
+              "repetitions": 5000,
+              "seed": 20261114,
+              "status": "DESCRIPTIVE_INFERENCE"
+            },
+            {
+              "block_length": 20,
+              "caveat": "Approximate under weak stationarity; short/nonstationary histories need caution.",
+              "ci95": [
+                -0.000312405441392903,
+                0.00027030509347527253
+              ],
+              "daily_hurdle": 0.0,
+              "hac_lag": 6,
+              "hac_se": 0.00016958761319462018,
+              "interval_type": "marginal_95_percent",
+              "mean_net_increment": 1.0839472369603655e-05,
+              "method": "circular_block_bootstrap_t_HAC",
+              "minimum_detectable_daily_effect_80pct": 0.0004216753368647568,
+              "n_dates": 726,
+              "p_hac": 0.47451829670889323,
+              "p_net": 0.49510097980403917,
+              "repetitions": 5000,
+              "seed": 20261114,
+              "status": "DESCRIPTIVE_INFERENCE"
+            },
+            {
+              "block_length": 120,
+              "caveat": "Approximate under weak stationarity; short/nonstationary histories need caution.",
+              "ci95": [
+                -0.00025326975284296123,
+                0.00023132108789900108
+              ],
+              "daily_hurdle": 0.0,
+              "hac_lag": 6,
+              "hac_se": 0.00016958761319462018,
+              "interval_type": "marginal_95_percent",
+              "mean_net_increment": 1.0839472369603655e-05,
+              "method": "circular_block_bootstrap_t_HAC",
+              "minimum_detectable_daily_effect_80pct": 0.0004216753368647568,
+              "n_dates": 726,
+              "p_hac": 0.47451829670889323,
+              "p_net": 0.5008998200359928,
+              "repetitions": 5000,
+              "seed": 20261114,
+              "status": "DESCRIPTIVE_INFERENCE"
+            }
+          ],
+          "factor_alpha": false,
+          "interpretation": "Marginal paired diagnostics only; unknown time/operating costs are assumed zero. Not economic confirmation, final testing, or a registered primary-candidate selection.",
+          "main_block_length": 60,
+          "multiplicity_confirmed": false,
+          "status": "EXPLORATORY_ZERO_INCREMENTAL_COST_ASSUMPTION"
+        },
+        "formal": {
+          "block_length": 60,
+          "ci95": null,
+          "interval_type": "marginal_95_percent",
+          "mean_net_increment": 1.0839472369603655e-05,
+          "method": "circular_block_bootstrap_t_HAC",
+          "n_dates": 726,
+          "p_net": null,
+          "repetitions": 5000,
+          "seed": 20261114,
+          "status": "BLOCKED_HURDLE"
+        }
+      }
+    },
+    {
+      "annual_differences": [
+        {
+          "additive_return_contribution_difference": 0.0,
+          "mean_daily_net_increment": 0.0,
+          "pnl_difference_cny": 0.0,
+          "year": 2022
+        },
+        {
+          "additive_return_contribution_difference": 0.044832700000000045,
+          "mean_daily_net_increment": 0.00020781981175715627,
+          "pnl_difference_cny": 4483.270000000004,
+          "year": 2023
+        },
+        {
+          "additive_return_contribution_difference": -0.008457999999999716,
+          "mean_daily_net_increment": -1.2221552721930256e-05,
+          "pnl_difference_cny": -845.7999999999738,
+          "year": 2024
+        }
+      ],
+      "baseline": "E1",
+      "cagr_difference": 0.01526532495179389,
+      "candidate": "R1",
+      "fee_difference_cny": -125.69000000000005,
+      "initial_cash": 100000,
+      "mean_daily_net_increment": 6.519941967840867e-05,
+      "n_dates": 726,
+      "one_way_turnover_difference": 2.4082572297892844,
+      "path": "base",
+      "period": "validation",
+      "risk_scaling": false,
+      "terminal_return_difference": 0.036374700000000315,
+      "uncertainty": {
+        "exploratory_zero_hurdle": {
+          "annual_incremental_cost_assumed_cny": 0,
+          "blocks": [
+            {
+              "block_length": 60,
+              "caveat": "Approximate under weak stationarity; short/nonstationary histories need caution.",
+              "ci95": [
+                -5.8696740385373e-05,
+                0.0001757363892046099
+              ],
+              "daily_hurdle": 0.0,
+              "hac_lag": 6,
+              "hac_se": 7.31795295342934e-05,
+              "interval_type": "marginal_95_percent",
+              "mean_net_increment": 6.519941967840867e-05,
+              "method": "circular_block_bootstrap_t_HAC",
+              "minimum_detectable_daily_effect_80pct": 0.0001819590604920224,
+              "n_dates": 726,
+              "p_hac": 0.1864775653783043,
+              "p_net": 0.15776844631073786,
+              "repetitions": 5000,
+              "seed": 20261114,
+              "status": "DESCRIPTIVE_INFERENCE"
+            },
+            {
+              "block_length": 20,
+              "caveat": "Approximate under weak stationarity; short/nonstationary histories need caution.",
+              "ci95": [
+                -7.114245778871886e-05,
+                0.00018269854196762623
+              ],
+              "daily_hurdle": 0.0,
+              "hac_lag": 6,
+              "hac_se": 7.31795295342934e-05,
+              "interval_type": "marginal_95_percent",
+              "mean_net_increment": 6.519941967840867e-05,
+              "method": "circular_block_bootstrap_t_HAC",
+              "minimum_detectable_daily_effect_80pct": 0.0001819590604920224,
+              "n_dates": 726,
+              "p_hac": 0.1864775653783043,
+              "p_net": 0.16336732653469307,
+              "repetitions": 5000,
+              "seed": 20261114,
+              "status": "DESCRIPTIVE_INFERENCE"
+            },
+            {
+              "block_length": 120,
+              "caveat": "Approximate under weak stationarity; short/nonstationary histories need caution.",
+              "ci95": [
+                -6.156135686882148e-05,
+                0.00018513645767635547
+              ],
+              "daily_hurdle": 0.0,
+              "hac_lag": 6,
+              "hac_se": 7.31795295342934e-05,
+              "interval_type": "marginal_95_percent",
+              "mean_net_increment": 6.519941967840867e-05,
+              "method": "circular_block_bootstrap_t_HAC",
+              "minimum_detectable_daily_effect_80pct": 0.0001819590604920224,
+              "n_dates": 726,
+              "p_hac": 0.1864775653783043,
+              "p_net": 0.15236952609478105,
+              "repetitions": 5000,
+              "seed": 20261114,
+              "status": "DESCRIPTIVE_INFERENCE"
+            }
+          ],
+          "factor_alpha": false,
+          "interpretation": "Marginal paired diagnostics only; unknown time/operating costs are assumed zero. Not economic confirmation, final testing, or a registered primary-candidate selection.",
+          "main_block_length": 60,
+          "multiplicity_confirmed": false,
+          "status": "EXPLORATORY_ZERO_INCREMENTAL_COST_ASSUMPTION"
+        },
+        "formal": {
+          "block_length": 60,
+          "ci95": null,
+          "interval_type": "marginal_95_percent",
+          "mean_net_increment": 6.519941967840867e-05,
+          "method": "circular_block_bootstrap_t_HAC",
+          "n_dates": 726,
+          "p_net": null,
+          "repetitions": 5000,
+          "seed": 20261114,
+          "status": "BLOCKED_HURDLE"
+        }
+      }
+    },
+    {
+      "annual_differences": [
+        {
+          "additive_return_contribution_difference": 0.038651199999999955,
+          "mean_daily_net_increment": 0.00017446296682589998,
+          "pnl_difference_cny": 3865.1199999999953,
+          "year": 2022
+        },
+        {
+          "additive_return_contribution_difference": 0.01726119999999995,
+          "mean_daily_net_increment": 0.00011191295921334059,
+          "pnl_difference_cny": 1726.1199999999953,
+          "year": 2023
+        },
+        {
+          "additive_return_contribution_difference": 0.03755940000000002,
+          "mean_daily_net_increment": 0.00014051650779590505,
+          "pnl_difference_cny": 3755.9400000000023,
+          "year": 2024
+        }
+      ],
+      "baseline": "E0",
+      "cagr_difference": 0.03364463955433428,
+      "candidate": "R0",
+      "fee_difference_cny": -415.0,
+      "initial_cash": 100000,
+      "mean_daily_net_increment": 0.00014229747794504852,
+      "n_dates": 726,
+      "one_way_turnover_difference": 5.528353726096261,
+      "path": "base",
+      "period": "validation",
+      "risk_scaling": true,
+      "terminal_return_difference": 0.09347179999999988,
+      "uncertainty": {
+        "exploratory_zero_hurdle": {
+          "annual_incremental_cost_assumed_cny": 0,
+          "blocks": [
+            {
+              "block_length": 60,
+              "caveat": "Approximate under weak stationarity; short/nonstationary histories need caution.",
+              "ci95": [
+                -5.303225899486278e-06,
+                0.000299809640648961
+              ],
+              "daily_hurdle": 0.0,
+              "hac_lag": 6,
+              "hac_se": 9.796414728057328e-05,
+              "interval_type": "marginal_95_percent",
+              "mean_net_increment": 0.00014229747794504852,
+              "method": "circular_block_bootstrap_t_HAC",
+              "minimum_detectable_daily_effect_80pct": 0.00024358538944585387,
+              "n_dates": 726,
+              "p_hac": 0.07317485662653657,
+              "p_net": 0.029994001199760048,
+              "repetitions": 5000,
+              "seed": 20261114,
+              "status": "DESCRIPTIVE_INFERENCE"
+            },
+            {
+              "block_length": 20,
+              "caveat": "Approximate under weak stationarity; short/nonstationary histories need caution.",
+              "ci95": [
+                -2.7638176155578048e-05,
+                0.00031653616596237705
+              ],
+              "daily_hurdle": 0.0,
+              "hac_lag": 6,
+              "hac_se": 9.796414728057328e-05,
+              "interval_type": "marginal_95_percent",
+              "mean_net_increment": 0.00014229747794504852,
+              "method": "circular_block_bootstrap_t_HAC",
+              "minimum_detectable_daily_effect_80pct": 0.00024358538944585387,
+              "n_dates": 726,
+              "p_hac": 0.07317485662653657,
+              "p_net": 0.05098980203959208,
+              "repetitions": 5000,
+              "seed": 20261114,
+              "status": "DESCRIPTIVE_INFERENCE"
+            },
+            {
+              "block_length": 120,
+              "caveat": "Approximate under weak stationarity; short/nonstationary histories need caution.",
+              "ci95": [
+                6.2199688669706634e-06,
+                0.00026421482856731494
+              ],
+              "daily_hurdle": 0.0,
+              "hac_lag": 6,
+              "hac_se": 9.796414728057328e-05,
+              "interval_type": "marginal_95_percent",
+              "mean_net_increment": 0.00014229747794504852,
+              "method": "circular_block_bootstrap_t_HAC",
+              "minimum_detectable_daily_effect_80pct": 0.00024358538944585387,
+              "n_dates": 726,
+              "p_hac": 0.07317485662653657,
+              "p_net": 0.021595680863827234,
+              "repetitions": 5000,
+              "seed": 20261114,
+              "status": "DESCRIPTIVE_INFERENCE"
+            }
+          ],
+          "factor_alpha": false,
+          "interpretation": "Marginal paired diagnostics only; unknown time/operating costs are assumed zero. Not economic confirmation, final testing, or a registered primary-candidate selection.",
+          "main_block_length": 60,
+          "multiplicity_confirmed": false,
+          "status": "EXPLORATORY_ZERO_INCREMENTAL_COST_ASSUMPTION"
+        },
+        "formal": {
+          "block_length": 60,
+          "ci95": null,
+          "interval_type": "marginal_95_percent",
+          "mean_net_increment": 0.00014229747794504852,
+          "method": "circular_block_bootstrap_t_HAC",
+          "n_dates": 726,
+          "p_net": null,
+          "repetitions": 5000,
+          "seed": 20261114,
+          "status": "BLOCKED_HURDLE"
+        }
+      }
+    },
+    {
+      "annual_differences": [
+        {
+          "additive_return_contribution_difference": 0.0,
+          "mean_daily_net_increment": 0.0,
+          "pnl_difference_cny": 0.0,
+          "year": 2022
+        },
+        {
+          "additive_return_contribution_difference": 0.04194220000000003,
+          "mean_daily_net_increment": 0.00019194651632094032,
+          "pnl_difference_cny": 4194.220000000001,
+          "year": 2023
+        },
+        {
+          "additive_return_contribution_difference": 0.006619800000000106,
+          "mean_daily_net_increment": 5.764970464316046e-05,
+          "pnl_difference_cny": 661.9800000000105,
+          "year": 2024
+        }
+      ],
+      "baseline": "E1",
+      "cagr_difference": 0.018905774114563956,
+      "candidate": "R1",
+      "fee_difference_cny": -211.36999999999995,
+      "initial_cash": 100000,
+      "mean_daily_net_increment": 8.319874032136693e-05,
+      "n_dates": 726,
+      "one_way_turnover_difference": 1.2385875926995196,
+      "path": "base",
+      "period": "validation",
+      "risk_scaling": true,
+      "terminal_return_difference": 0.048562000000000105,
+      "uncertainty": {
+        "exploratory_zero_hurdle": {
+          "annual_incremental_cost_assumed_cny": 0,
+          "blocks": [
+            {
+              "block_length": 60,
+              "caveat": "Approximate under weak stationarity; short/nonstationary histories need caution.",
+              "ci95": [
+                2.165320028188628e-05,
+                0.00023710425457893364
+              ],
+              "daily_hurdle": 0.0,
+              "hac_lag": 6,
+              "hac_se": 4.091107388316986e-05,
+              "interval_type": "marginal_95_percent",
+              "mean_net_increment": 8.319874032136693e-05,
+              "method": "circular_block_bootstrap_t_HAC",
+              "minimum_detectable_daily_effect_80pct": 0.00010172435672755764,
+              "n_dates": 726,
+              "p_hac": 0.020993528628685018,
+              "p_net": 0.003199360127974405,
+              "repetitions": 5000,
+              "seed": 20261114,
+              "status": "DESCRIPTIVE_INFERENCE"
+            },
+            {
+              "block_length": 20,
+              "caveat": "Approximate under weak stationarity; short/nonstationary histories need caution.",
+              "ci95": [
+                1.0896669096096236e-05,
+                0.0001952384696967589
+              ],
+              "daily_hurdle": 0.0,
+              "hac_lag": 6,
+              "hac_se": 4.091107388316986e-05,
+              "interval_type": "marginal_95_percent",
+              "mean_net_increment": 8.319874032136693e-05,
+              "method": "circular_block_bootstrap_t_HAC",
+              "minimum_detectable_daily_effect_80pct": 0.00010172435672755764,
+              "n_dates": 726,
+              "p_hac": 0.020993528628685018,
+              "p_net": 0.010597880423915218,
+              "repetitions": 5000,
+              "seed": 20261114,
+              "status": "DESCRIPTIVE_INFERENCE"
+            },
+            {
+              "block_length": 120,
+              "caveat": "Approximate under weak stationarity; short/nonstationary histories need caution.",
+              "ci95": [
+                1.657461934838796e-05,
+                0.00027769084990232943
+              ],
+              "daily_hurdle": 0.0,
+              "hac_lag": 6,
+              "hac_se": 4.091107388316986e-05,
+              "interval_type": "marginal_95_percent",
+              "mean_net_increment": 8.319874032136693e-05,
+              "method": "circular_block_bootstrap_t_HAC",
+              "minimum_detectable_daily_effect_80pct": 0.00010172435672755764,
+              "n_dates": 726,
+              "p_hac": 0.020993528628685018,
+              "p_net": 0.004799040191961607,
+              "repetitions": 5000,
+              "seed": 20261114,
+              "status": "DESCRIPTIVE_INFERENCE"
+            }
+          ],
+          "factor_alpha": false,
+          "interpretation": "Marginal paired diagnostics only; unknown time/operating costs are assumed zero. Not economic confirmation, final testing, or a registered primary-candidate selection.",
+          "main_block_length": 60,
+          "multiplicity_confirmed": false,
+          "status": "EXPLORATORY_ZERO_INCREMENTAL_COST_ASSUMPTION"
+        },
+        "formal": {
+          "block_length": 60,
+          "ci95": null,
+          "interval_type": "marginal_95_percent",
+          "mean_net_increment": 8.319874032136693e-05,
+          "method": "circular_block_bootstrap_t_HAC",
+          "n_dates": 726,
+          "p_net": null,
+          "repetitions": 5000,
+          "seed": 20261114,
+          "status": "BLOCKED_HURDLE"
+        }
+      }
+    },
+    {
+      "annual_differences": [
+        {
+          "additive_return_contribution_difference": 0.03341700399999972,
+          "mean_daily_net_increment": 0.0001434360093995303,
+          "pnl_difference_cny": 16708.501999999862,
+          "year": 2022
+        },
+        {
+          "additive_return_contribution_difference": 0.015675824000000255,
+          "mean_daily_net_increment": 0.00010334868279242946,
+          "pnl_difference_cny": 7837.912000000128,
+          "year": 2023
+        },
+        {
+          "additive_return_contribution_difference": -0.03220871600000001,
+          "mean_daily_net_increment": -0.00023942270696709474,
+          "pnl_difference_cny": -16104.358000000007,
+          "year": 2024
+        }
+      ],
+      "baseline": "E0",
+      "cagr_difference": 0.006625524500445845,
+      "candidate": "R0",
+      "fee_difference_cny": 1715.53,
+      "initial_cash": 500000,
+      "mean_daily_net_increment": 2.4539950749549986e-06,
+      "n_dates": 726,
+      "one_way_turnover_difference": 8.970899791245262,
+      "path": "base",
+      "period": "validation",
+      "risk_scaling": false,
+      "terminal_return_difference": 0.01688411199999995,
+      "uncertainty": {
+        "ci95": null,
+        "p_net": null,
+        "status": "DESCRIPTIVE_SCENARIO_ONLY"
+      }
+    },
+    {
+      "annual_differences": [
+        {
+          "additive_return_contribution_difference": 0.0,
+          "mean_daily_net_increment": 0.0,
+          "pnl_difference_cny": 0.0,
+          "year": 2022
+        },
+        {
+          "additive_return_contribution_difference": 0.04488226000000001,
+          "mean_daily_net_increment": 0.00020797455793117062,
+          "pnl_difference_cny": 22441.130000000005,
+          "year": 2023
+        },
+        {
+          "additive_return_contribution_difference": -0.009207619999999889,
+          "mean_daily_net_increment": -1.6742198756810628e-05,
+          "pnl_difference_cny": -4603.8099999999395,
+          "year": 2024
+        }
+      ],
+      "baseline": "E1",
+      "cagr_difference": 0.014980416538341368,
+      "candidate": "R1",
+      "fee_difference_cny": 577.1699999999998,
+      "initial_cash": 500000,
+      "mean_daily_net_increment": 6.374411972478666e-05,
+      "n_dates": 726,
+      "one_way_turnover_difference": 2.4101829951947575,
+      "path": "base",
+      "period": "validation",
+      "risk_scaling": false,
+      "terminal_return_difference": 0.03567464000000009,
+      "uncertainty": {
+        "ci95": null,
+        "p_net": null,
+        "status": "DESCRIPTIVE_SCENARIO_ONLY"
+      }
+    },
+    {
+      "annual_differences": [
+        {
+          "additive_return_contribution_difference": 0.03668319000000017,
+          "mean_daily_net_increment": 0.00016465855240112144,
+          "pnl_difference_cny": 18341.59500000009,
+          "year": 2022
+        },
+        {
+          "additive_return_contribution_difference": 0.01654535999999987,
+          "mean_daily_net_increment": 0.00010611176382663198,
+          "pnl_difference_cny": 8272.679999999935,
+          "year": 2023
+        },
+        {
+          "additive_return_contribution_difference": 0.032929119999999645,
+          "mean_daily_net_increment": 0.00011933173787155662,
+          "pnl_difference_cny": 16464.559999999823,
+          "year": 2024
+        }
+      ],
+      "baseline": "E0",
+      "cagr_difference": 0.03092100895378147,
+      "candidate": "R0",
+      "fee_difference_cny": 821.3600000000001,
+      "initial_cash": 500000,
+      "mean_daily_net_increment": 0.00013003401803310334,
+      "n_dates": 726,
+      "one_way_turnover_difference": 5.552021566486127,
+      "path": "base",
+      "period": "validation",
+      "risk_scaling": true,
+      "terminal_return_difference": 0.08615766999999974,
+      "uncertainty": {
+        "ci95": null,
+        "p_net": null,
+        "status": "DESCRIPTIVE_SCENARIO_ONLY"
+      }
+    },
+    {
+      "annual_differences": [
+        {
+          "additive_return_contribution_difference": 0.0,
+          "mean_daily_net_increment": 0.0,
+          "pnl_difference_cny": 0.0,
+          "year": 2022
+        },
+        {
+          "additive_return_contribution_difference": 0.04179560000000021,
+          "mean_daily_net_increment": 0.00019124383496140835,
+          "pnl_difference_cny": 20897.800000000105,
+          "year": 2023
+        },
+        {
+          "additive_return_contribution_difference": 0.005744339999999973,
+          "mean_daily_net_increment": 5.266096722976695e-05,
+          "pnl_difference_cny": 2872.1699999999837,
+          "year": 2024
+        }
+      ],
+      "baseline": "E1",
+      "cagr_difference": 0.018504931643924083,
+      "candidate": "R1",
+      "fee_difference_cny": 250.40999999999985,
+      "initial_cash": 500000,
+      "mean_daily_net_increment": 8.130160073039177e-05,
+      "n_dates": 726,
+      "one_way_turnover_difference": 1.2270654500379363,
+      "path": "base",
+      "period": "validation",
+      "risk_scaling": true,
+      "terminal_return_difference": 0.04753994000000017,
+      "uncertainty": {
+        "ci95": null,
+        "p_net": null,
+        "status": "DESCRIPTIVE_SCENARIO_ONLY"
+      }
+    },
+    {
+      "annual_differences": [
+        {
+          "additive_return_contribution_difference": 0.0332849909999999,
+          "mean_daily_net_increment": 0.00014270199423861281,
+          "pnl_difference_cny": 33284.99099999992,
+          "year": 2022
+        },
+        {
+          "additive_return_contribution_difference": 0.015444105999999916,
+          "mean_daily_net_increment": 0.00010183246965194227,
+          "pnl_difference_cny": 15444.105999999912,
+          "year": 2023
+        },
+        {
+          "additive_return_contribution_difference": -0.015171293999999877,
+          "mean_daily_net_increment": -0.00014445389012572964,
+          "pnl_difference_cny": -15171.293999999878,
+          "year": 2024
+        }
+      ],
+      "baseline": "E0",
+      "cagr_difference": 0.013070069876972457,
+      "candidate": "R0",
+      "fee_difference_cny": 4100.73,
+      "initial_cash": 1000000,
+      "mean_daily_net_increment": 3.336019125494182e-05,
+      "n_dates": 726,
+      "one_way_turnover_difference": 8.968584070207154,
+      "path": "base",
+      "period": "validation",
+      "risk_scaling": false,
+      "terminal_return_difference": 0.033557802999999886,
+      "uncertainty": {
+        "ci95": null,
+        "p_net": null,
+        "status": "DESCRIPTIVE_SCENARIO_ONLY"
+      }
+    },
+    {
+      "annual_differences": [
+        {
+          "additive_return_contribution_difference": 0.0,
+          "mean_daily_net_increment": 0.0,
+          "pnl_difference_cny": 0.0,
+          "year": 2022
+        },
+        {
+          "additive_return_contribution_difference": 0.0448667400000001,
+          "mean_daily_net_increment": 0.00020789949402342996,
+          "pnl_difference_cny": 44866.74000000011,
+          "year": 2023
+        },
+        {
+          "additive_return_contribution_difference": -0.00792356000000019,
+          "mean_daily_net_increment": -9.624453631631427e-06,
+          "pnl_difference_cny": -7923.560000000172,
+          "year": 2024
+        }
+      ],
+      "baseline": "E1",
+      "cagr_difference": 0.015505553262349814,
+      "candidate": "R1",
+      "fee_difference_cny": 1291.3000000000002,
+      "initial_cash": 1000000,
+      "mean_daily_net_increment": 6.609168013059952e-05,
+      "n_dates": 726,
+      "one_way_turnover_difference": 2.387241729154341,
+      "path": "base",
+      "period": "validation",
+      "risk_scaling": false,
+      "terminal_return_difference": 0.036943179999999964,
+      "uncertainty": {
+        "ci95": null,
+        "p_net": null,
+        "status": "DESCRIPTIVE_SCENARIO_ONLY"
+      }
+    },
+    {
+      "annual_differences": [
+        {
+          "additive_return_contribution_difference": 0.03660958699999993,
+          "mean_daily_net_increment": 0.00016422370657258426,
+          "pnl_difference_cny": 36609.58699999994,
+          "year": 2022
+        },
+        {
+          "additive_return_contribution_difference": 0.016349822000000278,
+          "mean_daily_net_increment": 0.00010491918802084996,
+          "pnl_difference_cny": 16349.822000000277,
+          "year": 2023
+        },
+        {
+          "additive_return_contribution_difference": 0.03239914199999988,
+          "mean_daily_net_increment": 0.00011674841490492937,
+          "pnl_difference_cny": 32399.141999999876,
+          "year": 2024
+        }
+      ],
+      "baseline": "E0",
+      "cagr_difference": 0.030621830650970683,
+      "candidate": "R0",
+      "fee_difference_cny": 2524.88,
+      "initial_cash": 1000000,
+      "mean_daily_net_increment": 0.00012863043649945452,
+      "n_dates": 726,
+      "one_way_turnover_difference": 5.547819288867036,
+      "path": "base",
+      "period": "validation",
+      "risk_scaling": true,
+      "terminal_return_difference": 0.08535855100000012,
+      "uncertainty": {
+        "ci95": null,
+        "p_net": null,
+        "status": "DESCRIPTIVE_SCENARIO_ONLY"
+      }
+    },
+    {
+      "annual_differences": [
+        {
+          "additive_return_contribution_difference": 0.0,
+          "mean_daily_net_increment": 0.0,
+          "pnl_difference_cny": 0.0,
+          "year": 2022
+        },
+        {
+          "additive_return_contribution_difference": 0.04179864999999991,
+          "mean_daily_net_increment": 0.00019125795093285244,
+          "pnl_difference_cny": 41798.64999999991,
+          "year": 2023
+        },
+        {
+          "additive_return_contribution_difference": 0.005734940000000174,
+          "mean_daily_net_increment": 5.2607045128832914e-05,
+          "pnl_difference_cny": 5734.940000000177,
+          "year": 2024
+        }
+      ],
+      "baseline": "E1",
+      "cagr_difference": 0.018504220777682767,
+      "candidate": "R1",
+      "fee_difference_cny": 706.8699999999999,
+      "initial_cash": 1000000,
+      "mean_daily_net_increment": 8.128833202056179e-05,
+      "n_dates": 726,
+      "one_way_turnover_difference": 1.2254288465301748,
+      "path": "base",
+      "period": "validation",
+      "risk_scaling": true,
+      "terminal_return_difference": 0.047533590000000014,
+      "uncertainty": {
+        "ci95": null,
+        "p_net": null,
+        "status": "DESCRIPTIVE_SCENARIO_ONLY"
+      }
+    }
+  ],
+  "independent_checks": {
+    "result": "PASS",
+    "bootstrap_diagnostics_reproduced": 24,
+    "regular_diagnostics": 22,
+    "degenerate_diagnostics_retained": 2,
+    "year_deletions_recomputed": 24,
+    "maximum_absolute_errors": {
+      "drawdown": 0.0,
+      "cash_weight": 0.0,
+      "gross_exposure": 0.0,
+      "total_return": 0.0,
+      "all56_rank_means": 0.0,
+      "bootstrap_ci": 0.0,
+      "bootstrap_p": 0.0,
+      "hac_p": 5.551115123125783e-17,
+      "hac_se": 0.0,
+      "mde": 1.0842021724855044e-19,
+      "annual_mean": 0.0,
+      "annual_pnl_cny": 0.0,
+      "year_deletion_mean": 3.3881317890172014e-21,
+      "four_contrast_means": 0.0,
+      "contrast_exposure": 1.3183898417423734e-16,
+      "scaling_means": 0.0,
+      "interaction_means": 0.0
+    },
+    "ci_transform_is_positive_linear_map": true,
+    "production_evaluator_imported": false
+  },
+  "limitations": [
+    "Existing exploratory marginal intervals are not simultaneous or Holm confirmation.",
+    "HAC and block bootstrap require approximate dependence regularity; short/nonstationary samples remain uncertain.",
+    "Two development R1 block120 diagnostics remain degenerate, with null CI/p values.",
+    "448 paths and overlapping rolling windows share shocks and are not independent replications.",
+    "Annual fixed-cost equivalents are signed arithmetic endpoint conversions, not sustainable cash budgets.",
+    "Current corrected historical vintage, modeled publication/receipt clocks and daily fills retain prior data limitations.",
+    "No intraday queue validation, complete historical ETF look-through, or factor-alpha regression.",
+    "8%/12% governance reference lines are not historical exits or guarantees."
+  ],
+  "input_sha256": {
+    "docs/DECISION_LOG.md": "dc78815a2680eb014e96ffcb52cb553c39ce864625c1cfb0ebb0d5d923db950d",
+    "docs/EXPERIMENT_PLAN.md": "52ddce64e34116e3b5a39ed10a4a492cdfe5042c12236ed481846fabd56f4905",
+    "docs/IMPLEMENTATION_STATUS.md": "67bc5a37ad092f2cec1e182e74a73bbcceb44f51bc1c9cd5822b2f7be6d0cbe5",
+    "docs/RISK_POLICY.md": "eb13ed9585e2d232dcb0a78b5770145cc566d3370ce5f13338fd528fbe3e6848",
+    "docs/STRATEGY_SPEC.md": "cf952cd7115976ebceafdf028e65a57af651904a9e47b5f28566c815da5d4bf1",
+    "reports/real_data_phase3/REVIEW_PACKET.md": "4ae91c23a67822e9966b961ad471133318ecfba14d041d821683ad0291b521a9",
+    "reports/real_data_phase3/independent_statistical_diagnostics_v2.json": "b420116f4e47a9ce7c3b4ba267ca9640c9a11feed5df2030afbe75d94d40fc38",
+    "reports/real_data_phase3/independent_year_attribution.json": "871ba483dd67bad7477db88e53cc5c69cef6823824f1de3a5982ebb166bb6268",
+    "reports/real_data_phase3/results_summary.json": "c238b235722bc73468ef1cc3af29f083c160a92d0ff18edead6c36d3b129aebb",
+    "reports/real_data_phase3/statistical_review.json": "905cbaaff838e64f4d33c0939f3b2ab53573b5c4743a9333568977ebc0b129b0",
+    "runs/real_r1_development_v2/135ba16dd5bc215c-20261114T181040764627Z/nav.json": "5a512c0ca52126d70b2b7b16e8bb4601236afaf68e093200291a7e9fe3fadd36",
+    "runs/real_r1_development_v2/1b58ce11526db30e-20261114T181003145594Z/nav.json": "01d618ce38a360b6578b536d1c469fea963d9ed7559b054a28eb544619516018",
+    "runs/real_r1_development_v2/1d89c67460148edc-20261114T181131733849Z/nav.json": "9d5a31ad76539e9ad839d671ae55dfc8c15859b485c72644687f9a1a727ef6be",
+    "runs/real_r1_development_v2/1e22d474284738d7-20261114T181533770450Z/nav.json": "381d60cd356bcc7293cc6ce149db8cb8d1791b2fa1a61e401c6401411e7b1acc",
+    "runs/real_r1_development_v2/20580ab29ae6f5bb-20261114T181059044277Z/nav.json": "924513f79347aa2a4c54c6ca8d03e8da894cea34fe40dd8651eff10269a3e124",
+    "runs/real_r1_development_v2/208dfa8a5fa73bd7-20261114T181647331197Z/nav.json": "e464cf7d09e54749e6340010d96ec4d6f3decba67b1d4809ae50af1922e7c8f5",
+    "runs/real_r1_development_v2/213aa133d8fb2ec7-20261114T181205678267Z/nav.json": "408f1bb96a9434701a14e7e3b5b0cfa78b813290bc4871466ed39e7b4cda749e",
+    "runs/real_r1_development_v2/22735db47617b372-20261114T181716320947Z/nav.json": "c3bf7f51fc41b2c5bda22840eb366b3f88080fe0ddc1ec509763acf43fbe6352",
+    "runs/real_r1_development_v2/2b7cacf7abf0cdab-20261114T181030158358Z/nav.json": "5850403202c05a621a12db3400df5748f3eedf49b8d3bd2bb459b03048d8e9bd",
+    "runs/real_r1_development_v2/2f2e9c4bfef1e7e8-20261114T180928822838Z/nav.json": "c69cf9d4aac7d0ec8a99426f95fe7866c71cdc7e2cb5f7f88fc263102bd41a0d",
+    "runs/real_r1_development_v2/337ea3fe2478563c-20261114T181303810516Z/nav.json": "c30036714698a8d0cd3447e0f084621d7c708bd095b4dc1a30122503d5634ea9",
+    "runs/real_r1_development_v2/40f8aa70cd9a495c-20261114T181035370978Z/nav.json": "053388e78fb19462d21179e373836296963c554933b6dd3008a1b974c1a1a4f0",
+    "runs/real_r1_development_v2/4228c2a524c0bfe2-20261114T181636562447Z/nav.json": "cc6548af96e07700be5f8ede74016d085f8c989bcc8b14cd7af1860d1557b267",
+    "runs/real_r1_development_v2/49799962c0d24a4e-20261114T181413109684Z/nav.json": "f2f8f9ac1cdade814f14d605b0db370e9519d32c36e7eefe32cca644fd2f4403",
+    "runs/real_r1_development_v2/4ec4ab9fd569b5c7-20261114T181514250544Z/nav.json": "2810b07bf5b8c4d57d8f1f18b9056d2e0764222505f8f06cd6e206496044a6ae",
+    "runs/real_r1_development_v2/5efa1bb399db512e-20261114T181430502850Z/nav.json": "f6ccd0077d8b6550b50aa70fa7052eb5d1ac6d787497ebc613955975c7a23fe1",
+    "runs/real_r1_development_v2/64259aa626748b4f-20261114T181441315807Z/nav.json": "03a790a83462f78ce57c6999d7878ea030810b3a5ae138ee012739590d054298",
+    "runs/real_r1_development_v2/6853cdde90043429-20261114T181126500366Z/nav.json": "a2ab44aad4aee4536001570d814abc7dbcd3f67db63b67e58499d82aee93a26f",
+    "runs/real_r1_development_v2/6d13cdcbd328f837-20261114T181313659128Z/nav.json": "dfe7dd19b506b8bdb513e1be1c9c0f462efb24503b744916c72927c46c7b27ea",
+    "runs/real_r1_development_v2/6f996b1f9a60b41a-20261114T181617199373Z/nav.json": "d2f9f70241edd91f64b68ec8b52d9ed91174caf6ad798e1eb6c4991fbcad9283",
+    "runs/real_r1_development_v2/748e1fdf4ea6fd85-20261114T181403228194Z/nav.json": "c2c5a3c281baffbe225da75a5499cd43c69855d05b684edad84b94c83037a959",
+    "runs/real_r1_development_v2/75cba0bf60af4849-20261114T181142615809Z/nav.json": "34fd893a9714ab2faca574476565669728a20238f5b25cccf84267b2d73af7cf",
+    "runs/real_r1_development_v2/7a0a3cb7c229a632-20261114T181104277526Z/nav.json": "76f9ddb6dfc9831271a129930329b522aa02d6dccf344999ed040e8246c73e77",
+    "runs/real_r1_development_v2/7a12f27f4a960dd6-20261114T181435830476Z/nav.json": "955784d9987f647432a3e713b15a06d4adc295cabad1899a4d7e744272c1f798",
+    "runs/real_r1_development_v2/7a790fdf9fc3c5bb-20261114T181642109852Z/nav.json": "dd5439fed17351606051bce2c3259b587385e0eb5341de9d2fa387f896e315c5",
+    "runs/real_r1_development_v2/82efb26429ac919a-20261114T181109216093Z/nav.json": "0adad867135ff4c36c29f5a0335957cfc77213268c5a4bca54b501c015a7d90f",
+    "runs/real_r1_development_v2/8f91a1d6f0a637b3-20261114T181137361427Z/nav.json": "1990517396785ec18accced6bc905c1b63d927e1baa3bbb777dbf3b3c2e2b666",
+    "runs/real_r1_development_v2/90d352905f475eaf-20261114T180934161933Z/nav.json": "dbf9acadbc172ef9efcf2fc9ebe462fe95ee5beb2d8adb3d4e27a3a05c8092a9",
+    "runs/real_r1_development_v2/916a5e5697de692e-20261114T181025036750Z/nav.json": "060df44a4fe80484260706991385bf7c107376d962f5509728bd4169f32b4614",
+    "runs/real_r1_development_v2/952bc24e6b2a386b-20261114T181408300069Z/nav.json": "855784b59b6f05e61bb5b9142d108b7636ad0ebe3999389357b0e8c2a237c68b",
+    "runs/real_r1_development_v2/956cce9863e36f04-20261114T181711197152Z/nav.json": "61da91c7b4b3bb15594210b9bfca479281001c3bcf031ae271bd7c8bfeda8ef5",
+    "runs/real_r1_development_v2/974e67f63e58cf1b-20261114T181504054866Z/nav.json": "8efc2ea7a872c07955e09016f02ec2e41d6383c2e52757720cb3f1153318f9c0",
+    "runs/real_r1_development_v2/979302770ccfa15e-20261114T181721498700Z/nav.json": "9ddf7f0208964195df6825e3d803b9a2f60e5d063d8b04aec66056d452a05e2e",
+    "runs/real_r1_development_v2/99663c50735e8273-20261114T181233754127Z/nav.json": "60c69f06cabf38950815a0dce5663e524a99763580ac9d816f5c8acd84099b1b",
+    "runs/real_r1_development_v2/9eff2e6ebb0d28ba-20261114T181244495703Z/nav.json": "0a9b2e57d3b1bc03d2451dbc13f48d849e865ad36e5e714b53deb82ab131c436",
+    "runs/real_r1_development_v2/a93ff32d6e1ed243-20261114T181652485029Z/nav.json": "c4aa393d94951c9ae5f13f060a78c7f70e73ae9e8815b2d7ca7f1ad6ca59638c",
+    "runs/real_r1_development_v2/a97d071f55699fe3-20261114T181612275706Z/nav.json": "f96e556fe827fff45824f476313727b82a5a94ef87a0ec621ca5b8e50d0de4c8",
+    "runs/real_r1_development_v2/b1c68ad36b1fae6f-20261114T180939698676Z/nav.json": "7cba4ea3f82f2c7dfc123c66b4edf5530581eee8c9ea8062e397d31b12155882",
+    "runs/real_r1_development_v2/b24a968ed681e5d4-20261114T181607389714Z/nav.json": "8cb35f407dcf12455e45a54672707eec30ebe3eb06e7bd2df59aef50090aa08a",
+    "runs/real_r1_development_v2/b5f5be494f0db1a6-20261114T180923162449Z/nav.json": "0c400bc7609198d0fb853cf7b2bd422fb44b49bfb811e89dc73f9514cb8d3903",
+    "runs/real_r1_development_v2/b8e7b0910fdd45a7-20261114T181308692926Z/nav.json": "3f317c5338714a807f9110883e8eb332b2b5a2756aff48bfe3853faf7badfb8b",
+    "runs/real_r1_development_v2/bd3724ece9f2ce33-20261114T181549614524Z/nav.json": "660eb14cda5c11b93f10644c7bd59bf01a229f1ad7e7fda454c3aafb15628001",
+    "runs/real_r1_development_v2/c98276bfbeb6d579-20261114T181335927253Z/nav.json": "b4c775b5e6edee6412f6a988d1152d72e45540f32207aaaf4aad76b13b6fd456",
+    "runs/real_r1_development_v2/cd082d623647c455-20261114T181210754610Z/nav.json": "fa2892eb99a7f012a7497978d2df2d11ee6dfd1c2419936c9f95a4ed825311b5",
+    "runs/real_r1_development_v2/d3cae29d8a3abfaa-20261114T181330579278Z/nav.json": "256b67dd67d3baff6ff9a9546a55037e679803384cb3d634f9394a0a7a8e08b0",
+    "runs/real_r1_development_v2/d58299b8ea8bab21-20261114T181509299736Z/nav.json": "b1b91fd869bd3fd113071f6f147d631ff957de9783fa0c893cce8a0a14cdc1ba",
+    "runs/real_r1_development_v2/e1c215cf6d24a754-20261114T181228442345Z/nav.json": "0f490d94fe838581ea197fbdd1e9d04224ab247505a50f9ec2cab73b5bf32755",
+    "runs/real_r1_development_v2/e59d4aec5235aebf-20261114T181341233347Z/nav.json": "9c56373daf488bf01c495c889d071098d50332573dcbd36d61bdbd551969f082",
+    "runs/real_r1_development_v2/eec993a45e69a82b-20261114T181446475135Z/nav.json": "c3bc22dbef3b4ec4127a48deb2efcf3f738a1e4a2fb93b72002bc424b7abccd0",
+    "runs/real_r1_development_v2/eed79ef86c27f893-20261114T181539024826Z/nav.json": "47f525065fa151acf9cb9a37679c2e04c15c313f5b1724ba6422710f340d57a9",
+    "runs/real_r1_development_v2/f0f765b3afc4ccef-20261114T180957757133Z/nav.json": "9187cbe6ff1a842474f79da92a50552f611964cbf4102f4406e87f3b5fe781f4",
+    "runs/real_r1_development_v2/f1b421a4b24d71d3-20261114T181346424588Z/nav.json": "224275a4ecccfe7f6df2e4beef3c44c157434615818f7c3d54144bc078c76faa",
+    "runs/real_r1_development_v2/f70cdcb109452290-20261114T181008334487Z/nav.json": "eb1ca39cd5d81a9722ed082f5e173060e3ef00d8530dbc7c40535beaae7a913e",
+    "runs/real_r1_development_v2/f83795fe4059e0f1-20261114T181239131191Z/nav.json": "98acad842198530cc9f7e23c3bd25f0ebebf21787ba4f03142d2758b889e54cc",
+    "runs/real_r1_development_v2/fbd895cf716b9c3b-20261114T181200818965Z/nav.json": "1fa43a60aebaaa0d004147294e2bf1fe46dfb363502a8c25c689a76bc6e34b64",
+    "runs/real_r1_development_v2/ffc09fe48bb499d0-20261114T181544295601Z/nav.json": "d0c580e867efad2f439c14f3c6e067d64d3fabaeed021898f20c20e5cf093a31",
+    "runs/real_r1_validation_v2/081f94cbb527f1a4-20261114T181555009333Z/nav.json": "7924e5906c13d50b07b1d38464ec57c81b04b1bbbcb590294afc86e008164b11",
+    "runs/real_r1_validation_v2/08877c0e8b11f561-20261114T181306781158Z/nav.json": "66e91d3ecf1a8199f596449fd5a6fd47162110d4aaf4c53785e527cbc5ad2465",
+    "runs/real_r1_validation_v2/0cc4823c9c7d524e-20261114T181955295454Z/nav.json": "0a4f9b21dc08b13b8091a831d2e236f7c157e039e443c70513590d492c1f1564",
+    "runs/real_r1_validation_v2/0e3e57525742dc04-20261114T181708150279Z/nav.json": "4b4bd9970eef93d5dc1fbb55df944a77644e84bd6cebe16dcac747831eb25ac4",
+    "runs/real_r1_validation_v2/0eb12db58e704a3a-20261114T181402147600Z/nav.json": "6c8c608d41ee9e31b3b3202f6b4aee924aaed80f2a1e6c52f025805634763786",
+    "runs/real_r1_validation_v2/153f729b0bae2789-20261114T181456884659Z/nav.json": "5433fe8edcc46383df76920585a754fe88b88bdf681e2e561fa07399b3fe4f5c",
+    "runs/real_r1_validation_v2/1d39ae06ec4a276a-20261114T181801571883Z/nav.json": "f47451501c9a0667b89be51a40a37a5d3e3e425d635693f2362f5285d7297751",
+    "runs/real_r1_validation_v2/1df45ed0da3f5487-20261114T182428660324Z/nav.json": "f9b06526f77ba84dacb7dbd59cf4ab1eddbe0fe6d1a499168dab404ed35ef87b",
+    "runs/real_r1_validation_v2/1fdea1e234737b92-20261114T181212225584Z/nav.json": "3fae937ccb20089914b5ed51ccee871a63403fa6718b403ce9fa0ed609153247",
+    "runs/real_r1_validation_v2/232a661c2c6c3179-20261114T181715728387Z/nav.json": "721ac619a33df29cb46d5a3fb0c1a2b2d8ab5625da6bb8326c716e071c260e81",
+    "runs/real_r1_validation_v2/25eb81f1bf4cb590-20261114T181409360529Z/nav.json": "73975b173610a2c313b1f9c48414c766365ad831795fdbd85097a514b45247e9",
+    "runs/real_r1_validation_v2/287a130bc8562179-20261114T182422137458Z/nav.json": "12a576bf942deb97a39f47b4d4145b706a8810dde7ad053fa352bed44b4e56cd",
+    "runs/real_r1_validation_v2/2c81629fc2a51861-20261114T181942275539Z/nav.json": "03553eaef5cbcd4b799a1e912be4572e5149556dab66ab1d70ec2d376d024e6a",
+    "runs/real_r1_validation_v2/2cb90db73cf558b6-20261114T181610123450Z/nav.json": "b3f8fb1fee427711bd7511c461aa983b05119735fb2aeb5e63f9bf28dff81293",
+    "runs/real_r1_validation_v2/2ed31d0f43f92e45-20261114T182337169071Z/nav.json": "b8ab247aecdb759dea0ed8e097171dd4d6c7899ebe1ce7853d114f6f73882d71",
+    "runs/real_r1_validation_v2/2ffc5747f5915e48-20261114T181815914068Z/nav.json": "43cdbc35cb540864bb7eade42b062a5b7feb2d00ed66f43c12c40ddff9a9ab6f",
+    "runs/real_r1_validation_v2/3364a5232fa64697-20261114T181103659158Z/nav.json": "5ba38aecaf62ce24b25c4912d13bea50abd866593875e50b6f9d0d179fea692b",
+    "runs/real_r1_validation_v2/3e758c73f92332c3-20261114T181617228967Z/nav.json": "410f54eb49e9920e99b9bc011022b576334cf1abff2cb5946440b1e9752e32b1",
+    "runs/real_r1_validation_v2/3e9401b549df3940-20261114T181012246290Z/nav.json": "32d84be7ab2f14fdf5203343d4b10f4dbb861050c5dacace440649ee01eda87b",
+    "runs/real_r1_validation_v2/41245b0d083282eb-20261114T181853090931Z/nav.json": "2684ddfa6d82a778c93529ccd7609bcc7cfbcf81f471abd60966217c77569d1e",
+    "runs/real_r1_validation_v2/4f3f2100f744f942-20261114T182049565996Z/nav.json": "53c15f352ad9a0fe5e5660c7a2be17e6d2ca8a60d589f3ab76fb0a9afeb545ae",
+    "runs/real_r1_validation_v2/5507a9de70eb14df-20261114T182323620582Z/nav.json": "77dffefbdadb982224dd8bd8ae9be70fd78a564a7300c7ab8b52f9f782ebfafc",
+    "runs/real_r1_validation_v2/5768371125e2715c-20261114T181809101770Z/nav.json": "dff7d9851bb52e0f110f900cd4e66b9b876653ca1fcb35189c140489ca7444d1",
+    "runs/real_r1_validation_v2/58c9e7f1db3c2ec5-20261114T182330249112Z/nav.json": "a764b50222b8cfdfcf35e97933284c33daab5a73069251090e610b6810510f28",
+    "runs/real_r1_validation_v2/5bc47de0ae09d8d4-20261114T181313899868Z/nav.json": "8613aa0494b1de1fdeac703bc7efca2d696c8c43f24c0c85678c4d51820664cc",
+    "runs/real_r1_validation_v2/65476915208467db-20261114T181259084963Z/nav.json": "bb418707fcb26fa200bdd99aa602becac550897fa896bca40c243c202591f1bf",
+    "runs/real_r1_validation_v2/6d28d9f8b59b2d3e-20261114T181511852495Z/nav.json": "fb80303f21451526f79f180d0373b6b3ea1b5e4aaecbbbca161e9902e978a745",
+    "runs/real_r1_validation_v2/6e91cbb9db0fdcc1-20261114T181111018569Z/nav.json": "00a3306107520d2a671d4ccd1c46342870d8dfb63c81f877ce8e7dff81b45d3b",
+    "runs/real_r1_validation_v2/8e29b7424667c398-20261114T182224474693Z/nav.json": "37f12dd16bef73f5ea065debd63da7e454c12151b02b91771ac4760e56c100fd",
+    "runs/real_r1_validation_v2/9e6deed88733e08c-20261114T181354358247Z/nav.json": "86c1c8765858a0bb2acaa1e629221ab933042626ca7d4b5e3296616fe5d60c9d",
+    "runs/real_r1_validation_v2/9ec69ad612f6153c-20261114T182146917244Z/nav.json": "97781c074d0c2d9a4ace51d0fe4cf98a929c4c50cd6d37c10a95d81212e21b17",
+    "runs/real_r1_validation_v2/9f5e229a5a6d0948-20261114T181416266513Z/nav.json": "bb35ad8bc0dc4caaf6055eedae72f33f7998f12a2c23c648dd378ac94fa90418",
+    "runs/real_r1_validation_v2/a31d715dcd34ee72-20261114T181027483126Z/nav.json": "e14f1008e17b2f317cb26884f05ab02a61704dcaf8eb7214e327944892b2917c",
+    "runs/real_r1_validation_v2/a375895e8ec664e7-20261114T181700292553Z/nav.json": "e0f7c27cc1f3fa1095d10f2c5838dcfb472fbe7c391d9447653c500729936440",
+    "runs/real_r1_validation_v2/a3a41dfc0c4ccf2f-20261114T181504581348Z/nav.json": "bcb94a7b6898af7583651aba0f818148ff77fc0d2ca75f7aee7110eb3f34e5f3",
+    "runs/real_r1_validation_v2/a971ee5a7ead85e7-20261114T181602637385Z/nav.json": "bf358a264c744ea34f50d4147e5ad18528c862fd383263354af9eb0b58b41f8b",
+    "runs/real_r1_validation_v2/aad70d7dd2750ae2-20261114T182140519763Z/nav.json": "73e2015176534348b1e28c299292d26aee9507c9e45124f356f19b52552272b8",
+    "runs/real_r1_validation_v2/adf9718f872a1e00-20261114T182036423195Z/nav.json": "05e0c8485a2ab7673f01a994613fd7a6bc445921ff0e7d336b8060d96db25544",
+    "runs/real_r1_validation_v2/af43178f67777a9e-20261114T182002151902Z/nav.json": "7796654146e850ce7934ccc88854486e09c2926755a8b298fa756aaf21d744b9",
+    "runs/real_r1_validation_v2/b98dc10cc7ac1b1c-20261114T181859803827Z/nav.json": "ac312b8ae0c62cd1dd03660b903fbef1cdbdb1eefe7c74682b7a7d7ebc001b8b",
+    "runs/real_r1_validation_v2/bb3f69ef87983c8a-20261114T182237494578Z/nav.json": "ce2ddd41b3f9e7b3ce201d580aa73e989dcd1232a12c0cc460efdcf86ed32ed9",
+    "runs/real_r1_validation_v2/bb8d4dde43c1743d-20261114T181019780124Z/nav.json": "19b4b79040637858423255b306d7e137de55e214e756c62de33ad7c34b1c6d6f",
+    "runs/real_r1_validation_v2/c3042d6aac79ed23-20261114T181948789355Z/nav.json": "f3de9b446f63c06602b5eac72ad8072747b72750c348a5693821a45a550ed770",
+    "runs/real_r1_validation_v2/c7997a13cef2d1a9-20261114T182316961279Z/nav.json": "730e86f1efe6d72ae2f1569648d58a2f5c6dd0f5533e5f15053c077bc12465ee",
+    "runs/real_r1_validation_v2/c9621674bf9cd9fd-20261114T182231197049Z/nav.json": "ec1ae160bc51a7d0c9045a9e445a1a66d6d790d66e153be72d9e5a4075eaa587",
+    "runs/real_r1_validation_v2/cf2a4a07bbe1eb5a-20261114T182415408335Z/nav.json": "2867f778e7e3ca9fdf26ea1ac58a225a192225fc393da65f5697c8a67ed5b9bb",
+    "runs/real_r1_validation_v2/cf3a633fda9d8dcb-20261114T182127437553Z/nav.json": "7f57deef71170c16f2615cf0c7328b96778f089f88458a81de8d1d789feb4f72",
+    "runs/real_r1_validation_v2/d3067ee686425c8d-20261114T181753561777Z/nav.json": "a483b419a120cd64c84dd08d04e6d3b95fe7e02ddf9129f2264e8a591a9a4288",
+    "runs/real_r1_validation_v2/d4bc5729f5eb3ffd-20261114T181906541961Z/nav.json": "4a6c8f154c69474f1181530a07748d25a112dad8b0eb870f92f8e8f8ad60dcc9",
+    "runs/real_r1_validation_v2/dff365a067a158d7-20261114T182042863595Z/nav.json": "17ca05228e931fd642a860a40f2f459568656ab6fe0aadb5ee69e83e04d3ea6e",
+    "runs/real_r1_validation_v2/e984cabc8d1c9d36-20261114T181205020428Z/nav.json": "99a4f739f698f7cd51dd92af6dcdd3a6ea7567f38ba758c1b3193f0bd7b49203",
+    "runs/real_r1_validation_v2/ef432a91d3380cba-20261114T181118337644Z/nav.json": "b04c4072e6eb4fb3e091ccf6db610bd25e5bd9d027681ac51ec23573407a40f5",
+    "runs/real_r1_validation_v2/f62130652f60b70a-20261114T182133989056Z/nav.json": "20a0d5324f54d31a4aaa48b58f2e7dbe511bf824b61bdcc3e8fa6ace98b9ee39",
+    "runs/real_r1_validation_v2/f8451f94e2dd77f8-20261114T181157381370Z/nav.json": "f36675959e3a50f180a4836efbd375fe1ac646a66092b2041b5d07128c51c8fb",
+    "runs/real_r1_validation_v2/fa07782c6b311c1e-20261114T181219453888Z/nav.json": "4ce2daa72352fe3ff9202839fa416202700ad6c9a1b550ed3a0768348755c459",
+    "runs/real_r1_validation_v2/fe6580eaf497fda7-20261114T181004798258Z/nav.json": "6ed3f2afff0e5218d17466fa59f820c3214864f49a77df5fccf4940cdb5509b2"
+  },
+  "review_script_sha256": "34f59fbf73e8f0a5479e49c1daf983b32cbde6ad2ec7984debc9fd2406a37344"
+}

@@ -1,0 +1,289 @@
+{
+  "schema_version": "m3-independent-equity-admission-review-1.0",
+  "reviewed_on": "2026-11-15",
+  "reviewer": "/root/equity_independent_admission",
+  "base_head": "a57ad77cd1f49ffab5d06166628faaac723b6053",
+  "working_tree_changes_reviewed": true,
+  "status": "BLOCKED_REAL_DATA_AND_EXECUTION_ADMISSION",
+  "engineering_review": "ACCEPT_LIMITED_REPAIRS_AND_COMPONENT_EVIDENCE_ONLY",
+  "R2_admission": "BLOCKED",
+  "R3_admission": "BLOCKED",
+  "real_strategy_runs": 0,
+  "performance_evidence": false,
+  "main_stock_ledger_integrated": false,
+  "unresolved_safety_repair_findings": [],
+  "review_scope": [
+    "execution permission/fees/corporate-action refusal/valuation",
+    "isolated FIFO dividend-tax component",
+    "offline raw evidence integrity and report coverage",
+    "R2/R3 dependency gates"
+  ],
+  "exclusions": [
+    "complete stock NAV or tax/cash integration acceptance",
+    "independent human financial-page signoff",
+    "stock universe completeness",
+    "executable opening queues",
+    "feature formulas covered by separate reviewer"
+  ],
+  "findings": [
+    {
+      "id": "IE01",
+      "priority": 1,
+      "status": "FIXED_AND_INDEPENDENTLY_RETESTED",
+      "file": "src/quant_research/execution.py",
+      "function": "run_backtest.permission",
+      "original_problem": "Integer/string is_st flags could authorize new buys and fail to initiate exits for existing positions.",
+      "original_counterexamples": [
+        "is_st=1 with status=NORMAL bought shares",
+        "is_st='1' with status=NORMAL bought shares",
+        "After prior-day purchase, visible is_st='1' revision failed to start risk exit"
+      ],
+      "resolution": "STOCK buys require status string NORMAL/ACTIVE and is_st identity False; missing/null/non-bool denied in real and synthetic; original daily risk exit reason reused; sells preserve legal constraints.",
+      "fixed_by": "execution author; root amended old synthetic fixture with explicit non-ST flag",
+      "independent_before": {
+        "tests": 28,
+        "failures": 3,
+        "errors": 0,
+        "skipped": 0,
+        "junit_xml": "work/equity_independent_admission/independent_execution_expanded_before_fix.xml",
+        "junit_sha256": "0ba1aab82f2524489d14c4e125b5acffe57d26b02d6b12f66e15bad1c9215a2c"
+      },
+      "independent_after": {
+        "tests": 28,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "junit_xml": "work/equity_independent_admission/independent_execution_final.xml",
+        "junit_sha256": "ba2464a4890883dcf41b0e2c4d4ef650b2aa5482855b7f5015d01a44ffba9c73"
+      }
+    }
+  ],
+  "admission_blockers": [
+    {
+      "id": "IA01",
+      "applies_to": [
+        "R2",
+        "R3"
+      ],
+      "kind": "DATA_COVERAGE",
+      "detail": "Full historical universe/identity/board/listing-stage/ST/delisting/suspension/industry/share counts/cap/liquidity not reconstructed; sparse difficult samples cannot stand in for the complete pool."
+    },
+    {
+      "id": "IA02",
+      "applies_to": [
+        "R2"
+      ],
+      "kind": "FINANCIAL_VINTAGES",
+      "detail": "One original/restated issuer-period case, zero independent human signatures, twenty unpaired correction PDFs; twenty-case requirement and full-pool original-version coverage both remain open. Not a reason to block R3 F01-F06-independent work."
+    },
+    {
+      "id": "IA03",
+      "applies_to": [
+        "R2",
+        "R3"
+      ],
+      "kind": "CORPORATE_ACTION_DATA",
+      "detail": "Special dividend omission reproduced; noncash tax sources and full action/total-return/delisted-claim coverage incomplete."
+    },
+    {
+      "id": "IA04",
+      "applies_to": [
+        "R2",
+        "R3"
+      ],
+      "kind": "ENGINE_INTEGRATION",
+      "detail": "FIFO component not connected to record/ex/pay dates, cash constraints, withholding, liability/NAV or terminal realizable NAV. Main engine still explicitly refuses stock dividends and share/right/merger events."
+    },
+    {
+      "id": "IA05",
+      "applies_to": [
+        "R2",
+        "R3"
+      ],
+      "kind": "RULE_EVIDENCE_AND_EXECUTION",
+      "detail": "Historical legal fees/rounding/debit evidence, event-specific limits/reference prices and special/unbounded sessions need original evidence plus integration; date-based helper and synthetic schedules do not admit them."
+    },
+    {
+      "id": "IA06",
+      "applies_to": [
+        "R2",
+        "R3"
+      ],
+      "kind": "STRATEGY_RUNNER",
+      "detail": "Registered real eligibility/common controls/full account runner remain unimplemented; pure signals do not authorize bypassing admission."
+    }
+  ],
+  "data_evidence": {
+    "status": "INTEGRITY_AND_BLOCKED_SCOPE_VERIFIED_NOT_DATA_ADMISSION",
+    "checked_manifest_objects": 178,
+    "hash_mismatches": [],
+    "stock_calls": {
+      "SUCCESS": 34,
+      "TIMEOUT": 1
+    },
+    "calendar_calls": 2,
+    "http_calls": {
+      "FETCHED": 49,
+      "FAILED": 2
+    },
+    "history_segments": 6,
+    "history_rows": 357,
+    "old_pool_future_names": {
+      "sz.000979": "中弘退",
+      "sz.300104": "乐视退"
+    },
+    "leshi_delisting_period_is_st_values": [
+      "0"
+    ],
+    "completed_financial_case_count": 1,
+    "independent_human_signed_cases": 0,
+    "correction_queue_count": 20,
+    "raw_api_data_cutoff": "2024-12-31",
+    "real_strategy_runs": 0,
+    "limitations": [
+      "Integrity proves bytes and reported scope, not complete issuer/event coverage.",
+      "Document hash verification is not independent page-by-page financial signoff.",
+      "No contemporaneous vendor first-seen timestamps reconstructed from present ingestion."
+    ]
+  },
+  "validation": {
+    "independent": {
+      "tests": 28,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "junit_xml": "work/equity_independent_admission/independent_execution_final.xml",
+      "junit_sha256": "ba2464a4890883dcf41b0e2c4d4ef650b2aa5482855b7f5015d01a44ffba9c73"
+    },
+    "independent_wall_seconds": 1.08,
+    "related_regression": {
+      "tests": 158,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "junit_xml": "work/equity_independent_admission/author_regression_final.xml",
+      "junit_sha256": "1ccac954f1f1a39537c2421f1b5415b9c5b8cf28f2de5cb0863e8535875882aa"
+    },
+    "related_regression_wall_seconds": 3.04,
+    "related_breakdown": {
+      "execution_and_related": 146,
+      "data_audit": 12
+    },
+    "evidence_command": ".venv\\Scripts\\python.exe review_code/equity/verify_admission_evidence.py",
+    "independent_command": ".venv\\Scripts\\python.exe -m pytest review_code/equity/test_independent_execution_admission.py -q",
+    "regression_command": ".venv\\Scripts\\python.exe -m pytest tests/test_equity_execution.py tests/test_execution.py tests/test_share_events.py tests/test_settlement.py tests/test_decimal_money.py tests/test_ledger_reconciliation.py tests/test_equity_data_audit.py -q",
+    "interpretation": "Synthetic engineering/data-audit checks, no independent market samples and no Alpha evidence"
+  },
+  "separate_feature_review": {
+    "report": "reports/m3_equity_admission/FEATURE_REVIEW.md",
+    "status": "PASS_RESEARCH_KERNEL_ONLY",
+    "interpretation": "Referenced limited scope; this review does not duplicate formulas or extend that PASS to data/execution admission"
+  },
+  "official_rule_crosscheck": {
+    "url": "https://szs.mof.gov.cn/zhengcejiedu/201509/t20150909_1455696.htm",
+    "scope": "FIFO and natural month/year holding period boundaries",
+    "actual_broker_debit_or_rounding_verified": false
+  },
+  "execution_source_hash_checks": [
+    {
+      "id": "dividend_2015_101",
+      "path": "work/equity_execution/dividend_2015_101.html",
+      "sha256": "2dd4edb94577ba25fb4fe0249c56225890e7f2f29f84a42126d24a0028ba70d3",
+      "fetch_status": "ARCHIVED_UNREVIEWED",
+      "semantic_admission": false
+    },
+    {
+      "id": "dividend_fifo_2015_qa",
+      "path": "work/equity_execution/dividend_fifo_2015_qa.html",
+      "sha256": "87cc6cb1dc2bd6c4e960ce8448ecebcc2adadd854d4c8627119078572c760188",
+      "fetch_status": "ARCHIVED_UNREVIEWED",
+      "semantic_admission": false
+    },
+    {
+      "id": "stamp_2023_39",
+      "path": "work/equity_execution/stamp_2023_39.html",
+      "sha256": "bdad8369ee854d205de9a1e355beecc4fa7841f7293e332997e6cadd2b923c35",
+      "fetch_status": "ARCHIVED_UNREVIEWED",
+      "semantic_admission": false
+    },
+    {
+      "id": "chinext_20200821",
+      "path": "work/equity_execution/chinext_20200821.html",
+      "sha256": "3da75fdcef06621a9e80761b28e56662b8ec4082c372bc15f14eb20afc5a7ae9",
+      "fetch_status": "ARCHIVED_UNREVIEWED",
+      "semantic_admission": false
+    },
+    {
+      "id": "chinext_st_transition_2020",
+      "path": "work/equity_execution/chinext_st_transition_2020.pdf",
+      "sha256": "9155115a7344627da69c5ab8139dbf00a93d53278c99d83b9a246ddf014edd1d",
+      "fetch_status": "ARCHIVED_UNREVIEWED",
+      "semantic_admission": false
+    },
+    {
+      "id": "main_ipo_2023",
+      "path": "work/equity_execution/main_ipo_2023.html",
+      "sha256": "36161f3db04eff1b71cfc805a3a216fc4c2eec62c0074e2c491c9534acfdcf01",
+      "fetch_status": "ARCHIVED_UNREVIEWED",
+      "semantic_admission": false
+    },
+    {
+      "id": "transfer_2015",
+      "path": "work/equity_execution/transfer_2015.html",
+      "sha256": "f6e43785a5360e47022d668755adf11f43d037df426ef5ce632daa52fc31ef16",
+      "fetch_status": "REJECTED_REDIRECT_HOME_PAGE",
+      "semantic_admission": false
+    },
+    {
+      "id": "capital_reserve_tax_2018",
+      "path": "work/equity_execution/capital_reserve_tax_2018.html",
+      "sha256": "a9488bb4119675807b0d799a85814cce9f066954030b2dcc9fbeca8630fd6f0e",
+      "fetch_status": "ARCHIVED_UNREVIEWED",
+      "semantic_admission": false
+    },
+    {
+      "id": "main_reform_effective_2023",
+      "path": "work/equity_execution/main_reform_effective_2023.pdf",
+      "sha256": "9540ba342ab92b6cb464d24cd2e7acfa45db2847ea3a6832a8767bc60f6c9029",
+      "fetch_status": "ARCHIVED_UNREVIEWED",
+      "semantic_admission": false
+    }
+  ],
+  "constraints": {
+    "R1_historical_runs_performed": 0,
+    "new_ETF_parameter_searches": 0,
+    "final_holdout_market_or_strategy_data_access": false,
+    "market_network_requests_by_reviewer": 0,
+    "live_trading": false,
+    "purchases": false,
+    "production_or_author_tests_modified_by_reviewer": false
+  },
+  "input_sha256": {
+    "src/quant_research/execution.py": "589549d5c50fb1f090bde6b7a91abaf275269e342620d275843abb497550abe1",
+    "src/quant_research/equity_accounting.py": "9bf3b8673547c63bdc6a4eb910f194b9810e66c681cd350942898558ebd6a3c7",
+    "tests/test_equity_execution.py": "1debb21a85d690db8188588680e78193cba51b851cf4231df11f3aea6f84ce12",
+    "tests/test_execution.py": "a239c00f7db0cb241134a63c13b4ced140802df0b8cd1b3f8c9645f8f0c85cb1",
+    "tests/test_equity_data_audit.py": "ee913bb1a4e9f2fb94261447776142a4bb3aee631e1d2cb8c6d879cc43aaec15",
+    "docs/RISK_POLICY.md": "eb13ed9585e2d232dcb0a78b5770145cc566d3370ce5f13338fd528fbe3e6848",
+    "docs/DATA_CONTRACT.md": "e7739d56b28896073108d6362227b2920bbd974a4825818b408306203836cd4b",
+    "docs/STRATEGY_SPEC.md": "cf952cd7115976ebceafdf028e65a57af651904a9e47b5f28566c815da5d4bf1",
+    "docs/EXPERIMENT_PLAN.md": "52ddce64e34116e3b5a39ed10a4a492cdfe5042c12236ed481846fabd56f4905",
+    "docs/EQUITY_RESEARCH_PROTOCOL.md": "a831dd822095cda8359155c34f23e97600c37805fa4646ff3fd5ab2de800777c",
+    "reports/m3_equity_admission/EXECUTION_ADMISSION.md": "7dc77ed3f9bbb71e721b9e85f1e90f4ca4e4c6fdd1215f65d6a298c6a3fc9f5d",
+    "reports/m3_equity_admission/execution_admission.json": "a8ddd73fbc626975ccf7a15ec68a6a6695785e6b6a46f40e8714c1b4b408a032",
+    "reports/m3_equity_admission/DATA_AUDIT.md": "a562426f6f2932cd0a6e4604107ee4d16d8e2560ead35a6f775bfabe7d9197cf",
+    "reports/m3_equity_admission/data_audit.json": "2b666a9a248b4c32dcdfd0c79a1f5bafaa591f011bd4e3108c1428f2193db557",
+    "reports/m3_equity_admission/source_manifest.json": "13d6a9b4204533614848ad600ffd251f5816db7a5169da249b22cb1e5ba63497",
+    "reports/m3_equity_admission/financial_vintage_case.json": "61162d45077e060b3d0507b7c203085e4d7258d0d66d325f34c6b9f30bcd6afb",
+    "reports/m3_equity_admission/corporate_action_cases.json": "12f249cc603563fb587197169b60d440ff251f9be764dbffca212bd36fe22f00",
+    "reports/m3_equity_admission/hard_case_findings.json": "5096d366d925aaa4058ba46ef829e96d463be2d9f5fb4b8d823997ebdd7c40cd",
+    "reports/m3_equity_admission/revision_candidate_queue.json": "29ca0f72d97687db801ce51250007b0e5aaecc55cd666b5bdec0ea0fc505d52d",
+    "reports/m3_equity_admission/FEATURE_REVIEW.md": "e180d4414353883eb63a13b366263cea5543e6e5e4153f8899a2e7c2ea58bd71",
+    "reports/m3_equity_admission/feature_review.json": "d5cbf4e5b6bbad59986429ebeef6d45dc8ddc28d702ae82014e73dc30133676a"
+  },
+  "independent_code_sha256": {
+    "review_code/equity/test_independent_execution_admission.py": "ba171f25d3595b5173b665bac7253b3caec28e8074e049a60ee6ae2d6612572a",
+    "review_code/equity/verify_admission_evidence.py": "eeaccc4ecfa613cd8e69de7f4c297d799ff6ab0c746f3b8bcc0dbe5588f6fc96"
+  },
+  "narrative_sha256": "8cc9301fc12428d7e621a259cfe021ffc8c7ebbbce1dc3aea05376a817b0c369"
+}

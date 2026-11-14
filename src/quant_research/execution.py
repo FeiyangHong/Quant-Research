@@ -200,8 +200,8 @@ def run_backtest(dataset, decisions, initial_cash, cost_multiplier=1,
             return "BOARD_PERMISSION_DENIED"
         if buying and asset == "ETF" and meta.get("account_verified") is not True:
             return "ETF_PERMISSION_UNVERIFIED"
-        if buying and asset == "STOCK" and meta.get("account_verified") is False:
-            return "ACCOUNT_PERMISSION_REVOKED"
+        if buying and asset == "STOCK" and meta.get("account_verified") is not True:
+            return "ACCOUNT_PERMISSION_REVOKED" if meta.get("account_verified") is False else "STOCK_PERMISSION_UNVERIFIED"
         if buying and pd.notna(delisted):
             return "ANNOUNCED_DELISTING"
         if asset not in ("ETF", "STOCK"):
@@ -213,7 +213,14 @@ def run_backtest(dataset, decisions, initial_cash, cost_multiplier=1,
         if not _valid(meta.get("tick_size"), True):
             return "MISSING_TICK_RULE"
         status = meta.get("status") if asset == "STOCK" else meta.get("status", "NORMAL")
-        if buying and (meta.get("is_st") is True or status not in ("NORMAL", "ACTIVE")):
+        if buying and asset == "STOCK":
+            # Both historical fields must explicitly permit new stock risk.
+            # Identity rejects 0/1, strings and missing values; truthiness or
+            # equality would silently turn malformed flags into non-ST status.
+            if (not isinstance(status, str) or status not in ("NORMAL", "ACTIVE")
+                    or meta.get("is_st") is not False):
+                return "INSTRUMENT_STATUS_DENIED"
+        elif buying and (meta.get("is_st") is True or status not in ("NORMAL", "ACTIVE")):
             return "INSTRUMENT_STATUS_DENIED"
         return None
 
@@ -222,13 +229,19 @@ def run_backtest(dataset, decisions, initial_cash, cost_multiplier=1,
             return 0., 0.
         matches = []
         for rule in rules.to_dict("records"):
+            known = rule.get("available_at")
+            if pd.notna(known) and _timestamp(known) > _cutoff(day, "09:30:00"):
+                continue
+            if _get(dataset, "manifest", {}).get("synthetic") is False and pd.isna(known):
+                raise ExecutionBlockedError("STOCK_TAX_RULE_AVAILABILITY_REQUIRED")
             if (str(rule.get("effective_from", "9999"))[:10] <= day <= str(rule.get("effective_to", "0000"))[:10]
                     and rule.get("verified") is True and rule.get("source_url")):
                 matches.append(rule)
         if len(matches) != 1:
             raise ExecutionBlockedError("UNKNOWN_OR_AMBIGUOUS_STOCK_TAX_RULE")
         rule = matches[0]
-        if not _valid(rule.get("stamp_duty_sell")) or not _valid(rule.get("transfer_fee_both")):
+        if (not _valid(rule.get("stamp_duty_sell")) or not _valid(rule.get("transfer_fee_both"))
+                or float(rule["stamp_duty_sell"]) > 1 or float(rule["transfer_fee_both"]) > 1):
             raise ExecutionBlockedError("INVALID_STOCK_TAX_RULE")
         return float(rule["stamp_duty_sell"]), float(rule["transfer_fee_both"])
 
@@ -426,6 +439,11 @@ def run_backtest(dataset, decisions, initial_cash, cost_multiplier=1,
             return
         if status != "CONFIRMED":
             raise ExecutionBlockedError("Unconfirmed share plan cannot mutate economic holdings")
+        if meta["asset_type"] == "STOCK":
+            # An integral factor does not establish whether this is a taxable
+            # bonus issue, capital-reserve conversion, or a share exchange.
+            # The ETF allocation routine cannot preserve those tax rights.
+            raise ExecutionBlockedError("Stock share-action tax classification and entitlement accounting unsupported")
         factor = action.get("share_factor")
         if not _valid(factor, True):
             raise ExecutionBlockedError("Invalid split factor")
@@ -612,7 +630,7 @@ def run_backtest(dataset, decisions, initial_cash, cost_multiplier=1,
                     "modeled_pay_date": ledger_pay_day if modeled else None,
                     "event_type": "LIQUIDATION", "settlement_mode": mode})
             else:
-                recovery = action.get("recovery_per_share", 0.)
+                recovery = action.get("recovery_per_share")
                 if pd.notna(recovery) and float(recovery) != 0:
                     raise ExecutionBlockedError("Positive delisting recoveries require a verified payment model")
                 dead.add(sid)
@@ -838,13 +856,21 @@ def run_backtest(dataset, decisions, initial_cash, cost_multiplier=1,
         holdings_value = sum(quantity(sid) * marks.get(sid, 0.) for sid in lots)
         unpriced_rights = any(right["entitled_quantity"] > 0 and not right["final_recognized"]
                               for right in liquidation_rights.values())
+        # Zero is a conservative mark, never proof that a delisted shareholder
+        # has no recovery rights. Keep the shares and explicitly mark uncertainty.
+        unpriced_stock_rights = any(quantity(sid) > 0 and sid in dead
+            and (master(sid, _cutoff(day)) or {}).get("asset_type") == "STOCK" for sid in lots)
+        stale_stock_marks = any(quantity(sid) > 0 and stale[sid] > 0 and sid not in dead
+            and (master(sid, _cutoff(day)) or {}).get("asset_type") == "STOCK" for sid in lots)
+        unpriced_rights = unpriced_rights or unpriced_stock_rights
         valuation_status = ("ASSUMED_SCHEDULED_CREDIT" if assumed_settlement else
                             "OBSERVATION_TIME_REPLAY" if observation_replay else
-                            "CONSERVATIVE_UNPRICED_RIGHTS" if unpriced_rights else "PRICED_LEDGER")
+                            "CONSERVATIVE_UNPRICED_RIGHTS" if unpriced_rights else
+                            "STALE_STOCK_MARK" if stale_stock_marks else "PRICED_LEDGER")
         output["nav"].append({"date": day, "nav": nav, "cash_total": cash, "cash": cash,
             "cash_available": cash, "cash_withdrawable": withdrawable, "cash_reserved": 0.,
             "holdings_value": holdings_value, "receivables": float(sum(r["amount"] for r in receivables)), "mode": "DAILY_SCREEN_ONLY",
-            "valuation_status": valuation_status, "valuation_uncertainty": observation_replay or assumed_settlement or unpriced_rights,
+            "valuation_status": valuation_status, "valuation_uncertainty": observation_replay or assumed_settlement or unpriced_rights or stale_stock_marks,
             "assumed_settlement": assumed_settlement, "late_recognition": observation_replay})
         for right in liquidation_rights.values():
             if right["entitled_quantity"] == 0 and right["retired_quantity"] == 0:
@@ -898,7 +924,7 @@ def run_backtest(dataset, decisions, initial_cash, cost_multiplier=1,
             meta = master(sid, _cutoff(day))
             risk_reason = permission(meta, day, True)
             if risk_reason not in {"BOARD_PERMISSION_DENIED", "ETF_PERMISSION_UNVERIFIED",
-                                   "ACCOUNT_PERMISSION_REVOKED", "ANNOUNCED_DELISTING",
+                                   "ACCOUNT_PERMISSION_REVOKED", "STOCK_PERMISSION_UNVERIFIED", "ANNOUNCED_DELISTING",
                                    "INSTRUMENT_STATUS_DENIED"}:
                 continue
             risk_exit_started.add(sid)

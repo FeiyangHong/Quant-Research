@@ -12,7 +12,7 @@ def fixture(names=("ETF_A", "ETF_B", "ETF_C"), days=40):
     instruments = pd.DataFrame([dict(instrument_id=sid, asset_type="ETF", board="ETF",
         listed_on="2010-01-01", delisted_on=None, available_at="2010-01-01T00:00:00+08:00",
         account_verified=True, benchmark_id="INDEX", industry="BROAD", lot_size=100,
-        tick_size=.001, t_plus=1, status="NORMAL") for sid in names])
+        tick_size=.001, t_plus=1, status="NORMAL", is_st=False) for sid in names])
     bars = pd.DataFrame([dict(date=day, instrument_id=sid, open=10., high=11., low=9.,
         close=10., volume=10000000., amount=100000000., upper_limit=11., lower_limit=9.,
         suspended=False, available_at=day + "T16:00:00+08:00", revision_id="1",

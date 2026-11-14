@@ -1,0 +1,83 @@
+{
+  "schema_version": "m3-decision-1",
+  "review_date": "2026-11-15",
+  "base_commit": "a57ad77cd1f49ffab5d06166628faaac723b6053",
+  "r1": {
+    "decision": "ARCHIVE_CURRENT_CONFIGURATION",
+    "parameter_search": "STOPPED",
+    "valid_existing_experiments": 448,
+    "invalidated_attempts_preserved": 353,
+    "new_experiments": 0,
+    "new_experiment_proposals": 0,
+    "future_validation_inspired_ideas": "EXPLORATORY_ONLY_REQUIRES_NEW_REGISTRATION",
+    "formal_economic_confirmation": "BLOCKED_HURDLE"
+  },
+  "r2": {
+    "status": "NOT_RUN_BLOCKED_ADMISSION",
+    "registered_real_experiments": 0,
+    "real_experiments_run": 0,
+    "performance_metrics": null,
+    "blockers": [
+      "full_historical_security_and_risk_state",
+      "historical_industry_publication_clock",
+      "daily_total_shares_and_market_cap",
+      "complete_corporate_actions_and_rights",
+      "historical_execution_rules_fees_and_stock_tax_ledger_integration",
+      "original_financial_vintages_full_coverage",
+      "minimum_20_independently_checked_revision_cases"
+    ]
+  },
+  "r3": {
+    "status": "NOT_RUN_BLOCKED_ADMISSION",
+    "registered_real_experiments": 0,
+    "real_experiments_run": 0,
+    "performance_metrics": null,
+    "blockers": [
+      "full_historical_security_and_risk_state",
+      "historical_industry_publication_clock",
+      "daily_total_shares_and_market_cap",
+      "complete_corporate_actions_and_rights",
+      "historical_execution_rules_fees_and_stock_tax_ledger_integration"
+    ],
+    "r2_financial_gate_is_a_blocker": false,
+    "r1_profit_is_a_prerequisite": false
+  },
+  "primary_capital": 100000,
+  "capital_controls": [
+    10000,
+    100000,
+    500000,
+    1000000
+  ],
+  "direct_stock_permissions": {
+    "MAIN": true,
+    "CHINEXT": true,
+    "STAR": false,
+    "BSE": false
+  },
+  "development": [
+    "2016-01-01",
+    "2021-12-31"
+  ],
+  "validation": [
+    "2022-01-01",
+    "2024-12-31"
+  ],
+  "final_holdout": {
+    "years": [
+      2025,
+      2026
+    ],
+    "status": "LOCKED"
+  },
+  "preparation_is_experiment_registration": false,
+  "preparation_config_sha256": "258d550e6479ea86ab7db9a7364c9e79ef7dd396ee695fcb94d4660380c5292f",
+  "fixed_incremental_cost": null,
+  "purchases": [],
+  "paper_started": false,
+  "live_enabled": false,
+  "data_evidence_version": {
+    "manifest_sha256": "13d6a9b4204533614848ad600ffd251f5816db7a5169da249b22cb1e5ba63497",
+    "status": "AUDIT_EVIDENCE_NOT_ADMITTED_DATASET"
+  }
+}
