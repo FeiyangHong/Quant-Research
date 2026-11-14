@@ -132,3 +132,32 @@ def test_calendar_or_raw_verification_failure_creates_no_output(tmp_path, proble
     with pytest.raises(ValueError, match=reason):
         normalize_benchmark(raw, collection, output, "0" * 64 if problem == "wrong-csi-hash" else None)
     assert not output.exists()
+
+
+def test_standalone_calendar_retains_attempt_lineage_and_validates_raw(tmp_path):
+    collection = tmp_path / "calendar"
+    item = calendar_collection(collection)
+    write_immutable(collection / "calendar_query.json", item)
+    raw = tmp_path / "csi.payload"
+    raw.write_bytes(raw_bytes())
+    output = tmp_path / "standalone"
+    manifest = normalize_benchmark(raw, collection, output)
+    audit = json.loads((output / "calendar_audit.json").read_bytes())
+    assert audit["scope"] == "STANDALONE_CALENDAR_QUERY"
+    assert manifest["record_count"] == 2
+    # A successful label cannot hide changed original bytes.
+    path = collection / item["raw_path"]
+    path.write_bytes(path.read_bytes() + b" ")
+    with pytest.raises(ValueError, match="hash mismatch"):
+        normalize_benchmark(raw, collection, tmp_path / "tampered")
+
+
+def test_explicit_earlier_window_preserves_holdout_lock():
+    payload = response()
+    for row in payload["data"]:
+        row["tradeDate"] = row["tradeDate"].replace("2019", "2010")
+    sessions = {"2010-01-02", "2010-01-03"}
+    records, _ = normalize_payload(raw_bytes(payload), sessions, "2010-01-01", END)
+    assert records[0]["date"] == "2010-01-02"
+    with pytest.raises(ValueError, match="pre-2025"):
+        normalize_payload(raw_bytes(payload), sessions, "2010-01-01", "2025-01-01")

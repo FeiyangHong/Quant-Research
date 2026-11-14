@@ -51,6 +51,39 @@ def test_registered_momentum_top3_month_end_and_delay(market):
     assert all(market.calendar[market.calendar.index(x.decision_date) + 2] == x.execution_date for x in delayed)
 
 
+def test_date_only_benchmark_releases_unchanged_anchor_formula_next_session(market):
+    expected = generate_targets(market, variant="R1")
+    positions = {day: i for i, day in enumerate(market.calendar)}
+    market.benchmark["available_at"] = [
+        (market.calendar[i + 1] if i + 1 < len(market.calendar) else "2030-01-01") + "T21:00:00+08:00"
+        for i in range(len(market.calendar))]
+    actual = generate_targets(market, variant="R1", signal_release_delay=1)
+    by_anchor = {row.decision_date: row for row in expected}
+    for row in actual:
+        anchor = row.diagnostics["signal_anchor_date"]
+        assert row.weights == by_anchor[anchor].weights
+        assert row.status == by_anchor[anchor].status
+        assert row.decision_date == market.calendar[positions[anchor] + 1]
+        assert row.execution_date == market.calendar[positions[anchor] + 2]
+        assert row.decision_at.hour == 21
+
+
+def test_release_day_returns_cannot_change_anchor_signal_but_prices_size_orders(market):
+    before = active(market, variant="R1", signal_release_delay=1)[-1]
+    day = before.decision_date
+    # These observations arrive after the economic month-end. They are legal
+    # order references, but cannot enter the momentum/trend/risk window.
+    mask = market.bars.date.eq(day)
+    market.bars.loc[mask & market.bars.instrument_id.eq("A"), "total_return_index"] = 1e20
+    market.bars.loc[mask, "close"] *= 2
+    market.benchmark.loc[market.benchmark.date.eq(day), "total_return_index"] = 1e20
+    after = active(market, variant="R1", signal_release_delay=1)[-1]
+    assert after.weights == before.weights
+    assert after.diagnostics["momentum"] == before.diagnostics["momentum"]
+    assert after.diagnostics["trend"] == before.diagnostics["trend"]
+    assert after.reference_prices == {code: value * 2 for code, value in before.reference_prices.items()}
+
+
 def test_momentum_skips_latest_21_sessions(market):
     before = active(market, variant="R0")[-1]
     position = market.calendar.index(before.decision_date)

@@ -120,7 +120,7 @@ def _risk_multiplier(tr: pd.DataFrame, weights: Dict[str, float]):
 
 
 def generate_targets(dataset, variant: str = "E0", risk_scaling: bool = False,
-                     execution_delay: int = 1, universe: str = "R1B") -> List[TargetDecision]:
+                     execution_delay: int = 1, universe: str = "R1B", signal_release_delay: int = 0) -> List[TargetDecision]:
     """Return monthly targets, including cash decisions and diagnostic reasons.
 
     Only a supplied exchange calendar determines month/quarter boundaries. At
@@ -134,6 +134,8 @@ def generate_targets(dataset, variant: str = "E0", risk_scaling: bool = False,
         raise ValueError("variant must be E0, R0, E1 or R1")
     if isinstance(execution_delay, bool) or not isinstance(execution_delay, int) or execution_delay < 1:
         raise ValueError("execution_delay must be an integer >= 1 trading session")
+    if type(signal_release_delay) is not int or signal_release_delay not in (0, 1):
+        raise ValueError("signal_release_delay must be zero or one session")
     calendar = list(dataset.calendar)
     if calendar != sorted(set(calendar)):
         raise ValueError("calendar must contain unique, ascending ISO dates")
@@ -151,11 +153,19 @@ def generate_targets(dataset, variant: str = "E0", risk_scaling: bool = False,
             representatives = _representatives(instruments, bars, calendar, index - 1)
             representative_at = calendar[index - 1] if index else None
             quarter = this_quarter
-        if index + execution_delay >= len(calendar) or day[:7] == calendar[index + 1][:7]:
+        if index + signal_release_delay + execution_delay >= len(calendar) or day[:7] == calendar[index + 1][:7]:
             continue
-        at = _cutoff(day)
+        anchor_at = _cutoff(day)
+        decision_day = calendar[index + signal_release_delay]
+        at = _cutoff(decision_day)
         history = _snapshot(bars, at, ["date", "instrument_id"])
-        master = _active_etfs(_snapshot(instruments, at, ["instrument_id"], True), day)
+        # Delayed publication changes when the target is released, not its
+        # economic observation window or historical candidate qualification.
+        history = history.loc[history.date.le(day)]
+        if "total_return_available_at" in history:
+            tr_known = pd.to_datetime(history.total_return_available_at, utc=True, format="mixed", errors="raise")
+            history.loc[tr_known.isna() | tr_known.gt(at), "total_return_index"] = np.nan
+        master = _active_etfs(_snapshot(instruments, anchor_at, ["instrument_id"], True), day)
         current = history.loc[history["date"].eq(day)].set_index("instrument_id")
         amounts = _matrix(history, "amount", calendar[max(0, index - 19):index + 1])
         amounts = amounts.where(np.isfinite(amounts) & amounts.ge(0))
@@ -183,6 +193,8 @@ def generate_targets(dataset, variant: str = "E0", risk_scaling: bool = False,
             else:
                 eligible.append(name)
         diagnostics = {"universe": universe, "variant": variant,
+                       "signal_anchor_date": day, "signal_anchor_at": anchor_at.isoformat(),
+                       "signal_release_delay": signal_release_delay, "order_reference_date": decision_day,
                        "representative_at": representative_at,
                        "representatives": list(representatives), "eligible": eligible,
                        "exclusions": exclusions, "top3_comparable": len(eligible) >= 3,
@@ -216,7 +228,8 @@ def generate_targets(dataset, variant: str = "E0", risk_scaling: bool = False,
             if selected:
                 weights = {name: min(.35, 1.0 / len(selected)) for name in selected}
         if weights and variant in {"E1", "R1"}:
-            market = _snapshot(benchmark, at, ["date"]).set_index("date")
+            market = _snapshot(benchmark, at, ["date"])
+            market = market.loc[market.date.le(day)].set_index("date")
             trend_window = market["total_return_index"].reindex(calendar[max(0, index - 199):index + 1])
             if len(trend_window) != 200 or not (np.isfinite(trend_window) & trend_window.gt(0)).all():
                 status, weights = "BLOCKED_BENCHMARK_HISTORY", {}
@@ -237,6 +250,18 @@ def generate_targets(dataset, variant: str = "E0", risk_scaling: bool = False,
             else:
                 weights = {name: weight * multiplier for name, weight in weights.items()}
         diagnostics["target_gross_weight"] = sum(weights.values())
-        decisions.append(TargetDecision(day, calendar[index + execution_delay], at,
+        if signal_release_delay:
+            # These inputs size orders and cap participation only. They must
+            # never re-rank funds or revise the anchor-date eligibility pool.
+            order_history = _snapshot(bars, at, ["date", "instrument_id"])
+            order_current = order_history.loc[order_history.date.eq(decision_day)].set_index("instrument_id")
+            references = {str(name): float(value) for name, value in order_current.close.items()
+                          if pd.notna(value) and np.isfinite(value) and value > 0}
+            order_amounts = _matrix(order_history, "amount", calendar[max(0, index + signal_release_delay - 19):index + signal_release_delay + 1])
+            order_amounts = order_amounts.where(np.isfinite(order_amounts) & order_amounts.ge(0))
+            order_count, order_mean = order_amounts.count(), order_amounts.mean()
+            adv = {str(name): float(value) for name, value in order_mean.items()
+                   if order_count[name] == 20 and pd.notna(value) and np.isfinite(value) and value > 0}
+        decisions.append(TargetDecision(decision_day, calendar[index + signal_release_delay + execution_delay], at,
                                         weights, references, adv, ranks, status, diagnostics))
     return decisions

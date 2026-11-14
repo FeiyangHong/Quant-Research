@@ -20,8 +20,17 @@ def _nonfinite(value):
     raise ValueError("Nonfinite JSON number: " + value)
 
 
-def normalize_payload(content, sessions):
+def validate_window(start, end):
+    if (date.fromisoformat(start).isoformat() != start or date.fromisoformat(end).isoformat() != end
+            or start > end or end > "2024-12-31"):
+        raise ValueError("Explicit ordered pre-2025 CSI window required")
+
+
+def normalize_payload(content, sessions, start=START, end=END):
     """Preserve source decimal precision and reject incomplete session coverage."""
+    validate_window(start, end)
+    if any(not start <= day <= end for day in sessions):
+        raise ValueError("Calendar sessions outside CSI request window")
     payload = json.loads(content, parse_float=Decimal, parse_constant=_nonfinite)
     if payload.get("code") != "200" or payload.get("success") is not True or not isinstance(payload.get("data"), list):
         raise ValueError("Successful CSI history response required")
@@ -33,7 +42,7 @@ def normalize_payload(content, sessions):
         if not isinstance(raw_day, str) or not re.fullmatch(r"[0-9]{8}", raw_day):
             raise ValueError("Invalid CSI tradeDate")
         day = date.fromisoformat(raw_day[:4] + "-" + raw_day[4:6] + "-" + raw_day[6:]).isoformat()
-        if not START <= day <= END:
+        if not start <= day <= end:
             raise ValueError("CSI observation outside requested window or in locked holdout")
         if day in seen:
             raise ValueError("Duplicate CSI benchmark date")
@@ -61,10 +70,7 @@ def normalize_payload(content, sessions):
     return sorted(records, key=lambda r: r["date"]), sorted(excluded, key=lambda r: r["date"])
 
 
-def _calendar_evidence(root):
-    audit = audit_collection(root)
-    if audit["integrity_status"] != "PASS":
-        raise ValueError("Calendar collection integrity failed: " + "; ".join(audit["errors"]))
+def _calendar_evidence(root, start=START, end=END):
     evidence = {}
 
     def read(name, expected):
@@ -76,28 +82,50 @@ def _calendar_evidence(root):
         evidence[path.relative_to(root).as_posix()] = content
         return json.loads(content)
 
-    collection = read("collection.json", audit["collection_sha256"])
-    read("request_plan.json", audit["request_plan_sha256"])
-    candidates = [item for item in collection["query_results"] if item["kind"] == "calendar"
-                  and item["start"] <= START and item["end"] >= END]
-    if len(candidates) != 1:
-        raise ValueError("One verified calendar covering the full CSI request window required")
-    item = candidates[0]
+    if (root / "calendar_query.json").exists():
+        # A single SDK query has its own pre-request parameters and attempt
+        # lineage. Do not invent a retrospective batch request plan for it.
+        entry_hash = hashlib.sha256((root / "calendar_query.json").read_bytes()).hexdigest()
+        item = read("calendar_query.json", entry_hash)
+        if (item.get("kind") != "calendar" or item.get("status") != "SUCCESS"
+                or item["start"] > start or item["end"] < end):
+            raise ValueError("Successful calendar query must cover the full CSI window")
+        audit = {"integrity_status": "PASS", "scope": "STANDALONE_CALENDAR_QUERY",
+                 "calendar_entry_sha256": entry_hash, "errors": []}
+    else:
+        audit = audit_collection(root)
+        if audit["integrity_status"] != "PASS":
+            raise ValueError("Calendar collection integrity failed: " + "; ".join(audit["errors"]))
+        collection = read("collection.json", audit["collection_sha256"])
+        read("request_plan.json", audit["request_plan_sha256"])
+        candidates = [item for item in collection["query_results"] if item["kind"] == "calendar"
+                      and item["start"] <= start and item["end"] >= end]
+        if len(candidates) != 1:
+            raise ValueError("One verified calendar covering the full CSI request window required")
+        item = candidates[0]
     manifest = read(item["manifest_path"], item["manifest_sha256"])
+    expected_query = {key: item[key] for key in ("kind", "code", "date", "start", "end")}
+    if (manifest.get("query") != expected_query or manifest.get("status") != "SUCCESS"
+            or manifest.get("raw_path") != item["raw_path"]
+            or manifest.get("raw_sha256") != item["raw_sha256"]):
+        raise ValueError("Calendar query manifest differs from its selected entry")
     for attempt in manifest["attempts"]:
         read(attempt["raw_path"], attempt["raw_sha256"])
     payload = read(item["raw_path"], item["raw_sha256"])
     query = Query(**payload["query"])
+    if payload["query"] != expected_query:
+        raise ValueError("Calendar raw query differs from manifest")
     query.validate()
     validate_response(query, payload)  # Includes every natural day, not just sessions.
     rows = [dict(zip(payload["fields"], row)) for row in payload["rows"]]
     sessions = {row["calendar_date"] for row in rows if row["is_trading_day"] == "1"
-                and START <= row["calendar_date"] <= END}
+                and start <= row["calendar_date"] <= end}
     return sessions, evidence, audit
 
 
-def normalize_benchmark(raw, calendar_collection, output, expected_sha256=None):
+def normalize_benchmark(raw, calendar_collection, output, expected_sha256=None, start=START, end=END):
     """Write a new immutable staging directory only after every check passes."""
+    validate_window(start, end)
     raw, root, output = Path(raw).resolve(), Path(calendar_collection).resolve(), Path(output).resolve()
     if output.exists():
         raise FileExistsError("Output already exists; use a new immutable staging directory")
@@ -105,12 +133,14 @@ def normalize_benchmark(raw, calendar_collection, output, expected_sha256=None):
     digest = hashlib.sha256(content).hexdigest()
     if expected_sha256 is not None and digest != expected_sha256:
         raise ValueError("CSI raw SHA256 mismatch")
-    sessions, evidence, audit = _calendar_evidence(root)
-    records, excluded = normalize_payload(content, sessions)
+    sessions, evidence, audit = _calendar_evidence(root, start, end)
+    records, excluded = normalize_payload(content, sessions, start, end)
     manifest = {"schema_version": "csi-benchmark-staging-1.0", "status": "STAGING_ONLY",
         "synthetic": False, "research_admission": "NOT_DATASET_GATE", "performance_evidence": False,
         "strategy_runs_permitted": False, "pit_eligible": False, "benchmark_id": "H00300",
-        "source_endpoint": ENDPOINT, "request_window": {"start": START, "end": END},
+        "source_endpoint": ("https://www.csindex.com.cn/csindex-home/perf/index-perf?indexCode=H00300&startDate="
+                            + start.replace("-", "") + "&endDate=" + end.replace("-", "")),
+        "request_window": {"start": start, "end": end},
         "raw_acquisition": "Previously downloaded HTTP response body; this utility performs no network requests",
         "absent_not_inferred": ABSENT, "record_count": len(records), "excluded_non_session_count": len(excluded),
         "calendar_integrity_status": audit["integrity_status"], "source_files": [], "files": {}}

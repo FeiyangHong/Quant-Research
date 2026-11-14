@@ -1,6 +1,6 @@
 # 离线数据 Schema v1
 
-版本 `r1-offline-1.1`；2026-11-14；时区 `Asia/Shanghai`。实现为 `src/quant_research/data.py`。继续读取不含新清算事件的1.0快照。本 Schema 为 R1 离线工程接口，不替代 `DATA_CONTRACT.md` 的真实数据证据要求。
+版本 `r1-offline-1.2`；2026-11-15；时区 `Asia/Shanghai`。实现为 `src/quant_research/data.py`。继续读取1.0/1.1快照。本 Schema 为 R1 离线工程接口，不替代 `DATA_CONTRACT.md` 的真实数据证据要求。
 
 ## 文件与类型
 
@@ -50,7 +50,17 @@ date_only_available_at(publication_date, calendar, extra_delay=0) -> str
 
 两类清算事件均要求 `terms_verified=true` 与非空 `source_url`。`LIQUIDATION.ex_date`是账务上将交易份额转为权利的日期，不声称该日法律上注销；必须晚于record_date。`LIQUIDATION_PAYMENT`额外要求 `entitlement_action_id`、唯一 `installment_id`、布尔 `is_final`、`recognition_date=ex_date`、`pay_date`和显式 `settlement_mode`。
 
-`SCHEDULED`及`LATE_RECOGNITION`要求 `cash_settlement_verified=true`；后者仅用于较晚得知付款的观察时间回放。`ASSUMED_SCHEDULED_CREDIT`只模拟公告安排的发放日，输出actual_pay_date=null及scheduled_pay_date。迟到确认和假设到账都阻断真实Dataset准入，不得将其标记为已核验的账户资金路径。真实数据中的普通 `CASH_DIVIDEND` 也要求 `cash_settlement_verified=true`，否则审计阻断；旧合成夹具不需要外部资金证据。金额未知时保留权利及估值不确定性，不填造回收额。详见[执行模型](EXECUTION_MODEL.md)。
+`SCHEDULED`及`LATE_RECOGNITION`要求 `cash_settlement_verified=true`；后者仅用于较晚得知付款的观察时间回放。`ASSUMED_SCHEDULED_CREDIT`只模拟公告安排的发放日，输出actual_pay_date=null及scheduled_pay_date。迟到确认和未经规则支持的假设到账仍阻断真实Dataset准入。1.2另提供下述明确区分的规则模拟；不以该模式伪造个人账户流水。金额未知时保留权利及估值不确定性，不填造回收额。详见[执行模型](EXECUTION_MODEL.md)。
+
+### 1.2 份额、资金和数据依赖
+
+`SPLIT.effective_phase`为BOD或EOD；`rounding_policy`为EXACT/FLOOR/CEIL，后两者按账户合计取整并要求原始条款。`action_status=CANCELLED`保留取消记录而不改变数量。原公告的除权日和日终登记日不同时，`source_ex_date`保留公告除权日，账本`ex_date`使用实际生效日期并结合phase；两者不可混淆。`PRE_LISTING_METADATA_ONLY`只允许上市前的事件，登记日未知可null，不再调整已按上市后单位报价的行情。晚公布比例通过独立TR时钟控制，持仓时条款未知仍阻断。
+
+`RULE_BASED_SIMULATION`用于有当时公告及适用清算规则支持的假设指定交易账户。需登记规则URL、有效区间、可用时间、事件适用类型和账户模型；`actual_pay_date=null`且不能设置实际收款已验证。`pay_date/scheduled_pay_date`保留公告日期。若该日期只是托管划出日，另记录`participant_transfer_date`、`modeled_cash_date`及`settlement_rule_credit_basis=NEXT_SESSION_AFTER_PARTICIPANT_TRANSFER`；引擎核验模拟到账为结算参与人划付后下一交易日。普通分红规则不能自动用于清算。固定现金延迟0/1/3交易日从已说明的模拟资金可用日开始。
+
+`bars.available_at`始终控制原始行情和成交额；`total_return_available_at`独立控制总收益特征。晚到的公司行为条款不能使已公开成交额消失，或改变季度代表。`bars_asof`和策略均屏蔽未到可用时间的TR，保留可用原始行情。
+
+`representative_dependencies`由全候选原始成交额及当时主表独立重算，保存完整代表名单与必要特征依赖。非代表、2015年前不被使用的暖启动TR允许为null，标记`REPRESENTATIVE_SELECTION_ONLY`，不能填0。若基金直到样本末仍不足252个挂牌交易日，可独立证明其永远不能进入本轮信号，保留代表竞争及明确依赖豁免；不能因缺数据替换代表。实际执行所需限价必须完整；未被执行使用的候选和2016年前暖启动允许限价未知，原始数值继续保留。
 
 ### BaoStock观察区
 
@@ -64,7 +74,9 @@ date_only_available_at(publication_date, calendar, extra_delay=0) -> str
 
 真实表额外要求：`published_at`, `publication_precision`, `vendor_first_seen_at`, `ingested_at`, `processed_at`, `availability_mode`, `source`, `endpoint`, `source_record_id`, `raw_object_hash`, `license_profile_id`, `quality_status`。原始对象 hash 为64位小写 SHA-256。
 
-允许模式为 `historical_public_asof` / `historical_vendor_asof` / `live_capture`。真实历史下载时间仅作为 ingested_at；不会用它冒充历史首可用。公开历史重建的 available_at 下界取公开时间及日期精度延迟；供应商历史模式还须不早于 vendor_first_seen_at；实时模式还须不早于接收和处理完成。processed_at 不得早于 ingested_at。publication_precision 为 second/minute/date_only，unknown 阻断；quality_status 必须 accepted。
+允许模式为 `historical_public_asof` / `historical_vendor_asof` / `live_capture`。真实历史下载时间仅作为 ingested_at；不会用它冒充历史首可用。公开历史重建的 available_at 下界取公开时间及日期精度延迟；供应商历史模式还须不早于 vendor_first_seen_at；实时模式还须不早于接收和处理完成。processed_at 不得早于 ingested_at。publication_precision 为second/minute/date_only，另允许原始行情使用`reconstructed_market_close`：published_at和vendor_first_seen_at均为null，记录官方依据、重建方法和计划日终边界，不声称实际最后成交时刻或供应商首见。unknown仍阻断；quality_status必须accepted。
+
+H00300使用date_only，不套用市场行情重建精度。按D039保留月末D公式，D+1交易日21:00生成目标，D+2执行，额外执行压力为D+3。D+1订单参考价/成交额不进入D的信号窗口。`availability_calendar`可保存官方公告已知的边界下一交易日，仅用于2024末行可用时间；模拟calendar、行情、订单与NAV仍不得进入2025—2026。
 
 ## Manifest 与审计准入
 
@@ -73,5 +85,7 @@ date_only_available_at(publication_date, calendar, extra_delay=0) -> str
 真实 `evidence_gates` 必须逐项登记：source、license、calendar、historical_coverage、point_in_time、lifecycle、corporate_actions、total_return、historical_rules、historical_fees、account_permissions、dual_source_reconciliation。每项包含 `status=VERIFIED`、reviewer、带时区 reviewed_at、非空 evidence 引用。它们是需外部审阅的证据声明；代码不能自行证明授权合同、完整历史或供应商发布时点。不得仅填占位字符串解锁研究。
 
 审计返回 status/errors/blockers/warnings/performance_evidence/coverage/schema_version。结构违规为 errors；缺证据/缺覆盖为 blockers。两者任一非空均为 `BLOCKED_DATA`；合成全通过为 `SYNTHETIC_ONLY` 且 performance_evidence=false；真实全通过才为 `PASSED`。PASSED 仅代表本数据入口检查通过，不代表已经证明策略有效或执行模型充分。
+
+`STAGING_ONLY`、`strategy_runs_permitted=false`或任何残余`build_blockers`都阻断准入，即便其他证据项被误填为VERIFIED。原始元数据、公告、规则、日历及不可变文档输入需绑定实际文件哈希，不能只有一个无法核对的URL。
 
 coverage 包含日历长度、表行数、按年月/品种/板块观察数、停牌观察数、每个品种挂牌区间缺失交易日。真实困难样本、跨年代/板块抽检与双源核验须另附外部审计证据，不能用总体覆盖率替代。

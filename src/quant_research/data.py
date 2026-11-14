@@ -16,8 +16,10 @@ from typing import Any, Iterable
 import numpy as np
 import pandas as pd
 
+from .settlement import RULE_MODE, rule_errors
 
-SCHEMA_VERSION = "r1-offline-1.1"
+
+SCHEMA_VERSION = "r1-offline-1.2"
 TIMEZONE = "Asia/Shanghai"
 TABLES = ("instruments", "bars", "actions", "benchmark")
 MODES = {"historical_public_asof", "historical_vendor_asof", "live_capture"}
@@ -113,6 +115,9 @@ def master_asof(dataset: Dataset, cutoff: Any) -> pd.DataFrame:
 def bars_asof(dataset: Dataset, cutoff: Any) -> pd.DataFrame:
     stamp = _aware(cutoff)
     result = asof_records(dataset.bars, stamp, ["instrument_id", "date"])
+    if "total_return_available_at" in result:
+        known = pd.to_datetime(result.total_return_available_at, utc=True, format="mixed", errors="raise")
+        result.loc[known.isna() | known.gt(stamp), "total_return_index"] = np.nan
     return result.loc[result["date"] <= stamp.date().isoformat()]
 
 
@@ -147,9 +152,19 @@ def audit_dataset(dataset: Dataset) -> dict[str, Any]:
     errors: list[str] = []
     blockers: list[str] = []
     warnings: list[str] = []
+    parsed_times = {}
+
+    def audit_time(value):
+        # A market date and capture timestamp recur across many instruments.
+        # Memoize parsing only within this audit; never cache its verdict.
+        if isinstance(value, str):
+            if value not in parsed_times:
+                parsed_times[value] = _aware(value)
+            return parsed_times[value]
+        return _aware(value)
     manifest = dataset.manifest
     synthetic = manifest.get("synthetic") is True
-    if manifest.get("schema_version") not in ("r1-offline-1.0", SCHEMA_VERSION):
+    if manifest.get("schema_version") not in ("r1-offline-1.0", "r1-offline-1.1", SCHEMA_VERSION):
         errors.append("manifest: unsupported schema_version")
     if not isinstance(manifest.get("synthetic"), bool):
         errors.append("manifest: explicit boolean synthetic is required")
@@ -162,6 +177,13 @@ def audit_dataset(dataset: Dataset) -> dict[str, Any]:
     calendar = dataset.calendar
     if not calendar or calendar != sorted(set(calendar)) or _date_errors(pd.Series(calendar)):
         errors.append("calendar: sorted unique ISO dates required")
+    availability_calendar = manifest.get("availability_calendar", calendar)
+    if (not isinstance(availability_calendar, list) or availability_calendar != sorted(set(availability_calendar))
+            or _date_errors(pd.Series(availability_calendar)) or not set(calendar).issubset(availability_calendar)):
+        errors.append("calendar: invalid availability-only session calendar")
+        availability_calendar = calendar
+    if availability_calendar != calendar and not manifest.get("availability_calendar_evidence"):
+        blockers.append("calendar: availability-only boundary sessions lack documentary evidence")
     valid_tables: dict[str, pd.DataFrame] = {}
     for name in TABLES:
         frame = getattr(dataset, name)
@@ -187,18 +209,24 @@ def audit_dataset(dataset: Dataset) -> dict[str, Any]:
             errors.append(f"{name}: invalid or timezone-naive available_at")
             times = None
         if times is not None and not frame.empty:
-            revisions = {tuple(row[key] for key in keys) + (row["revision_id"],): (idx, row)
-                         for idx, row in frame.iterrows()}
-            for idx, row in frame.loc[frame["supersedes_id"].notna()].iterrows():
-                prior = revisions.get(tuple(row[key] for key in keys) + (row["supersedes_id"],))
-                if prior is None or times.loc[prior[0]] >= times.loc[idx]:
-                    errors.append(f"{name}: invalid revision lineage for {row['revision_id']}")
-            for _, group in frame.groupby(keys, dropna=False):
+            revised = frame.loc[frame["supersedes_id"].notna()]
+            if not revised.empty:
+                revisions = {tuple(row[key] for key in keys) + (row["revision_id"],): idx
+                             for idx, row in frame[keys + ["revision_id"]].iterrows()}
+                for idx, row in revised.iterrows():
+                    prior = revisions.get(tuple(row[key] for key in keys) + (row["supersedes_id"],))
+                    if prior is None or times.loc[prior] >= times.loc[idx]:
+                        errors.append(f"{name}: invalid revision lineage for {row['revision_id']}")
+            duplicates = frame.loc[frame.duplicated(keys, keep=False)]
+            for _, group in duplicates.groupby(keys, dropna=False):
                 if len(group) > 1 and group["supersedes_id"].isna().sum() != 1:
                     errors.append(f"{name}: revision chain needs one original per economic key")
                     break
         for column in ("date", "listed_on", "announcement_date", "ex_date", "record_date"):
-            if column in frame and _date_errors(frame[column]):
+            checked_dates = frame[column] if column in frame else pd.Series(dtype=object)
+            if name == "actions" and column == "record_date" and "action_usage_scope" in frame:
+                checked_dates = checked_dates.loc[~frame.action_usage_scope.eq("PRE_LISTING_METADATA_ONLY")]
+            if column in frame and _date_errors(checked_dates):
                 errors.append(f"{name}.{column}: invalid ISO date")
         for column in ("delisted_on", "pay_date"):
             if column in frame and _date_errors(frame[column], nullable=True):
@@ -219,22 +247,30 @@ def audit_dataset(dataset: Dataset) -> dict[str, Any]:
                     blockers.append(f"{name}: non-accepted records present")
                 if not frame["availability_mode"].isin(MODES).all():
                     blockers.append(f"{name}: unsupported availability mode")
-                if not frame["publication_precision"].isin(["second", "minute", "date_only"]).all():
+                if not frame["publication_precision"].isin(["second", "minute", "date_only", "reconstructed_market_close"]).all():
                     blockers.append(f"{name}: unknown publication precision")
-                for _, row in frame.iterrows():
+                for row in frame.to_dict("records"):
                     try:
-                        available = _aware(row["available_at"])
-                        ingested = _aware(row["ingested_at"])
-                        processed = _aware(row["processed_at"])
+                        available = audit_time(row["available_at"])
+                        ingested = audit_time(row["ingested_at"])
+                        processed = audit_time(row["processed_at"])
                         if processed < ingested:
                             raise ValueError("processed before ingestion")
                         if row["publication_precision"] == "date_only":
-                            minimum = _aware(date_only_available_at(str(row["published_at"])[:10], calendar))
+                            minimum = audit_time(date_only_available_at(str(row["published_at"])[:10], availability_calendar))
+                        elif row["publication_precision"] == "reconstructed_market_close":
+                            if (name != "bars" or row["availability_mode"] != "historical_public_asof"
+                                    or pd.notna(row["published_at"]) or pd.notna(row["vendor_first_seen_at"])
+                                    or not row.get("availability_reconstruction") or not row.get("availability_evidence_url")):
+                                raise ValueError("Market reconstruction is not an observed publication clock")
+                            minimum = audit_time(row["market_event_at"])
+                            if minimum != audit_time(row["date"] + "T15:00:00+08:00"):
+                                raise ValueError("Market event must be the domestic session close")
                         else:
-                            minimum = _aware(row["published_at"])
+                            minimum = audit_time(row["published_at"])
                         mode = row["availability_mode"]
                         if mode == "historical_vendor_asof":
-                            minimum = max(minimum, _aware(row["vendor_first_seen_at"]))
+                            minimum = max(minimum, audit_time(row["vendor_first_seen_at"]))
                         elif mode == "live_capture":
                             minimum = max(minimum, ingested, processed)
                         if available < minimum:
@@ -272,13 +308,57 @@ def audit_dataset(dataset: Dataset) -> dict[str, Any]:
         if bars.empty:
             errors.append("bars: empty market observations")
         numeric = bars[["open", "high", "low", "close", "volume", "amount", "upper_limit", "lower_limit", "total_return_index"]].apply(pd.to_numeric, errors="coerce")
-        if not np.isfinite(numeric.to_numpy()).all():
+        selection_only = pd.Series(False, index=bars.index)
+        if "usage_scope" in bars:
+            if not bars.usage_scope.isin(["FULL_STRATEGY", "REPRESENTATIVE_SELECTION_ONLY"]).all():
+                errors.append("bars: unknown dependency usage scope")
+            selection_only = bars.usage_scope.eq("REPRESENTATIVE_SELECTION_ONLY")
+            if manifest.get("schema_version") != SCHEMA_VERSION:
+                errors.append("bars: dependency scopes require schema r1-offline-1.2")
+            try:
+                from .dependencies import representative_dependencies, required_tr_start
+                dependencies = representative_dependencies(dataset)
+                required = set(dependencies["required_full_history_instruments"])
+                # A fixed pre-account warmup boundary is not a fund exclusion.
+                # Keep its raw selection/age inputs even when TR is not needed.
+                start = manifest.get("tr_coverage_start", calendar[0])
+                if _date_errors(pd.Series([start])) or start > required_tr_start(calendar):
+                    blockers.append("dependency: TR starts after the registered account warmup requires it")
+                scoped = set(bars.loc[selection_only & bars.date.ge(start), "instrument_id"])
+                if required & scoped:
+                    blockers.append("dependency: selected representative lacks full TR/event coverage: " + str(sorted(required & scoped)))
+                if manifest.get("representative_dependencies") != dependencies:
+                    blockers.append("dependency: declared amount-only selection does not match independent recomputation")
+            except (ValueError, TypeError, KeyError, AttributeError) as exc:
+                errors.append("dependency: unable to verify quarterly competition: " + str(exc))
+        checked_numeric = numeric.copy()
+        if "total_return_available_at" in bars:
+            values = bars.loc[numeric.total_return_index.notna()]
+            try:
+                if not values.total_return_available_at.astype(str).str.contains(r"(?:Z|[+-]\d{2}:\d{2})$", regex=True).all():
+                    raise ValueError("Missing/naive TR clock")
+                tr_clock = pd.to_datetime(values.total_return_available_at, utc=True, format="mixed", errors="raise")
+                market_clock = pd.to_datetime(values.available_at, utc=True, format="mixed", errors="raise")
+                if tr_clock.isna().any() or (tr_clock < market_clock).any():
+                    raise ValueError("TR clock precedes its raw price input")
+            except (ValueError, TypeError):
+                errors.append("bars: invalid separate total-return availability")
+        # Null TR is a declared absent dependency, never a zero/synthetic return.
+        checked_numeric.loc[selection_only & numeric.total_return_index.isna(), "total_return_index"] = 1.
+        unused_limits = pd.Series(False, index=bars.index)
+        if "usage_scope" in bars and not synthetic:
+            if manifest.get("account_start") != "2016-01-01":
+                blockers.append("dependency: scoped real data must preserve registered 2016 account start")
+            unused_limits = selection_only | bars.date.lt("2016-01-01")
+            for column in ("upper_limit", "lower_limit"):
+                checked_numeric.loc[unused_limits & numeric[column].isna(), column] = 0.
+        if not np.isfinite(checked_numeric.to_numpy()).all():
             errors.append("bars: nonfinite required numerical observation")
         if (numeric[["open", "high", "low", "close", "total_return_index"]] <= 0).any().any() or (numeric[["volume", "amount", "lower_limit"]] < 0).any().any():
             errors.append("bars: invalid price/quantity sign")
         if ((numeric["high"] < numeric[["open", "close", "low"]].max(axis=1)) | (numeric["low"] > numeric[["open", "close", "high"]].min(axis=1))).any():
             errors.append("bars: inconsistent OHLC")
-        if ((numeric["upper_limit"] < numeric["high"]) | (numeric["lower_limit"] > numeric["low"])).any():
+        if (((numeric["upper_limit"] < numeric["high"]) | (numeric["lower_limit"] > numeric["low"])) & ~unused_limits).any():
             errors.append("bars: observed price outside supplied limits")
         if not bars["suspended"].map(lambda value: isinstance(value, (bool, np.bool_))).all():
             errors.append("bars: suspended requires boolean")
@@ -296,16 +376,43 @@ def audit_dataset(dataset: Dataset) -> dict[str, Any]:
             errors.append("actions: liquidation events require schema r1-offline-1.1")
         for column in ("cash_per_share", "share_factor"):
             value = pd.to_numeric(actions[column], errors="coerce")
+            if column == "share_factor" and "action_status" in actions:
+                cancelled = actions.action_type.eq("SPLIT") & actions.action_status.eq("CANCELLED")
+                value = value.mask(cancelled & value.isna(), 1.)  # unused, not a factual conversion ratio
             if not np.isfinite(value).all() or (value < 0).any() or (column == "share_factor" and (value == 0).any()):
                 errors.append(f"actions: invalid {column}")
         recovery = pd.to_numeric(actions["recovery_per_share"], errors="coerce")
         if (recovery.dropna() < 0).any() or np.isinf(recovery.dropna()).any():
             errors.append("actions: invalid recovery_per_share")
-        if ((actions["announcement_date"] > actions["ex_date"]) | (actions["record_date"] > actions["ex_date"])).any():
+        late_share = actions.action_type.eq("SPLIT") & actions.announcement_date.gt(actions.ex_date)
+        if ((actions["announcement_date"] > actions["ex_date"]) & ~late_share).any() or (actions["record_date"] > actions["ex_date"]).any():
             errors.append("actions: invalid announcement/record/ex chronology")
         for _, action in actions.iterrows():
             kind = action["action_type"]
-            if kind == "CASH_DIVIDEND" and not synthetic:
+            if kind == "SPLIT":
+                phase, rounding, state = (action.get("effective_phase"), action.get("rounding_policy"), action.get("action_status"))
+                phase = "BOD" if pd.isna(phase) else phase
+                rounding = "EXACT" if pd.isna(rounding) else rounding
+                state = "CONFIRMED" if pd.isna(state) else state
+                if phase not in ("BOD", "EOD") or rounding not in ("EXACT", "FLOOR", "CEIL") or state not in ("CONFIRMED", "CANCELLED"):
+                    errors.append("actions: invalid share phase, rounding or status")
+                if rounding != "EXACT" or state == "CANCELLED" or action["announcement_date"] > action["ex_date"]:
+                    verified = action.get("terms_verified")
+                    if not isinstance(verified, (bool, np.bool_)) or not verified or not isinstance(action.get("source_url"), str) or not action["source_url"].startswith(("https://", "http://")):
+                        errors.append("actions: special share terms require verified original source")
+                if action["announcement_date"] > action["ex_date"]:
+                    warnings.append("share terms finalized after effectiveness: held positions must block until terms are known")
+                if action.get("action_usage_scope") == "PRE_LISTING_METADATA_ONLY":
+                    known_rows = instruments.loc[instruments.instrument_id.eq(action.instrument_id)] if instruments is not None else pd.DataFrame()
+                    if known_rows.empty or not known_rows.listed_on.gt(action.ex_date).all():
+                        errors.append("actions: pre-listing scope cannot bypass an active share event")
+            rule_mode = action.get("settlement_mode") == RULE_MODE
+            if rule_mode:
+                if manifest.get("schema_version") != SCHEMA_VERSION:
+                    errors.append("actions: rule-based settlement requires schema r1-offline-1.2")
+                errors.extend("actions: " + message for message in rule_errors(action))
+                warnings.append("RULE_BASED_SIMULATION: hypothetical cash availability, not observed account receipt")
+            if kind == "CASH_DIVIDEND" and not synthetic and not rule_mode:
                 cash_verified = action.get("cash_settlement_verified")
                 if not isinstance(cash_verified, (bool, np.bool_)) or not cash_verified:
                     blockers.append("dividend: actual account cash settlement unverified")
@@ -333,10 +440,10 @@ def audit_dataset(dataset: Dataset) -> dict[str, Any]:
                     errors.append("actions: liquidation payment requires final flag and pay date")
                 if not isinstance(action.get("installment_id"), str) or not action["installment_id"].strip():
                     errors.append("actions: liquidation payment requires installment_id")
-                if action.get("settlement_mode", "SCHEDULED") not in ("SCHEDULED", "LATE_RECOGNITION", "ASSUMED_SCHEDULED_CREDIT"):
+                if action.get("settlement_mode", "SCHEDULED") not in ("SCHEDULED", "LATE_RECOGNITION", "ASSUMED_SCHEDULED_CREDIT", RULE_MODE):
                     errors.append("actions: unknown liquidation settlement mode")
                 cash_verified = action.get("cash_settlement_verified")
-                if not assumed and (not isinstance(cash_verified, (bool, np.bool_)) or not cash_verified):
+                if not assumed and not rule_mode and (not isinstance(cash_verified, (bool, np.bool_)) or not cash_verified):
                     errors.append("actions: actual liquidation cash availability requires verification")
                 if assumed:
                     warnings.append("liquidation: scheduled credit assumption is not verified account cash availability")
@@ -374,6 +481,10 @@ def audit_dataset(dataset: Dataset) -> dict[str, Any]:
     if synthetic:
         warnings.append("SYNTHETIC_ONLY: invented prices, calendar, rules and permissions; never performance evidence")
     else:
+        if manifest.get("build_blockers"):
+            blockers.append("build: unresolved construction evidence blockers remain")
+        if manifest.get("strategy_runs_permitted") is False or manifest.get("status") == "STAGING_ONLY":
+            blockers.append("manifest: staging snapshot has not been admitted for research")
         if manifest.get("availability_mode") not in MODES:
             blockers.append("manifest: valid real-data availability_mode required")
         for gate in EVIDENCE_GATES:

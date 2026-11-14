@@ -1,6 +1,8 @@
 # R1B 策略实现边界
 
-`src/quant_research/strategy.py` 实现预注册 E0 / R0 / E1 / R1；参数窗口固定，没有收益寻优。`generate_targets(dataset, variant="E0", risk_scaling=False, execution_delay=1, universe="R1B")` 返回 `TargetDecision` 列表，包含决策日、执行日、上海时间21:00截止、目标权重、原始参考价、已知ADV20、排名和诊断。空权重是明确的现金目标；执行引擎必须合并已有持仓生成卖单，不能把空列表解释为无操作。
+`src/quant_research/strategy.py` 实现预注册 E0 / R0 / E1 / R1；参数窗口固定，没有收益寻优。`generate_targets(dataset, variant="E0", risk_scaling=False, execution_delay=1, universe="R1B", signal_release_delay=0)` 返回 `TargetDecision` 列表，包含信号锚点、实际决策日、执行日、上海时间21:00截止、目标权重、原始参考价、已知ADV20、排名和诊断。空权重是明确的现金目标；执行引擎必须合并已有持仓生成卖单，不能把空列表解释为无操作。
+
+真实免费数据按D039使用`signal_release_delay=1`。月末D的公式、资格和观察窗口不变；等待日期精度的H00300到D+1晚可用，再于D+2执行，四变体全部匹配。D+1原始价及ADV20仅服务订单数量、现金和容量；不进入D排名/趋势/风险计算，不重选候选。额外execution_delay压力仍只推迟成交，不再更新该次订单参考。原始行情与TR使用独立可用时钟，晚公布份额比例不能改变成交额代表。
 
 ## 冻结解释与缺失处理
 

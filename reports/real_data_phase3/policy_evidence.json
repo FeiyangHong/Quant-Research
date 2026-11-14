@@ -1,0 +1,418 @@
+{
+  "schema_version": "policy-evidence-1.0",
+  "sources": [
+    {
+      "source_id": "sse_rules_2014",
+      "url": "https://www.sse.com.cn/aboutus/mediacenter/hotandd/c/c_20150912_3988782.shtml",
+      "fetched_at": "2026-11-14T15:51:39.264152+00:00",
+      "method": "GET",
+      "http_status": 200,
+      "content_type": "text/html",
+      "status": "CAPTURED",
+      "sha256": "cabe6de3ca7c3b2b16411de8bbb5d7ed9cfe4272fc0012f8aecbcb6929141607",
+      "local_path": "data/raw_policy/sse_rules_2014_cabe6de3ca7c.html",
+      "bytes": 78072
+    },
+    {
+      "source_id": "szse_rules_2013",
+      "url": "https://docs.static.szse.cn/www/disclosure/notice/W020180328432928783546.pdf",
+      "fetched_at": "2026-11-14T15:51:39.265154+00:00",
+      "method": "GET",
+      "http_status": 200,
+      "content_type": "application/pdf",
+      "status": "CAPTURED",
+      "sha256": "4cf54339d81de549fda33e7d92c9e5ad4800d767d4b3c582ab9ad31e979c03af",
+      "local_path": "data/raw_policy/szse_rules_2013_4cf54339d81d.pdf",
+      "bytes": 174075
+    },
+    {
+      "source_id": "sse_20pct_2020",
+      "url": "https://etf.sse.com.cn/ruleguide/business/c/5287913.shtml",
+      "fetched_at": "2026-11-14T15:51:39.267150+00:00",
+      "method": "GET",
+      "http_status": 200,
+      "content_type": "text/html",
+      "status": "CAPTURED",
+      "sha256": "cd1fb433cfd997e1d26381e594a5db087d8b9b2fdc519aa902d63669fff6005c",
+      "local_path": "data/raw_policy/sse_20pct_2020_cd1fb433cfd9.html",
+      "bytes": 16831
+    },
+    {
+      "source_id": "szse_20pct_list_20200824",
+      "url": "https://docs.static.szse.cn/www/aboutus/trends/news/W020200821764606607644.pdf",
+      "fetched_at": "2026-11-14T15:51:39.711050+00:00",
+      "method": "GET",
+      "http_status": 200,
+      "content_type": "application/pdf",
+      "status": "CAPTURED",
+      "sha256": "ff0a569fede5cb1d4cb09d7aa878c8970fe8c0c74c083beb2b4dfdbe6d71b095",
+      "local_path": "data/raw_policy/szse_20pct_list_20200824_ff0a569fede5.pdf",
+      "bytes": 95999
+    },
+    {
+      "source_id": "chinaclear_etf_2021",
+      "url": "https://www.chinaclear.cn/zdjs/editor_file/20210709112758380.pdf",
+      "fetched_at": "2026-11-14T15:51:39.816973+00:00",
+      "method": "GET",
+      "http_status": 200,
+      "content_type": "application/pdf",
+      "status": "CAPTURED",
+      "sha256": "f4d7966a099f72454dc2ffa26202e83b4cc1362835a1c5fe66aeadc67edd65e1",
+      "local_path": "data/raw_policy/chinaclear_etf_2021_f4d7966a099f.pdf",
+      "bytes": 662684
+    },
+    {
+      "source_id": "chinaclear_etf_2022",
+      "url": "https://www.chinaclear.cn/zdjs/editor_file/20220616135839106.pdf",
+      "fetched_at": "2026-11-14T15:51:39.899493+00:00",
+      "method": "GET",
+      "http_status": 200,
+      "content_type": "application/pdf",
+      "status": "CAPTURED",
+      "sha256": "9ade581f7d63557ab47e53642077f7676508de4b5effcdf078e3ff6af395cb28",
+      "local_path": "data/raw_policy/chinaclear_etf_2022_9ade581f7d63.pdf",
+      "bytes": 727312
+    },
+    {
+      "source_id": "csrc_etf_settlement",
+      "url": "https://neris.csrc.gov.cn/falvfagui/rdqsHeader/mainbody?navbarId=3&secFutrsLawId=810570d8313b48bcab9c2b242a729641",
+      "fetched_at": "2026-11-14T15:51:39.998125+00:00",
+      "method": "GET",
+      "http_status": 200,
+      "content_type": "text/html;charset=UTF-8",
+      "status": "CAPTURED",
+      "sha256": "56cb87b75b8599dbc4c82a7906b50a36d2d9168c81df5a4a300b256b27952ac6",
+      "local_path": "data/raw_policy/csrc_etf_settlement_56cb87b75b85.html",
+      "bytes": 71823,
+      "identity_or_limit_note": "Captured page wrapper; rely on complete ChinaClear PDF for operative text."
+    },
+    {
+      "source_id": "baostock_access",
+      "url": "https://baostock.com/helpdocs/api/markdown/default.md",
+      "fetched_at": "2026-11-14T15:51:40.557899+00:00",
+      "method": "POST_READ_ONLY_DOCUMENT",
+      "http_status": 200,
+      "content_type": "text/plain;charset=UTF-8",
+      "status": "CAPTURED",
+      "sha256": "561b2efc44f7a5304726770a9691bafa4f0631aa495de4e4adea0412f5e07e33",
+      "local_path": "data/raw_policy/baostock_access_561b2efc44f7.html",
+      "bytes": 12060,
+      "identity_or_limit_note": "Requested menu default/access document but returned historical K-line API text; not evidence of access policy."
+    },
+    {
+      "source_id": "baostock_revisions",
+      "url": "https://baostock.com/helpdocs/api/markdown/modifyRecord.md",
+      "fetched_at": "2026-11-14T15:51:40.755264+00:00",
+      "method": "POST_READ_ONLY_DOCUMENT",
+      "http_status": 200,
+      "content_type": "text/plain;charset=UTF-8",
+      "status": "CAPTURED",
+      "sha256": "3c6a08854e08356f7c3a7f05a153374c314e300845e21fc2dd516b3f6eca0912",
+      "local_path": "data/raw_policy/baostock_revisions_3c6a08854e08.html",
+      "bytes": 7286
+    },
+    {
+      "id": "baostock_help_home",
+      "url": "https://baostock.com/helpdocs/api/markdown/home.md",
+      "method": "POST_READ_ONLY_DOCUMENT",
+      "requested_at": "2026-11-14T15:15:18.908751+00:00",
+      "http_status": 200,
+      "content_type": "text/plain;charset=UTF-8",
+      "status": "FETCHED",
+      "sha256": "650853bc35ac9d3a4f51a3944b2a57bbce5262a8cb520b178879d5f463d275f5",
+      "raw_path": "work\\data_probe\\baostock_help_home_650853bc35ac.bin",
+      "bytes": 10247,
+      "source_id": "baostock_help_home",
+      "local_path": "data/raw_policy/baostock_help_home_650853bc35ac.bin",
+      "retrieval_note": "Copied exact prior captured bytes; no repeat request"
+    },
+    {
+      "source_id": "sse_rules_2023",
+      "url": "https://www.sse.com.cn/lawandrules/sselawsrules2025/repeal/rules/c/c_20250612_10824490.shtml",
+      "method": "GET",
+      "fetched_at": "2026-11-14T15:54:13.617372+00:00",
+      "http_status": 200,
+      "status": "CAPTURED",
+      "sha256": "41674dd8ae45aa79628c5a298c9b90f3a50e8b7a2f0a5df96cc146870ca13b46",
+      "local_path": "data/raw_policy/sse_rules_2023_41674dd8ae45.html",
+      "bytes": 34499,
+      "identity_or_limit_note": "Archived notice/wrapper; operative rules separately captured as sse_rules_2023_full."
+    },
+    {
+      "source_id": "sse_rules_2020_notice",
+      "url": "https://www.sse.com.cn/lawandrules/sselawsrules/repeal/rules/c/c_20230217_5716494.shtml",
+      "method": "GET",
+      "fetched_at": "2026-11-14T15:54:13.618678+00:00",
+      "http_status": 200,
+      "status": "CAPTURED",
+      "sha256": "e0b98469957c627da3e21777f715da03f02afee72a0de29656ff05fb45068c55",
+      "local_path": "data/raw_policy/sse_rules_2020_notice_e0b98469957c.html",
+      "bytes": 28215
+    },
+    {
+      "source_id": "szse_rules_2023",
+      "url": "https://docs.static.szse.cn/www/lawrules/rule/stock/trade/W020230217564423808793.pdf",
+      "method": "GET",
+      "fetched_at": "2026-11-14T15:54:13.620694+00:00",
+      "status": "FAILED",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "source_id": "szse_rules_2016_notice",
+      "url": "https://www.szse.cn/aboutus/trends/news/t20160930_518722.html",
+      "method": "GET",
+      "fetched_at": "2026-11-14T15:54:14.069259+00:00",
+      "http_status": 200,
+      "status": "CAPTURED",
+      "sha256": "89e682f4e422862e3c782c6ef0b1a2992ac15090cd0b533731a45c36fdc3f94e",
+      "local_path": "data/raw_policy/szse_rules_2016_notice_89e682f4e422.html",
+      "bytes": 21835
+    },
+    {
+      "source_id": "csi_app",
+      "url": "https://www.csindex.com.cn/static/js/app.3db50984.js",
+      "method": "GET",
+      "fetched_at": "2026-11-14T15:54:14.150846+00:00",
+      "http_status": 200,
+      "status": "CAPTURED",
+      "sha256": "58978a0a8a3a6bb5094009f8897bdfeca6bee80e1f47c07250ca42e8072c6b44",
+      "local_path": "data/raw_policy/csi_app_58978a0a8a3a.html",
+      "bytes": 978869
+    },
+    {
+      "source_id": "csi_disclaimer_script",
+      "url": "https://www.csindex.com.cn/static/js/chunk-726ee2b6.b7f84086.js",
+      "method": "GET",
+      "fetched_at": "2026-11-14T15:55:34.664332+00:00",
+      "http_status": 200,
+      "status": "CAPTURED",
+      "sha256": "4d7a21d98f56252270903c5ea9488b7715db1bbbc83ba364484798cf43ca2786",
+      "local_path": "data/raw_policy/csi_disclaimer_script_4d7a21d98f56.html",
+      "bytes": 26750
+    },
+    {
+      "source_id": "sse_rules_2020",
+      "url": "https://www.sse.com.cn/lawandrules/sselawsrules/repeal/rules/c/10118619/files/b39b8db2daa74eac916d8b3d6907af51.docx",
+      "method": "GET",
+      "fetched_at": "2026-11-14T15:55:34.665334+00:00",
+      "http_status": 200,
+      "status": "CAPTURED",
+      "sha256": "bc0abb073a0463e3b9e0a3d8d0fa190ffee44286fdae8bf431f1f64fb8eccb2f",
+      "local_path": "data/raw_policy/sse_rules_2020_bc0abb073a04.docx",
+      "bytes": 37763
+    },
+    {
+      "source_id": "szse_rules_2016",
+      "url": "https://docs.static.szse.cn/www/aboutus/trends/news/W020180328463044335575.pdf",
+      "method": "GET",
+      "fetched_at": "2026-11-14T15:55:34.667094+00:00",
+      "http_status": 200,
+      "status": "CAPTURED",
+      "sha256": "0e593f31e0d519d61c65707afe07f046a441d3b412804d8ade8d6bd126b61db5",
+      "local_path": "data/raw_policy/szse_rules_2016_0e593f31e0d5.pdf",
+      "bytes": 2908746
+    },
+    {
+      "source_id": "szse_rules_2023_archive",
+      "url": "https://www.szse.cn/lawrules/rule/repeal/rules/P020231230545310237980.pdf",
+      "method": "GET",
+      "fetched_at": "2026-11-14T15:55:35.069385+00:00",
+      "http_status": 200,
+      "status": "CAPTURED",
+      "sha256": "060ecac8b7de29e579e58d61d350dcb1dfb08a72efaa5520b6b9f0a06b97eb1f",
+      "local_path": "data/raw_policy/szse_rules_2023_archive_060ecac8b7de.pdf",
+      "bytes": 163021,
+      "identity_or_limit_note": "Document identity is 2020 ChiNext special trading provisions, not 2023 general rules; URL archival year is not effective year."
+    },
+    {
+      "source_id": "chinaclear_shenzhen_2020",
+      "url": "https://www.chinaclear.cn/zdjs/editor_file/20200113140713492.pdf",
+      "method": "GET",
+      "fetched_at": "2026-11-14T15:55:35.186588+00:00",
+      "status": "FAILED",
+      "error": "HTTP Error 404: Not Found",
+      "identity_or_limit_note": "One stale official link returned 404; does not prove free historical rules are unavailable."
+    },
+    {
+      "source_id": "sse_rules_2023_full",
+      "url": "https://www.sse.com.cn/lawandrules/sselawsrules2025/repeal/rules/c/10824490/files/dcbe58edb194451d93f19b1f7dd8fb4c.docx",
+      "method": "GET",
+      "fetched_at": "2026-11-14T16:00:02.306677+00:00",
+      "http_status": 200,
+      "content_type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      "status": "CAPTURED",
+      "sha256": "7aa2319f6dcf597be1e86b3b69d7c2ad0e6acb2a5d0cc6be48a01af602fded40",
+      "local_path": "data/raw_policy/sse_rules_2023_full_7aa2319f6dcf.docx",
+      "bytes": 51948
+    },
+    {
+      "source_id": "szse_rules_2023_notice",
+      "url": "https://www.szse.cn/lawrules/rule/repeal/rules/t20230217_598773.html",
+      "method": "GET",
+      "fetched_at": "2026-11-14T16:00:02.308673+00:00",
+      "http_status": 200,
+      "content_type": "text/html",
+      "status": "CAPTURED",
+      "sha256": "7f4405a3e7021976db2d4ecbb1b02434f603110b2de46233f5a8b71f2059794a",
+      "local_path": "data/raw_policy/szse_rules_2023_notice_7f4405a3e702.html",
+      "bytes": 15560,
+      "attachment_hrefs": [
+        "http://docs.static.szse.cn/www/lawrules/rule/repeal/rules/W020230217564423808793.pdf",
+        "http://docs.static.szse.cn/www/lawrules/rule/repeal/rules/W020230217564424593579.pdf"
+      ]
+    },
+    {
+      "source_id": "szse_fund_2022",
+      "url": "https://docs.static.szse.cn/www/lawrules/rule/fund/trade/W020220610536157903323.pdf",
+      "method": "GET",
+      "fetched_at": "2026-11-14T16:00:02.309684+00:00",
+      "http_status": 200,
+      "content_type": "application/pdf",
+      "status": "CAPTURED",
+      "sha256": "309f4cbd3a4f69a097680085d5771cf158f71bf81bac2fc4ed2eb52c9fa10634",
+      "local_path": "data/raw_policy/szse_fund_2022_309f4cbd3a4f.pdf",
+      "bytes": 351732
+    },
+    {
+      "source_id": "chinaclear_shenzhen_2020_mobile",
+      "url": "https://m.chinaclear.cn/zdjs/editor_file/20200113140713492.pdf",
+      "method": "GET",
+      "fetched_at": "2026-11-14T16:00:02.310673+00:00",
+      "status": "FAILED",
+      "error": "HTTP Error 404: Not Found",
+      "identity_or_limit_note": "Second official-domain route also 404; per-event issuer payment notices remain alternate evidence."
+    },
+    {
+      "source_id": "szse_rules_2023_full",
+      "url": "https://docs.static.szse.cn/www/lawrules/rule/repeal/rules/W020230217564423808793.pdf",
+      "method": "GET",
+      "fetched_at": "2026-11-14T16:00:46.143107+00:00",
+      "http_status": 200,
+      "content_type": "application/pdf",
+      "status": "CAPTURED",
+      "sha256": "7018114a6e11deb239c2a72e71e49defc6e8841b3e2c093b3bbf809282c67222",
+      "local_path": "data/raw_policy/szse_rules_2023_full_7018114a6e11.pdf",
+      "bytes": 620843
+    },
+    {
+      "source_id": "csi_method_2023",
+      "url": "https://oss-ch.csindex.com.cn/notice/20230908165124-%E3%80%8A%E4%B8%AD%E8%AF%81%E6%8C%87%E6%95%B0%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8%E8%82%A1%E7%A5%A8%E6%8C%87%E6%95%B0%E8%AE%A1%E7%AE%97%E4%B8%8E%E7%BB%B4%E6%8A%A4%E7%BB%86%E5%88%99%E3%80%8B.pdf",
+      "method": "GET",
+      "fetched_at": "2026-11-14T16:00:46.145118+00:00",
+      "http_status": 200,
+      "content_type": "application/pdf",
+      "status": "CAPTURED",
+      "sha256": "bcffe454c6e739ea580d1a985e828a0f28bc91fc65793b462f76b0cf7ee707a2",
+      "local_path": "data/raw_policy/csi_method_2023_bcffe454c6e7.pdf",
+      "bytes": 1493194
+    }
+  ],
+  "reviewed_at": "2026-11-14T16:03:30.243409+00:00",
+  "decision": "CONDITIONAL_POLICY_INTERPRETATION_NOT_DATASET_ADMISSION",
+  "returns_inspected": false,
+  "holdout_market_data_requested": false,
+  "scope": "Private local hypothetical daily historical research through 2024; no live trading or raw redistribution",
+  "contract_provenance": [
+    {
+      "path": "docs/DATA_CONTRACT.md",
+      "sha256": "e7739d56b28896073108d6362227b2920bbd974a4825818b408306203836cd4b"
+    },
+    {
+      "path": "docs/STRATEGY_SPEC.md",
+      "sha256": "cf952cd7115976ebceafdf028e65a57af651904a9e47b5f28566c815da5d4bf1"
+    },
+    {
+      "path": "docs/EXPERIMENT_PLAN.md",
+      "sha256": "52ddce64e34116e3b5a39ed10a4a492cdfe5042c12236ed481846fabd56f4905"
+    },
+    {
+      "path": "docs/RISK_POLICY.md",
+      "sha256": "eb13ed9585e2d232dcb0a78b5770145cc566d3370ce5f13338fd528fbe3e6848"
+    }
+  ],
+  "policies": [
+    {
+      "id": "PUBLIC_ASOF",
+      "decision": "PERMITTED_WITH_PROVENANCE",
+      "required": [
+        "vendor_first_seen_at null when unknown",
+        "reconstructed availability separate from observed publication",
+        "original-vintage limitation disclosed",
+        "known material corrections resolved"
+      ],
+      "sources": [
+        "sse_rules_2014",
+        "sse_rules_2020",
+        "sse_rules_2023_full",
+        "baostock_revisions",
+        "baostock_help_home"
+      ]
+    },
+    {
+      "id": "CSI_CLOSE_AVAILABILITY",
+      "decision": "CLOCK_JUSTIFICATION_OR_CONSERVATIVE_DELAY_REQUIRED",
+      "note": "2023 methodology proves daily publication, not exact 21:00 clock or older original vintages.",
+      "sources": [
+        "csi_method_2023"
+      ]
+    },
+    {
+      "id": "SIMULATED_ORDINARY_CASH",
+      "decision": "PERMITTED_WHERE_HISTORICAL_EVENT_AND_RULE_SUPPORT",
+      "actual_receipt_at": null,
+      "actual_account_verified": false,
+      "model_basis": "rule_verified_simulated",
+      "sources": [
+        "chinaclear_etf_2021",
+        "chinaclear_etf_2022"
+      ],
+      "limitations": [
+        "Shanghai guide alone does not establish Shenzhen or pre-version practice",
+        "No automatic extension to liquidation",
+        "No guarantee of broker-specific intraday credit"
+      ]
+    },
+    {
+      "id": "LATE_SHARE_RATIO",
+      "decision": "NO_BACKFILL_OF_UNKNOWN_FINAL_RATIO",
+      "required": [
+        "record-date rights distinct from final shares",
+        "known contingent formula and its available inputs traced",
+        "event-specific rounding and intraday timing",
+        "canceled plans retained",
+        "suspension does not cure earlier decision leakage"
+      ]
+    },
+    {
+      "id": "DEPENDENCY_SCOPED_TR",
+      "decision": "PERMITTED_PRE_RETURN_DETERMINISTIC_UNION",
+      "required": [
+        "all historical candidates retained",
+        "all quarter reps independently recomputed",
+        "no TR availability or survival input",
+        "full events/TR for every selected rep plus lookback/baseline/held-tail dependencies",
+        "selected missing data blocks; no runner-up substitution"
+      ]
+    },
+    {
+      "id": "PRIVATE_SOURCE_USE",
+      "decision": "SCOPED_LOCAL_NONCOMMERCIAL_RESEARCH_ONLY",
+      "sources": [
+        "baostock_help_home",
+        "csi_disclaimer_script"
+      ],
+      "restrictions": [
+        "no public raw redistribution",
+        "no assertion of commercial hosting or execution license"
+      ]
+    }
+  ],
+  "raw_hash_verification": {
+    "captured_objects_checked": 23,
+    "all_match": true
+  },
+  "review_document": {
+    "path": "reports/real_data_phase3/POLICY_REVIEW.md",
+    "sha256": "0a6a869fdbcf98c5fc08661618ed986bee1e2a099f0657c2ca7422a29f468fd1"
+  }
+}

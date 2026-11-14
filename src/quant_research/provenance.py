@@ -54,13 +54,13 @@ def append_event(path, event):
 def validate_run_config(config):
     allowed = {"protocol_version", "live_enabled", "sample", "universe", "variant", "initial_cash",
                "primary_capital_confirmed", "annual_incremental_cost", "risk_scaling", "execution_delay",
-               "cost_multiplier", "slippage_multiplier", "seed", "claim_type"}
+               "cost_multiplier", "slippage_multiplier", "seed", "claim_type", "cash_delay_sessions", "signal_release_delay"}
     if set(config) - allowed:
         raise ValueError("Unknown configuration keys: " + str(sorted(set(config) - allowed)))
     for key in ("risk_scaling", "primary_capital_confirmed"):
         if key in config and type(config[key]) is not bool:
             raise ValueError(key + " must be a boolean")
-    for key in ("initial_cash", "execution_delay", "cost_multiplier", "slippage_multiplier", "seed"):
+    for key in ("initial_cash", "execution_delay", "cost_multiplier", "slippage_multiplier", "seed", "cash_delay_sessions", "signal_release_delay"):
         if key in config and type(config[key]) is not int:
             raise ValueError(key + " must be an integer, not a boolean or string")
     if config.get("protocol_version", "phase2-mvp-0.1") != "phase2-mvp-0.1":
@@ -79,6 +79,10 @@ def validate_run_config(config):
         raise ValueError("Unregistered capital scenario")
     if config.get("execution_delay", 1) not in (1, 2):
         raise ValueError("Unregistered execution delay")
+    if config.get("cash_delay_sessions", 0) not in (0, 1, 3):
+        raise ValueError("Unregistered cash settlement delay")
+    if config.get("signal_release_delay", 0) not in (0, 1):
+        raise ValueError("Unregistered signal release delay")
     if config.get("cost_multiplier", 1) not in (1, 2, 3) or config.get("slippage_multiplier", 1) not in (0, 1, 2, 3):
         raise ValueError("Unregistered cost stress")
     if config.get("annual_incremental_cost") is not None:

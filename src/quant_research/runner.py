@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 from datetime import datetime, timezone
+from copy import deepcopy
 import hashlib
 import json
 from pathlib import Path
@@ -36,6 +37,10 @@ def _is_synthetic(dataset):
 
 
 def run_experiment(dataset, config, output_root, repo_root):
+    return _run_experiment(dataset, config, output_root, repo_root)
+
+
+def _run_experiment(dataset, config, output_root, repo_root, context=None):
     output_root = Path(output_root)
     output_root.mkdir(parents=True, exist_ok=True)
     lock = output_root / ".runner.lock"
@@ -45,7 +50,9 @@ def run_experiment(dataset, config, output_root, repo_root):
         if _module_fingerprint() != IMPORTED_SOURCE_FINGERPRINT:
             raise RuntimeError("Source changed after import; restart the runner to bind the actual executing code")
         provenance = source_provenance(repo_root)
-        identity = {"config_hash": digest(config), "data_hash": dataset_hash(dataset), "source_hash": provenance["source_hash"]}
+        if context is not None and provenance["source_hash"] != context["source_hash"]:
+            raise RuntimeError("Source changed within the registered matrix")
+        identity = {"config_hash": digest(config), "data_hash": dataset_hash(dataset) if context is None else context["data_hash"], "source_hash": provenance["source_hash"]}
         attempt = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%S%fZ")
         run_id = digest(identity)[:16] + "-" + attempt
         destination = output_root / run_id
@@ -64,7 +71,7 @@ def run_experiment(dataset, config, output_root, repo_root):
         append_event(registry, dict(run_id=run_id, event="REGISTERED", config=config, **identity))
         try:
             validate_run_config(config)
-            report = audit_dataset(dataset)
+            report = audit_dataset(dataset) if context is None else context["audit"]
             write_json(destination / "data_audit.json", report)
             synthetic = _is_synthetic(dataset)
             if config["sample"] == "synthetic" and not synthetic:
@@ -79,15 +86,31 @@ def run_experiment(dataset, config, output_root, repo_root):
                 raise ValueError("Final holdout is locked; supply a physically separate pre-2025 dataset")
             if not synthetic and config["sample"] == "development" and any(d > "2021-12-31" for d in dataset.calendar):
                 raise ValueError("Development input contains validation dates")
-            decisions = generate_targets(dataset, variant=config["variant"], risk_scaling=config.get("risk_scaling", False),
-                                         execution_delay=config.get("execution_delay", 1), universe=config["universe"])
-            if config["sample"] == "validation":
+            if config.get("signal_release_delay", 0) != dataset.manifest.get("signal_release_delay", 0):
+                raise ValueError("Signal release delay must match the audited data availability policy")
+            target_key = (config["variant"], config.get("risk_scaling", False), config.get("execution_delay", 1),
+                          config["universe"], config.get("signal_release_delay", 0))
+            cached = context["targets"].get(target_key) if context is not None else None
+            if cached is None:
+                decisions = generate_targets(dataset, variant=config["variant"], risk_scaling=config.get("risk_scaling", False),
+                                             execution_delay=config.get("execution_delay", 1), universe=config["universe"],
+                                             signal_release_delay=config.get("signal_release_delay", 0))
+                if context is not None:
+                    context["targets"][target_key] = decisions
+            else:
+                decisions = cached
+            account_start = ("2022-01-01" if config["sample"] == "validation" else
+                             "2016-01-01" if not synthetic else None)
+            if account_start is not None:
                 # Historical rows are permitted for feature warmup, but account starts fresh.
-                decisions = [d for d in decisions if d.execution_date >= "2022-01-01"]
+                decisions = [d for d in decisions if d.execution_date >= account_start]
             result = run_backtest(dataset, decisions, config["initial_cash"],
                                   cost_multiplier=config.get("cost_multiplier", 1),
                                   slippage_multiplier=config.get("slippage_multiplier", 1),
-                                  start_date="2022-01-01" if config["sample"] == "validation" else None)
+                                  cash_delay_sessions=config.get("cash_delay_sessions", 0),
+                                  start_date=account_start)
+            write_json(destination / "execution_assumptions.json", {
+                name: value for name, value in result.items() if not isinstance(value, pd.DataFrame)})
             table_hashes = {}
             for name, table in result.items():
                 if not isinstance(table, pd.DataFrame):
@@ -103,7 +126,7 @@ def run_experiment(dataset, config, output_root, repo_root):
             write_json(destination / "uncertainty.json", {"status": "NOT_A_CONFIRMATORY_TEST", "reason": "Synthetic engineering run" if synthetic else "Paired registered evaluation required"})
             write_json(destination / "decisions.json", [{"decision_date": d.decision_date, "execution_date": d.execution_date,
                        "decision_at": str(d.decision_at), "weights": d.weights, "reference_prices": d.reference_prices,
-                       "adv20": d.adv20, "status": d.status} for d in decisions])
+                       "adv20": d.adv20, "status": d.status, "diagnostics": d.diagnostics} for d in decisions])
             (destination / "report.md").write_text(
                 "# Run " + run_id + "\n\n" + metrics["status"] + "\n\n"
                 "Offline simulated ledger. Not realized profit or evidence of Alpha. "
@@ -120,18 +143,32 @@ def run_experiment(dataset, config, output_root, repo_root):
 
 
 def run_matrix(dataset, base_config, output_root, repo_root, stress=False):
+    # Private per-matrix reuse of audited inputs and internally generated
+    # targets. No external target injection or cross-dataset cache is exposed.
+    dataset = deepcopy(dataset)
+    context = {"data_hash": dataset_hash(dataset), "source_hash": source_provenance(repo_root)["source_hash"],
+               "audit": audit_dataset(dataset), "targets": {}}
     rows = []
     for variant in ("E0", "R0", "E1", "R1"):
         for scaling in (False, True):
-            paths = [(1, 1, 1)]
+            paths = [(1, 1, 1, 0)]
             if stress:
                 # No tax scaling; each path is a predeclared robustness diagnostic.
-                paths += [(2, 2, 1), (3, 3, 1), (1, 0, 1), (1, 1, 2)]
-            for commission, slippage, delay in paths:
+                paths += [(2, 2, 1, 0), (3, 3, 1, 0), (1, 0, 1, 0), (1, 1, 2, 0)]
+                if not _is_synthetic(dataset):
+                    paths += [(1, 1, 1, 1), (1, 1, 1, 3)]
+            for commission, slippage, delay, cash_delay in paths:
                 for capital in (10000, 100000, 500000, 1000000):
                     config = dict(base_config, variant=variant, risk_scaling=scaling, initial_cash=capital,
                                   cost_multiplier=commission, slippage_multiplier=slippage, execution_delay=delay)
-                    destination, metrics = run_experiment(dataset, config, output_root, repo_root)
+                    if cash_delay:
+                        config["cash_delay_sessions"] = cash_delay
+                    if dataset.manifest.get("signal_release_delay"):
+                        config["signal_release_delay"] = dataset.manifest["signal_release_delay"]
+                    destination, metrics = _run_experiment(dataset, config, output_root, repo_root, context)
                     rows.append(dict(config=config, metrics=metrics, directory=destination.name))
+    if dataset_hash(dataset) != context["data_hash"]:
+        append_event(Path(output_root) / "trial_registry.jsonl", {"event": "MATRIX_INVALIDATED", "reason": "Internal input mutation"})
+        raise RuntimeError("Matrix mutated its immutable research input")
     write_json(Path(output_root) / "matrix_summary.json", rows)
     return rows

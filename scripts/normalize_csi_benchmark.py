@@ -10,7 +10,7 @@ from pathlib import Path
 import sys
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
-from quant_research.providers.csi import ENDPOINT, normalize_benchmark
+from quant_research.providers.csi import ENDPOINT, START, END, normalize_benchmark
 
 
 def main():
@@ -19,9 +19,12 @@ def main():
     parser.add_argument("--calendar-collection", type=Path, required=True, help="Existing BaoStock collection root")
     parser.add_argument("--output", type=Path, required=True, help="New immutable staging directory")
     parser.add_argument("--expected-sha256", help="Expected SHA256 of the exact raw response bytes")
+    parser.add_argument("--start", default=START)
+    parser.add_argument("--end", default=END)
     args = parser.parse_args()
     try:
-        manifest = normalize_benchmark(args.raw, args.calendar_collection, args.output, args.expected_sha256)
+        manifest = normalize_benchmark(args.raw, args.calendar_collection, args.output, args.expected_sha256,
+                                       args.start, args.end)
     except (ValueError, OSError, KeyError, TypeError) as exc:
         parser.error(str(exc))
     print(json.dumps({"status": manifest["status"], "records": manifest["record_count"],

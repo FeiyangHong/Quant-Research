@@ -4,12 +4,15 @@ Orders retain decision-day quantities and references. Daily matching is an
 explicit DAILY_SCREEN_ONLY assumption, not evidence of an executable queue.
 """
 from collections import defaultdict
+from bisect import bisect_left
 from dataclasses import asdict, is_dataclass
 from decimal import Decimal, ROUND_CEILING, ROUND_FLOOR, ROUND_HALF_UP
 from functools import lru_cache
 import math
 
 import pandas as pd
+
+from .settlement import RULE_MODE, rule_errors
 
 
 class ExecutionBlockedError(ValueError):
@@ -54,9 +57,48 @@ def _on_tick(value, tick):
     return abs(units - round(units)) < 1e-7
 
 
+def _action_phase(action):
+    value = action.get("effective_phase")
+    phase = "BOD" if value is None or pd.isna(value) else value
+    if phase not in ("BOD", "EOD"):
+        raise ExecutionBlockedError("Unknown corporate action effective_phase")
+    if phase == "EOD" and action["action_type"] != "SPLIT":
+        raise ExecutionBlockedError("EOD processing currently supports share actions only")
+    return phase
+
+
+def _action_cutoff(action):
+    return _cutoff(str(action["ex_date"])[:10], "15:00:00" if _action_phase(action) == "EOD" else "09:30:00")
+
+
+def _account_split_lots(lots, factor, rounding):
+    """Round once per account; conservatively allocate rounding to later locks."""
+    ratio = Decimal(str(factor))
+    exact = [Decimal(lot["quantity"]) * ratio for lot in lots]
+    total = sum(exact, Decimal(0))
+    if rounding == "EXACT":
+        if total != total.to_integral_value():
+            raise ExecutionBlockedError("Fractional split entitlements require verified rounding terms")
+        target = int(total)
+    elif rounding in ("FLOOR", "CEIL"):
+        target = int(total.to_integral_value(rounding=ROUND_FLOOR if rounding == "FLOOR" else ROUND_CEILING))
+    else:
+        raise ExecutionBlockedError("Unknown account share rounding_policy")
+    allocated = [int(value.to_integral_value(rounding=ROUND_FLOOR)) for value in exact]
+    extras = target - sum(allocated)
+    eligible = sorted((i for i, value in enumerate(exact) if value != allocated[i]),
+                      key=lambda i: (lots[i]["sellable_index"], lots[i]["acquired_on"], i), reverse=True)
+    for i in eligible[:extras]:
+        allocated[i] += 1
+    if sum(allocated) != target:
+        raise ExecutionBlockedError("Account share rounding allocation failure")
+    converted = [dict(lot, quantity=qty) for lot, qty in zip(lots, allocated) if qty]
+    return converted, target, float(Decimal(target) - total)
+
+
 def run_backtest(dataset, decisions, initial_cash, cost_multiplier=1,
                  slippage_multiplier=1, max_sell_attempts=5, tax_rules=None,
-                 start_date=None):
+                 start_date=None, cash_delay_sessions=0):
     """Return auditable DataFrames for a cash-only daily backtest.
 
     ``decisions`` are dictionaries or TargetDecision objects with ISO
@@ -77,6 +119,8 @@ def run_backtest(dataset, decisions, initial_cash, cost_multiplier=1,
         raise ValueError("Cost/slippage multipliers must be finite and nonnegative")
     if not isinstance(max_sell_attempts, int) or not 1 <= max_sell_attempts <= 5:
         raise ValueError("max_sell_attempts must be in 1..5")
+    if type(cash_delay_sessions) is not int or cash_delay_sessions not in (0, 1, 3):
+        raise ValueError("Cash settlement stress must be 0, 1 or 3 trading sessions")
     calendar = [str(d)[:10] for d in _get(dataset, "calendar")]
     if calendar != sorted(set(calendar)):
         raise ExecutionBlockedError("Calendar must be sorted and unique")
@@ -189,26 +233,43 @@ def run_backtest(dataset, decisions, initial_cash, cost_multiplier=1,
         decision_by_day[day] = d
 
     events = defaultdict(list)
+    warmup_share_events = []
     if not actions.empty:
         resolved_actions = []
         for _, revisions in actions.groupby("action_id", sort=False):
+            source_rows = revisions.to_dict("records")
+            if all(r["action_type"] in ("SPLIT", "CASH_DIVIDEND") and str(r["ex_date"])[:10] < start_date for r in source_rows):
+                first = source_rows[0]
+                warmup_share_events.append({"date": str(first["ex_date"])[:10], "action_id": first["action_id"],
+                    "instrument_id": first["instrument_id"], "status": "UNOWNED_PRE_ACCOUNT_EVENT",
+                    "old_quantity": 0, "new_quantity": 0})
+                continue
             known_versions = sorted(
                 [r for r in revisions.to_dict("records") if _timestamp(r["available_at"]) <= _cutoff(calendar[-1])],
                 key=lambda r: _timestamp(r["available_at"]))
             terms = ("instrument_id", "ex_date", "record_date", "pay_date", "cash_per_share", "share_factor", "recovery_per_share", "action_type",
-                     "recognition_date", "entitlement_action_id", "installment_id", "is_final", "settlement_mode", "cash_settlement_verified")
+                     "recognition_date", "entitlement_action_id", "installment_id", "is_final", "settlement_mode", "cash_settlement_verified",
+                     "scheduled_pay_date", "settlement_rule_source_url", "settlement_rule_effective_from", "settlement_rule_effective_to",
+                     "settlement_rule_available_at", "settlement_rule_verified", "settlement_rule_event_types", "settlement_account_type",
+                     "settlement_rule_credit_basis", "participant_transfer_date", "modeled_cash_date",
+                     "effective_phase", "rounding_policy", "action_status")
             for previous, revised in zip(known_versions, known_versions[1:]):
-                if (_timestamp(revised["available_at"]) > _cutoff(str(previous["ex_date"])[:10], "09:30:00")
+                if (_timestamp(revised["available_at"]) > _action_cutoff(previous)
                         and any(str(previous.get(k)) != str(revised.get(k)) for k in terms)):
                     raise ExecutionBlockedError("Post-effective corporate-action revision requires an adjustment ledger")
             candidates = []
+            late_share_candidates = []
             for action in revisions.to_dict("records"):
                 effective = str(action["ex_date"])[:10]
                 if effective < calendar[0] or effective > calendar[-1]:
                     continue
                 available = _timestamp(action["available_at"])
-                if available <= _cutoff(effective, "09:30:00"):
+                if available <= _action_cutoff(action):
                     candidates.append((available, action))
+                elif action["action_type"] == "SPLIT":
+                    late_share_candidates.append((available, action))
+            if not candidates and late_share_candidates:
+                candidates = [min(late_share_candidates, key=lambda pair: pair[0])]
             if not candidates:
                 if any(calendar[0] <= str(d)[:10] <= calendar[-1] for d in revisions["ex_date"]):
                     raise ExecutionBlockedError("Corporate action not known by its effective open")
@@ -224,7 +285,7 @@ def run_backtest(dataset, decisions, initial_cash, cost_multiplier=1,
                 if calendar and effective > calendar[-1]:
                     continue
                 raise ExecutionBlockedError("Corporate action is outside trading calendar")
-            if _timestamp(action["available_at"]) > _cutoff(effective, "09:30:00"):
+            if _timestamp(action["available_at"]) > _action_cutoff(action) and action["action_type"] != "SPLIT":
                 raise ExecutionBlockedError("Corporate action not known by its effective open")
             if action["action_type"] not in ("CASH_DIVIDEND", "SPLIT", "DELISTING", "LIQUIDATION", "LIQUIDATION_PAYMENT"):
                 raise ExecutionBlockedError("Unsupported corporate action")
@@ -238,14 +299,35 @@ def run_backtest(dataset, decisions, initial_cash, cost_multiplier=1,
     dead, queues = set(), defaultdict(list)
     risk_exit_started = set()
     record_holdings = {}
+    unresolved_shares = {}
     liquidation_rights, retired_instruments, paid_installments = {}, {}, set()
     observation_replay = False
     assumed_settlement = False
-    output = {key: [] for key in ("nav", "positions", "orders", "fills", "rejected_orders", "costs", "exposure", "cash_events", "order_events", "rights")}
+    rule_based_settlement = False
+    output = {key: [] for key in ("nav", "positions", "orders", "fills", "rejected_orders", "costs", "exposure", "cash_events", "order_events", "rights", "share_events")}
+    output["share_events"].extend(warmup_share_events)
     sequence = 0
 
     def quantity(sid):
         return sum(lot["quantity"] for lot in lots[sid])
+
+    def rule_payment_date(action):
+        failures = rule_errors(action)
+        if failures:
+            raise ExecutionBlockedError("; ".join(failures))
+        modeled = action["pay_date"]
+        if action.get("settlement_rule_credit_basis") == "NEXT_SESSION_AFTER_PARTICIPANT_TRANSFER":
+            modeled = action["modeled_cash_date"]
+            transfer_index = bisect_left(calendar, action["participant_transfer_date"])
+            if transfer_index < len(calendar):
+                if calendar[transfer_index] != action["participant_transfer_date"]:
+                    raise ExecutionBlockedError("Participant transfer must be a verified trading session")
+                if transfer_index + 1 < len(calendar) and modeled != calendar[transfer_index + 1]:
+                    raise ExecutionBlockedError("Modeled investor credit must follow participant transfer by one session")
+        index = bisect_left(calendar, modeled) + cash_delay_sessions
+        # No guessed 2025 trading calendar: keep an unpaid receivable if the
+        # registered delay needs a session outside the supplied sample.
+        return calendar[index] if index < len(calendar) else None
 
     def equity():
         return cash + sum(quantity(sid) * marks.get(sid, 0.) for sid in lots) + sum(r["amount"] for r in receivables)
@@ -256,7 +338,8 @@ def run_backtest(dataset, decisions, initial_cash, cost_multiplier=1,
             "quantity": order["quantity"] if qty is None else qty, "reason": reason})
 
     def create_order(day, execution, sid, side, qty, reference, adv, attempt=1, parent=None,
-                     intent_type="REBALANCE", risk_reason=None):
+                     intent_type="REBALANCE", risk_reason=None, source_reference_price=None,
+                     reference_basis="RAW_CLOSE"):
         nonlocal sequence
         sequence += 1
         order = {"order_id": f"O{sequence:08d}", "parent_order_id": parent,
@@ -264,7 +347,9 @@ def run_backtest(dataset, decisions, initial_cash, cost_multiplier=1,
             "instrument_id": sid, "side": side, "quantity": int(qty),
             "qty_requested": int(qty), "reference_price": reference, "adv20": adv,
             "attempt": attempt, "mode": "DAILY_SCREEN_ONLY",
-            "intent_type": intent_type, "risk_reason": risk_reason}
+            "intent_type": intent_type, "risk_reason": risk_reason,
+            "source_reference_price": reference if source_reference_price is None else source_reference_price,
+            "reference_basis": reference_basis}
         output["orders"].append(order.copy())
         return order
 
@@ -277,7 +362,9 @@ def run_backtest(dataset, decisions, initial_cash, cost_multiplier=1,
             sid = order["instrument_id"]
             new = create_order(day, calendar[day_index[day] + 1], sid, "SELL", remainder,
                 marks.get(sid, order["reference_price"]), historical_adv(sid, day),
-                order["attempt"] + 1, order["order_id"], order["intent_type"], order["risk_reason"])
+                order["attempt"] + 1, order["order_id"], order["intent_type"], order["risk_reason"],
+                source_reference_price=(marks.get(sid, order["reference_price"]) * eod_factors.get(sid, 1.)),
+                reference_basis="POST_EOD_ADJUSTED" if sid in eod_factors else "RAW_CLOSE")
             queues[new["execution_date"]].append(new)
         else:
             reject(order, day, "END_OF_DATA_UNFILLED_RETAIN_HOLDINGS", remainder)
@@ -287,6 +374,77 @@ def run_backtest(dataset, decisions, initial_cash, cost_multiplier=1,
                 "record_date": str(action.get("record_date", ""))[:10], "retirement_date": str(action["ex_date"])[:10],
                 "entitled_quantity": entitled, "retired_quantity": retired, "recognized_amount": 0.,
                 "paid_amount": 0., "final_recognized": False, "late_recognition": False, "assumed_settlement": False}
+
+    def apply_share_action(action, day):
+        sid, phase = action["instrument_id"], _action_phase(action)
+        if action.get("action_usage_scope") == "PRE_LISTING_METADATA_ONLY":
+            listings = {str(row["listed_on"])[:10] for row in master_rows[sid] if pd.notna(row.get("listed_on"))}
+            if len(listings) != 1 or day >= next(iter(listings)) or quantity(sid):
+                raise ExecutionBlockedError("Pre-listing share metadata requires a verified later listing and no account holdings")
+            output["share_events"].append({"date": day, "action_id": action["action_id"], "instrument_id": sid,
+                "effective_phase": phase, "status": "PRE_LISTING_METADATA_ONLY", "old_quantity": 0, "new_quantity": 0})
+            return
+        meta = master(sid, _action_cutoff(action))
+        if meta is None:
+            raise ExecutionBlockedError("Share event lacks known instrument")
+        status = action.get("action_status")
+        status = "CONFIRMED" if status is None or pd.isna(status) else status
+        available = _timestamp(action["available_at"])
+        old_qty = quantity(sid)
+        if available > _action_cutoff(action):
+            if old_qty:
+                raise ExecutionBlockedError("UNKNOWN_SPLIT_TERMS_AT_EFFECTIVE_TIME: held share rights cannot be valued with a later ratio")
+            unresolved_shares[sid] = available
+            output["share_events"].append({"date": day, "action_id": action["action_id"], "instrument_id": sid,
+                "effective_phase": phase, "status": "UNOWNED_TERMS_PENDING", "old_quantity": 0, "new_quantity": 0})
+            return
+        if status == "CANCELLED":
+            if action.get("terms_verified") is not True or not isinstance(action.get("source_url"), str) or not action["source_url"]:
+                raise ExecutionBlockedError("Canceled split requires verified cancellation evidence")
+            output["share_events"].append({"date": day, "action_id": action["action_id"], "instrument_id": sid,
+                "effective_phase": phase, "status": "CANCELLED_NO_MUTATION", "old_quantity": old_qty, "new_quantity": old_qty})
+            return
+        if status != "CONFIRMED":
+            raise ExecutionBlockedError("Unconfirmed share plan cannot mutate economic holdings")
+        factor = action.get("share_factor")
+        if not _valid(factor, True):
+            raise ExecutionBlockedError("Invalid split factor")
+        rounding = action.get("rounding_policy")
+        rounding = "EXACT" if rounding is None or pd.isna(rounding) else rounding
+        if rounding != "EXACT" and meta["asset_type"] != "ETF":
+            raise ExecutionBlockedError("Stock fractional share event taxation unsupported")
+        if rounding != "EXACT":
+            expected_record = day if phase == "EOD" else (calendar[day_index[day] - 1] if day_index[day] else None)
+            if str(action.get("record_date", ""))[:10] != expected_record:
+                raise ExecutionBlockedError("Share record_date must match the prior BOD or same-day EOD ownership boundary")
+        if rounding != "EXACT" and (action.get("terms_verified") is not True or
+                not isinstance(action.get("source_url"), str) or not action["source_url"]):
+            raise ExecutionBlockedError("Account share rounding requires verified issuer terms")
+        converted, new_qty, fraction = _account_split_lots(lots[sid], factor, rounding)
+        old_mark = marks.get(sid, 0.)
+        lots[sid] = converted
+        marks[sid] = old_mark / float(factor)
+        split_factors[sid] *= float(factor)
+        split_totals[sid] = (old_qty, new_qty)
+        effective_sids.add(sid)
+        if phase == "EOD":
+            eod_factors[sid] *= float(factor)
+        output["share_events"].append({"date": day, "action_id": action["action_id"], "instrument_id": sid,
+            "effective_phase": phase, "status": "APPLIED", "old_quantity": old_qty, "new_quantity": new_qty,
+            "share_factor": float(factor), "rounding_policy": rounding, "rounding_share_delta": fraction,
+            "reference_price_before": old_mark, "reference_price_after": marks[sid],
+            "rounding_value_delta": new_qty * marks[sid] - old_qty * old_mark})
+        for pending_day, pending_orders in queues.items():
+            retained = []
+            for pending_order in pending_orders:
+                if pending_order["instrument_id"] != sid:
+                    retained.append(pending_order)
+                    continue
+                reject(pending_order, day, "SHARE_ACTION_ORDER_CANCELLED")
+                if pending_order["side"] == "SELL":
+                    replacement_qty = new_qty if pending_order["quantity"] >= old_qty else min(new_qty, int(pending_order["quantity"] * float(factor)))
+                    share_retry_requests.append((pending_order, replacement_qty))
+            queues[pending_day] = retained
 
     # A fresh validation account owns no earlier entitlements, but an already
     # retired product must not become buyable merely because the ledger starts
@@ -307,9 +465,15 @@ def run_backtest(dataset, decisions, initial_cash, cost_multiplier=1,
         index, withdrawable = day_index[day], cash
         effective_sids = set()
         split_factors = defaultdict(lambda: 1.)
+        eod_factors = defaultdict(lambda: 1.)
+        split_totals, share_retry_requests = {}, []
         # These events occur before trading and before ex-date purchases.
         for action in (events[day] if day >= start_date else []):
             sid = action["instrument_id"]
+            if action["action_type"] == "SPLIT":
+                if _action_phase(action) == "BOD":
+                    apply_share_action(action, day)
+                continue
             effective_sids.add(sid)
             meta = master(sid, _cutoff(day, "09:30:00"))
             if meta is None:
@@ -326,24 +490,19 @@ def run_backtest(dataset, decisions, initial_cash, cost_multiplier=1,
                     raise ExecutionBlockedError("Invalid dividend terms")
                 entitlement = record_holdings.get((record_day, sid), 0)
                 amount = _money(entitlement * float(per_share))
+                modeled = action.get("settlement_mode") == RULE_MODE
+                ledger_pay_day = rule_payment_date(action) if modeled else pay_day
+                rule_based_settlement = rule_based_settlement or (modeled and entitlement > 0)
                 if amount:
                     receivables.append({"action_id": action["action_id"], "instrument_id": sid,
-                        "amount": amount, "pay_date": pay_day})
-                    output["cash_events"].append({"date": day, "event": "DIVIDEND_RECEIVABLE", "instrument_id": sid, "amount": amount})
+                        "amount": amount, "pay_date": ledger_pay_day, "settlement_mode": RULE_MODE if modeled else "SCHEDULED",
+                        "actual_pay_date": None if modeled else pay_day,
+                        "scheduled_pay_date": pay_day, "modeled_pay_date": ledger_pay_day if modeled else None})
+                    output["cash_events"].append({"date": day, "event": "DIVIDEND_RECEIVABLE", "instrument_id": sid, "amount": amount,
+                        "settlement_mode": RULE_MODE if modeled else "SCHEDULED", "actual_pay_date": None if modeled else pay_day,
+                        "scheduled_pay_date": pay_day, "modeled_pay_date": ledger_pay_day if modeled else None})
                 if sid in marks:
                     marks[sid] = max(0., marks[sid] - float(per_share))
-            elif kind == "SPLIT":
-                factor = action.get("share_factor")
-                if not _valid(factor, True):
-                    raise ExecutionBlockedError("Invalid split factor")
-                split_factors[sid] *= float(factor)
-                for lot in lots[sid]:
-                    new_qty = lot["quantity"] * float(factor)
-                    if not math.isclose(new_qty, round(new_qty), abs_tol=1e-8):
-                        raise ExecutionBlockedError("Fractional split entitlements unsupported")
-                    lot["quantity"] = int(round(new_qty))
-                if sid in marks:
-                    marks[sid] /= float(factor)
             elif kind == "LIQUIDATION":
                 if meta["asset_type"] != "ETF":
                     raise ExecutionBlockedError("Stock liquidation taxation unsupported")
@@ -399,10 +558,12 @@ def run_backtest(dataset, decisions, initial_cash, cost_multiplier=1,
                 if type(action.get("is_final")) is not bool:
                     raise ExecutionBlockedError("Liquidation is_final must be explicit boolean")
                 mode = action.get("settlement_mode")
-                if mode not in ("SCHEDULED", "LATE_RECOGNITION", "ASSUMED_SCHEDULED_CREDIT"):
+                if mode not in ("SCHEDULED", "LATE_RECOGNITION", "ASSUMED_SCHEDULED_CREDIT", RULE_MODE):
                     raise ExecutionBlockedError("Unknown liquidation settlement mode")
                 assumed = mode == "ASSUMED_SCHEDULED_CREDIT"
-                if not assumed and action.get("cash_settlement_verified") is not True:
+                modeled = mode == RULE_MODE
+                ledger_pay_day = rule_payment_date(action) if modeled else max(day, pay_day)
+                if not assumed and not modeled and action.get("cash_settlement_verified") is not True:
                     raise ExecutionBlockedError("Liquidation cash date requires verified account settlement")
                 late = pay_day < day
                 if late and mode != "LATE_RECOGNITION":
@@ -416,16 +577,19 @@ def run_backtest(dataset, decisions, initial_cash, cost_multiplier=1,
                 right["assumed_settlement"] = right["assumed_settlement"] or assumed
                 observation_replay = observation_replay or (late and right["entitled_quantity"] > 0)
                 assumed_settlement = assumed_settlement or (assumed and right["entitled_quantity"] > 0)
+                rule_based_settlement = rule_based_settlement or (modeled and right["entitled_quantity"] > 0)
                 paid_installments.add((entitlement_id, installment))
                 output["cash_events"].append({"date": day, "event": "LIQUIDATION_RECEIVABLE",
                     "action_id": action["action_id"], "entitlement_action_id": entitlement_id,
                     "installment_id": installment, "instrument_id": sid, "amount": amount,
-                    "actual_pay_date": None if assumed else pay_day,
-                    "scheduled_pay_date": pay_day if assumed else None, "settlement_mode": mode})
+                    "actual_pay_date": None if assumed or modeled else pay_day,
+                    "scheduled_pay_date": pay_day if assumed or modeled else None,
+                    "modeled_pay_date": ledger_pay_day if modeled else None, "settlement_mode": mode})
                 receivables.append({"action_id": action["action_id"], "instrument_id": sid,
                     "entitlement_action_id": entitlement_id, "installment_id": installment,
-                    "amount": amount, "pay_date": max(day, pay_day), "actual_pay_date": None if assumed else pay_day,
-                    "scheduled_pay_date": pay_day if assumed else None,
+                    "amount": amount, "pay_date": ledger_pay_day, "actual_pay_date": None if assumed or modeled else pay_day,
+                    "scheduled_pay_date": pay_day if assumed or modeled else None,
+                    "modeled_pay_date": ledger_pay_day if modeled else None,
                     "event_type": "LIQUIDATION", "settlement_mode": mode})
             else:
                 recovery = action.get("recovery_per_share", 0.)
@@ -435,7 +599,7 @@ def run_backtest(dataset, decisions, initial_cash, cost_multiplier=1,
                 marks[sid] = 0.
             output["order_events"].append({"date": day, "event": kind, "instrument_id": sid, "quantity": qty})
         for receivable in list(receivables):
-            if receivable["pay_date"] <= day:
+            if receivable["pay_date"] is not None and receivable["pay_date"] <= day:
                 cash += receivable["amount"]
                 withdrawable += receivable["amount"]
                 if receivable.get("event_type") == "LIQUIDATION":
@@ -446,9 +610,12 @@ def run_backtest(dataset, decisions, initial_cash, cost_multiplier=1,
                         "installment_id": receivable["installment_id"], "instrument_id": receivable["instrument_id"],
                         "amount": receivable["amount"], "actual_pay_date": receivable["actual_pay_date"],
                         "scheduled_pay_date": receivable["scheduled_pay_date"],
+                        "modeled_pay_date": receivable.get("modeled_pay_date"),
                         "settlement_mode": receivable["settlement_mode"]})
                 else:
-                    output["cash_events"].append({"date": day, "event": "DIVIDEND_PAID", "instrument_id": receivable["instrument_id"], "amount": receivable["amount"]})
+                    output["cash_events"].append({"date": day, "event": "DIVIDEND_PAID", "instrument_id": receivable["instrument_id"], "amount": receivable["amount"],
+                        "actual_pay_date": receivable.get("actual_pay_date"), "scheduled_pay_date": receivable.get("scheduled_pay_date"),
+                        "modeled_pay_date": receivable.get("modeled_pay_date"), "settlement_mode": receivable.get("settlement_mode")})
                 receivables.remove(receivable)
         # Open marks only affect matching/risk checks, never desired quantities.
         for sid in list(lots):
@@ -457,7 +624,7 @@ def run_backtest(dataset, decisions, initial_cash, cost_multiplier=1,
                 dead.add(sid)
             if sid in dead:
                 marks[sid] = 0.
-            elif row is not None and _valid(row.get("open"), True):
+            elif row is not None and row.get("suspended") is False and _valid(row.get("volume"), True) and _valid(row.get("open"), True):
                 marks[sid] = float(row["open"])
         delayed_retries = []
         daily = sorted(queues.pop(day, []), key=lambda o: (o["side"] != "SELL", o["order_id"]))
@@ -466,6 +633,8 @@ def run_backtest(dataset, decisions, initial_cash, cost_multiplier=1,
             sid, buy = order["instrument_id"], order["side"] == "BUY"
             meta, row = master(sid, _cutoff(day, "09:30:00")), bar(sid, day)
             qty, reason = order["quantity"], permission(meta, day, buy)
+            if sid in unresolved_shares and unresolved_shares[sid] > _cutoff(day, "09:30:00"):
+                reason = "SHARE_TERMS_NOT_YET_KNOWN"
             statutory = (0., 0.)
             if sid in dead:
                 reason = "DELISTED_RETAIN_RIGHTS"
@@ -613,14 +782,33 @@ def run_backtest(dataset, decisions, initial_cash, cost_multiplier=1,
             row = bar(sid, day)
             if sid in dead:
                 marks[sid], stale[sid] = 0., 0
-            elif row is not None and _valid(row.get("close"), True):
+            elif row is not None and row.get("suspended") is False and _valid(row.get("volume"), True) and _valid(row.get("close"), True):
                 marks[sid], stale[sid] = float(row["close"]), 0
             else:
                 stale[sid] += 1
+        for action in (events[day] if day >= start_date else []):
+            if action["action_type"] == "SPLIT" and _action_phase(action) == "EOD":
+                apply_share_action(action, day)
+        for order, replacement_qty in share_retry_requests:
+            if replacement_qty <= 0:
+                continue
+            if index + 1 >= len(calendar):
+                reject(order, day, "END_OF_DATA_UNFILLED_RETAIN_HOLDINGS", replacement_qty)
+                continue
+            sid = order["instrument_id"]
+            raw = bar(sid, day)
+            replacement = create_order(day, calendar[index + 1], sid, "SELL", replacement_qty,
+                marks.get(sid), historical_adv(sid, day), order["attempt"], order["order_id"],
+                order["intent_type"], order["risk_reason"],
+                source_reference_price=raw["close"] if raw else marks.get(sid),
+                reference_basis="POST_EOD_ADJUSTED" if sid in eod_factors else "RAW_CLOSE")
+            queues[replacement["execution_date"]].append(replacement)
         for order, remainder in delayed_retries:
             # Corporate action transformed quantities. Retry the actual holding.
             if order["instrument_id"] in effective_sids:
-                remainder = min(int(remainder * split_factors[order["instrument_id"]]), quantity(order["instrument_id"]))
+                sid = order["instrument_id"]
+                old, new = split_totals.get(sid, (0, 0))
+                remainder = new if old and remainder >= old else min(int(remainder * split_factors[sid]), quantity(sid))
             retry(order, day, remainder)
         nav = equity()
         if cash < -1e-7 or withdrawable < -1e-7 or withdrawable > cash + 1e-7:
@@ -712,15 +900,14 @@ def run_backtest(dataset, decisions, initial_cash, cost_multiplier=1,
             if adequate_exit:
                 continue
             reference = marks.get(sid)
-            for prior_day in reversed(calendar[:index + 1]):
-                known = bar(sid, prior_day, _cutoff(day))
-                if known is not None and _valid(known.get("close"), True):
-                    reference = float(known["close"])
-                    break
+            raw_reference = bar(sid, day)
+            source_reference = raw_reference["close"] if raw_reference else reference
             attempt = max((order["attempt"] for order in pending_sells), default=1)
             parent = pending_sells[0]["order_id"] if pending_sells else None
             risk_order = create_order(day, next_day, sid, "SELL", quantity(sid), reference,
-                                      historical_adv(sid, day), attempt, parent, "RISK_EXIT", risk_reason)
+                                      historical_adv(sid, day), attempt, parent, "RISK_EXIT", risk_reason,
+                                      source_reference_price=source_reference,
+                                      reference_basis="POST_EOD_ADJUSTED" if sid in eod_factors else "CARRIED_MARK")
             if next_day is None:
                 reject(risk_order, day, "END_OF_DATA_UNFILLED_RETAIN_HOLDINGS")
             else:
@@ -742,6 +929,17 @@ def run_backtest(dataset, decisions, initial_cash, cost_multiplier=1,
                     order = create_order(day, execution, sid, "BUY" if weights.get(sid, 0) > 0 else "SELL", 0, ref, supplied_adv)
                     reject(order, day, reason)
                     continue
+                source_ref = float(ref)
+                ref = source_ref / eod_factors.get(sid, 1.)
+                reference_basis = "POST_EOD_ADJUSTED" if sid in eod_factors else "RAW_CLOSE"
+                if row.get("suspended") is not False or not _valid(row.get("volume"), True):
+                    if quantity(sid) and _valid(marks.get(sid), True):
+                        ref, reference_basis = marks[sid], "CARRIED_ACTION_ADJUSTED_MARK"
+                    else:
+                        order = create_order(day, execution, sid, "BUY", 0, ref, actual_adv,
+                            source_reference_price=source_ref, reference_basis="UNTRADED_REFERENCE")
+                        reject(order, day, "SUSPENDED_DECISION_REFERENCE")
+                        continue
                 target = int(nav * float(weights.get(sid, 0.)) / float(ref)) // 100 * 100
                 delta = target - quantity(sid)
                 if delta == 0:
@@ -749,8 +947,12 @@ def run_backtest(dataset, decisions, initial_cash, cost_multiplier=1,
                 side = "BUY" if delta > 0 else "SELL"
                 # Preserve active risk-exit retries; no duplicate sell reservation.
                 pending_sell = any(o["instrument_id"] == sid and o["side"] == "SELL" for pending in queues.values() for o in pending)
-                order = create_order(day, execution, sid, side, abs(delta), float(ref), min(float(supplied_adv), actual_adv))
+                order = create_order(day, execution, sid, side, abs(delta), float(ref), min(float(supplied_adv), actual_adv),
+                    source_reference_price=source_ref,
+                    reference_basis=reference_basis)
                 reason = permission(meta, day, side == "BUY")
+                if sid in unresolved_shares and unresolved_shares[sid] > _cutoff(day):
+                    reason = "SHARE_TERMS_NOT_YET_KNOWN"
                 if sid in retired_instruments:
                     reason = "ECONOMICALLY_RETIRED_INSTRUMENT"
                 if pending_sell:
@@ -763,7 +965,7 @@ def run_backtest(dataset, decisions, initial_cash, cost_multiplier=1,
                     queues[execution].append(order)
 
     schemas = {
-        "orders": ["order_id", "parent_order_id", "decision_date", "decision_at", "execution_date", "instrument_id", "side", "quantity", "qty_requested", "reference_price", "adv20", "attempt", "mode", "intent_type", "risk_reason"],
+        "orders": ["order_id", "parent_order_id", "decision_date", "decision_at", "execution_date", "instrument_id", "side", "quantity", "qty_requested", "reference_price", "adv20", "attempt", "mode", "intent_type", "risk_reason", "source_reference_price", "reference_basis"],
         "fills": ["date", "order_id", "instrument_id", "side", "quantity", "price", "notional", "commission", "stamp_duty", "transfer_fee", "fees", "slippage_cost", "mode"],
         "rejected_orders": ["order_id", "date", "instrument_id", "side", "quantity", "reason"],
         "costs": ["date", "order_id", "instrument_id", "commission", "stamp_duty", "transfer_fee", "total_cost", "slippage_cost"],
@@ -774,9 +976,11 @@ def run_backtest(dataset, decisions, initial_cash, cost_multiplier=1,
     }
     result = {key: pd.DataFrame(rows, columns=schemas.get(key)) for key, rows in output.items()}
     for key, table in result.items():
-        if "date" in table.columns:
+        if "date" in table.columns and key != "share_events":
             result[key] = table.loc[table["date"] >= start_date].reset_index(drop=True)
     result["mode"] = "DAILY_SCREEN_ONLY"
+    result["rule_based_settlement"] = rule_based_settlement
+    result["cash_delay_sessions"] = cash_delay_sessions
     result["accounting_timing_eligible"] = not bool(result["nav"]["valuation_uncertainty"].any())
     result["confirmation_eligible"] = False  # Daily screening never verifies executable confirmation.
     result["limitations"] = ["Daily bars do not establish opening queue liquidity.",

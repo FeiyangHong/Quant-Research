@@ -1,0 +1,20 @@
+{
+  "scope_version": "r1b-documentary-universe-1.0",
+  "frozen_at": "2026-11-14T23:54:00+08:00",
+  "basis": "STRATEGY_SPEC section 3: domestic broad and market-board ETFs; exact underlying index defines each representative slot",
+  "real_strategy_runs_seen": 0,
+  "final_holdout_access": false,
+  "inclusion": {
+    "asset_type": "domestic_exchange_listed_passive_equity_ETF",
+    "named_exact_indices": ["CSI300", "CSI500", "CSI1000"],
+    "broad_board_families": ["CHINEXT", "STAR", "STAR_AND_CHINEXT", "BSE_IF_ACTUALLY_LISTED_AND_ELIGIBLE"],
+    "require_original_index_and_fund_documents": true,
+    "exact_index_id_is_competition_key": true,
+    "all_historical_same_index_competitors": true
+  },
+  "excluded_objectives": ["sector", "theme", "ESG", "value", "dividend", "low_volatility", "custom_factor", "active", "enhanced", "leveraged", "inverse", "overseas", "cross_border", "multi_asset"],
+  "ambiguous_membership": "RETAIN_IN_INVENTORY_PENDING_DOCUMENTARY_CLASSIFICATION",
+  "interpretation_examples_not_exhaustive": ["ChiNext50", "STAR50", "STAR100", "STAR200", "STAR_ChiNext50"],
+  "selection_prohibited": ["current_survival", "current_largest_fund", "best_returns", "data_ease"],
+  "disclosure": "A deterministic implementation interpretation of the frozen broad-board language, not a claim its text uniquely enumerates every index. Design choice bias remains. Do not revise after viewing strategy returns."
+}
