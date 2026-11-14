@@ -194,4 +194,3 @@ def test_real_date_only_cannot_be_promoted_to_same_day(small):
         frame["raw_object_hash"] = "0" * 64
     report = audit_dataset(small)
     assert any("availability lower bound" in item for item in report["blockers"])
-
