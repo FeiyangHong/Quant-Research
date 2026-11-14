@@ -89,8 +89,10 @@ def reconcile(tables, initial_cash):
         "costs": (grouped(tables["costs"], dates, "total_cost") - grouped(fills, dates, "fees")).to_numpy(),
     }
     if not fills.empty:
-        rounded_notional = (fills.quantity * fills.price).map(
-            lambda value: float(Decimal(str(value)).quantize(Decimal("0.01"), rounding=ROUND_HALF_UP)))
+        rounded_notional = pd.Series([
+            float((Decimal(str(quantity)) * Decimal(str(price))).quantize(
+                Decimal("0.01"), rounding=ROUND_HALF_UP))
+            for quantity, price in zip(fills.quantity, fills.price)], index=fills.index)
         differences["fill_notional"] = (rounded_notional - fills.notional).to_numpy()
         differences["fee_components"] = (fills.commission + fills.stamp_duty + fills.transfer_fee - fills.fees).to_numpy()
     if not positions.empty:

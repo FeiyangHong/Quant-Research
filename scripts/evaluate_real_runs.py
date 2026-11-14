@@ -1,7 +1,7 @@
 """Audit and describe both complete registered real-data matrices; never select a winner.
 
-Usage: python scripts/evaluate_real_runs.py --development runs/real_r1_development_v1
-       --validation runs/real_r1_validation_v1 --output reports/real_data_phase3
+Usage: python scripts/evaluate_real_runs.py --development runs/real_r1_development_v2
+       --validation runs/real_r1_validation_v2 --output reports/real_data_phase3
 No output is written until all 448 completed runs and retained failed attempts pass audit.
 """
 from __future__ import annotations
@@ -22,7 +22,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 sys.path.insert(0, str(ROOT))
 from quant_research.evaluation import holm_four, nav_metrics, paired_inference
-from quant_research.provenance import digest, validate_run_config, write_json
+from quant_research.provenance import digest, source_provenance, validate_run_config, write_json
 from scripts.summarize_runs import grouped, reconcile
 
 
@@ -371,6 +371,9 @@ def comparisons(results, series):
 
 
 def evaluate(development, validation, output):
+    # Post-processing has its own version. Never pretend an amended checker
+    # was part of the earlier engine execution or rewrite any run artifact.
+    evaluation_provenance = source_provenance(ROOT)
     roots = {"development": Path(development).resolve(), "validation": Path(validation).resolve()}
     if roots["development"] == roots["validation"]:
         raise ValueError("Development and validation require separate fresh-account matrices")
@@ -418,6 +421,7 @@ def evaluate(development, validation, output):
                   "matrix_manifest_sha256": manifests, "source_hash": next(iter(sources)),
                   "evaluator_sha256": sha256(Path(__file__)),
                   "data_hashes": {p: sorted({r["provenance"]["data_hash"] for r in ordered if r["period"] == p}) for p in PERIODS}},
+              "evaluation_provenance": evaluation_provenance,
               "grid": {"capitals": CAPITALS, "variants": VARIANTS, "risk_scaling": [False, True],
                   "signal_release_delay": 1, "paths": [{"label": label, "cost_multiplier": p[0],
                   "slippage_multiplier": p[1], "execution_delay": p[2], "cash_delay_sessions": p[3]}
@@ -449,6 +453,16 @@ def evaluate(development, validation, output):
     if any(output.resolve() == root or root in output.resolve().parents for root in roots.values()):
         raise ValueError("Evaluation output must not modify either input matrix")
     output.mkdir(parents=True, exist_ok=True)
+    for relative, expected in evaluation_provenance["source_files"].items():
+        content = (ROOT / relative).read_bytes()
+        if hashlib.sha256(content).hexdigest() != expected:
+            raise ValueError("Evaluation source changed while computing the report")
+        target = output / "evaluation_source_snapshot" / relative
+        target.parent.mkdir(parents=True, exist_ok=True)
+        if target.exists() and target.read_bytes() != content:
+            raise ValueError("Existing evaluation source snapshot differs; use a new output version")
+        target.write_bytes(content)
+    write_json(output / "evaluation_provenance.json", evaluation_provenance)
     temporary = output / "results_summary.json.tmp"
     write_json(temporary, report)
     temporary.replace(output / "results_summary.json")
