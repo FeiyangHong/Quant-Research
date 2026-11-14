@@ -1,0 +1,13 @@
+# Preserve exact bytes for content-addressed source and current evidence.
+# CRLF is retained where it is part of an existing registered hash.
+src/** -text whitespace=cr-at-eol
+scripts/** -text whitespace=cr-at-eol
+tests/** -text whitespace=cr-at-eol
+configs/** -text whitespace=cr-at-eol
+requirements.lock -text whitespace=cr-at-eol
+pyproject.toml -text whitespace=cr-at-eol
+docs/STRATEGY_SPEC.md -text whitespace=cr-at-eol
+docs/EXPERIMENT_PLAN.md -text whitespace=cr-at-eol
+docs/RISK_POLICY.md -text whitespace=cr-at-eol
+docs/DATA_CONTRACT.md -text whitespace=cr-at-eol
+reports/real_data_phase3/** -text whitespace=cr-at-eol

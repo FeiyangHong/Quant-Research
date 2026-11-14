@@ -1,0 +1,41 @@
+{
+  "access_controls": [
+    "Provider history windows end 2024-12-31",
+    "Development observations physically end 2021-12-31",
+    "Validation funded account is 2022-2024 with earlier feature warmup",
+    "CLI rejects any research calendar containing a session in 2025 or later",
+    "No final sample option exists"
+  ],
+  "authorization_to_open": false,
+  "documentary_boundary_uses": [
+    {
+      "date": "2025-01-02",
+      "kind": "AVAILABILITY_CALENDAR_ONLY",
+      "purpose": "Next-session knowledge timestamp of 2024-12-31 benchmark; no 2025 price or account session"
+    },
+    {
+      "kind": "RETROSPECTIVE_DOCUMENTARY_AUDIT",
+      "purpose": "Later annual reports check 2024 and earlier event completeness; feature actions retain original public announcement timing"
+    }
+  ],
+  "final_interval": [
+    "2025-01-01",
+    "2026-11-13"
+  ],
+  "final_market_rows_admitted": 0,
+  "final_strategy_results_generated": 0,
+  "future_access": "Requires a separate research milestone decision and frozen primary rule, baseline, economic hurdle and access protocol. This log grants no authorization.",
+  "incidental_provider_fields": {
+    "evidence": "SECONDARY_PRICE_AUDIT.json and immutable adjudication_v4.json",
+    "fields": "Unsolicited qt/mx_price current fields in whole response",
+    "inspected_or_admitted": false,
+    "parsed_research_rows": "Only historical day records inside requested 2020-08-21 to 2020-08-27 dispute windows",
+    "provider": "Tencent bounded-2020 third-source adjudication",
+    "quarantined": true,
+    "received": true
+  },
+  "known_history": "Research design dates after these historical events. Project-level historical holdout is not naturally unknown future evidence.",
+  "no_final_candidate_frozen": true,
+  "recorded_at": "2026-11-14T17:30:46.123189+00:00",
+  "state": "LOCKED"
+}

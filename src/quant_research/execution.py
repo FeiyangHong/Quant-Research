@@ -46,6 +46,20 @@ def _money(value):
     return float(Decimal(str(value)).quantize(Decimal("0.01"), rounding=ROUND_HALF_UP))
 
 
+def _product_money(quantity, price):
+    # Convert operands before arithmetic. Converting a binary product after
+    # multiplication cannot recover a half-cent (e.g. 373 * 2.695).
+    return _money(Decimal(str(quantity)) * Decimal(str(price)))
+
+
+def _charges(notional, buy, statutory, cost_multiplier):
+    value = Decimal(str(notional))
+    commission = _money(max(Decimal("5"), value * Decimal("0.0003")) * Decimal(str(cost_multiplier)))
+    stamp = _money(Decimal("0") if buy else value * Decimal(str(statutory[0])))
+    transfer = _money(value * Decimal(str(statutory[1])))
+    return commission, stamp, transfer
+
+
 def _tick(value, tick, buy):
     units = (Decimal(str(value)) / Decimal(str(tick))).to_integral_value(
         rounding=ROUND_CEILING if buy else ROUND_FLOOR)
@@ -129,7 +143,12 @@ def run_backtest(dataset, decisions, initial_cash, cost_multiplier=1,
     if not calendar or not any(day >= start_date for day in calendar):
         raise ExecutionBlockedError("No account sessions on or after start_date")
     masters = _get(dataset, "instruments").copy()
-    bars = _get(dataset, "bars").copy()
+    source_bars = _get(dataset, "bars")
+    # Source provenance is audited and snapshotted by the data/runner layers.
+    # Avoid copying unused document metadata into every daily lookup record.
+    bar_fields = ("date", "instrument_id", "available_at", "open", "high", "low", "close",
+                  "volume", "amount", "upper_limit", "lower_limit", "suspended")
+    bars = source_bars.loc[:, [key for key in bar_fields if key in source_bars]].copy()
     actions = _get(dataset, "actions", pd.DataFrame()).copy()
     rules = tax_rules if tax_rules is not None else _get(dataset, "tax_rules", pd.DataFrame())
     if not isinstance(rules, pd.DataFrame):
@@ -138,9 +157,13 @@ def run_backtest(dataset, decisions, initial_cash, cost_multiplier=1,
     for record in masters.to_dict("records"):
         record["_available"] = _timestamp(record["available_at"])
         master_rows[record["instrument_id"]].append(record)
+    parsed_bar_times = {}
     for record in bars.to_dict("records"):
         record["date"] = str(record["date"])[:10]
-        record["_available"] = _timestamp(record["available_at"])
+        value = record["available_at"]
+        if value not in parsed_bar_times:
+            parsed_bar_times[value] = _timestamp(value)
+        record["_available"] = parsed_bar_times[value]
         bar_rows[(record["instrument_id"], record["date"])].append(record)
     for rows in list(master_rows.values()) + list(bar_rows.values()):
         rows.sort(key=lambda row: row["_available"])
@@ -210,10 +233,7 @@ def run_backtest(dataset, decisions, initial_cash, cost_multiplier=1,
         return float(rule["stamp_duty_sell"]), float(rule["transfer_fee_both"])
 
     def charges(notional, buy, statutory):
-        commission = _money(max(5., notional * .0003) * cost_multiplier)
-        stamp = _money(0. if buy else notional * statutory[0])
-        transfer = _money(notional * statutory[1])
-        return commission, stamp, transfer
+        return _charges(notional, buy, statutory, cost_multiplier)
 
     decision_by_day = {}
     for decision in decisions:
@@ -489,7 +509,7 @@ def run_backtest(dataset, decisions, initial_cash, cost_multiplier=1,
                 if not _valid(per_share) or pay_day < day or pay_day == "None":
                     raise ExecutionBlockedError("Invalid dividend terms")
                 entitlement = record_holdings.get((record_day, sid), 0)
-                amount = _money(entitlement * float(per_share))
+                amount = _product_money(entitlement, per_share)
                 modeled = action.get("settlement_mode") == RULE_MODE
                 ledger_pay_day = rule_payment_date(action) if modeled else pay_day
                 rule_based_settlement = rule_based_settlement or (modeled and entitlement > 0)
@@ -570,7 +590,7 @@ def run_backtest(dataset, decisions, initial_cash, cost_multiplier=1,
                     raise ExecutionBlockedError("Past liquidation payment requires explicit late recognition")
                 if mode == "LATE_RECOGNITION" and not late:
                     raise ExecutionBlockedError("Late recognition requires an earlier actual pay_date")
-                amount = _money(right["entitled_quantity"] * float(per_share))
+                amount = _product_money(right["entitled_quantity"], per_share)
                 right["recognized_amount"] = _money(right["recognized_amount"] + amount)
                 right["final_recognized"] = action["is_final"]
                 right["late_recognition"] = right["late_recognition"] or late
@@ -664,8 +684,8 @@ def run_backtest(dataset, decisions, initial_cash, cost_multiplier=1,
                 reject(order, day, reason)
                 delayed_retries.append((order, qty))
                 continue
-            slip = (.0003 if meta["asset_type"] == "ETF" else .001) * slippage_multiplier
-            price = _tick(float(row["open"]) * (1 + slip if buy else 1 - slip), tick, buy)
+            slip = Decimal("0.0003" if meta["asset_type"] == "ETF" else "0.001") * Decimal(str(slippage_multiplier))
+            price = _tick(Decimal(str(row["open"])) * (1 + slip if buy else 1 - slip), tick, buy)
             if price <= 0 or price < row["lower_limit"] - 1e-10 or price > row["upper_limit"] + 1e-10 or price < row["low"] - 1e-10 or price > row["high"] + 1e-10:
                 reject(order, day, "SLIPPAGE_PRICE_OUTSIDE_VALID_RANGE")
                 delayed_retries.append((order, qty))
@@ -676,7 +696,7 @@ def run_backtest(dataset, decisions, initial_cash, cost_multiplier=1,
             limit_reason = "HISTORICAL_ADV_CAPACITY"
             reserved = 0.
             if buy:
-                reserve_price = _tick(float(order["reference_price"]) * (1 + slip), tick, True)
+                reserve_price = _tick(Decimal(str(order["reference_price"])) * (1 + slip), tick, True)
                 risk_price = max(reserve_price, price)
                 current_equity = equity()
                 instrument_value = quantity(sid) * marks.get(sid, float(row["open"]))
@@ -703,8 +723,9 @@ def run_backtest(dataset, decisions, initial_cash, cost_multiplier=1,
                 # is allowed to consume only this reservation, never extra cash.
                 reserve_qty = min(fill_qty, int(cash / reserve_price)) // 100 * 100
                 while reserve_qty > 0:
-                    reserve_fees = sum(charges(reserve_qty * reserve_price, True, statutory))
-                    reserved = _money(reserve_qty * reserve_price) + reserve_fees
+                    reserve_notional = _product_money(reserve_qty, reserve_price)
+                    reserve_fees = sum(charges(reserve_notional, True, statutory))
+                    reserved = reserve_notional + reserve_fees
                     if reserved <= cash + 1e-9:
                         break
                     reserve_qty -= 100
@@ -714,7 +735,7 @@ def run_backtest(dataset, decisions, initial_cash, cost_multiplier=1,
                 output["order_events"].append({"date": day, "order_id": order["order_id"],
                     "event": "RESERVE", "cash_reserved": reserved, "cash_total": cash,
                     "cash_available": cash - reserved, "nav": current_equity})
-                while fill_qty > 0 and _money(fill_qty * price) + sum(charges(fill_qty * price, True, statutory)) > reserved + 1e-9:
+                while fill_qty > 0 and _product_money(fill_qty, price) + sum(charges(_product_money(fill_qty, price), True, statutory)) > reserved + 1e-9:
                     fill_qty -= 100
                     limit_reason = "REFERENCE_RESERVATION_GAP"
                 if reserve_qty == 0:
@@ -733,7 +754,7 @@ def run_backtest(dataset, decisions, initial_cash, cost_multiplier=1,
                 # adverse execution price, while holdings remain marked at
                 # the market open. It can only reduce the fixed intention.
                 while fill_qty > 0:
-                    prospective_fees = sum(charges(_money(fill_qty * price), True, statutory))
+                    prospective_fees = sum(charges(_product_money(fill_qty, price), True, statutory))
                     post_nav = current_equity - prospective_fees - fill_qty * (price - float(row["open"]))
                     post_value = instrument_value + fill_qty * float(row["open"])
                     industry_ok = (meta["asset_type"] != "STOCK" or
@@ -743,7 +764,7 @@ def run_backtest(dataset, decisions, initial_cash, cost_multiplier=1,
                     fill_qty -= 100
                     limit_reason = "JOINT_EXPOSURE_LIMIT_AFTER_COSTS"
             if fill_qty > 0:
-                notional = _money(fill_qty * price)
+                notional = _product_money(fill_qty, price)
                 commission, stamp, transfer = charges(notional, buy, statutory)
                 total_fees = commission + stamp + transfer
                 if buy:
@@ -763,13 +784,14 @@ def run_backtest(dataset, decisions, initial_cash, cost_multiplier=1,
                             remaining -= removed
                     lots[sid] = [lot for lot in lots[sid] if lot["quantity"]]
                 capacity_used[sid] += fill_qty * max(price, float(order["reference_price"]))
+                slippage_cost = _product_money(fill_qty, abs(Decimal(str(price)) - Decimal(str(row["open"]))))
                 output["fills"].append({"date": day, "order_id": order["order_id"], "instrument_id": sid,
                     "side": order["side"], "quantity": fill_qty, "price": price, "notional": notional,
                     "commission": commission, "stamp_duty": stamp, "transfer_fee": transfer,
-                    "fees": total_fees, "slippage_cost": _money(fill_qty * abs(price - row["open"])), "mode": "DAILY_SCREEN_ONLY"})
+                    "fees": total_fees, "slippage_cost": slippage_cost, "mode": "DAILY_SCREEN_ONLY"})
                 output["costs"].append({"date": day, "order_id": order["order_id"], "instrument_id": sid,
                     "commission": commission, "stamp_duty": stamp, "transfer_fee": transfer,
-                    "total_cost": total_fees, "slippage_cost": _money(fill_qty * abs(price - row["open"]))})
+                    "total_cost": total_fees, "slippage_cost": slippage_cost})
                 output["cash_events"].append({"date": day, "event": "BUY" if buy else "SELL",
                     "order_id": order["order_id"], "amount": -notional - total_fees if buy else notional - total_fees})
             if buy:

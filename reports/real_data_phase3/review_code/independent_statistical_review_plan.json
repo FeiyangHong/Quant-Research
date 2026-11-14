@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "status": "PRE_RESULTS_METHOD_REVIEW_ONLY",
+  "reviewer": "/root/independent_admission",
+  "created_at": "2026-11-14T17:15:58.093729+00:00",
+  "results_read": false,
+  "registered_plan_sha256": "8c254b5452bf072598dea740dad8ab5126e11a1449c1cb5608ed497a3933d7ba",
+  "source_files": {
+    "scripts/evaluate_real_runs.py": "c79ecd8a2e1325ce55ce08f8cf73a26d65879192d9b0bd7a25c1f7faed6d3053",
+    "scripts/summarize_runs.py": "42fe1c672d7089a9787a477f4ef304eaa1f888c55aba2365e060ba87605cf8ab",
+    "src/quant_research/evaluation.py": "b7210f97019eee9a54639b4f8cc22c31e3cb83a1cc7effc002f373835e7bcb3e",
+    "src/quant_research/runner.py": "73800aa939c429f05898837bef95557d2427e8e4546a0b00ee650a345f857f9f",
+    "src/quant_research/admission.py": "6f32317000b1a5d4964844dd97b355d18efae22f56cdb0d22f507c1369835869",
+    "src/quant_research/execution.py": "49eeb7d7760ebf6290baec0a2edd183834d12897a49118d7a305cd4b5617a1ad",
+    "reports/real_data_phase3/registered_plan.json": "8c254b5452bf072598dea740dad8ab5126e11a1449c1cb5608ed497a3933d7ba",
+    "reports/real_data_phase3/admission_attestation.json": "38b577a99197ed2e60f95286b6c289c755be3db293d7fa155d0b60644a87acb1"
+  },
+  "scope": "All 448 already registered R1B daily-screen paths, separate development and validation accounts; no new strategy, holdout access, candidate selection or confirmatory family.",
+  "method_findings": [
+    "Main arithmetic paired-return mean, initial-cash first-day return, HAC-studentized null-centered block bootstrap and unknown-hurdle gating match protocol.",
+    "Same dates and seed implicitly synchronize bootstrap blocks within a period. Between periods no common dates exist; separate samples are appropriate.",
+    "Evaluator requires identical calendars across runs and all sample years, but not exact equality to admitted exchange sessions. Independent review will check exact funded-session lists.",
+    "Evaluator verifies cash/receivable/position-value arithmetic, but does not independently reconstruct units from fills and corporate actions. Independent inventory check will supplement this limitation.",
+    "Rank contrasts are explicit. Independent report will also show trend, scaling and interaction diagnostics already implied by the frozen factorial ablations, descriptively only.",
+    "Formal p=1 values are not-ready placeholders, not test results. Zero-hurdle diagnostics remain exploratory and unadjusted; annual incremental fixed cost is not set to zero for economic claims."
+  ],
+  "planned_integrity_checks": [
+    "Exact admitted manifest hashes and source/table file hashes.",
+    "Exact registered configuration inventory including retained failures and no unregistered successful attempts.",
+    "Preregistration timestamp precedes first local run registration; local chronology does not authenticate an external timestamp.",
+    "Every funded session present exactly once; fresh 2016/2022 account; no 2025 price/account data.",
+    "Every daily position quantity reconstructed from fills and correctly phased share events, aggregate rounding and no negative units.",
+    "Raw close and EOD conversion mark checks, dividend entitlement and modeled cash timing where actual ledgers permit.",
+    "All annual contribution sums and calendar-year compounded returns reconcile to total return.",
+    "First-day return and drawdown include initial cash; fees/slippage never deducted twice.",
+    "Complete base, cost2/3, slip0, D+3 execution and cash+1/+3 stress outcomes retained for every capital and variant."
+  ],
+  "planned_descriptive_diagnostics": [
+    "All R0-E0, R1-E1, E1-E0, R1-R0 matched daily differences by period, capital, scaling and stress.",
+    "Scaling-on minus scaling-off for each matched variant; trend-by-ranking interaction (R1-R0)-(E1-E0); no added p-values.",
+    "100k base primary capital emphasis; all other capitals implementation robustness, no best-capital selection.",
+    "Year contributions and fixed trailing 252-session mean paired increments where available; no selected date cutoffs.",
+    "Zero-cash-target Sortino, Calmar, worst calendar month and daily lower-tail 5-percent expected shortfall; diagnostic definitions disclosed.",
+    "HAC long-run-variance Sharpe diagnostic and lag1 return autocorrelation alongside conventional 252 annualization.",
+    "Exposure, cash, concentration, turnover, fills, rejections and stale marks used to qualify trend/scaling utility.",
+    "Signed endpoint-equivalent annual incremental cost 100000*252*mean(daily difference) is arithmetic sensitivity only, not an observed cost quote or economic confirmation."
+  ],
+  "unchanged_limitations": [
+    "Current corrected data vintage; no original vendor first-seen evidence.",
+    "D039 anchor D, decision D+1 at21, execution D+2; all matched variants use same release.",
+    "Rule-based hypothetical cash receipt; actual investor receipt unknown.",
+    "Daily opening simulation does not verify minute liquidity or queues.",
+    "No factor-alpha or independent-skill claim; no factor return series.",
+    "Validation2022-24 is not final holdout; final2025-26 remains locked.",
+    "Unknown incremental operating cost leaves BLOCKED_HURDLE."
+  ]
+}

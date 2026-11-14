@@ -1,0 +1,18 @@
+{
+  "status": "PRE_RESULTS_DECISION_ATTRIBUTION_ADDENDUM",
+  "created_at": "2026-11-14T17:23:25.066336+00:00",
+  "actual_results_read": false,
+  "reason": "Parent requested complete monthly target status and exclusion attribution before overall result review.",
+  "fixed_checks": [
+    "All monthly target status/exclusions counts, by execution year; distinguish absent trend evaluation from trend off.",
+    "D039 anchor/decision/execution order checked on admitted exchange sessions.",
+    "Across variant/scaling, representative/eligible/excluded sets match at each signal anchor.",
+    "Capital, commission, slippage and cash-delay scenarios do not change generated target decisions for the same execution delay.",
+    "Use target cash diagnostics together with actual exposure; do not infer timing alpha from cash or lower risk."
+  ],
+  "files": {
+    "work/independent_statistical_review_plan.json": "90b65986732f590ea864863aebf85dc71a50c395b3090d1f09f3c94a58a1214c",
+    "work/independent_statistical_diagnostics.py": "c815b3a56ef7d0d7862f1cb6c7fd8cf963900b08a0a6a4f26bc0a98856ac99d3",
+    "work/independent_inventory_review.py": "18f1b3cde4a74ae43ea8ba81c27fb6c69934c5d6311c30fdeca9308172e14242"
+  }
+}

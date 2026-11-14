@@ -6,7 +6,7 @@ import numpy as np
 import pandas as pd
 import pytest
 
-from quant_research.strategy import StrategyBlockedError, generate_targets
+from quant_research.strategy import StrategyBlockedError, generate_targets, _matrix
 
 
 @pytest.fixture
@@ -49,6 +49,40 @@ def test_registered_momentum_top3_month_end_and_delay(market):
     delayed = active(market, variant="R0", execution_delay=2)
     assert [(x.decision_date, x.weights) for x in decisions] == [(x.decision_date, x.weights) for x in delayed]
     assert all(market.calendar[market.calendar.index(x.decision_date) + 2] == x.execution_date for x in delayed)
+
+
+@pytest.mark.parametrize("dtype", ["float64", "float32", "int64"])
+@pytest.mark.parametrize("categorical", [False, True])
+def test_windowed_matrix_preserves_historical_column_union_order_and_dtype(dtype, categorical):
+    # OLD disappears before the requested window; NEW appears inside it. The
+    # original full pivot retains OLD as an all-missing column in the window.
+    bars = pd.DataFrame({"date": ["2020-01-02", "2020-01-02", "2020-01-03", "2020-01-06"],
+                         "instrument_id": ["OLD", "B", "NEW", "B"], "amount": [1, 2, 3, 4]})
+    bars["amount"] = bars.amount.astype(dtype)
+    if categorical:
+        bars["instrument_id"] = pd.Categorical(bars.instrument_id, categories=["NEW", "OLD", "B", "UNUSED"])
+    for dates in (["2020-01-03", "2020-01-06"], ["2020-01-07"], []):
+        original = bars.pivot(index="date", columns="instrument_id", values="amount").reindex(dates)
+        pd.testing.assert_frame_equal(_matrix(bars, "amount", dates), original, check_exact=True)
+
+
+def test_strategy_projection_keeps_inputs_unchanged_and_tr_clock_prefix_causal(market):
+    market.bars["total_return_available_at"] = market.bars.available_at
+    expected = generate_targets(market, variant="R1", risk_scaling=True, signal_release_delay=1)
+    market.bars["unused_provenance_payload"] = "not a strategy input" * 500
+    future = market.bars.iloc[[-1]].copy()
+    future["date"] = "2035-01-01"
+    future["available_at"] = "2035-01-01T21:00:00+08:00"
+    future["total_return_available_at"] = "malformed but not visible in this prefix"
+    market.bars = pd.concat([market.bars, future], ignore_index=True)
+    before = market.bars.copy(deep=True)
+    actual = generate_targets(market, variant="R1", risk_scaling=True, signal_release_delay=1)
+    assert actual == expected
+    pd.testing.assert_frame_equal(market.bars, before, check_exact=True)
+    # A visible malformed clock must still raise, as in the frozen strategy.
+    market.bars.loc[0, "total_return_available_at"] = "malformed visible clock"
+    with pytest.raises(ValueError):
+        generate_targets(market, variant="R1")
 
 
 def test_date_only_benchmark_releases_unchanged_anchor_formula_next_session(market):

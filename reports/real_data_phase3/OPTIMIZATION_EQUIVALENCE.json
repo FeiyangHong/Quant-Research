@@ -1,0 +1,2464 @@
+{
+  "status": "PASS_EXACT_DECISION_EQUIVALENCE",
+  "oracle_commit": "1096a7f",
+  "oracle_source_sha256_lf": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8",
+  "optimized_source_sha256": "cd59afc451bd791fb68543422893fbe90c66ecfd54a4389e777cc6c8622ce2ae",
+  "method": "Exact canonical JSON equality (no numeric tolerance); all TargetDecision fields including ranks for direct oracle comparisons; all persisted fields for prior v1 artifacts. No account backtest and no return/account files opened.",
+  "synthetic": [
+    {
+      "variant": "E0",
+      "risk_scaling": false,
+      "execution_delay": 1,
+      "decision_count": 83,
+      "exact_match": true,
+      "oracle_seconds": 2.35547,
+      "optimized_seconds": 1.9249632,
+      "decision_sha256": "db6f30a4012afb9f7136fe843e1fddcdbc93a2004965d13676a6ba18860e356c"
+    },
+    {
+      "variant": "E0",
+      "risk_scaling": false,
+      "execution_delay": 2,
+      "decision_count": 83,
+      "exact_match": true,
+      "oracle_seconds": 2.1762537999999996,
+      "optimized_seconds": 2.0932582,
+      "decision_sha256": "588a4fe96f7176c9baf242846b0a2b2649868a628588e7ed8620e3e876bcb30b"
+    },
+    {
+      "variant": "E0",
+      "risk_scaling": true,
+      "execution_delay": 1,
+      "decision_count": 83,
+      "exact_match": true,
+      "oracle_seconds": 2.4995357999999985,
+      "optimized_seconds": 2.1761675,
+      "decision_sha256": "d0a41d88ddb668fa3c954d71988a8dff9f6d4e22841c491328f3f8e07cb6990f"
+    },
+    {
+      "variant": "E0",
+      "risk_scaling": true,
+      "execution_delay": 2,
+      "decision_count": 83,
+      "exact_match": true,
+      "oracle_seconds": 2.3976947000000006,
+      "optimized_seconds": 2.215069800000002,
+      "decision_sha256": "e8b2c02caf85fc068e6a0b7ca137ef11e16889ccc6d33370f651972378371b2f"
+    },
+    {
+      "variant": "R0",
+      "risk_scaling": false,
+      "execution_delay": 1,
+      "decision_count": 83,
+      "exact_match": true,
+      "oracle_seconds": 2.3655547000000006,
+      "optimized_seconds": 2.1306020999999973,
+      "decision_sha256": "78b188af344057cd0fb9d28facfc862ee82ec56339feae1e831012f854b9f60d"
+    },
+    {
+      "variant": "R0",
+      "risk_scaling": false,
+      "execution_delay": 2,
+      "decision_count": 83,
+      "exact_match": true,
+      "oracle_seconds": 2.2766828999999973,
+      "optimized_seconds": 2.1888143999999983,
+      "decision_sha256": "419524f8df12cab99aabb49504c653a5d0e99ebc9454e96038117c76aed9d90d"
+    },
+    {
+      "variant": "R0",
+      "risk_scaling": true,
+      "execution_delay": 1,
+      "decision_count": 83,
+      "exact_match": true,
+      "oracle_seconds": 2.599716899999997,
+      "optimized_seconds": 2.527221200000003,
+      "decision_sha256": "06c9368ee3bd4d78d4aec14241c5ed75c55366ff7215bc53fb2b9410f98c52c0"
+    },
+    {
+      "variant": "R0",
+      "risk_scaling": true,
+      "execution_delay": 2,
+      "decision_count": 83,
+      "exact_match": true,
+      "oracle_seconds": 2.4845951,
+      "optimized_seconds": 2.499592,
+      "decision_sha256": "439bb49f92b101b82c57274085be6074e70d8a89ccc6aaf855b6eef5afb8fe24"
+    },
+    {
+      "variant": "E1",
+      "risk_scaling": false,
+      "execution_delay": 1,
+      "decision_count": 83,
+      "exact_match": true,
+      "oracle_seconds": 2.2508900999999994,
+      "optimized_seconds": 2.3728871,
+      "decision_sha256": "2b5f56f1ddd65656924984574f95c7f340fe41d47e73b338a9e5191e6423f742"
+    },
+    {
+      "variant": "E1",
+      "risk_scaling": false,
+      "execution_delay": 2,
+      "decision_count": 83,
+      "exact_match": true,
+      "oracle_seconds": 2.194503999999995,
+      "optimized_seconds": 2.127557600000003,
+      "decision_sha256": "23443aae29af6cf0605e9f9ed4fc5ca32afcb156f3a537428da60625260b0265"
+    },
+    {
+      "variant": "E1",
+      "risk_scaling": true,
+      "execution_delay": 1,
+      "decision_count": 83,
+      "exact_match": true,
+      "oracle_seconds": 2.3770521000000002,
+      "optimized_seconds": 2.3863673999999975,
+      "decision_sha256": "ce17f7a9c36d8e022766efc08795e10a62377daf7464819d5325412c3facb484"
+    },
+    {
+      "variant": "E1",
+      "risk_scaling": true,
+      "execution_delay": 2,
+      "decision_count": 83,
+      "exact_match": true,
+      "oracle_seconds": 2.4577951000000056,
+      "optimized_seconds": 2.4169217999999972,
+      "decision_sha256": "ee3584ab13d045dc7c3a97c7b781e1fa2d93bb7fb1d46d97a74065f3b71e83e8"
+    },
+    {
+      "variant": "R1",
+      "risk_scaling": false,
+      "execution_delay": 1,
+      "decision_count": 83,
+      "exact_match": true,
+      "oracle_seconds": 2.3789491,
+      "optimized_seconds": 2.442846199999998,
+      "decision_sha256": "9faa02da4bf1a46406694cd16598d6badf6997490a72718b86bb86054ad9ccd1"
+    },
+    {
+      "variant": "R1",
+      "risk_scaling": false,
+      "execution_delay": 2,
+      "decision_count": 83,
+      "exact_match": true,
+      "oracle_seconds": 2.4009348000000017,
+      "optimized_seconds": 2.3750995000000046,
+      "decision_sha256": "8594a980aa8fffe8a220e285bd38874089935b5c437c2b4090f061c7d38ea5c2"
+    },
+    {
+      "variant": "R1",
+      "risk_scaling": true,
+      "execution_delay": 1,
+      "decision_count": 83,
+      "exact_match": true,
+      "oracle_seconds": 2.5517473999999964,
+      "optimized_seconds": 2.523884999999993,
+      "decision_sha256": "3765d0b94d12ee3687348ef212d8a95ea46b8574238ba138760da491b3ad9428"
+    },
+    {
+      "variant": "R1",
+      "risk_scaling": true,
+      "execution_delay": 2,
+      "decision_count": 83,
+      "exact_match": true,
+      "oracle_seconds": 2.7766672999999997,
+      "optimized_seconds": 2.5411275000000018,
+      "decision_sha256": "2e2e20dc96bcaea7dc3e54a36934e9fb62f3d4c65bfd64c36b42b698b9c238af"
+    }
+  ],
+  "real": [
+    {
+      "period": "development",
+      "variant": "E0",
+      "risk_scaling": false,
+      "execution_delay": 1,
+      "input_file_sha256": {
+        "calendar.json": "8200cca2c04cc847ebddf43c0783ff1b8d15b28a9d11e48a3b3f51661c4e52ae",
+        "instruments.json": "6330058f1631b1d4e5727d37ac3fbb7d45c60da7400648bd0bb08fdcdd54ba85",
+        "bars.json": "e55dac04e76a865e1e407506402fb3b4260db6e0acdc4d9d1a7d986000f2eb13",
+        "benchmark.json": "a6dd120651661943d46ada9360e473065f52e5f501545ef0b18e4cbe49ceb8e7"
+      },
+      "optimized_seconds": 9.886324099999996,
+      "full_decision_count": 143,
+      "funded_account_decision_count": 72,
+      "exact_match": true,
+      "checked_completed_runs": [
+        {
+          "run_id": "3c174ad8810295f6-20261114T171439479054Z",
+          "decisions_sha256": "1ab32ae56c7c4c26ddd48a7094b1449b1bf7792f86e4e424b7b7ac63fa600385",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "724fcb6bd0816e0f-20261114T171510268248Z",
+          "decisions_sha256": "1ab32ae56c7c4c26ddd48a7094b1449b1bf7792f86e4e424b7b7ac63fa600385",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "e73ae9176f0c6ac4-20261114T171512847736Z",
+          "decisions_sha256": "1ab32ae56c7c4c26ddd48a7094b1449b1bf7792f86e4e424b7b7ac63fa600385",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "6054747a4901c5d9-20261114T171515481323Z",
+          "decisions_sha256": "1ab32ae56c7c4c26ddd48a7094b1449b1bf7792f86e4e424b7b7ac63fa600385",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "e6a644e61cc2215f-20261114T171518031866Z",
+          "decisions_sha256": "1ab32ae56c7c4c26ddd48a7094b1449b1bf7792f86e4e424b7b7ac63fa600385",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "a7cfc1e1eca507a9-20261114T171520781852Z",
+          "decisions_sha256": "1ab32ae56c7c4c26ddd48a7094b1449b1bf7792f86e4e424b7b7ac63fa600385",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "624b307230c243b2-20261114T171523479091Z",
+          "decisions_sha256": "1ab32ae56c7c4c26ddd48a7094b1449b1bf7792f86e4e424b7b7ac63fa600385",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "d0c5dcc3e1ee125b-20261114T171526220781Z",
+          "decisions_sha256": "1ab32ae56c7c4c26ddd48a7094b1449b1bf7792f86e4e424b7b7ac63fa600385",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "1192b7371155d70f-20261114T171528845534Z",
+          "decisions_sha256": "1ab32ae56c7c4c26ddd48a7094b1449b1bf7792f86e4e424b7b7ac63fa600385",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "43e0b7fddd20699e-20261114T171531550696Z",
+          "decisions_sha256": "1ab32ae56c7c4c26ddd48a7094b1449b1bf7792f86e4e424b7b7ac63fa600385",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "03c8550254a64639-20261114T171534339968Z",
+          "decisions_sha256": "1ab32ae56c7c4c26ddd48a7094b1449b1bf7792f86e4e424b7b7ac63fa600385",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "138890b117f620f3-20261114T171537489306Z",
+          "decisions_sha256": "1ab32ae56c7c4c26ddd48a7094b1449b1bf7792f86e4e424b7b7ac63fa600385",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "76b7e3e15265e1ec-20261114T171540054984Z",
+          "decisions_sha256": "1ab32ae56c7c4c26ddd48a7094b1449b1bf7792f86e4e424b7b7ac63fa600385",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "b4d5f1177aabfe41-20261114T171542781340Z",
+          "decisions_sha256": "1ab32ae56c7c4c26ddd48a7094b1449b1bf7792f86e4e424b7b7ac63fa600385",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "411ccde30a31c3aa-20261114T171545393237Z",
+          "decisions_sha256": "1ab32ae56c7c4c26ddd48a7094b1449b1bf7792f86e4e424b7b7ac63fa600385",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "c464a102dc81f6a3-20261114T171548155910Z",
+          "decisions_sha256": "1ab32ae56c7c4c26ddd48a7094b1449b1bf7792f86e4e424b7b7ac63fa600385",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "d10026f61259efcf-20261114T171633761748Z",
+          "decisions_sha256": "1ab32ae56c7c4c26ddd48a7094b1449b1bf7792f86e4e424b7b7ac63fa600385",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "475293bd072c8445-20261114T171636994563Z",
+          "decisions_sha256": "1ab32ae56c7c4c26ddd48a7094b1449b1bf7792f86e4e424b7b7ac63fa600385",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "b1c32166a78c155d-20261114T171640180098Z",
+          "decisions_sha256": "1ab32ae56c7c4c26ddd48a7094b1449b1bf7792f86e4e424b7b7ac63fa600385",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "fc89f51bfbb81818-20261114T171643440109Z",
+          "decisions_sha256": "1ab32ae56c7c4c26ddd48a7094b1449b1bf7792f86e4e424b7b7ac63fa600385",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "67e8923a347adab3-20261114T171646714551Z",
+          "decisions_sha256": "1ab32ae56c7c4c26ddd48a7094b1449b1bf7792f86e4e424b7b7ac63fa600385",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "0cd381de15b5e8ae-20261114T171650015720Z",
+          "decisions_sha256": "1ab32ae56c7c4c26ddd48a7094b1449b1bf7792f86e4e424b7b7ac63fa600385",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "65b8d7f7b5369216-20261114T171653060025Z",
+          "decisions_sha256": "1ab32ae56c7c4c26ddd48a7094b1449b1bf7792f86e4e424b7b7ac63fa600385",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "220d829c447dc565-20261114T171656142755Z",
+          "decisions_sha256": "1ab32ae56c7c4c26ddd48a7094b1449b1bf7792f86e4e424b7b7ac63fa600385",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        }
+      ],
+      "full_decision_sha256": "55c0813e88b91c5d628d328ff230ffed7d208bf4c3f37796371e837c2d9dbc27"
+    },
+    {
+      "period": "development",
+      "variant": "E0",
+      "risk_scaling": false,
+      "execution_delay": 2,
+      "input_file_sha256": {
+        "calendar.json": "8200cca2c04cc847ebddf43c0783ff1b8d15b28a9d11e48a3b3f51661c4e52ae",
+        "instruments.json": "6330058f1631b1d4e5727d37ac3fbb7d45c60da7400648bd0bb08fdcdd54ba85",
+        "bars.json": "e55dac04e76a865e1e407506402fb3b4260db6e0acdc4d9d1a7d986000f2eb13",
+        "benchmark.json": "a6dd120651661943d46ada9360e473065f52e5f501545ef0b18e4cbe49ceb8e7"
+      },
+      "optimized_seconds": 9.883745900000008,
+      "full_decision_count": 143,
+      "funded_account_decision_count": 72,
+      "exact_match": true,
+      "checked_completed_runs": [
+        {
+          "run_id": "b96515b8f2ff41a1-20261114T171550680323Z",
+          "decisions_sha256": "8870527c48c59d86984b15e48d39e4ff8dd1da5eca894a247e4c9f2b5f7aeeca",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "e98652691455de95-20261114T171624761711Z",
+          "decisions_sha256": "8870527c48c59d86984b15e48d39e4ff8dd1da5eca894a247e4c9f2b5f7aeeca",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "85718ad567c1d905-20261114T171627670956Z",
+          "decisions_sha256": "8870527c48c59d86984b15e48d39e4ff8dd1da5eca894a247e4c9f2b5f7aeeca",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "6cc2ae56b8aaa85f-20261114T171630750787Z",
+          "decisions_sha256": "8870527c48c59d86984b15e48d39e4ff8dd1da5eca894a247e4c9f2b5f7aeeca",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        }
+      ],
+      "full_decision_sha256": "0cde1bb8577b10ef96b5b90d90f650ed555570b96914e04659ec1b833eb5a4e1"
+    },
+    {
+      "period": "development",
+      "variant": "E0",
+      "risk_scaling": true,
+      "execution_delay": 1,
+      "input_file_sha256": {
+        "calendar.json": "8200cca2c04cc847ebddf43c0783ff1b8d15b28a9d11e48a3b3f51661c4e52ae",
+        "instruments.json": "6330058f1631b1d4e5727d37ac3fbb7d45c60da7400648bd0bb08fdcdd54ba85",
+        "bars.json": "e55dac04e76a865e1e407506402fb3b4260db6e0acdc4d9d1a7d986000f2eb13",
+        "benchmark.json": "a6dd120651661943d46ada9360e473065f52e5f501545ef0b18e4cbe49ceb8e7"
+      },
+      "optimized_seconds": 10.5120529,
+      "full_decision_count": 143,
+      "funded_account_decision_count": 72,
+      "exact_match": true,
+      "checked_completed_runs": [
+        {
+          "run_id": "5f23689fa47842fc-20261114T171659419392Z",
+          "decisions_sha256": "77187b3065a4e6f2ef8c6ec7fbfc51b9dcf1a6be0300cb6720d846cf3e6e233f",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "a8e79a6958dcadc6-20261114T171744257139Z",
+          "decisions_sha256": "77187b3065a4e6f2ef8c6ec7fbfc51b9dcf1a6be0300cb6720d846cf3e6e233f",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "a2e41c5482dd67bb-20261114T171747488286Z",
+          "decisions_sha256": "77187b3065a4e6f2ef8c6ec7fbfc51b9dcf1a6be0300cb6720d846cf3e6e233f",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "f039c454f5dad0a4-20261114T171750815244Z",
+          "decisions_sha256": "77187b3065a4e6f2ef8c6ec7fbfc51b9dcf1a6be0300cb6720d846cf3e6e233f",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "16b4f558fed4c173-20261114T171753950196Z",
+          "decisions_sha256": "77187b3065a4e6f2ef8c6ec7fbfc51b9dcf1a6be0300cb6720d846cf3e6e233f",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "ebf2d9f9791d3e22-20261114T171757443935Z",
+          "decisions_sha256": "77187b3065a4e6f2ef8c6ec7fbfc51b9dcf1a6be0300cb6720d846cf3e6e233f",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "72d0f18850dce45d-20261114T171800917648Z",
+          "decisions_sha256": "77187b3065a4e6f2ef8c6ec7fbfc51b9dcf1a6be0300cb6720d846cf3e6e233f",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "b2a7e82c0ac69107-20261114T171804512006Z",
+          "decisions_sha256": "77187b3065a4e6f2ef8c6ec7fbfc51b9dcf1a6be0300cb6720d846cf3e6e233f",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "0e27d5513b2041e2-20261114T171808258006Z",
+          "decisions_sha256": "77187b3065a4e6f2ef8c6ec7fbfc51b9dcf1a6be0300cb6720d846cf3e6e233f",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "bbf86e00c706a465-20261114T171811803580Z",
+          "decisions_sha256": "77187b3065a4e6f2ef8c6ec7fbfc51b9dcf1a6be0300cb6720d846cf3e6e233f",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "67388babd1be3847-20261114T171815366465Z",
+          "decisions_sha256": "77187b3065a4e6f2ef8c6ec7fbfc51b9dcf1a6be0300cb6720d846cf3e6e233f",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "acb8867c49340460-20261114T171818351450Z",
+          "decisions_sha256": "77187b3065a4e6f2ef8c6ec7fbfc51b9dcf1a6be0300cb6720d846cf3e6e233f",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "5fa2ccd344832454-20261114T171821468484Z",
+          "decisions_sha256": "77187b3065a4e6f2ef8c6ec7fbfc51b9dcf1a6be0300cb6720d846cf3e6e233f",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "a58d0c60dff5b690-20261114T171824813247Z",
+          "decisions_sha256": "77187b3065a4e6f2ef8c6ec7fbfc51b9dcf1a6be0300cb6720d846cf3e6e233f",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "0dae38ba22742171-20261114T171827775769Z",
+          "decisions_sha256": "77187b3065a4e6f2ef8c6ec7fbfc51b9dcf1a6be0300cb6720d846cf3e6e233f",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "7e9f2ae8b11d9dc5-20261114T171830672502Z",
+          "decisions_sha256": "77187b3065a4e6f2ef8c6ec7fbfc51b9dcf1a6be0300cb6720d846cf3e6e233f",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "735a64c4ff176ef1-20261114T171917110601Z",
+          "decisions_sha256": "77187b3065a4e6f2ef8c6ec7fbfc51b9dcf1a6be0300cb6720d846cf3e6e233f",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "32389b57351216d0-20261114T171920294417Z",
+          "decisions_sha256": "77187b3065a4e6f2ef8c6ec7fbfc51b9dcf1a6be0300cb6720d846cf3e6e233f",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "2ccc95ff15f0be8f-20261114T171923117259Z",
+          "decisions_sha256": "77187b3065a4e6f2ef8c6ec7fbfc51b9dcf1a6be0300cb6720d846cf3e6e233f",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "e7020cfa0679b4f2-20261114T171925857910Z",
+          "decisions_sha256": "77187b3065a4e6f2ef8c6ec7fbfc51b9dcf1a6be0300cb6720d846cf3e6e233f",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "f86f25889efa2d8a-20261114T171928725781Z",
+          "decisions_sha256": "77187b3065a4e6f2ef8c6ec7fbfc51b9dcf1a6be0300cb6720d846cf3e6e233f",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "3afcd71216c5e32b-20261114T171931933592Z",
+          "decisions_sha256": "77187b3065a4e6f2ef8c6ec7fbfc51b9dcf1a6be0300cb6720d846cf3e6e233f",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "dbfc5e2a552aa6fd-20261114T171934864146Z",
+          "decisions_sha256": "77187b3065a4e6f2ef8c6ec7fbfc51b9dcf1a6be0300cb6720d846cf3e6e233f",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "47a3402da01c1123-20261114T171937743111Z",
+          "decisions_sha256": "77187b3065a4e6f2ef8c6ec7fbfc51b9dcf1a6be0300cb6720d846cf3e6e233f",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        }
+      ],
+      "full_decision_sha256": "cb8d68ef45ecb0bdc504c5edeb2e0a9ca811c1f095ebe6d162fd1ace2eaf25fc"
+    },
+    {
+      "period": "development",
+      "variant": "E0",
+      "risk_scaling": true,
+      "execution_delay": 2,
+      "input_file_sha256": {
+        "calendar.json": "8200cca2c04cc847ebddf43c0783ff1b8d15b28a9d11e48a3b3f51661c4e52ae",
+        "instruments.json": "6330058f1631b1d4e5727d37ac3fbb7d45c60da7400648bd0bb08fdcdd54ba85",
+        "bars.json": "e55dac04e76a865e1e407506402fb3b4260db6e0acdc4d9d1a7d986000f2eb13",
+        "benchmark.json": "a6dd120651661943d46ada9360e473065f52e5f501545ef0b18e4cbe49ceb8e7"
+      },
+      "optimized_seconds": 11.452481300000002,
+      "full_decision_count": 143,
+      "funded_account_decision_count": 72,
+      "exact_match": true,
+      "checked_completed_runs": [
+        {
+          "run_id": "fefa8b03c91b9b01-20261114T171833561433Z",
+          "decisions_sha256": "0737e65db7150afacb3c9cadc9bb1a9f4b6f895b183dbaae5c76e734500ea6ad",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "c096b4bb07f467ed-20261114T171908237064Z",
+          "decisions_sha256": "0737e65db7150afacb3c9cadc9bb1a9f4b6f895b183dbaae5c76e734500ea6ad",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "5902a1ea0842ef87-20261114T171911120776Z",
+          "decisions_sha256": "0737e65db7150afacb3c9cadc9bb1a9f4b6f895b183dbaae5c76e734500ea6ad",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "39fbcfe70d7f0d79-20261114T171914133116Z",
+          "decisions_sha256": "0737e65db7150afacb3c9cadc9bb1a9f4b6f895b183dbaae5c76e734500ea6ad",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        }
+      ],
+      "full_decision_sha256": "611e65c98f88fec4c1e8faa9bcc038da51d94fda23dbd90e9d140ca7684f172b"
+    },
+    {
+      "period": "development",
+      "variant": "E1",
+      "risk_scaling": false,
+      "execution_delay": 1,
+      "input_file_sha256": {
+        "calendar.json": "8200cca2c04cc847ebddf43c0783ff1b8d15b28a9d11e48a3b3f51661c4e52ae",
+        "instruments.json": "6330058f1631b1d4e5727d37ac3fbb7d45c60da7400648bd0bb08fdcdd54ba85",
+        "bars.json": "e55dac04e76a865e1e407506402fb3b4260db6e0acdc4d9d1a7d986000f2eb13",
+        "benchmark.json": "a6dd120651661943d46ada9360e473065f52e5f501545ef0b18e4cbe49ceb8e7"
+      },
+      "optimized_seconds": 10.420151199999992,
+      "full_decision_count": 143,
+      "funded_account_decision_count": 72,
+      "exact_match": true,
+      "checked_completed_runs": [
+        {
+          "run_id": "38c3b218c25fdf5f-20261114T172447122929Z",
+          "decisions_sha256": "39f5e79ac278596de66557811338dedfe071774100b7bce0696aef0dc9ec9f26",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "81fbdf87bf5946af-20261114T172520115996Z",
+          "decisions_sha256": "39f5e79ac278596de66557811338dedfe071774100b7bce0696aef0dc9ec9f26",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "7731ed94a9636703-20261114T172523043704Z",
+          "decisions_sha256": "39f5e79ac278596de66557811338dedfe071774100b7bce0696aef0dc9ec9f26",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "73385a4f71334435-20261114T172525971364Z",
+          "decisions_sha256": "39f5e79ac278596de66557811338dedfe071774100b7bce0696aef0dc9ec9f26",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "d013d84066bc1a45-20261114T172528744914Z",
+          "decisions_sha256": "39f5e79ac278596de66557811338dedfe071774100b7bce0696aef0dc9ec9f26",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "331a00a116cc3ab7-20261114T172531678606Z",
+          "decisions_sha256": "39f5e79ac278596de66557811338dedfe071774100b7bce0696aef0dc9ec9f26",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "4fb2b8a7ed042ac5-20261114T172534773590Z",
+          "decisions_sha256": "39f5e79ac278596de66557811338dedfe071774100b7bce0696aef0dc9ec9f26",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "f24ad0f2cdb50374-20261114T172537726635Z",
+          "decisions_sha256": "39f5e79ac278596de66557811338dedfe071774100b7bce0696aef0dc9ec9f26",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "eb9ecf0024b7453e-20261114T172540714671Z",
+          "decisions_sha256": "39f5e79ac278596de66557811338dedfe071774100b7bce0696aef0dc9ec9f26",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "6be589d31c1302b7-20261114T172543787112Z",
+          "decisions_sha256": "39f5e79ac278596de66557811338dedfe071774100b7bce0696aef0dc9ec9f26",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "3108f172380e0466-20261114T172547102394Z",
+          "decisions_sha256": "39f5e79ac278596de66557811338dedfe071774100b7bce0696aef0dc9ec9f26",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "bea69be66813ab97-20261114T172550005001Z",
+          "decisions_sha256": "39f5e79ac278596de66557811338dedfe071774100b7bce0696aef0dc9ec9f26",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "a2ae028b67d89116-20261114T172552978399Z",
+          "decisions_sha256": "39f5e79ac278596de66557811338dedfe071774100b7bce0696aef0dc9ec9f26",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "59946f58722236bf-20261114T172556156376Z",
+          "decisions_sha256": "39f5e79ac278596de66557811338dedfe071774100b7bce0696aef0dc9ec9f26",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "40bb815fbfeadf3b-20261114T172559287388Z",
+          "decisions_sha256": "39f5e79ac278596de66557811338dedfe071774100b7bce0696aef0dc9ec9f26",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "1b3416ed9a70af5b-20261114T172602630529Z",
+          "decisions_sha256": "39f5e79ac278596de66557811338dedfe071774100b7bce0696aef0dc9ec9f26",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "d9244e249edc5cdc-20261114T172701556904Z",
+          "decisions_sha256": "39f5e79ac278596de66557811338dedfe071774100b7bce0696aef0dc9ec9f26",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "b40f970bb2bd7883-20261114T172704555570Z",
+          "decisions_sha256": "39f5e79ac278596de66557811338dedfe071774100b7bce0696aef0dc9ec9f26",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "1789063c4e3dd356-20261114T172707176214Z",
+          "decisions_sha256": "39f5e79ac278596de66557811338dedfe071774100b7bce0696aef0dc9ec9f26",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "4f5fe42b23bb02ca-20261114T172709918448Z",
+          "decisions_sha256": "39f5e79ac278596de66557811338dedfe071774100b7bce0696aef0dc9ec9f26",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "d2f324be10ed19e8-20261114T172712574270Z",
+          "decisions_sha256": "39f5e79ac278596de66557811338dedfe071774100b7bce0696aef0dc9ec9f26",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "d7ac3e9d3d18f62b-20261114T172715431549Z",
+          "decisions_sha256": "39f5e79ac278596de66557811338dedfe071774100b7bce0696aef0dc9ec9f26",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "81e9b74cfdeccca9-20261114T172718146482Z",
+          "decisions_sha256": "39f5e79ac278596de66557811338dedfe071774100b7bce0696aef0dc9ec9f26",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "402eb8c245b1e5d5-20261114T172720742533Z",
+          "decisions_sha256": "39f5e79ac278596de66557811338dedfe071774100b7bce0696aef0dc9ec9f26",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        }
+      ],
+      "full_decision_sha256": "a88439a7ead9344dfe8278481ff9c6b383fdccd145499acf615cec6f9c5666ac"
+    },
+    {
+      "period": "development",
+      "variant": "E1",
+      "risk_scaling": false,
+      "execution_delay": 2,
+      "input_file_sha256": {
+        "calendar.json": "8200cca2c04cc847ebddf43c0783ff1b8d15b28a9d11e48a3b3f51661c4e52ae",
+        "instruments.json": "6330058f1631b1d4e5727d37ac3fbb7d45c60da7400648bd0bb08fdcdd54ba85",
+        "bars.json": "e55dac04e76a865e1e407506402fb3b4260db6e0acdc4d9d1a7d986000f2eb13",
+        "benchmark.json": "a6dd120651661943d46ada9360e473065f52e5f501545ef0b18e4cbe49ceb8e7"
+      },
+      "optimized_seconds": 10.631435900000014,
+      "full_decision_count": 143,
+      "funded_account_decision_count": 72,
+      "exact_match": true,
+      "checked_completed_runs": [
+        {
+          "run_id": "13b870e4552cc941-20261114T172606195083Z",
+          "decisions_sha256": "ee561b3b6867d8a4918c995945c01f5805eb7a915cbb3a54d96e40724e771b76",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "9630972334c15717-20261114T172653117514Z",
+          "decisions_sha256": "ee561b3b6867d8a4918c995945c01f5805eb7a915cbb3a54d96e40724e771b76",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "a2b97ca3977005d5-20261114T172655964891Z",
+          "decisions_sha256": "ee561b3b6867d8a4918c995945c01f5805eb7a915cbb3a54d96e40724e771b76",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "9f9c0af4bf24be73-20261114T172658682460Z",
+          "decisions_sha256": "ee561b3b6867d8a4918c995945c01f5805eb7a915cbb3a54d96e40724e771b76",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        }
+      ],
+      "full_decision_sha256": "a33f6800c436afea6f9c5c8b82efb5ce1444f60de20a1a4fdd43c5a0b550b8a6"
+    },
+    {
+      "period": "development",
+      "variant": "E1",
+      "risk_scaling": true,
+      "execution_delay": 1,
+      "input_file_sha256": {
+        "calendar.json": "8200cca2c04cc847ebddf43c0783ff1b8d15b28a9d11e48a3b3f51661c4e52ae",
+        "instruments.json": "6330058f1631b1d4e5727d37ac3fbb7d45c60da7400648bd0bb08fdcdd54ba85",
+        "bars.json": "e55dac04e76a865e1e407506402fb3b4260db6e0acdc4d9d1a7d986000f2eb13",
+        "benchmark.json": "a6dd120651661943d46ada9360e473065f52e5f501545ef0b18e4cbe49ceb8e7"
+      },
+      "optimized_seconds": 11.078640100000001,
+      "full_decision_count": 143,
+      "funded_account_decision_count": 72,
+      "exact_match": true,
+      "checked_completed_runs": [
+        {
+          "run_id": "fa30379c28bddd42-20261114T172723480635Z",
+          "decisions_sha256": "edbdab70a4359ff267f2aef3ca4998f3ab0461ad135e52f870aa014ff7ed09c4",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "0be3dfdfb9a5c612-20261114T172756313865Z",
+          "decisions_sha256": "edbdab70a4359ff267f2aef3ca4998f3ab0461ad135e52f870aa014ff7ed09c4",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "cefd20f8f44b4082-20261114T172759013422Z",
+          "decisions_sha256": "edbdab70a4359ff267f2aef3ca4998f3ab0461ad135e52f870aa014ff7ed09c4",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "f10425bc3c07ccb6-20261114T172801890740Z",
+          "decisions_sha256": "edbdab70a4359ff267f2aef3ca4998f3ab0461ad135e52f870aa014ff7ed09c4",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "7abf1f353d62c7e0-20261114T172804644122Z",
+          "decisions_sha256": "edbdab70a4359ff267f2aef3ca4998f3ab0461ad135e52f870aa014ff7ed09c4",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "392232db22d47d58-20261114T172807680973Z",
+          "decisions_sha256": "edbdab70a4359ff267f2aef3ca4998f3ab0461ad135e52f870aa014ff7ed09c4",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "b66dda0f18d53022-20261114T172810619165Z",
+          "decisions_sha256": "edbdab70a4359ff267f2aef3ca4998f3ab0461ad135e52f870aa014ff7ed09c4",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "266abb337a8c82cc-20261114T172813610805Z",
+          "decisions_sha256": "edbdab70a4359ff267f2aef3ca4998f3ab0461ad135e52f870aa014ff7ed09c4",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "62f9c3edfbfeeb2a-20261114T172816704570Z",
+          "decisions_sha256": "edbdab70a4359ff267f2aef3ca4998f3ab0461ad135e52f870aa014ff7ed09c4",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "48bcdeabc0d22568-20261114T172819719086Z",
+          "decisions_sha256": "edbdab70a4359ff267f2aef3ca4998f3ab0461ad135e52f870aa014ff7ed09c4",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "1351733b2ce42d82-20261114T172822889118Z",
+          "decisions_sha256": "edbdab70a4359ff267f2aef3ca4998f3ab0461ad135e52f870aa014ff7ed09c4",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "1649fc135e56bff5-20261114T172826036463Z",
+          "decisions_sha256": "edbdab70a4359ff267f2aef3ca4998f3ab0461ad135e52f870aa014ff7ed09c4",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "c1e6a9cecdbc5a37-20261114T172829363699Z",
+          "decisions_sha256": "edbdab70a4359ff267f2aef3ca4998f3ab0461ad135e52f870aa014ff7ed09c4",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "b990a6d79ccf9ae4-20261114T172832666999Z",
+          "decisions_sha256": "edbdab70a4359ff267f2aef3ca4998f3ab0461ad135e52f870aa014ff7ed09c4",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "e609a4aa8b1a6e45-20261114T172835733964Z",
+          "decisions_sha256": "edbdab70a4359ff267f2aef3ca4998f3ab0461ad135e52f870aa014ff7ed09c4",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "1bd471a4271605d2-20261114T172838838963Z",
+          "decisions_sha256": "edbdab70a4359ff267f2aef3ca4998f3ab0461ad135e52f870aa014ff7ed09c4",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "59570b6fd812c31f-20261114T172933549175Z",
+          "decisions_sha256": "edbdab70a4359ff267f2aef3ca4998f3ab0461ad135e52f870aa014ff7ed09c4",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "238bddd6272ec8a4-20261114T172936382524Z",
+          "decisions_sha256": "edbdab70a4359ff267f2aef3ca4998f3ab0461ad135e52f870aa014ff7ed09c4",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "a558173f469e085b-20261114T172939226342Z",
+          "decisions_sha256": "edbdab70a4359ff267f2aef3ca4998f3ab0461ad135e52f870aa014ff7ed09c4",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "f7d4af7f6e6f5c7e-20261114T172942216910Z",
+          "decisions_sha256": "edbdab70a4359ff267f2aef3ca4998f3ab0461ad135e52f870aa014ff7ed09c4",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "c15d4a62733a8fa5-20261114T172945169305Z",
+          "decisions_sha256": "edbdab70a4359ff267f2aef3ca4998f3ab0461ad135e52f870aa014ff7ed09c4",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "ad8c603ea32e0d72-20261114T172947884212Z",
+          "decisions_sha256": "edbdab70a4359ff267f2aef3ca4998f3ab0461ad135e52f870aa014ff7ed09c4",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "6c1dc3df1abfe367-20261114T172950664488Z",
+          "decisions_sha256": "edbdab70a4359ff267f2aef3ca4998f3ab0461ad135e52f870aa014ff7ed09c4",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "1e631aaa56ac6e07-20261114T172953432192Z",
+          "decisions_sha256": "edbdab70a4359ff267f2aef3ca4998f3ab0461ad135e52f870aa014ff7ed09c4",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        }
+      ],
+      "full_decision_sha256": "1b413c01774fbcc7dff87f7e4c02a8618c668fd3028066fd3fae0dd94bcc3c88"
+    },
+    {
+      "period": "development",
+      "variant": "E1",
+      "risk_scaling": true,
+      "execution_delay": 2,
+      "input_file_sha256": {
+        "calendar.json": "8200cca2c04cc847ebddf43c0783ff1b8d15b28a9d11e48a3b3f51661c4e52ae",
+        "instruments.json": "6330058f1631b1d4e5727d37ac3fbb7d45c60da7400648bd0bb08fdcdd54ba85",
+        "bars.json": "e55dac04e76a865e1e407506402fb3b4260db6e0acdc4d9d1a7d986000f2eb13",
+        "benchmark.json": "a6dd120651661943d46ada9360e473065f52e5f501545ef0b18e4cbe49ceb8e7"
+      },
+      "optimized_seconds": 11.492747399999985,
+      "full_decision_count": 143,
+      "funded_account_decision_count": 72,
+      "exact_match": true,
+      "checked_completed_runs": [
+        {
+          "run_id": "bbba3feb82d1728b-20261114T172841901439Z",
+          "decisions_sha256": "486749ff80292dcd8df4e465d21196bc98de667499e397774c99a44e1065029d",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "8a3df95f3d698412-20261114T172925116197Z",
+          "decisions_sha256": "486749ff80292dcd8df4e465d21196bc98de667499e397774c99a44e1065029d",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "ce1e8f2a3278b1db-20261114T172927905968Z",
+          "decisions_sha256": "486749ff80292dcd8df4e465d21196bc98de667499e397774c99a44e1065029d",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "5cbc71a01fc4cfe4-20261114T172930623196Z",
+          "decisions_sha256": "486749ff80292dcd8df4e465d21196bc98de667499e397774c99a44e1065029d",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        }
+      ],
+      "full_decision_sha256": "d9703ee1a0c992215a6e0d0bd200cdc40ac05e7f4498e875661dfaf4b320a73e"
+    },
+    {
+      "period": "development",
+      "variant": "R0",
+      "risk_scaling": false,
+      "execution_delay": 1,
+      "input_file_sha256": {
+        "calendar.json": "8200cca2c04cc847ebddf43c0783ff1b8d15b28a9d11e48a3b3f51661c4e52ae",
+        "instruments.json": "6330058f1631b1d4e5727d37ac3fbb7d45c60da7400648bd0bb08fdcdd54ba85",
+        "bars.json": "e55dac04e76a865e1e407506402fb3b4260db6e0acdc4d9d1a7d986000f2eb13",
+        "benchmark.json": "a6dd120651661943d46ada9360e473065f52e5f501545ef0b18e4cbe49ceb8e7"
+      },
+      "optimized_seconds": 11.149909800000017,
+      "full_decision_count": 143,
+      "funded_account_decision_count": 72,
+      "exact_match": true,
+      "checked_completed_runs": [
+        {
+          "run_id": "8f8028a244df8585-20261114T171940626593Z",
+          "decisions_sha256": "515879d4bb4c7d507d25179345d325ab973faa282b96e9aefca9970e78b6d54d",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "d48708ea8d75db43-20261114T172018020286Z",
+          "decisions_sha256": "515879d4bb4c7d507d25179345d325ab973faa282b96e9aefca9970e78b6d54d",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "42443c9a3becb469-20261114T172020918551Z",
+          "decisions_sha256": "515879d4bb4c7d507d25179345d325ab973faa282b96e9aefca9970e78b6d54d",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "751f604175ec013d-20261114T172024063852Z",
+          "decisions_sha256": "515879d4bb4c7d507d25179345d325ab973faa282b96e9aefca9970e78b6d54d",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "df1f6f24f336e602-20261114T172027270383Z",
+          "decisions_sha256": "515879d4bb4c7d507d25179345d325ab973faa282b96e9aefca9970e78b6d54d",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "7de7b3bd821b27c7-20261114T172030680569Z",
+          "decisions_sha256": "515879d4bb4c7d507d25179345d325ab973faa282b96e9aefca9970e78b6d54d",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "d62f2b106124543b-20261114T172033757411Z",
+          "decisions_sha256": "515879d4bb4c7d507d25179345d325ab973faa282b96e9aefca9970e78b6d54d",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "2830f5ce1c3ee708-20261114T172037008403Z",
+          "decisions_sha256": "515879d4bb4c7d507d25179345d325ab973faa282b96e9aefca9970e78b6d54d",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "8fd34d2dcff9d7b4-20261114T172040144328Z",
+          "decisions_sha256": "515879d4bb4c7d507d25179345d325ab973faa282b96e9aefca9970e78b6d54d",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "4f05b31b93443d59-20261114T172043240800Z",
+          "decisions_sha256": "515879d4bb4c7d507d25179345d325ab973faa282b96e9aefca9970e78b6d54d",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "c04c6d40e469d497-20261114T172046458097Z",
+          "decisions_sha256": "515879d4bb4c7d507d25179345d325ab973faa282b96e9aefca9970e78b6d54d",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "eb5018bf1ca3333a-20261114T172049937182Z",
+          "decisions_sha256": "515879d4bb4c7d507d25179345d325ab973faa282b96e9aefca9970e78b6d54d",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "c69bcb52e6048eb6-20261114T172053341545Z",
+          "decisions_sha256": "515879d4bb4c7d507d25179345d325ab973faa282b96e9aefca9970e78b6d54d",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "a9aa12786d126651-20261114T172056383340Z",
+          "decisions_sha256": "515879d4bb4c7d507d25179345d325ab973faa282b96e9aefca9970e78b6d54d",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "090f1b73d8ba4047-20261114T172059399592Z",
+          "decisions_sha256": "515879d4bb4c7d507d25179345d325ab973faa282b96e9aefca9970e78b6d54d",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "8ad587f410e35267-20261114T172102577106Z",
+          "decisions_sha256": "515879d4bb4c7d507d25179345d325ab973faa282b96e9aefca9970e78b6d54d",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "552a21ea7ca0c385-20261114T172152806302Z",
+          "decisions_sha256": "515879d4bb4c7d507d25179345d325ab973faa282b96e9aefca9970e78b6d54d",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "87b6fc03640e853d-20261114T172155500909Z",
+          "decisions_sha256": "515879d4bb4c7d507d25179345d325ab973faa282b96e9aefca9970e78b6d54d",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "1defcad17a49eb44-20261114T172158289714Z",
+          "decisions_sha256": "515879d4bb4c7d507d25179345d325ab973faa282b96e9aefca9970e78b6d54d",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "6ed1e9f26140276b-20261114T172201182743Z",
+          "decisions_sha256": "515879d4bb4c7d507d25179345d325ab973faa282b96e9aefca9970e78b6d54d",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "984258a535f7ff12-20261114T172204037445Z",
+          "decisions_sha256": "515879d4bb4c7d507d25179345d325ab973faa282b96e9aefca9970e78b6d54d",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "e9c8fb9cc4c21613-20261114T172206898289Z",
+          "decisions_sha256": "515879d4bb4c7d507d25179345d325ab973faa282b96e9aefca9970e78b6d54d",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "33146b6cc03e6064-20261114T172210079717Z",
+          "decisions_sha256": "515879d4bb4c7d507d25179345d325ab973faa282b96e9aefca9970e78b6d54d",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "b596bc4239f5ab0a-20261114T172213077527Z",
+          "decisions_sha256": "515879d4bb4c7d507d25179345d325ab973faa282b96e9aefca9970e78b6d54d",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        }
+      ],
+      "full_decision_sha256": "52cc63a027b45072f06fd3ecd5f5654845a8dc29528ff770e06236bd2e8bf8f7"
+    },
+    {
+      "period": "development",
+      "variant": "R0",
+      "risk_scaling": false,
+      "execution_delay": 2,
+      "input_file_sha256": {
+        "calendar.json": "8200cca2c04cc847ebddf43c0783ff1b8d15b28a9d11e48a3b3f51661c4e52ae",
+        "instruments.json": "6330058f1631b1d4e5727d37ac3fbb7d45c60da7400648bd0bb08fdcdd54ba85",
+        "bars.json": "e55dac04e76a865e1e407506402fb3b4260db6e0acdc4d9d1a7d986000f2eb13",
+        "benchmark.json": "a6dd120651661943d46ada9360e473065f52e5f501545ef0b18e4cbe49ceb8e7"
+      },
+      "optimized_seconds": 11.220448399999981,
+      "full_decision_count": 143,
+      "funded_account_decision_count": 72,
+      "exact_match": true,
+      "checked_completed_runs": [
+        {
+          "run_id": "08d8ebaecdd8b7f6-20261114T172105673934Z",
+          "decisions_sha256": "b699ea002e0a3fb5c59a15b81f5b59c1580b3d0fe631e7264b90dedb8eaac18f",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "595b5d2b141c838f-20261114T172144098984Z",
+          "decisions_sha256": "b699ea002e0a3fb5c59a15b81f5b59c1580b3d0fe631e7264b90dedb8eaac18f",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "a49e1940ddd4dd74-20261114T172147149006Z",
+          "decisions_sha256": "b699ea002e0a3fb5c59a15b81f5b59c1580b3d0fe631e7264b90dedb8eaac18f",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "a1e95e1a239f5757-20261114T172150060558Z",
+          "decisions_sha256": "b699ea002e0a3fb5c59a15b81f5b59c1580b3d0fe631e7264b90dedb8eaac18f",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        }
+      ],
+      "full_decision_sha256": "9a762d468a5b1750bd16115b99afb45301135fa10f7e20fa6d4d124ef2382efe"
+    },
+    {
+      "period": "development",
+      "variant": "R0",
+      "risk_scaling": true,
+      "execution_delay": 1,
+      "input_file_sha256": {
+        "calendar.json": "8200cca2c04cc847ebddf43c0783ff1b8d15b28a9d11e48a3b3f51661c4e52ae",
+        "instruments.json": "6330058f1631b1d4e5727d37ac3fbb7d45c60da7400648bd0bb08fdcdd54ba85",
+        "bars.json": "e55dac04e76a865e1e407506402fb3b4260db6e0acdc4d9d1a7d986000f2eb13",
+        "benchmark.json": "a6dd120651661943d46ada9360e473065f52e5f501545ef0b18e4cbe49ceb8e7"
+      },
+      "optimized_seconds": 11.83517169999999,
+      "full_decision_count": 143,
+      "funded_account_decision_count": 72,
+      "exact_match": true,
+      "checked_completed_runs": [
+        {
+          "run_id": "79c874e1efe8f8b5-20261114T172216190480Z",
+          "decisions_sha256": "8ac6e9e49a6cce4beacff593927e5a7abe26886f33a2ac65636b7aa49752b029",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "5884cb522eae89d2-20261114T172256462446Z",
+          "decisions_sha256": "8ac6e9e49a6cce4beacff593927e5a7abe26886f33a2ac65636b7aa49752b029",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "8b8127938f3a5552-20261114T172259844783Z",
+          "decisions_sha256": "8ac6e9e49a6cce4beacff593927e5a7abe26886f33a2ac65636b7aa49752b029",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "38cfea7d58ac42e4-20261114T172302956221Z",
+          "decisions_sha256": "8ac6e9e49a6cce4beacff593927e5a7abe26886f33a2ac65636b7aa49752b029",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "42060e25ba1abc59-20261114T172305960865Z",
+          "decisions_sha256": "8ac6e9e49a6cce4beacff593927e5a7abe26886f33a2ac65636b7aa49752b029",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "c54ba80dd720694b-20261114T172309453802Z",
+          "decisions_sha256": "8ac6e9e49a6cce4beacff593927e5a7abe26886f33a2ac65636b7aa49752b029",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "28782d0f5f42e929-20261114T172312482153Z",
+          "decisions_sha256": "8ac6e9e49a6cce4beacff593927e5a7abe26886f33a2ac65636b7aa49752b029",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "8e5a1b2696aa19e0-20261114T172315452465Z",
+          "decisions_sha256": "8ac6e9e49a6cce4beacff593927e5a7abe26886f33a2ac65636b7aa49752b029",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "88515e50259bbe89-20261114T172318484211Z",
+          "decisions_sha256": "8ac6e9e49a6cce4beacff593927e5a7abe26886f33a2ac65636b7aa49752b029",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "d6f7168e42c1463a-20261114T172321635478Z",
+          "decisions_sha256": "8ac6e9e49a6cce4beacff593927e5a7abe26886f33a2ac65636b7aa49752b029",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "b87ef8f123b54508-20261114T172324564341Z",
+          "decisions_sha256": "8ac6e9e49a6cce4beacff593927e5a7abe26886f33a2ac65636b7aa49752b029",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "9d1a80eb3dd29701-20261114T172327552322Z",
+          "decisions_sha256": "8ac6e9e49a6cce4beacff593927e5a7abe26886f33a2ac65636b7aa49752b029",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "4555171ce4b5d908-20261114T172330619706Z",
+          "decisions_sha256": "8ac6e9e49a6cce4beacff593927e5a7abe26886f33a2ac65636b7aa49752b029",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "8d5f3990dabf90c9-20261114T172333483297Z",
+          "decisions_sha256": "8ac6e9e49a6cce4beacff593927e5a7abe26886f33a2ac65636b7aa49752b029",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "828a54a15faa9ec0-20261114T172336370307Z",
+          "decisions_sha256": "8ac6e9e49a6cce4beacff593927e5a7abe26886f33a2ac65636b7aa49752b029",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "4914744b52226669-20261114T172339271820Z",
+          "decisions_sha256": "8ac6e9e49a6cce4beacff593927e5a7abe26886f33a2ac65636b7aa49752b029",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "231dddd905dafdda-20261114T172425455164Z",
+          "decisions_sha256": "8ac6e9e49a6cce4beacff593927e5a7abe26886f33a2ac65636b7aa49752b029",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "4b713fc80af0bea8-20261114T172428067551Z",
+          "decisions_sha256": "8ac6e9e49a6cce4beacff593927e5a7abe26886f33a2ac65636b7aa49752b029",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "a1aaec19c685432a-20261114T172430809720Z",
+          "decisions_sha256": "8ac6e9e49a6cce4beacff593927e5a7abe26886f33a2ac65636b7aa49752b029",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "238e22ee94076101-20261114T172433576699Z",
+          "decisions_sha256": "8ac6e9e49a6cce4beacff593927e5a7abe26886f33a2ac65636b7aa49752b029",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "e7fd14e6643d7280-20261114T172436240956Z",
+          "decisions_sha256": "8ac6e9e49a6cce4beacff593927e5a7abe26886f33a2ac65636b7aa49752b029",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "cec10b345097baa4-20261114T172438930470Z",
+          "decisions_sha256": "8ac6e9e49a6cce4beacff593927e5a7abe26886f33a2ac65636b7aa49752b029",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "75019fcc50387c3e-20261114T172441672358Z",
+          "decisions_sha256": "8ac6e9e49a6cce4beacff593927e5a7abe26886f33a2ac65636b7aa49752b029",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "f1a79a473ee2c2ba-20261114T172444495163Z",
+          "decisions_sha256": "8ac6e9e49a6cce4beacff593927e5a7abe26886f33a2ac65636b7aa49752b029",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        }
+      ],
+      "full_decision_sha256": "8f20e18297201fc5beadc4b640afc30448c875eee2f46d51203c2286ec4b7e70"
+    },
+    {
+      "period": "development",
+      "variant": "R0",
+      "risk_scaling": true,
+      "execution_delay": 2,
+      "input_file_sha256": {
+        "calendar.json": "8200cca2c04cc847ebddf43c0783ff1b8d15b28a9d11e48a3b3f51661c4e52ae",
+        "instruments.json": "6330058f1631b1d4e5727d37ac3fbb7d45c60da7400648bd0bb08fdcdd54ba85",
+        "bars.json": "e55dac04e76a865e1e407506402fb3b4260db6e0acdc4d9d1a7d986000f2eb13",
+        "benchmark.json": "a6dd120651661943d46ada9360e473065f52e5f501545ef0b18e4cbe49ceb8e7"
+      },
+      "optimized_seconds": 11.805350400000009,
+      "full_decision_count": 143,
+      "funded_account_decision_count": 72,
+      "exact_match": true,
+      "checked_completed_runs": [
+        {
+          "run_id": "e7d8fe915a54060b-20261114T172342274150Z",
+          "decisions_sha256": "36f6111d23be55e4f1d409080f485e21a2addb96ac1179edd47ac9ed1ca4c0c1",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "05650385867cb284-20261114T172417248434Z",
+          "decisions_sha256": "36f6111d23be55e4f1d409080f485e21a2addb96ac1179edd47ac9ed1ca4c0c1",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "22847b481f78cfea-20261114T172419990450Z",
+          "decisions_sha256": "36f6111d23be55e4f1d409080f485e21a2addb96ac1179edd47ac9ed1ca4c0c1",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "65aa462f2627048b-20261114T172422746711Z",
+          "decisions_sha256": "36f6111d23be55e4f1d409080f485e21a2addb96ac1179edd47ac9ed1ca4c0c1",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        }
+      ],
+      "full_decision_sha256": "57f293a7724f1d3c82eb2b256858fabe6f0620e81675887cf8ca84dc53b79782"
+    },
+    {
+      "period": "development",
+      "variant": "R1",
+      "risk_scaling": false,
+      "execution_delay": 1,
+      "input_file_sha256": {
+        "calendar.json": "8200cca2c04cc847ebddf43c0783ff1b8d15b28a9d11e48a3b3f51661c4e52ae",
+        "instruments.json": "6330058f1631b1d4e5727d37ac3fbb7d45c60da7400648bd0bb08fdcdd54ba85",
+        "bars.json": "e55dac04e76a865e1e407506402fb3b4260db6e0acdc4d9d1a7d986000f2eb13",
+        "benchmark.json": "a6dd120651661943d46ada9360e473065f52e5f501545ef0b18e4cbe49ceb8e7"
+      },
+      "optimized_seconds": 11.690786300000013,
+      "full_decision_count": 143,
+      "funded_account_decision_count": 72,
+      "exact_match": true,
+      "checked_completed_runs": [
+        {
+          "run_id": "bc7f6198fdfc2236-20261114T172956093099Z",
+          "decisions_sha256": "e35dd6c99d56adcd8da6b361cba60f07f7979224c8bd4854acf6878974a366ab",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "0d2bd0a9ba91d70b-20261114T173030412538Z",
+          "decisions_sha256": "e35dd6c99d56adcd8da6b361cba60f07f7979224c8bd4854acf6878974a366ab",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "717d3333352eb873-20261114T173033272169Z",
+          "decisions_sha256": "e35dd6c99d56adcd8da6b361cba60f07f7979224c8bd4854acf6878974a366ab",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "a436bcb964997cd3-20261114T173035857729Z",
+          "decisions_sha256": "e35dd6c99d56adcd8da6b361cba60f07f7979224c8bd4854acf6878974a366ab",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "b9087c075ccc484b-20261114T173038627555Z",
+          "decisions_sha256": "e35dd6c99d56adcd8da6b361cba60f07f7979224c8bd4854acf6878974a366ab",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "8ad5d7185f79717b-20261114T173041607558Z",
+          "decisions_sha256": "e35dd6c99d56adcd8da6b361cba60f07f7979224c8bd4854acf6878974a366ab",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "1ebedbc051c9ceb8-20261114T173044355413Z",
+          "decisions_sha256": "e35dd6c99d56adcd8da6b361cba60f07f7979224c8bd4854acf6878974a366ab",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "f4406a0778ed725b-20261114T173047372599Z",
+          "decisions_sha256": "e35dd6c99d56adcd8da6b361cba60f07f7979224c8bd4854acf6878974a366ab",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "872edd36a90a6ca3-20261114T173050141072Z",
+          "decisions_sha256": "e35dd6c99d56adcd8da6b361cba60f07f7979224c8bd4854acf6878974a366ab",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "391456c8e04bdce2-20261114T173053066017Z",
+          "decisions_sha256": "e35dd6c99d56adcd8da6b361cba60f07f7979224c8bd4854acf6878974a366ab",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "65327dc05670af59-20261114T173056059918Z",
+          "decisions_sha256": "e35dd6c99d56adcd8da6b361cba60f07f7979224c8bd4854acf6878974a366ab",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "d7fbf0d5faea4464-20261114T173058928896Z",
+          "decisions_sha256": "e35dd6c99d56adcd8da6b361cba60f07f7979224c8bd4854acf6878974a366ab",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "183f710ae19d5b96-20261114T173102050396Z",
+          "decisions_sha256": "e35dd6c99d56adcd8da6b361cba60f07f7979224c8bd4854acf6878974a366ab",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "b954966b712399b9-20261114T173105084585Z",
+          "decisions_sha256": "e35dd6c99d56adcd8da6b361cba60f07f7979224c8bd4854acf6878974a366ab",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "eab58d7fcf17364b-20261114T173108050960Z",
+          "decisions_sha256": "e35dd6c99d56adcd8da6b361cba60f07f7979224c8bd4854acf6878974a366ab",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "8d253c2fa65e0ed0-20261114T173111230418Z",
+          "decisions_sha256": "e35dd6c99d56adcd8da6b361cba60f07f7979224c8bd4854acf6878974a366ab",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "6445121ac1794c9e-20261114T173205531328Z",
+          "decisions_sha256": "e35dd6c99d56adcd8da6b361cba60f07f7979224c8bd4854acf6878974a366ab",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "b24a847cf119a00a-20261114T173208675913Z",
+          "decisions_sha256": "e35dd6c99d56adcd8da6b361cba60f07f7979224c8bd4854acf6878974a366ab",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "914450a82a64be6c-20261114T173211548488Z",
+          "decisions_sha256": "e35dd6c99d56adcd8da6b361cba60f07f7979224c8bd4854acf6878974a366ab",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "7cf46c4773983902-20261114T173214417837Z",
+          "decisions_sha256": "e35dd6c99d56adcd8da6b361cba60f07f7979224c8bd4854acf6878974a366ab",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "ff6f4a30dbe55f64-20261114T173217259259Z",
+          "decisions_sha256": "e35dd6c99d56adcd8da6b361cba60f07f7979224c8bd4854acf6878974a366ab",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "592ea4b5cabc9993-20261114T173219851087Z",
+          "decisions_sha256": "e35dd6c99d56adcd8da6b361cba60f07f7979224c8bd4854acf6878974a366ab",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "f2b00f6690d4b6b1-20261114T173222521499Z",
+          "decisions_sha256": "e35dd6c99d56adcd8da6b361cba60f07f7979224c8bd4854acf6878974a366ab",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "c995939d3b3238c1-20261114T173225421460Z",
+          "decisions_sha256": "e35dd6c99d56adcd8da6b361cba60f07f7979224c8bd4854acf6878974a366ab",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        }
+      ],
+      "full_decision_sha256": "6f69116ddd968677f42dc4e9af057e02817cae687ee4cfc0bc4bbcc1aacbf3b4"
+    },
+    {
+      "period": "development",
+      "variant": "R1",
+      "risk_scaling": false,
+      "execution_delay": 2,
+      "input_file_sha256": {
+        "calendar.json": "8200cca2c04cc847ebddf43c0783ff1b8d15b28a9d11e48a3b3f51661c4e52ae",
+        "instruments.json": "6330058f1631b1d4e5727d37ac3fbb7d45c60da7400648bd0bb08fdcdd54ba85",
+        "bars.json": "e55dac04e76a865e1e407506402fb3b4260db6e0acdc4d9d1a7d986000f2eb13",
+        "benchmark.json": "a6dd120651661943d46ada9360e473065f52e5f501545ef0b18e4cbe49ceb8e7"
+      },
+      "optimized_seconds": 11.73102110000002,
+      "full_decision_count": 143,
+      "funded_account_decision_count": 72,
+      "exact_match": true,
+      "checked_completed_runs": [
+        {
+          "run_id": "77aae0bc8ab19e49-20261114T173114520721Z",
+          "decisions_sha256": "fc7449af7dd844246d256a8bd3a51b5fafd32da87fd6a1338019e40eb7bb1b44",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "f1c9961ed4a24063-20261114T173156397287Z",
+          "decisions_sha256": "fc7449af7dd844246d256a8bd3a51b5fafd32da87fd6a1338019e40eb7bb1b44",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "41e42650e0061d49-20261114T173159643112Z",
+          "decisions_sha256": "fc7449af7dd844246d256a8bd3a51b5fafd32da87fd6a1338019e40eb7bb1b44",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "559cd76a44f14309-20261114T173202585114Z",
+          "decisions_sha256": "fc7449af7dd844246d256a8bd3a51b5fafd32da87fd6a1338019e40eb7bb1b44",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        }
+      ],
+      "full_decision_sha256": "a7aade518b6fd4febb04517d09e2db2dd342dab6d30ae11a58ff2c938d99acb2"
+    },
+    {
+      "period": "development",
+      "variant": "R1",
+      "risk_scaling": true,
+      "execution_delay": 1,
+      "input_file_sha256": {
+        "calendar.json": "8200cca2c04cc847ebddf43c0783ff1b8d15b28a9d11e48a3b3f51661c4e52ae",
+        "instruments.json": "6330058f1631b1d4e5727d37ac3fbb7d45c60da7400648bd0bb08fdcdd54ba85",
+        "bars.json": "e55dac04e76a865e1e407506402fb3b4260db6e0acdc4d9d1a7d986000f2eb13",
+        "benchmark.json": "a6dd120651661943d46ada9360e473065f52e5f501545ef0b18e4cbe49ceb8e7"
+      },
+      "optimized_seconds": 12.134003300000018,
+      "full_decision_count": 143,
+      "funded_account_decision_count": 72,
+      "exact_match": true,
+      "checked_completed_runs": [
+        {
+          "run_id": "1ea31bc710dba4a7-20261114T173228071412Z",
+          "decisions_sha256": "0b20ed04ce734ec3e6f593589160a71455357026b69d59d13fa7ce11a215dcb7",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "006109a72a5a70c8-20261114T173300691028Z",
+          "decisions_sha256": "0b20ed04ce734ec3e6f593589160a71455357026b69d59d13fa7ce11a215dcb7",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "7cc93862fc7b4535-20261114T173303557053Z",
+          "decisions_sha256": "0b20ed04ce734ec3e6f593589160a71455357026b69d59d13fa7ce11a215dcb7",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "a35c1dbfdbe2c640-20261114T173306541181Z",
+          "decisions_sha256": "0b20ed04ce734ec3e6f593589160a71455357026b69d59d13fa7ce11a215dcb7",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "8ba6abfea009d0de-20261114T173309685388Z",
+          "decisions_sha256": "0b20ed04ce734ec3e6f593589160a71455357026b69d59d13fa7ce11a215dcb7",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "31ab84daef455fcd-20261114T173312684966Z",
+          "decisions_sha256": "0b20ed04ce734ec3e6f593589160a71455357026b69d59d13fa7ce11a215dcb7",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "13e666b24a2d8cea-20261114T173315844944Z",
+          "decisions_sha256": "0b20ed04ce734ec3e6f593589160a71455357026b69d59d13fa7ce11a215dcb7",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "38a2487a13f40319-20261114T173318746233Z",
+          "decisions_sha256": "0b20ed04ce734ec3e6f593589160a71455357026b69d59d13fa7ce11a215dcb7",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "4a8f73e36b47be01-20261114T173322253281Z",
+          "decisions_sha256": "0b20ed04ce734ec3e6f593589160a71455357026b69d59d13fa7ce11a215dcb7",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "98857084ff8901eb-20261114T173325625936Z",
+          "decisions_sha256": "0b20ed04ce734ec3e6f593589160a71455357026b69d59d13fa7ce11a215dcb7",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "2e447bacbf88a6e3-20261114T173329028879Z",
+          "decisions_sha256": "0b20ed04ce734ec3e6f593589160a71455357026b69d59d13fa7ce11a215dcb7",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "a418ce3648eb20e8-20261114T173332104828Z",
+          "decisions_sha256": "0b20ed04ce734ec3e6f593589160a71455357026b69d59d13fa7ce11a215dcb7",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "c8afb125e94f44c0-20261114T173335522258Z",
+          "decisions_sha256": "0b20ed04ce734ec3e6f593589160a71455357026b69d59d13fa7ce11a215dcb7",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "2adc9121f86c11bb-20261114T173339586165Z",
+          "decisions_sha256": "0b20ed04ce734ec3e6f593589160a71455357026b69d59d13fa7ce11a215dcb7",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "819ed64c632281a2-20261114T173343256844Z",
+          "decisions_sha256": "0b20ed04ce734ec3e6f593589160a71455357026b69d59d13fa7ce11a215dcb7",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "44b123e662b4b8c6-20261114T173347074604Z",
+          "decisions_sha256": "0b20ed04ce734ec3e6f593589160a71455357026b69d59d13fa7ce11a215dcb7",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "b7a4613afe1b436d-20261114T173448024181Z",
+          "decisions_sha256": "0b20ed04ce734ec3e6f593589160a71455357026b69d59d13fa7ce11a215dcb7",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "04b51eb272fb468c-20261114T173451565536Z",
+          "decisions_sha256": "0b20ed04ce734ec3e6f593589160a71455357026b69d59d13fa7ce11a215dcb7",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "23d414c296ef2350-20261114T173454744012Z",
+          "decisions_sha256": "0b20ed04ce734ec3e6f593589160a71455357026b69d59d13fa7ce11a215dcb7",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "da37e0ec50196633-20261114T173457967876Z",
+          "decisions_sha256": "0b20ed04ce734ec3e6f593589160a71455357026b69d59d13fa7ce11a215dcb7",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "56cdaa1dbac947b6-20261114T173500913763Z",
+          "decisions_sha256": "0b20ed04ce734ec3e6f593589160a71455357026b69d59d13fa7ce11a215dcb7",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "eb69d1c5dff2c319-20261114T173504109077Z",
+          "decisions_sha256": "0b20ed04ce734ec3e6f593589160a71455357026b69d59d13fa7ce11a215dcb7",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "fbef09e7c53f5e6f-20261114T173507030638Z",
+          "decisions_sha256": "0b20ed04ce734ec3e6f593589160a71455357026b69d59d13fa7ce11a215dcb7",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "cb785727cd6881a4-20261114T173509839666Z",
+          "decisions_sha256": "0b20ed04ce734ec3e6f593589160a71455357026b69d59d13fa7ce11a215dcb7",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        }
+      ],
+      "full_decision_sha256": "7f208764c271043ffac2f84c661412bd072794571d7f1e1e0cfcd8b31ca8f20a"
+    },
+    {
+      "period": "development",
+      "variant": "R1",
+      "risk_scaling": true,
+      "execution_delay": 2,
+      "input_file_sha256": {
+        "calendar.json": "8200cca2c04cc847ebddf43c0783ff1b8d15b28a9d11e48a3b3f51661c4e52ae",
+        "instruments.json": "6330058f1631b1d4e5727d37ac3fbb7d45c60da7400648bd0bb08fdcdd54ba85",
+        "bars.json": "e55dac04e76a865e1e407506402fb3b4260db6e0acdc4d9d1a7d986000f2eb13",
+        "benchmark.json": "a6dd120651661943d46ada9360e473065f52e5f501545ef0b18e4cbe49ceb8e7"
+      },
+      "optimized_seconds": 12.331460300000003,
+      "full_decision_count": 143,
+      "funded_account_decision_count": 72,
+      "exact_match": true,
+      "checked_completed_runs": [
+        {
+          "run_id": "86bf95b097676ba0-20261114T173350439808Z",
+          "decisions_sha256": "ccb8dc16708b9f68808f434598f103cbe2d248fd98a1f19384f84b19a556f5e9",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "46bdf3ba2f172368-20261114T173437880263Z",
+          "decisions_sha256": "ccb8dc16708b9f68808f434598f103cbe2d248fd98a1f19384f84b19a556f5e9",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "1f85e62dc791c841-20261114T173441365735Z",
+          "decisions_sha256": "ccb8dc16708b9f68808f434598f103cbe2d248fd98a1f19384f84b19a556f5e9",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "2302b79e770c9395-20261114T173444578729Z",
+          "decisions_sha256": "ccb8dc16708b9f68808f434598f103cbe2d248fd98a1f19384f84b19a556f5e9",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        }
+      ],
+      "full_decision_sha256": "05e57beb4dc2f5d676d203f799e27985eb1a4e40beb70c2e6e90808c80b00c3e"
+    },
+    {
+      "period": "validation",
+      "variant": "E0",
+      "risk_scaling": false,
+      "execution_delay": 1,
+      "input_file_sha256": {
+        "calendar.json": "be8124db8fbc33b9162df4948f6669c0e17fc89f3251b0027ce41687e28c3526",
+        "instruments.json": "50c2339f1d56fb53d958b64eacef9091686a57eee8eedeac4eb5520946d75020",
+        "bars.json": "36846dbe6a8e4684e4d4be8eed1b98aa5e1714fba8e0f4c8563964fc2b77e6cd",
+        "benchmark.json": "cf17a0eb9c864901a2cce36df86ef1cc207850976da8a32323d514f1d626d560"
+      },
+      "optimized_seconds": 28.518088999999975,
+      "full_decision_count": 179,
+      "funded_account_decision_count": 36,
+      "exact_match": true,
+      "checked_completed_runs": [
+        {
+          "run_id": "501930efce9a55d4-20261114T171653242871Z",
+          "decisions_sha256": "10ced8f1f2be5f817009b4f4399be756e93ee834324a2cf29d29ccbdc5958342",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "48653e901b0f7d7c-20261114T171830285818Z",
+          "decisions_sha256": "10ced8f1f2be5f817009b4f4399be756e93ee834324a2cf29d29ccbdc5958342",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "a21f2f3e4b19494d-20261114T171835926225Z",
+          "decisions_sha256": "10ced8f1f2be5f817009b4f4399be756e93ee834324a2cf29d29ccbdc5958342",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "4268c78fdebf282c-20261114T171841655150Z",
+          "decisions_sha256": "10ced8f1f2be5f817009b4f4399be756e93ee834324a2cf29d29ccbdc5958342",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "125ce671324816cd-20261114T171847788292Z",
+          "decisions_sha256": "10ced8f1f2be5f817009b4f4399be756e93ee834324a2cf29d29ccbdc5958342",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "be87789873e9c1ad-20261114T171853651810Z",
+          "decisions_sha256": "10ced8f1f2be5f817009b4f4399be756e93ee834324a2cf29d29ccbdc5958342",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "24b0b1d6e88690db-20261114T171900355080Z",
+          "decisions_sha256": "10ced8f1f2be5f817009b4f4399be756e93ee834324a2cf29d29ccbdc5958342",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "9d2b9c726d8c7848-20261114T171906254004Z",
+          "decisions_sha256": "10ced8f1f2be5f817009b4f4399be756e93ee834324a2cf29d29ccbdc5958342",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "b1303af155932bc3-20261114T171911626301Z",
+          "decisions_sha256": "10ced8f1f2be5f817009b4f4399be756e93ee834324a2cf29d29ccbdc5958342",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "c6a6fb6b6dd6a8e7-20261114T171916885677Z",
+          "decisions_sha256": "10ced8f1f2be5f817009b4f4399be756e93ee834324a2cf29d29ccbdc5958342",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "b39a6081e2d62db1-20261114T171922615398Z",
+          "decisions_sha256": "10ced8f1f2be5f817009b4f4399be756e93ee834324a2cf29d29ccbdc5958342",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "3dd8de3176f998a7-20261114T171927984644Z",
+          "decisions_sha256": "10ced8f1f2be5f817009b4f4399be756e93ee834324a2cf29d29ccbdc5958342",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "10dae429e92838da-20261114T171933231553Z",
+          "decisions_sha256": "10ced8f1f2be5f817009b4f4399be756e93ee834324a2cf29d29ccbdc5958342",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "c5f7f2a06e3b35f7-20261114T171938874900Z",
+          "decisions_sha256": "10ced8f1f2be5f817009b4f4399be756e93ee834324a2cf29d29ccbdc5958342",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "e69650b23dbebf83-20261114T171944525455Z",
+          "decisions_sha256": "10ced8f1f2be5f817009b4f4399be756e93ee834324a2cf29d29ccbdc5958342",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "850c70a700a041af-20261114T171950576607Z",
+          "decisions_sha256": "10ced8f1f2be5f817009b4f4399be756e93ee834324a2cf29d29ccbdc5958342",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "4f7b988c90d1108c-20261114T172144964681Z",
+          "decisions_sha256": "10ced8f1f2be5f817009b4f4399be756e93ee834324a2cf29d29ccbdc5958342",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "2f8b79e277bee33f-20261114T172150390874Z",
+          "decisions_sha256": "10ced8f1f2be5f817009b4f4399be756e93ee834324a2cf29d29ccbdc5958342",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "d59806c17d50b16d-20261114T172155372467Z",
+          "decisions_sha256": "10ced8f1f2be5f817009b4f4399be756e93ee834324a2cf29d29ccbdc5958342",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "a80aaf95894180b3-20261114T172200372243Z",
+          "decisions_sha256": "10ced8f1f2be5f817009b4f4399be756e93ee834324a2cf29d29ccbdc5958342",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "e585ad735aa2e76a-20261114T172205740118Z",
+          "decisions_sha256": "10ced8f1f2be5f817009b4f4399be756e93ee834324a2cf29d29ccbdc5958342",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "0f9b1a65c9e5c4b5-20261114T172211479791Z",
+          "decisions_sha256": "10ced8f1f2be5f817009b4f4399be756e93ee834324a2cf29d29ccbdc5958342",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "33a5cf674c74484d-20261114T172217583894Z",
+          "decisions_sha256": "10ced8f1f2be5f817009b4f4399be756e93ee834324a2cf29d29ccbdc5958342",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "eae509f754837564-20261114T172223487787Z",
+          "decisions_sha256": "10ced8f1f2be5f817009b4f4399be756e93ee834324a2cf29d29ccbdc5958342",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        }
+      ],
+      "full_decision_sha256": "81254458f7b6bc594d20ffecacaa29d22b630bcc57be7a6cf083d3b9eb3287e7"
+    },
+    {
+      "period": "validation",
+      "variant": "E0",
+      "risk_scaling": false,
+      "execution_delay": 2,
+      "input_file_sha256": {
+        "calendar.json": "be8124db8fbc33b9162df4948f6669c0e17fc89f3251b0027ce41687e28c3526",
+        "instruments.json": "50c2339f1d56fb53d958b64eacef9091686a57eee8eedeac4eb5520946d75020",
+        "bars.json": "36846dbe6a8e4684e4d4be8eed1b98aa5e1714fba8e0f4c8563964fc2b77e6cd",
+        "benchmark.json": "cf17a0eb9c864901a2cce36df86ef1cc207850976da8a32323d514f1d626d560"
+      },
+      "optimized_seconds": 27.762493099999972,
+      "full_decision_count": 179,
+      "funded_account_decision_count": 36,
+      "exact_match": true,
+      "checked_completed_runs": [
+        {
+          "run_id": "f9150005f3996de7-20261114T171956909761Z",
+          "decisions_sha256": "9c727a0d0678e5fcc83c06ed6ff4cc5c40131d116133fc37be016b2bad677715",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "96636fff7ea30011-20261114T172126813091Z",
+          "decisions_sha256": "9c727a0d0678e5fcc83c06ed6ff4cc5c40131d116133fc37be016b2bad677715",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "7caa575361cb6420-20261114T172133125255Z",
+          "decisions_sha256": "9c727a0d0678e5fcc83c06ed6ff4cc5c40131d116133fc37be016b2bad677715",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "7925b6f2b0056db2-20261114T172139378442Z",
+          "decisions_sha256": "9c727a0d0678e5fcc83c06ed6ff4cc5c40131d116133fc37be016b2bad677715",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        }
+      ],
+      "full_decision_sha256": "4add6d088a84d7aa7c78a940b15a2d82fa7e9da3a87c0e6fc9e8756114e58db9"
+    },
+    {
+      "period": "validation",
+      "variant": "E0",
+      "risk_scaling": true,
+      "execution_delay": 1,
+      "input_file_sha256": {
+        "calendar.json": "be8124db8fbc33b9162df4948f6669c0e17fc89f3251b0027ce41687e28c3526",
+        "instruments.json": "50c2339f1d56fb53d958b64eacef9091686a57eee8eedeac4eb5520946d75020",
+        "bars.json": "36846dbe6a8e4684e4d4be8eed1b98aa5e1714fba8e0f4c8563964fc2b77e6cd",
+        "benchmark.json": "cf17a0eb9c864901a2cce36df86ef1cc207850976da8a32323d514f1d626d560"
+      },
+      "optimized_seconds": 29.577013899999997,
+      "full_decision_count": 179,
+      "funded_account_decision_count": 36,
+      "exact_match": true,
+      "checked_completed_runs": [
+        {
+          "run_id": "6be809bafc7fb7e1-20261114T172230457753Z",
+          "decisions_sha256": "1c3a2c5962fc49a4a9aa349172a04539f3102beaed8b969957c2772e85c36561",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "5e40d1b0cd476b29-20261114T172400233672Z",
+          "decisions_sha256": "1c3a2c5962fc49a4a9aa349172a04539f3102beaed8b969957c2772e85c36561",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "5af7df59d183c318-20261114T172405787862Z",
+          "decisions_sha256": "1c3a2c5962fc49a4a9aa349172a04539f3102beaed8b969957c2772e85c36561",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "8bb516db02cf4aa7-20261114T172411400897Z",
+          "decisions_sha256": "1c3a2c5962fc49a4a9aa349172a04539f3102beaed8b969957c2772e85c36561",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "e5540ef67815c511-20261114T172416851636Z",
+          "decisions_sha256": "1c3a2c5962fc49a4a9aa349172a04539f3102beaed8b969957c2772e85c36561",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "ce438471202bd1de-20261114T172422187062Z",
+          "decisions_sha256": "1c3a2c5962fc49a4a9aa349172a04539f3102beaed8b969957c2772e85c36561",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "8f3841f839970455-20261114T172427176329Z",
+          "decisions_sha256": "1c3a2c5962fc49a4a9aa349172a04539f3102beaed8b969957c2772e85c36561",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "27bbda79571759af-20261114T172432376753Z",
+          "decisions_sha256": "1c3a2c5962fc49a4a9aa349172a04539f3102beaed8b969957c2772e85c36561",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "127a88ac64d6afbe-20261114T172437223490Z",
+          "decisions_sha256": "1c3a2c5962fc49a4a9aa349172a04539f3102beaed8b969957c2772e85c36561",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "45affc05f0c88669-20261114T172442334374Z",
+          "decisions_sha256": "1c3a2c5962fc49a4a9aa349172a04539f3102beaed8b969957c2772e85c36561",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "fa9a3c7480fadb32-20261114T172447195617Z",
+          "decisions_sha256": "1c3a2c5962fc49a4a9aa349172a04539f3102beaed8b969957c2772e85c36561",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "a00470028e7a67a5-20261114T172452380336Z",
+          "decisions_sha256": "1c3a2c5962fc49a4a9aa349172a04539f3102beaed8b969957c2772e85c36561",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "3dba47e7dd7d02ae-20261114T172458004834Z",
+          "decisions_sha256": "1c3a2c5962fc49a4a9aa349172a04539f3102beaed8b969957c2772e85c36561",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "d90a0d79e0227be2-20261114T172503976183Z",
+          "decisions_sha256": "1c3a2c5962fc49a4a9aa349172a04539f3102beaed8b969957c2772e85c36561",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "4a464411e95deaed-20261114T172510230130Z",
+          "decisions_sha256": "1c3a2c5962fc49a4a9aa349172a04539f3102beaed8b969957c2772e85c36561",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "5519a60787389a5a-20261114T172515974932Z",
+          "decisions_sha256": "1c3a2c5962fc49a4a9aa349172a04539f3102beaed8b969957c2772e85c36561",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "88d0c04287991644-20261114T172713534602Z",
+          "decisions_sha256": "1c3a2c5962fc49a4a9aa349172a04539f3102beaed8b969957c2772e85c36561",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "78d4b5ec385d253e-20261114T172718581504Z",
+          "decisions_sha256": "1c3a2c5962fc49a4a9aa349172a04539f3102beaed8b969957c2772e85c36561",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "ca9c6ba9ce93740c-20261114T172723675576Z",
+          "decisions_sha256": "1c3a2c5962fc49a4a9aa349172a04539f3102beaed8b969957c2772e85c36561",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "5c37c85577442f4c-20261114T172728653422Z",
+          "decisions_sha256": "1c3a2c5962fc49a4a9aa349172a04539f3102beaed8b969957c2772e85c36561",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "df9ff49b14e26b6f-20261114T172733962868Z",
+          "decisions_sha256": "1c3a2c5962fc49a4a9aa349172a04539f3102beaed8b969957c2772e85c36561",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "c304a790be60cbaf-20261114T172739492168Z",
+          "decisions_sha256": "1c3a2c5962fc49a4a9aa349172a04539f3102beaed8b969957c2772e85c36561",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "5c5b053030a490b5-20261114T172745308409Z",
+          "decisions_sha256": "1c3a2c5962fc49a4a9aa349172a04539f3102beaed8b969957c2772e85c36561",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "73d1f33cda995072-20261114T172751666870Z",
+          "decisions_sha256": "1c3a2c5962fc49a4a9aa349172a04539f3102beaed8b969957c2772e85c36561",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        }
+      ],
+      "full_decision_sha256": "01e04e3e9c3388651eadd89cfc17332900c26ef9d6815486d13f143de7d25957"
+    },
+    {
+      "period": "validation",
+      "variant": "E0",
+      "risk_scaling": true,
+      "execution_delay": 2,
+      "input_file_sha256": {
+        "calendar.json": "be8124db8fbc33b9162df4948f6669c0e17fc89f3251b0027ce41687e28c3526",
+        "instruments.json": "50c2339f1d56fb53d958b64eacef9091686a57eee8eedeac4eb5520946d75020",
+        "bars.json": "36846dbe6a8e4684e4d4be8eed1b98aa5e1714fba8e0f4c8563964fc2b77e6cd",
+        "benchmark.json": "cf17a0eb9c864901a2cce36df86ef1cc207850976da8a32323d514f1d626d560"
+      },
+      "optimized_seconds": 32.134062099999994,
+      "full_decision_count": 179,
+      "funded_account_decision_count": 36,
+      "exact_match": true,
+      "checked_completed_runs": [
+        {
+          "run_id": "afc5c2400f93b97b-20261114T172521348487Z",
+          "decisions_sha256": "ba4c98143e6cc52b79839f0af3886c9826d408b8b87fb9f11843519cf249c861",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "79949c103a433884-20261114T172657812061Z",
+          "decisions_sha256": "ba4c98143e6cc52b79839f0af3886c9826d408b8b87fb9f11843519cf249c861",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "4ae274147e1cddf7-20261114T172703517048Z",
+          "decisions_sha256": "ba4c98143e6cc52b79839f0af3886c9826d408b8b87fb9f11843519cf249c861",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "a600caf5238e8dec-20261114T172708458887Z",
+          "decisions_sha256": "ba4c98143e6cc52b79839f0af3886c9826d408b8b87fb9f11843519cf249c861",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        }
+      ],
+      "full_decision_sha256": "ee5fe33d6a3147fbdcac353370386acc13d73c3435497f5c7afc4eb17f264fbe"
+    },
+    {
+      "period": "validation",
+      "variant": "E1",
+      "risk_scaling": false,
+      "execution_delay": 1,
+      "input_file_sha256": {
+        "calendar.json": "be8124db8fbc33b9162df4948f6669c0e17fc89f3251b0027ce41687e28c3526",
+        "instruments.json": "50c2339f1d56fb53d958b64eacef9091686a57eee8eedeac4eb5520946d75020",
+        "bars.json": "36846dbe6a8e4684e4d4be8eed1b98aa5e1714fba8e0f4c8563964fc2b77e6cd",
+        "benchmark.json": "cf17a0eb9c864901a2cce36df86ef1cc207850976da8a32323d514f1d626d560"
+      },
+      "optimized_seconds": 28.7620991,
+      "full_decision_count": 179,
+      "funded_account_decision_count": 36,
+      "exact_match": true,
+      "checked_completed_runs": [
+        {
+          "run_id": "a7ae4334a46a7829-20261114T173827653106Z",
+          "decisions_sha256": "909765f1012a673cdb12dd8177f6d152a918e6ebc4c4726d5659f2533b3f4800",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "858533eeba0c129d-20261114T173946839454Z",
+          "decisions_sha256": "909765f1012a673cdb12dd8177f6d152a918e6ebc4c4726d5659f2533b3f4800",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "5e540f9b75762a6c-20261114T173953182515Z",
+          "decisions_sha256": "909765f1012a673cdb12dd8177f6d152a918e6ebc4c4726d5659f2533b3f4800",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "02e674c9037ca1b0-20261114T173959028803Z",
+          "decisions_sha256": "909765f1012a673cdb12dd8177f6d152a918e6ebc4c4726d5659f2533b3f4800",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "037a8640471b7883-20261114T174004758138Z",
+          "decisions_sha256": "909765f1012a673cdb12dd8177f6d152a918e6ebc4c4726d5659f2533b3f4800",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "cfeb4055c1189d82-20261114T174010488951Z",
+          "decisions_sha256": "909765f1012a673cdb12dd8177f6d152a918e6ebc4c4726d5659f2533b3f4800",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "59c017c2186cdc30-20261114T174016219632Z",
+          "decisions_sha256": "909765f1012a673cdb12dd8177f6d152a918e6ebc4c4726d5659f2533b3f4800",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "62c3cb12e57727ad-20261114T174021482943Z",
+          "decisions_sha256": "909765f1012a673cdb12dd8177f6d152a918e6ebc4c4726d5659f2533b3f4800",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "57d6cca226f58044-20261114T174026606841Z",
+          "decisions_sha256": "909765f1012a673cdb12dd8177f6d152a918e6ebc4c4726d5659f2533b3f4800",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "6db94eb07f42e176-20261114T174032064080Z",
+          "decisions_sha256": "909765f1012a673cdb12dd8177f6d152a918e6ebc4c4726d5659f2533b3f4800",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "53d6f6c8fa48677e-20261114T174037614440Z",
+          "decisions_sha256": "909765f1012a673cdb12dd8177f6d152a918e6ebc4c4726d5659f2533b3f4800",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "4a537d7e2016882a-20261114T174042784078Z",
+          "decisions_sha256": "909765f1012a673cdb12dd8177f6d152a918e6ebc4c4726d5659f2533b3f4800",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "2ce780a6853aee17-20261114T174047487704Z",
+          "decisions_sha256": "909765f1012a673cdb12dd8177f6d152a918e6ebc4c4726d5659f2533b3f4800",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "7a86af8b0e10a59f-20261114T174052341415Z",
+          "decisions_sha256": "909765f1012a673cdb12dd8177f6d152a918e6ebc4c4726d5659f2533b3f4800",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "556965a0253d32ff-20261114T174057343147Z",
+          "decisions_sha256": "909765f1012a673cdb12dd8177f6d152a918e6ebc4c4726d5659f2533b3f4800",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "41529bc6eb1bf2d1-20261114T174102251500Z",
+          "decisions_sha256": "909765f1012a673cdb12dd8177f6d152a918e6ebc4c4726d5659f2533b3f4800",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        }
+      ],
+      "full_decision_sha256": "2c0e25f36161235a190c68425d05557b72d505204e6c3890a3f5d28d250d4819"
+    },
+    {
+      "period": "validation",
+      "variant": "R0",
+      "risk_scaling": false,
+      "execution_delay": 1,
+      "input_file_sha256": {
+        "calendar.json": "be8124db8fbc33b9162df4948f6669c0e17fc89f3251b0027ce41687e28c3526",
+        "instruments.json": "50c2339f1d56fb53d958b64eacef9091686a57eee8eedeac4eb5520946d75020",
+        "bars.json": "36846dbe6a8e4684e4d4be8eed1b98aa5e1714fba8e0f4c8563964fc2b77e6cd",
+        "benchmark.json": "cf17a0eb9c864901a2cce36df86ef1cc207850976da8a32323d514f1d626d560"
+      },
+      "optimized_seconds": 32.36595730000005,
+      "full_decision_count": 179,
+      "funded_account_decision_count": 36,
+      "exact_match": true,
+      "checked_completed_runs": [
+        {
+          "run_id": "937880c2b930f527-20261114T172756903068Z",
+          "decisions_sha256": "c8cb95f8aaee96913e887c8b1b490baaa30e9a7f75a1e8eab9e3465be188d270",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "269dffee8c7a1e0b-20261114T172929150221Z",
+          "decisions_sha256": "c8cb95f8aaee96913e887c8b1b490baaa30e9a7f75a1e8eab9e3465be188d270",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "a623790da87b68f6-20261114T172934400000Z",
+          "decisions_sha256": "c8cb95f8aaee96913e887c8b1b490baaa30e9a7f75a1e8eab9e3465be188d270",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "a95c2edd116e2956-20261114T172939492261Z",
+          "decisions_sha256": "c8cb95f8aaee96913e887c8b1b490baaa30e9a7f75a1e8eab9e3465be188d270",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "2977710edd5bca49-20261114T172944664242Z",
+          "decisions_sha256": "c8cb95f8aaee96913e887c8b1b490baaa30e9a7f75a1e8eab9e3465be188d270",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "9978baefe93fa3b8-20261114T172949825594Z",
+          "decisions_sha256": "c8cb95f8aaee96913e887c8b1b490baaa30e9a7f75a1e8eab9e3465be188d270",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "8fd7927a8d2e49e7-20261114T172954712984Z",
+          "decisions_sha256": "c8cb95f8aaee96913e887c8b1b490baaa30e9a7f75a1e8eab9e3465be188d270",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "a5bb123c9d70f09a-20261114T173000114188Z",
+          "decisions_sha256": "c8cb95f8aaee96913e887c8b1b490baaa30e9a7f75a1e8eab9e3465be188d270",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "5e46cb9a51ae4ebe-20261114T173005837191Z",
+          "decisions_sha256": "c8cb95f8aaee96913e887c8b1b490baaa30e9a7f75a1e8eab9e3465be188d270",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "8443c08eda76dd79-20261114T173011717343Z",
+          "decisions_sha256": "c8cb95f8aaee96913e887c8b1b490baaa30e9a7f75a1e8eab9e3465be188d270",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "8f0a49376dd807c9-20261114T173017521014Z",
+          "decisions_sha256": "c8cb95f8aaee96913e887c8b1b490baaa30e9a7f75a1e8eab9e3465be188d270",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "8f26b654e0c2ca38-20261114T173023252956Z",
+          "decisions_sha256": "c8cb95f8aaee96913e887c8b1b490baaa30e9a7f75a1e8eab9e3465be188d270",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "c2b00990d7c5159e-20261114T173028945675Z",
+          "decisions_sha256": "c8cb95f8aaee96913e887c8b1b490baaa30e9a7f75a1e8eab9e3465be188d270",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "3b5f8a1cc9aca894-20261114T173034013872Z",
+          "decisions_sha256": "c8cb95f8aaee96913e887c8b1b490baaa30e9a7f75a1e8eab9e3465be188d270",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "dd4fb3e73f2c1b78-20261114T173038826305Z",
+          "decisions_sha256": "c8cb95f8aaee96913e887c8b1b490baaa30e9a7f75a1e8eab9e3465be188d270",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "946f9aba112a0a3f-20261114T173044150760Z",
+          "decisions_sha256": "c8cb95f8aaee96913e887c8b1b490baaa30e9a7f75a1e8eab9e3465be188d270",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "9d7bcf9b1418b47d-20261114T173234293214Z",
+          "decisions_sha256": "c8cb95f8aaee96913e887c8b1b490baaa30e9a7f75a1e8eab9e3465be188d270",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "482f2cb41df8bbd8-20261114T173239861608Z",
+          "decisions_sha256": "c8cb95f8aaee96913e887c8b1b490baaa30e9a7f75a1e8eab9e3465be188d270",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "998eecac5f8e639a-20261114T173245182178Z",
+          "decisions_sha256": "c8cb95f8aaee96913e887c8b1b490baaa30e9a7f75a1e8eab9e3465be188d270",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "1e920dd45a99a7a9-20261114T173250573624Z",
+          "decisions_sha256": "c8cb95f8aaee96913e887c8b1b490baaa30e9a7f75a1e8eab9e3465be188d270",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "07c5708ed71bc0e0-20261114T173256233685Z",
+          "decisions_sha256": "c8cb95f8aaee96913e887c8b1b490baaa30e9a7f75a1e8eab9e3465be188d270",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "6a81a5a626e63a1b-20261114T173301469499Z",
+          "decisions_sha256": "c8cb95f8aaee96913e887c8b1b490baaa30e9a7f75a1e8eab9e3465be188d270",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "9e9895fbc4e8bdbb-20261114T173306876688Z",
+          "decisions_sha256": "c8cb95f8aaee96913e887c8b1b490baaa30e9a7f75a1e8eab9e3465be188d270",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "52aba5fa03cb89d0-20261114T173312436401Z",
+          "decisions_sha256": "c8cb95f8aaee96913e887c8b1b490baaa30e9a7f75a1e8eab9e3465be188d270",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        }
+      ],
+      "full_decision_sha256": "0cac5288a07d1f74c24a0fa1285aee0687ddbb9268eee63601aabcf2edbf8da3"
+    },
+    {
+      "period": "validation",
+      "variant": "R0",
+      "risk_scaling": false,
+      "execution_delay": 2,
+      "input_file_sha256": {
+        "calendar.json": "be8124db8fbc33b9162df4948f6669c0e17fc89f3251b0027ce41687e28c3526",
+        "instruments.json": "50c2339f1d56fb53d958b64eacef9091686a57eee8eedeac4eb5520946d75020",
+        "bars.json": "36846dbe6a8e4684e4d4be8eed1b98aa5e1714fba8e0f4c8563964fc2b77e6cd",
+        "benchmark.json": "cf17a0eb9c864901a2cce36df86ef1cc207850976da8a32323d514f1d626d560"
+      },
+      "optimized_seconds": 33.45525639999994,
+      "full_decision_count": 179,
+      "funded_account_decision_count": 36,
+      "exact_match": true,
+      "checked_completed_runs": [
+        {
+          "run_id": "5eae7b7f6725211c-20261114T173049230386Z",
+          "decisions_sha256": "f9fefdcc80a6b5cef60d6dc5d0ba72064a7417091c42eb30f1ad03d9aea84ed0",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "b1e90f4175bd2a2f-20261114T173218969708Z",
+          "decisions_sha256": "f9fefdcc80a6b5cef60d6dc5d0ba72064a7417091c42eb30f1ad03d9aea84ed0",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "aef1232acfd864d0-20261114T173224036537Z",
+          "decisions_sha256": "f9fefdcc80a6b5cef60d6dc5d0ba72064a7417091c42eb30f1ad03d9aea84ed0",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "2b6043207298aaa4-20261114T173229038678Z",
+          "decisions_sha256": "f9fefdcc80a6b5cef60d6dc5d0ba72064a7417091c42eb30f1ad03d9aea84ed0",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        }
+      ],
+      "full_decision_sha256": "0d984dabb995cd7038dbde0138a58fb5aa810485467ac3aa0813651fad451770"
+    },
+    {
+      "period": "validation",
+      "variant": "R0",
+      "risk_scaling": true,
+      "execution_delay": 1,
+      "input_file_sha256": {
+        "calendar.json": "be8124db8fbc33b9162df4948f6669c0e17fc89f3251b0027ce41687e28c3526",
+        "instruments.json": "50c2339f1d56fb53d958b64eacef9091686a57eee8eedeac4eb5520946d75020",
+        "bars.json": "36846dbe6a8e4684e4d4be8eed1b98aa5e1714fba8e0f4c8563964fc2b77e6cd",
+        "benchmark.json": "cf17a0eb9c864901a2cce36df86ef1cc207850976da8a32323d514f1d626d560"
+      },
+      "optimized_seconds": 35.12688610000009,
+      "full_decision_count": 179,
+      "funded_account_decision_count": 36,
+      "exact_match": true,
+      "checked_completed_runs": [
+        {
+          "run_id": "78513bb5e2b5ff9d-20261114T173318516991Z",
+          "decisions_sha256": "5e1f964ed3730c45ef2f606f678a8c4e0a6a3617bdc627ffdc141da22fa8cf6a",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "936f09fdea946453-20261114T173502629633Z",
+          "decisions_sha256": "5e1f964ed3730c45ef2f606f678a8c4e0a6a3617bdc627ffdc141da22fa8cf6a",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "eeba2126ec2193f7-20261114T173507737241Z",
+          "decisions_sha256": "5e1f964ed3730c45ef2f606f678a8c4e0a6a3617bdc627ffdc141da22fa8cf6a",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "4c91f7386c33475b-20261114T173513156532Z",
+          "decisions_sha256": "5e1f964ed3730c45ef2f606f678a8c4e0a6a3617bdc627ffdc141da22fa8cf6a",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "d27fb41b2ae2b819-20261114T173517972043Z",
+          "decisions_sha256": "5e1f964ed3730c45ef2f606f678a8c4e0a6a3617bdc627ffdc141da22fa8cf6a",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "bcae08b7124d5ab2-20261114T173522828753Z",
+          "decisions_sha256": "5e1f964ed3730c45ef2f606f678a8c4e0a6a3617bdc627ffdc141da22fa8cf6a",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "e9b0270b0f9079f1-20261114T173527623652Z",
+          "decisions_sha256": "5e1f964ed3730c45ef2f606f678a8c4e0a6a3617bdc627ffdc141da22fa8cf6a",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "db5d1c7405a6aa7f-20261114T173532359854Z",
+          "decisions_sha256": "5e1f964ed3730c45ef2f606f678a8c4e0a6a3617bdc627ffdc141da22fa8cf6a",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "9bae0cb8df8cca2b-20261114T173537280179Z",
+          "decisions_sha256": "5e1f964ed3730c45ef2f606f678a8c4e0a6a3617bdc627ffdc141da22fa8cf6a",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "8cac4dbd087a5e42-20261114T173542163417Z",
+          "decisions_sha256": "5e1f964ed3730c45ef2f606f678a8c4e0a6a3617bdc627ffdc141da22fa8cf6a",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "2a819a88db3dc603-20261114T173547081420Z",
+          "decisions_sha256": "5e1f964ed3730c45ef2f606f678a8c4e0a6a3617bdc627ffdc141da22fa8cf6a",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "5a261f27e8d67f14-20261114T173551711350Z",
+          "decisions_sha256": "5e1f964ed3730c45ef2f606f678a8c4e0a6a3617bdc627ffdc141da22fa8cf6a",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "5c585c9a5b8dc796-20261114T173556637100Z",
+          "decisions_sha256": "5e1f964ed3730c45ef2f606f678a8c4e0a6a3617bdc627ffdc141da22fa8cf6a",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "0808d852a92b076b-20261114T173601429155Z",
+          "decisions_sha256": "5e1f964ed3730c45ef2f606f678a8c4e0a6a3617bdc627ffdc141da22fa8cf6a",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "f4d926146956c74f-20261114T173606065320Z",
+          "decisions_sha256": "5e1f964ed3730c45ef2f606f678a8c4e0a6a3617bdc627ffdc141da22fa8cf6a",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "db6c5d89717140df-20261114T173611156362Z",
+          "decisions_sha256": "5e1f964ed3730c45ef2f606f678a8c4e0a6a3617bdc627ffdc141da22fa8cf6a",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "9f0f0c950a09e3c7-20261114T173748631682Z",
+          "decisions_sha256": "5e1f964ed3730c45ef2f606f678a8c4e0a6a3617bdc627ffdc141da22fa8cf6a",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "a668af5b3eaff38f-20261114T173753320579Z",
+          "decisions_sha256": "5e1f964ed3730c45ef2f606f678a8c4e0a6a3617bdc627ffdc141da22fa8cf6a",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "2a433f387175d76c-20261114T173758252175Z",
+          "decisions_sha256": "5e1f964ed3730c45ef2f606f678a8c4e0a6a3617bdc627ffdc141da22fa8cf6a",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "8e0a71a5f42ee04e-20261114T173803088606Z",
+          "decisions_sha256": "5e1f964ed3730c45ef2f606f678a8c4e0a6a3617bdc627ffdc141da22fa8cf6a",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "1795bbdb7a9b8c12-20261114T173808202506Z",
+          "decisions_sha256": "5e1f964ed3730c45ef2f606f678a8c4e0a6a3617bdc627ffdc141da22fa8cf6a",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "c4388c8d13d83328-20261114T173813097111Z",
+          "decisions_sha256": "5e1f964ed3730c45ef2f606f678a8c4e0a6a3617bdc627ffdc141da22fa8cf6a",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "13349aadfe82e85e-20261114T173817875447Z",
+          "decisions_sha256": "5e1f964ed3730c45ef2f606f678a8c4e0a6a3617bdc627ffdc141da22fa8cf6a",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "9a4810c83c2fcb33-20261114T173822848584Z",
+          "decisions_sha256": "5e1f964ed3730c45ef2f606f678a8c4e0a6a3617bdc627ffdc141da22fa8cf6a",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        }
+      ],
+      "full_decision_sha256": "76f958bc568d11ac402f5c6c9c4dffe270954de7b6511bc13a20c277c55ad94b"
+    },
+    {
+      "period": "validation",
+      "variant": "R0",
+      "risk_scaling": true,
+      "execution_delay": 2,
+      "input_file_sha256": {
+        "calendar.json": "be8124db8fbc33b9162df4948f6669c0e17fc89f3251b0027ce41687e28c3526",
+        "instruments.json": "50c2339f1d56fb53d958b64eacef9091686a57eee8eedeac4eb5520946d75020",
+        "bars.json": "36846dbe6a8e4684e4d4be8eed1b98aa5e1714fba8e0f4c8563964fc2b77e6cd",
+        "benchmark.json": "cf17a0eb9c864901a2cce36df86ef1cc207850976da8a32323d514f1d626d560"
+      },
+      "optimized_seconds": 34.77374980000002,
+      "full_decision_count": 179,
+      "funded_account_decision_count": 36,
+      "exact_match": true,
+      "checked_completed_runs": [
+        {
+          "run_id": "51eab92491932f3c-20261114T173615671568Z",
+          "decisions_sha256": "1c7ae5ac956e8116e6aaa2c8c6e48495659aee4d81001b64d33454f89234a76d",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "7cbe6b817a0af9f0-20261114T173734087271Z",
+          "decisions_sha256": "1c7ae5ac956e8116e6aaa2c8c6e48495659aee4d81001b64d33454f89234a76d",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "f595045dfbe7a781-20261114T173739027107Z",
+          "decisions_sha256": "1c7ae5ac956e8116e6aaa2c8c6e48495659aee4d81001b64d33454f89234a76d",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        },
+        {
+          "run_id": "7f7d35b81203a2bf-20261114T173743742605Z",
+          "decisions_sha256": "1c7ae5ac956e8116e6aaa2c8c6e48495659aee4d81001b64d33454f89234a76d",
+          "frozen_strategy_sha256": "d79120f6977b708fc9e1111cb97ae98dde5308f564f1f67204700a80d4327bb8"
+        }
+      ],
+      "full_decision_sha256": "b09234393b76fca1c868038912f2f8169fd99ad60f4f98c288e4d0dfff430bf3"
+    }
+  ],
+  "timings": [
+    {
+      "period": "development",
+      "variant": "R1",
+      "risk_scaling": true,
+      "execution_delay": 2,
+      "full_dataclass_exact_match": true,
+      "decision_count": 143,
+      "oracle_seconds": 28.826431499999956,
+      "optimized_seconds": 13.425387599999965,
+      "speedup": 2.147158231766808,
+      "input_file_sha256": {
+        "calendar.json": "8200cca2c04cc847ebddf43c0783ff1b8d15b28a9d11e48a3b3f51661c4e52ae",
+        "instruments.json": "6330058f1631b1d4e5727d37ac3fbb7d45c60da7400648bd0bb08fdcdd54ba85",
+        "bars.json": "e55dac04e76a865e1e407506402fb3b4260db6e0acdc4d9d1a7d986000f2eb13",
+        "benchmark.json": "a6dd120651661943d46ada9360e473065f52e5f501545ef0b18e4cbe49ceb8e7"
+      }
+    },
+    {
+      "period": "validation",
+      "variant": "R1",
+      "risk_scaling": true,
+      "execution_delay": 2,
+      "full_dataclass_exact_match": true,
+      "decision_count": 179,
+      "oracle_seconds": 72.81981969999993,
+      "optimized_seconds": 33.05484459999991,
+      "speedup": 2.2029999106394262,
+      "input_file_sha256": {
+        "calendar.json": "be8124db8fbc33b9162df4948f6669c0e17fc89f3251b0027ce41687e28c3526",
+        "instruments.json": "50c2339f1d56fb53d958b64eacef9091686a57eee8eedeac4eb5520946d75020",
+        "bars.json": "36846dbe6a8e4684e4d4be8eed1b98aa5e1714fba8e0f4c8563964fc2b77e6cd",
+        "benchmark.json": "cf17a0eb9c864901a2cce36df86ef1cc207850976da8a32323d514f1d626d560"
+      }
+    }
+  ],
+  "limitations": [
+    "v1 account results are invalidated for a separate execution arithmetic bug; only strategy decisions are used here.",
+    "v1 decisions.json omits ranks; ranks are independently checked in direct frozen-oracle comparisons.",
+    "Single-process wall times include machine load and are not a controlled microbenchmark."
+  ],
+  "completed_v1_run_artifacts_compared": 352,
+  "comparison_program_sha256": "6269cbd9801e580b000a330d4a5f76421fde6b3c9459289da75e7652c56023e1",
+  "comparison_program_source": "\"\"\"Decision-only equivalence evidence. Never opens NAV, fills, costs or metrics.\"\"\"\nimport dataclasses\nimport hashlib\nimport itertools\nimport json\nfrom pathlib import Path\nimport subprocess\nimport sys\nimport time\nimport types\n\nimport pandas as pd\n\nROOT = Path(__file__).resolve().parents[1]\nsys.path.insert(0, str(ROOT / 'src'))\nfrom quant_research import strategy\nfrom quant_research.data import synthetic_dataset\n\nCOMMIT = '1096a7f'\noracle_bytes = subprocess.check_output(['git', 'show', COMMIT + ':src/quant_research/strategy.py'], cwd=ROOT)\noracle = types.ModuleType('frozen_strategy_oracle')\nsys.modules[oracle.__name__] = oracle\nexec(compile(oracle_bytes, COMMIT + '/strategy.py', 'exec'), oracle.__dict__)\n\ndef sha(path):\n    return hashlib.sha256(path.read_bytes()).hexdigest()\n\ndef encode(value):\n    return json.dumps(value, ensure_ascii=False, sort_keys=True, allow_nan=False, default=str, separators=(',', ':')).encode()\n\ndef run(module, dataset, variant, scaling, delay, release=1):\n    start = time.perf_counter()\n    decisions = module.generate_targets(dataset, variant=variant, risk_scaling=scaling,\n                                        execution_delay=delay, signal_release_delay=release)\n    return decisions, time.perf_counter() - start\n\ndef records(decisions, ranks=True):\n    result = [dataclasses.asdict(d) for d in decisions]\n    for row in result:\n        row['decision_at'] = str(row['decision_at'])\n        if not ranks:\n            del row['ranks']\n    return result\n\ndef require_same(a, b, label):\n    if encode(a) != encode(b):\n        for i, (x, y) in enumerate(zip(a, b)):\n            for k in x:\n                if encode(x[k]) != encode(y.get(k)):\n                    raise AssertionError(f'{label}: first difference row={i}, field={k}: {x[k]!r} != {y.get(k)!r}')\n        raise AssertionError(label + ': record count/schema mismatch')\n\ndef read_dataset(period):\n    root = ROOT / 'data/admitted_r1/phase2_v1' / period\n    manifest = json.loads((root / 'manifest.json').read_text(encoding='utf-8'))\n    frames = {}\n    hashes = {}\n    for name in ('calendar', 'instruments', 'bars', 'benchmark'):\n        path = root / (name + '.json')\n        hashes[path.name] = sha(path)\n        assert hashes[path.name] == manifest['file_sha256'][path.name]\n        obj = json.loads(path.read_bytes())\n        frames[name] = obj if name == 'calendar' else pd.DataFrame(obj['records'], columns=obj['columns'])\n    return types.SimpleNamespace(**frames), hashes\n\nreport = {'status': 'IN_PROGRESS_DECISION_ONLY', 'oracle_commit': COMMIT,\n          'oracle_source_sha256_lf': hashlib.sha256(oracle_bytes).hexdigest(),\n          'optimized_source_sha256': sha(ROOT / 'src/quant_research/strategy.py'),\n          'method': 'Exact canonical JSON equality (no numeric tolerance); all TargetDecision fields including ranks for direct oracle comparisons; all persisted fields for prior v1 artifacts. No account backtest and no return/account files opened.',\n          'synthetic': [], 'real': [], 'timings': [], 'limitations': [\n              'v1 account results are invalidated for a separate execution arithmetic bug; only strategy decisions are used here.',\n              'v1 decisions.json omits ranks; ranks are independently checked in direct frozen-oracle comparisons.',\n              'Single-process wall times include machine load and are not a controlled microbenchmark.']}\nout = ROOT / 'reports/real_data_phase3/OPTIMIZATION_EQUIVALENCE.json'\n\ndef checkpoint():\n    out.write_text(json.dumps(report, ensure_ascii=False, indent=2, allow_nan=False) + '\\n', encoding='utf-8')\n\ndata = synthetic_dataset()\nfor variant, scaling, delay in itertools.product(('E0', 'R0', 'E1', 'R1'), (False, True), (1, 2)):\n    old, old_seconds = run(oracle, data, variant, scaling, delay)\n    new, new_seconds = run(strategy, data, variant, scaling, delay)\n    require_same(records(old), records(new), 'synthetic')\n    row = {'variant': variant, 'risk_scaling': scaling, 'execution_delay': delay,\n           'decision_count': len(new), 'exact_match': True, 'oracle_seconds': old_seconds,\n           'optimized_seconds': new_seconds, 'decision_sha256': hashlib.sha256(encode(records(new))).hexdigest()}\n    report['synthetic'].append(row)\n    print('synthetic', variant, scaling, delay, round(old_seconds, 2), round(new_seconds, 2), flush=True)\ncheckpoint()\n\nfor period in ('development', 'validation'):\n    data, input_hashes = read_dataset(period)\n    root = ROOT / ('runs/real_r1_' + period + '_v1')\n    events = [json.loads(line) for line in (root / 'trial_registry.jsonl').read_text().splitlines()]\n    complete = {e['run_id'] for e in events if e['event'] == 'COMPLETED'}\n    groups = {}\n    for event in events:\n        if event['event'] == 'REGISTERED' and event['run_id'] in complete:\n            c = event['config']\n            groups.setdefault((c['variant'], c['risk_scaling'], c['execution_delay']), []).append(event)\n    print(period, 'complete runs', len(complete), 'decision keys', len(groups), flush=True)\n    for (variant, scaling, delay), registrations in sorted(groups.items()):\n        new, seconds = run(strategy, data, variant, scaling, delay)\n        full = records(new)\n        account_start = '2016-01-01' if period == 'development' else '2022-01-01'\n        filtered = records([d for d in new if d.execution_date >= account_start], ranks=False)\n        checked = []\n        for registered in registrations:\n            directory = root / registered['run_id']\n            frozen_path = directory / 'source_snapshot/src/quant_research/strategy.py'\n            # Git stores LF; the Windows immutable snapshot may contain CRLF.\n            assert frozen_path.read_bytes().replace(b'\\r\\n', b'\\n') == oracle_bytes.replace(b'\\r\\n', b'\\n')\n            provenance = json.loads((directory / 'provenance.json').read_text())\n            assert sha(frozen_path) == provenance['source_files']['src/quant_research/strategy.py']\n            expected = json.loads((directory / 'decisions.json').read_text())\n            require_same(expected, filtered, period + '/' + directory.name)\n            checked.append({'run_id': directory.name, 'decisions_sha256': sha(directory / 'decisions.json'),\n                            'frozen_strategy_sha256': sha(frozen_path)})\n        row = {'period': period, 'variant': variant, 'risk_scaling': scaling, 'execution_delay': delay,\n               'input_file_sha256': input_hashes, 'optimized_seconds': seconds,\n               'full_decision_count': len(full), 'funded_account_decision_count': len(filtered),\n               'exact_match': True, 'checked_completed_runs': checked,\n               'full_decision_sha256': hashlib.sha256(encode(full)).hexdigest()}\n        report['real'].append(row)\n        print(period, variant, scaling, delay, 'MATCH', len(checked), 'runs', round(seconds, 2), 'seconds', flush=True)\n        checkpoint()\n    # Full dataclass, including ranks and pre-account warmup; no account returns.\n    variant, scaling, delay = ('R1', True, 2)\n    old, old_seconds = run(oracle, data, variant, scaling, delay)\n    new, new_seconds = run(strategy, data, variant, scaling, delay)\n    require_same(records(old), records(new), period + '/full_frozen_oracle')\n    report['timings'].append({'period': period, 'variant': variant, 'risk_scaling': scaling,\n        'execution_delay': delay, 'full_dataclass_exact_match': True, 'decision_count': len(new),\n        'oracle_seconds': old_seconds, 'optimized_seconds': new_seconds, 'speedup': old_seconds / new_seconds,\n        'input_file_sha256': input_hashes})\n    print(period, 'direct oracle full fields MATCH', round(old_seconds, 2), round(new_seconds, 2), flush=True)\n    checkpoint()\n\nreport['status'] = 'PASS_EXACT_DECISION_EQUIVALENCE'\nreport['completed_v1_run_artifacts_compared'] = sum(len(r['checked_completed_runs']) for r in report['real'])\ncheckpoint()\nlines = ['# Strategy optimization equivalence', '',\n         'Decision-only engineering comparison; no account backtests or return inspection.', '',\n         f'Frozen oracle: `{COMMIT}`. Optimized strategy SHA256: `{report[\"optimized_source_sha256\"]}`.', '',\n         f'All {len(report[\"synthetic\"])} synthetic rule/delay combinations match every TargetDecision field exactly. '\n         f'All {report[\"completed_v1_run_artifacts_compared\"]} completed v1 run decision artifacts match every persisted field exactly '\n         f'across {len(report[\"real\"])} period/rule/delay keys.', '',\n         'Direct frozen-oracle real-data comparisons additionally cover ranks and every warmup decision. '\n         'The v1 account results remain invalidated; matching decisions does not rehabilitate execution results.', '',\n         '| Period | Frozen oracle seconds | Optimized seconds | Speedup | Full dataclass match |',\n         '|---|---:|---:|---:|---|']\nfor row in report['timings']:\n    lines.append(f'| {row[\"period\"]} | {row[\"oracle_seconds\"]:.3f} | {row[\"optimized_seconds\"]:.3f} | {row[\"speedup\"]:.2f}x | Exact |')\nlines += ['', 'Changes: project only strategy-used bar columns; parse TR availability once while preserving errors only when malformed rows become visible; pivot only requested dates while retaining the historical column union/order. Non-float values use the original pivot path to preserve dtype promotion.', '',\n          'No strategy formula, candidate eligibility, chronology, parameter, rank rule, execution configuration, or account ledger is changed. Wall timings are observational and machine-load dependent.', '']\n(out.with_suffix('.md')).write_text('\\n'.join(lines), encoding='utf-8')\nprint('PASS', report['completed_v1_run_artifacts_compared'], 'artifacts', flush=True)\n",
+  "unit_tests": {
+    "command": ".venv/Scripts/python.exe -X utf8 -m pytest tests/test_strategy.py -q",
+    "passed": 24,
+    "elapsed_seconds": 11.55
+  },
+  "scope": {
+    "completed_v1_artifacts_compared": 352,
+    "synthetic_rule_delay_combinations": 16,
+    "real_period_rule_delay_keys": 25,
+    "direct_frozen_oracle_full_dataclass_real_comparisons": 2,
+    "return_account_artifacts_opened": false,
+    "account_backtests_executed": false,
+    "strategy_parameters_changed": false
+  }
+}

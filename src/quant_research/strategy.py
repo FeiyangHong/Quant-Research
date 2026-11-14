@@ -79,7 +79,16 @@ def _active_etfs(master: pd.DataFrame, day: str) -> pd.DataFrame:
 
 
 def _matrix(bars: pd.DataFrame, column: str, dates: List[str]) -> pd.DataFrame:
-    return bars.pivot(index="date", columns="instrument_id", values=column).reindex(dates)
+    # Keep every historically observed column, including funds absent from the
+    # requested window. Its sorted order is also used by downstream statistics.
+    # Other dtypes retain pandas' original promotion/category-order rules.
+    if (bars[column].dtype != np.dtype("float64")
+            or isinstance(bars["instrument_id"].dtype, pd.CategoricalDtype)
+            or bars["instrument_id"].hasnans):
+        return bars.pivot(index="date", columns="instrument_id", values=column).reindex(dates)
+    columns = pd.Index(bars["instrument_id"].unique(), name="instrument_id").sort_values()
+    window = bars.loc[bars["date"].isin(dates), ["date", "instrument_id", column]]
+    return window.pivot(index="date", columns="instrument_id", values=column).reindex(index=dates, columns=columns)
 
 
 def _representatives(instruments: pd.DataFrame, bars: pd.DataFrame,
@@ -140,7 +149,17 @@ def generate_targets(dataset, variant: str = "E0", risk_scaling: bool = False,
     if calendar != sorted(set(calendar)):
         raise ValueError("calendar must contain unique, ascending ISO dates")
     instruments = _prepare(dataset.instruments)
-    bars = _prepare(dataset.bars)
+    # Provenance/execution fields do not enter any strategy formula. Avoid
+    # copying their wide payload for every point-in-time monthly snapshot.
+    bar_columns = ["date", "instrument_id", "close", "amount", "suspended",
+                   "available_at", "total_return_index"]
+    if "total_return_available_at" in dataset.bars:
+        bar_columns.append("total_return_available_at")
+    bars = _prepare(dataset.bars[bar_columns])
+    if "total_return_available_at" in bars:
+        # Invalid clocks in not-yet-visible rows must not break an earlier
+        # prefix. Preserve the original error only if that row becomes visible.
+        bars["_tr_available"] = pd.to_datetime(bars.total_return_available_at, utc=True, format="mixed", errors="coerce")
     benchmark = _prepare(dataset.benchmark)
     decisions = []
     quarter = None
@@ -162,8 +181,11 @@ def generate_targets(dataset, variant: str = "E0", risk_scaling: bool = False,
         # Delayed publication changes when the target is released, not its
         # economic observation window or historical candidate qualification.
         history = history.loc[history.date.le(day)]
-        if "total_return_available_at" in history:
-            tr_known = pd.to_datetime(history.total_return_available_at, utc=True, format="mixed", errors="raise")
+        if "_tr_available" in history:
+            tr_known = history["_tr_available"]
+            unresolved = tr_known.isna() & history.total_return_available_at.notna()
+            if unresolved.any():
+                pd.to_datetime(history.loc[unresolved, "total_return_available_at"], utc=True, format="mixed", errors="raise")
             history.loc[tr_known.isna() | tr_known.gt(at), "total_return_index"] = np.nan
         master = _active_etfs(_snapshot(instruments, anchor_at, ["instrument_id"], True), day)
         current = history.loc[history["date"].eq(day)].set_index("instrument_id")
