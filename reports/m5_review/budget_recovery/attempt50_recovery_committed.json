@@ -1,0 +1,24 @@
+{
+  "recovery_id": "M5-ATTEMPT50-EXACT-VISIBLE-OUTPUT-RECOVERY-1",
+  "committed_at": "2026-11-15T11:20:36.820442+00:00",
+  "status": "AUDITED_ADMINISTRATIVE_CORRECTION_COMMITTED",
+  "actual_after_ledger_sha256": "05aca35753cfe7f864332b0f24bbf99fd7058264a65d5cdda24bbade2143bc7a",
+  "event_sha256": "87f29b84fec65130705b8ffd5aa4650aa8d490fa9a9778f94f656561520c0c2d",
+  "before_ledger_sha256": "520ead076324f948c7a2a37ecd28964b21f6d59818d06edb5e0416d45b8ebd69",
+  "after_hash_clarification": "Prior event after_ledger_sha256 is the prepared LF serialization digest. Windows atomic_json emitted CRLF, producing the actual digest here. The initial post-write bytehash assertion failed; exact LF-normalized bytes and parsed state now independently match. Original event remains immutable.",
+  "prepared_LF_sha256": "f768f8c25982c4916e56dbc9577335f9cce5d883e02dbeb49795bbe3545cbd66",
+  "crlf_newline_count": 1053,
+  "positive_byte_adjustment": 27964,
+  "after_used": {
+    "http_attempts": 43,
+    "baostock_wire_attempts": 7,
+    "new_body_bytes": 20384354
+  },
+  "execution_after_bytes": 416068,
+  "execution_http_remaining": 14,
+  "exact_visible_tool_payload_bytes": 30001,
+  "full_backend_or_wire_bytes_observed": false,
+  "all_preexisting_other_receipts_unchanged": true,
+  "request_counts_and_limits_unchanged": true,
+  "no_network": true
+}

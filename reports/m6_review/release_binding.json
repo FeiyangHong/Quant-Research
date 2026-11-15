@@ -1,0 +1,19 @@
+{
+  "baseline_commit": "5df2fc9f74dcc8ffc498e0a08562bb7f6156c958",
+  "registration_commit": "02d0f0d6eeef76a3fc9a606eff25708ebd4f84d9",
+  "implementation_commit": "cb9b4c94d88b5b43d87ab11cff1c66ff94de36f6",
+  "implementation_tree": "d01a31dee1b1368111aba72ab5bb32d508e63ae5",
+  "content_manifest_sha256": "8934a51cf951c17ca937b2bf4c5bf78701b60d84115bbdfde1b31d7d8c8b0bee",
+  "content_set_sha256": "b47f357001073d0895a36db5d5b305c10c77f910e321a415c466529eb0b6140f",
+  "committed_content_files_verified": 187,
+  "committed_content_mismatches": [],
+  "ci_receipt_sha256": "1388604bfd71877ff989bc4e3d88cc079f5fbf096e58e6c7bc4eb53dfb3ba1c8",
+  "session_receipt_sha256": "58e88fc9fdfe12455489cbdd18e7e03e280d4feed4832a6fdc225efb6aef1ef1",
+  "source_budget_sha256": "bcfbf8bf905338a5d4116f2168320db0bff5c9385b6fabc54ef329f7623f4757",
+  "local_and_committed_protected_hashes_verified": true,
+  "receipt_is_metadata_only": true,
+  "pr_number": 1,
+  "pr_remains_draft": true,
+  "merged": false,
+  "no_source_collection_or_strategy_runs_after_scope_stop": true
+}

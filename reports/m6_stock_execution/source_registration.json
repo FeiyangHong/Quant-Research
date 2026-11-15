@@ -1,0 +1,144 @@
+{
+  "scope": "stock_execution",
+  "registered_before_new_network": true,
+  "initial_requests": [
+    {
+      "label": "mof_2008_stamp",
+      "url": "https://www.mof.gov.cn/zhengwuxinxi/caizhengxinwen/200809/t20080919_76432.htm",
+      "dates": "2008-01-01~2024-12-31"
+    },
+    {
+      "label": "sse_2015_joint_fees",
+      "url": "https://www.sse.com.cn/aboutus/mediacenter/hotandd/c/c_20150912_3988866.shtml",
+      "dates": "2008-01-01~2024-12-31"
+    },
+    {
+      "label": "tianjin_2022_stamp",
+      "url": "https://tianjin.chinatax.gov.cn/11200000000/0300/030005/20220725150235434.shtml",
+      "dates": "2008-01-01~2024-12-31"
+    },
+    {
+      "label": "guangdong_2023_stamp_law",
+      "url": "https://guangdong.chinatax.gov.cn/gdsw/zssw_gkwj/2023-03/09/content_8c6b826493184a5e906cb687b339d58e.shtml",
+      "dates": "2008-01-01~2024-12-31"
+    },
+    {
+      "label": "sse_2023_rules_migrated",
+      "url": "https://www.sse.com.cn/lawandrules/sselawsrules2025/repeal/rules/c/c_20250612_10824490.shtml",
+      "dates": "2008-01-01~2024-12-31"
+    },
+    {
+      "label": "sse_2023_first_listing",
+      "url": "https://www.sse.com.cn/aboutus/mediacenter/hotandd/c/c_20230404_5719112.shtml",
+      "dates": "2008-01-01~2024-12-31"
+    }
+  ],
+  "estimated_initial_http": 6,
+  "bounded_followups": "At most 34 including historical T+1 settlement,2022 transfer-fee original,linked historical rule attachments,discovery failures and redirects",
+  "max_http": 40,
+  "max_bytes": 41943040,
+  "max_session_hours": 4,
+  "conservative_session_start_utc": "2026-11-15T12:54:00Z",
+  "evidence_policy": "Official original or official full republication; search snippets discovery only. Historical versions/publication/effectiveness/retrieval kept separate; no2025+ market data.",
+  "observed_followups": [
+    {
+      "request_id": 7,
+      "label": "official_t1_and_transfer_discovery",
+      "url": null,
+      "query": "official historical stock T+1 and2022 transfer fee original",
+      "status": "FETCHED"
+    },
+    {
+      "request_id": 8,
+      "label": "sse_2023_rules_full",
+      "url": "https://www.sse.com.cn/lawandrules/sselawsrules2025/repeal/rules/c/10824490/files/dcbe58edb194451d93f19b1f7dd8fb4c.docx",
+      "query": null,
+      "status": "FETCHED"
+    },
+    {
+      "request_id": 9,
+      "label": "sse_2023_rules_deferred",
+      "url": "https://www.sse.com.cn/lawandrules/sselawsrules2025/repeal/rules/c/10824490/files/3f0cc77bae0543c795a42731398bc8e0.docx",
+      "query": null,
+      "status": "FETCHED"
+    },
+    {
+      "request_id": 10,
+      "label": "sse_2023_rules_repeal",
+      "url": "https://www.sse.com.cn/lawandrules/sselawsrules2025/repeal/rules/c/10824490/files/2dd188e159c243a384004b3dc48167a8.docx",
+      "query": null,
+      "status": "FETCHED"
+    },
+    {
+      "request_id": 14,
+      "label": "official_t1_and_transfer_domains_search",
+      "url": null,
+      "query": "SSE historical stockT+1 and ChinaClear2022 transfer-fee original officialdomains",
+      "status": "FETCHED"
+    },
+    {
+      "request_id": 19,
+      "label": "historical_settlement_and_transfer_exact_search",
+      "url": null,
+      "query": "exact T+1 SSE before2019 and2022 ChinaClear official notice",
+      "status": "FETCHED"
+    },
+    {
+      "request_id": 20,
+      "label": "sse_2019_trading_mechanism_qa",
+      "url": "https://www.sse.com.cn/aboutus/mediacenter/hotandd/c/c_20190301_4729501.shtml",
+      "query": null,
+      "status": "FETCHED"
+    },
+    {
+      "request_id": 21,
+      "label": "csdc_2022_fee_schedule_retry",
+      "url": "https://www.chinaclear.cn/zdjs/editor_file/20220701154723234.pdf",
+      "query": null,
+      "status": "FAILED"
+    },
+    {
+      "request_id": 23,
+      "label": "csdc2022_exact_notice_discovery",
+      "url": null,
+      "query": "\"中国结算关于降低股票交易过户费收费标准的通知\"",
+      "status": "FETCHED"
+    },
+    {
+      "request_id": 24,
+      "label": "csdc2022_original_notice",
+      "url": "https://www.chinaclear.cn/zdjs/gszb/202204/f89e788c65a241e88e7f0d0348de586f.shtml",
+      "query": null,
+      "status": "FAILED"
+    },
+    {
+      "request_id": 65,
+      "label": "csdc2022_original_notice_mobile",
+      "url": "https://m.chinaclear.cn/zdjs/gszb/202204/f89e788c65a241e88e7f0d0348de586f.shtml",
+      "query": null,
+      "status": "FAILED"
+    },
+    {
+      "request_id": 67,
+      "label": "official_full_republication_2022_transfer",
+      "url": null,
+      "query": "2022-04-28 过户费 各市场参与主体 官方完整转载",
+      "status": "FETCHED"
+    },
+    {
+      "request_id": 68,
+      "label": "wuhan_official_fee_republication",
+      "url": "https://jrj.wuhan.gov.cn/ynzx_57/xwzx/202204/t20220429_1964160.shtml",
+      "query": null,
+      "status": "FETCHED"
+    },
+    {
+      "request_id": 69,
+      "label": "shanghai_official_fee_republication",
+      "url": "https://jrj.sh.gov.cn/SCDT197/20220429/f715759a877b4158812eb6df70ccb49e.html",
+      "query": null,
+      "status": "FETCHED"
+    }
+  ],
+  "network_stop": "Fixed original cases and bounded official-republication followups completed; no automatic budget-exhaustion collection."
+}

@@ -1,0 +1,20 @@
+{
+  "reviewed_at": "2026-11-15T11:07:09.158569+00:00",
+  "reviewer_role": "M5_FINANCIAL_AGENT_NON_AUTHOR_OF_DEPENDENCY_CODE",
+  "status": "PASS_BOUNDED_DEPENDENCY_REVIEW",
+  "independent_tests": 5,
+  "production_modified_by_reviewer": false,
+  "hashes": {
+    "src/quant_research/temporal.py": "e8d321a303e7fca800aaf5b0fb7c022476280ad015f84467873339b255a29d2b",
+    "src/quant_research/dependencies.py": "3ef086c875f10ac329e71422d8c72d82aaa2fbe4d48a565732d19dcb38ade0d0",
+    "src/quant_research/providers/universe.py": "61a23fa650c4ea9cd935fc0ed03987208bae5405fb88689e6681d888ad8d5d14",
+    "src/quant_research/strategy.py": "9a5c023d1e23f97ebdd16401b2cc3956b6d2596c5f2139a5144df1d495500833",
+    "review_code/m5/test_external_dependencies.py": "503424355ad5ef597a17dd3789ec7e3fffd18730cb98e0a6b4047b15ff2f5d93",
+    "reports/m5_review/dependency_baseline_failures.txt": "4220954b695975537f5018d2585cdb48c3995d90a94d08eb19c02e238cc5f86f"
+  },
+  "limits": [
+    "Fixed invented economic counterexamples only; no rerun of448ETFresults",
+    "Provider route deliberately remains provisional and doesnotclaimaccountpermissionfilter",
+    "Missing benchmark_source_available_at retainslegacyavailable_atfallback; not a new source-admission claim"
+  ]
+}

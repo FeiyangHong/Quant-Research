@@ -1,0 +1,702 @@
+[
+  {
+    "instrument_id": "sz.159936",
+    "title": "可选消费ETF：广发中证全指可选消费交易型开放式指数证券投资基金2024年第3季度报告",
+    "publication_date": "2024-10-25",
+    "source_url": "https://disc.static.szse.cn/download/disc/disk03/finalpage/2024-10-25/759b56ad-8c1e-4529-ae23-e2fb1626714e.PDF",
+    "source_record": {
+      "id": "2a1d80aa-b763-4361-9f0d-cc4cacc91357",
+      "annId": 1221520528,
+      "title": "可选消费ETF：广发中证全指可选消费交易型开放式指数证券投资基金2024年第3季度报告",
+      "content": null,
+      "publishTime": "2024-10-25 00:00:00",
+      "attachPath": "/disc/disk03/finalpage/2024-10-25/759b56ad-8c1e-4529-ae23-e2fb1626714e.PDF",
+      "attachFormat": "PDF",
+      "attachSize": 484,
+      "secCode": [
+        "159936"
+      ],
+      "secName": [
+        "可选消费ETF"
+      ],
+      "bondType": null,
+      "bigIndustryCode": null,
+      "bigCategoryId": null,
+      "smallCategoryId": null,
+      "channelCode": null,
+      "_index": "ows_disclosure-20180825"
+    },
+    "receipt": {
+      "url": "https://disc.static.szse.cn/download/disc/disk03/finalpage/2024-10-25/759b56ad-8c1e-4529-ae23-e2fb1626714e.PDF",
+      "request_body": null,
+      "dates": "2010-01-01~2024-12-31",
+      "route": "official_documents",
+      "method": "GET",
+      "id": 58,
+      "kind": "http_attempts",
+      "label": "state_sz.159936_2024-10-25",
+      "scope": "cohort",
+      "started_at": "2026-11-15T15:11:45.673841+00:00",
+      "terminal": true,
+      "status": "FETCHED",
+      "http_status": 200,
+      "content_type": "application/pdf",
+      "response_status": "FETCHED",
+      "byte_count": 494382,
+      "sha256": "f962732d372d8a472dea967c16c9d8628fb519782c4412f1a73e558d2e680fc6",
+      "raw_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m7\\objects\\f962732d372d8a472dea967c16c9d8628fb519782c4412f1a73e558d2e680fc6.bin",
+      "ingested_at": "2026-11-15T15:11:46.116072+00:00",
+      "elapsed_seconds": 0.438336
+    }
+  },
+  {
+    "instrument_id": "sz.159938",
+    "title": "医药卫生ETF：广发中证全指医药卫生交易型开放式指数证券投资基金2024年第3季度报告",
+    "publication_date": "2024-10-25",
+    "source_url": "https://disc.static.szse.cn/download/disc/disk03/finalpage/2024-10-25/eae76f06-ccb8-40d8-97bc-ab9de1d473fc.PDF",
+    "source_record": {
+      "id": "a013b2cd-99e4-4650-8e06-9223e9ecec70",
+      "annId": 1221520540,
+      "title": "医药卫生ETF：广发中证全指医药卫生交易型开放式指数证券投资基金2024年第3季度报告",
+      "content": null,
+      "publishTime": "2024-10-25 00:00:00",
+      "attachPath": "/disc/disk03/finalpage/2024-10-25/eae76f06-ccb8-40d8-97bc-ab9de1d473fc.PDF",
+      "attachFormat": "PDF",
+      "attachSize": 502,
+      "secCode": [
+        "159938"
+      ],
+      "secName": [
+        "医药卫生ETF"
+      ],
+      "bondType": null,
+      "bigIndustryCode": null,
+      "bigCategoryId": null,
+      "smallCategoryId": null,
+      "channelCode": null,
+      "_index": "ows_disclosure-20180825"
+    },
+    "receipt": {
+      "url": "https://disc.static.szse.cn/download/disc/disk03/finalpage/2024-10-25/eae76f06-ccb8-40d8-97bc-ab9de1d473fc.PDF",
+      "request_body": null,
+      "dates": "2010-01-01~2024-12-31",
+      "route": "official_documents",
+      "method": "GET",
+      "id": 59,
+      "kind": "http_attempts",
+      "label": "state_sz.159938_2024-10-25",
+      "scope": "cohort",
+      "started_at": "2026-11-15T15:11:46.149363+00:00",
+      "terminal": true,
+      "status": "FETCHED",
+      "http_status": 200,
+      "content_type": "application/pdf",
+      "response_status": "FETCHED",
+      "byte_count": 513505,
+      "sha256": "bd2193651b17859c46e1254e7b0e3dc764daf75df0a74c4d53095cdfe4f9a373",
+      "raw_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m7\\objects\\bd2193651b17859c46e1254e7b0e3dc764daf75df0a74c4d53095cdfe4f9a373.bin",
+      "ingested_at": "2026-11-15T15:11:46.862722+00:00",
+      "elapsed_seconds": 0.708785
+    }
+  },
+  {
+    "instrument_id": "sz.159938",
+    "title": "医药卫生ETF：关于广发中证全指医药卫生交易型开放式指数证券投资基金基金份额拆分结果及恢复申购、赎回的公告",
+    "publication_date": "2022-05-30",
+    "source_url": "https://disc.static.szse.cn/download/disc/disk03/finalpage/2022-05-27/4ba1268f-aec3-48dc-8555-2efa8583ee04.PDF",
+    "source_record": {
+      "id": "fa686e5e-bb59-42d6-a776-53fc7b6e1007",
+      "annId": 1213532126,
+      "title": "医药卫生ETF：关于广发中证全指医药卫生交易型开放式指数证券投资基金基金份额拆分结果及恢复申购、赎回的公告",
+      "content": null,
+      "publishTime": "2022-05-30 00:00:00",
+      "attachPath": "/disc/disk03/finalpage/2022-05-27/4ba1268f-aec3-48dc-8555-2efa8583ee04.PDF",
+      "attachFormat": "PDF",
+      "attachSize": 82,
+      "secCode": [
+        "159938"
+      ],
+      "secName": [
+        "医药卫生ETF"
+      ],
+      "bondType": null,
+      "bigIndustryCode": null,
+      "bigCategoryId": null,
+      "smallCategoryId": null,
+      "channelCode": null,
+      "_index": "ows_disclosure-20180825"
+    },
+    "receipt": {
+      "url": "https://disc.static.szse.cn/download/disc/disk03/finalpage/2022-05-27/4ba1268f-aec3-48dc-8555-2efa8583ee04.PDF",
+      "request_body": null,
+      "dates": "2010-01-01~2024-12-31",
+      "route": "official_documents",
+      "method": "GET",
+      "id": 60,
+      "kind": "http_attempts",
+      "label": "state_sz.159938_2022-05-30",
+      "scope": "cohort",
+      "started_at": "2026-11-15T15:11:46.893400+00:00",
+      "terminal": true,
+      "status": "FETCHED",
+      "http_status": 200,
+      "content_type": "application/pdf",
+      "response_status": "FETCHED",
+      "byte_count": 82868,
+      "sha256": "72f9963f9e343214b72cc51ba6bbcb2dd812784b73be6dbbfc855f4d31704dbb",
+      "raw_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m7\\objects\\72f9963f9e343214b72cc51ba6bbcb2dd812784b73be6dbbfc855f4d31704dbb.bin",
+      "ingested_at": "2026-11-15T15:11:47.278065+00:00",
+      "elapsed_seconds": 0.380791
+    }
+  },
+  {
+    "instrument_id": "sz.159938",
+    "title": "医药卫生ETF：关于广发中证全指医药卫生交易型开放式指数证券投资基金基金份额拆分并调整最小申购赎回单位的公告",
+    "publication_date": "2022-05-24",
+    "source_url": "https://disc.static.szse.cn/download/disc/disk03/finalpage/2022-05-23/b0e34127-6e22-45b5-b5ea-dea4213ddc88.PDF",
+    "source_record": {
+      "id": "363a612a-d6ea-4e53-bc76-b61d1c1e1e26",
+      "annId": 1213459165,
+      "title": "医药卫生ETF：关于广发中证全指医药卫生交易型开放式指数证券投资基金基金份额拆分并调整最小申购赎回单位的公告",
+      "content": null,
+      "publishTime": "2022-05-24 00:00:00",
+      "attachPath": "/disc/disk03/finalpage/2022-05-23/b0e34127-6e22-45b5-b5ea-dea4213ddc88.PDF",
+      "attachFormat": "PDF",
+      "attachSize": 90,
+      "secCode": [
+        "159938"
+      ],
+      "secName": [
+        "医药卫生ETF"
+      ],
+      "bondType": null,
+      "bigIndustryCode": null,
+      "bigCategoryId": null,
+      "smallCategoryId": null,
+      "channelCode": null,
+      "_index": "ows_disclosure-20180825"
+    },
+    "receipt": {
+      "url": "https://disc.static.szse.cn/download/disc/disk03/finalpage/2022-05-23/b0e34127-6e22-45b5-b5ea-dea4213ddc88.PDF",
+      "request_body": null,
+      "dates": "2010-01-01~2024-12-31",
+      "route": "official_documents",
+      "method": "GET",
+      "id": 61,
+      "kind": "http_attempts",
+      "label": "state_sz.159938_2022-05-24",
+      "scope": "cohort",
+      "started_at": "2026-11-15T15:11:47.310784+00:00",
+      "terminal": true,
+      "status": "FETCHED",
+      "http_status": 200,
+      "content_type": "application/pdf",
+      "response_status": "FETCHED",
+      "byte_count": 91497,
+      "sha256": "1cf7b695c392b2767157ad28babb56b0691fafff3ba9ab120753a1438aa13946",
+      "raw_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m7\\objects\\1cf7b695c392b2767157ad28babb56b0691fafff3ba9ab120753a1438aa13946.bin",
+      "ingested_at": "2026-11-15T15:11:47.577048+00:00",
+      "elapsed_seconds": 0.263154
+    }
+  },
+  {
+    "instrument_id": "sz.159938",
+    "title": "医药：关于旗下部分交易型开放式指数证券投资基金调整标的指数许可使用费并修订基金合同的公告",
+    "publication_date": "2020-03-31",
+    "source_url": "https://disc.static.szse.cn/download/disc/disk02/finalpage/2020-03-31/2cb37cee-ad6a-4e5a-9eb6-5908a68c7c06.PDF",
+    "source_record": {
+      "id": "ef7f700e-1859-4c8f-9795-b96dbd4658de",
+      "annId": 1207428032,
+      "title": "医药：关于旗下部分交易型开放式指数证券投资基金调整标的指数许可使用费并修订基金合同的公告",
+      "content": null,
+      "publishTime": "2020-03-31 00:00:00",
+      "attachPath": "/disc/disk02/finalpage/2020-03-31/2cb37cee-ad6a-4e5a-9eb6-5908a68c7c06.PDF",
+      "attachFormat": "PDF",
+      "attachSize": 344,
+      "secCode": [
+        "159938"
+      ],
+      "secName": [
+        "医药"
+      ],
+      "bondType": null,
+      "bigIndustryCode": null,
+      "bigCategoryId": null,
+      "smallCategoryId": null,
+      "channelCode": null,
+      "_index": "ows_disclosure-20180825"
+    },
+    "receipt": {
+      "url": "https://disc.static.szse.cn/download/disc/disk02/finalpage/2020-03-31/2cb37cee-ad6a-4e5a-9eb6-5908a68c7c06.PDF",
+      "request_body": null,
+      "dates": "2010-01-01~2024-12-31",
+      "route": "official_documents",
+      "method": "GET",
+      "id": 62,
+      "kind": "http_attempts",
+      "label": "state_sz.159938_2020-03-31",
+      "scope": "cohort",
+      "started_at": "2026-11-15T15:11:47.610317+00:00",
+      "terminal": true,
+      "status": "FETCHED",
+      "http_status": 200,
+      "content_type": "application/pdf",
+      "response_status": "FETCHED",
+      "byte_count": 350845,
+      "sha256": "be5008a5d4aed9111ad0de6c5a58d6adfe5fc1e5c724cf62939edbdc92b56c02",
+      "raw_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m7\\objects\\be5008a5d4aed9111ad0de6c5a58d6adfe5fc1e5c724cf62939edbdc92b56c02.bin",
+      "ingested_at": "2026-11-15T15:11:48.247109+00:00",
+      "elapsed_seconds": 0.632917
+    }
+  },
+  {
+    "instrument_id": "sz.159938",
+    "title": "广发医药：关于增加中信建投证券为旗下部分基金场内申购赎回代理券商的公告",
+    "publication_date": "2020-03-12",
+    "source_url": "https://disc.static.szse.cn/download/disc/disk02/finalpage/2020-03-12/42d66bf7-052d-454d-9095-b5ded124d1f1.PDF",
+    "source_record": {
+      "id": "a164d294-a788-4211-9062-46dd1336d7e1",
+      "annId": 1207364603,
+      "title": "广发医药：关于增加中信建投证券为旗下部分基金场内申购赎回代理券商的公告",
+      "content": null,
+      "publishTime": "2020-03-12 00:00:00",
+      "attachPath": "/disc/disk02/finalpage/2020-03-12/42d66bf7-052d-454d-9095-b5ded124d1f1.PDF",
+      "attachFormat": "PDF",
+      "attachSize": 83,
+      "secCode": [
+        "159938"
+      ],
+      "secName": [
+        "广发医药"
+      ],
+      "bondType": null,
+      "bigIndustryCode": null,
+      "bigCategoryId": null,
+      "smallCategoryId": null,
+      "channelCode": null,
+      "_index": "ows_disclosure-20180825"
+    },
+    "receipt": {
+      "url": "https://disc.static.szse.cn/download/disc/disk02/finalpage/2020-03-12/42d66bf7-052d-454d-9095-b5ded124d1f1.PDF",
+      "request_body": null,
+      "dates": "2010-01-01~2024-12-31",
+      "route": "official_documents",
+      "method": "GET",
+      "id": 63,
+      "kind": "http_attempts",
+      "label": "state_sz.159938_2020-03-12",
+      "scope": "cohort",
+      "started_at": "2026-11-15T15:11:48.279220+00:00",
+      "terminal": true,
+      "status": "FETCHED",
+      "http_status": 200,
+      "content_type": "application/pdf",
+      "response_status": "FETCHED",
+      "byte_count": 83846,
+      "sha256": "2749f19f3813fe337e0548431f46845ea8a64b2e94f1b045e361e89aadb90620",
+      "raw_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m7\\objects\\2749f19f3813fe337e0548431f46845ea8a64b2e94f1b045e361e89aadb90620.bin",
+      "ingested_at": "2026-11-15T15:11:48.587863+00:00",
+      "elapsed_seconds": 0.304237
+    }
+  },
+  {
+    "instrument_id": "sz.159938",
+    "title": "广发医药：关于变更旗下部分基金场内简称的公告",
+    "publication_date": "2020-03-12",
+    "source_url": "https://disc.static.szse.cn/download/disc/disk02/finalpage/2020-03-12/9ff6ee3a-befe-4f75-8f01-e4a285e39566.PDF",
+    "source_record": {
+      "id": "7b706589-16d6-4fb2-b34b-de33c67cd50d",
+      "annId": 1207363904,
+      "title": "广发医药：关于变更旗下部分基金场内简称的公告",
+      "content": null,
+      "publishTime": "2020-03-12 00:00:00",
+      "attachPath": "/disc/disk02/finalpage/2020-03-12/9ff6ee3a-befe-4f75-8f01-e4a285e39566.PDF",
+      "attachFormat": "PDF",
+      "attachSize": 241,
+      "secCode": [
+        "159938"
+      ],
+      "secName": [
+        "广发医药"
+      ],
+      "bondType": null,
+      "bigIndustryCode": null,
+      "bigCategoryId": null,
+      "smallCategoryId": null,
+      "channelCode": null,
+      "_index": "ows_disclosure-20180825"
+    },
+    "receipt": {
+      "url": "https://disc.static.szse.cn/download/disc/disk02/finalpage/2020-03-12/9ff6ee3a-befe-4f75-8f01-e4a285e39566.PDF",
+      "request_body": null,
+      "dates": "2010-01-01~2024-12-31",
+      "route": "official_documents",
+      "method": "GET",
+      "id": 71,
+      "kind": "http_attempts",
+      "label": "state_namechange_20200312",
+      "scope": "cohort",
+      "started_at": "2026-11-15T15:12:26.015348+00:00",
+      "terminal": true,
+      "status": "FETCHED",
+      "http_status": 200,
+      "content_type": "application/pdf",
+      "response_status": "FETCHED",
+      "byte_count": 245303,
+      "sha256": "e60d1e0f906de705ea118593d567e6f05afabbc3221ece4e31b58432f1e7fe6e",
+      "raw_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m7\\objects\\e60d1e0f906de705ea118593d567e6f05afabbc3221ece4e31b58432f1e7fe6e.bin",
+      "ingested_at": "2026-11-15T15:12:26.236679+00:00",
+      "elapsed_seconds": 0.217721
+    }
+  },
+  {
+    "instrument_id": "sz.159939",
+    "title": "信息技术ETF：广发中证全指信息技术交易型开放式指数证券投资基金2024年第3季度报告",
+    "publication_date": "2024-10-25",
+    "source_url": "https://disc.static.szse.cn/download/disc/disk03/finalpage/2024-10-25/412a3bcc-0a16-444b-8302-480347abd575.PDF",
+    "source_record": {
+      "id": "36536ee0-db75-4ac0-a39a-25b02f234313",
+      "annId": 1221520533,
+      "title": "信息技术ETF：广发中证全指信息技术交易型开放式指数证券投资基金2024年第3季度报告",
+      "content": null,
+      "publishTime": "2024-10-25 00:00:00",
+      "attachPath": "/disc/disk03/finalpage/2024-10-25/412a3bcc-0a16-444b-8302-480347abd575.PDF",
+      "attachFormat": "PDF",
+      "attachSize": 496,
+      "secCode": [
+        "159939"
+      ],
+      "secName": [
+        "信息技术ETF"
+      ],
+      "bondType": null,
+      "bigIndustryCode": null,
+      "bigCategoryId": null,
+      "smallCategoryId": null,
+      "channelCode": null,
+      "_index": "ows_disclosure-20180825"
+    },
+    "receipt": {
+      "url": "https://disc.static.szse.cn/download/disc/disk03/finalpage/2024-10-25/412a3bcc-0a16-444b-8302-480347abd575.PDF",
+      "request_body": null,
+      "dates": "2010-01-01~2024-12-31",
+      "route": "official_documents",
+      "method": "GET",
+      "id": 64,
+      "kind": "http_attempts",
+      "label": "state_sz.159939_2024-10-25",
+      "scope": "cohort",
+      "started_at": "2026-11-15T15:11:48.620771+00:00",
+      "terminal": true,
+      "status": "FETCHED",
+      "http_status": 200,
+      "content_type": "application/pdf",
+      "response_status": "FETCHED",
+      "byte_count": 506772,
+      "sha256": "e33ebbf5fd83618bf44142ecbb439dc37c1e853e7fe1f83f0d2b3cbabba52f70",
+      "raw_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m7\\objects\\e33ebbf5fd83618bf44142ecbb439dc37c1e853e7fe1f83f0d2b3cbabba52f70.bin",
+      "ingested_at": "2026-11-15T15:11:49.469661+00:00",
+      "elapsed_seconds": 0.845114
+    }
+  },
+  {
+    "instrument_id": "sz.159940",
+    "title": "金融地产ETF：广发中证全指金融地产交易型开放式指数证券投资基金2024年第3季度报告",
+    "publication_date": "2024-10-25",
+    "source_url": "https://disc.static.szse.cn/download/disc/disk03/finalpage/2024-10-25/dec4a364-be5e-4aaa-a9cd-b0cbf465e907.PDF",
+    "source_record": {
+      "id": "11b8daa1-176c-4328-a3d8-bddbadf57e68",
+      "annId": 1221520527,
+      "title": "金融地产ETF：广发中证全指金融地产交易型开放式指数证券投资基金2024年第3季度报告",
+      "content": null,
+      "publishTime": "2024-10-25 00:00:00",
+      "attachPath": "/disc/disk03/finalpage/2024-10-25/dec4a364-be5e-4aaa-a9cd-b0cbf465e907.PDF",
+      "attachFormat": "PDF",
+      "attachSize": 484,
+      "secCode": [
+        "159940"
+      ],
+      "secName": [
+        "金融地产ETF"
+      ],
+      "bondType": null,
+      "bigIndustryCode": null,
+      "bigCategoryId": null,
+      "smallCategoryId": null,
+      "channelCode": null,
+      "_index": "ows_disclosure-20180825"
+    },
+    "receipt": {
+      "url": "https://disc.static.szse.cn/download/disc/disk03/finalpage/2024-10-25/dec4a364-be5e-4aaa-a9cd-b0cbf465e907.PDF",
+      "request_body": null,
+      "dates": "2010-01-01~2024-12-31",
+      "route": "official_documents",
+      "method": "GET",
+      "id": 65,
+      "kind": "http_attempts",
+      "label": "state_sz.159940_2024-10-25",
+      "scope": "cohort",
+      "started_at": "2026-11-15T15:11:49.503876+00:00",
+      "terminal": true,
+      "status": "FETCHED",
+      "http_status": 200,
+      "content_type": "application/pdf",
+      "response_status": "FETCHED",
+      "byte_count": 494721,
+      "sha256": "6196663d3114bddadfac5108f1fea6d97880627a6c6586fe520193d596d5ae8e",
+      "raw_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m7\\objects\\6196663d3114bddadfac5108f1fea6d97880627a6c6586fe520193d596d5ae8e.bin",
+      "ingested_at": "2026-11-15T15:11:49.895566+00:00",
+      "elapsed_seconds": 0.387466
+    }
+  },
+  {
+    "instrument_id": "sz.159944",
+    "title": "材料ETF：广发中证全指原材料交易型开放式指数证券投资基金2024年第3季度报告",
+    "publication_date": "2024-10-25",
+    "source_url": "https://disc.static.szse.cn/download/disc/disk03/finalpage/2024-10-25/e6487a47-9d79-4035-867c-97da908f045f.PDF",
+    "source_record": {
+      "id": "1c4aa513-09ca-481e-9bea-3b36475a8cd0",
+      "annId": 1221520542,
+      "title": "材料ETF：广发中证全指原材料交易型开放式指数证券投资基金2024年第3季度报告",
+      "content": null,
+      "publishTime": "2024-10-25 00:00:00",
+      "attachPath": "/disc/disk03/finalpage/2024-10-25/e6487a47-9d79-4035-867c-97da908f045f.PDF",
+      "attachFormat": "PDF",
+      "attachSize": 473,
+      "secCode": [
+        "159944"
+      ],
+      "secName": [
+        "材料ETF"
+      ],
+      "bondType": null,
+      "bigIndustryCode": null,
+      "bigCategoryId": null,
+      "smallCategoryId": null,
+      "channelCode": null,
+      "_index": "ows_disclosure-20180825"
+    },
+    "receipt": {
+      "url": "https://disc.static.szse.cn/download/disc/disk03/finalpage/2024-10-25/e6487a47-9d79-4035-867c-97da908f045f.PDF",
+      "request_body": null,
+      "dates": "2010-01-01~2024-12-31",
+      "route": "official_documents",
+      "method": "GET",
+      "id": 66,
+      "kind": "http_attempts",
+      "label": "state_sz.159944_2024-10-25",
+      "scope": "cohort",
+      "started_at": "2026-11-15T15:11:49.933055+00:00",
+      "terminal": true,
+      "status": "FETCHED",
+      "http_status": 200,
+      "content_type": "application/pdf",
+      "response_status": "FETCHED",
+      "byte_count": 483284,
+      "sha256": "ea5692bf162d57db3915c251ff3ee01946671ef731ddada7679d67113c10c3a7",
+      "raw_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m7\\objects\\ea5692bf162d57db3915c251ff3ee01946671ef731ddada7679d67113c10c3a7.bin",
+      "ingested_at": "2026-11-15T15:11:50.266054+00:00",
+      "elapsed_seconds": 0.328497
+    }
+  },
+  {
+    "instrument_id": "sz.159945",
+    "title": "能源ETF基金：广发中证全指能源交易型开放式指数证券投资基金2024年第3季度报告",
+    "publication_date": "2024-10-25",
+    "source_url": "https://disc.static.szse.cn/download/disc/disk03/finalpage/2024-10-25/af1829d8-d1f5-453c-933b-d6a09f31ab8e.PDF",
+    "source_record": {
+      "id": "dc57d530-7cb1-43eb-92e9-626b405fb689",
+      "annId": 1221520529,
+      "title": "能源ETF基金：广发中证全指能源交易型开放式指数证券投资基金2024年第3季度报告",
+      "content": null,
+      "publishTime": "2024-10-25 00:00:00",
+      "attachPath": "/disc/disk03/finalpage/2024-10-25/af1829d8-d1f5-453c-933b-d6a09f31ab8e.PDF",
+      "attachFormat": "PDF",
+      "attachSize": 485,
+      "secCode": [
+        "159945"
+      ],
+      "secName": [
+        "能源ETF基金"
+      ],
+      "bondType": null,
+      "bigIndustryCode": null,
+      "bigCategoryId": null,
+      "smallCategoryId": null,
+      "channelCode": null,
+      "_index": "ows_disclosure-20180825"
+    },
+    "receipt": {
+      "url": "https://disc.static.szse.cn/download/disc/disk03/finalpage/2024-10-25/af1829d8-d1f5-453c-933b-d6a09f31ab8e.PDF",
+      "request_body": null,
+      "dates": "2010-01-01~2024-12-31",
+      "route": "official_documents",
+      "method": "GET",
+      "id": 67,
+      "kind": "http_attempts",
+      "label": "state_sz.159945_2024-10-25",
+      "scope": "cohort",
+      "started_at": "2026-11-15T15:11:50.298173+00:00",
+      "terminal": true,
+      "status": "FETCHED",
+      "http_status": 200,
+      "content_type": "application/pdf",
+      "response_status": "FETCHED",
+      "byte_count": 495303,
+      "sha256": "f045a4076bb8308feba752ac1b0d48b2710172491b921fa5e0fc741557730999",
+      "raw_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m7\\objects\\f045a4076bb8308feba752ac1b0d48b2710172491b921fa5e0fc741557730999.bin",
+      "ingested_at": "2026-11-15T15:11:50.835847+00:00",
+      "elapsed_seconds": 0.533204
+    }
+  },
+  {
+    "instrument_id": "sz.159946",
+    "title": "全指消费：关于终止上市的公告",
+    "publication_date": "2018-12-25",
+    "source_url": "https://disc.static.szse.cn/download/disc/disk01/finalpage/2018-12-25/497b978a-cea3-413a-869e-734853ac31dd.PDF",
+    "source_record": {
+      "id": "18bab5af-6db2-43b6-bf5c-720611b9c940",
+      "annId": 1205687754,
+      "title": "全指消费：关于终止上市的公告",
+      "content": null,
+      "publishTime": "2018-12-25 00:00:00",
+      "attachPath": "/disc/disk01/finalpage/2018-12-25/497b978a-cea3-413a-869e-734853ac31dd.PDF",
+      "attachFormat": "PDF",
+      "attachSize": 89,
+      "secCode": [
+        "159946"
+      ],
+      "secName": [
+        "全指消费"
+      ],
+      "bondType": null,
+      "bigIndustryCode": null,
+      "bigCategoryId": null,
+      "smallCategoryId": null,
+      "channelCode": null,
+      "_index": "ows_disclosure-20180825"
+    },
+    "receipt": {
+      "url": "https://disc.static.szse.cn/download/disc/disk01/finalpage/2018-12-25/497b978a-cea3-413a-869e-734853ac31dd.PDF",
+      "request_body": null,
+      "dates": "2010-01-01~2024-12-31",
+      "route": "official_documents",
+      "method": "GET",
+      "id": 68,
+      "kind": "http_attempts",
+      "label": "state_sz.159946_2018-12-25",
+      "scope": "cohort",
+      "started_at": "2026-11-15T15:11:50.868755+00:00",
+      "terminal": true,
+      "status": "FETCHED",
+      "http_status": 200,
+      "content_type": "application/pdf",
+      "response_status": "FETCHED",
+      "byte_count": 90116,
+      "sha256": "068daf7092e66575ced613dbfaea0e87c7709e4ecd0945ab2bfab86605f3cd64",
+      "raw_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m7\\objects\\068daf7092e66575ced613dbfaea0e87c7709e4ecd0945ab2bfab86605f3cd64.bin",
+      "ingested_at": "2026-11-15T15:11:51.036267+00:00",
+      "elapsed_seconds": 0.163491
+    }
+  },
+  {
+    "instrument_id": "sz.159946",
+    "title": "全指消费：关于基金份额持有人大会表决结果暨决议生效的公告",
+    "publication_date": "2018-12-24",
+    "source_url": "https://disc.static.szse.cn/download/disc/disk01/finalpage/2018-12-24/b96a155b-6c44-439d-a9e1-c67cf6c4cf5a.PDF",
+    "source_record": {
+      "id": "a857b2fb-2011-4a37-9b6f-dbb242e54122",
+      "annId": 1205683903,
+      "title": "全指消费：关于基金份额持有人大会表决结果暨决议生效的公告",
+      "content": null,
+      "publishTime": "2018-12-24 00:00:00",
+      "attachPath": "/disc/disk01/finalpage/2018-12-24/b96a155b-6c44-439d-a9e1-c67cf6c4cf5a.PDF",
+      "attachFormat": "PDF",
+      "attachSize": 87,
+      "secCode": [
+        "159946"
+      ],
+      "secName": [
+        "全指消费"
+      ],
+      "bondType": null,
+      "bigIndustryCode": null,
+      "bigCategoryId": null,
+      "smallCategoryId": null,
+      "channelCode": null,
+      "_index": "ows_disclosure-20180825"
+    },
+    "receipt": {
+      "url": "https://disc.static.szse.cn/download/disc/disk01/finalpage/2018-12-24/b96a155b-6c44-439d-a9e1-c67cf6c4cf5a.PDF",
+      "request_body": null,
+      "dates": "2010-01-01~2024-12-31",
+      "route": "official_documents",
+      "method": "GET",
+      "id": 69,
+      "kind": "http_attempts",
+      "label": "state_sz.159946_2018-12-24",
+      "scope": "cohort",
+      "started_at": "2026-11-15T15:11:51.069362+00:00",
+      "terminal": true,
+      "status": "FETCHED",
+      "http_status": 200,
+      "content_type": "application/pdf",
+      "response_status": "FETCHED",
+      "byte_count": 88328,
+      "sha256": "f258fa0c1daced724ee9f98147b7ef94c96a7974d16bcac1eafa088a6874a0fd",
+      "raw_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m7\\objects\\f258fa0c1daced724ee9f98147b7ef94c96a7974d16bcac1eafa088a6874a0fd.bin",
+      "ingested_at": "2026-11-15T15:11:51.377310+00:00",
+      "elapsed_seconds": 0.303475
+    }
+  },
+  {
+    "instrument_id": "sz.159946",
+    "title": "全指消费：关于可能停牌及暂停赎回业务的公告",
+    "publication_date": "2018-12-19",
+    "source_url": "https://disc.static.szse.cn/download/disc/disk01/finalpage/2018-12-19/4d1643e4-188b-4d92-9c50-ddc9bb7ecb51.PDF",
+    "source_record": {
+      "id": "79299543-2aea-46ee-a67d-38c4fa6869ec",
+      "annId": 1205676282,
+      "title": "全指消费：关于可能停牌及暂停赎回业务的公告",
+      "content": null,
+      "publishTime": "2018-12-19 00:00:00",
+      "attachPath": "/disc/disk01/finalpage/2018-12-19/4d1643e4-188b-4d92-9c50-ddc9bb7ecb51.PDF",
+      "attachFormat": "PDF",
+      "attachSize": 79,
+      "secCode": [
+        "159946"
+      ],
+      "secName": [
+        "全指消费"
+      ],
+      "bondType": null,
+      "bigIndustryCode": null,
+      "bigCategoryId": null,
+      "smallCategoryId": null,
+      "channelCode": null,
+      "_index": "ows_disclosure-20180825"
+    },
+    "receipt": {
+      "url": "https://disc.static.szse.cn/download/disc/disk01/finalpage/2018-12-19/4d1643e4-188b-4d92-9c50-ddc9bb7ecb51.PDF",
+      "request_body": null,
+      "dates": "2010-01-01~2024-12-31",
+      "route": "official_documents",
+      "method": "GET",
+      "id": 70,
+      "kind": "http_attempts",
+      "label": "state_sz.159946_2018-12-19",
+      "scope": "cohort",
+      "started_at": "2026-11-15T15:11:51.409685+00:00",
+      "terminal": true,
+      "status": "FETCHED",
+      "http_status": 200,
+      "content_type": "application/pdf",
+      "response_status": "FETCHED",
+      "byte_count": 79747,
+      "sha256": "b2b76f987e5025d89d7f8da5bc80c7372728b179bce23bd22c3eaa35b61e637e",
+      "raw_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m7\\objects\\b2b76f987e5025d89d7f8da5bc80c7372728b179bce23bd22c3eaa35b61e637e.bin",
+      "ingested_at": "2026-11-15T15:11:51.767218+00:00",
+      "elapsed_seconds": 0.35315
+    }
+  }
+]

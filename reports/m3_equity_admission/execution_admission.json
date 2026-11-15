@@ -1,0 +1,224 @@
+{
+  "status": "BLOCKED_EXECUTION_AND_DATA",
+  "reviewed_on": "2026-11-15",
+  "scope": [
+    "R2",
+    "R3"
+  ],
+  "reviewed_account_years": [
+    2016,
+    2024
+  ],
+  "performance_evidence": false,
+  "real_strategy_runs": 0,
+  "live_execution": false,
+  "holdout_market_or_strategy_result_access": false,
+  "frozen_r1_outputs_modified": false,
+  "main_runner_stock_dividends": "BLOCKED_NOT_INTEGRATED",
+  "independent_components": {
+    "cash_dividend_fifo": "SYNTHETIC_ENGINEERING_VERIFIED",
+    "historical_limit_regimes": "SYNTHETIC_ENGINEERING_VERIFIED"
+  },
+  "engine_repairs": [
+    "stock_permission_requires_boolean_true",
+    "integer_stock_split_tax_classification_block",
+    "stock_delisting_unknown_recovery_uncertainty",
+    "stale_stock_mark_uncertainty",
+    "stock_fee_rule_asof_clock",
+    "stock_status_and_st_flag_strict_types_with_daily_risk_exit"
+  ],
+  "stock_status_contract": {
+    "status": [
+      "NORMAL",
+      "ACTIVE"
+    ],
+    "is_st": "must be boolean False",
+    "missing_or_invalid": "INSTRUMENT_STATUS_DENIED",
+    "synthetic_compatibility_bypass": false,
+    "existing_holdings": "bounded defensive sale; unfilled holdings retained",
+    "old_fixture_update": "root added explicit is_st=False to tests/test_execution.py fixture"
+  },
+  "blockers": [
+    {
+      "id": "E01",
+      "kind": "ENGINE_INTEGRATION",
+      "detail": "FIFO tax component is not connected to dividend record-date, cash, payable and terminal NAV ledger."
+    },
+    {
+      "id": "E02",
+      "kind": "DATA_EVIDENCE",
+      "detail": "Complete historical equity lifecycle, corporate actions, legal rule/fee originals and PIT timestamps not established here."
+    },
+    {
+      "id": "E03",
+      "kind": "UNSUPPORTED_EVENT",
+      "detail": "Taxable bonus, reserve-source conversion, rights issue, merger and delisted-right payments remain blocked."
+    },
+    {
+      "id": "E04",
+      "kind": "ENGINE_AND_DATA",
+      "detail": "Historical limit helper is not integrated with daily audited limits; unbounded/special sessions need explicit dependency proof or implementation."
+    },
+    {
+      "id": "E05",
+      "kind": "TAX_CONVENTION_EVIDENCE",
+      "detail": "Nonexistent month/year anniversaries explicitly block; tax rounding/debit conventions and record-close terminal reserves need evidence/integration."
+    }
+  ],
+  "validation": {
+    "result": "174 passed",
+    "seconds": 3.16,
+    "command": ".venv\\Scripts\\python.exe -m pytest tests/test_equity_execution.py tests/test_execution.py tests/test_share_events.py tests/test_settlement.py tests/test_decimal_money.py tests/test_ledger_reconciliation.py review_code/equity/test_independent_execution_admission.py -q",
+    "kind": "SYNTHETIC_ACCOUNTING_RELATED_REGRESSION_AND_INDEPENDENT_COUNTEREXAMPLE_RERUN",
+    "related_cases": 146,
+    "independent_cases": 28,
+    "independent_test_file_modified_by_execution_author": false,
+    "prior_validation": {
+      "result": "118 passed",
+      "seconds": 2.67
+    }
+  },
+  "validation_input_sha256": {
+    "tests/test_equity_execution.py": "1debb21a85d690db8188588680e78193cba51b851cf4231df11f3aea6f84ce12",
+    "tests/test_execution.py": "a239c00f7db0cb241134a63c13b4ced140802df0b8cd1b3f8c9645f8f0c85cb1",
+    "tests/test_share_events.py": "9c9db1d2f58fb78dcce472a57b1ad8be73e0259101f62a6cb8ed974fb90bbf6f",
+    "tests/test_settlement.py": "0afab1641160639c0e776b931f33770b1c3fe7af95b043207646f27baa687846",
+    "tests/test_decimal_money.py": "f6955bc944012e85579ea740f3d83d57088ee90cf4350e067eedcdfa89a30d95",
+    "tests/test_ledger_reconciliation.py": "7fa845416c900125f348de5d684841253d3f6caeb219cc0107982022ffe65b6e",
+    "review_code/equity/test_independent_execution_admission.py": "ba171f25d3595b5173b665bac7253b3caec28e8074e049a60ee6ae2d6612572a"
+  },
+  "sources": [
+    {
+      "id": "dividend_2015_101",
+      "url": "https://www.mof.gov.cn/gp/xxgkml/szs/201509/t20150907_2510529.htm",
+      "status": "ARCHIVED_UNREVIEWED",
+      "performance_data": false,
+      "content_type": "text/html",
+      "http_status": 200,
+      "final_url": "https://www.mof.gov.cn/gp/xxgkml/szs/201509/t20150907_2510529.htm",
+      "path": "work/equity_execution/dividend_2015_101.html",
+      "bytes": 10428,
+      "sha256": "2dd4edb94577ba25fb4fe0249c56225890e7f2f29f84a42126d24a0028ba70d3",
+      "review_status": "OFFICIAL_CONTENT_REVIEWED_NOT_DATASET_ADMISSION"
+    },
+    {
+      "id": "dividend_fifo_2015_qa",
+      "url": "https://szs.mof.gov.cn/zhengcejiedu/201509/t20150909_1455696.htm",
+      "status": "ARCHIVED_UNREVIEWED",
+      "performance_data": false,
+      "content_type": "text/html",
+      "http_status": 200,
+      "final_url": "https://szs.mof.gov.cn/zhengcejiedu/201509/t20150909_1455696.htm",
+      "path": "work/equity_execution/dividend_fifo_2015_qa.html",
+      "bytes": 17978,
+      "sha256": "87cc6cb1dc2bd6c4e960ce8448ecebcc2adadd854d4c8627119078572c760188",
+      "review_status": "OFFICIAL_CONTENT_REVIEWED_NOT_DATASET_ADMISSION"
+    },
+    {
+      "id": "stamp_2023_39",
+      "url": "https://fgk.chinatax.gov.cn/zcfgk/c102416/c5211343/content.html",
+      "status": "ARCHIVED_UNREVIEWED",
+      "performance_data": false,
+      "content_type": "text/html",
+      "http_status": 200,
+      "final_url": "https://fgk.chinatax.gov.cn/zcfgk/c102416/c5211343/content.html",
+      "path": "work/equity_execution/stamp_2023_39.html",
+      "bytes": 36736,
+      "sha256": "bdad8369ee854d205de9a1e355beecc4fa7841f7293e332997e6cadd2b923c35",
+      "review_status": "OFFICIAL_CONTENT_REVIEWED_NOT_DATASET_ADMISSION"
+    },
+    {
+      "id": "chinext_20200821",
+      "url": "https://www.szse.cn/aboutus/trends/conference/t20200821_580925.html",
+      "status": "ARCHIVED_UNREVIEWED",
+      "performance_data": false,
+      "content_type": "text/html",
+      "http_status": 200,
+      "final_url": "https://www.szse.cn/aboutus/trends/conference/t20200821_580925.html",
+      "path": "work/equity_execution/chinext_20200821.html",
+      "bytes": 34969,
+      "sha256": "3da75fdcef06621a9e80761b28e56662b8ec4082c372bc15f14eb20afc5a7ae9",
+      "review_status": "OFFICIAL_CONTENT_REVIEWED_NOT_DATASET_ADMISSION"
+    },
+    {
+      "id": "chinext_st_transition_2020",
+      "url": "https://www.szse.cn/lawrules/rule/repeal/rules/P020231230545303417288.pdf",
+      "status": "ARCHIVED_UNREVIEWED",
+      "performance_data": false,
+      "content_type": "application/pdf",
+      "http_status": 200,
+      "final_url": "https://www.szse.cn/lawrules/rule/repeal/rules/P020231230545303417288.pdf",
+      "path": "work/equity_execution/chinext_st_transition_2020.pdf",
+      "bytes": 78507,
+      "sha256": "9155115a7344627da69c5ab8139dbf00a93d53278c99d83b9a246ddf014edd1d",
+      "review_status": "OFFICIAL_CONTENT_REVIEWED_NOT_DATASET_ADMISSION"
+    },
+    {
+      "id": "main_ipo_2023",
+      "url": "https://www.szse.cn/www/investor/knowledge/t20230509_600303.html",
+      "status": "ARCHIVED_UNREVIEWED",
+      "performance_data": false,
+      "content_type": "text/html",
+      "http_status": 200,
+      "final_url": "https://www.szse.cn/www/investor/knowledge/t20230509_600303.html",
+      "path": "work/equity_execution/main_ipo_2023.html",
+      "bytes": 28349,
+      "sha256": "36161f3db04eff1b71cfc805a3a216fc4c2eec62c0074e2c491c9534acfdcf01",
+      "review_status": "OFFICIAL_CONTENT_REVIEWED_NOT_DATASET_ADMISSION"
+    },
+    {
+      "id": "transfer_2015",
+      "url": "https://www.chinaclear.cn/zdjs/gszb/201507/9aeee4d21a6f47f5b3741637993b004b.shtml",
+      "status": "REJECTED_REDIRECT_HOME_PAGE",
+      "performance_data": false,
+      "content_type": "text/html",
+      "http_status": 200,
+      "final_url": "http://www.chinaclear.cn/",
+      "path": "work/equity_execution/transfer_2015.html",
+      "bytes": 35525,
+      "sha256": "f6e43785a5360e47022d668755adf11f43d037df426ef5ce632daa52fc31ef16",
+      "note": "Current navigation/news metadata is quarantined; not historical rule evidence or market data.",
+      "review_status": "NOT_VALID_HISTORICAL_RULE_EVIDENCE"
+    },
+    {
+      "id": "transfer_schedule_202207",
+      "url": "https://www.chinaclear.cn/zdjs/editor_file/20220701154723234.pdf",
+      "status": "FETCH_FAILED",
+      "performance_data": false,
+      "error": "HTTP Error 404: Not Found",
+      "review_status": "NOT_VALID_HISTORICAL_RULE_EVIDENCE"
+    },
+    {
+      "id": "capital_reserve_tax_2018",
+      "url": "https://tianjin.chinatax.gov.cn/11200000000/0300/030005/20180723150417790.shtml",
+      "status": "ARCHIVED_UNREVIEWED",
+      "performance_data": false,
+      "content_type": "text/html;charset=utf-8",
+      "http_status": 200,
+      "final_url": "https://tianjin.chinatax.gov.cn/11200000000/0300/030005/20180723150417790.shtml",
+      "path": "work/equity_execution/capital_reserve_tax_2018.html",
+      "bytes": 31856,
+      "sha256": "a9488bb4119675807b0d799a85814cce9f066954030b2dcc9fbeca8630fd6f0e",
+      "review_status": "OFFICIAL_CONTENT_REVIEWED_NOT_DATASET_ADMISSION"
+    },
+    {
+      "id": "main_reform_effective_2023",
+      "url": "https://www.szse.cn/www/marketServices/technicalservice/doc/P020230724535729507237.pdf",
+      "status": "ARCHIVED_UNREVIEWED",
+      "performance_data": false,
+      "content_type": "application/pdf",
+      "http_status": 200,
+      "final_url": "https://www.szse.cn/www/marketServices/technicalservice/doc/P020230724535729507237.pdf",
+      "path": "work/equity_execution/main_reform_effective_2023.pdf",
+      "bytes": 5562125,
+      "sha256": "9540ba342ab92b6cb464d24cd2e7acfa45db2847ea3a6832a8767bc60f6c9029",
+      "review_status": "OFFICIAL_CONTENT_REVIEWED_NOT_DATASET_ADMISSION"
+    }
+  ],
+  "source_file_sha256": {
+    "src/quant_research/execution.py": "589549d5c50fb1f090bde6b7a91abaf275269e342620d275843abb497550abe1",
+    "src/quant_research/equity_accounting.py": "9bf3b8673547c63bdc6a4eb910f194b9810e66c681cd350942898558ebd6a3c7",
+    "tests/test_equity_execution.py": "1debb21a85d690db8188588680e78193cba51b851cf4231df11f3aea6f84ce12",
+    "reports/m3_equity_admission/EXECUTION_ADMISSION.md": "7dc77ed3f9bbb71e721b9e85f1e90f4ca4e4c6fdd1215f65d6a298c6a3fc9f5d"
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "milestone": "M5",
+  "overall_status": "B",
+  "baseline_commit": "8a9977cb5538a3ffd3c07506035c0dca7c3a0f14",
+  "implementation_commit": "48c695fc788eebd32fc7ad55879b76cf7d755d5a",
+  "delivery_commit_resolution": "git log -1 --format=%H -- reports/m5_review/release_binding.json",
+  "delivery_commit_scope": "Only this metadata receipt; production, tests, prior results and registered artifacts unchanged from implementation_commit",
+  "github_pr": "https://github.com/FeiyangHong/Quant-Research/pull/1",
+  "draft": true,
+  "merged": false,
+  "ci": {
+    "run_id": 43710032109,
+    "job_id": 132799380595,
+    "url": "https://github.com/FeiyangHong/Quant-Research/actions/runs/43710032109",
+    "status": "completed",
+    "conclusion": "success",
+    "tested_pr_merge_commit": "9dcbbafefa1f5daca89f74fa32c3bad2f84821c8",
+    "head_commit": "48c695fc788eebd32fc7ad55879b76cf7d755d5a",
+    "base_commit": "2d940c21242df5653debb437c2397dd037a07cf6",
+    "python": "3.9.13",
+    "passed": 681,
+    "skipped": 8,
+    "warnings": 1,
+    "seconds": 63.45,
+    "skip_basis": "6 original PDF byte checks, 1 original accounting builder, 1 original market provider response; originals absent from CI; portable contract assertions run",
+    "observed_log_lines": [
+      "2026-11-15T11:40:21.3500987Z HEAD is now at 9dcbbaf Merge 48c695fc788eebd32fc7ad55879b76cf7d755d5a into 2d940c21242df5653debb437c2397dd037a07cf6",
+      "2026-11-15T11:42:38.1356822Z 681 passed, 8 skipped, 1 warning in 63.45s (0:01:03)"
+    ]
+  },
+  "local": {
+    "passed": 689,
+    "skipped": 0,
+    "warnings": 1,
+    "seconds": 56.51,
+    "python": "3.9.19",
+    "all_original_byte_checks_passed": true
+  },
+  "packaging": {
+    "staged_sha256_bindings_verified": 196,
+    "all_new_review_and_plan_local_links_resolved": true,
+    "git_diff_check_passed": true,
+    "old_m4_and_frozen_etf_report_changes": [],
+    "gitignore_index_newline_mismatch": "Caught before commit; renormalized the index under explicit -text and verified all 196 exact hashes",
+    "source_budget_receipts": 59,
+    "source_budget_sha256_and_byte_checks": "ALL_PASS",
+    "source_network_collection_closed": true
+  },
+  "provenance_manifest": "verification.json",
+  "scope": "Engineering and source-feasibility only; no Alpha evidence",
+  "research_constraints": {
+    "R1B": "ARCHIVE_CURRENT_CONFIGURATION / STOP_ETF_PARAMETER_SEARCH",
+    "preserved_valid_runs": 448,
+    "preserved_invalidated_aborted_runs": 353,
+    "R2_R3_real_alpha_registrations": 0,
+    "R2_R3_real_alpha_runs": 0,
+    "holdout": "2025-01-01 through 2026-11-13 market/factor/strategy locked",
+    "deployment_capital_cny": 100000,
+    "source_budget": {
+      "http_equivalent_slots": 52,
+      "baostock_wire_calls": 7,
+      "observable_response_bytes": 20764840
+    },
+    "real_account_event_acceptance": "BLOCKED_RULE_SOURCES_ZERO_ACTUAL_FILLS",
+    "purchase": false,
+    "paper_live": false
+  },
+  "observed_at_utc": "2026-11-15 11:43:45 UTC",
+  "time_accounting": "verification.json records conservative parallel session occupancy through its generated_at. Publication/CI waits after that checkpoint are root-only; not human labor. No further data collection or implementation sessions."
+}

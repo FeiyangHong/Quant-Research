@@ -1,0 +1,14 @@
+{
+  "agent": "m6_independent",
+  "conservative_start_utc": "2026-11-15T12:54:00+00:00",
+  "end_utc": "2026-11-15T13:25:52.796697+00:00",
+  "active_session_wall_seconds": 1912.797,
+  "active_session_hours": 0.5313324158333333,
+  "includes_waiting": true,
+  "human_hours": 0,
+  "http_attempts": 0,
+  "baostock_wire_attempts": 0,
+  "new_response_body_bytes": 0,
+  "scope": "Independent review; root budget includes parallel sessions cumulatively",
+  "status": "COMPLETE_STOPPED"
+}

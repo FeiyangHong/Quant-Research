@@ -1,0 +1,75 @@
+{
+  "purpose": "ENGINEERING_ACCOUNTING_VALIDATION",
+  "data_origin": "REAL",
+  "synthetic": false,
+  "performance_evidence": false,
+  "real_strategy_runs": 0,
+  "holdout_access": false,
+  "observed_at": "2026-11-15T13:18:08.337907+00:00",
+  "command": ".venv/Scripts/python.exe scripts/m6_stock_execution.py",
+  "original_registration_unchanged": true,
+  "code_and_registration_hashes": {
+    "src/quant_research/execution.py": "9198a41981dc2e968964a61c5f71b5f3427f0e28cca670ec20bb4432d70ba863",
+    "scripts/m5_execution.py": "5fcbb214dcb0db7f7c1422fb1d3acd5c3f032cb8c31a4429953acee67117533f",
+    "scripts/m6_stock_execution.py": "8b406df1939d74ab465954229b0e2c355edd1b350f05e95d36e5cdfd82612fed",
+    "reports/m5_execution/registration.json": "925f1c0d0047e764116cedd6154a2d7d24d5bf9593af80fd8b470e8bef5caa4b",
+    "reports/m5_execution/registration_addendum.json": "e81c0c73b3dffa66eb6dfd66f0af2a11ead0e2173e57af4d2fec4b11f79b8d87"
+  },
+  "cases": [
+    {
+      "case": "moutai_ordinary",
+      "status": "BLOCKED",
+      "source_gate_passed": false,
+      "daily_rows": 34,
+      "differences": [],
+      "predicted_fills": [],
+      "actual_fill_count": 0,
+      "has_actual_event_position": false,
+      "missing_components": [
+        "transfer_fee"
+      ],
+      "broker_ledger_verification": "UNVERIFIED"
+    },
+    {
+      "case": "moutai_special",
+      "status": "BLOCKED",
+      "source_gate_passed": false,
+      "daily_rows": 35,
+      "differences": [],
+      "predicted_fills": [],
+      "actual_fill_count": 0,
+      "has_actual_event_position": false,
+      "missing_components": [
+        "transfer_fee"
+      ],
+      "broker_ledger_verification": "UNVERIFIED"
+    },
+    {
+      "case": "kangmei_st",
+      "status": "PASS",
+      "source_gate_passed": true,
+      "daily_rows": 41,
+      "differences": [],
+      "predicted_fills": [
+        {
+          "date": "2019-05-13",
+          "side": "BUY",
+          "quantity": 100,
+          "price": 5.78,
+          "fees": 5.01
+        },
+        {
+          "date": "2019-05-14",
+          "side": "BUY",
+          "quantity": 100,
+          "price": 5.6,
+          "fees": 5.01
+        }
+      ],
+      "actual_fill_count": 2,
+      "has_actual_event_position": true,
+      "missing_components": [],
+      "broker_ledger_verification": "UNVERIFIED"
+    }
+  ]
+}

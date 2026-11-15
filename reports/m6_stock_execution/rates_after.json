@@ -1,0 +1,62 @@
+{
+  "observed_at": "2026-11-15T13:15:39.564627+00:00",
+  "execution_sha256": "9198a41981dc2e968964a61c5f71b5f3427f0e28cca670ec20bb4432d70ba863",
+  "baseline_fills": [
+    {
+      "date": "2023-08-01",
+      "order_id": "O00000001",
+      "instrument_id": "SYNTHETIC_MAIN",
+      "side": "BUY",
+      "quantity": 200,
+      "price": 10.0,
+      "notional": 2000.0,
+      "commission": 5.0,
+      "stamp_duty": 0.0,
+      "transfer_fee": 0.02,
+      "fees": 5.02,
+      "slippage_cost": 0.0,
+      "mode": "DAILY_SCREEN_ONLY",
+      "purpose": "ENGINEERING_REPLAY_NOT_STRATEGY_PERFORMANCE",
+      "synthetic": true
+    }
+  ],
+  "changed_fills": [
+    {
+      "date": "2023-08-01",
+      "order_id": "O00000001",
+      "instrument_id": "SYNTHETIC_MAIN",
+      "side": "BUY",
+      "quantity": 200,
+      "price": 10.0,
+      "notional": 2000.0,
+      "commission": 5.0,
+      "stamp_duty": 0.0,
+      "transfer_fee": 0.02,
+      "fees": 5.02,
+      "slippage_cost": 0.0,
+      "mode": "DAILY_SCREEN_ONLY",
+      "purpose": "ENGINEERING_REPLAY_NOT_STRATEGY_PERFORMANCE",
+      "synthetic": true
+    }
+  ],
+  "equal_tables": {
+    "nav": true,
+    "positions": true,
+    "orders": true,
+    "fills": true,
+    "rejected_orders": true,
+    "costs": true,
+    "exposure": true,
+    "cash_events": true,
+    "order_events": true,
+    "rights": true,
+    "share_events": true,
+    "tax_balances": true,
+    "tax_lots": true,
+    "dividend_entitlements": true,
+    "tax_events": true
+  },
+  "author_test_command": ".venv/Scripts/python.exe -m pytest -q tests/test_m6_rates.py tests/test_execution.py tests/test_m5_execution.py",
+  "author_test_result": "71 passed in3.39s",
+  "independent": "review_code/m6/test_independent_fees.py;29 passed,non-author"
+}

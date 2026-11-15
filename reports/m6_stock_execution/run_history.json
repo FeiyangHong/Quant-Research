@@ -1,0 +1,60 @@
+[
+  {
+    "run_number": 1,
+    "observed_at": "2026-11-15T13:12:53.564406+00:00",
+    "results_path": "run_attempts/0001/results.json",
+    "results_sha256": "1bb612334500c427fcf2531cb833fac28b85c73594aa0159f5e9581dedb22436",
+    "reason": "First per-case rule admission and actual M6 replay.",
+    "cases": [
+      {
+        "case": "moutai_ordinary",
+        "status": "BLOCKED",
+        "fills": 0,
+        "daily_rows": 34
+      },
+      {
+        "case": "moutai_special",
+        "status": "BLOCKED",
+        "fills": 0,
+        "daily_rows": 35
+      },
+      {
+        "case": "kangmei_st",
+        "status": "PASS",
+        "fills": 2,
+        "daily_rows": 41
+      }
+    ],
+    "engineering_only": true,
+    "alpha_runs": 0
+  },
+  {
+    "run_number": 2,
+    "observed_at": "2026-11-15T13:18:08.337907+00:00",
+    "results_path": "results.json",
+    "results_sha256": "929eb28264127bd74d5de66b82fd3836dd25a34b1f33467bdfec3958b6603c73",
+    "reason": "Same fixed cases rerun after narrowing source manifests to relevant components; monetary inputs and outputs unchanged.",
+    "cases": [
+      {
+        "case": "moutai_ordinary",
+        "status": "BLOCKED",
+        "fills": 0,
+        "daily_rows": 34
+      },
+      {
+        "case": "moutai_special",
+        "status": "BLOCKED",
+        "fills": 0,
+        "daily_rows": 35
+      },
+      {
+        "case": "kangmei_st",
+        "status": "PASS",
+        "fills": 2,
+        "daily_rows": 41
+      }
+    ],
+    "engineering_only": true,
+    "alpha_runs": 0
+  }
+]

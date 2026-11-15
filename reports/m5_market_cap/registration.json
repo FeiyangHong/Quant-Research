@@ -1,0 +1,27 @@
+{
+  "registered_at": "2026-11-15T10:59:02.8775013Z",
+  "registered_at_source": "Registration file CreationTimeUtc, before first market request at 10:59:18Z; draft clock typo corrected without changing cases or routes",
+  "role": "FIXED_DEVELOPMENT_SNAPSHOT_ENGINEERING_NO_RETURNS",
+  "snapshot_date": "2020-07-31",
+  "fixed_denominator": 3779,
+  "membership_source": "reports/m4_data/full_pool_2020-07-31.json",
+  "primary_diagnostic_convention": "A_SHARE_CLOSE_TIMES_ALL_ORDINARY_OUTSTANDING_INCLUDING_RESTRICTED",
+  "interpretation": "Synthetic valuation convention, distinct from per-class aggregate market value; does not approve formal R2 share scope",
+  "routes": [
+    {"id": "historical_shares", "source": "Eastmoney datacenter historical share structure", "host": "datacenter-web.eastmoney.com", "report": "RPT_F10_EH_EQUITY", "server_date_cutoff": "2020-07-31", "publication_and_effective_semantics_required": true},
+    {"id": "official_documents", "source": "CNInfo original issuer capital notices and original annual/IPO reports", "date_range": "2020-01-01~2020-07-31", "purpose": "Five fixed structural semantic cases only, no whole-history document reconstruction"}
+  ],
+  "offline_rejected_route": {"source": "Existing BaoStock daily valuation ratios", "reason": "No explicit total-shares field; turn denominator is free float, ratio inversion depends on unverified financial vintage and rounded ratios", "new_requests": 0},
+  "cases": [
+    {"instrument_id": "sh.600519", "category": "ordinary_single_A_class"},
+    {"instrument_id": "sz.002526", "category": "share_change_candidate", "event_existence": "UNVERIFIED_HYPOTHESIS_BEFORE_FETCH"},
+    {"instrument_id": "sh.601398", "category": "A_H_multiple_share_classes"},
+    {"instrument_id": "sh.600518", "category": "existing_risk_warning_case"},
+    {"instrument_id": "sz.300855", "category": "recent_IPO_candidate"}
+  ],
+  "nested_collection_cap": {"http_attempts": 30, "baostock_wire_attempts": 0, "new_body_bytes": 41943040},
+  "stop_condition": "Do not expand a route to full pool without timestamp, effective-date, unit and share-class semantics; no percentiles without complete historical non-ST denominator",
+  "agent_session_start_utc": "2026-11-15T10:52:35Z",
+  "independent_human_reviews": 0,
+  "market_or_strategy_returns": "NOT_COMPUTED"
+}

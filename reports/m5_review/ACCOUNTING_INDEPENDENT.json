@@ -1,0 +1,90 @@
+{
+  "review": "M5_INDEPENDENT_ACCOUNTING",
+  "reviewer": "non_author_accounting_agent",
+  "baseline": "8a9977cb5538a3ffd3c07506035c0dca7c3a0f14",
+  "mechanism_status": "PASS_SECOND_FINAL_ROUND",
+  "source_scenario_arithmetic_status": "PASS_CONDITIONAL_MODEL_ONLY",
+  "real_source_acceptance": "BLOCKED_RULE_SOURCES",
+  "broker_ledger_verification": "UNVERIFIED",
+  "real_strategy_runs": 0,
+  "performance_evidence": false,
+  "holdout_access": false,
+  "network_requests": 0,
+  "new_network_bytes": 0,
+  "earliest_observed_clock_utc": "2026-11-15T11:10:45Z",
+  "conservative_session_started_at_utc": "2026-11-15T11:10:00+00:00",
+  "session_completed_at_utc": "2026-11-15T11:18:39.640286+00:00",
+  "conservative_session_wall_seconds": 519.640286,
+  "time_basis": "Conservative elapsed agent-session occupancy including tool waits; not human labor or pure CPU.",
+  "rounds": [
+    {
+      "round": 1,
+      "tests": 37,
+      "passed": 33,
+      "failed": 4,
+      "pytest_seconds": 2.6,
+      "failures": [
+        "fixed_quantity_intent audit NaN; truthiness assertion false positive",
+        "explicit REAL origin admitted by synthetic path",
+        "registered source digest ignored and recomputed",
+        "limit mismatch caught and mislabeled as missing reference"
+      ],
+      "hashes": {
+        "src/quant_research/execution.py": "030016104dcb20beb1adbaf8ae5eda880fc26ba30982c996dc913ce5d4022f6e",
+        "src/quant_research/engineering_replay.py": "9d2e4612555c32d31718b07fd9465342798b55b14b0fed77b78d414519ca6d65",
+        "src/quant_research/equity_accounting.py": "c466d86c3825aa421618915d853a88a374b856ac01aa12b3f144be423ecff92c",
+        "scripts/m5_execution.py": "7fad58103667a36d1f843508c4184facaa491cf0cfba9837dd314dea2c78776d",
+        "review_code/m5/test_external_accounting.py": "77f12b98799a6988f23eec13826a459cda541b057e7634f4ce0f86197846ad14"
+      }
+    },
+    {
+      "round": 2,
+      "tests": 42,
+      "passed": 42,
+      "failed": 0,
+      "pytest_seconds": 2.63,
+      "resolved_all_first_round_defects": true,
+      "third_round_used": false
+    }
+  ],
+  "command": ".venv/Scripts/python.exe -m pytest review_code/m5/test_external_accounting.py -q",
+  "independent_oracle_basis": "Handwritten Decimal equations for invented mechanisms; separate archived-raw case arithmetic. No expected value derived from actual fills/NAV or production accounting helpers.",
+  "registered_case_daily_rows": 110,
+  "engineering_cash_cny": 10000000,
+  "deployment_cash_cny": 100000,
+  "unchanged_single_stock_cap": 0.05,
+  "final_hashes": {
+    "src/quant_research/execution.py": "0aaf6dc8eeea12c5123205527fab4f53ee93a3c2b01f9885b166e124c2131a56",
+    "src/quant_research/engineering_replay.py": "1b198e89356ed69b873eca7d0dc9db0e4afab0c16db86f41eb4ae5b1517ec814",
+    "src/quant_research/equity_accounting.py": "c466d86c3825aa421618915d853a88a374b856ac01aa12b3f144be423ecff92c",
+    "scripts/m5_execution.py": "5fcbb214dcb0db7f7c1422fb1d3acd5c3f032cb8c31a4429953acee67117533f",
+    "review_code/m5/test_external_accounting.py": "28c33c801c808799b89275425ca4bc188979a547c1d3438632ea4f352e6003ef",
+    "reports/m5_execution/registration.json": "925f1c0d0047e764116cedd6154a2d7d24d5bf9593af80fd8b470e8bef5caa4b",
+    "reports/m5_execution/registration_addendum.json": "e81c0c73b3dffa66eb6dfd66f0af2a11ead0e2173e57af4d2fec4b11f79b8d87",
+    "reports/m5_execution/rules.json": "19569cf3279aaa8ed51e029f0b9f5ec184b57b13da0deaed16c2b38f567d88d4",
+    "reports/m5_execution/results.json": "78b0d0ec898f7899b4580654843b1694f82204bb532f9cf9297576eb1a1e7f69",
+    "reports/m5_execution/raw/moutai_ordinary_daily.json": "67791fb897a93a041a2568e868bdfe6bc730a4589522b1cba6c9b0af8404f1d9",
+    "reports/m5_execution/moutai_ordinary_conditional_expected.csv": "9a19f057021e7c88dfc453bb02c569c3d900f8f92b003acdaa70176ea59f1fec",
+    "reports/m5_execution/moutai_ordinary_conditional_predicted_fills.json": "b82839acb082eadf60eddf533ab6394fdc899adcb783b6bb8d7f3ddc9fb63f1b",
+    "reports/m5_execution/raw/moutai_special_daily.json": "3e9d3ff601d573e44b9b202f46160db50a00db67710d2836786aee00cfcaa858",
+    "reports/m5_execution/moutai_special_conditional_expected.csv": "88fd270f19d92e05519a9f745596fcbf259120d6ff02aea303339492fa9e6dd7",
+    "reports/m5_execution/moutai_special_conditional_predicted_fills.json": "a6f969312625d3c76e7c51f6c5e844ec469bbf1fa29b5662264aca2acb495c07",
+    "reports/m5_execution/raw/kangmei_st_daily.json": "89c366c15dbc6be9b0b21a5c4caea287027374d86c8415d88cf223f868f6394c",
+    "reports/m5_execution/kangmei_st_conditional_expected.csv": "e324ad815b8a4e4946f3873a1d552f9c24c6029ca6703982a952808092d91abb",
+    "reports/m5_execution/kangmei_st_conditional_predicted_fills.json": "e8c849616bfca51d40cfd5a2e1f5bb2a8ad59d481339a1f310299ac40a87f55c"
+  },
+  "scope_exclusions": [
+    "No claim of real source PASS while primary rules are missing",
+    "No actual broker cash verification",
+    "No Alpha/performance or new experiment registration",
+    "No ETF rerun, M4 report rewrite, 448/353 mutation, or 2025+ holdout read"
+  ],
+  "portability_addendum": {
+    "report": "reports/m5_review/PORTABILITY_ADDENDUM.json",
+    "current_test_sha256": "6a6f43c9dd85e644e8f9cfaf59bdd1a0b61c66525f2735263f69d4e26d863599",
+    "current_calendar_sha256": "d2975e5273586d38907a6cb0784a70d0b92261d57cca54cb9015539809538103",
+    "original_test_hash_and_review_counts_preserved": true,
+    "production_changed": false,
+    "source_assertions": "Original-byte assertions still execute locally; only unavailable originals cause explicitly scoped archive skips; portable numerical/contracts always run"
+  }
+}

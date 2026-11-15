@@ -1,0 +1,65 @@
+{
+  "budget_registered_at": "2026-11-15T08:56:58.756592+00:00",
+  "measured_at": "2026-11-15T09:14:04.782987+00:00",
+  "limits": {
+    "http_attempts": 160,
+    "baostock_wire_attempts": 20,
+    "new_body_bytes": 125829120
+  },
+  "used": {
+    "http_attempts": 33,
+    "baostock_wire_attempts": 8,
+    "new_body_bytes": 40671086
+  },
+  "download_body_mib": 38.787,
+  "new_network_elapsed_seconds": 41.218244,
+  "audit_elapsed_since_registration_seconds": 1026.026,
+  "offline_build_seconds": 0.764212,
+  "human_review_count": 0,
+  "human_review_minutes": 0,
+  "purchases_cny": 0,
+  "commercial_price": null,
+  "agent_work_units": {
+    "attempted_issuer_period_pairs": 8,
+    "new_original_reports": 7,
+    "new_full_revised_reports": 5,
+    "new_ST_notice": 1,
+    "existing_correction_documents_reconciled": 7,
+    "R2_field_pairs_reconciled": 24,
+    "source_conflicts_quarantined": 3,
+    "new_PDF_pages_visually_inspected": 18,
+    "human_independent_acceptances": 0
+  },
+  "agent_work_time_note": "Wall-clock since budget registration includes extraction, reading and tool latency; not a measured human labor rate or continuous CPU time",
+  "stages": [
+    {
+      "stage": "full-date universe/daily/industry",
+      "wire_attempts": 8,
+      "rows": [
+        4810,
+        3923,
+        4030
+      ],
+      "failed_local_optional_step": "query_st_stocks absent from top-level SDK export after three successful datasets; no extra network request or session retry"
+    },
+    {
+      "stage": "fixed correction queue original pairing",
+      "attempted_cases": 8,
+      "complete_pairs": 5,
+      "conflicted": 3
+    },
+    {
+      "stage": "events and official industry",
+      "normalized_events": 6,
+      "official_table_codes": 3878
+    }
+  ],
+  "minimum_cost_route": [
+    "Reuse official 2020Q2 table + original source archive and local calendars first (zero new bytes).",
+    "Three BaoStock full-date APIs obtained complete response sets in 8 wire attempts including login/pagination; per-security day requests would consume thousands.",
+    "Official original/correction pairing now yields five complete pairs with seven new issuer attempts; do not replace originals with latest financial API.",
+    "Next bottlenecks: historical share-class events, full risk/lifecycle/IPO roster and 60-session amount histories; retain full 2020-07-31 denominator while filling.",
+    "Continue fixed correction queue to 20 documentary cases and independent human acceptance; do not buy unless a quantified unresolved gap remains."
+  ],
+  "extrapolation": "One date is measured, not a claim the full historical pool is affordable within this envelope. No strategy returns or 2025+ market data acquired."
+}

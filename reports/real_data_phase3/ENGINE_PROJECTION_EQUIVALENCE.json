@@ -1,0 +1,85 @@
+{
+  "optimized_source_sha256": "d4ee6e42192e6da29bcf0ef4d9f4ec6050b6a1a8990e628e90f57f93cbb8e89e",
+  "purpose": "ENGINE_PROJECTION_EQUIVALENCE_ONLY_NOT_ALPHA_SELECTION",
+  "records": [
+    {
+      "config": {
+        "annual_incremental_cost": null,
+        "claim_type": "economic_increment",
+        "cost_multiplier": 3,
+        "execution_delay": 1,
+        "initial_cash": 100000,
+        "live_enabled": false,
+        "primary_capital_confirmed": true,
+        "protocol_version": "phase2-mvp-0.1",
+        "risk_scaling": true,
+        "sample": "development",
+        "seed": 20261114,
+        "signal_release_delay": 1,
+        "slippage_multiplier": 3,
+        "universe": "R1B",
+        "variant": "R1"
+      },
+      "dataset_manifest_sha256": "a4469e31a7e5b09dad791403ed5d8f9287e37ed3fe90beeef90a6d9fce39f23a",
+      "decisions_sha256": "0b20ed04ce734ec3e6f593589160a71455357026b69d59d13fa7ce11a215dcb7",
+      "ledger_table_hashes": {
+        "cash_events": "00c9c42bc7f81a5ff713b428c00bef58b69d5e3acc08d17162f5ac47f2a65711",
+        "costs": "a5dd5e60acb3bb7ca2a72a4a2714e5f61338fc28a5b77ba8e68a477e0bc88d35",
+        "exposure": "b92c1a4a50b327ee2f0d1f754d2808d99012c88611e196265b2b8a034d883769",
+        "fills": "bbd430916e4516b4e2e4d817860ffa34fa5e980971e77370de4ba90126ca625a",
+        "nav": "e464cf7d09e54749e6340010d96ec4d6f3decba67b1d4809ae50af1922e7c8f5",
+        "order_events": "c86ae307014d31e301f984abbef76c7043b2d2a93a34527dd59cffaaf10866a6",
+        "orders": "fddcaab468b6dc7e351955812eed7bb2f1d6907d52ae69cbfb0e215415b8f239",
+        "positions": "7e3074e0c0db33b3e8ea078bd4672a199b6ade18bbbf39dbca674ea81ac1a2ef",
+        "rejected_orders": "f12caa7c3152183ebfa1ca1eb33be4da3ec76ac9db4a1ef17966186adf305330",
+        "rights": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "share_events": "f7d106729089f8475e48489c48d36cac1f4f41f899418471260170d08ef0f593"
+      },
+      "optimized_seconds": 0.9201199999999998,
+      "period": "development",
+      "reference_seconds": 2.6328240999999997,
+      "result": "ALL_11_TABLES_BYTE_IDENTICAL",
+      "source_registered_attempt": "98857084ff8901eb-20261114T173325625936Z"
+    },
+    {
+      "config": {
+        "annual_incremental_cost": null,
+        "claim_type": "economic_increment",
+        "cost_multiplier": 3,
+        "execution_delay": 1,
+        "initial_cash": 100000,
+        "live_enabled": false,
+        "primary_capital_confirmed": true,
+        "protocol_version": "phase2-mvp-0.1",
+        "risk_scaling": true,
+        "sample": "validation",
+        "seed": 20261114,
+        "signal_release_delay": 1,
+        "slippage_multiplier": 3,
+        "universe": "R1B",
+        "variant": "R0"
+      },
+      "dataset_manifest_sha256": "106ad201ae1b27550a17dd78cf2b845e8b822e4a9dddacdce243c4b51932a7ea",
+      "decisions_sha256": "5e1f964ed3730c45ef2f606f678a8c4e0a6a3617bdc627ffdc141da22fa8cf6a",
+      "ledger_table_hashes": {
+        "cash_events": "59efa07897534800f2b8b42de4b74822f7c86254b4dbd45d1351a67d90af6ca2",
+        "costs": "e275ef2b22bb0521af36de5df139ceca8ef2c43d55c9f9b4b397792f3f356c45",
+        "exposure": "cfd75be0e89f302bdbb45ed9d4be9d27db496b4c670f2ba2532c2efb7c97c23d",
+        "fills": "e6ecebec7f18f9e4a22bf96ed8d1e67808298019d9fb20474c73f8cdfc7e0cbd",
+        "nav": "b3f8fb1fee427711bd7511c461aa983b05119735fb2aeb5e63f9bf28dff81293",
+        "order_events": "7bcec6829a2c40a113900572316d520707c99fa2090dd7be1ff184c79401ab39",
+        "orders": "565292eef165881ca6fa1fe687f20695c2329bbe15cb993a4c7eaef85b9e386f",
+        "positions": "eeefa42d7f315a7e96b08b658ceb64b14bf552ec8981355b7bf88b42f232378f",
+        "rejected_orders": "879902dfe83298e45ef5b613afb3e7aa9e62a8700bc46d827e7aceeb19b74c62",
+        "rights": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "share_events": "0ff02079c0fe5c0b87255cc6edf249455c4b22183a96612e2858af2ad2154d08"
+      },
+      "optimized_seconds": 1.551327500000001,
+      "period": "validation",
+      "reference_seconds": 5.393051400000001,
+      "result": "ALL_11_TABLES_BYTE_IDENTICAL",
+      "source_registered_attempt": "8cac4dbd087a5e42-20261114T173542163417Z"
+    }
+  ],
+  "reference_source_sha256": "f04fdf738bfd584c1d730fb945326fef2cfc90c1fb9f7381ff3a9357edcae5c2"
+}

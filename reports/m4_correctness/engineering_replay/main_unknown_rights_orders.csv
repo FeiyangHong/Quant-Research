@@ -1,0 +1,3 @@
+order_id,parent_order_id,decision_date,decision_at,execution_date,instrument_id,side,quantity,qty_requested,reference_price,adv20,attempt,mode,intent_type,risk_reason,source_reference_price,reference_basis,purpose,synthetic
+O00000001,,2023-07-31,2023-07-31 21:00:00+08:00,2023-08-01,SYNTHETIC_MAIN,BUY,200,200,10.0,100000000.0,1,DAILY_SCREEN_ONLY,REBALANCE,,10.0,RAW_CLOSE,ENGINEERING_REPLAY_NOT_STRATEGY_PERFORMANCE,True
+O00000002,,2023-08-02,2023-08-02 21:00:00+08:00,2023-08-03,SYNTHETIC_MAIN,BUY,200,200,10.0,100000000.0,1,DAILY_SCREEN_ONLY,REBALANCE,,10.0,RAW_CLOSE,ENGINEERING_REPLAY_NOT_STRATEGY_PERFORMANCE,True

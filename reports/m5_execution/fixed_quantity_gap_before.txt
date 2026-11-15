@@ -1,0 +1,4 @@
+      date  order_id  instrument_id side  quantity  price  notional  commission  stamp_duty  transfer_fee  fees  slippage_cost              mode                                     purpose  synthetic
+2023-08-01 O00000001 SYNTHETIC_MAIN  BUY       100   10.1    1010.0         5.0         0.0          0.01  5.01            0.0 DAILY_SCREEN_ONLY ENGINEERING_REPLAY_NOT_STRATEGY_PERFORMANCE       True
+ order_id       date  instrument_id side  quantity                    reason                                     purpose  synthetic
+O00000001 2023-08-01 SYNTHETIC_MAIN  BUY       100 REFERENCE_RESERVATION_GAP ENGINEERING_REPLAY_NOT_STRATEGY_PERFORMANCE       True

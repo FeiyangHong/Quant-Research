@@ -1,0 +1,8 @@
+{
+  "source_plan_path": "reports\\m6_r1i\\SOURCE_PLAN.json",
+  "source_plan_file_creation_time_observed_utc": "2026-11-15T13:06:04.013460+00:00",
+  "first_new_r1i_request_started_at": "2026-11-15T13:09:04.968170+00:00",
+  "creation_precedes_first_new_request": true,
+  "time_evidence_type": "Windows filesystem creation time observed after execution, plus versioned plan and per-request registrations; not a vendor original timestamp",
+  "source_plan_sha256": "c656905ca452cdca77c8be371879f18a4242fd507d22fc4e44252befc75237d8"
+}

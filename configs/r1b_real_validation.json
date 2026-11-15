@@ -1,0 +1,17 @@
+{
+  "protocol_version": "phase2-mvp-0.1",
+  "live_enabled": false,
+  "sample": "validation",
+  "universe": "R1B",
+  "variant": "E0",
+  "initial_cash": 100000,
+  "primary_capital_confirmed": true,
+  "annual_incremental_cost": null,
+  "risk_scaling": false,
+  "execution_delay": 1,
+  "cost_multiplier": 1,
+  "slippage_multiplier": 1,
+  "seed": 20261114,
+  "claim_type": "economic_increment",
+  "signal_release_delay": 1
+}

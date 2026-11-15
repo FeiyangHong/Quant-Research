@@ -1,0 +1,213 @@
+{
+  "schema_version": 1,
+  "decision": "ADMIT_DAILY_SCREEN",
+  "research_scope": "R1I_FIXED_COHORT_V1",
+  "reviewer": "M7 independent reviewer agent /root/m7_independent (not human signoff)",
+  "reviewed_at": "2026-11-15T15:20:10.820623+00:00",
+  "stage_manifest_sha256": "473e160beff935aef6b10fdac967214806acbe3f77f4c822ee918a73963e9bc6",
+  "qualifications": [
+    "Admission covers only32 registered all-cash paths starting with100000 and no positions; every legal decision has a raw liquidity/age upper bound below3.",
+    "Hypothetical ordinary domesticETF permissions are a stated research model, not observed personal broker permissions. Exact eligible counts have that model qualification.",
+    "No ETF TR, full action chain, liquidation cash timing, execution price, legal fee, or dual-source price completeness is certified. Those are unreachable under this hash-bound no-position dependency proof.",
+    "Empty actions is not a claim of no events:159938 has1:2 split in2022 and159946 terminates in2018; their account entitlements are zero by input proof.",
+    "All seven raw histories retained;159946847 lifetime sessions and zero eligible months independently proved. No current-survivor deletion or zero-recovery assumption.",
+    "Market-asof timing is the registered reconstructed close clock, not a vendor historical vintage guarantee.32 sub-one-yuan small-trade discrepancies retained; classification invariant under±1yuan.",
+    "Official source identity and calendar checks supplement one vendor amount history. The dual-source gate does not certify a second independent full market-price series.",
+    "Private local noncommercial source storage only; this review grants no redistribution or future live-trading permission.",
+    "If any snapshot, source, qualification, starting holding, or threshold changes, this attestation does not authorize a new holding dependency."
+  ],
+  "evidence_gates": {
+    "source": {
+      "status": "VERIFIED",
+      "reviewer": "M7 independent reviewer agent /root/m7_independent (not human signoff)",
+      "reviewed_at": "2026-11-15T15:20:10.820623+00:00",
+      "evidence": [
+        "reports/m7_review/independent_raw_probe.json",
+        "reports/m7_review/independent_document_probe.json",
+        "reports/m7_review/independent_stage_review.json",
+        "docs/M7_PLAN.md",
+        "reports/m7_cohort/identity_evidence.json",
+        "reports/m7_cohort/state_documents.json",
+        "review_code/m7/test_independent_cohort.py"
+      ],
+      "scope": "ONLY_REACHABLE_ALL_CASH_DEPENDENCIES; see qualifications; not full trading-source certification"
+    },
+    "license": {
+      "status": "VERIFIED",
+      "reviewer": "M7 independent reviewer agent /root/m7_independent (not human signoff)",
+      "reviewed_at": "2026-11-15T15:20:10.820623+00:00",
+      "evidence": [
+        "reports/m7_review/independent_raw_probe.json",
+        "reports/m7_review/independent_document_probe.json",
+        "reports/m7_review/independent_stage_review.json",
+        "docs/M7_PLAN.md",
+        "reports/m7_cohort/identity_evidence.json",
+        "reports/m7_cohort/state_documents.json",
+        "review_code/m7/test_independent_cohort.py"
+      ],
+      "scope": "ONLY_REACHABLE_ALL_CASH_DEPENDENCIES; see qualifications; not full trading-source certification"
+    },
+    "calendar": {
+      "status": "VERIFIED",
+      "reviewer": "M7 independent reviewer agent /root/m7_independent (not human signoff)",
+      "reviewed_at": "2026-11-15T15:20:10.820623+00:00",
+      "evidence": [
+        "reports/m7_review/independent_raw_probe.json",
+        "reports/m7_review/independent_document_probe.json",
+        "reports/m7_review/independent_stage_review.json",
+        "docs/M7_PLAN.md",
+        "reports/m7_cohort/identity_evidence.json",
+        "reports/m7_cohort/state_documents.json",
+        "review_code/m7/test_independent_cohort.py"
+      ],
+      "scope": "ONLY_REACHABLE_ALL_CASH_DEPENDENCIES; see qualifications; not full trading-source certification"
+    },
+    "historical_coverage": {
+      "status": "VERIFIED",
+      "reviewer": "M7 independent reviewer agent /root/m7_independent (not human signoff)",
+      "reviewed_at": "2026-11-15T15:20:10.820623+00:00",
+      "evidence": [
+        "reports/m7_review/independent_raw_probe.json",
+        "reports/m7_review/independent_document_probe.json",
+        "reports/m7_review/independent_stage_review.json",
+        "docs/M7_PLAN.md",
+        "reports/m7_cohort/identity_evidence.json",
+        "reports/m7_cohort/state_documents.json",
+        "review_code/m7/test_independent_cohort.py"
+      ],
+      "scope": "ONLY_REACHABLE_ALL_CASH_DEPENDENCIES; see qualifications; not full trading-source certification"
+    },
+    "point_in_time": {
+      "status": "VERIFIED",
+      "reviewer": "M7 independent reviewer agent /root/m7_independent (not human signoff)",
+      "reviewed_at": "2026-11-15T15:20:10.820623+00:00",
+      "evidence": [
+        "reports/m7_review/independent_raw_probe.json",
+        "reports/m7_review/independent_document_probe.json",
+        "reports/m7_review/independent_stage_review.json",
+        "docs/M7_PLAN.md",
+        "reports/m7_cohort/identity_evidence.json",
+        "reports/m7_cohort/state_documents.json",
+        "review_code/m7/test_independent_cohort.py"
+      ],
+      "scope": "ONLY_REACHABLE_ALL_CASH_DEPENDENCIES; see qualifications; not full trading-source certification"
+    },
+    "lifecycle": {
+      "status": "VERIFIED",
+      "reviewer": "M7 independent reviewer agent /root/m7_independent (not human signoff)",
+      "reviewed_at": "2026-11-15T15:20:10.820623+00:00",
+      "evidence": [
+        "reports/m7_review/independent_raw_probe.json",
+        "reports/m7_review/independent_document_probe.json",
+        "reports/m7_review/independent_stage_review.json",
+        "docs/M7_PLAN.md",
+        "reports/m7_cohort/identity_evidence.json",
+        "reports/m7_cohort/state_documents.json",
+        "review_code/m7/test_independent_cohort.py"
+      ],
+      "scope": "ONLY_REACHABLE_ALL_CASH_DEPENDENCIES; see qualifications; not full trading-source certification"
+    },
+    "corporate_actions": {
+      "status": "VERIFIED",
+      "reviewer": "M7 independent reviewer agent /root/m7_independent (not human signoff)",
+      "reviewed_at": "2026-11-15T15:20:10.820623+00:00",
+      "evidence": [
+        "reports/m7_review/independent_raw_probe.json",
+        "reports/m7_review/independent_document_probe.json",
+        "reports/m7_review/independent_stage_review.json",
+        "docs/M7_PLAN.md",
+        "reports/m7_cohort/identity_evidence.json",
+        "reports/m7_cohort/state_documents.json",
+        "review_code/m7/test_independent_cohort.py"
+      ],
+      "scope": "ONLY_REACHABLE_ALL_CASH_DEPENDENCIES; see qualifications; not full trading-source certification"
+    },
+    "total_return": {
+      "status": "VERIFIED",
+      "reviewer": "M7 independent reviewer agent /root/m7_independent (not human signoff)",
+      "reviewed_at": "2026-11-15T15:20:10.820623+00:00",
+      "evidence": [
+        "reports/m7_review/independent_raw_probe.json",
+        "reports/m7_review/independent_document_probe.json",
+        "reports/m7_review/independent_stage_review.json",
+        "docs/M7_PLAN.md",
+        "reports/m7_cohort/identity_evidence.json",
+        "reports/m7_cohort/state_documents.json",
+        "review_code/m7/test_independent_cohort.py"
+      ],
+      "scope": "ONLY_REACHABLE_ALL_CASH_DEPENDENCIES; see qualifications; not full trading-source certification"
+    },
+    "historical_rules": {
+      "status": "VERIFIED",
+      "reviewer": "M7 independent reviewer agent /root/m7_independent (not human signoff)",
+      "reviewed_at": "2026-11-15T15:20:10.820623+00:00",
+      "evidence": [
+        "reports/m7_review/independent_raw_probe.json",
+        "reports/m7_review/independent_document_probe.json",
+        "reports/m7_review/independent_stage_review.json",
+        "docs/M7_PLAN.md",
+        "reports/m7_cohort/identity_evidence.json",
+        "reports/m7_cohort/state_documents.json",
+        "review_code/m7/test_independent_cohort.py"
+      ],
+      "scope": "ONLY_REACHABLE_ALL_CASH_DEPENDENCIES; see qualifications; not full trading-source certification"
+    },
+    "historical_fees": {
+      "status": "VERIFIED",
+      "reviewer": "M7 independent reviewer agent /root/m7_independent (not human signoff)",
+      "reviewed_at": "2026-11-15T15:20:10.820623+00:00",
+      "evidence": [
+        "reports/m7_review/independent_raw_probe.json",
+        "reports/m7_review/independent_document_probe.json",
+        "reports/m7_review/independent_stage_review.json",
+        "docs/M7_PLAN.md",
+        "reports/m7_cohort/identity_evidence.json",
+        "reports/m7_cohort/state_documents.json",
+        "review_code/m7/test_independent_cohort.py"
+      ],
+      "scope": "ONLY_REACHABLE_ALL_CASH_DEPENDENCIES; see qualifications; not full trading-source certification"
+    },
+    "account_permissions": {
+      "status": "VERIFIED",
+      "reviewer": "M7 independent reviewer agent /root/m7_independent (not human signoff)",
+      "reviewed_at": "2026-11-15T15:20:10.820623+00:00",
+      "evidence": [
+        "reports/m7_review/independent_raw_probe.json",
+        "reports/m7_review/independent_document_probe.json",
+        "reports/m7_review/independent_stage_review.json",
+        "docs/M7_PLAN.md",
+        "reports/m7_cohort/identity_evidence.json",
+        "reports/m7_cohort/state_documents.json",
+        "review_code/m7/test_independent_cohort.py"
+      ],
+      "scope": "ONLY_REACHABLE_ALL_CASH_DEPENDENCIES; see qualifications; not full trading-source certification"
+    },
+    "dual_source_reconciliation": {
+      "status": "VERIFIED",
+      "reviewer": "M7 independent reviewer agent /root/m7_independent (not human signoff)",
+      "reviewed_at": "2026-11-15T15:20:10.820623+00:00",
+      "evidence": [
+        "reports/m7_review/independent_raw_probe.json",
+        "reports/m7_review/independent_document_probe.json",
+        "reports/m7_review/independent_stage_review.json",
+        "docs/M7_PLAN.md",
+        "reports/m7_cohort/identity_evidence.json",
+        "reports/m7_cohort/state_documents.json",
+        "review_code/m7/test_independent_cohort.py"
+      ],
+      "scope": "ONLY_REACHABLE_ALL_CASH_DEPENDENCIES; see qualifications; not full trading-source certification"
+    }
+  },
+  "evidence_files": {
+    "reports/m7_review/independent_raw_probe.json": "fe08c5d6037a246cb07203bc64b06aeb6e7ad2f5318ef462d68b9b925d31f39c",
+    "reports/m7_review/independent_document_probe.json": "182f4d7366a182f0346263ca8596e6a7ab561eb8d086db27517711ae21f9382f",
+    "reports/m7_review/independent_stage_review.json": "6781726efd5c424337ea9855fb3d377c4ba86e9d5b66b381505d962f658c3317",
+    "docs/M7_PLAN.md": "64c8046f6e460822deb1e53c69eaf3efdb77b697e3e18de9dbe8d9e963e160ee",
+    "reports/m7_cohort/identity_evidence.json": "22a5f3796e9e02f7a3cc6e0966734651bd2427b6ad391e2315b49b4ab30932ea",
+    "reports/m7_cohort/state_documents.json": "5f0eaaf2ec6135e43940baf28db2fc89eb54f3b562879cb3f6e5492bcb2e9e41",
+    "review_code/m7/test_independent_cohort.py": "0b77068953f5c96c7b727a5a53b7d3e08818596884bc44e325e991a1badba48e"
+  },
+  "reachable_account_scope": "ALL_CASH_ONLY_N_UPPER_BOUND_LT3",
+  "actual_broker_permission_verified": false,
+  "full_TR_action_execution_price_coverage_verified": false
+}

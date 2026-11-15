@@ -1,0 +1,1085 @@
+{
+  "registration_commit": "02d0f0d",
+  "registration_sha256": "9e799ccb30fddf9e51a4c1637362c9573a77f68dd5cc481004be2878992def96",
+  "data_gate_sha256": "cf0e01cadf21c3d707c1d96a32175644195093f52042f43a8951133a261d2957",
+  "registered_paths": 56,
+  "executed_paths": 0,
+  "failed_executed_paths": 0,
+  "not_run_paths": 56,
+  "scope_status": "DATA_BLOCKED",
+  "candidate_evidence_status": "FAILED_DATA_OR_ENGINE",
+  "candidate_evidence_reason": "DATA_NOT_ADMITTED; not evidence of unprofitable strategy or unresolved fee-engine defect",
+  "primary_comparison": "validation 2022-2024 100000 base R0 minus E0",
+  "primary_daily_mean_difference": null,
+  "primary_ci95": null,
+  "incremental_annual_fixed_cost_capacity_cny": null,
+  "annual_incremental_fixed_cost": null,
+  "economic_hurdle_status": "BLOCKED_HURDLE_UNKNOWN_COST_AND_NO_VALID_RETURN_PATH",
+  "statistics_executed": false,
+  "rows": [
+    {
+      "trial_id": "M6_R1I_development_E0_10000_base",
+      "period": "development",
+      "variant": "E0",
+      "initial_cash": 10000,
+      "path": "base",
+      "status": "NOT_RUN_DATA_BLOCKED",
+      "actual_run_id": null,
+      "performance_metrics": null,
+      "code_version_for_executed_run": null,
+      "execution_data_hash": null,
+      "reason": [
+        "Historical CSI ten/eleven-industry transition and intervening effective/public versions not complete for2016-2024.",
+        "Exact-index-to-one-historical-L1 methods and identity changes for the full potential competitor set not verified.",
+        "991 required-provider-review IDs lack full raw amount histories; no selection over available-only competitors.",
+        "Official batch and provider discovery disagree;822supplemental fund IDs retained, not deleted by present-day type or name.",
+        "Final representatives therefore unknown; their TR, actions, daily status, account and risk dependencies cannot be signed off."
+      ]
+    },
+    {
+      "trial_id": "M6_R1I_development_E0_100000_base",
+      "period": "development",
+      "variant": "E0",
+      "initial_cash": 100000,
+      "path": "base",
+      "status": "NOT_RUN_DATA_BLOCKED",
+      "actual_run_id": null,
+      "performance_metrics": null,
+      "code_version_for_executed_run": null,
+      "execution_data_hash": null,
+      "reason": [
+        "Historical CSI ten/eleven-industry transition and intervening effective/public versions not complete for2016-2024.",
+        "Exact-index-to-one-historical-L1 methods and identity changes for the full potential competitor set not verified.",
+        "991 required-provider-review IDs lack full raw amount histories; no selection over available-only competitors.",
+        "Official batch and provider discovery disagree;822supplemental fund IDs retained, not deleted by present-day type or name.",
+        "Final representatives therefore unknown; their TR, actions, daily status, account and risk dependencies cannot be signed off."
+      ]
+    },
+    {
+      "trial_id": "M6_R1I_development_E0_100000_cost2",
+      "period": "development",
+      "variant": "E0",
+      "initial_cash": 100000,
+      "path": "cost2",
+      "status": "NOT_RUN_DATA_BLOCKED",
+      "actual_run_id": null,
+      "performance_metrics": null,
+      "code_version_for_executed_run": null,
+      "execution_data_hash": null,
+      "reason": [
+        "Historical CSI ten/eleven-industry transition and intervening effective/public versions not complete for2016-2024.",
+        "Exact-index-to-one-historical-L1 methods and identity changes for the full potential competitor set not verified.",
+        "991 required-provider-review IDs lack full raw amount histories; no selection over available-only competitors.",
+        "Official batch and provider discovery disagree;822supplemental fund IDs retained, not deleted by present-day type or name.",
+        "Final representatives therefore unknown; their TR, actions, daily status, account and risk dependencies cannot be signed off."
+      ]
+    },
+    {
+      "trial_id": "M6_R1I_development_E0_100000_cost3",
+      "period": "development",
+      "variant": "E0",
+      "initial_cash": 100000,
+      "path": "cost3",
+      "status": "NOT_RUN_DATA_BLOCKED",
+      "actual_run_id": null,
+      "performance_metrics": null,
+      "code_version_for_executed_run": null,
+      "execution_data_hash": null,
+      "reason": [
+        "Historical CSI ten/eleven-industry transition and intervening effective/public versions not complete for2016-2024.",
+        "Exact-index-to-one-historical-L1 methods and identity changes for the full potential competitor set not verified.",
+        "991 required-provider-review IDs lack full raw amount histories; no selection over available-only competitors.",
+        "Official batch and provider discovery disagree;822supplemental fund IDs retained, not deleted by present-day type or name.",
+        "Final representatives therefore unknown; their TR, actions, daily status, account and risk dependencies cannot be signed off."
+      ]
+    },
+    {
+      "trial_id": "M6_R1I_development_E0_100000_delay1",
+      "period": "development",
+      "variant": "E0",
+      "initial_cash": 100000,
+      "path": "delay1",
+      "status": "NOT_RUN_DATA_BLOCKED",
+      "actual_run_id": null,
+      "performance_metrics": null,
+      "code_version_for_executed_run": null,
+      "execution_data_hash": null,
+      "reason": [
+        "Historical CSI ten/eleven-industry transition and intervening effective/public versions not complete for2016-2024.",
+        "Exact-index-to-one-historical-L1 methods and identity changes for the full potential competitor set not verified.",
+        "991 required-provider-review IDs lack full raw amount histories; no selection over available-only competitors.",
+        "Official batch and provider discovery disagree;822supplemental fund IDs retained, not deleted by present-day type or name.",
+        "Final representatives therefore unknown; their TR, actions, daily status, account and risk dependencies cannot be signed off."
+      ]
+    },
+    {
+      "trial_id": "M6_R1I_development_E0_500000_base",
+      "period": "development",
+      "variant": "E0",
+      "initial_cash": 500000,
+      "path": "base",
+      "status": "NOT_RUN_DATA_BLOCKED",
+      "actual_run_id": null,
+      "performance_metrics": null,
+      "code_version_for_executed_run": null,
+      "execution_data_hash": null,
+      "reason": [
+        "Historical CSI ten/eleven-industry transition and intervening effective/public versions not complete for2016-2024.",
+        "Exact-index-to-one-historical-L1 methods and identity changes for the full potential competitor set not verified.",
+        "991 required-provider-review IDs lack full raw amount histories; no selection over available-only competitors.",
+        "Official batch and provider discovery disagree;822supplemental fund IDs retained, not deleted by present-day type or name.",
+        "Final representatives therefore unknown; their TR, actions, daily status, account and risk dependencies cannot be signed off."
+      ]
+    },
+    {
+      "trial_id": "M6_R1I_development_E0_1000000_base",
+      "period": "development",
+      "variant": "E0",
+      "initial_cash": 1000000,
+      "path": "base",
+      "status": "NOT_RUN_DATA_BLOCKED",
+      "actual_run_id": null,
+      "performance_metrics": null,
+      "code_version_for_executed_run": null,
+      "execution_data_hash": null,
+      "reason": [
+        "Historical CSI ten/eleven-industry transition and intervening effective/public versions not complete for2016-2024.",
+        "Exact-index-to-one-historical-L1 methods and identity changes for the full potential competitor set not verified.",
+        "991 required-provider-review IDs lack full raw amount histories; no selection over available-only competitors.",
+        "Official batch and provider discovery disagree;822supplemental fund IDs retained, not deleted by present-day type or name.",
+        "Final representatives therefore unknown; their TR, actions, daily status, account and risk dependencies cannot be signed off."
+      ]
+    },
+    {
+      "trial_id": "M6_R1I_development_R0_10000_base",
+      "period": "development",
+      "variant": "R0",
+      "initial_cash": 10000,
+      "path": "base",
+      "status": "NOT_RUN_DATA_BLOCKED",
+      "actual_run_id": null,
+      "performance_metrics": null,
+      "code_version_for_executed_run": null,
+      "execution_data_hash": null,
+      "reason": [
+        "Historical CSI ten/eleven-industry transition and intervening effective/public versions not complete for2016-2024.",
+        "Exact-index-to-one-historical-L1 methods and identity changes for the full potential competitor set not verified.",
+        "991 required-provider-review IDs lack full raw amount histories; no selection over available-only competitors.",
+        "Official batch and provider discovery disagree;822supplemental fund IDs retained, not deleted by present-day type or name.",
+        "Final representatives therefore unknown; their TR, actions, daily status, account and risk dependencies cannot be signed off."
+      ]
+    },
+    {
+      "trial_id": "M6_R1I_development_R0_100000_base",
+      "period": "development",
+      "variant": "R0",
+      "initial_cash": 100000,
+      "path": "base",
+      "status": "NOT_RUN_DATA_BLOCKED",
+      "actual_run_id": null,
+      "performance_metrics": null,
+      "code_version_for_executed_run": null,
+      "execution_data_hash": null,
+      "reason": [
+        "Historical CSI ten/eleven-industry transition and intervening effective/public versions not complete for2016-2024.",
+        "Exact-index-to-one-historical-L1 methods and identity changes for the full potential competitor set not verified.",
+        "991 required-provider-review IDs lack full raw amount histories; no selection over available-only competitors.",
+        "Official batch and provider discovery disagree;822supplemental fund IDs retained, not deleted by present-day type or name.",
+        "Final representatives therefore unknown; their TR, actions, daily status, account and risk dependencies cannot be signed off."
+      ]
+    },
+    {
+      "trial_id": "M6_R1I_development_R0_100000_cost2",
+      "period": "development",
+      "variant": "R0",
+      "initial_cash": 100000,
+      "path": "cost2",
+      "status": "NOT_RUN_DATA_BLOCKED",
+      "actual_run_id": null,
+      "performance_metrics": null,
+      "code_version_for_executed_run": null,
+      "execution_data_hash": null,
+      "reason": [
+        "Historical CSI ten/eleven-industry transition and intervening effective/public versions not complete for2016-2024.",
+        "Exact-index-to-one-historical-L1 methods and identity changes for the full potential competitor set not verified.",
+        "991 required-provider-review IDs lack full raw amount histories; no selection over available-only competitors.",
+        "Official batch and provider discovery disagree;822supplemental fund IDs retained, not deleted by present-day type or name.",
+        "Final representatives therefore unknown; their TR, actions, daily status, account and risk dependencies cannot be signed off."
+      ]
+    },
+    {
+      "trial_id": "M6_R1I_development_R0_100000_cost3",
+      "period": "development",
+      "variant": "R0",
+      "initial_cash": 100000,
+      "path": "cost3",
+      "status": "NOT_RUN_DATA_BLOCKED",
+      "actual_run_id": null,
+      "performance_metrics": null,
+      "code_version_for_executed_run": null,
+      "execution_data_hash": null,
+      "reason": [
+        "Historical CSI ten/eleven-industry transition and intervening effective/public versions not complete for2016-2024.",
+        "Exact-index-to-one-historical-L1 methods and identity changes for the full potential competitor set not verified.",
+        "991 required-provider-review IDs lack full raw amount histories; no selection over available-only competitors.",
+        "Official batch and provider discovery disagree;822supplemental fund IDs retained, not deleted by present-day type or name.",
+        "Final representatives therefore unknown; their TR, actions, daily status, account and risk dependencies cannot be signed off."
+      ]
+    },
+    {
+      "trial_id": "M6_R1I_development_R0_100000_delay1",
+      "period": "development",
+      "variant": "R0",
+      "initial_cash": 100000,
+      "path": "delay1",
+      "status": "NOT_RUN_DATA_BLOCKED",
+      "actual_run_id": null,
+      "performance_metrics": null,
+      "code_version_for_executed_run": null,
+      "execution_data_hash": null,
+      "reason": [
+        "Historical CSI ten/eleven-industry transition and intervening effective/public versions not complete for2016-2024.",
+        "Exact-index-to-one-historical-L1 methods and identity changes for the full potential competitor set not verified.",
+        "991 required-provider-review IDs lack full raw amount histories; no selection over available-only competitors.",
+        "Official batch and provider discovery disagree;822supplemental fund IDs retained, not deleted by present-day type or name.",
+        "Final representatives therefore unknown; their TR, actions, daily status, account and risk dependencies cannot be signed off."
+      ]
+    },
+    {
+      "trial_id": "M6_R1I_development_R0_500000_base",
+      "period": "development",
+      "variant": "R0",
+      "initial_cash": 500000,
+      "path": "base",
+      "status": "NOT_RUN_DATA_BLOCKED",
+      "actual_run_id": null,
+      "performance_metrics": null,
+      "code_version_for_executed_run": null,
+      "execution_data_hash": null,
+      "reason": [
+        "Historical CSI ten/eleven-industry transition and intervening effective/public versions not complete for2016-2024.",
+        "Exact-index-to-one-historical-L1 methods and identity changes for the full potential competitor set not verified.",
+        "991 required-provider-review IDs lack full raw amount histories; no selection over available-only competitors.",
+        "Official batch and provider discovery disagree;822supplemental fund IDs retained, not deleted by present-day type or name.",
+        "Final representatives therefore unknown; their TR, actions, daily status, account and risk dependencies cannot be signed off."
+      ]
+    },
+    {
+      "trial_id": "M6_R1I_development_R0_1000000_base",
+      "period": "development",
+      "variant": "R0",
+      "initial_cash": 1000000,
+      "path": "base",
+      "status": "NOT_RUN_DATA_BLOCKED",
+      "actual_run_id": null,
+      "performance_metrics": null,
+      "code_version_for_executed_run": null,
+      "execution_data_hash": null,
+      "reason": [
+        "Historical CSI ten/eleven-industry transition and intervening effective/public versions not complete for2016-2024.",
+        "Exact-index-to-one-historical-L1 methods and identity changes for the full potential competitor set not verified.",
+        "991 required-provider-review IDs lack full raw amount histories; no selection over available-only competitors.",
+        "Official batch and provider discovery disagree;822supplemental fund IDs retained, not deleted by present-day type or name.",
+        "Final representatives therefore unknown; their TR, actions, daily status, account and risk dependencies cannot be signed off."
+      ]
+    },
+    {
+      "trial_id": "M6_R1I_development_E1_10000_base",
+      "period": "development",
+      "variant": "E1",
+      "initial_cash": 10000,
+      "path": "base",
+      "status": "NOT_RUN_DATA_BLOCKED",
+      "actual_run_id": null,
+      "performance_metrics": null,
+      "code_version_for_executed_run": null,
+      "execution_data_hash": null,
+      "reason": [
+        "Historical CSI ten/eleven-industry transition and intervening effective/public versions not complete for2016-2024.",
+        "Exact-index-to-one-historical-L1 methods and identity changes for the full potential competitor set not verified.",
+        "991 required-provider-review IDs lack full raw amount histories; no selection over available-only competitors.",
+        "Official batch and provider discovery disagree;822supplemental fund IDs retained, not deleted by present-day type or name.",
+        "Final representatives therefore unknown; their TR, actions, daily status, account and risk dependencies cannot be signed off."
+      ]
+    },
+    {
+      "trial_id": "M6_R1I_development_E1_100000_base",
+      "period": "development",
+      "variant": "E1",
+      "initial_cash": 100000,
+      "path": "base",
+      "status": "NOT_RUN_DATA_BLOCKED",
+      "actual_run_id": null,
+      "performance_metrics": null,
+      "code_version_for_executed_run": null,
+      "execution_data_hash": null,
+      "reason": [
+        "Historical CSI ten/eleven-industry transition and intervening effective/public versions not complete for2016-2024.",
+        "Exact-index-to-one-historical-L1 methods and identity changes for the full potential competitor set not verified.",
+        "991 required-provider-review IDs lack full raw amount histories; no selection over available-only competitors.",
+        "Official batch and provider discovery disagree;822supplemental fund IDs retained, not deleted by present-day type or name.",
+        "Final representatives therefore unknown; their TR, actions, daily status, account and risk dependencies cannot be signed off."
+      ]
+    },
+    {
+      "trial_id": "M6_R1I_development_E1_100000_cost2",
+      "period": "development",
+      "variant": "E1",
+      "initial_cash": 100000,
+      "path": "cost2",
+      "status": "NOT_RUN_DATA_BLOCKED",
+      "actual_run_id": null,
+      "performance_metrics": null,
+      "code_version_for_executed_run": null,
+      "execution_data_hash": null,
+      "reason": [
+        "Historical CSI ten/eleven-industry transition and intervening effective/public versions not complete for2016-2024.",
+        "Exact-index-to-one-historical-L1 methods and identity changes for the full potential competitor set not verified.",
+        "991 required-provider-review IDs lack full raw amount histories; no selection over available-only competitors.",
+        "Official batch and provider discovery disagree;822supplemental fund IDs retained, not deleted by present-day type or name.",
+        "Final representatives therefore unknown; their TR, actions, daily status, account and risk dependencies cannot be signed off."
+      ]
+    },
+    {
+      "trial_id": "M6_R1I_development_E1_100000_cost3",
+      "period": "development",
+      "variant": "E1",
+      "initial_cash": 100000,
+      "path": "cost3",
+      "status": "NOT_RUN_DATA_BLOCKED",
+      "actual_run_id": null,
+      "performance_metrics": null,
+      "code_version_for_executed_run": null,
+      "execution_data_hash": null,
+      "reason": [
+        "Historical CSI ten/eleven-industry transition and intervening effective/public versions not complete for2016-2024.",
+        "Exact-index-to-one-historical-L1 methods and identity changes for the full potential competitor set not verified.",
+        "991 required-provider-review IDs lack full raw amount histories; no selection over available-only competitors.",
+        "Official batch and provider discovery disagree;822supplemental fund IDs retained, not deleted by present-day type or name.",
+        "Final representatives therefore unknown; their TR, actions, daily status, account and risk dependencies cannot be signed off."
+      ]
+    },
+    {
+      "trial_id": "M6_R1I_development_E1_100000_delay1",
+      "period": "development",
+      "variant": "E1",
+      "initial_cash": 100000,
+      "path": "delay1",
+      "status": "NOT_RUN_DATA_BLOCKED",
+      "actual_run_id": null,
+      "performance_metrics": null,
+      "code_version_for_executed_run": null,
+      "execution_data_hash": null,
+      "reason": [
+        "Historical CSI ten/eleven-industry transition and intervening effective/public versions not complete for2016-2024.",
+        "Exact-index-to-one-historical-L1 methods and identity changes for the full potential competitor set not verified.",
+        "991 required-provider-review IDs lack full raw amount histories; no selection over available-only competitors.",
+        "Official batch and provider discovery disagree;822supplemental fund IDs retained, not deleted by present-day type or name.",
+        "Final representatives therefore unknown; their TR, actions, daily status, account and risk dependencies cannot be signed off."
+      ]
+    },
+    {
+      "trial_id": "M6_R1I_development_E1_500000_base",
+      "period": "development",
+      "variant": "E1",
+      "initial_cash": 500000,
+      "path": "base",
+      "status": "NOT_RUN_DATA_BLOCKED",
+      "actual_run_id": null,
+      "performance_metrics": null,
+      "code_version_for_executed_run": null,
+      "execution_data_hash": null,
+      "reason": [
+        "Historical CSI ten/eleven-industry transition and intervening effective/public versions not complete for2016-2024.",
+        "Exact-index-to-one-historical-L1 methods and identity changes for the full potential competitor set not verified.",
+        "991 required-provider-review IDs lack full raw amount histories; no selection over available-only competitors.",
+        "Official batch and provider discovery disagree;822supplemental fund IDs retained, not deleted by present-day type or name.",
+        "Final representatives therefore unknown; their TR, actions, daily status, account and risk dependencies cannot be signed off."
+      ]
+    },
+    {
+      "trial_id": "M6_R1I_development_E1_1000000_base",
+      "period": "development",
+      "variant": "E1",
+      "initial_cash": 1000000,
+      "path": "base",
+      "status": "NOT_RUN_DATA_BLOCKED",
+      "actual_run_id": null,
+      "performance_metrics": null,
+      "code_version_for_executed_run": null,
+      "execution_data_hash": null,
+      "reason": [
+        "Historical CSI ten/eleven-industry transition and intervening effective/public versions not complete for2016-2024.",
+        "Exact-index-to-one-historical-L1 methods and identity changes for the full potential competitor set not verified.",
+        "991 required-provider-review IDs lack full raw amount histories; no selection over available-only competitors.",
+        "Official batch and provider discovery disagree;822supplemental fund IDs retained, not deleted by present-day type or name.",
+        "Final representatives therefore unknown; their TR, actions, daily status, account and risk dependencies cannot be signed off."
+      ]
+    },
+    {
+      "trial_id": "M6_R1I_development_R1_10000_base",
+      "period": "development",
+      "variant": "R1",
+      "initial_cash": 10000,
+      "path": "base",
+      "status": "NOT_RUN_DATA_BLOCKED",
+      "actual_run_id": null,
+      "performance_metrics": null,
+      "code_version_for_executed_run": null,
+      "execution_data_hash": null,
+      "reason": [
+        "Historical CSI ten/eleven-industry transition and intervening effective/public versions not complete for2016-2024.",
+        "Exact-index-to-one-historical-L1 methods and identity changes for the full potential competitor set not verified.",
+        "991 required-provider-review IDs lack full raw amount histories; no selection over available-only competitors.",
+        "Official batch and provider discovery disagree;822supplemental fund IDs retained, not deleted by present-day type or name.",
+        "Final representatives therefore unknown; their TR, actions, daily status, account and risk dependencies cannot be signed off."
+      ]
+    },
+    {
+      "trial_id": "M6_R1I_development_R1_100000_base",
+      "period": "development",
+      "variant": "R1",
+      "initial_cash": 100000,
+      "path": "base",
+      "status": "NOT_RUN_DATA_BLOCKED",
+      "actual_run_id": null,
+      "performance_metrics": null,
+      "code_version_for_executed_run": null,
+      "execution_data_hash": null,
+      "reason": [
+        "Historical CSI ten/eleven-industry transition and intervening effective/public versions not complete for2016-2024.",
+        "Exact-index-to-one-historical-L1 methods and identity changes for the full potential competitor set not verified.",
+        "991 required-provider-review IDs lack full raw amount histories; no selection over available-only competitors.",
+        "Official batch and provider discovery disagree;822supplemental fund IDs retained, not deleted by present-day type or name.",
+        "Final representatives therefore unknown; their TR, actions, daily status, account and risk dependencies cannot be signed off."
+      ]
+    },
+    {
+      "trial_id": "M6_R1I_development_R1_100000_cost2",
+      "period": "development",
+      "variant": "R1",
+      "initial_cash": 100000,
+      "path": "cost2",
+      "status": "NOT_RUN_DATA_BLOCKED",
+      "actual_run_id": null,
+      "performance_metrics": null,
+      "code_version_for_executed_run": null,
+      "execution_data_hash": null,
+      "reason": [
+        "Historical CSI ten/eleven-industry transition and intervening effective/public versions not complete for2016-2024.",
+        "Exact-index-to-one-historical-L1 methods and identity changes for the full potential competitor set not verified.",
+        "991 required-provider-review IDs lack full raw amount histories; no selection over available-only competitors.",
+        "Official batch and provider discovery disagree;822supplemental fund IDs retained, not deleted by present-day type or name.",
+        "Final representatives therefore unknown; their TR, actions, daily status, account and risk dependencies cannot be signed off."
+      ]
+    },
+    {
+      "trial_id": "M6_R1I_development_R1_100000_cost3",
+      "period": "development",
+      "variant": "R1",
+      "initial_cash": 100000,
+      "path": "cost3",
+      "status": "NOT_RUN_DATA_BLOCKED",
+      "actual_run_id": null,
+      "performance_metrics": null,
+      "code_version_for_executed_run": null,
+      "execution_data_hash": null,
+      "reason": [
+        "Historical CSI ten/eleven-industry transition and intervening effective/public versions not complete for2016-2024.",
+        "Exact-index-to-one-historical-L1 methods and identity changes for the full potential competitor set not verified.",
+        "991 required-provider-review IDs lack full raw amount histories; no selection over available-only competitors.",
+        "Official batch and provider discovery disagree;822supplemental fund IDs retained, not deleted by present-day type or name.",
+        "Final representatives therefore unknown; their TR, actions, daily status, account and risk dependencies cannot be signed off."
+      ]
+    },
+    {
+      "trial_id": "M6_R1I_development_R1_100000_delay1",
+      "period": "development",
+      "variant": "R1",
+      "initial_cash": 100000,
+      "path": "delay1",
+      "status": "NOT_RUN_DATA_BLOCKED",
+      "actual_run_id": null,
+      "performance_metrics": null,
+      "code_version_for_executed_run": null,
+      "execution_data_hash": null,
+      "reason": [
+        "Historical CSI ten/eleven-industry transition and intervening effective/public versions not complete for2016-2024.",
+        "Exact-index-to-one-historical-L1 methods and identity changes for the full potential competitor set not verified.",
+        "991 required-provider-review IDs lack full raw amount histories; no selection over available-only competitors.",
+        "Official batch and provider discovery disagree;822supplemental fund IDs retained, not deleted by present-day type or name.",
+        "Final representatives therefore unknown; their TR, actions, daily status, account and risk dependencies cannot be signed off."
+      ]
+    },
+    {
+      "trial_id": "M6_R1I_development_R1_500000_base",
+      "period": "development",
+      "variant": "R1",
+      "initial_cash": 500000,
+      "path": "base",
+      "status": "NOT_RUN_DATA_BLOCKED",
+      "actual_run_id": null,
+      "performance_metrics": null,
+      "code_version_for_executed_run": null,
+      "execution_data_hash": null,
+      "reason": [
+        "Historical CSI ten/eleven-industry transition and intervening effective/public versions not complete for2016-2024.",
+        "Exact-index-to-one-historical-L1 methods and identity changes for the full potential competitor set not verified.",
+        "991 required-provider-review IDs lack full raw amount histories; no selection over available-only competitors.",
+        "Official batch and provider discovery disagree;822supplemental fund IDs retained, not deleted by present-day type or name.",
+        "Final representatives therefore unknown; their TR, actions, daily status, account and risk dependencies cannot be signed off."
+      ]
+    },
+    {
+      "trial_id": "M6_R1I_development_R1_1000000_base",
+      "period": "development",
+      "variant": "R1",
+      "initial_cash": 1000000,
+      "path": "base",
+      "status": "NOT_RUN_DATA_BLOCKED",
+      "actual_run_id": null,
+      "performance_metrics": null,
+      "code_version_for_executed_run": null,
+      "execution_data_hash": null,
+      "reason": [
+        "Historical CSI ten/eleven-industry transition and intervening effective/public versions not complete for2016-2024.",
+        "Exact-index-to-one-historical-L1 methods and identity changes for the full potential competitor set not verified.",
+        "991 required-provider-review IDs lack full raw amount histories; no selection over available-only competitors.",
+        "Official batch and provider discovery disagree;822supplemental fund IDs retained, not deleted by present-day type or name.",
+        "Final representatives therefore unknown; their TR, actions, daily status, account and risk dependencies cannot be signed off."
+      ]
+    },
+    {
+      "trial_id": "M6_R1I_validation_E0_10000_base",
+      "period": "validation",
+      "variant": "E0",
+      "initial_cash": 10000,
+      "path": "base",
+      "status": "NOT_RUN_DATA_BLOCKED",
+      "actual_run_id": null,
+      "performance_metrics": null,
+      "code_version_for_executed_run": null,
+      "execution_data_hash": null,
+      "reason": [
+        "Historical CSI ten/eleven-industry transition and intervening effective/public versions not complete for2016-2024.",
+        "Exact-index-to-one-historical-L1 methods and identity changes for the full potential competitor set not verified.",
+        "991 required-provider-review IDs lack full raw amount histories; no selection over available-only competitors.",
+        "Official batch and provider discovery disagree;822supplemental fund IDs retained, not deleted by present-day type or name.",
+        "Final representatives therefore unknown; their TR, actions, daily status, account and risk dependencies cannot be signed off."
+      ]
+    },
+    {
+      "trial_id": "M6_R1I_validation_E0_100000_base",
+      "period": "validation",
+      "variant": "E0",
+      "initial_cash": 100000,
+      "path": "base",
+      "status": "NOT_RUN_DATA_BLOCKED",
+      "actual_run_id": null,
+      "performance_metrics": null,
+      "code_version_for_executed_run": null,
+      "execution_data_hash": null,
+      "reason": [
+        "Historical CSI ten/eleven-industry transition and intervening effective/public versions not complete for2016-2024.",
+        "Exact-index-to-one-historical-L1 methods and identity changes for the full potential competitor set not verified.",
+        "991 required-provider-review IDs lack full raw amount histories; no selection over available-only competitors.",
+        "Official batch and provider discovery disagree;822supplemental fund IDs retained, not deleted by present-day type or name.",
+        "Final representatives therefore unknown; their TR, actions, daily status, account and risk dependencies cannot be signed off."
+      ]
+    },
+    {
+      "trial_id": "M6_R1I_validation_E0_100000_cost2",
+      "period": "validation",
+      "variant": "E0",
+      "initial_cash": 100000,
+      "path": "cost2",
+      "status": "NOT_RUN_DATA_BLOCKED",
+      "actual_run_id": null,
+      "performance_metrics": null,
+      "code_version_for_executed_run": null,
+      "execution_data_hash": null,
+      "reason": [
+        "Historical CSI ten/eleven-industry transition and intervening effective/public versions not complete for2016-2024.",
+        "Exact-index-to-one-historical-L1 methods and identity changes for the full potential competitor set not verified.",
+        "991 required-provider-review IDs lack full raw amount histories; no selection over available-only competitors.",
+        "Official batch and provider discovery disagree;822supplemental fund IDs retained, not deleted by present-day type or name.",
+        "Final representatives therefore unknown; their TR, actions, daily status, account and risk dependencies cannot be signed off."
+      ]
+    },
+    {
+      "trial_id": "M6_R1I_validation_E0_100000_cost3",
+      "period": "validation",
+      "variant": "E0",
+      "initial_cash": 100000,
+      "path": "cost3",
+      "status": "NOT_RUN_DATA_BLOCKED",
+      "actual_run_id": null,
+      "performance_metrics": null,
+      "code_version_for_executed_run": null,
+      "execution_data_hash": null,
+      "reason": [
+        "Historical CSI ten/eleven-industry transition and intervening effective/public versions not complete for2016-2024.",
+        "Exact-index-to-one-historical-L1 methods and identity changes for the full potential competitor set not verified.",
+        "991 required-provider-review IDs lack full raw amount histories; no selection over available-only competitors.",
+        "Official batch and provider discovery disagree;822supplemental fund IDs retained, not deleted by present-day type or name.",
+        "Final representatives therefore unknown; their TR, actions, daily status, account and risk dependencies cannot be signed off."
+      ]
+    },
+    {
+      "trial_id": "M6_R1I_validation_E0_100000_delay1",
+      "period": "validation",
+      "variant": "E0",
+      "initial_cash": 100000,
+      "path": "delay1",
+      "status": "NOT_RUN_DATA_BLOCKED",
+      "actual_run_id": null,
+      "performance_metrics": null,
+      "code_version_for_executed_run": null,
+      "execution_data_hash": null,
+      "reason": [
+        "Historical CSI ten/eleven-industry transition and intervening effective/public versions not complete for2016-2024.",
+        "Exact-index-to-one-historical-L1 methods and identity changes for the full potential competitor set not verified.",
+        "991 required-provider-review IDs lack full raw amount histories; no selection over available-only competitors.",
+        "Official batch and provider discovery disagree;822supplemental fund IDs retained, not deleted by present-day type or name.",
+        "Final representatives therefore unknown; their TR, actions, daily status, account and risk dependencies cannot be signed off."
+      ]
+    },
+    {
+      "trial_id": "M6_R1I_validation_E0_500000_base",
+      "period": "validation",
+      "variant": "E0",
+      "initial_cash": 500000,
+      "path": "base",
+      "status": "NOT_RUN_DATA_BLOCKED",
+      "actual_run_id": null,
+      "performance_metrics": null,
+      "code_version_for_executed_run": null,
+      "execution_data_hash": null,
+      "reason": [
+        "Historical CSI ten/eleven-industry transition and intervening effective/public versions not complete for2016-2024.",
+        "Exact-index-to-one-historical-L1 methods and identity changes for the full potential competitor set not verified.",
+        "991 required-provider-review IDs lack full raw amount histories; no selection over available-only competitors.",
+        "Official batch and provider discovery disagree;822supplemental fund IDs retained, not deleted by present-day type or name.",
+        "Final representatives therefore unknown; their TR, actions, daily status, account and risk dependencies cannot be signed off."
+      ]
+    },
+    {
+      "trial_id": "M6_R1I_validation_E0_1000000_base",
+      "period": "validation",
+      "variant": "E0",
+      "initial_cash": 1000000,
+      "path": "base",
+      "status": "NOT_RUN_DATA_BLOCKED",
+      "actual_run_id": null,
+      "performance_metrics": null,
+      "code_version_for_executed_run": null,
+      "execution_data_hash": null,
+      "reason": [
+        "Historical CSI ten/eleven-industry transition and intervening effective/public versions not complete for2016-2024.",
+        "Exact-index-to-one-historical-L1 methods and identity changes for the full potential competitor set not verified.",
+        "991 required-provider-review IDs lack full raw amount histories; no selection over available-only competitors.",
+        "Official batch and provider discovery disagree;822supplemental fund IDs retained, not deleted by present-day type or name.",
+        "Final representatives therefore unknown; their TR, actions, daily status, account and risk dependencies cannot be signed off."
+      ]
+    },
+    {
+      "trial_id": "M6_R1I_validation_R0_10000_base",
+      "period": "validation",
+      "variant": "R0",
+      "initial_cash": 10000,
+      "path": "base",
+      "status": "NOT_RUN_DATA_BLOCKED",
+      "actual_run_id": null,
+      "performance_metrics": null,
+      "code_version_for_executed_run": null,
+      "execution_data_hash": null,
+      "reason": [
+        "Historical CSI ten/eleven-industry transition and intervening effective/public versions not complete for2016-2024.",
+        "Exact-index-to-one-historical-L1 methods and identity changes for the full potential competitor set not verified.",
+        "991 required-provider-review IDs lack full raw amount histories; no selection over available-only competitors.",
+        "Official batch and provider discovery disagree;822supplemental fund IDs retained, not deleted by present-day type or name.",
+        "Final representatives therefore unknown; their TR, actions, daily status, account and risk dependencies cannot be signed off."
+      ]
+    },
+    {
+      "trial_id": "M6_R1I_validation_R0_100000_base",
+      "period": "validation",
+      "variant": "R0",
+      "initial_cash": 100000,
+      "path": "base",
+      "status": "NOT_RUN_DATA_BLOCKED",
+      "actual_run_id": null,
+      "performance_metrics": null,
+      "code_version_for_executed_run": null,
+      "execution_data_hash": null,
+      "reason": [
+        "Historical CSI ten/eleven-industry transition and intervening effective/public versions not complete for2016-2024.",
+        "Exact-index-to-one-historical-L1 methods and identity changes for the full potential competitor set not verified.",
+        "991 required-provider-review IDs lack full raw amount histories; no selection over available-only competitors.",
+        "Official batch and provider discovery disagree;822supplemental fund IDs retained, not deleted by present-day type or name.",
+        "Final representatives therefore unknown; their TR, actions, daily status, account and risk dependencies cannot be signed off."
+      ]
+    },
+    {
+      "trial_id": "M6_R1I_validation_R0_100000_cost2",
+      "period": "validation",
+      "variant": "R0",
+      "initial_cash": 100000,
+      "path": "cost2",
+      "status": "NOT_RUN_DATA_BLOCKED",
+      "actual_run_id": null,
+      "performance_metrics": null,
+      "code_version_for_executed_run": null,
+      "execution_data_hash": null,
+      "reason": [
+        "Historical CSI ten/eleven-industry transition and intervening effective/public versions not complete for2016-2024.",
+        "Exact-index-to-one-historical-L1 methods and identity changes for the full potential competitor set not verified.",
+        "991 required-provider-review IDs lack full raw amount histories; no selection over available-only competitors.",
+        "Official batch and provider discovery disagree;822supplemental fund IDs retained, not deleted by present-day type or name.",
+        "Final representatives therefore unknown; their TR, actions, daily status, account and risk dependencies cannot be signed off."
+      ]
+    },
+    {
+      "trial_id": "M6_R1I_validation_R0_100000_cost3",
+      "period": "validation",
+      "variant": "R0",
+      "initial_cash": 100000,
+      "path": "cost3",
+      "status": "NOT_RUN_DATA_BLOCKED",
+      "actual_run_id": null,
+      "performance_metrics": null,
+      "code_version_for_executed_run": null,
+      "execution_data_hash": null,
+      "reason": [
+        "Historical CSI ten/eleven-industry transition and intervening effective/public versions not complete for2016-2024.",
+        "Exact-index-to-one-historical-L1 methods and identity changes for the full potential competitor set not verified.",
+        "991 required-provider-review IDs lack full raw amount histories; no selection over available-only competitors.",
+        "Official batch and provider discovery disagree;822supplemental fund IDs retained, not deleted by present-day type or name.",
+        "Final representatives therefore unknown; their TR, actions, daily status, account and risk dependencies cannot be signed off."
+      ]
+    },
+    {
+      "trial_id": "M6_R1I_validation_R0_100000_delay1",
+      "period": "validation",
+      "variant": "R0",
+      "initial_cash": 100000,
+      "path": "delay1",
+      "status": "NOT_RUN_DATA_BLOCKED",
+      "actual_run_id": null,
+      "performance_metrics": null,
+      "code_version_for_executed_run": null,
+      "execution_data_hash": null,
+      "reason": [
+        "Historical CSI ten/eleven-industry transition and intervening effective/public versions not complete for2016-2024.",
+        "Exact-index-to-one-historical-L1 methods and identity changes for the full potential competitor set not verified.",
+        "991 required-provider-review IDs lack full raw amount histories; no selection over available-only competitors.",
+        "Official batch and provider discovery disagree;822supplemental fund IDs retained, not deleted by present-day type or name.",
+        "Final representatives therefore unknown; their TR, actions, daily status, account and risk dependencies cannot be signed off."
+      ]
+    },
+    {
+      "trial_id": "M6_R1I_validation_R0_500000_base",
+      "period": "validation",
+      "variant": "R0",
+      "initial_cash": 500000,
+      "path": "base",
+      "status": "NOT_RUN_DATA_BLOCKED",
+      "actual_run_id": null,
+      "performance_metrics": null,
+      "code_version_for_executed_run": null,
+      "execution_data_hash": null,
+      "reason": [
+        "Historical CSI ten/eleven-industry transition and intervening effective/public versions not complete for2016-2024.",
+        "Exact-index-to-one-historical-L1 methods and identity changes for the full potential competitor set not verified.",
+        "991 required-provider-review IDs lack full raw amount histories; no selection over available-only competitors.",
+        "Official batch and provider discovery disagree;822supplemental fund IDs retained, not deleted by present-day type or name.",
+        "Final representatives therefore unknown; their TR, actions, daily status, account and risk dependencies cannot be signed off."
+      ]
+    },
+    {
+      "trial_id": "M6_R1I_validation_R0_1000000_base",
+      "period": "validation",
+      "variant": "R0",
+      "initial_cash": 1000000,
+      "path": "base",
+      "status": "NOT_RUN_DATA_BLOCKED",
+      "actual_run_id": null,
+      "performance_metrics": null,
+      "code_version_for_executed_run": null,
+      "execution_data_hash": null,
+      "reason": [
+        "Historical CSI ten/eleven-industry transition and intervening effective/public versions not complete for2016-2024.",
+        "Exact-index-to-one-historical-L1 methods and identity changes for the full potential competitor set not verified.",
+        "991 required-provider-review IDs lack full raw amount histories; no selection over available-only competitors.",
+        "Official batch and provider discovery disagree;822supplemental fund IDs retained, not deleted by present-day type or name.",
+        "Final representatives therefore unknown; their TR, actions, daily status, account and risk dependencies cannot be signed off."
+      ]
+    },
+    {
+      "trial_id": "M6_R1I_validation_E1_10000_base",
+      "period": "validation",
+      "variant": "E1",
+      "initial_cash": 10000,
+      "path": "base",
+      "status": "NOT_RUN_DATA_BLOCKED",
+      "actual_run_id": null,
+      "performance_metrics": null,
+      "code_version_for_executed_run": null,
+      "execution_data_hash": null,
+      "reason": [
+        "Historical CSI ten/eleven-industry transition and intervening effective/public versions not complete for2016-2024.",
+        "Exact-index-to-one-historical-L1 methods and identity changes for the full potential competitor set not verified.",
+        "991 required-provider-review IDs lack full raw amount histories; no selection over available-only competitors.",
+        "Official batch and provider discovery disagree;822supplemental fund IDs retained, not deleted by present-day type or name.",
+        "Final representatives therefore unknown; their TR, actions, daily status, account and risk dependencies cannot be signed off."
+      ]
+    },
+    {
+      "trial_id": "M6_R1I_validation_E1_100000_base",
+      "period": "validation",
+      "variant": "E1",
+      "initial_cash": 100000,
+      "path": "base",
+      "status": "NOT_RUN_DATA_BLOCKED",
+      "actual_run_id": null,
+      "performance_metrics": null,
+      "code_version_for_executed_run": null,
+      "execution_data_hash": null,
+      "reason": [
+        "Historical CSI ten/eleven-industry transition and intervening effective/public versions not complete for2016-2024.",
+        "Exact-index-to-one-historical-L1 methods and identity changes for the full potential competitor set not verified.",
+        "991 required-provider-review IDs lack full raw amount histories; no selection over available-only competitors.",
+        "Official batch and provider discovery disagree;822supplemental fund IDs retained, not deleted by present-day type or name.",
+        "Final representatives therefore unknown; their TR, actions, daily status, account and risk dependencies cannot be signed off."
+      ]
+    },
+    {
+      "trial_id": "M6_R1I_validation_E1_100000_cost2",
+      "period": "validation",
+      "variant": "E1",
+      "initial_cash": 100000,
+      "path": "cost2",
+      "status": "NOT_RUN_DATA_BLOCKED",
+      "actual_run_id": null,
+      "performance_metrics": null,
+      "code_version_for_executed_run": null,
+      "execution_data_hash": null,
+      "reason": [
+        "Historical CSI ten/eleven-industry transition and intervening effective/public versions not complete for2016-2024.",
+        "Exact-index-to-one-historical-L1 methods and identity changes for the full potential competitor set not verified.",
+        "991 required-provider-review IDs lack full raw amount histories; no selection over available-only competitors.",
+        "Official batch and provider discovery disagree;822supplemental fund IDs retained, not deleted by present-day type or name.",
+        "Final representatives therefore unknown; their TR, actions, daily status, account and risk dependencies cannot be signed off."
+      ]
+    },
+    {
+      "trial_id": "M6_R1I_validation_E1_100000_cost3",
+      "period": "validation",
+      "variant": "E1",
+      "initial_cash": 100000,
+      "path": "cost3",
+      "status": "NOT_RUN_DATA_BLOCKED",
+      "actual_run_id": null,
+      "performance_metrics": null,
+      "code_version_for_executed_run": null,
+      "execution_data_hash": null,
+      "reason": [
+        "Historical CSI ten/eleven-industry transition and intervening effective/public versions not complete for2016-2024.",
+        "Exact-index-to-one-historical-L1 methods and identity changes for the full potential competitor set not verified.",
+        "991 required-provider-review IDs lack full raw amount histories; no selection over available-only competitors.",
+        "Official batch and provider discovery disagree;822supplemental fund IDs retained, not deleted by present-day type or name.",
+        "Final representatives therefore unknown; their TR, actions, daily status, account and risk dependencies cannot be signed off."
+      ]
+    },
+    {
+      "trial_id": "M6_R1I_validation_E1_100000_delay1",
+      "period": "validation",
+      "variant": "E1",
+      "initial_cash": 100000,
+      "path": "delay1",
+      "status": "NOT_RUN_DATA_BLOCKED",
+      "actual_run_id": null,
+      "performance_metrics": null,
+      "code_version_for_executed_run": null,
+      "execution_data_hash": null,
+      "reason": [
+        "Historical CSI ten/eleven-industry transition and intervening effective/public versions not complete for2016-2024.",
+        "Exact-index-to-one-historical-L1 methods and identity changes for the full potential competitor set not verified.",
+        "991 required-provider-review IDs lack full raw amount histories; no selection over available-only competitors.",
+        "Official batch and provider discovery disagree;822supplemental fund IDs retained, not deleted by present-day type or name.",
+        "Final representatives therefore unknown; their TR, actions, daily status, account and risk dependencies cannot be signed off."
+      ]
+    },
+    {
+      "trial_id": "M6_R1I_validation_E1_500000_base",
+      "period": "validation",
+      "variant": "E1",
+      "initial_cash": 500000,
+      "path": "base",
+      "status": "NOT_RUN_DATA_BLOCKED",
+      "actual_run_id": null,
+      "performance_metrics": null,
+      "code_version_for_executed_run": null,
+      "execution_data_hash": null,
+      "reason": [
+        "Historical CSI ten/eleven-industry transition and intervening effective/public versions not complete for2016-2024.",
+        "Exact-index-to-one-historical-L1 methods and identity changes for the full potential competitor set not verified.",
+        "991 required-provider-review IDs lack full raw amount histories; no selection over available-only competitors.",
+        "Official batch and provider discovery disagree;822supplemental fund IDs retained, not deleted by present-day type or name.",
+        "Final representatives therefore unknown; their TR, actions, daily status, account and risk dependencies cannot be signed off."
+      ]
+    },
+    {
+      "trial_id": "M6_R1I_validation_E1_1000000_base",
+      "period": "validation",
+      "variant": "E1",
+      "initial_cash": 1000000,
+      "path": "base",
+      "status": "NOT_RUN_DATA_BLOCKED",
+      "actual_run_id": null,
+      "performance_metrics": null,
+      "code_version_for_executed_run": null,
+      "execution_data_hash": null,
+      "reason": [
+        "Historical CSI ten/eleven-industry transition and intervening effective/public versions not complete for2016-2024.",
+        "Exact-index-to-one-historical-L1 methods and identity changes for the full potential competitor set not verified.",
+        "991 required-provider-review IDs lack full raw amount histories; no selection over available-only competitors.",
+        "Official batch and provider discovery disagree;822supplemental fund IDs retained, not deleted by present-day type or name.",
+        "Final representatives therefore unknown; their TR, actions, daily status, account and risk dependencies cannot be signed off."
+      ]
+    },
+    {
+      "trial_id": "M6_R1I_validation_R1_10000_base",
+      "period": "validation",
+      "variant": "R1",
+      "initial_cash": 10000,
+      "path": "base",
+      "status": "NOT_RUN_DATA_BLOCKED",
+      "actual_run_id": null,
+      "performance_metrics": null,
+      "code_version_for_executed_run": null,
+      "execution_data_hash": null,
+      "reason": [
+        "Historical CSI ten/eleven-industry transition and intervening effective/public versions not complete for2016-2024.",
+        "Exact-index-to-one-historical-L1 methods and identity changes for the full potential competitor set not verified.",
+        "991 required-provider-review IDs lack full raw amount histories; no selection over available-only competitors.",
+        "Official batch and provider discovery disagree;822supplemental fund IDs retained, not deleted by present-day type or name.",
+        "Final representatives therefore unknown; their TR, actions, daily status, account and risk dependencies cannot be signed off."
+      ]
+    },
+    {
+      "trial_id": "M6_R1I_validation_R1_100000_base",
+      "period": "validation",
+      "variant": "R1",
+      "initial_cash": 100000,
+      "path": "base",
+      "status": "NOT_RUN_DATA_BLOCKED",
+      "actual_run_id": null,
+      "performance_metrics": null,
+      "code_version_for_executed_run": null,
+      "execution_data_hash": null,
+      "reason": [
+        "Historical CSI ten/eleven-industry transition and intervening effective/public versions not complete for2016-2024.",
+        "Exact-index-to-one-historical-L1 methods and identity changes for the full potential competitor set not verified.",
+        "991 required-provider-review IDs lack full raw amount histories; no selection over available-only competitors.",
+        "Official batch and provider discovery disagree;822supplemental fund IDs retained, not deleted by present-day type or name.",
+        "Final representatives therefore unknown; their TR, actions, daily status, account and risk dependencies cannot be signed off."
+      ]
+    },
+    {
+      "trial_id": "M6_R1I_validation_R1_100000_cost2",
+      "period": "validation",
+      "variant": "R1",
+      "initial_cash": 100000,
+      "path": "cost2",
+      "status": "NOT_RUN_DATA_BLOCKED",
+      "actual_run_id": null,
+      "performance_metrics": null,
+      "code_version_for_executed_run": null,
+      "execution_data_hash": null,
+      "reason": [
+        "Historical CSI ten/eleven-industry transition and intervening effective/public versions not complete for2016-2024.",
+        "Exact-index-to-one-historical-L1 methods and identity changes for the full potential competitor set not verified.",
+        "991 required-provider-review IDs lack full raw amount histories; no selection over available-only competitors.",
+        "Official batch and provider discovery disagree;822supplemental fund IDs retained, not deleted by present-day type or name.",
+        "Final representatives therefore unknown; their TR, actions, daily status, account and risk dependencies cannot be signed off."
+      ]
+    },
+    {
+      "trial_id": "M6_R1I_validation_R1_100000_cost3",
+      "period": "validation",
+      "variant": "R1",
+      "initial_cash": 100000,
+      "path": "cost3",
+      "status": "NOT_RUN_DATA_BLOCKED",
+      "actual_run_id": null,
+      "performance_metrics": null,
+      "code_version_for_executed_run": null,
+      "execution_data_hash": null,
+      "reason": [
+        "Historical CSI ten/eleven-industry transition and intervening effective/public versions not complete for2016-2024.",
+        "Exact-index-to-one-historical-L1 methods and identity changes for the full potential competitor set not verified.",
+        "991 required-provider-review IDs lack full raw amount histories; no selection over available-only competitors.",
+        "Official batch and provider discovery disagree;822supplemental fund IDs retained, not deleted by present-day type or name.",
+        "Final representatives therefore unknown; their TR, actions, daily status, account and risk dependencies cannot be signed off."
+      ]
+    },
+    {
+      "trial_id": "M6_R1I_validation_R1_100000_delay1",
+      "period": "validation",
+      "variant": "R1",
+      "initial_cash": 100000,
+      "path": "delay1",
+      "status": "NOT_RUN_DATA_BLOCKED",
+      "actual_run_id": null,
+      "performance_metrics": null,
+      "code_version_for_executed_run": null,
+      "execution_data_hash": null,
+      "reason": [
+        "Historical CSI ten/eleven-industry transition and intervening effective/public versions not complete for2016-2024.",
+        "Exact-index-to-one-historical-L1 methods and identity changes for the full potential competitor set not verified.",
+        "991 required-provider-review IDs lack full raw amount histories; no selection over available-only competitors.",
+        "Official batch and provider discovery disagree;822supplemental fund IDs retained, not deleted by present-day type or name.",
+        "Final representatives therefore unknown; their TR, actions, daily status, account and risk dependencies cannot be signed off."
+      ]
+    },
+    {
+      "trial_id": "M6_R1I_validation_R1_500000_base",
+      "period": "validation",
+      "variant": "R1",
+      "initial_cash": 500000,
+      "path": "base",
+      "status": "NOT_RUN_DATA_BLOCKED",
+      "actual_run_id": null,
+      "performance_metrics": null,
+      "code_version_for_executed_run": null,
+      "execution_data_hash": null,
+      "reason": [
+        "Historical CSI ten/eleven-industry transition and intervening effective/public versions not complete for2016-2024.",
+        "Exact-index-to-one-historical-L1 methods and identity changes for the full potential competitor set not verified.",
+        "991 required-provider-review IDs lack full raw amount histories; no selection over available-only competitors.",
+        "Official batch and provider discovery disagree;822supplemental fund IDs retained, not deleted by present-day type or name.",
+        "Final representatives therefore unknown; their TR, actions, daily status, account and risk dependencies cannot be signed off."
+      ]
+    },
+    {
+      "trial_id": "M6_R1I_validation_R1_1000000_base",
+      "period": "validation",
+      "variant": "R1",
+      "initial_cash": 1000000,
+      "path": "base",
+      "status": "NOT_RUN_DATA_BLOCKED",
+      "actual_run_id": null,
+      "performance_metrics": null,
+      "code_version_for_executed_run": null,
+      "execution_data_hash": null,
+      "reason": [
+        "Historical CSI ten/eleven-industry transition and intervening effective/public versions not complete for2016-2024.",
+        "Exact-index-to-one-historical-L1 methods and identity changes for the full potential competitor set not verified.",
+        "991 required-provider-review IDs lack full raw amount histories; no selection over available-only competitors.",
+        "Official batch and provider discovery disagree;822supplemental fund IDs retained, not deleted by present-day type or name.",
+        "Final representatives therefore unknown; their TR, actions, daily status, account and risk dependencies cannot be signed off."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,87 @@
+{
+  "milestone": "M5_FINITE_FINANCIAL_ENGINEERING_NOT_ALPHA",
+  "registered_at": "2026-11-15T10:58:12.684642+00:00",
+  "session_started_at": "2026-11-15T10:49:00Z",
+  "source_budget": {
+    "http_attempts": 70,
+    "bytes": 41943040,
+    "sdk_requests": 0,
+    "shared_m5_budget": true
+  },
+  "cases": [
+    {
+      "case_id": "KANGMEI_2017_ORIGINAL_TO_2019_RESTATEMENT",
+      "instrument_id": "sh.600518",
+      "target_period": "2017-12-31",
+      "factor_cutoff": "2018-04-27T21:00:00+08:00",
+      "later_fact_cutoff": "2019-05-06T21:00:00+08:00",
+      "cutoff_basis": "Earliest conservative availability of original published 2018-04-26, independently checked in M4 calendar review. Latest-period publication inventory is unverified pending bounded source query; simultaneous 2018Q1 will BLOCK the annual factor case.",
+      "required_period_fields": {
+        "2017-12-31": [
+          "net_profit_parent_ytd",
+          "operating_cashflow_ytd",
+          "total_assets"
+        ],
+        "2016-12-31": [
+          "total_assets"
+        ]
+      },
+      "existing_source_hashes": [
+        "15b3b15df2dfd3310cc16e1e345e8950e8a9cb047bdad38d1263e2b55cfd2985",
+        "9f47aa0dc0a8838ffd21e600d7eca194052d91cf867d8e22a4ba56dee2b9f60a",
+        "ca22aa1858f56e2cd9181d15c88fde83312afb94701898a2de74c378c7c41bab"
+      ],
+      "permitted_new_sources": [
+        "2016 annual original asset baseline if needed",
+        "2018Q1 original publication metadata/report",
+        "report inventory through 2018-04-27 and through 2019-05-06",
+        "same-day 2018-04-27 share-class-consistent total market capitalization only if evidenced within fixed budget"
+      ],
+      "market_cap_status": "MISSING_PENDING_EXISTING_EVIDENCE_NO_PROXY"
+    },
+    {
+      "case_id": "sz.002857_2023-09-30",
+      "instrument_id": "sz.002857",
+      "target_period": "2023-09-30",
+      "factor_cutoff": "2023-10-27T21:00:00+08:00",
+      "later_fact_cutoff": "2024-12-26T21:00:00+08:00",
+      "cutoff_basis": "Earliest conservative availability of original published 2023-10-26, independently checked in M4 calendar review.",
+      "required_period_fields": {
+        "2023-09-30": [
+          "net_profit_parent_ytd",
+          "operating_cashflow_ytd",
+          "total_assets"
+        ],
+        "2022-12-31": [
+          "net_profit_parent_ytd",
+          "operating_cashflow_ytd"
+        ],
+        "2022-09-30": [
+          "net_profit_parent_ytd",
+          "operating_cashflow_ytd",
+          "total_assets"
+        ]
+      },
+      "existing_source_hashes": [
+        "9b57ae1e21bc1246d7acb7e044f7dca033ba93ba5055f92ad9b53951ed39da1d",
+        "41d9370fd96d1860152079264f7a05448a6db7cc2c47b5e9dcda410037288e98"
+      ],
+      "permitted_new_sources": [
+        "2022 original annual report",
+        "2022 original Q3 report",
+        "report inventory through 2023-10-27 and through 2024-12-26",
+        "same-day 2023-10-27 share-class-consistent total market capitalization only if evidenced within fixed budget"
+      ],
+      "market_cap_status": "MISSING_PENDING_EXISTING_EVIDENCE_NO_PROXY"
+    }
+  ],
+  "later_revision_use": "financial_asof fact-selection and historical-prefix invariance only; later financial reports must remain in latest-period contract and may block later factors",
+  "freshness_policy": null,
+  "formal_admission": "BLOCKED_HUMAN_0_FULL_CHAIN_UNKNOWN",
+  "human_accepted_cases": 0,
+  "alpha_registrations": 0,
+  "alpha_runs": 0,
+  "maximum_implementation_review_rounds": 2,
+  "session_started_at_basis": "Conservative minute-resolution estimate from first filesystem command observed 10:49 UTC; not exact labor timing.",
+  "timestamp_correction": "Replaced unobserved placeholder registration timestamp before any new source request; actual system UTC recorded here."
+}

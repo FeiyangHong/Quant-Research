@@ -1,0 +1,41 @@
+{
+  "coverage": "PARTIAL_NOT_A_COMPLETE_HISTORICAL_RULE_TABLE",
+  "rules": [
+    {
+      "rule_id": "szse_2026",
+      "source_url": "https://docs.static.szse.cn/www/lawrules/rule/trade/current/W020260424690713155663.pdf",
+      "published_on": "2026-04-24",
+      "effective_on": "2026-07-06",
+      "retrieved_at": "2026-11-14T15:03:53.279502+00:00",
+      "status": "ARCHIVED_NOT_FULLY_VALIDATED",
+      "sha256": "9b66f8b0db70f84a25ef1ccb4ee2351001724e408117552d75f6d8993483c586",
+      "content_type": "application/pdf",
+      "local_object": "data\\raw_rules\\szse_2026-9b66f8b0db70.pdf",
+      "bytes": 282084
+    },
+    {
+      "rule_id": "sse_2026",
+      "source_url": "https://www.sse.com.cn/lawandrules/sselawsrules2025/stocks/exchange/c/c_20260424_10816482.shtml",
+      "published_on": "2026-04-24",
+      "effective_on": "2026-07-06",
+      "retrieved_at": "2026-11-14T15:03:53.487428+00:00",
+      "status": "ARCHIVED_NOT_FULLY_VALIDATED",
+      "sha256": "0b711dcf306c243625cc5c8830f8b96888f779a73d1b981883b67fa52bdf9868",
+      "content_type": "text/html",
+      "local_object": "data\\raw_rules\\sse_2026-0b711dcf306c.html",
+      "bytes": 33591
+    },
+    {
+      "rule_id": "mof_stamp_2023",
+      "source_url": "https://www.mof.gov.cn/jrttts/202308/t20230828_3904235.htm",
+      "published_on": "2023-08-27",
+      "effective_on": "2023-08-28",
+      "retrieved_at": "2026-11-14T15:03:53.885084+00:00",
+      "status": "ARCHIVED_NOT_FULLY_VALIDATED",
+      "sha256": "5ee44881ff4e13099204c268b0ff30a167e5c0a7775903836df579091f86448a",
+      "content_type": "text/html",
+      "local_object": "data\\raw_rules\\mof_stamp_2023-5ee44881ff4e.html",
+      "bytes": 20817
+    }
+  ]
+}

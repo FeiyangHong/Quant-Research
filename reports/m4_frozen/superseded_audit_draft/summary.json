@@ -1,0 +1,30 @@
+{
+  "status": "READ_ONLY_FROZEN_REVIEW_COMPLETE",
+  "runs": 448,
+  "primary_accounts": 16,
+  "primary_monthly_rows": 864,
+  "holding_period_pair_rows": 432,
+  "annual_etf_rows": 182784,
+  "annual_account_rows": 2016,
+  "annual_zero_etf_rows": 172624,
+  "max_annual_reconciliation_error_cny": 4.729372449219227e-10,
+  "max_daily_reconciliation_error_cny": 5.529727786779404e-10,
+  "metadata_discrepancy_grid_rows": 585,
+  "metadata_discrepancy_contexts": 4704,
+  "actual_execution_dependency_discrepancies": 0,
+  "actual_affected_run_ids": [],
+  "master_effective_to_present_rows": 0,
+  "frozen_summary_sha256": "c238b235722bc73468ef1cc3af29f083c160a92d0ff18edead6c36d3b129aebb",
+  "script_sha256": "9d1eea13cc28c8b8bdda2b20871697900713a0c7fb78bd54caa42848fd46ca49",
+  "scope": "Existing448 account artifacts and original admitted input only; no strategy replay, no new parameter/shrinkage search, no production imports, no holdout access.",
+  "unknowns": [
+    "Missing effective_to means expiry logic has no real-data test in these inputs.",
+    "No complete persisted trace of every internal master lookup exists; event/position/order coverage is a conservative reconstruction from frozen source and artifacts, not instrumented execution.",
+    "Old master_asof is availability-only. Its whole-universe differences do not prove it was called on an execution-sensitive path; no persisted per-call trace.",
+    "Current correction-chain/no-revival refinements are a separate semantic design, not a retroactive reinterpretation of frozen strategy outputs.",
+    "Repeated ETF exposure counterexample demonstrates estimator representation dependence, not actual complete ETF return identity or a superior alternative.",
+    "No ETF holdings look-through or causal factor model is available. Index-family counts and correlated returns are proxies, not independent economic exposures.",
+    "Holding-period attribution means fixed rebalance execution-to-next-execution intervals, including all fills/fees/blocked positions; it is not FIFO trade attribution.",
+    "Daily prices and modeled cash settlement retain all original data/execution limitations; fixed incremental costs remain unknown."
+  ]
+}

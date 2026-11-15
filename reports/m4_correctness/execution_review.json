@@ -1,0 +1,106 @@
+{
+  "status": "ENGINEERING_CORRECTNESS_VERIFIED_REAL_ADMISSION_BLOCKED",
+  "baseline_commit": "7d5bcebbf98a1fe68b50f760e63f7fbd66d28d78",
+  "reviewed_on": "2026-11-15",
+  "purpose": "ENGINEERING_REPLAY_NOT_STRATEGY_PERFORMANCE",
+  "performance_evidence": false,
+  "real_strategy_runs": 0,
+  "holdout_market_or_strategy_result_access": false,
+  "real_engineering_event_acceptance": false,
+  "baseline_reproduction": {
+    "path": "reports/m4_correctness/engineering_replay/baseline_failures.txt",
+    "failing_cases": 4,
+    "cases": [
+      "published_future_grant",
+      "published_future_revocation",
+      "expired_master_authorizes_sale",
+      "standalone_etf_delisting_unknown_rights"
+    ]
+  },
+  "master_contract": {
+    "publication_cutoff": "available_at <= cutoff",
+    "effective_interval": "[effective_from, effective_to)",
+    "timezone": "Asia/Shanghai",
+    "supported_bounds": "ISO_DATE_ONLY_INTRADAY_TIMESTAMPS_FAIL_CLOSED",
+    "missing_bounds": "UNBOUNDED",
+    "state_order": "LATEST_EFFECTIVE_START_THEN_PUBLICATION",
+    "expiry": "UNKNOWN_WITHOUT_PREDECESSOR_RESURRECTION",
+    "future_supersedes_transition": "ACTIVATES_AT_EFFECTIVE_START",
+    "shifted_start_correction": "REQUIRES_revision_kind_CORRECTION",
+    "unknown_state": "BLOCK_BUY_AND_UNVERIFIABLE_SELL_RETAIN_POSITIONS"
+  },
+  "main_ledger_connected": [
+    "synthetic_fixed_position_targets",
+    "historical_board_limit_validation",
+    "execution_day_statutory_fees_with_publication_clock",
+    "record_close_fifo_cash_dividend_claims",
+    "ordinary_and_explicit_special_cash_dividends",
+    "receivable_to_modeled_cash",
+    "fifo_disposal_tax_accrual",
+    "explicit_modeled_tax_debit",
+    "cash_reserve_and_payable_nav",
+    "terminal_record_close_reserve",
+    "unknown_delisted_rights"
+  ],
+  "engineering_entry": "run_backtest(..., engineering_replay=True)",
+  "entry_policy": "EXPLICIT_SYNTHETIC_ONLY_REAL_INPUTS_REJECTED",
+  "scope": {
+    "years": [
+      2016,
+      2024
+    ],
+    "boards": [
+      "MAIN",
+      "CHINEXT"
+    ]
+  },
+  "reconciliation": {
+    "fixtures": 6,
+    "daily_rows": 420,
+    "differences": 0,
+    "oracle": "scripts/replay_equity_engineering.py:independent_expected",
+    "oracle_uses_engine_fills_or_formulas": false,
+    "provenance": "reports/m4_correctness/engineering_replay/provenance.json"
+  },
+  "independent_followup": {
+    "pre_fix_evidence": "work/m4_independent/pre_fix_counterexamples.txt",
+    "reproduced_failures": 5,
+    "repaired": [
+      "FIXED_SHARE_TARGET_KEYS_WITH_EMPTY_WEIGHTS",
+      "UPFRONT_NON_ENGINEERING_FIXED_TARGET_REJECTION",
+      "LINKED_CHILD_REVISION_ID_REQUIRED",
+      "EXPLICIT_REVISION_KIND_ENUM_VALIDATED"
+    ],
+    "external_independent_cases_passed": 16,
+    "external_tests_modified_by_execution_author": false,
+    "extra_evidence": "work/m4_independent/pre_fix_revision_kind.txt"
+  },
+  "validation": {
+    "focused_accounting_and_independent_tests": 245,
+    "final_m4_execution_tests": 38,
+    "strategy_and_data_tests": 48,
+    "whole_suite": "ROOT_INTEGRATION_REPORT",
+    "nullable_kind_normalization_targeted_rerun": 54
+  },
+  "blockers": [
+    "REAL_ORIGINAL_EVENT_ACCEPTANCE_NOT_COMPLETED",
+    "COMPLETE_PIT_MASTER_STATUS_LIMITS_AND_ACTION_COVERAGE",
+    "INTRADAY_EFFECTIVE_BOUNDS_UNSUPPORTED",
+    "BROKER_CSDC_TAX_DEBIT_AND_ROUNDING_CONVENTIONS",
+    "NONEXISTENT_CALENDAR_ANNIVERSARY_CONVENTION",
+    "BONUS_CONVERSION_RIGHTS_MERGER_STOCK_LIQUIDATION_UNSUPPORTED"
+  ],
+  "r2_r3_real_admission": "BLOCKED",
+  "normal_runner_stock_dividends": "BLOCKED",
+  "prior_reports_or_runs_modified": false,
+  "implementation_sha256": {
+    "src/quant_research/temporal.py": "94ad0dd7183025d7def486e511b619e985e42238c981ff31b139d8bf1159f4ae",
+    "src/quant_research/data.py": "b82a8d15f3fa40a7054f93b45fa018320475d3f79628e936a0af1f6cc40d81fa",
+    "src/quant_research/strategy.py": "64e289461926d695d5350ee3820359dee55d28de52715e32dfb1c3c408a4ecac",
+    "src/quant_research/execution.py": "91c1bdeec0a07c03b929b2e756b2ff6a3494538fca222c6d46fa260390519976",
+    "src/quant_research/equity_accounting.py": "96bd0b4a9ab232093d349118cfabc9d1684ab47060ebc8f35920790777d138d1",
+    "src/quant_research/engineering_replay.py": "3dab841f1da0d7ad3a65a79e882f2b8e507648e218e4905438648a7fb383db19",
+    "scripts/replay_equity_engineering.py": "fbb4076bac2076cc8bc466d74b63d23f524b3b5d9a88b84b65bc80f4ec8d9982",
+    "tests/test_m4_execution.py": "1ed51492296e25f39a8e9235e374f40f176d1ed0f600f77ed958e01bd7f28ebc"
+  }
+}

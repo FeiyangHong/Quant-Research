@@ -1,0 +1,7 @@
+# Independent financial-source audit snapshot
+
+`review_sources.py` preserves the exact byte version bound by `data_independent_review.json` (SHA256 a0d9f167ff2b86911f9e4a30813335cfc7685c98b9681922e2297eea88145b88). Restore it to `work/m4_data_review/review_sources.py` before running: its repository root is inferred from that original location. It writes diagnostic checks and rendered pages under work, not strategy results or admission.
+
+This separate documentary review used the existing `E:\Anaconda\python.exe` (Python 3.9.19, PyMuPDF 1.26.5, Pillow 10.0.0) and the absolute bundled Poppler `pdftoppm.exe` location declared in the saved script. It is not part of the minimal research pytest environment. On another machine supply an equivalent isolated PDF environment and adjust the renderer path in a new clearly versioned copy. Original raw document paths must be restored or explicitly mapped; do not silently substitute newly downloaded documents. Saved numeric/text checks are reproducible, while rerunning the script alone does not reproduce an agent's visual inspection or create human acceptance.
+
+The data builder `scripts/m4_data_build.py` separately requires `pdftotext -layout` on PATH; this machine used Poppler 24.04.0 via MiKTeX. This dependency is needed to rebuild the full official-industry table, not for the core synthetic pytest suite. The minimal requirements.lock is intentionally unchanged. Actual PDF-runtime versions are recorded in the root M4 verification metadata.

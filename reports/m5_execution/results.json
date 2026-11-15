@@ -1,0 +1,36 @@
+{
+  "purpose": "ENGINEERING_ACCOUNTING_VALIDATION",
+  "synthetic": false,
+  "data_origin": "REAL",
+  "performance_evidence": false,
+  "real_strategy_runs": 0,
+  "cases": [
+    {
+      "case": "moutai_ordinary",
+      "status": "BLOCKED_RULE_SOURCES",
+      "daily_rows": 34,
+      "differences": [],
+      "predicted_fills": [],
+      "actual_fill_count": 0,
+      "broker_ledger_verification": "UNVERIFIED"
+    },
+    {
+      "case": "moutai_special",
+      "status": "BLOCKED_RULE_SOURCES",
+      "daily_rows": 35,
+      "differences": [],
+      "predicted_fills": [],
+      "actual_fill_count": 0,
+      "broker_ledger_verification": "UNVERIFIED"
+    },
+    {
+      "case": "kangmei_st",
+      "status": "BLOCKED_RULE_SOURCES",
+      "daily_rows": 41,
+      "differences": [],
+      "predicted_fills": [],
+      "actual_fill_count": 0,
+      "broker_ledger_verification": "UNVERIFIED"
+    }
+  ]
+}

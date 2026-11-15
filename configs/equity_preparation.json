@@ -1,0 +1,70 @@
+{
+  "schema_version": "equity-preparation-0.1",
+  "status": "PREPARATION_ONLY_NOT_EXPERIMENT_REGISTRATION",
+  "protocol_sha256": "a831dd822095cda8359155c34f23e97600c37805fa4646ff3fd5ab2de800777c",
+  "source_spec": "docs/STRATEGY_SPEC.md",
+  "r1_decision": "ARCHIVE_CURRENT_CONFIGURATION_STOP_PARAMETER_SEARCH",
+  "primary_capital": 100000,
+  "capital_controls": [
+    10000,
+    100000,
+    500000,
+    1000000
+  ],
+  "permissions": {
+    "MAIN": true,
+    "CHINEXT": true,
+    "STAR": false,
+    "BSE": false
+  },
+  "sample_split": {
+    "development": [
+      "2016-01-01",
+      "2021-12-31"
+    ],
+    "validation": [
+      "2022-01-01",
+      "2024-12-31"
+    ],
+    "final_holdout": "LOCKED"
+  },
+  "r2": {
+    "core_rules": [
+      "VALUE",
+      "QUALITY",
+      "COMBINED"
+    ],
+    "formal_comparison": [
+      "COMBINED",
+      "VALUE"
+    ],
+    "weights": [
+      0.5,
+      0.25,
+      0.25
+    ],
+    "targets": 30,
+    "retention_rank": 45,
+    "industry_slots": 6,
+    "minimum_vintage_cases": 20,
+    "rule_budget": 20
+  },
+  "r3": {
+    "models": [
+      "raw",
+      "market",
+      "market_industry"
+    ],
+    "primary_lookback": 5,
+    "inactive_sensitivity_lookbacks": [
+      3,
+      10
+    ],
+    "rule_budget": 9
+  },
+  "real_experiments_registered": 0,
+  "real_experiments_run": 0,
+  "performance_metrics": null,
+  "live_enabled": false,
+  "annual_incremental_cost": null
+}

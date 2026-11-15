@@ -1,0 +1,141 @@
+FFFFFFF                                                                  [100%]
+================================== FAILURES ===================================
+__________ test_expired_successor_does_not_revive_old_amount_winner ___________
+
+    def test_expired_successor_does_not_revive_old_amount_winner():
+        data=dependency_case()
+        # A's latest economic state expired Jan1. B is the ONLY live CSI300 member.
+        expected=['B','C','D']
+>       assert on_april_schedule(data)['representatives']==expected
+E       AssertionError: assert ['A', 'C', 'D'] == ['B', 'C', 'D']
+E         
+E         At index 0 diff: 'A' != 'B'
+E         Use -v to get more diff
+
+tests\test_m5_dependencies.py:53: AssertionError
+___ test_false_selection_only_declaration_is_rejected_before_cash_fallback ____
+
+    def test_false_selection_only_declaration_is_rejected_before_cash_fallback():
+        data=dependency_case()
+        full=next(t for t in generate_targets(data,'R0') if t.decision_date=='2019-04-30')
+        assert full.weights=={'B':1/3,'C':1/3,'D':1/3}
+        data.bars.loc[data.bars.instrument_id.eq('B'),'usage_scope']='REPRESENTATIVE_SELECTION_ONLY'
+        data.bars.loc[data.bars.instrument_id.eq('B'),'total_return_index']=np.nan
+        # Even declaring the producer's own recomputed proof must not legitimize B's removal.
+        data.manifest['representative_dependencies']=representative_dependencies(data)
+        report=audit_dataset(data)
+        assert not report['errors'],report
+>       assert any('selected representative lacks full TR/event coverage' in x and "'B'" in x for x in report['blockers']),report
+E       AssertionError: {'blockers': [], 'coverage': {'calendar_sessions': 609, 'missing_sessions_by_instrument': {'A': 0, 'B': 0, 'C': 0, 'D'...tions_by_instrument': {'A': 609, 'B': 609, 'C': 609, 'D': 609}, ...}, 'errors': [], 'performance_evidence': False, ...}
+E       assert False
+E        +  where False = any(<generator object test_false_selection_only_declaration_is_rejected_before_cash_fallback.<locals>.<genexpr> at 0x0000023675E95F20>)
+
+tests\test_m5_dependencies.py:69: AssertionError
+_ test_economic_state_order_independent_of_publication_or_input_order[late_old_correction] _
+
+case = 'late_old_correction'
+
+    @pytest.mark.parametrize('case',['late_old_correction','future_transition','reverse_order'])
+    def test_economic_state_order_independent_of_publication_or_input_order(case):
+        data=dependency_case()
+        if case=='late_old_correction':
+            row=dict(data.instruments.iloc[0],revision_id='A_old_fix',supersedes_id='A_old',revision_kind='CORRECTION',
+                     available_at='2019-03-25T21:00:00+08:00')
+            data.instruments=pd.concat([data.instruments,pd.DataFrame([row])],ignore_index=True)
+        elif case=='future_transition':
+            row=dict(data.instruments.iloc[1],revision_id='B_future',supersedes_id='B_old',revision_kind='TRANSITION',
+                     strategy_universe='OUTSIDE',available_at='2019-03-25T21:00:00+08:00',effective_from='2019-04-02')
+            data.instruments=pd.concat([data.instruments,pd.DataFrame([row])],ignore_index=True)
+        else:
+            data.instruments=data.instruments.iloc[::-1].reset_index(drop=True)
+            data.bars=data.bars.iloc[::-1].reset_index(drop=True)
+>       assert on_april_schedule(data)['representatives']==['B','C','D']
+E       AssertionError: assert ['A', 'C', 'D'] == ['B', 'C', 'D']
+E         
+E         At index 0 diff: 'A' != 'B'
+E         Use -v to get more diff
+
+tests\test_m5_dependencies.py:88: AssertionError
+_ test_economic_state_order_independent_of_publication_or_input_order[future_transition] _
+
+case = 'future_transition'
+
+    @pytest.mark.parametrize('case',['late_old_correction','future_transition','reverse_order'])
+    def test_economic_state_order_independent_of_publication_or_input_order(case):
+        data=dependency_case()
+        if case=='late_old_correction':
+            row=dict(data.instruments.iloc[0],revision_id='A_old_fix',supersedes_id='A_old',revision_kind='CORRECTION',
+                     available_at='2019-03-25T21:00:00+08:00')
+            data.instruments=pd.concat([data.instruments,pd.DataFrame([row])],ignore_index=True)
+        elif case=='future_transition':
+            row=dict(data.instruments.iloc[1],revision_id='B_future',supersedes_id='B_old',revision_kind='TRANSITION',
+                     strategy_universe='OUTSIDE',available_at='2019-03-25T21:00:00+08:00',effective_from='2019-04-02')
+            data.instruments=pd.concat([data.instruments,pd.DataFrame([row])],ignore_index=True)
+        else:
+            data.instruments=data.instruments.iloc[::-1].reset_index(drop=True)
+            data.bars=data.bars.iloc[::-1].reset_index(drop=True)
+>       assert on_april_schedule(data)['representatives']==['B','C','D']
+E       AssertionError: assert ['A', 'C', 'D'] == ['B', 'C', 'D']
+E         
+E         At index 0 diff: 'A' != 'B'
+E         Use -v to get more diff
+
+tests\test_m5_dependencies.py:88: AssertionError
+_ test_economic_state_order_independent_of_publication_or_input_order[reverse_order] _
+
+case = 'reverse_order'
+
+    @pytest.mark.parametrize('case',['late_old_correction','future_transition','reverse_order'])
+    def test_economic_state_order_independent_of_publication_or_input_order(case):
+        data=dependency_case()
+        if case=='late_old_correction':
+            row=dict(data.instruments.iloc[0],revision_id='A_old_fix',supersedes_id='A_old',revision_kind='CORRECTION',
+                     available_at='2019-03-25T21:00:00+08:00')
+            data.instruments=pd.concat([data.instruments,pd.DataFrame([row])],ignore_index=True)
+        elif case=='future_transition':
+            row=dict(data.instruments.iloc[1],revision_id='B_future',supersedes_id='B_old',revision_kind='TRANSITION',
+                     strategy_universe='OUTSIDE',available_at='2019-03-25T21:00:00+08:00',effective_from='2019-04-02')
+            data.instruments=pd.concat([data.instruments,pd.DataFrame([row])],ignore_index=True)
+        else:
+            data.instruments=data.instruments.iloc[::-1].reset_index(drop=True)
+            data.bars=data.bars.iloc[::-1].reset_index(drop=True)
+>       assert on_april_schedule(data)['representatives']==['B','C','D']
+E       AssertionError: assert ['A', 'C', 'D'] == ['B', 'C', 'D']
+E         
+E         At index 0 diff: 'A' != 'B'
+E         Use -v to get more diff
+
+tests\test_m5_dependencies.py:88: AssertionError
+__ test_benchmark_source_clock_cannot_authorize_early_or_restore_predecessor __
+
+    def test_benchmark_source_clock_cannot_authorize_early_or_restore_predecessor():
+        data=dependency_case()
+        data.instruments.loc[data.instruments.instrument_id.eq('B'),'benchmark_source_available_at']='2019-04-02T21:00:00+08:00'
+>       assert on_april_schedule(data)['representatives']==['C','D']
+E       AssertionError: assert ['A', 'C', 'D'] == ['C', 'D']
+E         
+E         At index 0 diff: 'A' != 'C'
+E         Left contains one more item: 'D'
+E         Use -v to get more diff
+
+tests\test_m5_dependencies.py:95: AssertionError
+______ test_return_quality_does_not_choose_an_alternative_representative ______
+
+    def test_return_quality_does_not_choose_an_alternative_representative():
+        data=dependency_case();data.bars.loc[data.bars.instrument_id.eq('B'),'total_return_index']=np.nan
+>       assert on_april_schedule(data)['representatives']==['B','C','D']
+E       AssertionError: assert ['A', 'C', 'D'] == ['B', 'C', 'D']
+E         
+E         At index 0 diff: 'A' != 'B'
+E         Use -v to get more diff
+
+tests\test_m5_dependencies.py:102: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/test_m5_dependencies.py::test_expired_successor_does_not_revive_old_amount_winner
+FAILED tests/test_m5_dependencies.py::test_false_selection_only_declaration_is_rejected_before_cash_fallback
+FAILED tests/test_m5_dependencies.py::test_economic_state_order_independent_of_publication_or_input_order[late_old_correction]
+FAILED tests/test_m5_dependencies.py::test_economic_state_order_independent_of_publication_or_input_order[future_transition]
+FAILED tests/test_m5_dependencies.py::test_economic_state_order_independent_of_publication_or_input_order[reverse_order]
+FAILED tests/test_m5_dependencies.py::test_benchmark_source_clock_cannot_authorize_early_or_restore_predecessor
+FAILED tests/test_m5_dependencies.py::test_return_quality_does_not_choose_an_alternative_representative
+7 failed in 7.18s

@@ -1,0 +1,98 @@
+{
+  "status": "PASS_BASE_8_INDEPENDENT_GATE",
+  "oracle_basis": "Independent raw eligibility upper bound<3 plus flat initial funding and registered zero cash yield. No actual fill/NAV-derived expectations.",
+  "actual_accounts": 8,
+  "total_account_dates": 8748,
+  "source_hash": "91868508b3a79b5cb935f1967f2e5b6d918df79e03ae9587f8e838f1fa16b85c",
+  "accounts": [
+    {
+      "trial_id": "M7_development_E0_100000_base",
+      "n_dates": 1461,
+      "first": "2016-01-04",
+      "last": "2021-12-31",
+      "cash_oracle": "100000.00",
+      "holdings_oracle": "0",
+      "net_pnl_oracle": "0.00",
+      "legal_decisions": 71,
+      "account_artifact_hashes_verified": true
+    },
+    {
+      "trial_id": "M7_development_R0_100000_base",
+      "n_dates": 1461,
+      "first": "2016-01-04",
+      "last": "2021-12-31",
+      "cash_oracle": "100000.00",
+      "holdings_oracle": "0",
+      "net_pnl_oracle": "0.00",
+      "legal_decisions": 71,
+      "account_artifact_hashes_verified": true
+    },
+    {
+      "trial_id": "M7_development_E1_100000_base",
+      "n_dates": 1461,
+      "first": "2016-01-04",
+      "last": "2021-12-31",
+      "cash_oracle": "100000.00",
+      "holdings_oracle": "0",
+      "net_pnl_oracle": "0.00",
+      "legal_decisions": 71,
+      "account_artifact_hashes_verified": true
+    },
+    {
+      "trial_id": "M7_development_R1_100000_base",
+      "n_dates": 1461,
+      "first": "2016-01-04",
+      "last": "2021-12-31",
+      "cash_oracle": "100000.00",
+      "holdings_oracle": "0",
+      "net_pnl_oracle": "0.00",
+      "legal_decisions": 71,
+      "account_artifact_hashes_verified": true
+    },
+    {
+      "trial_id": "M7_validation_E0_100000_base",
+      "n_dates": 726,
+      "first": "2022-01-04",
+      "last": "2024-12-31",
+      "cash_oracle": "100000.00",
+      "holdings_oracle": "0",
+      "net_pnl_oracle": "0.00",
+      "legal_decisions": 36,
+      "account_artifact_hashes_verified": true
+    },
+    {
+      "trial_id": "M7_validation_R0_100000_base",
+      "n_dates": 726,
+      "first": "2022-01-04",
+      "last": "2024-12-31",
+      "cash_oracle": "100000.00",
+      "holdings_oracle": "0",
+      "net_pnl_oracle": "0.00",
+      "legal_decisions": 36,
+      "account_artifact_hashes_verified": true
+    },
+    {
+      "trial_id": "M7_validation_E1_100000_base",
+      "n_dates": 726,
+      "first": "2022-01-04",
+      "last": "2024-12-31",
+      "cash_oracle": "100000.00",
+      "holdings_oracle": "0",
+      "net_pnl_oracle": "0.00",
+      "legal_decisions": 36,
+      "account_artifact_hashes_verified": true
+    },
+    {
+      "trial_id": "M7_validation_R1_100000_base",
+      "n_dates": 726,
+      "first": "2022-01-04",
+      "last": "2024-12-31",
+      "cash_oracle": "100000.00",
+      "holdings_oracle": "0",
+      "net_pnl_oracle": "0.00",
+      "legal_decisions": 36,
+      "account_artifact_hashes_verified": true
+    }
+  ],
+  "proceed_registered_stresses_without_profit_gate": true
+}

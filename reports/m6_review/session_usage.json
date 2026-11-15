@@ -1,0 +1,24 @@
+{
+  "measured_at_utc": "2026-11-15T13:37:50.879347+00:00",
+  "root_interval": {
+    "start": "2026-11-15T12:54:00+00:00",
+    "through_checkpoint": "2026-11-15T13:37:50.879347+00:00",
+    "seconds": 2630.879347
+  },
+  "stopped_subagents_seconds": {
+    "stock_execution": 1670.719244,
+    "r1i_data": 1792.784,
+    "independent": 1912.797
+  },
+  "aggregate_agent_session_seconds": 8007.179591,
+  "aggregate_agent_session_hours": 2.2242165530555558,
+  "aggregate_ceiling_hours": 24,
+  "includes_waiting_and_parallel_sum": true,
+  "is_human_labor": false,
+  "stock_rule_conservative_hours": 1.7262209975,
+  "stock_source_conservative_hours": 1.2621323186111113,
+  "side_ceiling_hours_each": 4,
+  "side_accounting": "Conservatively charge whole root/reviewer interval to each relevant side ceiling; unique sessions counted only once in overall total.",
+  "source_acquisition_closed": true,
+  "measurement_status": "CHECKPOINT_INCLUDES_PUBLICATION_AND_CI_WAIT_THROUGH_TIMESTAMP; final response overhead not yet elapsed"
+}

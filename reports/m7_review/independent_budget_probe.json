@@ -1,0 +1,11 @@
+{
+  "status": "PASS_OBSERVABLE_LEDGER",
+  "budget_sha256": "777aa36ce2d67527438e624541df2b7ccd55b83100306070ca2a5dec9159247a",
+  "http_attempts": 56,
+  "sdk_wire_attempts": 15,
+  "observable_body_bytes": 9842572,
+  "all71_terminal_raw_hashes_checked": true,
+  "reviewer_new_network_attempts": 0,
+  "stopped": false,
+  "note": "Bytes are observable decoded bodies, not total transport. Session-hours reviewed separately; waiting counted."
+}

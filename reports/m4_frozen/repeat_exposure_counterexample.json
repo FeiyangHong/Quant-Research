@@ -1,0 +1,30 @@
+{
+  "status": "DESIGN_COUNTEREXAMPLE_ORIGINAL_ESTIMATOR_UNCHANGED",
+  "rows": [
+    {
+      "identical_exposure_slots": 3,
+      "complete_sessions": 60,
+      "direct_sigma": 0.32016944666265584,
+      "original_shrink_sigma": 0.26141725851758046,
+      "original_scale": 0.3825302145966577,
+      "analytic_shrunk_to_direct_ratio": 0.816496580927726
+    },
+    {
+      "identical_exposure_slots": 6,
+      "complete_sessions": 60,
+      "direct_sigma": 0.3201694466626558,
+      "original_shrink_sigma": 0.24453345409062446,
+      "original_scale": 0.4089420008885159,
+      "analytic_shrunk_to_direct_ratio": 0.7637626158259734
+    },
+    {
+      "identical_exposure_slots": 9,
+      "complete_sessions": 60,
+      "direct_sigma": 0.32016944666265584,
+      "original_shrink_sigma": 0.2386402156853972,
+      "original_scale": 0.41904085492376286,
+      "analytic_shrunk_to_direct_ratio": 0.7453559924999299
+    }
+  ],
+  "interpretation": "Splitting one identical return exposure among 3, 6 and 9 equal-weight names (all within the original 35% single-name cap) leaves direct portfolio risk unchanged, but the original diagonal shrink estimator lowers estimated risk. This is a representation dependence design limit, not evidence that actual ETFs are identical, not an alternative estimator, and not a new performance experiment."
+}

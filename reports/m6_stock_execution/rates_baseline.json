@@ -1,0 +1,38 @@
+{
+  "observed_utc": "2026-11-15T12:58:36.643986+00:00",
+  "fixed_head": "5df2fc9f74dcc8ffc498e0a08562bb7f6156c958",
+  "execution_sha256": "0aaf6dc8eeea12c5123205527fab4f53ee93a3c2b01f9885b166e124c2131a56",
+  "baseline_fills": [
+    {
+      "date": "2023-08-01",
+      "order_id": "O00000001",
+      "instrument_id": "SYNTHETIC_MAIN",
+      "side": "BUY",
+      "quantity": 200,
+      "price": 10.0,
+      "notional": 2000.0,
+      "commission": 5.0,
+      "stamp_duty": 0.0,
+      "transfer_fee": 0.02,
+      "fees": 5.02,
+      "slippage_cost": 0.0,
+      "mode": "DAILY_SCREEN_ONLY",
+      "purpose": "ENGINEERING_REPLAY_NOT_STRATEGY_PERFORMANCE",
+      "synthetic": true
+    }
+  ],
+  "changed_fills": [],
+  "changed_rejects": [
+    {
+      "order_id": "O00000001",
+      "date": "2023-08-01",
+      "instrument_id": "SYNTHETIC_MAIN",
+      "side": "BUY",
+      "quantity": 200,
+      "reason": "STOCK_TAX_RULE_AVAILABILITY_REQUIRED",
+      "purpose": "ENGINEERING_REPLAY_NOT_STRATEGY_PERFORMANCE",
+      "synthetic": true
+    }
+  ],
+  "scope": "synthetic_fixture mechanism only; original unmodified production execution.py"
+}

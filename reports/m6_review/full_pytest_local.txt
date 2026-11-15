@@ -1,0 +1,38 @@
+........................................................................ [  9%]
+..............................F......................................... [ 18%]
+........................................................................ [ 27%]
+........................................................................ [ 36%]
+........................................................................ [ 46%]
+........................................................................ [ 55%]
+........................................................................ [ 64%]
+........................................................................ [ 73%]
+........................................................................ [ 83%]
+........................................................................ [ 92%]
+...........................................................              [100%]
+================================== FAILURES ===================================
+_ test_future_fee_rule_cannot_authorize_trade_and_real_requires_rule_availability _
+
+    def test_future_fee_rule_cannot_authorize_trade_and_real_requires_rule_availability():
+        for real, known, expected in [(False, "2030-01-01T00:00:00+08:00", "UNKNOWN_OR_AMBIGUOUS_STOCK_TAX_RULE"),
+                                       (True, None, "STOCK_TAX_RULE_AVAILABILITY_REQUIRED")]:
+            data = stock_fixture()
+            data["manifest"] = {"synthetic": not real}
+            rate_rows = rules()
+            rate_rows[0]["available_at"] = known
+            result = run_backtest(data, [decision(data)], 100000, tax_rules=rate_rows)
+            assert result["fills"].empty
+>           assert expected in set(result["rejected_orders"].reason)
+E           AssertionError: assert 'UNKNOWN_OR_AMBIGUOUS_STOCK_TAX_RULE' in {'STOCK_TAX_RULE_NOT_KNOWN_AT_OPEN'}
+E            +  where {'STOCK_TAX_RULE_NOT_KNOWN_AT_OPEN'} = set(0    STOCK_TAX_RULE_NOT_KNOWN_AT_OPEN\nName: reason, dtype: object)
+E            +    where 0    STOCK_TAX_RULE_NOT_KNOWN_AT_OPEN\nName: reason, dtype: object =     order_id        date  ... quantity                            reason\n0  O00000001  2020-01-30  ...      400  STOCK_TAX_RULE_NOT_KNOWN_AT_OPEN\n\n[1 rows x 6 columns].reason
+
+tests\test_equity_execution.py:290: AssertionError
+============================== warnings summary ===============================
+review_code/m4/test_external_independent.py::test_current_unknown_exit_rule_cannot_fill_and_shares_remain[tick]
+  F:\QuantTrade\Quant-Research\review_code\m4\test_external_independent.py:136: FutureWarning: The behavior of DataFrame concatenation with empty or all-NA entries is deprecated. In a future version, this will no longer exclude empty or all-NA columns when determining the result dtypes. To retain the old behavior, exclude the relevant entries before the concat operation.
+    data["instruments"] = pd.concat([data["instruments"], pd.DataFrame([successor])], ignore_index=True)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+FAILED tests/test_equity_execution.py::test_future_fee_rule_cannot_authorize_trade_and_real_requires_rule_availability
+1 failed, 778 passed, 1 warning in 62.33s (0:01:02)

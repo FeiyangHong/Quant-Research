@@ -1,0 +1,182 @@
+{
+  "schema_version": "equity-feature-review-1.0",
+  "review_date": "2026-11-15",
+  "reviewer": "/root/r1_milestone_review",
+  "status": "PASS_RESEARCH_KERNEL_ONLY",
+  "real_experiment_status": "NOT_RUN_BLOCKED_ADMISSION",
+  "real_r2_r3_experiments": 0,
+  "real_stock_returns_read": false,
+  "holdout_data_accessed": false,
+  "paper_started": false,
+  "live_enabled": false,
+  "r1_decision_changed": false,
+  "r1_decision": "ARCHIVE_CURRENT_CONFIGURATION",
+  "etf_parameter_search": "STOP_ETF_PARAMETER_SEARCH",
+  "reviewed_module_sha256": "21ec1f449678a4716776e293111f680ca76960ebd7663a793fa470ad04da8577",
+  "unresolved_blocking_code_findings": [],
+  "resolved_findings": [
+    {
+      "id": "F01",
+      "original_issue": "Visible same-revision conflict was silently deduplicated",
+      "resolution": "Reject duplicate visible economic-key/revision identity before asof",
+      "status": "RESOLVED_AND_RECHECKED"
+    },
+    {
+      "id": "F02",
+      "original_issue": "Missing visible market cap silently dropped a stock; missing-financial validity flag absent",
+      "resolution": "Mandatory explicit universe preserves identities and missing reasons",
+      "status": "RESOLVED_AND_RECHECKED"
+    },
+    {
+      "id": "F03",
+      "original_issue": "Noncanonical quarter strings passed parsing but broke sort/key semantics",
+      "resolution": "Require canonical quarterly YYYY-MM-DD",
+      "status": "RESOLVED_AND_RECHECKED"
+    },
+    {
+      "id": "F04",
+      "original_issue": "Rank>45 held stock reentered through new-stock fill stage",
+      "resolution": "Only non-held stocks enter fill stage",
+      "status": "RESOLVED_AND_RECHECKED"
+    },
+    {
+      "id": "F05",
+      "original_issue": "Signal entry accepted late clock or later decision day",
+      "resolution": "Require registered anchor-day 21:00",
+      "status": "RESOLVED_AND_RECHECKED"
+    },
+    {
+      "id": "F06",
+      "original_issue": "Correction publication could precede its parent publication",
+      "resolution": "Reject reversed exact clocks/local dates, preserving date-only same-day ambiguity",
+      "status": "RESOLVED_AND_RECHECKED"
+    }
+  ],
+  "independent_probes": {
+    "scope": "PURE_SYNTHETIC_ENGINEERING_NO_REAL_RETURNS",
+    "checks": [
+      {
+        "name": "R2_TTM_current_plus_prior_annual_minus_prior_ytd_and_average_assets",
+        "status": "PASS"
+      },
+      {
+        "name": "R2_future_revision_prefix_invariance_then_visible_revision",
+        "status": "PASS"
+      },
+      {
+        "name": "R2_same_revision_conflict_different_availability_rejected",
+        "status": "PASS"
+      },
+      {
+        "name": "R2_missing_original_in_correction_chain_rejected",
+        "status": "PASS"
+      },
+      {
+        "name": "R2_branching_revision_chain_rejected",
+        "status": "PASS"
+      },
+      {
+        "name": "R2_correction_publication_cannot_precede_parent_publication",
+        "status": "PASS"
+      },
+      {
+        "name": "R2_date_only_publication_requires_next_synthetic_session_21",
+        "status": "PASS"
+      },
+      {
+        "name": "R2_noncanonical_period_end_rejected",
+        "status": "PASS"
+      },
+      {
+        "name": "R2_missing_and_future_market_rows_and_missing_financials_preserve_universe",
+        "status": "PASS"
+      },
+      {
+        "name": "R2_partial_latest_quarter_does_not_revert_to_stale_complete_quarter",
+        "status": "PASS"
+      },
+      {
+        "name": "R2_negative_earnings_retained_but_bad_assets_and_market_cap_not_rescued",
+        "status": "PASS"
+      },
+      {
+        "name": "R2_after21_signal_rejected",
+        "status": "PASS"
+      },
+      {
+        "name": "R2_fixed_1_99_winsorization_population_zscore_and_OLS_projection",
+        "status": "PASS"
+      },
+      {
+        "name": "R2_declared_parent_or_whole_pool_fallback_zero_variance_and_missing_input",
+        "status": "PASS"
+      },
+      {
+        "name": "R2_30_names_rank45_retention_no_rank46_reentry_industry6_and_cash",
+        "status": "PASS"
+      },
+      {
+        "name": "R3_literal_training_signal_windows_gap_invariance_and_3_10_shift",
+        "status": "PASS"
+      },
+      {
+        "name": "R3_future_revision_does_not_change_current_signal",
+        "status": "PASS"
+      },
+      {
+        "name": "R3_200_observation_training_boundary",
+        "status": "PASS"
+      },
+      {
+        "name": "R3_missing_industry_blocks_but_rank_or_condition_failures_fallback_market",
+        "status": "PASS"
+      },
+      {
+        "name": "R3_late_day_cutoff_rejected",
+        "status": "PASS"
+      },
+      {
+        "name": "R3_late_date_cutoff_rejected",
+        "status": "PASS"
+      }
+    ],
+    "passed": 21,
+    "failed": 0,
+    "module_sha256": "21ec1f449678a4716776e293111f680ca76960ebd7663a793fa470ad04da8577",
+    "script_sha256": "93c6378275052b929129f012fe7937adfaff1d1df2b0c65aae7c1ce737996e7d",
+    "runtime": {
+      "numpy": "1.26.4",
+      "pandas": "2.2.3",
+      "python": "3.9.19 (main, May  6 2024, 20:12:36) [MSC v.1916 64 bit (AMD64)]"
+    }
+  },
+  "targeted_repository_test": {
+    "command": ".venv\\Scripts\\python.exe -m pytest tests/test_equity_features.py -q",
+    "passed": 21,
+    "failed": 0,
+    "duration_seconds": 1.5
+  },
+  "input_sha256": {
+    "src/quant_research/equity_features.py": "21ec1f449678a4716776e293111f680ca76960ebd7663a793fa470ad04da8577",
+    "src/quant_research/data.py": "7700bc7f06b826bb18abfd681daa05bafc57a68870eaabbf19d82959e36b5170",
+    "tests/test_equity_features.py": "327f3a90442207b771fac582a1cd37c561caf462f8807930e085ebca66e1255c",
+    "docs/EQUITY_RESEARCH_PROTOCOL.md": "a831dd822095cda8359155c34f23e97600c37805fa4646ff3fd5ab2de800777c",
+    "docs/STRATEGY_SPEC.md": "cf952cd7115976ebceafdf028e65a57af651904a9e47b5f28566c815da5d4bf1",
+    "docs/DATA_CONTRACT.md": "e7739d56b28896073108d6362227b2920bbd974a4825818b408306203836cd4b",
+    "docs/EXPERIMENT_PLAN.md": "52ddce64e34116e3b5a39ed10a4a492cdfe5042c12236ed481846fabd56f4905",
+    "docs/RISK_POLICY.md": "eb13ed9585e2d232dcb0a78b5770145cc566d3370ce5f13338fd528fbe3e6848",
+    "work/equity_feature_review/independent_probes.py": "93c6378275052b929129f012fe7937adfaff1d1df2b0c65aae7c1ce737996e7d"
+  },
+  "independent_probe_source_utf8": "\"\"\"Independent synthetic feature probes, not stock returns or strategy trials.\"\"\"\nfrom pathlib import Path\nimport hashlib\nimport json\nimport sys\nimport numpy as np\nimport pandas as pd\n\nROOT = Path(__file__).resolve().parents[2]\nsys.path.insert(0, str(ROOT / 'src'))\nfrom quant_research.data import DataValidationError\nfrom quant_research.equity_features import financial_asof, r2_factors, r2_scores, r2_portfolio, r3_reversal\n\nCHECKS = []\ndef check(name, function):\n    try:\n        function()\n        CHECKS.append({'name': name, 'status': 'PASS'})\n    except Exception as exc:\n        CHECKS.append({'name': name, 'status': 'FAIL', 'exception': type(exc).__name__, 'message': str(exc)})\n\ndef reject(function):\n    try:\n        function()\n    except DataValidationError:\n        return\n    raise AssertionError('Expected DataValidationError')\n\ncalendar = pd.bdate_range('2022-01-03', '2024-12-31').strftime('%Y-%m-%d').tolist()\nfacts = []\nfor period, values in [('2022-03-31', [20, 12, 90]), ('2022-12-31', [100, 70, 110]),\n                       ('2023-03-31', [30, 25, 130])]:\n    publication = (pd.Timestamp(period) + pd.Timedelta(days=25)).strftime('%Y-%m-%d')\n    for field, value in zip(['net_profit_parent_ytd', 'operating_cashflow_ytd', 'total_assets'], values):\n        facts.append(dict(instrument_id='SYNTH_A', field=field, period_end=period, report_scope='consolidated',\n            currency='CNY', value=value, revision_id=period+':'+field+':original', supersedes_id=None,\n            available_at=publication+'T20:00:00+08:00', published_at=publication+'T18:00:00+08:00',\n            publication_precision='second', version_basis='ORIGINAL_FILING', source_document_hash='a'*64))\nfacts = pd.DataFrame(facts)\ncutoff = '2023-04-28T21:00:00+08:00'\ndef cap(day='2023-04-28'):\n    return pd.DataFrame([dict(instrument_id='SYNTH_A', date=day, available_at=day+'T16:00:00+08:00',\n                             market_cap=1000., market_cap_scope='TOTAL_EQUITY')])\ndef factors(frame=facts, market=None, at=cutoff, universe=('SYNTH_A',)):\n    return r2_factors(frame, cap(at[:10]) if market is None else market, at, calendar, universe)\n\ndef ttm_and_trace():\n    r = factors().iloc[0]\n    assert np.allclose([r.F01, r.F02, r.F03], [.11, 1., 83/110], rtol=0, atol=1e-12)\n    assert r.all_three_valid and len(r.input_revision_ids)==8 and r.missing_reasons==[]\ncheck('R2_TTM_current_plus_prior_annual_minus_prior_ytd_and_average_assets', ttm_and_trace)\n\nannual = facts.loc[facts.field.eq('net_profit_parent_ytd') & facts.period_end.eq('2022-12-31')].iloc[0].to_dict()\ncorrection = dict(annual, revision_id='corrected', supersedes_id=annual['revision_id'], value=120,\n                  available_at='2023-05-15T20:00:00+08:00', published_at='2023-05-15T18:00:00+08:00',\n                  version_basis='CORRECTION_FILING', source_document_hash='b'*64)\nrevised = pd.concat([facts, pd.DataFrame([correction])], ignore_index=True)\ndef prefix_and_revision():\n    pd.testing.assert_frame_equal(factors(facts), factors(revised))\n    r = factors(revised, at='2023-05-16T21:00:00+08:00').iloc[0]\n    assert abs(r.F01-.13)<1e-12\n    assert any(i['revision_id']=='corrected' for i in r.input_revision_ids)\ncheck('R2_future_revision_prefix_invariance_then_visible_revision', prefix_and_revision)\n\nduplicate = pd.concat([facts, pd.DataFrame([dict(annual, value=900, available_at='2023-04-20T20:00:00+08:00')])], ignore_index=True)\ncheck('R2_same_revision_conflict_different_availability_rejected', lambda: reject(lambda: factors(duplicate)))\norphan = revised.loc[~revised.revision_id.eq(annual['revision_id'])]\ncheck('R2_missing_original_in_correction_chain_rejected', lambda: reject(lambda: factors(orphan, at='2023-05-16T21:00:00+08:00')))\nbranch = pd.concat([revised, pd.DataFrame([dict(correction, revision_id='branch', available_at='2023-05-16T20:00:00+08:00')])], ignore_index=True)\ncheck('R2_branching_revision_chain_rejected', lambda: reject(lambda: factors(branch, at='2023-05-17T21:00:00+08:00')))\ndef reversed_publication():\n    original = dict(annual, published_at='2023-04-20T18:00:00+08:00', available_at='2023-04-20T20:00:00+08:00')\n    reverse = dict(correction, published_at='2023-04-18T18:00:00+08:00', available_at='2023-04-25T20:00:00+08:00')\n    reject(lambda:financial_asof(pd.DataFrame([original, reverse]), cutoff, calendar))\ncheck('R2_correction_publication_cannot_precede_parent_publication', reversed_publication)\n\ndef calendar_precision():\n    row = dict(annual, publication_precision='date_only', published_at='2023-04-28T00:00:00+08:00',\n               available_at='2023-04-28T21:00:00+08:00')\n    reject(lambda: financial_asof(pd.DataFrame([row]), cutoff, calendar))\n    row['available_at'] = '2023-05-01T21:00:00+08:00'  # Synthetic calendar, not an exchange assertion.\n    assert len(financial_asof(pd.DataFrame([row]), cutoff, calendar))==0\n    assert len(financial_asof(pd.DataFrame([row]), row['available_at'], calendar))==1\ncheck('R2_date_only_publication_requires_next_synthetic_session_21', calendar_precision)\n\nbad_date = facts.copy(); bad_date.loc[bad_date.index[0], 'period_end']='2022-3-31'\ncheck('R2_noncanonical_period_end_rejected', lambda: reject(lambda: factors(bad_date)))\ndef preserve_missing():\n    market=cap(); market.loc[0, 'available_at']='2023-05-01T20:00:00+08:00'\n    out=factors(market=market, universe=['SYNTH_A','SYNTH_B'])\n    assert out.instrument_id.tolist()==['SYNTH_A','SYNTH_B']\n    assert not out.all_three_valid.any()\n    assert 'NO_VISIBLE_SAME_DAY_MARKET_CAP' in out.iloc[0].missing_reasons\n    assert 'NO_VISIBLE_ORIGINAL_FINANCIALS' in out.iloc[1].missing_reasons\ncheck('R2_missing_and_future_market_rows_and_missing_financials_preserve_universe', preserve_missing)\n\ndef latest_partial():\n    last=facts.iloc[-1].to_dict()\n    last.update(period_end='2023-06-30', revision_id='newassets', value=150,\n                available_at='2023-07-25T20:00:00+08:00', published_at='2023-07-25T18:00:00+08:00')\n    out=factors(pd.concat([facts,pd.DataFrame([last])]), at='2023-07-26T21:00:00+08:00').iloc[0]\n    assert out.period_end=='2023-06-30' and not out.all_three_valid\n    assert all(pd.isna(out[c]) for c in ['F01','F02','F03'])\ncheck('R2_partial_latest_quarter_does_not_revert_to_stale_complete_quarter', latest_partial)\ndef denominators():\n    bad=facts.copy(); bad.loc[bad.field.eq('total_assets') & bad.period_end.eq('2023-03-31'),'value']=-130\n    out=factors(bad).iloc[0]\n    assert pd.isna(out.F02) and pd.isna(out.F03) and not out.all_three_valid\n    badcap=cap(); badcap.loc[0,'market_cap']=0\n    assert pd.isna(factors(market=badcap).iloc[0].F01)\n    loss=facts.copy(); loss.loc[loss.field.eq('net_profit_parent_ytd'),'value']=-100\n    assert factors(loss).iloc[0].F01<0\ncheck('R2_negative_earnings_retained_but_bad_assets_and_market_cap_not_rescued', denominators)\ncheck('R2_after21_signal_rejected', lambda: reject(lambda: factors(at='2023-04-28T22:00:00+08:00')))\n\nids=np.arange(60,dtype=float)\npool=pd.DataFrame(dict(instrument_id=[f'SYNTH_{int(i):02}' for i in ids],\n                       industry=[f'I{int(i)//10}' for i in ids], market_cap=np.exp(10+ids/20),\n                       F01=np.sin(ids/4)+ids/100,F02=np.cos(ids/7),F03=np.sin(ids/3)))\ndef neutralization_reference():\n    out=r2_scores(pool)\n    groups=pd.get_dummies(pool.industry,drop_first=True,dtype=float).to_numpy()\n    design=np.column_stack([np.ones(60),groups,np.log(pool.market_cap)])\n    projection=np.eye(60)-design@np.linalg.pinv(design)\n    for column in ['F01','F02','F03']:\n        x=pool[column].to_numpy()\n        x=np.clip(x,*np.percentile(x,[1,99]))\n        z=(x-x.mean())/np.std(x)\n        residue=projection@z\n        expected=(residue-residue.mean())/np.std(residue)\n        assert np.max(np.abs(out['z_'+column]-expected))<1e-11\n    assert np.allclose(out.COMBINED,.5*out.z_F01+.25*out.z_F02+.25*out.z_F03)\n    assert np.allclose(out.QUALITY,.5*(out.z_F02+out.z_F03))\ncheck('R2_fixed_1_99_winsorization_population_zscore_and_OLS_projection', neutralization_reference)\ndef fallback_and_degenerate():\n    small=pool.iloc[:12].copy(); small['industry']=[f'I{i}' for i in range(12)]\n    assert set(r2_scores(small).industry_fallback)=={'WHOLE_POOL'}\n    small['industry_parent']='P'\n    assert set(r2_scores(small).industry_fallback)=={'KNOWN_PARENT'}\n    const=pool.copy(); const[['F01','F02','F03']]=1\n    assert np.array_equal(r2_scores(const)[['z_F01','z_F02','z_F03']].to_numpy(),np.zeros((60,3)))\n    missing=pool.copy(); missing.loc[0,'F01']=np.nan\n    reject(lambda:r2_scores(missing))\ncheck('R2_declared_parent_or_whole_pool_fallback_zero_variance_and_missing_input', fallback_and_degenerate)\ndef portfolio_buffer():\n    scores=pool.copy(); scores['COMBINED']=100-ids\n    held=['SYNTH_35','SYNTH_42','SYNTH_48','NOT_ELIGIBLE']\n    out=r2_portfolio(scores,held)\n    assert 'SYNTH_35' in out['weights'] and 'SYNTH_42' in out['weights']\n    assert 'SYNTH_48' not in out['weights'] and 'NOT_ELIGIBLE' in out['held_zero_targets']\n    assert len(out['weights'])==30 and max(out['industry_counts'].values())<=6\n    assert all(abs(w-1/30)<1e-15 for w in out['weights'].values()) and out['cash_target']==0\n    limited=scores.iloc[:50].copy(); limited['industry']=['I0']*45+['I1']*5\n    out=r2_portfolio(limited,['SYNTH_45'])\n    assert 'SYNTH_45' in out['held_zero_targets'] and out['cash_target']>0\ncheck('R2_30_names_rank45_retention_no_rank46_reentry_industry6_and_cash', portfolio_buffer)\n\nt,L=400,5\nanchor=calendar[t]\ni=np.arange(len(calendar))\nm=.005*np.sin(i/7)+.001*np.cos(i/13)\nind=m+.006*np.cos(i/9)\nstock=.0007+.8*m+.2*(ind-m)\nstock[t-L+1:t+1] += np.array([.001,-.002,.003,-.004,.005])\nobs=pd.DataFrame({'date':calendar,'available_at':[d+'T16:00:00+08:00' for d in calendar],\n                  'stock_return':stock,'market_return':m,'industry_return':ind})\ndef reversal(frame=obs,model='market_industry',lookback=5,decision_at=None):\n    return r3_reversal(frame,calendar,anchor,lookback,model,decision_at)\ndef r3_windows():\n    out=reversal()\n    assert abs(out['score']+.003)<1e-12\n    assert np.allclose(out['coefficients'],[.0007,.8,.2],rtol=0,atol=1e-12)\n    assert out['training_start']==calendar[t-L-252] and out['training_end']==calendar[t-L-1]\n    assert out['signal_start']==calendar[t-L+1] and out['signal_end']==calendar[t]\n    gap=obs.copy(); gap.loc[t-L,['stock_return','market_return','industry_return']]=999\n    assert abs(reversal(gap)['score']-out['score'])<1e-12\n    for lookback in (3,10):\n        r=reversal(lookback=lookback)\n        assert r['training_start']==calendar[t-lookback-252]\n        assert r['training_end']==calendar[t-lookback-1]\n        assert r['signal_start']==calendar[t-lookback+1]\ncheck('R3_literal_training_signal_windows_gap_invariance_and_3_10_shift',r3_windows)\ndef r3_prefix():\n    future=obs.iloc[t].to_dict(); future.update(stock_return=999,available_at=calendar[t+1]+'T16:00:00+08:00')\n    augmented=pd.concat([obs,pd.DataFrame([future])],ignore_index=True)\n    assert abs(reversal(augmented)['score']-reversal()['score'])<1e-12\ncheck('R3_future_revision_does_not_change_current_signal',r3_prefix)\ndef r3_training_counts():\n    bad=obs.copy(); start=t-L-252\n    bad.loc[start:start+52,'stock_return']=np.nan\n    reject(lambda:reversal(bad))\n    bad.loc[start+52,'stock_return']=obs.loc[start+52,'stock_return']\n    assert reversal(bad)['training_observations']==200\ncheck('R3_200_observation_training_boundary',r3_training_counts)\ndef r3_missing_and_fallback():\n    missing=obs.drop(columns='industry_return')\n    reject(lambda:reversal(missing))\n    missing=obs.copy(); missing.loc[t,'industry_return']=np.nan\n    reject(lambda:reversal(missing))\n    singular=obs.copy(); singular['industry_return']=singular.market_return\n    assert reversal(singular)['model_used']=='market_fallback'\n    ill=obs.copy(); ill['industry_return']=ill.market_return+1e-10*np.sin(i/9)\n    assert reversal(ill)['model_used']=='market_fallback'\n    bad=obs.copy(); bad['market_return']=0\n    reject(lambda:reversal(bad,model='market'))\ncheck('R3_missing_industry_blocks_but_rank_or_condition_failures_fallback_market',r3_missing_and_fallback)\ncheck('R3_late_day_cutoff_rejected',lambda:reject(lambda:reversal(decision_at=anchor+'T22:00:00+08:00')))\ncheck('R3_late_date_cutoff_rejected',lambda:reject(lambda:reversal(decision_at=calendar[t+1]+'T21:00:00+08:00')))\n\nresult={'scope':'PURE_SYNTHETIC_ENGINEERING_NO_REAL_RETURNS','checks':CHECKS,\n        'passed':sum(x['status']=='PASS' for x in CHECKS),'failed':sum(x['status']=='FAIL' for x in CHECKS),\n        'module_sha256':hashlib.sha256((ROOT/'src/quant_research/equity_features.py').read_bytes()).hexdigest(),\n        'script_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),\n        'runtime':{'numpy':np.__version__,'pandas':pd.__version__,'python':sys.version}}\n(Path(__file__).parent/'independent_probe_results.json').write_text(json.dumps(result,indent=2)+'\\n',encoding='utf-8')\nprint(json.dumps(result,indent=2))\nraise SystemExit(1 if result['failed'] else 0)\n",
+  "independent_probe_restore_path": "work/equity_feature_review/independent_probes.py",
+  "scope_limitations": [
+    "Synthetic mathematics and failure-gate review only; no economic performance or real data admission.",
+    "Source hashes and ORIGINAL_FILING labels do not establish authenticity, historical coverage, or licensing.",
+    "R2 all_three_valid is not a trading eligibility or data admission decision.",
+    "Whole-pool neutralization fallback does not remove industry exposure.",
+    "R3 raw common-sample training gate is explicitly documented; no profit-based sample choice.",
+    "R3 weekly target construction and full shared executable controls are not implemented by this feature kernel.",
+    "Stock pool gates, historical industry/shares, publication clocks, corporate actions, dividend tax integration, execution and ledger admission remain separate."
+  ],
+  "markdown_sha256": "e180d4414353883eb63a13b366263cea5543e6e5e4153f8899a2e7c2ea58bd71"
+}

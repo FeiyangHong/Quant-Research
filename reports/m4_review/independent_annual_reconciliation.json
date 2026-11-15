@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "frozen_runs": 448,
+  "account_years": 2016,
+  "annual_etf_rows": 182784,
+  "zero_etf_rows": 172624,
+  "max_pnl_difference_cny": 4.802132025361061e-10,
+  "max_fee_difference_cny": 9.094947017729282e-13,
+  "method": "Independent groupby of annual ETF output against original frozen per-run year_contributions; no new strategy performance.",
+  "source_sha256": "bd804b7a5fd79ebfcc581f5a728530ba762e0cc138729c8f54510a66c2dcaac4"
+}

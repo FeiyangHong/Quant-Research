@@ -1,0 +1,23 @@
+{
+  "agent": "/root/m7_independent",
+  "conservative_common_start": "2026-11-15T14:55:00+00:00",
+  "ended_at": "2026-11-15T15:30:57.718475+00:00",
+  "elapsed_seconds_including_wait": 2157.718475,
+  "agent_hours_including_wait": 0.5993662430555556,
+  "new_network_attempts": 0,
+  "python": "3.9.19 (main, May  6 2024, 20:12:36) [MSC v.1916 64 bit (AMD64)]",
+  "observed_git_head": "679e80813daefea0b5fb312d120e7ada9b8cc40a",
+  "independent_review_files_sha256": {
+    "review_code/m7/independent_account_probe.py": "d1b993e50fd39a807dab34afeee125c7d8e56da54029c03d515ef02f08fa29bd",
+    "review_code/m7/independent_evaluation_probe.py": "86ed3cb9af5e1e4efe0416d38844353a48c72261fbf46305422bb58ecae4de38",
+    "review_code/m7/independent_raw_probe.py": "2603b6208c264a4a6afc4428b0c4e81c0bda1f83b4843e67ac991c053bc2c523",
+    "review_code/m7/independent_stage_admission.py": "d97812acd5d1ce71336fdfb252089f64bc9516f6448dcf6f61f2fe94d861903e",
+    "review_code/m7/test_independent_cohort.py": "0b77068953f5c96c7b727a5a53b7d3e08818596884bc44e325e991a1badba48e",
+    "review_code/m7/test_independent_correction.py": "847b84c8b04a9e5d608873b90db4edd0aacb3a12add1227eef9ad2c89d1707a7",
+    "review_code/m7/test_independent_registration.py": "c6b00bf6c895027fa0ff4d4b6887fff0797b03b3afd092c322bb314d343ad033",
+    "review_code/m7/test_independent_statistics.py": "6316d2168b0b819cd452f32289d94a6f427b8cdcce0a06b785adfd30feaf9ce1",
+    "reports/m7_review/INDEPENDENT_REVIEW.md": "1637647d7853794213e7ed3e8d8d470e1dbbf47a8dc3053a93e9752c08f4ee2b"
+  },
+  "status": "COMPLETE_FIXED_SCOPE",
+  "note": "Includes passive waiting; not human work hours. Parent aggregate counts all agents separately."
+}

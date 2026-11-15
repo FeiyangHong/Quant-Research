@@ -1,0 +1,121 @@
+[
+  {
+    "label": "discovery_14",
+    "local_raw_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m6\\evidence_extracts\\stock_execution\\discovery_14.json",
+    "sha256": "9e86e5abf6fd7c422f281e96881feaa4cadfc6f09753ab56ca326bf0a066b2ff",
+    "bytes": 28999,
+    "share_policy": "Local original/derived extraction only; repository shares URL, hash, concise evidence judgment."
+  },
+  {
+    "label": "discovery_19",
+    "local_raw_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m6\\evidence_extracts\\stock_execution\\discovery_19.json",
+    "sha256": "106bc3600ca7c8ef3579f2e9de835ffa3c8b36f8f80eef98fa9cda6d2b60b51b",
+    "bytes": 27454,
+    "share_policy": "Local original/derived extraction only; repository shares URL, hash, concise evidence judgment."
+  },
+  {
+    "label": "discovery_23",
+    "local_raw_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m6\\evidence_extracts\\stock_execution\\discovery_23.json",
+    "sha256": "3fcf0d40a0ae7afbf940459ced775989542095da66332ca52182f423c2b6dba0",
+    "bytes": 30598,
+    "share_policy": "Local original/derived extraction only; repository shares URL, hash, concise evidence judgment."
+  },
+  {
+    "label": "discovery_67",
+    "local_raw_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m6\\evidence_extracts\\stock_execution\\discovery_67.json",
+    "sha256": "d8fede5644e334c61dee1d1bd3251d400a1be9bb03976fd9bdd8a18c77f3da85",
+    "bytes": 31031,
+    "share_policy": "Local original/derived extraction only; repository shares URL, hash, concise evidence judgment."
+  },
+  {
+    "label": "discovery_7",
+    "local_raw_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m6\\evidence_extracts\\stock_execution\\discovery_7.json",
+    "sha256": "7a2f2bb13f254049e94f135f38746aa228abcdbeab9d1f59b092d2075c798ddb",
+    "bytes": 27803,
+    "share_policy": "Local original/derived extraction only; repository shares URL, hash, concise evidence judgment."
+  },
+  {
+    "label": "guangdong_2023_stamp_law_text",
+    "local_raw_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m6\\evidence_extracts\\stock_execution\\guangdong_2023_stamp_law_text.txt",
+    "sha256": "f4a02d41020609002c19950fb1748e112a46bb9a194e3ac9abd6f60723fdf563",
+    "bytes": 7034,
+    "share_policy": "Local original/derived extraction only; repository shares URL, hash, concise evidence judgment."
+  },
+  {
+    "label": "mof_2008_stamp_text",
+    "local_raw_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m6\\evidence_extracts\\stock_execution\\mof_2008_stamp_text.txt",
+    "sha256": "bb2be2055066f62696ecdc867fff9d69ad70d487c5dfb37eff34c24c9f9e9d0e",
+    "bytes": 2100,
+    "share_policy": "Local original/derived extraction only; repository shares URL, hash, concise evidence judgment."
+  },
+  {
+    "label": "shanghai_official_fee_republication_text",
+    "local_raw_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m6\\evidence_extracts\\stock_execution\\shanghai_official_fee_republication_text.txt",
+    "sha256": "bbe2abf4f5834df905e44d66a421807784ae78de14e00bb7ca42abb5b8bc7086",
+    "bytes": 2277,
+    "share_policy": "Local original/derived extraction only; repository shares URL, hash, concise evidence judgment."
+  },
+  {
+    "label": "sse_2015_joint_fees_text",
+    "local_raw_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m6\\evidence_extracts\\stock_execution\\sse_2015_joint_fees_text.txt",
+    "sha256": "612eac7fc0f8bb39f9484c26590339af7ba71b7d3251b007ec51a1de0e4556c7",
+    "bytes": 3541,
+    "share_policy": "Local original/derived extraction only; repository shares URL, hash, concise evidence judgment."
+  },
+  {
+    "label": "sse_2019_trading_mechanism_qa_text",
+    "local_raw_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m6\\evidence_extracts\\stock_execution\\sse_2019_trading_mechanism_qa_text.txt",
+    "sha256": "8360e63cca5bf82905088739c5c971327605fe0624b2951e2858fe09db60477e",
+    "bytes": 17386,
+    "share_policy": "Local original/derived extraction only; repository shares URL, hash, concise evidence judgment."
+  },
+  {
+    "label": "sse_2023_first_listing_text",
+    "local_raw_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m6\\evidence_extracts\\stock_execution\\sse_2023_first_listing_text.txt",
+    "sha256": "2c6158e9a7df2ad2dde00aa9eefb9810e84df8348ddd8aa7ed5f1e986dedaee1",
+    "bytes": 3075,
+    "share_policy": "Local original/derived extraction only; repository shares URL, hash, concise evidence judgment."
+  },
+  {
+    "label": "sse_2023_rules_deferred_text",
+    "local_raw_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m6\\evidence_extracts\\stock_execution\\sse_2023_rules_deferred_text.txt",
+    "sha256": "adbbce4a662ee4380a0a44bead7107edb82dc632600b290b513660e4e30bb39a",
+    "bytes": 3257,
+    "share_policy": "Local original/derived extraction only; repository shares URL, hash, concise evidence judgment."
+  },
+  {
+    "label": "sse_2023_rules_full_text",
+    "local_raw_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m6\\evidence_extracts\\stock_execution\\sse_2023_rules_full_text.txt",
+    "sha256": "c10fb1d61495b9502e4e005fec35df5c4bc1496f31b2e605fc674d2a93fc846b",
+    "bytes": 57672,
+    "share_policy": "Local original/derived extraction only; repository shares URL, hash, concise evidence judgment."
+  },
+  {
+    "label": "sse_2023_rules_migrated_text",
+    "local_raw_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m6\\evidence_extracts\\stock_execution\\sse_2023_rules_migrated_text.txt",
+    "sha256": "945157aa8fdd69bd1d0c4021aba1d9f176f28e1379c834165fa034091aa09531",
+    "bytes": 4615,
+    "share_policy": "Local original/derived extraction only; repository shares URL, hash, concise evidence judgment."
+  },
+  {
+    "label": "sse_2023_rules_repeal_text",
+    "local_raw_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m6\\evidence_extracts\\stock_execution\\sse_2023_rules_repeal_text.txt",
+    "sha256": "5e870c710f6b275cebcf8e9bf90e0e295b762294c0a938e87cf4f00ec4a29cae",
+    "bytes": 1471,
+    "share_policy": "Local original/derived extraction only; repository shares URL, hash, concise evidence judgment."
+  },
+  {
+    "label": "tianjin_2022_stamp_text",
+    "local_raw_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m6\\evidence_extracts\\stock_execution\\tianjin_2022_stamp_text.txt",
+    "sha256": "716824f5feaf34d69f8753324ebf1017d77e09cd2f0dd1ddb46f6592f3ab023c",
+    "bytes": 1365,
+    "share_policy": "Local original/derived extraction only; repository shares URL, hash, concise evidence judgment."
+  },
+  {
+    "label": "wuhan_official_fee_republication_text",
+    "local_raw_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m6\\evidence_extracts\\stock_execution\\wuhan_official_fee_republication_text.txt",
+    "sha256": "877cd2d1716b840084db5dca2adc0f4990add46bb5acd28e73de2794709c90fc",
+    "bytes": 3296,
+    "share_policy": "Local original/derived extraction only; repository shares URL, hash, concise evidence judgment."
+  }
+]

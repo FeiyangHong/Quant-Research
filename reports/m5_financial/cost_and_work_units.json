@@ -1,0 +1,104 @@
+{
+  "observed_at": "2026-11-15T11:03:53.485473+00:00",
+  "session_start_conservative_estimate": "2026-11-15T10:49:00+00:00",
+  "session_start_precision": "minute estimate from first observable tool activity",
+  "elapsed_session_seconds_conservative": 1143.268786,
+  "human_labor_hours": null,
+  "agent_parallel_session_not_human_labor": true,
+  "http_attempts": 9,
+  "new_response_bytes": 1478604,
+  "sdk_wire_requests": 0,
+  "source_pdf_new": 2,
+  "existing_case_pdf_sources_reused": 4,
+  "canonical_fact_rows": 22,
+  "page_token_checks": 22,
+  "new_pages_visually_inspected": 2,
+  "human_accepted_cases": 0,
+  "collection_limit_reason": "Two fixed cases only; needed dependencies collected, cap remains unproven; no expanded sampling.",
+  "pagination_issue": "km_q1_boundary_page2 returned same first30of44 announcements; not declared complete; narrowly bounded query established2018Q1publication2018-04-28.",
+  "requests": [
+    {
+      "id": 1,
+      "label": "km_2018_inventory",
+      "started_at": "2026-11-15T10:58:34.052255+00:00",
+      "elapsed_seconds": 0.26242,
+      "status": "FETCHED",
+      "byte_count": 11565,
+      "sha256": "9c38979b26153a324796b2a5312d74d1cfd415ab6bed5bef3991ebeb4d712afe"
+    },
+    {
+      "id": 2,
+      "label": "km_2019_inventory",
+      "started_at": "2026-11-15T10:58:34.375688+00:00",
+      "elapsed_seconds": 0.254485,
+      "status": "FETCHED",
+      "byte_count": 12594,
+      "sha256": "e47572d8e053a912018f63682b08e2feef7b0b455d783544dd6cc3d113067bcb"
+    },
+    {
+      "id": 3,
+      "label": "sanhui_dependencies",
+      "started_at": "2026-11-15T10:58:34.689479+00:00",
+      "elapsed_seconds": 0.205959,
+      "status": "FETCHED",
+      "byte_count": 14760,
+      "sha256": "7efccf1ac978529bce2cbab46c65fe89a64493f5351eb088aaa2fefeb264f1fb"
+    },
+    {
+      "id": 4,
+      "label": "sanhui_later_inventory",
+      "started_at": "2026-11-15T10:58:34.954899+00:00",
+      "elapsed_seconds": 0.244415,
+      "status": "FETCHED",
+      "byte_count": 17463,
+      "sha256": "97064ffbd9a29c058e13419b1d19a65493fdebad43fa05136330fcf13aee845b"
+    },
+    {
+      "id": 12,
+      "label": "km_q1_boundary",
+      "started_at": "2026-11-15T10:58:56.503704+00:00",
+      "elapsed_seconds": 0.462765,
+      "status": "FETCHED",
+      "byte_count": 20134,
+      "sha256": "bb5864ae9a9b3963d3d49b9049baa7b95511d217e5243bff474ab8b59b116565"
+    },
+    {
+      "id": 13,
+      "label": "sanhui_2022q3",
+      "started_at": "2026-11-15T10:58:56.993463+00:00",
+      "elapsed_seconds": 0.254781,
+      "status": "FETCHED",
+      "byte_count": 308406,
+      "sha256": "7028b0a1c7b89e2e5eb7fb4469e75eee983dbcb39c770e1428611067f0dd8338"
+    },
+    {
+      "id": 14,
+      "label": "sanhui_2022fy",
+      "started_at": "2026-11-15T10:58:57.272467+00:00",
+      "elapsed_seconds": 0.22658,
+      "status": "FETCHED",
+      "byte_count": 1070698,
+      "sha256": "3ae8304f34e46bdf8ea211d669055c01b676a78c76c679c3f0c1b3b7948b76af"
+    },
+    {
+      "id": 15,
+      "label": "km_q1_boundary_page2",
+      "started_at": "2026-11-15T10:59:12.704207+00:00",
+      "elapsed_seconds": 0.259979,
+      "status": "FETCHED",
+      "byte_count": 20134,
+      "sha256": "bb5864ae9a9b3963d3d49b9049baa7b95511d217e5243bff474ab8b59b116565"
+    },
+    {
+      "id": 22,
+      "label": "km_q1_narrow",
+      "started_at": "2026-11-15T10:59:40.371092+00:00",
+      "elapsed_seconds": 0.216228,
+      "status": "FETCHED",
+      "byte_count": 2850,
+      "sha256": "d91f5b75a6713d3a4d2078451642c1ed1d5f4377bf3297a3ef1d14201992a875"
+    }
+  ],
+  "session_end_observed_at": "2026-11-15T11:08:03.268786+00:00",
+  "session_includes_independent_dependency_review": true
+}

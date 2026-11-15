@@ -1,0 +1,1350 @@
+{
+  "schema_version": "1.0",
+  "audit_status": "PARTIAL_OFFICIAL_EVENT_AUDIT_NOT_DATASET_GATE",
+  "generated_at": "2026-11-14T15:39:49.200247+00:00",
+  "availability_policy": "DATE_ONLY_NEXT_TRADING_SESSION_2100_ASIA_SHANGHAI",
+  "sources": [
+    {
+      "source_id": "512320_payment_20240328",
+      "source_url": "https://www.sse.com.cn/disclosure/fund/announcement/c/new/2024-03-28/512320_20240328_QIII.pdf",
+      "fetched_at": "2026-11-14T15:32:41.965423+00:00",
+      "capture": "existing_local",
+      "status": "CAPTURED",
+      "sha256": "c0d61cec45ec45ee6b3e71e5fbb2a0f532626555872657c530bc9b35c9381159",
+      "bytes": 282924,
+      "local_path": "data/raw_official/512320_payment_20240328.pdf",
+      "published_date": "2024-03-28",
+      "publication_precision": "DATE_ONLY",
+      "conservative_available_at": "2024-03-29T21:00:00+08:00",
+      "role": "historical_publication_evidence",
+      "publication_confidence": "printed_document_date_not_archived_server_timestamp"
+    },
+    {
+      "source_id": "512320_delisting_20240411",
+      "source_url": "https://www.sse.com.cn/disclosure/fund/announcement/c/new/2024-04-11/512320_20240411_TJ7L.pdf",
+      "fetched_at": "2026-11-14T15:32:41.965423+00:00",
+      "capture": "existing_local",
+      "status": "CAPTURED",
+      "sha256": "e5633681716d6b4bfac73fcd48b0aeed4a3dfddf820f5b09820efe48db39dfa2",
+      "bytes": 118916,
+      "local_path": "data/raw_official/512320_delisting_20240411.pdf",
+      "published_date": "2024-04-11",
+      "publication_precision": "DATE_ONLY",
+      "conservative_available_at": "2024-04-12T21:00:00+08:00",
+      "role": "historical_publication_evidence",
+      "publication_confidence": "printed_document_date_not_archived_server_timestamp"
+    },
+    {
+      "source_id": "510300_dividend_20240111",
+      "source_url": "https://www.sse.com.cn/disclosure/fund/announcement/c/new/2024-01-11/510300_20240111_QQFV.pdf",
+      "fetched_at": "2026-11-14T15:32:41.968430+00:00",
+      "capture": "existing_local",
+      "status": "CAPTURED",
+      "sha256": "165ddaec9b36480ff4cbc738227043db7b7acc4f80ac31bedaa0e4f5c4001f4b",
+      "bytes": 68219,
+      "local_path": "data/raw_official/510300_dividend_20240111.pdf",
+      "published_date": "2024-01-11",
+      "publication_precision": "DATE_ONLY",
+      "conservative_available_at": "2024-01-12T21:00:00+08:00",
+      "role": "historical_publication_evidence",
+      "publication_confidence": "printed_document_date_not_archived_server_timestamp"
+    },
+    {
+      "source_id": "510500_dividend_20240510",
+      "source_url": "https://www.sse.com.cn/disclosure/fund/announcement/c/new/2024-05-10/510500_20240510_LM77.pdf",
+      "fetched_at": "2026-11-14T15:32:43.511777+00:00",
+      "capture": "existing_local",
+      "status": "CAPTURED",
+      "sha256": "fd5097c1f298d22c5605a4116f57ff8d747392d51c6e0ff85da36102eeb67e45",
+      "bytes": 259840,
+      "local_path": "data/raw_official/510500_dividend_20240510.pdf",
+      "published_date": "2024-05-10",
+      "publication_precision": "DATE_ONLY",
+      "conservative_available_at": "2024-05-13T21:00:00+08:00",
+      "role": "historical_publication_evidence",
+      "publication_confidence": "printed_document_date_not_archived_server_timestamp"
+    },
+    {
+      "source_id": "510500_annual_2024",
+      "source_url": "https://www.sse.com.cn/disclosure/fund/announcement/c/new/2025-03-31/510500_20250331_RRCI.pdf",
+      "fetched_at": "2026-11-14T15:32:43.511777+00:00",
+      "capture": "existing_local",
+      "status": "CAPTURED",
+      "sha256": "5c6268a61f90d3b6d8908535c28b3ebe289e853a396d1b18d7489bbf4d56ef5c",
+      "bytes": 2990486,
+      "local_path": "data/raw_official/510500_annual_2024.pdf",
+      "published_date": "2025-03-31",
+      "publication_precision": "DATE_ONLY",
+      "conservative_available_at": null,
+      "role": "retrospective_audit_only_not_signal",
+      "publication_confidence": "printed_document_date_not_archived_server_timestamp"
+    },
+    {
+      "source_id": "512100_annual_2024",
+      "source_url": "https://static.cninfo.com.cn/finalpage/2025-03-31/1222963778.PDF",
+      "fetched_at": "2026-11-14T15:32:43.638572+00:00",
+      "capture": "existing_local",
+      "status": "CAPTURED",
+      "sha256": "06a0250fe074e16ff4bb500f0411d9e4dabc4340ef76edb74a4c8ff329782983",
+      "bytes": 756760,
+      "local_path": "data/raw_official/512100_annual_2024.pdf",
+      "published_date": "2025-03-31",
+      "publication_precision": "DATE_ONLY",
+      "conservative_available_at": null,
+      "role": "retrospective_audit_only_not_signal",
+      "publication_confidence": "printed_document_date_not_archived_server_timestamp"
+    },
+    {
+      "source_id": "159915_annual_2024",
+      "source_url": "https://disc.static.szse.cn/download/disc/disk03/finalpage/2025-03-30/e9230566-351d-49a5-afa9-fa465d0c7fa5.PDF",
+      "fetched_at": "2026-11-14T15:32:44.492653+00:00",
+      "capture": "existing_local",
+      "status": "CAPTURED",
+      "sha256": "e1b5d9ac6b7f80fa39c744b1b22a3427fe9ef3917f93d0bd2d81e2393b0e6112",
+      "bytes": 1905873,
+      "local_path": "data/raw_official/159915_annual_2024.pdf",
+      "published_date": "2025-03-31",
+      "publication_precision": "DATE_ONLY",
+      "conservative_available_at": null,
+      "role": "retrospective_audit_only_not_signal",
+      "publication_confidence": "printed_document_date_not_archived_server_timestamp"
+    },
+    {
+      "source_id": "512320_meeting_20240125",
+      "source_url": "https://www.sse.com.cn/disclosure/fund/announcement/c/new/2024-01-25/512320_20240125_MA5C.pdf",
+      "fetched_at": "2026-11-14T15:35:49.237739+00:00",
+      "capture": "existing_local",
+      "status": "CAPTURED",
+      "sha256": "a9b88c47fea7332c35533a505bea6828d3368f6ce800b44afb04dcac847de4f8",
+      "bytes": 517202,
+      "local_path": "data/raw_official/512320_meeting_20240125.pdf",
+      "published_date": "2024-01-25",
+      "publication_precision": "DATE_ONLY",
+      "conservative_available_at": "2024-01-26T21:00:00+08:00",
+      "role": "historical_publication_evidence",
+      "publication_confidence": "printed_document_date_not_archived_server_timestamp"
+    },
+    {
+      "source_id": "512320_prospectus_20220331",
+      "source_url": "https://www.sse.com.cn/disclosure/fund/announcement/c/new/2022-03-31/512320_20220331_2_NR6mw6Yg.pdf",
+      "fetched_at": "2026-11-14T15:35:49.329647+00:00",
+      "capture": "existing_local",
+      "status": "CAPTURED",
+      "sha256": "293f6194fbf6e3001c98c79c65eefc78a5ed982009eace92a2acc92642865de9",
+      "bytes": 1071185,
+      "local_path": "data/raw_official/512320_prospectus_20220331.pdf",
+      "published_date": "2022-03-31",
+      "publication_precision": "DATE_ONLY",
+      "conservative_available_at": "2022-04-01T21:00:00+08:00",
+      "role": "historical_publication_evidence",
+      "publication_confidence": "printed_document_date_not_archived_server_timestamp"
+    },
+    {
+      "source_id": "512320_interim_2023",
+      "source_url": "https://www.sse.com.cn/disclosure/fund/announcement/c/new/2023-08-30/512320_20230830_0RIJ.pdf",
+      "fetched_at": "2026-11-14T15:35:49.546493+00:00",
+      "capture": "existing_local",
+      "status": "CAPTURED",
+      "sha256": "5412de068884428e2bd7003367eca655461208ea668f28ccf75fd232a89f4da1",
+      "bytes": 784266,
+      "local_path": "data/raw_official/512320_interim_2023.pdf",
+      "published_date": "2023-08-30",
+      "publication_precision": "DATE_ONLY",
+      "conservative_available_at": "2023-08-31T21:00:00+08:00",
+      "role": "historical_publication_evidence",
+      "publication_confidence": "printed_document_date_not_archived_server_timestamp"
+    },
+    {
+      "source_id": "510300_dividend_20230109",
+      "source_url": "https://www.sse.com.cn/disclosure/fund/announcement/c/new/2023-01-09/510300_20230109_0ED5.pdf",
+      "fetched_at": "2026-11-14T15:35:50.270454+00:00",
+      "capture": "existing_local",
+      "status": "CAPTURED",
+      "sha256": "68f2227ae25acec3b831d50d042b87f12696dc0df1514ef9dacb36e018d571d7",
+      "bytes": 68208,
+      "local_path": "data/raw_official/510300_dividend_20230109.pdf",
+      "published_date": "2023-01-09",
+      "publication_precision": "DATE_ONLY",
+      "conservative_available_at": "2023-01-10T21:00:00+08:00",
+      "role": "historical_publication_evidence",
+      "publication_confidence": "printed_document_date_not_archived_server_timestamp"
+    },
+    {
+      "source_id": "510300_annual_2024",
+      "source_url": "https://www.sse.com.cn/disclosure/fund/announcement/c/new/2025-03-31/510300_20250331_07Z1.pdf",
+      "fetched_at": "2026-11-14T15:35:50.431614+00:00",
+      "capture": "existing_local",
+      "status": "CAPTURED",
+      "sha256": "6eabbdbad90860c41f87dfbe5eb2402780f3d8531a49c13ef4a20ab175820b92",
+      "bytes": 2533438,
+      "local_path": "data/raw_official/510300_annual_2024.pdf",
+      "published_date": "2025-03-31",
+      "publication_precision": "DATE_ONLY",
+      "conservative_available_at": null,
+      "role": "retrospective_audit_only_not_signal",
+      "publication_confidence": "printed_document_date_not_archived_server_timestamp"
+    },
+    {
+      "source_id": "510500_annual_2023",
+      "source_url": "https://www.sse.com.cn/disclosure/fund/announcement/c/new/2024-03-30/510500_20240330_LM9Y.pdf",
+      "fetched_at": "2026-11-14T15:35:50.603192+00:00",
+      "capture": "existing_local",
+      "status": "CAPTURED",
+      "sha256": "959c774ef78a553654bba5964e1db2c6d4dc354beb843edba891f9795f88feca",
+      "bytes": 4141978,
+      "local_path": "data/raw_official/510500_annual_2023.pdf",
+      "published_date": "2024-03-30",
+      "publication_precision": "DATE_ONLY",
+      "conservative_available_at": "2024-04-01T21:00:00+08:00",
+      "role": "historical_publication_evidence",
+      "publication_confidence": "printed_document_date_not_archived_server_timestamp"
+    },
+    {
+      "source_id": "512100_annual_2023",
+      "source_url": "https://www.sse.com.cn/disclosure/fund/announcement/c/new/2024-03-30/512100_20240330_Y64O.pdf",
+      "fetched_at": "2026-11-14T15:35:51.165931+00:00",
+      "capture": "existing_local",
+      "status": "CAPTURED",
+      "sha256": "cb3160f886046dd04a193dfb2e5cbc2ec4aa1f422e08430d1726ec37490a14f0",
+      "bytes": 1171065,
+      "local_path": "data/raw_official/512100_annual_2023.pdf",
+      "published_date": "2024-03-30",
+      "publication_precision": "DATE_ONLY",
+      "conservative_available_at": "2024-04-01T21:00:00+08:00",
+      "role": "historical_publication_evidence",
+      "publication_confidence": "printed_document_date_not_archived_server_timestamp"
+    },
+    {
+      "source_id": "159915_annual_2023",
+      "source_url": "https://static.cninfo.com.cn/finalpage/2024-03-29/1219447187.PDF",
+      "fetched_at": "2026-11-14T15:35:51.871871+00:00",
+      "capture": "existing_local",
+      "status": "CAPTURED",
+      "sha256": "4a411f2d135ef0313f7e095caccd2517e3a9d80611246685b86979ef1c1aa121",
+      "bytes": 2234773,
+      "local_path": "data/raw_official/159915_annual_2023.pdf",
+      "published_date": "2024-03-29",
+      "publication_precision": "DATE_ONLY",
+      "conservative_available_at": "2024-04-01T21:00:00+08:00",
+      "role": "historical_publication_evidence",
+      "publication_confidence": "printed_document_date_not_archived_server_timestamp"
+    },
+    {
+      "source_id": "csi300_factsheet_identity",
+      "source_url": "https://oss-ch.csindex.com.cn/static/html/csindex/public/uploads/indices/detail/files/en/000300factsheeten.pdf",
+      "fetched_at": "2026-11-14T15:35:52.635912+00:00",
+      "capture": "existing_local",
+      "status": "CAPTURED",
+      "sha256": "59c1442b3428d5105bbe5cc71996f3e927a7b320cfb66481da3b7cab7f6a2295",
+      "bytes": 398394,
+      "local_path": "data/raw_official/csi300_factsheet_identity.pdf",
+      "published_date": "2026-10-30",
+      "publication_precision": "DATE_ONLY",
+      "conservative_available_at": null,
+      "role": "retrospective_audit_only_not_signal",
+      "publication_confidence": "printed_document_date_not_archived_server_timestamp"
+    },
+    {
+      "source_id": "510300_annual_2023",
+      "source_url": "https://www.sse.com.cn/disclosure/fund/announcement/c/new/2024-03-30/510300_20240330_437H.pdf",
+      "fetched_at": "2026-11-14T15:38:00.741683+00:00",
+      "capture": "existing_local",
+      "status": "CAPTURED",
+      "sha256": "cbe1900cb617a67a804dc463e6658f662917b04361266bef51b7bd139a6433be",
+      "bytes": 871278,
+      "local_path": "data/raw_official/510300_annual_2023.pdf",
+      "published_date": "2024-03-30",
+      "publication_precision": "DATE_ONLY",
+      "conservative_available_at": "2024-04-01T21:00:00+08:00",
+      "role": "historical_publication_evidence",
+      "publication_confidence": "printed_document_date_not_archived_server_timestamp"
+    },
+    {
+      "source_id": "512320_liquidation_report_20240326",
+      "source_url": "https://www.sse.com.cn/disclosure/fund/announcement/c/new/2024-03-26/512320_20240326_1V78.pdf",
+      "fetched_at": "2026-11-14T15:38:40.914811+00:00",
+      "capture": "existing_local",
+      "status": "CAPTURED",
+      "sha256": "ed3c86d849663b5370bb6913cf32a78ee20fbec8c96416a2df748c4c38ebba2e",
+      "bytes": 739788,
+      "local_path": "data/raw_official/512320_liquidation_report_20240326.pdf",
+      "published_date": "2024-03-26",
+      "publication_precision": "DATE_ONLY",
+      "conservative_available_at": "2024-03-27T21:00:00+08:00",
+      "role": "historical_publication_evidence",
+      "publication_confidence": "printed_document_date_not_archived_server_timestamp"
+    },
+    {
+      "source_id": "512320_resolution_20240224",
+      "source_url": "https://www.sse.com.cn/disclosure/fund/announcement/c/new/2024-02-24/512320_20240224_V6TL.pdf",
+      "fetched_at": "2026-11-14T15:38:41.294283+00:00",
+      "capture": "existing_local",
+      "status": "CAPTURED",
+      "sha256": "45c99b0c114df6f1671b23da72be90e0dc966c5c5e1cc0ad63ad99edfc0df3bf",
+      "bytes": 2141037,
+      "local_path": "data/raw_official/512320_resolution_20240224.pdf",
+      "published_date": "2024-02-24",
+      "publication_precision": "DATE_ONLY",
+      "conservative_available_at": "2024-02-26T21:00:00+08:00",
+      "role": "historical_publication_evidence",
+      "publication_confidence": "printed_document_date_not_archived_server_timestamp"
+    },
+    {
+      "source_id": "512320_suspend_20240222",
+      "source_url": "https://www.sse.com.cn/disclosure/fund/announcement/c/new/2024-02-22/512320_20240222_JBT3.pdf",
+      "fetched_at": "2026-11-14T15:38:41.633935+00:00",
+      "capture": "existing_local",
+      "status": "CAPTURED",
+      "sha256": "f5a89d34c85c3bffb17902fda209725fb46f7c1caa33b4c674286535ce8a18cc",
+      "bytes": 84393,
+      "local_path": "data/raw_official/512320_suspend_20240222.pdf",
+      "published_date": "2024-02-22",
+      "publication_precision": "DATE_ONLY",
+      "conservative_available_at": "2024-02-23T21:00:00+08:00",
+      "role": "historical_publication_evidence",
+      "publication_confidence": "printed_document_date_not_archived_server_timestamp"
+    },
+    {
+      "source_id": "512320_suspend_20240124",
+      "source_url": "https://www.sse.com.cn/disclosure/fund/announcement/c/new/2024-01-24/512320_20240124_1RLI.pdf",
+      "fetched_at": "2026-11-14T15:38:41.920042+00:00",
+      "capture": "existing_local",
+      "status": "CAPTURED",
+      "sha256": "e3bdadb5bcfd23a9aac985fdda63d35f707960c9e7a7165e50528f97059b9917",
+      "bytes": 85881,
+      "local_path": "data/raw_official/512320_suspend_20240124.pdf",
+      "published_date": "2024-01-24",
+      "publication_precision": "DATE_ONLY",
+      "conservative_available_at": "2024-01-25T21:00:00+08:00",
+      "role": "historical_publication_evidence",
+      "publication_confidence": "printed_document_date_not_archived_server_timestamp"
+    },
+    {
+      "source_id": "512320_annual_2022",
+      "source_url": "https://www.sse.com.cn/disclosure/fund/announcement/c/new/2023-03-30/512320_20230330_86V3.pdf",
+      "fetched_at": "2026-11-14T15:38:42.562719+00:00",
+      "capture": "existing_local",
+      "status": "CAPTURED",
+      "sha256": "f965686de0ff9323d0d21648452c6454dc3cdcb55dfc403a8acff50d2a46cb2c",
+      "bytes": 880664,
+      "local_path": "data/raw_official/512320_annual_2022.pdf",
+      "published_date": "2023-03-30",
+      "publication_precision": "DATE_ONLY",
+      "conservative_available_at": "2023-03-31T21:00:00+08:00",
+      "role": "historical_publication_evidence",
+      "publication_confidence": "printed_document_date_not_archived_server_timestamp"
+    },
+    {
+      "source_id": "512320_listing_20200804",
+      "source_url": "https://www.sse.com.cn/disclosure/fund/announcement/c/2020-08-04/512320_20200804_1.pdf",
+      "fetched_at": "2026-11-14T15:39:20.034835+00:00",
+      "http_status": 200,
+      "content_type": "application/pdf",
+      "status": "CAPTURED",
+      "sha256": "1452640259854d397d1877f58a7681a2c8d7755e774264057f009e2d96075086",
+      "bytes": 1038100,
+      "local_path": "data/raw_official/512320_listing_20200804.pdf",
+      "published_date": "2020-08-04",
+      "publication_precision": "DATE_ONLY",
+      "conservative_available_at": "2020-08-05T21:00:00+08:00",
+      "role": "historical_publication_evidence",
+      "publication_confidence": "printed_document_date_not_archived_server_timestamp"
+    }
+  ],
+  "instruments": [
+    {
+      "instrument_id": "510300",
+      "listed_on": "2012-05-28",
+      "benchmark_id": "CSI300",
+      "source_ids": [
+        "510300_annual_2023"
+      ],
+      "scope_status": "AUDIT_COHORT_NOT_FULL_R1B"
+    },
+    {
+      "instrument_id": "510500",
+      "listed_on": "2013-03-15",
+      "benchmark_id": "CSI500",
+      "source_ids": [
+        "510500_annual_2023"
+      ],
+      "scope_status": "AUDIT_COHORT_NOT_FULL_R1B"
+    },
+    {
+      "instrument_id": "512100",
+      "listed_on": "2016-11-04",
+      "benchmark_id": "CSI1000",
+      "source_ids": [
+        "512100_annual_2023"
+      ],
+      "scope_status": "AUDIT_COHORT_NOT_FULL_R1B"
+    },
+    {
+      "instrument_id": "159915",
+      "listed_on": "2011-12-09",
+      "benchmark_id": "CHINEXT",
+      "source_ids": [
+        "159915_annual_2023"
+      ],
+      "scope_status": "AUDIT_COHORT_NOT_FULL_R1B"
+    },
+    {
+      "instrument_id": "512320",
+      "listed_on": "2020-08-07",
+      "benchmark_id": "MSCI_CHINA_A_RMB",
+      "source_ids": [
+        "512320_listing_20200804",
+        "512320_prospectus_20220331",
+        "512320_interim_2023"
+      ],
+      "scope_status": "LIFECYCLE_CASE_OUTSIDE_FIXED_R1B_BENCHMARKS"
+    },
+    {
+      "instrument_id": "510330",
+      "listed_on": null,
+      "benchmark_id": null,
+      "source_ids": [],
+      "scope_status": "NOT_COLLECTED_THIS_PASS"
+    },
+    {
+      "instrument_id": "588000",
+      "listed_on": null,
+      "benchmark_id": null,
+      "source_ids": [],
+      "scope_status": "NOT_COLLECTED_THIS_PASS"
+    }
+  ],
+  "events": [
+    {
+      "event_id": "510300_DIV_20230116",
+      "instrument_id": "510300",
+      "event_type": "DIVIDEND",
+      "announcement_date": "2023-01-09",
+      "available_at": "2023-01-10T21:00:00+08:00",
+      "ex_date": "2023-01-16",
+      "record_date": "2023-01-13",
+      "scheduled_pay_date": "2023-01-19",
+      "actual_pay_date": null,
+      "cash_per_share": "0.064",
+      "source_ids": [
+        "510300_dividend_20230109"
+      ],
+      "source_pages": [
+        2,
+        3
+      ],
+      "evidence_status": "OFFICIAL_PUBLISHED_DATE_ONLY",
+      "notes": "CNY0.6400 per10units. Distribution year label is not ex-date year. Cash date is issuer announced schedule.",
+      "stage_only": true,
+      "engine_ready": false
+    },
+    {
+      "event_id": "510300_DIV_20240118",
+      "instrument_id": "510300",
+      "event_type": "DIVIDEND",
+      "announcement_date": "2024-01-11",
+      "available_at": "2024-01-12T21:00:00+08:00",
+      "ex_date": "2024-01-18",
+      "record_date": "2024-01-17",
+      "scheduled_pay_date": "2024-01-23",
+      "actual_pay_date": null,
+      "cash_per_share": "0.069",
+      "source_ids": [
+        "510300_dividend_20240111"
+      ],
+      "source_pages": [
+        2,
+        3
+      ],
+      "evidence_status": "OFFICIAL_PUBLISHED_DATE_ONLY",
+      "notes": "CNY0.6900 per10units. Page3 says designated-trading investors may collect on announced cashdate; individual account receipt not observed.",
+      "stage_only": true,
+      "engine_ready": false
+    },
+    {
+      "event_id": "510500_DIV_20240517",
+      "instrument_id": "510500",
+      "event_type": "DIVIDEND",
+      "announcement_date": "2024-05-10",
+      "available_at": "2024-05-13T21:00:00+08:00",
+      "ex_date": "2024-05-17",
+      "record_date": "2024-05-16",
+      "scheduled_pay_date": "2024-05-22",
+      "actual_pay_date": null,
+      "cash_per_share": "0.087",
+      "source_ids": [
+        "510500_dividend_20240510"
+      ],
+      "source_pages": [
+        2,
+        3
+      ],
+      "evidence_status": "OFFICIAL_PUBLISHED_DATE_ONLY",
+      "notes": "CNY0.8700 per10units. Page3 describes broker distribution; individual account receipt not observed.",
+      "stage_only": true,
+      "engine_ready": false
+    },
+    {
+      "event_id": "512320_SUSPEND_20240223",
+      "instrument_id": "512320",
+      "event_type": "SUSPENSION",
+      "announcement_date": "2024-01-25",
+      "available_at": "2024-01-26T21:00:00+08:00",
+      "ex_date": "2024-02-23",
+      "record_date": null,
+      "scheduled_pay_date": null,
+      "actual_pay_date": null,
+      "cash_per_share": null,
+      "source_ids": [
+        "512320_meeting_20240125"
+      ],
+      "source_pages": [
+        11
+      ],
+      "evidence_status": "OFFICIAL_PUBLISHED_DATE_ONLY",
+      "notes": "Suspension and creation/redemption halt from vote-count day. Continuation conditional on vote approval; Jan25is first reminder, citing original Jan24meetingnotice.",
+      "stage_only": true,
+      "engine_ready": false,
+      "end_date": null,
+      "conditional_permanent": true
+    },
+    {
+      "event_id": "512320_SUSPEND_20240124",
+      "instrument_id": "512320",
+      "event_type": "SUSPENSION",
+      "announcement_date": "2024-01-24",
+      "available_at": "2024-01-25T21:00:00+08:00",
+      "ex_date": "2024-01-24",
+      "record_date": null,
+      "scheduled_pay_date": null,
+      "actual_pay_date": null,
+      "cash_per_share": null,
+      "source_ids": [
+        "512320_suspend_20240124"
+      ],
+      "source_pages": [
+        1
+      ],
+      "evidence_status": "OFFICIAL_PUBLISHED_DATE_ONLY",
+      "notes": "One-day suspension announced on effective day; automatic resumption next trading session. Conservative information policy observes this after the effective day; not an engine-ready advance notice.",
+      "stage_only": true,
+      "engine_ready": false,
+      "end_date": "2024-01-24",
+      "resumption_date": "2024-01-25",
+      "late_under_conservative_policy": true
+    },
+    {
+      "event_id": "512320_LIQUIDATION_20240224",
+      "instrument_id": "512320",
+      "event_type": "LIQUIDATION",
+      "announcement_date": "2024-02-24",
+      "available_at": "2024-02-26T21:00:00+08:00",
+      "ex_date": "2024-02-24",
+      "record_date": null,
+      "scheduled_pay_date": null,
+      "actual_pay_date": null,
+      "cash_per_share": null,
+      "source_ids": [
+        "512320_resolution_20240224"
+      ],
+      "source_pages": [
+        2,
+        3
+      ],
+      "evidence_status": "OFFICIAL_PUBLISHED_DATE_ONLY",
+      "notes": "Original resolution says suspension from February23 open without resumption and liquidation starts February24. Date-only policy first observes this February26 at21:00; it cannot directly drive a February24 engine event.",
+      "stage_only": true,
+      "engine_ready": false,
+      "late_under_conservative_policy": true,
+      "liquidation_end_date": "2024-03-15",
+      "entitlement_record_date": null
+    },
+    {
+      "event_id": "512320_LIQPAY_20240408",
+      "instrument_id": "512320",
+      "event_type": "LIQUIDATION_PAYMENT",
+      "announcement_date": "2024-03-28",
+      "available_at": "2024-03-29T21:00:00+08:00",
+      "ex_date": null,
+      "record_date": "2024-03-29",
+      "scheduled_pay_date": "2024-04-08",
+      "actual_pay_date": null,
+      "cash_per_share": "0.77524",
+      "source_ids": [
+        "512320_payment_20240328"
+      ],
+      "source_pages": [
+        1
+      ],
+      "evidence_status": "OFFICIAL_PUBLISHED_DATE_ONLY",
+      "notes": "Notice supplies record date and scheduled distribution date, but no ex-date or accounting recognition date. Actual arrival depends on sales institution. April1candidate below is model policy after March29at21:00 availability, not an issuer fact. Actual investor cash credit is unknown.",
+      "stage_only": true,
+      "engine_ready": false,
+      "entitlement_action_id": "512320_LIQUIDATION_20240224",
+      "is_final": null,
+      "recognition_date": null,
+      "accounting_recognition_candidate": "2024-04-01",
+      "accounting_recognition_candidate_basis": "First trading session strictly after conservative availability; needs separate engine mapping and entitlement validation.",
+      "final_distribution_inference": "Liquidation report proposes distribution of all residual assets, but final investor settlement not observed."
+    },
+    {
+      "event_id": "512320_DELIST_20240416",
+      "instrument_id": "512320",
+      "event_type": "DELISTING",
+      "announcement_date": "2024-04-11",
+      "available_at": "2024-04-12T21:00:00+08:00",
+      "ex_date": "2024-04-16",
+      "record_date": null,
+      "scheduled_pay_date": null,
+      "actual_pay_date": null,
+      "cash_per_share": null,
+      "source_ids": [
+        "512320_delisting_20240411"
+      ],
+      "source_pages": [
+        1,
+        2,
+        3
+      ],
+      "evidence_status": "OFFICIAL_PUBLISHED_DATE_ONLY",
+      "notes": "Exchange listing termination is distinct from Feb23suspension and Feb24liquidation.",
+      "stage_only": true,
+      "engine_ready": false
+    }
+  ],
+  "coverage": [
+    {
+      "instrument_id": "510300",
+      "year": 2023,
+      "dividends_status": "RECONCILED_ANNUAL_TOTAL_WITH_NOTICES",
+      "splits_status": "ANNUAL_REPORT_EXPLICIT_NONE",
+      "source_ids": [
+        "510300_annual_2023"
+      ],
+      "notes": "Annual reports are retrospective coverage evidence, not available in the economic period. All suspension/lifecycle notice completeness remains unverified."
+    },
+    {
+      "instrument_id": "510300",
+      "year": 2024,
+      "dividends_status": "RECONCILED_ANNUAL_TOTAL_WITH_NOTICES",
+      "splits_status": "ANNUAL_REPORT_EXPLICIT_NONE",
+      "source_ids": [
+        "510300_annual_2024"
+      ],
+      "notes": "Annual reports are retrospective coverage evidence, not available in the economic period. All suspension/lifecycle notice completeness remains unverified."
+    },
+    {
+      "instrument_id": "510300",
+      "year": 2019,
+      "dividends_status": "NOT_YET_FULLY_COLLECTED",
+      "splits_status": "NOT_YET_COLLECTED",
+      "source_ids": [],
+      "notes": "2024annual comparative tables contain some2022distribution totals; contemporary2022notices and full corporateaction coverage not reconciled."
+    },
+    {
+      "instrument_id": "510300",
+      "year": 2020,
+      "dividends_status": "NOT_YET_FULLY_COLLECTED",
+      "splits_status": "NOT_YET_COLLECTED",
+      "source_ids": [],
+      "notes": "2024annual comparative tables contain some2022distribution totals; contemporary2022notices and full corporateaction coverage not reconciled."
+    },
+    {
+      "instrument_id": "510300",
+      "year": 2021,
+      "dividends_status": "NOT_YET_FULLY_COLLECTED",
+      "splits_status": "NOT_YET_COLLECTED",
+      "source_ids": [],
+      "notes": "2024annual comparative tables contain some2022distribution totals; contemporary2022notices and full corporateaction coverage not reconciled."
+    },
+    {
+      "instrument_id": "510300",
+      "year": 2022,
+      "dividends_status": "NOT_YET_FULLY_COLLECTED",
+      "splits_status": "NOT_YET_COLLECTED",
+      "source_ids": [],
+      "notes": "2024annual comparative tables contain some2022distribution totals; contemporary2022notices and full corporateaction coverage not reconciled."
+    },
+    {
+      "instrument_id": "510500",
+      "year": 2023,
+      "dividends_status": "ANNUAL_REPORT_EXPLICIT_NONE",
+      "splits_status": "ANNUAL_REPORT_EXPLICIT_NONE",
+      "source_ids": [
+        "510500_annual_2023"
+      ],
+      "notes": "Annual reports are retrospective coverage evidence, not available in the economic period. All suspension/lifecycle notice completeness remains unverified."
+    },
+    {
+      "instrument_id": "510500",
+      "year": 2024,
+      "dividends_status": "RECONCILED_ANNUAL_TOTAL_WITH_NOTICES",
+      "splits_status": "ANNUAL_REPORT_EXPLICIT_NONE",
+      "source_ids": [
+        "510500_annual_2024"
+      ],
+      "notes": "Annual reports are retrospective coverage evidence, not available in the economic period. All suspension/lifecycle notice completeness remains unverified."
+    },
+    {
+      "instrument_id": "510500",
+      "year": 2019,
+      "dividends_status": "NOT_YET_FULLY_COLLECTED",
+      "splits_status": "NOT_YET_COLLECTED",
+      "source_ids": [],
+      "notes": "2024annual comparative tables contain some2022distribution totals; contemporary2022notices and full corporateaction coverage not reconciled."
+    },
+    {
+      "instrument_id": "510500",
+      "year": 2020,
+      "dividends_status": "NOT_YET_FULLY_COLLECTED",
+      "splits_status": "NOT_YET_COLLECTED",
+      "source_ids": [],
+      "notes": "2024annual comparative tables contain some2022distribution totals; contemporary2022notices and full corporateaction coverage not reconciled."
+    },
+    {
+      "instrument_id": "510500",
+      "year": 2021,
+      "dividends_status": "ANNUAL_REPORT_EXPLICIT_NONE",
+      "splits_status": "NOT_YET_COLLECTED",
+      "source_ids": [
+        "510500_annual_2023"
+      ],
+      "notes": "Three-year distribution section covers2021-2023. Split history before2023 not yet collected."
+    },
+    {
+      "instrument_id": "510500",
+      "year": 2022,
+      "dividends_status": "ANNUAL_REPORT_EXPLICIT_NONE",
+      "splits_status": "NOT_YET_COLLECTED",
+      "source_ids": [
+        "510500_annual_2023"
+      ],
+      "notes": "Three-year distribution section covers2021-2023. Split history before2023 not yet collected."
+    },
+    {
+      "instrument_id": "512100",
+      "year": 2023,
+      "dividends_status": "ANNUAL_REPORT_EXPLICIT_NONE",
+      "splits_status": "ANNUAL_REPORT_EXPLICIT_NONE",
+      "source_ids": [
+        "512100_annual_2023"
+      ],
+      "notes": "Annual reports are retrospective coverage evidence, not available in the economic period. All suspension/lifecycle notice completeness remains unverified."
+    },
+    {
+      "instrument_id": "512100",
+      "year": 2024,
+      "dividends_status": "ANNUAL_REPORT_EXPLICIT_NONE",
+      "splits_status": "ANNUAL_REPORT_EXPLICIT_NONE",
+      "source_ids": [
+        "512100_annual_2024"
+      ],
+      "notes": "Annual reports are retrospective coverage evidence, not available in the economic period. All suspension/lifecycle notice completeness remains unverified."
+    },
+    {
+      "instrument_id": "512100",
+      "year": 2019,
+      "dividends_status": "NOT_YET_FULLY_COLLECTED",
+      "splits_status": "NOT_YET_COLLECTED",
+      "source_ids": [],
+      "notes": "2024annual comparative tables contain some2022distribution totals; contemporary2022notices and full corporateaction coverage not reconciled."
+    },
+    {
+      "instrument_id": "512100",
+      "year": 2020,
+      "dividends_status": "NOT_YET_FULLY_COLLECTED",
+      "splits_status": "NOT_YET_COLLECTED",
+      "source_ids": [],
+      "notes": "2024annual comparative tables contain some2022distribution totals; contemporary2022notices and full corporateaction coverage not reconciled."
+    },
+    {
+      "instrument_id": "512100",
+      "year": 2021,
+      "dividends_status": "ANNUAL_REPORT_EXPLICIT_NONE",
+      "splits_status": "NOT_YET_COLLECTED",
+      "source_ids": [
+        "512100_annual_2023"
+      ],
+      "notes": "Three-year distribution section covers2021-2023. Split history before2023 not yet collected."
+    },
+    {
+      "instrument_id": "512100",
+      "year": 2022,
+      "dividends_status": "ANNUAL_REPORT_EXPLICIT_NONE",
+      "splits_status": "NOT_YET_COLLECTED",
+      "source_ids": [
+        "512100_annual_2023"
+      ],
+      "notes": "Three-year distribution section covers2021-2023. Split history before2023 not yet collected."
+    },
+    {
+      "instrument_id": "159915",
+      "year": 2023,
+      "dividends_status": "ANNUAL_REPORT_EXPLICIT_NONE",
+      "splits_status": "ANNUAL_REPORT_EXPLICIT_NONE",
+      "source_ids": [
+        "159915_annual_2023"
+      ],
+      "notes": "Annual reports are retrospective coverage evidence, not available in the economic period. All suspension/lifecycle notice completeness remains unverified."
+    },
+    {
+      "instrument_id": "159915",
+      "year": 2024,
+      "dividends_status": "ANNUAL_REPORT_EXPLICIT_NONE",
+      "splits_status": "ANNUAL_REPORT_EXPLICIT_NONE",
+      "source_ids": [
+        "159915_annual_2024"
+      ],
+      "notes": "Annual reports are retrospective coverage evidence, not available in the economic period. All suspension/lifecycle notice completeness remains unverified."
+    },
+    {
+      "instrument_id": "159915",
+      "year": 2019,
+      "dividends_status": "NOT_YET_FULLY_COLLECTED",
+      "splits_status": "NOT_YET_COLLECTED",
+      "source_ids": [],
+      "notes": "2024annual comparative tables contain some2022distribution totals; contemporary2022notices and full corporateaction coverage not reconciled."
+    },
+    {
+      "instrument_id": "159915",
+      "year": 2020,
+      "dividends_status": "NOT_YET_FULLY_COLLECTED",
+      "splits_status": "NOT_YET_COLLECTED",
+      "source_ids": [],
+      "notes": "2024annual comparative tables contain some2022distribution totals; contemporary2022notices and full corporateaction coverage not reconciled."
+    },
+    {
+      "instrument_id": "159915",
+      "year": 2021,
+      "dividends_status": "ANNUAL_REPORT_EXPLICIT_NONE",
+      "splits_status": "NOT_YET_COLLECTED",
+      "source_ids": [
+        "159915_annual_2023"
+      ],
+      "notes": "Three-year distribution section covers2021-2023. Split history before2023 not yet collected."
+    },
+    {
+      "instrument_id": "159915",
+      "year": 2022,
+      "dividends_status": "ANNUAL_REPORT_EXPLICIT_NONE",
+      "splits_status": "NOT_YET_COLLECTED",
+      "source_ids": [
+        "159915_annual_2023"
+      ],
+      "notes": "Three-year distribution section covers2021-2023. Split history before2023 not yet collected."
+    },
+    {
+      "instrument_id": "512320",
+      "year": 2019,
+      "dividends_status": "PRE_INCEPTION",
+      "splits_status": "PRE_INCEPTION",
+      "source_ids": [
+        "512320_listing_20200804"
+      ],
+      "notes": "2022annual explicitly has no distributions in prior three years and no2022split.2023interim covers first half only. Official2023-01-01..2024-04-30 query returns26notices with no2023annual/dividend/split notice; limited negative evidence, not proof of complete absence. Liquidation report has no comparative financials."
+    },
+    {
+      "instrument_id": "512320",
+      "year": 2020,
+      "dividends_status": "ANNUAL_REPORT_EXPLICIT_NONE",
+      "splits_status": "NOT_YET_FULLY_RECONCILED",
+      "source_ids": [
+        "512320_annual_2022"
+      ],
+      "notes": "2022annual explicitly has no distributions in prior three years and no2022split.2023interim covers first half only. Official2023-01-01..2024-04-30 query returns26notices with no2023annual/dividend/split notice; limited negative evidence, not proof of complete absence. Liquidation report has no comparative financials."
+    },
+    {
+      "instrument_id": "512320",
+      "year": 2021,
+      "dividends_status": "ANNUAL_REPORT_EXPLICIT_NONE",
+      "splits_status": "NOT_YET_FULLY_RECONCILED",
+      "source_ids": [
+        "512320_annual_2022"
+      ],
+      "notes": "2022annual explicitly has no distributions in prior three years and no2022split.2023interim covers first half only. Official2023-01-01..2024-04-30 query returns26notices with no2023annual/dividend/split notice; limited negative evidence, not proof of complete absence. Liquidation report has no comparative financials."
+    },
+    {
+      "instrument_id": "512320",
+      "year": 2022,
+      "dividends_status": "ANNUAL_REPORT_EXPLICIT_NONE",
+      "splits_status": "ANNUAL_REPORT_EXPLICIT_NONE",
+      "source_ids": [
+        "512320_annual_2022"
+      ],
+      "notes": "2022annual explicitly has no distributions in prior three years and no2022split.2023interim covers first half only. Official2023-01-01..2024-04-30 query returns26notices with no2023annual/dividend/split notice; limited negative evidence, not proof of complete absence. Liquidation report has no comparative financials."
+    },
+    {
+      "instrument_id": "512320",
+      "year": 2023,
+      "dividends_status": "PARTIAL_PERIOD_AND_NOTICE_SEARCH_ONLY",
+      "splits_status": "NOT_YET_FULLY_RECONCILED",
+      "source_ids": [
+        "512320_interim_2023"
+      ],
+      "notes": "2022annual explicitly has no distributions in prior three years and no2022split.2023interim covers first half only. Official2023-01-01..2024-04-30 query returns26notices with no2023annual/dividend/split notice; limited negative evidence, not proof of complete absence. Liquidation report has no comparative financials."
+    },
+    {
+      "instrument_id": "512320",
+      "year": 2024,
+      "dividends_status": "PARTIAL_PERIOD_AND_NOTICE_SEARCH_ONLY",
+      "splits_status": "NOT_YET_FULLY_RECONCILED",
+      "source_ids": [
+        "512320_liquidation_report_20240326"
+      ],
+      "notes": "2022annual explicitly has no distributions in prior three years and no2022split.2023interim covers first half only. Official2023-01-01..2024-04-30 query returns26notices with no2023annual/dividend/split notice; limited negative evidence, not proof of complete absence. Liquidation report has no comparative financials."
+    }
+  ],
+  "benchmark_audit": {
+    "status": "OFFICIAL_HISTORY_CAPTURED_NOT_PIT_VALIDATED",
+    "index_code": "H00300",
+    "identity": "CSI300TotalReturnIndex",
+    "raw_path": "data/raw_official/h00300_history_attempt.payload",
+    "sha256": "c29d358ab2a3edaa62bbf9c31226032b9513bbb52aebf35425499467012867c3",
+    "source_url": "https://www.csindex.com.cn/csindex-home/perf/index-perf?indexCode=H00300&startDate=20190101&endDate=20241231",
+    "api_success": true,
+    "row_count": 1457,
+    "first_date": "2019-01-01",
+    "last_date": "2024-12-31",
+    "duplicate_dates": [],
+    "non_session_dates": [
+      "2019-01-01"
+    ],
+    "missing_session_dates": [],
+    "exchange_session_rows": 1456,
+    "all_index_codes": [
+      "H00300"
+    ],
+    "index_level_field": "close",
+    "all_index_names": [
+      "CSI 300 Total Return Index"
+    ],
+    "missing_level_count": 0,
+    "nonfinite_or_nonpositive_level_count": 0,
+    "raw_rows_preserved": true,
+    "filter_applied_in_this_artifact": false,
+    "remaining_gates": [
+      "Current retrieval has no original daily publicationtimestamps or revisions; PIT provenance policy stillrequired.",
+      "Non-session observations must be excluded only by sourcecalendar, not passedas tradebars.",
+      "Decimal sourceprecision and source endpoint retention/licensing/semantics require validation before Dataset use."
+    ],
+    "calendar_raw_path": "data/raw_baostock/r1_audit_2019_2024_20261114T153136Z/raw/8bebc615aecfb4a8_27d761c55b_a0_4b5d21603878dc280e93697da5d5e75e2c293f3f43891412002b13aac1c975e6.json",
+    "calendar_sha256": "4b5d21603878dc280e93697da5d5e75e2c293f3f43891412002b13aac1c975e6"
+  },
+  "query_audits": [
+    {
+      "query_id": "512320_announcement_query",
+      "window_start": "2023-01-01",
+      "window_end": "2024-04-30",
+      "source_url": "https://query.sse.com.cn/commonQuery.do?isPagination=true&pageHelp.pageSize=100&pageHelp.pageNo=1&pageHelp.beginPage=1&pageHelp.cacheSize=1&pageHelp.endPage=1&type=inParams&sqlId=COMMON_PL_JJXX_JJGG_NEW_L&TITLE=&SECURITY_CODE=512320&START_DATE=2023-01-01&END_DATE=2024-04-30&BULLETIN_TYPE=&OTHER_TYPE=&DATE_DESC=1",
+      "raw_path": "data/raw_official/512320_announcement_query.payload",
+      "sha256": "e942b93c2983ba66f3c87ae914b1eb1ee31cb48d8ed6775e662409b9b2eb244c",
+      "total_reported": 26,
+      "returned": 26,
+      "pagination_complete": true,
+      "records": [
+        {
+          "SSEDATE": "2024-04-15",
+          "ORG_BULLETIN_TYPE_DESC": "基金摘牌",
+          "BULLETIN_TYPE_DESC": "基金运作(基金)",
+          "NUM": "1",
+          "TITLE": "工银瑞信基金管理有限公司关于工银瑞信MSCI中国A股交易型开放式指数证券投资基金终止上市的提示性公告",
+          "FUND_EXPANSION_ABBR": "-",
+          "SECURITY_CODE": "512320",
+          "URL": "/disclosure/fund/announcement/c/new/2024-04-15/512320_20240415_27E0.pdf"
+        },
+        {
+          "SSEDATE": "2024-04-11",
+          "ORG_BULLETIN_TYPE_DESC": "基金摘牌",
+          "BULLETIN_TYPE_DESC": "基金运作(基金)",
+          "NUM": "2",
+          "TITLE": "工银瑞信基金管理有限公司关于工银瑞信MSCI中国A股交易型开放式指数证券投资基金终止上市的公告",
+          "FUND_EXPANSION_ABBR": "-",
+          "SECURITY_CODE": "512320",
+          "URL": "/disclosure/fund/announcement/c/new/2024-04-11/512320_20240411_TJ7L.pdf"
+        },
+        {
+          "SSEDATE": "2024-03-28",
+          "ORG_BULLETIN_TYPE_DESC": "基金清算",
+          "BULLETIN_TYPE_DESC": "基金运作(基金)",
+          "NUM": "3",
+          "TITLE": "工银瑞信MSCI中国A股交易型开放式指数证券投资基金的清算资金发放公告",
+          "FUND_EXPANSION_ABBR": "-",
+          "SECURITY_CODE": "512320",
+          "URL": "/disclosure/fund/announcement/c/new/2024-03-28/512320_20240328_QIII.pdf"
+        },
+        {
+          "SSEDATE": "2024-03-26",
+          "ORG_BULLETIN_TYPE_DESC": "基金清算",
+          "BULLETIN_TYPE_DESC": "基金运作(基金)",
+          "NUM": "4",
+          "TITLE": "工银瑞信MSCI中国A股交易型开放式指数证券投资基金清算报告",
+          "FUND_EXPANSION_ABBR": "-",
+          "SECURITY_CODE": "512320",
+          "URL": "/disclosure/fund/announcement/c/new/2024-03-26/512320_20240326_1V78.pdf"
+        },
+        {
+          "SSEDATE": "2024-02-24",
+          "ORG_BULLETIN_TYPE_DESC": "持有人大会",
+          "BULLETIN_TYPE_DESC": "基金运作(基金)",
+          "NUM": "5",
+          "TITLE": "工银瑞信基金管理有限公司关于工银瑞信MSCI中国A股交易型开放式指数证券投资基金基金份额持有人大会表决结果暨决议生效的公告",
+          "FUND_EXPANSION_ABBR": "-",
+          "SECURITY_CODE": "512320",
+          "URL": "/disclosure/fund/announcement/c/new/2024-02-24/512320_20240224_V6TL.pdf"
+        },
+        {
+          "SSEDATE": "2024-02-22",
+          "ORG_BULLETIN_TYPE_DESC": "ETF申购赎回",
+          "BULLETIN_TYPE_DESC": "基金运作(基金)",
+          "NUM": "6",
+          "TITLE": "工银瑞信基金管理有限公司关于工银瑞信MSCI中国A股交易型开放式指数证券投资基金暂停申购、赎回业务的公告",
+          "FUND_EXPANSION_ABBR": "-",
+          "SECURITY_CODE": "512320",
+          "URL": "/disclosure/fund/announcement/c/new/2024-02-22/512320_20240222_E2RO.pdf"
+        },
+        {
+          "SSEDATE": "2024-02-22",
+          "ORG_BULLETIN_TYPE_DESC": "停复牌",
+          "BULLETIN_TYPE_DESC": "基金运作(基金)",
+          "NUM": "7",
+          "TITLE": "工银瑞信基金管理有限公司关于工银瑞信MSCI中国A股交易型开放式指数证券投资基金的停牌公告",
+          "FUND_EXPANSION_ABBR": "-",
+          "SECURITY_CODE": "512320",
+          "URL": "/disclosure/fund/announcement/c/new/2024-02-22/512320_20240222_JBT3.pdf"
+        },
+        {
+          "SSEDATE": "2024-01-26",
+          "ORG_BULLETIN_TYPE_DESC": "持有人大会",
+          "BULLETIN_TYPE_DESC": "基金运作(基金)",
+          "NUM": "8",
+          "TITLE": "工银瑞信基金管理有限公司关于以通讯方式召开工银瑞信MSCI中国A股交易型开放式指数证券投资基金基金份额持有人大会的第二次提示性公告",
+          "FUND_EXPANSION_ABBR": "-",
+          "SECURITY_CODE": "512320",
+          "URL": "/disclosure/fund/announcement/c/new/2024-01-26/512320_20240126_4G9L.pdf"
+        },
+        {
+          "SSEDATE": "2024-01-25",
+          "ORG_BULLETIN_TYPE_DESC": "持有人大会",
+          "BULLETIN_TYPE_DESC": "基金运作(基金)",
+          "NUM": "9",
+          "TITLE": "工银瑞信基金管理有限公司关于以通讯方式召开工银瑞信MSCI中国A股交易型开放式指数证券投资基金基金份额持有人大会的第一次提示性公告",
+          "FUND_EXPANSION_ABBR": "-",
+          "SECURITY_CODE": "512320",
+          "URL": "/disclosure/fund/announcement/c/new/2024-01-25/512320_20240125_MA5C.pdf"
+        },
+        {
+          "SSEDATE": "2024-01-24",
+          "ORG_BULLETIN_TYPE_DESC": "停复牌",
+          "BULLETIN_TYPE_DESC": "基金运作(基金)",
+          "NUM": "10",
+          "TITLE": "工银瑞信基金管理有限公司关于工银瑞信MSCI中国A股交易型开放式指数证券投资基金的停牌公告",
+          "FUND_EXPANSION_ABBR": "-",
+          "SECURITY_CODE": "512320",
+          "URL": "/disclosure/fund/announcement/c/new/2024-01-24/512320_20240124_1RLI.pdf"
+        },
+        {
+          "SSEDATE": "2024-01-24",
+          "ORG_BULLETIN_TYPE_DESC": "持有人大会",
+          "BULLETIN_TYPE_DESC": "基金运作(基金)",
+          "NUM": "11",
+          "TITLE": "工银瑞信基金管理有限公司关于以通讯方式召开工银瑞信MSCI中国A股交易型开放式指数证券投资基金基金份额持有人大会的公告",
+          "FUND_EXPANSION_ABBR": "-",
+          "SECURITY_CODE": "512320",
+          "URL": "/disclosure/fund/announcement/c/new/2024-01-24/512320_20240124_WGSY.pdf"
+        },
+        {
+          "SSEDATE": "2024-01-19",
+          "ORG_BULLETIN_TYPE_DESC": "季度报告",
+          "BULLETIN_TYPE_DESC": "定期报告(基金)",
+          "NUM": "12",
+          "TITLE": "工银瑞信MSCI中国A股交易型开放式指数证券投资基金2023年第4季度报告",
+          "FUND_EXPANSION_ABBR": "-",
+          "SECURITY_CODE": "512320",
+          "URL": "/disclosure/fund/announcement/c/new/2024-01-19/512320_20240119_S8B3.pdf"
+        },
+        {
+          "SSEDATE": "2023-12-20",
+          "ORG_BULLETIN_TYPE_DESC": "基金管理人情况发生变更",
+          "BULLETIN_TYPE_DESC": "基金管理人公告(基金)",
+          "NUM": "13",
+          "TITLE": "工银瑞信基金管理有限公司高级管理人员变更公告",
+          "FUND_EXPANSION_ABBR": "-",
+          "SECURITY_CODE": "512320",
+          "URL": "/disclosure/fund/announcement/c/new/2023-12-20/512320_20231220_OL1T.pdf"
+        },
+        {
+          "SSEDATE": "2023-12-15",
+          "ORG_BULLETIN_TYPE_DESC": "基金管理人情况发生变更",
+          "BULLETIN_TYPE_DESC": "基金管理人公告(基金)",
+          "NUM": "14",
+          "TITLE": "工银瑞信基金管理有限公司高级管理人员变更公告",
+          "FUND_EXPANSION_ABBR": "-",
+          "SECURITY_CODE": "512320",
+          "URL": "/disclosure/fund/announcement/c/new/2023-12-15/512320_20231215_3AUB.pdf"
+        },
+        {
+          "SSEDATE": "2023-11-30",
+          "ORG_BULLETIN_TYPE_DESC": "更新招募类/产品资料概要公告及文件",
+          "BULLETIN_TYPE_DESC": "基金运作(基金)",
+          "NUM": "15",
+          "TITLE": "工银瑞信MSCI中国A股交易型开放式指数证券投资基金更新的招募说明书",
+          "FUND_EXPANSION_ABBR": "-",
+          "SECURITY_CODE": "512320",
+          "URL": "/disclosure/fund/announcement/c/new/2023-11-30/512320_20231130_6KP8.pdf"
+        },
+        {
+          "SSEDATE": "2023-11-30",
+          "ORG_BULLETIN_TYPE_DESC": "更新招募类/产品资料概要公告及文件",
+          "BULLETIN_TYPE_DESC": "基金运作(基金)",
+          "NUM": "16",
+          "TITLE": "工银瑞信MSCI中国A股交易型开放式指数证券投资基金基金产品资料概要更新",
+          "FUND_EXPANSION_ABBR": "-",
+          "SECURITY_CODE": "512320",
+          "URL": "/disclosure/fund/announcement/c/new/2023-11-30/512320_20231130_6ZC0.pdf"
+        },
+        {
+          "SSEDATE": "2023-10-25",
+          "ORG_BULLETIN_TYPE_DESC": "季度报告",
+          "BULLETIN_TYPE_DESC": "定期报告(基金)",
+          "NUM": "17",
+          "TITLE": "工银瑞信MSCI中国A股交易型开放式指数证券投资基金2023年第3季度报告",
+          "FUND_EXPANSION_ABBR": "-",
+          "SECURITY_CODE": "512320",
+          "URL": "/disclosure/fund/announcement/c/new/2023-10-25/512320_20231025_ITS5.pdf"
+        },
+        {
+          "SSEDATE": "2023-08-30",
+          "ORG_BULLETIN_TYPE_DESC": "中期报告",
+          "BULLETIN_TYPE_DESC": "定期报告(基金)",
+          "NUM": "18",
+          "TITLE": "工银瑞信MSCI中国A股交易型开放式指数证券投资基金2023年中期报告",
+          "FUND_EXPANSION_ABBR": "-",
+          "SECURITY_CODE": "512320",
+          "URL": "/disclosure/fund/announcement/c/new/2023-08-30/512320_20230830_0RIJ.pdf"
+        },
+        {
+          "SSEDATE": "2023-07-20",
+          "ORG_BULLETIN_TYPE_DESC": "季度报告",
+          "BULLETIN_TYPE_DESC": "定期报告(基金)",
+          "NUM": "19",
+          "TITLE": "工银瑞信MSCI中国A股交易型开放式指数证券投资基金2023年第2季度报告",
+          "FUND_EXPANSION_ABBR": "-",
+          "SECURITY_CODE": "512320",
+          "URL": "/disclosure/fund/announcement/c/new/2023-07-20/512320_20230720_DVKF.pdf"
+        },
+        {
+          "SSEDATE": "2023-04-21",
+          "ORG_BULLETIN_TYPE_DESC": "季度报告",
+          "BULLETIN_TYPE_DESC": "定期报告(基金)",
+          "NUM": "20",
+          "TITLE": "工银瑞信MSCI中国A股交易型开放式指数证券投资基金2023年第1季度报告",
+          "FUND_EXPANSION_ABBR": "-",
+          "SECURITY_CODE": "512320",
+          "URL": "/disclosure/fund/announcement/c/new/2023-04-21/512320_20230421_49DX.pdf"
+        },
+        {
+          "SSEDATE": "2023-03-30",
+          "ORG_BULLETIN_TYPE_DESC": "年度报告",
+          "BULLETIN_TYPE_DESC": "定期报告(基金)",
+          "NUM": "21",
+          "TITLE": "工银瑞信MSCI中国A股交易型开放式指数证券投资基金2022年度报告",
+          "FUND_EXPANSION_ABBR": "-",
+          "SECURITY_CODE": "512320",
+          "URL": "/disclosure/fund/announcement/c/new/2023-03-30/512320_20230330_86V3.pdf"
+        },
+        {
+          "SSEDATE": "2023-03-22",
+          "ORG_BULLETIN_TYPE_DESC": "更新招募类/产品资料概要公告及文件",
+          "BULLETIN_TYPE_DESC": "基金运作(基金)",
+          "NUM": "22",
+          "TITLE": "工银瑞信MSCI中国A股交易型开放式指数证券投资基金基金产品资料概要更新",
+          "FUND_EXPANSION_ABBR": "-",
+          "SECURITY_CODE": "512320",
+          "URL": "/disclosure/fund/announcement/c/new/2023-03-22/512320_20230322_A23N.pdf"
+        },
+        {
+          "SSEDATE": "2023-03-22",
+          "ORG_BULLETIN_TYPE_DESC": "更新招募类/产品资料概要公告及文件",
+          "BULLETIN_TYPE_DESC": "基金运作(基金)",
+          "NUM": "23",
+          "TITLE": "工银瑞信MSCI中国A股交易型开放式指数证券投资基金更新的招募说明书（2023年第1号）",
+          "FUND_EXPANSION_ABBR": "-",
+          "SECURITY_CODE": "512320",
+          "URL": "/disclosure/fund/announcement/c/new/2023-03-22/512320_20230322_FI3W.pdf"
+        },
+        {
+          "SSEDATE": "2023-01-20",
+          "ORG_BULLETIN_TYPE_DESC": "季度报告",
+          "BULLETIN_TYPE_DESC": "定期报告(基金)",
+          "NUM": "24",
+          "TITLE": "工银瑞信MSCI中国A股交易型开放式指数证券投资基金2022年第4季度报告",
+          "FUND_EXPANSION_ABBR": "-",
+          "SECURITY_CODE": "512320",
+          "URL": "/disclosure/fund/announcement/c/new/2023-01-20/512320_20230120_ZFQK.pdf"
+        },
+        {
+          "SSEDATE": "2023-01-14",
+          "ORG_BULLETIN_TYPE_DESC": "基金管理人情况发生变更",
+          "BULLETIN_TYPE_DESC": "基金管理人公告(基金)",
+          "NUM": "25",
+          "TITLE": "工银瑞信基金管理有限公司高级管理人员变更公告",
+          "FUND_EXPANSION_ABBR": "-",
+          "SECURITY_CODE": "512320",
+          "URL": "/disclosure/fund/announcement/c/new/2023-01-14/512320_20230114_NXR9.pdf"
+        },
+        {
+          "SSEDATE": "2023-01-14",
+          "ORG_BULLETIN_TYPE_DESC": "基金管理人情况发生变更",
+          "BULLETIN_TYPE_DESC": "基金管理人公告(基金)",
+          "NUM": "26",
+          "TITLE": "工银瑞信基金管理有限公司高级管理人员变更公告",
+          "FUND_EXPANSION_ABBR": "-",
+          "SECURITY_CODE": "512320",
+          "URL": "/disclosure/fund/announcement/c/new/2023-01-14/512320_20230114_XV6X.pdf"
+        }
+      ],
+      "limitation": "Current official query index result, not archived historical query state. Absence in returned titles is limited negative evidence, not proof no event or report exists elsewhere."
+    },
+    {
+      "query_id": "512320_listing_query",
+      "window_start": "2020-01-01",
+      "window_end": "2020-08-31",
+      "source_url": "https://query.sse.com.cn/commonQuery.do?isPagination=true&pageHelp.pageSize=100&pageHelp.pageNo=1&pageHelp.beginPage=1&pageHelp.cacheSize=1&pageHelp.endPage=1&type=inParams&sqlId=COMMON_PL_JJXX_JJGG_NEW_L&TITLE=&SECURITY_CODE=512320&START_DATE=2020-01-01&END_DATE=2020-08-31&BULLETIN_TYPE=&DATE_DESC=1",
+      "raw_path": "data/raw_official/512320_listing_query.payload",
+      "sha256": "e44a8edbc5843f10b4676b68f6469fbf1882037c5c2ff89635f24853a7e96af2",
+      "total_reported": 12,
+      "returned": 12,
+      "pagination_complete": true,
+      "records": [
+        {
+          "SSEDATE": "2020-08-29",
+          "ORG_BULLETIN_TYPE_DESC": "发行",
+          "BULLETIN_TYPE_DESC": "募集(基金)",
+          "NUM": "1",
+          "TITLE": "工银瑞信MSCI中国A股交易型开放式指数证券投资基金基金产品资料概要更新",
+          "FUND_EXPANSION_ABBR": "-",
+          "SECURITY_CODE": "512320",
+          "URL": "/disclosure/fund/announcement/c/2020-08-31/512320_20200829_1.pdf"
+        },
+        {
+          "SSEDATE": "2020-08-07",
+          "ORG_BULLETIN_TYPE_DESC": "其他",
+          "BULLETIN_TYPE_DESC": "临时报告(基金)",
+          "NUM": "2",
+          "TITLE": "工银瑞信基金管理有限公司关于工银瑞信MSCI中国A股交易型开放式指数证券投资基金上市交易提示性公告",
+          "FUND_EXPANSION_ABBR": "-",
+          "SECURITY_CODE": "512320",
+          "URL": "/disclosure/fund/announcement/c/2020-08-07/512320_20200807_1.pdf"
+        },
+        {
+          "SSEDATE": "2020-08-04",
+          "ORG_BULLETIN_TYPE_DESC": "发行",
+          "BULLETIN_TYPE_DESC": "募集(基金)",
+          "NUM": "3",
+          "TITLE": "工银瑞信MSCI中国A股交易型开放式指数证券投资基金上市交易公告书",
+          "FUND_EXPANSION_ABBR": "-",
+          "SECURITY_CODE": "512320",
+          "URL": "/disclosure/fund/announcement/c/2020-08-04/512320_20200804_1.pdf"
+        },
+        {
+          "SSEDATE": "2020-08-04",
+          "ORG_BULLETIN_TYPE_DESC": "其他",
+          "BULLETIN_TYPE_DESC": "临时报告(基金)",
+          "NUM": "4",
+          "TITLE": "工银瑞信MSCI中国A股交易型开放式指数证券投资基金开放日常申购、赎回业务的公告",
+          "FUND_EXPANSION_ABBR": "-",
+          "SECURITY_CODE": "512320",
+          "URL": "/disclosure/fund/announcement/c/2020-08-04/512320_20200804_2.pdf"
+        },
+        {
+          "SSEDATE": "2020-08-04",
+          "ORG_BULLETIN_TYPE_DESC": "其他",
+          "BULLETIN_TYPE_DESC": "临时报告(基金)",
+          "NUM": "5",
+          "TITLE": "工银瑞信MSCI中国A股交易型开放式指数证券投资基金上市交易公告书提示性公告",
+          "FUND_EXPANSION_ABBR": "-",
+          "SECURITY_CODE": "512320",
+          "URL": "/disclosure/fund/announcement/c/2020-08-04/512320_20200804_3.pdf"
+        },
+        {
+          "SSEDATE": "2020-06-30",
+          "ORG_BULLETIN_TYPE_DESC": "其他",
+          "BULLETIN_TYPE_DESC": "临时报告(基金)",
+          "NUM": "6",
+          "TITLE": "工银瑞信MSCI中国A股交易型开放式指数证券投资基金基金合同生效公告",
+          "FUND_EXPANSION_ABBR": "-",
+          "SECURITY_CODE": "512320",
+          "URL": "/disclosure/fund/announcement/c/2020-06-30/512320_20200630_1.pdf"
+        },
+        {
+          "SSEDATE": "2020-06-17",
+          "ORG_BULLETIN_TYPE_DESC": "其他",
+          "BULLETIN_TYPE_DESC": "临时报告(基金)",
+          "NUM": "7",
+          "TITLE": "关于工银瑞信MSCI中国A股交易型开放式指数证券投资基金上网发售的提示性公告",
+          "FUND_EXPANSION_ABBR": "-",
+          "SECURITY_CODE": "512320",
+          "URL": "/disclosure/fund/announcement/c/2020-06-17/512320_20200617_1.pdf"
+        },
+        {
+          "SSEDATE": "2020-05-28",
+          "ORG_BULLETIN_TYPE_DESC": "发行",
+          "BULLETIN_TYPE_DESC": "募集(基金)",
+          "NUM": "8",
+          "TITLE": "工银瑞信MSCI中国A股交易型开放式指数证券投资基金基金份额发售公告",
+          "FUND_EXPANSION_ABBR": "-",
+          "SECURITY_CODE": "512320",
+          "URL": "/disclosure/fund/announcement/c/2020-05-28/512320_20200528_1.pdf"
+        },
+        {
+          "SSEDATE": "2020-05-28",
+          "ORG_BULLETIN_TYPE_DESC": "其他",
+          "BULLETIN_TYPE_DESC": "临时报告(基金)",
+          "NUM": "9",
+          "TITLE": "工银瑞信MSCI中国A股交易型开放式指数证券投资基金基金合同",
+          "FUND_EXPANSION_ABBR": "-",
+          "SECURITY_CODE": "512320",
+          "URL": "/disclosure/fund/announcement/c/2020-05-28/512320_20200528_2.pdf"
+        },
+        {
+          "SSEDATE": "2020-05-28",
+          "ORG_BULLETIN_TYPE_DESC": "其他",
+          "BULLETIN_TYPE_DESC": "临时报告(基金)",
+          "NUM": "10",
+          "TITLE": "工银瑞信MSCI中国A股交易型开放式指数证券投资基金托管协议",
+          "FUND_EXPANSION_ABBR": "-",
+          "SECURITY_CODE": "512320",
+          "URL": "/disclosure/fund/announcement/c/2020-05-28/512320_20200528_3.pdf"
+        },
+        {
+          "SSEDATE": "2020-05-28",
+          "ORG_BULLETIN_TYPE_DESC": "发行",
+          "BULLETIN_TYPE_DESC": "募集(基金)",
+          "NUM": "11",
+          "TITLE": "工银瑞信MSCI中国A股交易型开放式指数证券投资基金招募说明书",
+          "FUND_EXPANSION_ABBR": "-",
+          "SECURITY_CODE": "512320",
+          "URL": "/disclosure/fund/announcement/c/2020-05-28/512320_20200528_4.pdf"
+        },
+        {
+          "SSEDATE": "2020-05-28",
+          "ORG_BULLETIN_TYPE_DESC": "其他",
+          "BULLETIN_TYPE_DESC": "临时报告(基金)",
+          "NUM": "12",
+          "TITLE": "工银瑞信MSCI中国A股交易型开放式指数证券投资基金基金合同及招募说明书提示性公告",
+          "FUND_EXPANSION_ABBR": "-",
+          "SECURITY_CODE": "512320",
+          "URL": "/disclosure/fund/announcement/c/2020-05-28/512320_20200528_5.pdf"
+        }
+      ],
+      "limitation": "Current official query index result, not archived historical query state. Absence in returned titles is limited negative evidence, not proof no event or report exists elsewhere."
+    }
+  ],
+  "unresolved": [
+    "512320 original listing, suspension, resolution, liquidation report and payment notice captured;2023annual not in returned official query and not captured. Full2023-2024dividend/split absence not asserted.",
+    "Investor actual liquidation cashcredit date unverified.",
+    "Contemporaneous listing/benchmark metadata throughout2019-2024 incomplete; futureannual evidence cannot be used beforepublication.",
+    "2019-2022corporateactioncoverage not fully collected;510330/588000notices not collected.",
+    "Full historical R1Buniverse, sourcevintages, suspensioncoverage and accounteligibility stillgate strategy use."
+  ]
+}

@@ -1,0 +1,66 @@
+{
+  "baseline_commit": "da1003a5c783d9bf4cd86e56816637d7b3af79f9",
+  "preregistration_commit": "18eeba4d37039f3cffb8e83e34fc6a3198f18a0d",
+  "execution_commit": "679e80813daefea0b5fb312d120e7ada9b8cc40a",
+  "code_source_hash": "91868508b3a79b5cb935f1967f2e5b6d918df79e03ae9587f8e838f1fa16b85c",
+  "python": "3.9.19",
+  "dependencies": {
+    "numpy": "1.26.4",
+    "pandas": "2.2.3",
+    "scipy": "1.13.1",
+    "pytest": "8.3.5"
+  },
+  "budget_ledger_sha256": "777aa36ce2d67527438e624541df2b7ccd55b83100306070ca2a5dec9159247a",
+  "budget_used": {
+    "http_attempts": 56,
+    "baostock_wire_attempts": 15,
+    "new_body_bytes": 9842572
+  },
+  "budget_limits": {
+    "http_attempts": 256,
+    "baostock_wire_attempts": 128,
+    "new_body_bytes": 268435456
+  },
+  "network_body_measurement": "Observable response bodies including SDK; not guarantee of transport-byte cap",
+  "new_stock_collection": 0,
+  "new_stock_accounts": 0,
+  "new_financial_cards": 0,
+  "final_holdout_market_access": false,
+  "live_enabled": false,
+  "agent_sessions_completed": [
+    {
+      "agent": "m7_strategy",
+      "start_utc": "2026-11-15T14:55:00Z",
+      "end_utc": "2026-11-15T15:21:41Z",
+      "seconds_including_wait": 1601
+    },
+    {
+      "agent": "m7_data",
+      "start_utc": "2026-11-15T14:55:00Z",
+      "end_utc": "2026-11-15T15:22:06Z",
+      "seconds_including_wait": 1626
+    },
+    {
+      "agent": "m7_independent",
+      "start_utc": "2026-11-15T14:55:00Z",
+      "end_utc": "2026-11-15T15:30:57.718475Z",
+      "seconds_including_wait": 2157.718475
+    }
+  ],
+  "session_budget_hours": 12,
+  "session_measurement": "Conservative common observed window; sums parallel agent sessions including waits; not human labor hours",
+  "data_hashes": {
+    "development": "f29b515bee89e89bfba01be007399b81de3d6b866555187d8eb0288fd7ed3317",
+    "validation": "9dd8408154132efb43c9981b4864f9faaf723f2b11158d8dbc51bd5bdc0677d9"
+  },
+  "registration_hashes": [
+    "b8582383246d6913cd0c25d58e59422827b4613c019058d724714c245fcdbc3a"
+  ],
+  "root_observation_asof_utc": "2026-11-15T15:39:50.801648+00:00",
+  "root_seconds_observed_including_wait": 2690.801648,
+  "total_agent_hours_observed": 2.2432000341666667,
+  "active_root_delivery_continues": true,
+  "result_delivery_commit": "2ca1b0ed235180dfba6b35521012ff13aa9c9dcf",
+  "research_calculation_finished": true,
+  "remaining_activity": "Version-receipt commit/push, delivery-head CI observation and final report only; no collection or strategy rerun"
+}

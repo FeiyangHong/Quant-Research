@@ -1,0 +1,157 @@
+{
+  "scope": "r1i-csi-historical-proxy-m6-v1",
+  "status": "PARTIAL_PRIMARY_VERSIONS_NOT_COMPLETE_PIT_CHAIN",
+  "versions": [
+    {
+      "label": "r1i_csi_2014_classification_xls",
+      "url": "https://www.sse.com.cn/market/sseindex/diclosure/c/10078087/files/fae856c2bc514c9a8b7228c48d283ff8.xls",
+      "sha256": "3e20191885a45971f4f2ef10f171bb9ab1d92a34ab1996b54f22e78926d7db44",
+      "raw_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m6\\objects\\3e20191885a45971f4f2ef10f171bb9ab1d92a34ab1996b54f22e78926d7db44.bin",
+      "ingested_at": "2026-11-15T13:14:03.464232+00:00",
+      "extracted_by": "AGENT_DOCUMENT_REVIEW_NOT_HUMAN_SIGNOFF",
+      "version_id": "CSI_L1_OBSERVED_2014_06_16",
+      "version_kind": "DATED_CLASSIFICATION_RESULT_SNAPSHOT",
+      "publication_date": "2014-05-27",
+      "available_at": "2014-05-28T21:00:00+08:00",
+      "effective_from": "2014-06-16",
+      "effective_to": null,
+      "clock_source_sha256": "4a2c10edc84a9e98c4b2569a555ac4872382bc1fb7d7ecb933547c076b133646",
+      "sheet": "全部股票最新分类",
+      "rows_excluding_header": 2621,
+      "industry_code_column": 3,
+      "industry_name_column": 4,
+      "l1": [
+        {
+          "code": "00",
+          "name": "能源"
+        },
+        {
+          "code": "01",
+          "name": "原材料"
+        },
+        {
+          "code": "02",
+          "name": "工业"
+        },
+        {
+          "code": "03",
+          "name": "可选消费"
+        },
+        {
+          "code": "04",
+          "name": "主要消费"
+        },
+        {
+          "code": "05",
+          "name": "医药卫生"
+        },
+        {
+          "code": "06",
+          "name": "金融地产"
+        },
+        {
+          "code": "07",
+          "name": "信息技术"
+        },
+        {
+          "code": "08",
+          "name": "电信业务"
+        },
+        {
+          "code": "09",
+          "name": "公用事业"
+        }
+      ],
+      "range_admitted_for_m6": false,
+      "limitation": "Real historical ten-industry snapshot; no assertion all intervening revisions through2016/2021 are covered."
+    },
+    {
+      "label": "r1i_csi_method_2023",
+      "url": "https://oss-ch.csindex.com.cn/static/html/csindex/public/uploads/indices/detail/files/zh_CN/H30199_Index_Methodology_cn.pdf",
+      "sha256": "bc78abeaad85758f1faf3d7dec40e841ee285aa5e82b77dc5e958fc387361a2c",
+      "raw_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m6\\objects\\bc78abeaad85758f1faf3d7dec40e841ee285aa5e82b77dc5e958fc387361a2c.bin",
+      "ingested_at": "2026-11-15T13:09:06.115742+00:00",
+      "extracted_by": "AGENT_DOCUMENT_REVIEW_NOT_HUMAN_SIGNOFF",
+      "version_id": "CSI_ALL_SHARE_SECTOR_METHOD_V1_7_2023_10",
+      "version_kind": "DOCUMENT_INTERNAL_VERSION",
+      "document_version": "V1.7",
+      "internal_month": "2023-10",
+      "publication_date": null,
+      "available_at": null,
+      "effective_from": null,
+      "effective_to": null,
+      "physical_pdf_pages": [
+        1,
+        2,
+        3
+      ],
+      "l1": [
+        {
+          "name": "能源"
+        },
+        {
+          "name": "原材料"
+        },
+        {
+          "name": "工业"
+        },
+        {
+          "name": "可选消费"
+        },
+        {
+          "name": "主要消费"
+        },
+        {
+          "name": "医药卫生"
+        },
+        {
+          "name": "金融"
+        },
+        {
+          "name": "房地产"
+        },
+        {
+          "name": "信息技术"
+        },
+        {
+          "name": "通信服务"
+        },
+        {
+          "name": "公用事业"
+        }
+      ],
+      "exact_l1_index_codes": [
+        "932077",
+        "932078",
+        "932079",
+        "932080",
+        "932081",
+        "932082",
+        "932083",
+        "931775",
+        "932084",
+        "932085",
+        "932086"
+      ],
+      "range_admitted_for_m6": false,
+      "limitation": "Month/version header and method/appendix verified. No original publication day or complete predecessor/change chronology; do not backfill2016 or infer code equivalence. Admits no product by name alone."
+    }
+  ],
+  "unclosed_transitions": [
+    {
+      "event": "Ten to eleven L1 split and telecom renaming",
+      "claimed_effective_date_in_secondary_discovery": "2021-12-13",
+      "primary_transition_notice_acquired": false,
+      "admitted_effective_date": null,
+      "affected_industries": [
+        "金融地产",
+        "金融",
+        "房地产",
+        "电信业务",
+        "通信服务"
+      ],
+      "treatment": "No transition date or mapping admitted from secondary search snippets"
+    }
+  ],
+  "midquarter_policy": "Freeze quarterly security IDs and original amount/listing/ID keys; remap at month end using known effective classification; merge collision keeps best original key, split adds no new representative; unknown mapping BLOCKED; economic-index change inactive until next quarter."
+}

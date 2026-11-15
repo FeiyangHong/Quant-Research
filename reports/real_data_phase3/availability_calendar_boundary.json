@@ -1,0 +1,12 @@
+{
+  "role": "PUBLIC_2024_CALENDAR_NOTICE_ONLY_NO_2025_MARKET_DATA",
+  "url": "https://investor.szse.cn/disclosure/notice/general/t20241223_611283.html",
+  "publication_date": "2024-12-23",
+  "retrieved_at": "2026-11-14T16:38:54.813200+00:00",
+  "raw_path": "data/raw_policy/availability_calendar_boundary_1c5da711eadf.html",
+  "sha256": "1c5da711eadf27308c84f12b5908ef461fa9dc739d1476512da2754249c90c1f",
+  "additional_sessions": [
+    "2025-01-02"
+  ],
+  "purpose": "Availability stamp for retained2024-12-31 daily observation; not added to simulation calendar or used to execute beyond2024"
+}

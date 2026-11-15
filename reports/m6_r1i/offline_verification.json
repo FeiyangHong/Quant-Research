@@ -1,0 +1,38 @@
+{
+  "checked_at": "2026-11-15T13:20:15.687056+00:00",
+  "commands": [
+    {
+      "command": ".venv/Scripts/python.exe scripts/m6_r1i_data_audit.py",
+      "exit_code": 0,
+      "stdout": "{\"inventory\": 1148, \"relevant\": 1099, \"missing_history\": 991, \"calendar_decisions\": 108}",
+      "stderr": "",
+      "elapsed_seconds": 0.576889
+    },
+    {
+      "command": ".venv/Scripts/python.exe scripts/m6_r1i_data_finalize.py",
+      "exit_code": 0,
+      "stdout": "{\"official_unique_fund_ids\": 1959, \"union_ids\": 1970, \"pilot_requests\": 46, \"status\": \"DATA_BLOCKED\"}",
+      "stderr": "",
+      "elapsed_seconds": 0.433504
+    }
+  ],
+  "deterministic_artifact_hashes": true,
+  "artifact_sha256": {
+    "SOURCE_PLAN.json": "c656905ca452cdca77c8be371879f18a4242fd507d22fc4e44252befc75237d8",
+    "candidate_inventory.json": "87ccbed022cfc6cf950fec18fec5ea664b104cb3a54d60d74f6362f4ddb17342",
+    "archive_audit.json": "edf7dd71cc69f4f49877dbc191ab6bd1d12b2bde1f820fa55583ba07b9290f1b",
+    "monthly_data_gate.json": "26d807ea4a52f671b6c988953ec24c195b9cb03ff23781af701e124c15c98ddb",
+    "quarterly_representatives.json": "7496800d640fe4b94721e6c129c75a81993d73b559d0198c0583d5986d13d442",
+    "official_listing_inventory.json": "55b7b554d5e785b91a743960dec5f84f45bfdac13c70f191fd5f71c308e58b7a",
+    "historical_industry_versions.json": "32bf86c36b3cfe738251f47f39796abe2723b92e5aaa6abf3f3bf6843a8bdaf5",
+    "source_evidence.json": "bcf0e9ebafd65c4624f583de2c044b4c8e2aae5ce076514a7955d35dd79ff1ac",
+    "data_gate_decision.json": "cf0e01cadf21c3d707c1d96a32175644195093f52042f43a8951133a261d2957"
+  },
+  "code_sha256": {
+    "scripts/m6_r1i_data_audit.py": "9a395bf10406119d45fc10134311253ebb81cb66d38bb59113c3ae1f4c1eff82",
+    "scripts/m6_r1i_data_pilot.py": "fef6f123a5196e65f6553b1b1bb5b8af796fc6654c5855385d2dad50e46c98c8",
+    "scripts/m6_r1i_data_finalize.py": "24f94c8c081482e2d5c463b3bf877cd4946e04f223cf89a060c7d3cfbbe4fefe"
+  },
+  "new_network_requests": 0,
+  "performance_runs": 0
+}

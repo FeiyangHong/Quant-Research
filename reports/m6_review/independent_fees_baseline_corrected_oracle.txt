@@ -1,0 +1,14 @@
+FFFFFFF........F.......FFF...                                            [100%]
+=========================== short test summary info ===========================
+FAILED review_code/m6/test_independent_fees.py::test_required_differential_and_independent_daily_decimal_oracle
+FAILED review_code/m6/test_independent_fees.py::test_irrelevant_time_rows_cannot_contaminate_any_ledger[past]
+FAILED review_code/m6/test_independent_fees.py::test_irrelevant_time_rows_cannot_contaminate_any_ledger[future]
+FAILED review_code/m6/test_independent_fees.py::test_provably_unrelated_scope_cannot_contaminate_current_fee[asset_type-ETF]
+FAILED review_code/m6/test_independent_fees.py::test_provably_unrelated_scope_cannot_contaminate_current_fee[market-SZSE]
+FAILED review_code/m6/test_independent_fees.py::test_provably_unrelated_scope_cannot_contaminate_current_fee[component-DIVIDEND_TAX]
+FAILED review_code/m6/test_independent_fees.py::test_provably_unrelated_scope_cannot_contaminate_current_fee[instrument_id-SYNTHETIC_OTHER]
+FAILED review_code/m6/test_independent_fees.py::test_applicable_uncertainty_never_becomes_a_valid_fee[effective_to-None]
+FAILED review_code/m6/test_independent_fees.py::test_applicable_overlap_cannot_fallback_to_one_valid_row[unverified_duplicate]
+FAILED review_code/m6/test_independent_fees.py::test_applicable_overlap_cannot_fallback_to_one_valid_row[future_public_duplicate]
+FAILED review_code/m6/test_independent_fees.py::test_row_order_invariance_for_valid_and_poisoned_future_rows
+11 failed, 18 passed in 2.04s

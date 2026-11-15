@@ -1,0 +1,27 @@
+{
+  "registered_at": "2026-11-15T13:11:12.885781+00:00",
+  "sse": {
+    "reported_titles": 1166,
+    "page_size": 100,
+    "pages": 12,
+    "pages_already_collected": [
+      1
+    ]
+  },
+  "szse": {
+    "reported_titles": 1221,
+    "page_size": 50,
+    "pages": 25,
+    "pages_already_collected": [
+      1
+    ]
+  },
+  "additional_http": 35,
+  "pilot_total_after_batch_including_one_search": 40,
+  "pilot_cap": 48,
+  "scope": "All historical fund listing titles; no industry whitelist, no missing page discarded",
+  "dates": [
+    "2010-01-01",
+    "2024-12-31"
+  ]
+}

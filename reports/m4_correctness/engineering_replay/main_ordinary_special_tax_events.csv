@@ -1,0 +1,3 @@
+event,date,instrument_id,quantity,amount,actual_debit_date,lot_allocations,settlement_id,mode,source_url,purpose,synthetic
+DIVIDEND_TAX_ACCRUED,2023-08-29,SYNTHETIC_MAIN,400.0,80.00,,"[('L00000001', 200), ('L00000002', 200)]",,,,ENGINEERING_REPLAY_NOT_STRATEGY_PERFORMANCE,True
+DIVIDEND_TAX_DEBIT,2023-08-30,,,80,,,MODELED_TAX,RULE_BASED_SIMULATION,https://example.test/m4-invented-fixture-not-real-evidence,ENGINEERING_REPLAY_NOT_STRATEGY_PERFORMANCE,True

@@ -1,0 +1,541 @@
+[
+  {
+    "case_id": "KANGMEI_2017_ORIGINAL_TO_2019_RESTATEMENT",
+    "status": "NUMERICAL_ENGINEERING_ONLY_LATEST_COVERAGE_UNVERIFIED",
+    "factor": {
+      "instrument_id": "sh.600518",
+      "asof": "2018-04-27T21:00:00+08:00",
+      "F01": null,
+      "F02": 0.06638707682561451,
+      "F03": 0.0298317302504809,
+      "period_end": "2017-12-31",
+      "input_revision_ids": [
+        {
+          "field": "net_profit_parent_ytd",
+          "period_end": "2017-12-31",
+          "revision_id": "KM2017_AS_PUBLISHED_20180426:net_profit_parent_ytd",
+          "source_document_hash": "15b3b15df2dfd3310cc16e1e345e8950e8a9cb047bdad38d1263e2b55cfd2985"
+        },
+        {
+          "field": "operating_cashflow_ytd",
+          "period_end": "2017-12-31",
+          "revision_id": "KM2017_AS_PUBLISHED_20180426:operating_cashflow_ytd",
+          "source_document_hash": "15b3b15df2dfd3310cc16e1e345e8950e8a9cb047bdad38d1263e2b55cfd2985"
+        },
+        {
+          "field": "total_assets",
+          "period_end": "2017-12-31",
+          "revision_id": "KM2017_AS_PUBLISHED_20180426:total_assets",
+          "source_document_hash": "15b3b15df2dfd3310cc16e1e345e8950e8a9cb047bdad38d1263e2b55cfd2985"
+        },
+        {
+          "field": "total_assets",
+          "period_end": "2016-12-31",
+          "revision_id": "KM2016_ASSET_COMPARATIVE_FIRST_OBSERVED_20180426",
+          "source_document_hash": "15b3b15df2dfd3310cc16e1e345e8950e8a9cb047bdad38d1263e2b55cfd2985"
+        }
+      ],
+      "missing_reasons": [
+        "NO_VISIBLE_SAME_DAY_MARKET_CAP"
+      ],
+      "all_three_valid": false,
+      "report_coverage_status": "PARTIAL",
+      "latest_period_status": "UNVERIFIED",
+      "freshness_status": "UNASSESSED_NO_REGISTERED_POLICY",
+      "freshness_policy": null,
+      "report_age_days": 117,
+      "formal_eligible": false,
+      "formal_blockers": [
+        "KERNEL_NOT_DATA_ADMISSION",
+        "FRESHNESS_POLICY_UNREGISTERED",
+        "LATEST_REPORT_COVERAGE_UNVERIFIED"
+      ]
+    },
+    "historical_prefix_invariant": true,
+    "decimal_reference": {
+      "status": "ARITHMETIC_REFERENCE_NOT_LATEST_PERIOD_ADMISSION",
+      "target_period": "2017-12-31",
+      "profit_ttm": "4100926148.57",
+      "cashflow_ttm": "1842794237.84",
+      "average_assets": "61772958603.71",
+      "F01": null,
+      "F01_reason": "NO_PROVEN_SAME_DAY_SAME_SHARE_CLASS_MARKET_CAP",
+      "F02": "0.06638707682561450027386206824783638785921",
+      "F03": "0.02983173025048090024250054068319018467840",
+      "inputs": [
+        {
+          "field": "net_profit_parent_ytd",
+          "period_end": "2017-12-31",
+          "decimal": "4100926148.57",
+          "revision_id": "KM2017_AS_PUBLISHED_20180426:net_profit_parent_ytd",
+          "source_document_hash": "15b3b15df2dfd3310cc16e1e345e8950e8a9cb047bdad38d1263e2b55cfd2985",
+          "page": 6,
+          "column": "2017年"
+        },
+        {
+          "field": "operating_cashflow_ytd",
+          "period_end": "2017-12-31",
+          "decimal": "1842794237.84",
+          "revision_id": "KM2017_AS_PUBLISHED_20180426:operating_cashflow_ytd",
+          "source_document_hash": "15b3b15df2dfd3310cc16e1e345e8950e8a9cb047bdad38d1263e2b55cfd2985",
+          "page": 6,
+          "column": "2017年"
+        },
+        {
+          "field": "total_assets",
+          "period_end": "2017-12-31",
+          "decimal": "68722020630.61",
+          "revision_id": "KM2017_AS_PUBLISHED_20180426:total_assets",
+          "source_document_hash": "15b3b15df2dfd3310cc16e1e345e8950e8a9cb047bdad38d1263e2b55cfd2985",
+          "page": 7,
+          "column": "2017年末"
+        },
+        {
+          "field": "total_assets",
+          "period_end": "2016-12-31",
+          "decimal": "54823896576.81",
+          "revision_id": "KM2016_ASSET_COMPARATIVE_FIRST_OBSERVED_20180426",
+          "source_document_hash": "15b3b15df2dfd3310cc16e1e345e8950e8a9cb047bdad38d1263e2b55cfd2985",
+          "page": 7,
+          "column": "2016年末"
+        }
+      ]
+    },
+    "later_fact_cutoff": "2019-05-06T21:00:00+08:00",
+    "later_selected_target_facts": [
+      {
+        "instrument_id": "sh.600518",
+        "period_end": "2017-12-31",
+        "field": "net_profit_parent_ytd",
+        "value": "2149836281.41",
+        "report_scope": "consolidated",
+        "currency": "CNY",
+        "source_unit": "CNY_yuan",
+        "normalized_unit": "CNY_yuan",
+        "source_value": "2149836281.41",
+        "source_document_hash": "9f47aa0dc0a8838ffd21e600d7eca194052d91cf867d8e22a4ba56dee2b9f60a",
+        "source_document_path": "data\\raw_equity_admission\\http\\kangmei_2018_first_9f47aa0dc0a8838ffd21e600d7eca194052d91cf867d8e22a4ba56dee2b9f60a.bin",
+        "source_url": "https://static.cninfo.com.cn/finalpage/2019-04-30/1206168292.PDF",
+        "source_page": 6,
+        "source_table": "主要会计数据和财务指标",
+        "source_row": "归属于上市公司股东的净利润",
+        "source_column": "2017年 / 调整后",
+        "source_position_basis": "physical PDF page (1-based), named table/row/column",
+        "source_page_text_sha256": "ea3ced09d4612da7d2a0a0de337fe1ccfa35b7edfeca63cc1c13539210640a45",
+        "revision_id": "KM2017_RESTATED_20190430:net_profit_parent_ytd",
+        "supersedes_id": "KM2017_AS_PUBLISHED_20180426:net_profit_parent_ytd",
+        "version_basis": "CORRECTION_FILING",
+        "published_at": "2019-04-30T00:00:00+08:00",
+        "publication_precision": "date_only",
+        "available_at": "2019-05-06T21:00:00+08:00",
+        "extraction_method": "AGENT_ASSISTED_TRANSCRIPTION_WITH_PAGE_TOKEN_CHECK",
+        "independent_human_signoff": false,
+        "note": ""
+      },
+      {
+        "instrument_id": "sh.600518",
+        "period_end": "2017-12-31",
+        "field": "operating_cashflow_ytd",
+        "value": "-4840052606.46",
+        "report_scope": "consolidated",
+        "currency": "CNY",
+        "source_unit": "CNY_yuan",
+        "normalized_unit": "CNY_yuan",
+        "source_value": "-4840052606.46",
+        "source_document_hash": "9f47aa0dc0a8838ffd21e600d7eca194052d91cf867d8e22a4ba56dee2b9f60a",
+        "source_document_path": "data\\raw_equity_admission\\http\\kangmei_2018_first_9f47aa0dc0a8838ffd21e600d7eca194052d91cf867d8e22a4ba56dee2b9f60a.bin",
+        "source_url": "https://static.cninfo.com.cn/finalpage/2019-04-30/1206168292.PDF",
+        "source_page": 6,
+        "source_table": "主要会计数据和财务指标",
+        "source_row": "经营活动产生的现金流量净额",
+        "source_column": "2017年 / 调整后",
+        "source_position_basis": "physical PDF page (1-based), named table/row/column",
+        "source_page_text_sha256": "ea3ced09d4612da7d2a0a0de337fe1ccfa35b7edfeca63cc1c13539210640a45",
+        "revision_id": "KM2017_RESTATED_20190430:operating_cashflow_ytd",
+        "supersedes_id": "KM2017_AS_PUBLISHED_20180426:operating_cashflow_ytd",
+        "version_basis": "CORRECTION_FILING",
+        "published_at": "2019-04-30T00:00:00+08:00",
+        "publication_precision": "date_only",
+        "available_at": "2019-05-06T21:00:00+08:00",
+        "extraction_method": "AGENT_ASSISTED_TRANSCRIPTION_WITH_PAGE_TOKEN_CHECK",
+        "independent_human_signoff": false,
+        "note": ""
+      },
+      {
+        "instrument_id": "sh.600518",
+        "period_end": "2017-12-31",
+        "field": "total_assets",
+        "value": "65292951329.52",
+        "report_scope": "consolidated",
+        "currency": "CNY",
+        "source_unit": "CNY_yuan",
+        "normalized_unit": "CNY_yuan",
+        "source_value": "65292951329.52",
+        "source_document_hash": "9f47aa0dc0a8838ffd21e600d7eca194052d91cf867d8e22a4ba56dee2b9f60a",
+        "source_document_path": "data\\raw_equity_admission\\http\\kangmei_2018_first_9f47aa0dc0a8838ffd21e600d7eca194052d91cf867d8e22a4ba56dee2b9f60a.bin",
+        "source_url": "https://static.cninfo.com.cn/finalpage/2019-04-30/1206168292.PDF",
+        "source_page": 6,
+        "source_table": "主要会计数据和财务指标",
+        "source_row": "总资产",
+        "source_column": "2017年末 / 调整后",
+        "source_position_basis": "physical PDF page (1-based), named table/row/column",
+        "source_page_text_sha256": "ea3ced09d4612da7d2a0a0de337fe1ccfa35b7edfeca63cc1c13539210640a45",
+        "revision_id": "KM2017_RESTATED_20190430:total_assets",
+        "supersedes_id": "KM2017_AS_PUBLISHED_20180426:total_assets",
+        "version_basis": "CORRECTION_FILING",
+        "published_at": "2019-04-30T00:00:00+08:00",
+        "publication_precision": "date_only",
+        "available_at": "2019-05-06T21:00:00+08:00",
+        "extraction_method": "AGENT_ASSISTED_TRANSCRIPTION_WITH_PAGE_TOKEN_CHECK",
+        "independent_human_signoff": false,
+        "note": ""
+      }
+    ],
+    "later_factor_diagnostic": {
+      "instrument_id": "sh.600518",
+      "asof": "2019-05-06T21:00:00+08:00",
+      "F01": null,
+      "F02": null,
+      "F03": null,
+      "period_end": "2019-03-31",
+      "input_revision_ids": [
+        {
+          "field": "net_profit_parent_ytd",
+          "period_end": "2018-12-31",
+          "revision_id": "KM2018_ORIGINAL:net_profit_parent_ytd",
+          "source_document_hash": "9f47aa0dc0a8838ffd21e600d7eca194052d91cf867d8e22a4ba56dee2b9f60a"
+        },
+        {
+          "field": "operating_cashflow_ytd",
+          "period_end": "2018-12-31",
+          "revision_id": "KM2018_ORIGINAL:operating_cashflow_ytd",
+          "source_document_hash": "9f47aa0dc0a8838ffd21e600d7eca194052d91cf867d8e22a4ba56dee2b9f60a"
+        }
+      ],
+      "missing_reasons": [
+        "NO_VISIBLE_SAME_DAY_MARKET_CAP",
+        "MISSING:net_profit_parent_ytd:2019-03-31",
+        "MISSING:net_profit_parent_ytd:2018-03-31",
+        "MISSING:operating_cashflow_ytd:2019-03-31",
+        "MISSING:operating_cashflow_ytd:2018-03-31",
+        "MISSING:total_assets:2019-03-31",
+        "MISSING:total_assets:2018-03-31",
+        "INVALID_AVERAGE_ASSETS"
+      ],
+      "all_three_valid": false,
+      "report_coverage_status": "PARTIAL",
+      "latest_period_status": "UNVERIFIED",
+      "freshness_status": "UNASSESSED_NO_REGISTERED_POLICY",
+      "freshness_policy": null,
+      "report_age_days": 36,
+      "formal_eligible": false,
+      "formal_blockers": [
+        "KERNEL_NOT_DATA_ADMISSION",
+        "FRESHNESS_POLICY_UNREGISTERED",
+        "LATEST_REPORT_COVERAGE_UNVERIFIED"
+      ]
+    }
+  },
+  {
+    "case_id": "sz.002857_2023-09-30",
+    "status": "NUMERICAL_ENGINEERING_ONLY_LATEST_COVERAGE_UNVERIFIED",
+    "factor": {
+      "instrument_id": "sz.002857",
+      "asof": "2023-10-27T21:00:00+08:00",
+      "F01": null,
+      "F02": 0.009737007271887206,
+      "F03": 0.08443262198412638,
+      "period_end": "2023-09-30",
+      "input_revision_ids": [
+        {
+          "field": "net_profit_parent_ytd",
+          "period_end": "2023-09-30",
+          "revision_id": "sz.002857_2023-09-30_original:net_profit_parent_ytd",
+          "source_document_hash": "9b57ae1e21bc1246d7acb7e044f7dca033ba93ba5055f92ad9b53951ed39da1d"
+        },
+        {
+          "field": "net_profit_parent_ytd",
+          "period_end": "2022-12-31",
+          "revision_id": "sanhui_2022fy:net_profit_parent_ytd",
+          "source_document_hash": "3ae8304f34e46bdf8ea211d669055c01b676a78c76c679c3f0c1b3b7948b76af"
+        },
+        {
+          "field": "net_profit_parent_ytd",
+          "period_end": "2022-09-30",
+          "revision_id": "sanhui_2022q3:net_profit_parent_ytd",
+          "source_document_hash": "7028b0a1c7b89e2e5eb7fb4469e75eee983dbcb39c770e1428611067f0dd8338"
+        },
+        {
+          "field": "operating_cashflow_ytd",
+          "period_end": "2023-09-30",
+          "revision_id": "sz.002857_2023-09-30_original:operating_cashflow_ytd",
+          "source_document_hash": "9b57ae1e21bc1246d7acb7e044f7dca033ba93ba5055f92ad9b53951ed39da1d"
+        },
+        {
+          "field": "operating_cashflow_ytd",
+          "period_end": "2022-12-31",
+          "revision_id": "sanhui_2022fy:operating_cashflow_ytd",
+          "source_document_hash": "3ae8304f34e46bdf8ea211d669055c01b676a78c76c679c3f0c1b3b7948b76af"
+        },
+        {
+          "field": "operating_cashflow_ytd",
+          "period_end": "2022-09-30",
+          "revision_id": "sanhui_2022q3:operating_cashflow_ytd",
+          "source_document_hash": "7028b0a1c7b89e2e5eb7fb4469e75eee983dbcb39c770e1428611067f0dd8338"
+        },
+        {
+          "field": "total_assets",
+          "period_end": "2023-09-30",
+          "revision_id": "sz.002857_2023-09-30_original:total_assets",
+          "source_document_hash": "9b57ae1e21bc1246d7acb7e044f7dca033ba93ba5055f92ad9b53951ed39da1d"
+        },
+        {
+          "field": "total_assets",
+          "period_end": "2022-09-30",
+          "revision_id": "sanhui_2022q3:total_assets",
+          "source_document_hash": "7028b0a1c7b89e2e5eb7fb4469e75eee983dbcb39c770e1428611067f0dd8338"
+        }
+      ],
+      "missing_reasons": [
+        "NO_VISIBLE_SAME_DAY_MARKET_CAP"
+      ],
+      "all_three_valid": false,
+      "report_coverage_status": "PARTIAL",
+      "latest_period_status": "UNVERIFIED",
+      "freshness_status": "UNASSESSED_NO_REGISTERED_POLICY",
+      "freshness_policy": null,
+      "report_age_days": 27,
+      "formal_eligible": false,
+      "formal_blockers": [
+        "KERNEL_NOT_DATA_ADMISSION",
+        "FRESHNESS_POLICY_UNREGISTERED",
+        "LATEST_REPORT_COVERAGE_UNVERIFIED"
+      ]
+    },
+    "historical_prefix_invariant": true,
+    "decimal_reference": {
+      "status": "ARITHMETIC_REFERENCE_NOT_LATEST_PERIOD_ADMISSION",
+      "target_period": "2023-09-30",
+      "profit_ttm": "6489344.12",
+      "cashflow_ttm": "56271123.53",
+      "average_assets": "666461874.66",
+      "F01": null,
+      "F01_reason": "NO_PROVEN_SAME_DAY_SAME_SHARE_CLASS_MARKET_CAP",
+      "F02": "0.009737007271887206559927603106142245655220",
+      "F03": "0.08443262198412638603611492593222841864279",
+      "inputs": [
+        {
+          "field": "net_profit_parent_ytd",
+          "period_end": "2023-09-30",
+          "decimal": "-6354889.62",
+          "revision_id": "sz.002857_2023-09-30_original:net_profit_parent_ytd",
+          "source_document_hash": "9b57ae1e21bc1246d7acb7e044f7dca033ba93ba5055f92ad9b53951ed39da1d",
+          "page": 2,
+          "column": "年初至报告期末"
+        },
+        {
+          "field": "net_profit_parent_ytd",
+          "period_end": "2022-12-31",
+          "decimal": "12944711.92",
+          "revision_id": "sanhui_2022fy:net_profit_parent_ytd",
+          "source_document_hash": "3ae8304f34e46bdf8ea211d669055c01b676a78c76c679c3f0c1b3b7948b76af",
+          "page": 8,
+          "column": "2022年"
+        },
+        {
+          "field": "net_profit_parent_ytd",
+          "period_end": "2022-09-30",
+          "decimal": "100478.18",
+          "revision_id": "sanhui_2022q3:net_profit_parent_ytd",
+          "source_document_hash": "7028b0a1c7b89e2e5eb7fb4469e75eee983dbcb39c770e1428611067f0dd8338",
+          "page": 1,
+          "column": "年初至报告期末"
+        },
+        {
+          "field": "operating_cashflow_ytd",
+          "period_end": "2023-09-30",
+          "decimal": "-9898689.75",
+          "revision_id": "sz.002857_2023-09-30_original:operating_cashflow_ytd",
+          "source_document_hash": "9b57ae1e21bc1246d7acb7e044f7dca033ba93ba5055f92ad9b53951ed39da1d",
+          "page": 2,
+          "column": "年初至报告期末"
+        },
+        {
+          "field": "operating_cashflow_ytd",
+          "period_end": "2022-12-31",
+          "decimal": "45404676.85",
+          "revision_id": "sanhui_2022fy:operating_cashflow_ytd",
+          "source_document_hash": "3ae8304f34e46bdf8ea211d669055c01b676a78c76c679c3f0c1b3b7948b76af",
+          "page": 8,
+          "column": "2022年"
+        },
+        {
+          "field": "operating_cashflow_ytd",
+          "period_end": "2022-09-30",
+          "decimal": "-20765136.43",
+          "revision_id": "sanhui_2022q3:operating_cashflow_ytd",
+          "source_document_hash": "7028b0a1c7b89e2e5eb7fb4469e75eee983dbcb39c770e1428611067f0dd8338",
+          "page": 1,
+          "column": "年初至报告期末"
+        },
+        {
+          "field": "total_assets",
+          "period_end": "2023-09-30",
+          "decimal": "726007340.73",
+          "revision_id": "sz.002857_2023-09-30_original:total_assets",
+          "source_document_hash": "9b57ae1e21bc1246d7acb7e044f7dca033ba93ba5055f92ad9b53951ed39da1d",
+          "page": 2,
+          "column": "本报告期末"
+        },
+        {
+          "field": "total_assets",
+          "period_end": "2022-09-30",
+          "decimal": "606916408.59",
+          "revision_id": "sanhui_2022q3:total_assets",
+          "source_document_hash": "7028b0a1c7b89e2e5eb7fb4469e75eee983dbcb39c770e1428611067f0dd8338",
+          "page": 1,
+          "column": "本报告期末"
+        }
+      ]
+    },
+    "later_fact_cutoff": "2024-12-26T21:00:00+08:00",
+    "later_selected_target_facts": [
+      {
+        "instrument_id": "sz.002857",
+        "period_end": "2023-09-30",
+        "field": "net_profit_parent_ytd",
+        "value": "-8587577.84",
+        "report_scope": "consolidated",
+        "currency": "CNY",
+        "source_unit": "CNY_yuan",
+        "normalized_unit": "CNY_yuan",
+        "source_value": "-8587577.84",
+        "source_document_hash": "41d9370fd96d1860152079264f7a05448a6db7cc2c47b5e9dcda410037288e98",
+        "source_document_path": "data\\raw_equity_admission\\http\\revision_candidate_002857_1222127532_41d9370fd96d1860152079264f7a05448a6db7cc2c47b5e9dcda410037288e98.bin",
+        "source_url": "https://static.cninfo.com.cn/finalpage/2024-12-25/1222127532.PDF",
+        "source_page": 3,
+        "source_table": "主要会计数据和财务指标",
+        "source_row": "归属于上市公司股东的净利润",
+        "source_column": "年初至报告期末 / 更正后",
+        "source_position_basis": "physical PDF page (1-based), named table/row/column",
+        "source_page_text_sha256": "fb8317f396d06f14bdd10eb8bea00514e01858514e50126b0343421cb5bfdbe9",
+        "revision_id": "sz.002857_2023-09-30_revision_2024-12-25:net_profit_parent_ytd",
+        "supersedes_id": "sz.002857_2023-09-30_original:net_profit_parent_ytd",
+        "version_basis": "CORRECTION_FILING",
+        "published_at": "2024-12-25T00:00:00+08:00",
+        "publication_precision": "date_only",
+        "available_at": "2024-12-26T21:00:00+08:00",
+        "extraction_method": "AGENT_ASSISTED_TRANSCRIPTION_WITH_PAGE_TOKEN_CHECK",
+        "independent_human_signoff": false,
+        "note": ""
+      },
+      {
+        "instrument_id": "sz.002857",
+        "period_end": "2023-09-30",
+        "field": "operating_cashflow_ytd",
+        "value": "-9898689.75",
+        "report_scope": "consolidated",
+        "currency": "CNY",
+        "source_unit": "CNY_yuan",
+        "normalized_unit": "CNY_yuan",
+        "source_value": "-9898689.75",
+        "source_document_hash": "41d9370fd96d1860152079264f7a05448a6db7cc2c47b5e9dcda410037288e98",
+        "source_document_path": "data\\raw_equity_admission\\http\\revision_candidate_002857_1222127532_41d9370fd96d1860152079264f7a05448a6db7cc2c47b5e9dcda410037288e98.bin",
+        "source_url": "https://static.cninfo.com.cn/finalpage/2024-12-25/1222127532.PDF",
+        "source_page": 4,
+        "source_table": "主要会计数据和财务指标",
+        "source_row": "经营活动产生的现金流量净额",
+        "source_column": "年初至报告期末 / 更正后",
+        "source_position_basis": "physical PDF page (1-based), named table/row/column",
+        "source_page_text_sha256": "f352082e7ab76b860a511c28377bc32ff00c2d92c83fdcb4d0f7f573776012c4",
+        "revision_id": "sz.002857_2023-09-30_revision_2024-12-25:operating_cashflow_ytd",
+        "supersedes_id": "sz.002857_2023-09-30_original:operating_cashflow_ytd",
+        "version_basis": "CORRECTION_FILING",
+        "published_at": "2024-12-25T00:00:00+08:00",
+        "publication_precision": "date_only",
+        "available_at": "2024-12-26T21:00:00+08:00",
+        "extraction_method": "AGENT_ASSISTED_TRANSCRIPTION_WITH_PAGE_TOKEN_CHECK",
+        "independent_human_signoff": false,
+        "note": "Unchanged CFO explicitly displayed before on page 3 and after on page 4; same amount is not an inferred carry-forward."
+      },
+      {
+        "instrument_id": "sz.002857",
+        "period_end": "2023-09-30",
+        "field": "total_assets",
+        "value": "736593802.62",
+        "report_scope": "consolidated",
+        "currency": "CNY",
+        "source_unit": "CNY_yuan",
+        "normalized_unit": "CNY_yuan",
+        "source_value": "736593802.62",
+        "source_document_hash": "41d9370fd96d1860152079264f7a05448a6db7cc2c47b5e9dcda410037288e98",
+        "source_document_path": "data\\raw_equity_admission\\http\\revision_candidate_002857_1222127532_41d9370fd96d1860152079264f7a05448a6db7cc2c47b5e9dcda410037288e98.bin",
+        "source_url": "https://static.cninfo.com.cn/finalpage/2024-12-25/1222127532.PDF",
+        "source_page": 4,
+        "source_table": "主要会计数据和财务指标",
+        "source_row": "总资产",
+        "source_column": "本报告期末 / 更正后",
+        "source_position_basis": "physical PDF page (1-based), named table/row/column",
+        "source_page_text_sha256": "f352082e7ab76b860a511c28377bc32ff00c2d92c83fdcb4d0f7f573776012c4",
+        "revision_id": "sz.002857_2023-09-30_revision_2024-12-25:total_assets",
+        "supersedes_id": "sz.002857_2023-09-30_original:total_assets",
+        "version_basis": "CORRECTION_FILING",
+        "published_at": "2024-12-25T00:00:00+08:00",
+        "publication_precision": "date_only",
+        "available_at": "2024-12-26T21:00:00+08:00",
+        "extraction_method": "AGENT_ASSISTED_TRANSCRIPTION_WITH_PAGE_TOKEN_CHECK",
+        "independent_human_signoff": false,
+        "note": ""
+      }
+    ],
+    "later_factor_diagnostic": {
+      "instrument_id": "sz.002857",
+      "asof": "2024-12-26T21:00:00+08:00",
+      "F01": null,
+      "F02": null,
+      "F03": null,
+      "period_end": "2024-09-30",
+      "input_revision_ids": [
+        {
+          "field": "net_profit_parent_ytd",
+          "period_end": "2023-09-30",
+          "revision_id": "sz.002857_2023-09-30_revision_2024-12-25:net_profit_parent_ytd",
+          "source_document_hash": "41d9370fd96d1860152079264f7a05448a6db7cc2c47b5e9dcda410037288e98"
+        },
+        {
+          "field": "operating_cashflow_ytd",
+          "period_end": "2023-09-30",
+          "revision_id": "sz.002857_2023-09-30_revision_2024-12-25:operating_cashflow_ytd",
+          "source_document_hash": "41d9370fd96d1860152079264f7a05448a6db7cc2c47b5e9dcda410037288e98"
+        },
+        {
+          "field": "total_assets",
+          "period_end": "2023-09-30",
+          "revision_id": "sz.002857_2023-09-30_revision_2024-12-25:total_assets",
+          "source_document_hash": "41d9370fd96d1860152079264f7a05448a6db7cc2c47b5e9dcda410037288e98"
+        }
+      ],
+      "missing_reasons": [
+        "NO_VISIBLE_SAME_DAY_MARKET_CAP",
+        "MISSING:net_profit_parent_ytd:2024-09-30",
+        "MISSING:net_profit_parent_ytd:2023-12-31",
+        "MISSING:operating_cashflow_ytd:2024-09-30",
+        "MISSING:operating_cashflow_ytd:2023-12-31",
+        "MISSING:total_assets:2024-09-30",
+        "INVALID_AVERAGE_ASSETS"
+      ],
+      "all_three_valid": false,
+      "report_coverage_status": "PARTIAL",
+      "latest_period_status": "UNVERIFIED",
+      "freshness_status": "UNASSESSED_NO_REGISTERED_POLICY",
+      "freshness_policy": null,
+      "report_age_days": 87,
+      "formal_eligible": false,
+      "formal_blockers": [
+        "KERNEL_NOT_DATA_ADMISSION",
+        "FRESHNESS_POLICY_UNREGISTERED",
+        "LATEST_REPORT_COVERAGE_UNVERIFIED"
+      ]
+    }
+  }
+]

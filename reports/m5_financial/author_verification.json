@@ -1,0 +1,34 @@
+{
+  "captured_at": "2026-11-15T11:07:53.404362+00:00",
+  "implementation_round": 1,
+  "independent_revision_round_used": false,
+  "checks": [
+    {
+      "command": ".venv/Scripts/python.exe -m pytest tests/test_equity_features.py -q",
+      "result": "21 passed in2.02s",
+      "stage": "initial kernelchange"
+    },
+    {
+      "command": ".venv/Scripts/python.exe scripts/m5_financial.py",
+      "result": "initial sourcepage check failed for Sanhui revisedNP at physicalpage4; corrected to physicalpage3 after inspecting fullpages3/4",
+      "failure_retained": true,
+      "stage": "author implementation before independentreview"
+    },
+    {
+      "command": ".venv/Scripts/python.exe -m pytest tests/test_m5_financial.py tests/test_equity_features.py -q",
+      "result": "initial15failed25passed because testhelper coverage.asof resolved pandas method; switched explicitcolumnindexing",
+      "failure_retained": true,
+      "stage": "author implementation before independentreview"
+    },
+    {
+      "command": ".venv/Scripts/python.exe -m pytest tests/test_m5_financial.py tests/test_equity_features.py -q",
+      "result": "40 passed in3.36s",
+      "stage": "fixed author tests"
+    },
+    {
+      "command": ".venv/Scripts/python.exe scripts/m5_financial.py",
+      "result": "2cases22facts, both NUMERICAL_ENGINEERING_ONLY_LATEST_COVERAGE_UNVERIFIED",
+      "stage": "final offline reproduction"
+    }
+  ]
+}

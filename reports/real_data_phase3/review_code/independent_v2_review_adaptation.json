@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "status": "V2_ENGINEERING_REPLACEMENT_REVIEW_ADAPTER_PREPARED",
+  "created_at": "2026-11-14T18:09:54.059253+00:00",
+  "reviewer": "/root/independent_admission",
+  "v2_results_inspected": false,
+  "registered_plan_v2_sha256": "bcb82aba5cc05300cc9ec5603933c5d03b4903712823b658f43ecd44976217e3",
+  "registered_v2_source_hash": "d8d265eed26337ba8a58e2dff809af3acc71550232ecbddaa2b94a7a3da6ba7a",
+  "prior_statistical_plan_sha256": "90b65986732f590ea864863aebf85dc71a50c395b3090d1f09f3c94a58a1214c",
+  "prior_decision_addendum_sha256": "8dd2e556367c50d78664418f6dc24dff0b7885180808ebdfe50ee60a1c736c68",
+  "changes": [
+    "Default registration now registered_plan_v2.json and v2 matrix roots; no bound old source hash.",
+    "Verify the448 economic configs and admitted manifest hashes remain identical, allowing only omitted cash_delay_sessions=0 to equal explicit0.",
+    "Preserve all353 invalidated old attempts and engineering failure; never use their returns as evidence.",
+    "Statistical/tail/decision-summary functions are AST-identical to the original pre-results definitions; no new endpoint, window or p-value."
+  ],
+  "engineering_history_review_path": "work/independent_invalidated_v1_history_review_v2.json",
+  "engineering_history_review_sha256": "414ce07534393a5d7e1c8d4f31064f355cd33e01d91420fa53ba7bc2accc6664",
+  "old_inventory_verdict_limited_to": [
+    "funded_calendar",
+    "aggregate_units_and_share_rounding",
+    "dividend_record_entitlement_and_declared_cash_dates"
+  ],
+  "old_inventory_does_not_override_engineering_failure": true,
+  "incidental_old_metric_display": "A first bounded structure read of invalidated_attempts.json displayed its first embedded metrics. No decision/selection used them; subsequent history processing projects status/identity/hash fields and byte-hashes old tables only.",
+  "script_sha256": {
+    "work/audit_invalidated_v1_history.py": "33f3c4b3f27e468972b832f826cdcb8491657dfd99f312582eefe1337efc604b",
+    "work/independent_statistical_diagnostics_v2.py": "7a1f2ff411c08224af9bf1848fbc83d8f0302d7436b9f551b45e6302bf3b3c28",
+    "work/run_independent_inventory_matrix_v3.py": "0ee88e2af2c1276f1f51b10bab5041e356af74e753e4af7f147f781c63c36060",
+    "work/run_independent_inventory_development_v2.py": "e20c9d13a1e231fe33d33b09b81ab088e4ad4b780865a37463c6a56f4fb22c8a"
+  },
+  "selfchecks": [
+    "v2 roots accepted and v1 refused",
+    "new matching source identity accepted",
+    "omitted zero cash delay accepted",
+    "cost/snapshot/old-source mutations rejected",
+    "3 unchanged math/decision function ASTs",
+    "old performance-field changes do not affect history identity projection"
+  ],
+  "scope": "Preparation and retained-failure audit only. No v2 performance or overall engine PASS is claimed."
+}

@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "status": "PRE_FIX_EVALUATOR_DEFECT_REPRODUCED",
+  "reviewer": "/root/independent_admission",
+  "reviewed_at": "2026-11-14T18:23:03.000219+00:00",
+  "scope": "Invented ledger arithmetic only; the3-unit BUY fixture does not claim executable ETF lot compliance. No real returns or validation artifacts are opened.",
+  "frozen_helper_path": "scripts/summarize_runs.py",
+  "frozen_helper_sha256": "42fe1c672d7089a9787a477f4ef304eaa1f888c55aba2365e060ba87605cf8ab",
+  "regression_path": "work/test_evaluator_decimal_notional.py",
+  "regression_sha256": "4b3d92723e4aa555a3685fcaad9518e1226444447c451c29c5698beee21214d7",
+  "quantity": 3,
+  "price_decimal": "0.565",
+  "exact_unrounded_product": "1.695",
+  "correct_HALF_UP_notional": "1.70",
+  "legacy_float_product": "1.6949999999999998",
+  "legacy_checker_notional": "1.69",
+  "cases": [
+    {
+      "name": "correct_boundary",
+      "submitted_notional": "1.70",
+      "expected_after_fix": "PASS",
+      "observed_before_fix": "ValueError: fill_notional discrepancy0.010000000000000009"
+    },
+    {
+      "name": "consistently_booked_wrong_cent",
+      "submitted_notional": "1.69",
+      "expected_after_fix": "REJECT fill_notional",
+      "observed_before_fix": "Incorrectly accepted"
+    }
+  ],
+  "test_command": ".venv/Scripts/python.exe -m pytest work/test_evaluator_decimal_notional.py -q",
+  "pre_fix_test_result": "2 failed as expected, both exposing the known checker defect",
+  "approved_parent_resolution": "After both v2 matrices finish, repair default evaluation helper with Decimal before multiplication and record distinct evaluation-source hashes/Git commit. Preserve execution source b308ccc/d8d265ee and all existing result tables. No engine rerun, statistical endpoint change or tolerance change.",
+  "production_files_modified_by_reviewer": false,
+  "not_an_engine_v2_failure": true,
+  "not_a_strategy_attempt": true
+}

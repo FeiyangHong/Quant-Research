@@ -1,0 +1,11 @@
+{
+  "reviewed_at": "2026-11-15T11:24:18.083175+00:00",
+  "code_sha256": "93baf5f923b8d185edfd3eb87b1923a7f8f716a6a00443dbb9de5cd8ef154563",
+  "priority": "P2",
+  "finding": "Report labels crosscheck PASS and sampled row despite original/provider total or A-class count mismatch; A-class-only mismatch is counted among original_document_value_crosschecks.",
+  "real_current_sample_values_affected": false,
+  "formal_gate_opened": false,
+  "reproducer": "review_code/m5/test_external_market_cap.py",
+  "test_result": "2 failed,1 passed",
+  "requested_fix": "Propagate CONFLICT/BLOCKED status to case and preserved pool row; count success only when total and A-class both match; retain raw observations."
+}

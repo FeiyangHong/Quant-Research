@@ -1,0 +1,74 @@
+.FF                                                                      [100%]
+================================== FAILURES ===================================
+_ test_provider_document_count_conflict_cannot_report_crosscheck_pass[TOTAL_SHARES] _
+
+tmp_path = WindowsPath('C:/Users/Elessar Apocalypse/AppData/Local/Temp/pytest-of-Elessar Apocalypse/pytest-123/test_provider_document_count_c0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x000001E2CAEB56D0>
+field = 'TOTAL_SHARES'
+
+    @pytest.mark.parametrize("field", ["TOTAL_SHARES", "TOTAL_A_SHARES"])
+    def test_provider_document_count_conflict_cannot_report_crosscheck_pass(tmp_path, monkeypatch, field):
+        select = subject.select_vendor_candidate
+    
+        def inject_conflict(records, snapshot=subject.SNAPSHOT):
+            chosen, rejected = select(records, snapshot)
+            if chosen and chosen["SECURITY_CODE"] == "601398":
+                chosen = dict(chosen)
+                chosen[field] += 1  # Explicit invented source conflict: never written into real raw objects.
+            return chosen, rejected
+    
+        monkeypatch.setattr(subject, "select_vendor_candidate", inject_conflict)
+        monkeypatch.setattr(subject, "OUT", tmp_path)
+        subject.build()
+        output = json.loads((tmp_path / "coverage_summary.json").read_text(encoding="utf-8"))
+        case = next(c for c in output["cases"] if c["instrument_id"] == "sh.601398")
+        assert not (case["ordinary_share_count_matches_document"] and case["a_share_count_matches_document"])
+>       assert "PASS" not in case["status"], "Conflicting original/provider counts must not be labelled crosscheck PASS"
+E       AssertionError: Conflicting original/provider counts must not be labelled crosscheck PASS
+E       assert 'PASS' not in 'DOCUMENT_VA...SHOT_PARTIAL'
+E         
+E         'PASS' is contained here:
+E           DOCUMENT_VALUE_CROSSCHECK_PASS_FORMAL_SNAPSHOT_PARTIAL
+E         ?                           ++++
+
+review_code\m5\test_external_market_cap.py:42: AssertionError
+---------------------------- Captured stdout call -----------------------------
+{"snapshot_date": "2020-07-31", "diagnostic_denominator": 3779, "structural_sample_count": 5, "vendor_share_values_observed": 5, "original_document_value_crosschecks": 4, "diagnostic_observed_percent": 0.13231013495633764, "full_PIT_capital_chain_admitted": 0, "complete_nonST_denominator": null, "whole_market_size_percentiles_computed": false, "new_http_attempts": 18, "new_baostock_wire_attempts": 0, "new_response_bytes": 18489682, "request_elapsed_seconds": 5.029177000000001, "failed_attempts": 0, "whole_pool_network_expansion": "NOT_RUN_SEMANTIC_GATE_NOT_PASSED", "r2_status": "BLOCKED_ADMISSION", "r3_status": "BLOCKED_ADMISSION", "alpha_runs": 0, "reproducible_without_network": true, "source_data_origin": "REAL_PUBLIC_SOURCE_AND_PROVIDER_HISTORY", "purpose": "ENGINEERING_SNAPSHOT_NOT_STRATEGY_PERFORMANCE"}
+_ test_provider_document_count_conflict_cannot_report_crosscheck_pass[TOTAL_A_SHARES] _
+
+tmp_path = WindowsPath('C:/Users/Elessar Apocalypse/AppData/Local/Temp/pytest-of-Elessar Apocalypse/pytest-123/test_provider_document_count_c1')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x000001E2CB732970>
+field = 'TOTAL_A_SHARES'
+
+    @pytest.mark.parametrize("field", ["TOTAL_SHARES", "TOTAL_A_SHARES"])
+    def test_provider_document_count_conflict_cannot_report_crosscheck_pass(tmp_path, monkeypatch, field):
+        select = subject.select_vendor_candidate
+    
+        def inject_conflict(records, snapshot=subject.SNAPSHOT):
+            chosen, rejected = select(records, snapshot)
+            if chosen and chosen["SECURITY_CODE"] == "601398":
+                chosen = dict(chosen)
+                chosen[field] += 1  # Explicit invented source conflict: never written into real raw objects.
+            return chosen, rejected
+    
+        monkeypatch.setattr(subject, "select_vendor_candidate", inject_conflict)
+        monkeypatch.setattr(subject, "OUT", tmp_path)
+        subject.build()
+        output = json.loads((tmp_path / "coverage_summary.json").read_text(encoding="utf-8"))
+        case = next(c for c in output["cases"] if c["instrument_id"] == "sh.601398")
+        assert not (case["ordinary_share_count_matches_document"] and case["a_share_count_matches_document"])
+>       assert "PASS" not in case["status"], "Conflicting original/provider counts must not be labelled crosscheck PASS"
+E       AssertionError: Conflicting original/provider counts must not be labelled crosscheck PASS
+E       assert 'PASS' not in 'DOCUMENT_VA...SHOT_PARTIAL'
+E         
+E         'PASS' is contained here:
+E           DOCUMENT_VALUE_CROSSCHECK_PASS_FORMAL_SNAPSHOT_PARTIAL
+E         ?                           ++++
+
+review_code\m5\test_external_market_cap.py:42: AssertionError
+---------------------------- Captured stdout call -----------------------------
+{"snapshot_date": "2020-07-31", "diagnostic_denominator": 3779, "structural_sample_count": 5, "vendor_share_values_observed": 5, "original_document_value_crosschecks": 5, "diagnostic_observed_percent": 0.13231013495633764, "full_PIT_capital_chain_admitted": 0, "complete_nonST_denominator": null, "whole_market_size_percentiles_computed": false, "new_http_attempts": 18, "new_baostock_wire_attempts": 0, "new_response_bytes": 18489682, "request_elapsed_seconds": 5.029177000000001, "failed_attempts": 0, "whole_pool_network_expansion": "NOT_RUN_SEMANTIC_GATE_NOT_PASSED", "r2_status": "BLOCKED_ADMISSION", "r3_status": "BLOCKED_ADMISSION", "alpha_runs": 0, "reproducible_without_network": true, "source_data_origin": "REAL_PUBLIC_SOURCE_AND_PROVIDER_HISTORY", "purpose": "ENGINEERING_SNAPSHOT_NOT_STRATEGY_PERFORMANCE"}
+=========================== short test summary info ===========================
+FAILED review_code/m5/test_external_market_cap.py::test_provider_document_count_conflict_cannot_report_crosscheck_pass[TOTAL_SHARES]
+FAILED review_code/m5/test_external_market_cap.py::test_provider_document_count_conflict_cannot_report_crosscheck_pass[TOTAL_A_SHARES]
+2 failed, 1 passed in 0.57s

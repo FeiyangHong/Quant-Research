@@ -1,0 +1,17 @@
+........................................................................ [ 10%]
+........................................................................ [ 20%]
+........................................................................ [ 31%]
+........................................................................ [ 41%]
+........................................................................ [ 52%]
+........................................................................ [ 62%]
+........................................................................ [ 73%]
+........................................................................ [ 83%]
+........................................................................ [ 94%]
+.........................................                                [100%]
+============================== warnings summary ===============================
+review_code/m4/test_external_independent.py::test_current_unknown_exit_rule_cannot_fill_and_shares_remain[tick]
+  F:\QuantTrade\Quant-Research\review_code\m4\test_external_independent.py:136: FutureWarning: The behavior of DataFrame concatenation with empty or all-NA entries is deprecated. In a future version, this will no longer exclude empty or all-NA columns when determining the result dtypes. To retain the old behavior, exclude the relevant entries before the concat operation.
+    data["instruments"] = pd.concat([data["instruments"], pd.DataFrame([successor])], ignore_index=True)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+689 passed, 1 warning in 56.51s

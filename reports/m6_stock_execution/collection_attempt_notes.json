@@ -1,0 +1,15 @@
+{
+  "events": [
+    {
+      "time_utc": "2026-11-15T13:06:39.338364Z",
+      "request_id": 7,
+      "issue": "External web-run elapsed_seconds records finish operation only; actual external reservation-to-finish interval is39.610676seconds. Shared session interval separately covers all waiting and work.",
+      "actual_reserved_at": "2026-11-15T13:05:59.727688Z",
+      "actual_completed_at": "2026-11-15T13:06:39.338364Z"
+    },
+    {
+      "issue": "Next direct fetch sse_2023_rules_full refused before send because root concurrent begin while external request7 inflight had triggered persistent UNRESOLVED_INFLIGHT_REQUEST. No new network request transmitted and no reset attempted. Root coordinating audited recovery."
+    }
+  ],
+  "discovery_scope": "Search7 contained irrelevant media and current encyclopedia snippets. Only exact historical official-source links treated as discovery; no market/factor/strategy data fetched or admitted from those results."
+}

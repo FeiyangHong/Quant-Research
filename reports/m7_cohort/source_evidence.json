@@ -1,0 +1,421 @@
+{
+  "scope": "R1I_FIXED_COHORT_V1",
+  "facts": [
+    {
+      "instrument_id": "sz.159936",
+      "fact_type": "LISTING_IDENTITY",
+      "source_url": "https://disc.static.szse.cn/download/disc/disk01/finalpage/2014-06-20/150a938f-d045-44b3-af81-19b0790b07a6.PDF",
+      "raw_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m7\\objects\\3c1e081d59af5070fee3067eca55411ad79363d1f64da04d163cac67a7cfe6c5.bin",
+      "sha256": "3c1e081d59af5070fee3067eca55411ad79363d1f64da04d163cac67a7cfe6c5",
+      "publication_date": "2014-06-20",
+      "available_at": "2014-06-23T21:00:00+08:00",
+      "effective_listing_date": "2014-06-25",
+      "ingested_at": "2026-11-15T15:08:53.695061+00:00",
+      "index_id": "000989",
+      "legal_name": "广发中证全指可选消费交易型开放式指数证券投资基金",
+      "physical_pdf_pages": [
+        1,
+        3
+      ],
+      "visual_page_reviewed": 3,
+      "conclusion": "Original product,security code,index code,listed date agree with raw-history first day; index identifier is not current industry taxonomy"
+    },
+    {
+      "instrument_id": "sz.159938",
+      "fact_type": "LISTING_IDENTITY",
+      "source_url": "https://disc.static.szse.cn/download/disc/disk01/finalpage/2015-01-05/fc8e5078-5d16-4df1-aded-0d7b7ab9756a.PDF",
+      "raw_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m7\\objects\\96185fbf519320344d220214ff1776c0689c66053912ff0ed31efec350fb2f97.bin",
+      "sha256": "96185fbf519320344d220214ff1776c0689c66053912ff0ed31efec350fb2f97",
+      "publication_date": "2015-01-05",
+      "available_at": "2015-01-06T21:00:00+08:00",
+      "effective_listing_date": "2015-01-08",
+      "ingested_at": "2026-11-15T15:08:53.921805+00:00",
+      "index_id": "000991",
+      "legal_name": "广发中证全指医药卫生交易型开放式指数证券投资基金",
+      "physical_pdf_pages": [
+        1,
+        3
+      ],
+      "visual_page_reviewed": 3,
+      "conclusion": "Original product,security code,index code,listed date agree with raw-history first day; index identifier is not current industry taxonomy"
+    },
+    {
+      "instrument_id": "sz.159939",
+      "fact_type": "LISTING_IDENTITY",
+      "source_url": "https://disc.static.szse.cn/download/disc/disk01/finalpage/2015-02-02/e4b12781-1c6e-4228-9b8f-bcf6989bb79f.PDF",
+      "raw_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m7\\objects\\667e05fa5925d322b2a260127c5daa70fdfe678ad702864c73cf9e154fbdfafa.bin",
+      "sha256": "667e05fa5925d322b2a260127c5daa70fdfe678ad702864c73cf9e154fbdfafa",
+      "publication_date": "2015-02-02",
+      "available_at": "2015-02-03T21:00:00+08:00",
+      "effective_listing_date": "2015-02-05",
+      "ingested_at": "2026-11-15T15:08:54.202553+00:00",
+      "index_id": "000993",
+      "legal_name": "广发中证全指信息技术交易型开放式指数证券投资基金",
+      "physical_pdf_pages": [
+        1,
+        3
+      ],
+      "visual_page_reviewed": 3,
+      "conclusion": "Original product,security code,index code,listed date agree with raw-history first day; index identifier is not current industry taxonomy"
+    },
+    {
+      "instrument_id": "sz.159940",
+      "fact_type": "LISTING_IDENTITY",
+      "source_url": "https://static.cninfo.com.cn/finalpage/2015-04-14/1200828055.PDF",
+      "raw_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m6\\objects\\dabf087d41c9581dd4d8497e2f37f3ddf34220cb7ae8960e372524fe678060c3.bin",
+      "sha256": "dabf087d41c9581dd4d8497e2f37f3ddf34220cb7ae8960e372524fe678060c3",
+      "publication_date": "2015-04-14",
+      "available_at": "2015-04-15T21:00:00+08:00",
+      "effective_listing_date": "2015-04-17",
+      "ingested_at": "2026-11-15T13:09:06.422215+00:00",
+      "index_id": "000992",
+      "legal_name": "广发中证全指金融地产交易型开放式指数证券投资基金",
+      "physical_pdf_pages": [
+        1,
+        3
+      ],
+      "visual_page_reviewed": 3,
+      "conclusion": "Original product,security code,index code,listed date agree with raw-history first day; index identifier is not current industry taxonomy"
+    },
+    {
+      "instrument_id": "sz.159944",
+      "fact_type": "LISTING_IDENTITY",
+      "source_url": "https://disc.static.szse.cn/download/disc/disk01/finalpage/2015-07-01/1452c45a-27a3-4030-b7dc-310ccc7de8da.PDF",
+      "raw_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m7\\objects\\d5f8b186c19330dbab128ebb9a91002a24cbda6ccefc33ca8faa3377dda0c187.bin",
+      "sha256": "d5f8b186c19330dbab128ebb9a91002a24cbda6ccefc33ca8faa3377dda0c187",
+      "publication_date": "2015-07-01",
+      "available_at": "2015-07-02T21:00:00+08:00",
+      "effective_listing_date": "2015-07-06",
+      "ingested_at": "2026-11-15T15:08:54.533687+00:00",
+      "index_id": "000987",
+      "legal_name": "广发中证全指原材料交易型开放式指数证券投资基金",
+      "physical_pdf_pages": [
+        1,
+        3
+      ],
+      "visual_page_reviewed": 3,
+      "conclusion": "Original product,security code,index code,listed date agree with raw-history first day; index identifier is not current industry taxonomy"
+    },
+    {
+      "instrument_id": "sz.159945",
+      "fact_type": "LISTING_IDENTITY",
+      "source_url": "https://disc.static.szse.cn/download/disc/disk01/finalpage/2015-07-01/7660e3fc-79a1-459c-951c-9a05d9dd78d3.PDF",
+      "raw_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m7\\objects\\55758a2eb78ee9a61990a56e939cd3f03d1e6358035f929c335c55b0105056df.bin",
+      "sha256": "55758a2eb78ee9a61990a56e939cd3f03d1e6358035f929c335c55b0105056df",
+      "publication_date": "2015-07-01",
+      "available_at": "2015-07-02T21:00:00+08:00",
+      "effective_listing_date": "2015-07-06",
+      "ingested_at": "2026-11-15T15:08:54.799164+00:00",
+      "index_id": "000986",
+      "legal_name": "广发中证全指能源交易型开放式指数证券投资基金",
+      "physical_pdf_pages": [
+        1,
+        3
+      ],
+      "visual_page_reviewed": 3,
+      "conclusion": "Original product,security code,index code,listed date agree with raw-history first day; index identifier is not current industry taxonomy"
+    },
+    {
+      "instrument_id": "sz.159946",
+      "fact_type": "LISTING_IDENTITY",
+      "source_url": "https://disc.static.szse.cn/download/disc/disk01/finalpage/2015-07-08/1291b70a-07af-41c9-9bc1-6256d9555778.PDF",
+      "raw_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m7\\objects\\d293ae288442cb7860c7f3695c57c95f6cd848e839379481ec1fa41132075929.bin",
+      "sha256": "d293ae288442cb7860c7f3695c57c95f6cd848e839379481ec1fa41132075929",
+      "publication_date": "2015-07-08",
+      "available_at": "2015-07-09T21:00:00+08:00",
+      "effective_listing_date": "2015-07-13",
+      "ingested_at": "2026-11-15T15:08:55.058721+00:00",
+      "index_id": "000990",
+      "legal_name": "广发中证全指主要消费交易型开放式指数证券投资基金",
+      "physical_pdf_pages": [
+        1,
+        3
+      ],
+      "visual_page_reviewed": 3,
+      "conclusion": "Original product,security code,index code,listed date agree with raw-history first day; index identifier is not current industry taxonomy"
+    },
+    {
+      "fact_type": "COHORT",
+      "source_url": "https://www.gffunds.com.cn/jjgg/zdsj/201601/t20160104_49348.shtml",
+      "raw_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m7\\objects\\ad1f9b38547fd599162ee6c98e47f5573d8efdfc79ee5c9d050cdf84cbe0fc96.bin",
+      "sha256": "ad1f9b38547fd599162ee6c98e47f5573d8efdfc79ee5c9d050cdf84cbe0fc96",
+      "publication_date": "2016-01-04",
+      "page_date": "2016-01-04",
+      "body_date_strings": [
+        "2015年12月31日",
+        "2015年12月31日"
+      ],
+      "body_signature_date": "2015-12-31",
+      "available_at": "2016-01-05T21:00:00+08:00",
+      "asset_reference_date": "2015-12-31",
+      "ingested_at": "2026-11-15T15:08:44.087579+00:00",
+      "codes_found": {
+        "sz.159936": true,
+        "sz.159938": true,
+        "sz.159939": true,
+        "sz.159940": true,
+        "sz.159944": true,
+        "sz.159945": true,
+        "sz.159946": true
+      },
+      "weight_inputs": false
+    },
+    {
+      "instrument_id": "sz.159936",
+      "title": "可选消费ETF：广发中证全指可选消费交易型开放式指数证券投资基金2024年第3季度报告",
+      "publication_date": "2024-10-25",
+      "source_url": "https://disc.static.szse.cn/download/disc/disk03/finalpage/2024-10-25/759b56ad-8c1e-4529-ae23-e2fb1626714e.PDF",
+      "sha256": "f962732d372d8a472dea967c16c9d8628fb519782c4412f1a73e558d2e680fc6",
+      "raw_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m7\\objects\\f962732d372d8a472dea967c16c9d8628fb519782c4412f1a73e558d2e680fc6.bin",
+      "text_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m7\\text\\f962732d372d8a472dea967c16c9d8628fb519782c4412f1a73e558d2e680fc6.txt",
+      "ingested_at": "2026-11-15T15:11:46.116072+00:00",
+      "fact_type": "IDENTITY_RECONCILIATION_ONLY",
+      "benchmark_lines": [
+        "业绩比较基准            中证全指可选消费指数"
+      ],
+      "not_used_as_prior_historical_classification": true,
+      "not_used_for_weights_or_returns": true
+    },
+    {
+      "instrument_id": "sz.159938",
+      "title": "医药卫生ETF：广发中证全指医药卫生交易型开放式指数证券投资基金2024年第3季度报告",
+      "publication_date": "2024-10-25",
+      "source_url": "https://disc.static.szse.cn/download/disc/disk03/finalpage/2024-10-25/eae76f06-ccb8-40d8-97bc-ab9de1d473fc.PDF",
+      "sha256": "bd2193651b17859c46e1254e7b0e3dc764daf75df0a74c4d53095cdfe4f9a373",
+      "raw_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m7\\objects\\bd2193651b17859c46e1254e7b0e3dc764daf75df0a74c4d53095cdfe4f9a373.bin",
+      "text_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m7\\text\\bd2193651b17859c46e1254e7b0e3dc764daf75df0a74c4d53095cdfe4f9a373.txt",
+      "ingested_at": "2026-11-15T15:11:46.862722+00:00",
+      "fact_type": "IDENTITY_RECONCILIATION_ONLY",
+      "benchmark_lines": [
+        "业绩比较基准            中证全指医药卫生指数"
+      ],
+      "not_used_as_prior_historical_classification": true,
+      "not_used_for_weights_or_returns": true
+    },
+    {
+      "instrument_id": "sz.159938",
+      "title": "医药卫生ETF：关于广发中证全指医药卫生交易型开放式指数证券投资基金基金份额拆分结果及恢复申购、赎回的公告",
+      "publication_date": "2022-05-30",
+      "source_url": "https://disc.static.szse.cn/download/disc/disk03/finalpage/2022-05-27/4ba1268f-aec3-48dc-8555-2efa8583ee04.PDF",
+      "sha256": "72f9963f9e343214b72cc51ba6bbcb2dd812784b73be6dbbfc855f4d31704dbb",
+      "raw_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m7\\objects\\72f9963f9e343214b72cc51ba6bbcb2dd812784b73be6dbbfc855f4d31704dbb.bin",
+      "text_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m7\\text\\72f9963f9e343214b72cc51ba6bbcb2dd812784b73be6dbbfc855f4d31704dbb.txt",
+      "ingested_at": "2026-11-15T15:11:47.278065+00:00",
+      "fact_type": "SPLIT_NOT_ECONOMIC_IDENTITY_CONVERSION",
+      "physical_pdf_pages": [
+        1,
+        2
+      ],
+      "ratio": 2,
+      "record_date": "2022-05-27",
+      "effective_date": "2022-05-27",
+      "effective_phase": "EOD",
+      "ex_quote_date": "2022-05-30",
+      "secondary_market_trading_unaffected": true,
+      "account_dependency": false,
+      "TR_dependency": false
+    },
+    {
+      "instrument_id": "sz.159938",
+      "title": "医药卫生ETF：关于广发中证全指医药卫生交易型开放式指数证券投资基金基金份额拆分并调整最小申购赎回单位的公告",
+      "publication_date": "2022-05-24",
+      "source_url": "https://disc.static.szse.cn/download/disc/disk03/finalpage/2022-05-23/b0e34127-6e22-45b5-b5ea-dea4213ddc88.PDF",
+      "sha256": "1cf7b695c392b2767157ad28babb56b0691fafff3ba9ab120753a1438aa13946",
+      "raw_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m7\\objects\\1cf7b695c392b2767157ad28babb56b0691fafff3ba9ab120753a1438aa13946.bin",
+      "text_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m7\\text\\1cf7b695c392b2767157ad28babb56b0691fafff3ba9ab120753a1438aa13946.txt",
+      "ingested_at": "2026-11-15T15:11:47.577048+00:00",
+      "fact_type": "SPLIT_NOT_ECONOMIC_IDENTITY_CONVERSION",
+      "physical_pdf_pages": [
+        1,
+        2
+      ],
+      "ratio": 2,
+      "record_date": "2022-05-27",
+      "effective_date": "2022-05-27",
+      "effective_phase": "EOD",
+      "ex_quote_date": "2022-05-30",
+      "secondary_market_trading_unaffected": true,
+      "account_dependency": false,
+      "TR_dependency": false
+    },
+    {
+      "instrument_id": "sz.159938",
+      "title": "医药：关于旗下部分交易型开放式指数证券投资基金调整标的指数许可使用费并修订基金合同的公告",
+      "publication_date": "2020-03-31",
+      "source_url": "https://disc.static.szse.cn/download/disc/disk02/finalpage/2020-03-31/2cb37cee-ad6a-4e5a-9eb6-5908a68c7c06.PDF",
+      "sha256": "be5008a5d4aed9111ad0de6c5a58d6adfe5fc1e5c724cf62939edbdc92b56c02",
+      "raw_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m7\\objects\\be5008a5d4aed9111ad0de6c5a58d6adfe5fc1e5c724cf62939edbdc92b56c02.bin",
+      "text_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m7\\text\\be5008a5d4aed9111ad0de6c5a58d6adfe5fc1e5c724cf62939edbdc92b56c02.txt",
+      "ingested_at": "2026-11-15T15:11:48.247109+00:00",
+      "fact_type": "INDEX_LICENSE_FEE_NOT_INDEX_CONVERSION"
+    },
+    {
+      "instrument_id": "sz.159938",
+      "title": "广发医药：关于增加中信建投证券为旗下部分基金场内申购赎回代理券商的公告",
+      "publication_date": "2020-03-12",
+      "source_url": "https://disc.static.szse.cn/download/disc/disk02/finalpage/2020-03-12/42d66bf7-052d-454d-9095-b5ded124d1f1.PDF",
+      "sha256": "2749f19f3813fe337e0548431f46845ea8a64b2e94f1b045e361e89aadb90620",
+      "raw_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m7\\objects\\2749f19f3813fe337e0548431f46845ea8a64b2e94f1b045e361e89aadb90620.bin",
+      "text_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m7\\text\\2749f19f3813fe337e0548431f46845ea8a64b2e94f1b045e361e89aadb90620.txt",
+      "ingested_at": "2026-11-15T15:11:48.587863+00:00",
+      "fact_type": "DUPLICATE_DATE_OTHER_DOCUMENT_RETAINED",
+      "account_dependency": false
+    },
+    {
+      "instrument_id": "sz.159938",
+      "title": "广发医药：关于变更旗下部分基金场内简称的公告",
+      "publication_date": "2020-03-12",
+      "source_url": "https://disc.static.szse.cn/download/disc/disk02/finalpage/2020-03-12/9ff6ee3a-befe-4f75-8f01-e4a285e39566.PDF",
+      "sha256": "e60d1e0f906de705ea118593d567e6f05afabbc3221ece4e31b58432f1e7fe6e",
+      "raw_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m7\\objects\\e60d1e0f906de705ea118593d567e6f05afabbc3221ece4e31b58432f1e7fe6e.bin",
+      "text_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m7\\text\\e60d1e0f906de705ea118593d567e6f05afabbc3221ece4e31b58432f1e7fe6e.txt",
+      "ingested_at": "2026-11-15T15:12:26.236679+00:00",
+      "fact_type": "RENAME_NOT_ECONOMIC_CONVERSION",
+      "physical_pdf_pages": [
+        1
+      ],
+      "effective_date": "2020-03-13",
+      "contract_rights_unchanged": true
+    },
+    {
+      "instrument_id": "sz.159939",
+      "title": "信息技术ETF：广发中证全指信息技术交易型开放式指数证券投资基金2024年第3季度报告",
+      "publication_date": "2024-10-25",
+      "source_url": "https://disc.static.szse.cn/download/disc/disk03/finalpage/2024-10-25/412a3bcc-0a16-444b-8302-480347abd575.PDF",
+      "sha256": "e33ebbf5fd83618bf44142ecbb439dc37c1e853e7fe1f83f0d2b3cbabba52f70",
+      "raw_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m7\\objects\\e33ebbf5fd83618bf44142ecbb439dc37c1e853e7fe1f83f0d2b3cbabba52f70.bin",
+      "text_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m7\\text\\e33ebbf5fd83618bf44142ecbb439dc37c1e853e7fe1f83f0d2b3cbabba52f70.txt",
+      "ingested_at": "2026-11-15T15:11:49.469661+00:00",
+      "fact_type": "IDENTITY_RECONCILIATION_ONLY",
+      "benchmark_lines": [
+        "业绩比较基准            中证全指信息技术指数"
+      ],
+      "not_used_as_prior_historical_classification": true,
+      "not_used_for_weights_or_returns": true
+    },
+    {
+      "instrument_id": "sz.159940",
+      "title": "金融地产ETF：广发中证全指金融地产交易型开放式指数证券投资基金2024年第3季度报告",
+      "publication_date": "2024-10-25",
+      "source_url": "https://disc.static.szse.cn/download/disc/disk03/finalpage/2024-10-25/dec4a364-be5e-4aaa-a9cd-b0cbf465e907.PDF",
+      "sha256": "6196663d3114bddadfac5108f1fea6d97880627a6c6586fe520193d596d5ae8e",
+      "raw_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m7\\objects\\6196663d3114bddadfac5108f1fea6d97880627a6c6586fe520193d596d5ae8e.bin",
+      "text_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m7\\text\\6196663d3114bddadfac5108f1fea6d97880627a6c6586fe520193d596d5ae8e.txt",
+      "ingested_at": "2026-11-15T15:11:49.895566+00:00",
+      "fact_type": "IDENTITY_RECONCILIATION_ONLY",
+      "benchmark_lines": [
+        "业绩比较基准            中证全指金融地产指数"
+      ],
+      "not_used_as_prior_historical_classification": true,
+      "not_used_for_weights_or_returns": true
+    },
+    {
+      "instrument_id": "sz.159944",
+      "title": "材料ETF：广发中证全指原材料交易型开放式指数证券投资基金2024年第3季度报告",
+      "publication_date": "2024-10-25",
+      "source_url": "https://disc.static.szse.cn/download/disc/disk03/finalpage/2024-10-25/e6487a47-9d79-4035-867c-97da908f045f.PDF",
+      "sha256": "ea5692bf162d57db3915c251ff3ee01946671ef731ddada7679d67113c10c3a7",
+      "raw_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m7\\objects\\ea5692bf162d57db3915c251ff3ee01946671ef731ddada7679d67113c10c3a7.bin",
+      "text_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m7\\text\\ea5692bf162d57db3915c251ff3ee01946671ef731ddada7679d67113c10c3a7.txt",
+      "ingested_at": "2026-11-15T15:11:50.266054+00:00",
+      "fact_type": "IDENTITY_RECONCILIATION_ONLY",
+      "benchmark_lines": [
+        "业绩比较基准            中证全指原材料指数"
+      ],
+      "not_used_as_prior_historical_classification": true,
+      "not_used_for_weights_or_returns": true
+    },
+    {
+      "instrument_id": "sz.159945",
+      "title": "能源ETF基金：广发中证全指能源交易型开放式指数证券投资基金2024年第3季度报告",
+      "publication_date": "2024-10-25",
+      "source_url": "https://disc.static.szse.cn/download/disc/disk03/finalpage/2024-10-25/af1829d8-d1f5-453c-933b-d6a09f31ab8e.PDF",
+      "sha256": "f045a4076bb8308feba752ac1b0d48b2710172491b921fa5e0fc741557730999",
+      "raw_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m7\\objects\\f045a4076bb8308feba752ac1b0d48b2710172491b921fa5e0fc741557730999.bin",
+      "text_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m7\\text\\f045a4076bb8308feba752ac1b0d48b2710172491b921fa5e0fc741557730999.txt",
+      "ingested_at": "2026-11-15T15:11:50.835847+00:00",
+      "fact_type": "IDENTITY_RECONCILIATION_ONLY",
+      "benchmark_lines": [
+        "业绩比较基准            中证全指能源指数"
+      ],
+      "not_used_as_prior_historical_classification": true,
+      "not_used_for_weights_or_returns": true
+    },
+    {
+      "instrument_id": "sz.159946",
+      "title": "全指消费：关于终止上市的公告",
+      "publication_date": "2018-12-25",
+      "source_url": "https://disc.static.szse.cn/download/disc/disk01/finalpage/2018-12-25/497b978a-cea3-413a-869e-734853ac31dd.PDF",
+      "sha256": "068daf7092e66575ced613dbfaea0e87c7709e4ecd0945ab2bfab86605f3cd64",
+      "raw_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m7\\objects\\068daf7092e66575ced613dbfaea0e87c7709e4ecd0945ab2bfab86605f3cd64.bin",
+      "text_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m7\\text\\068daf7092e66575ced613dbfaea0e87c7709e4ecd0945ab2bfab86605f3cd64.txt",
+      "ingested_at": "2026-11-15T15:11:51.036267+00:00",
+      "fact_type": "EXIT",
+      "physical_pdf_pages": [
+        1,
+        2
+      ],
+      "cash_or_entitlement_amount": null,
+      "account_dependency": false,
+      "delisted_on": "2018-12-28",
+      "rights_record_date": "2018-12-27",
+      "available_at": "2018-12-26T21:00:00+08:00"
+    },
+    {
+      "instrument_id": "sz.159946",
+      "title": "全指消费：关于基金份额持有人大会表决结果暨决议生效的公告",
+      "publication_date": "2018-12-24",
+      "source_url": "https://disc.static.szse.cn/download/disc/disk01/finalpage/2018-12-24/b96a155b-6c44-439d-a9e1-c67cf6c4cf5a.PDF",
+      "sha256": "f258fa0c1daced724ee9f98147b7ef94c96a7974d16bcac1eafa088a6874a0fd",
+      "raw_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m7\\objects\\f258fa0c1daced724ee9f98147b7ef94c96a7974d16bcac1eafa088a6874a0fd.bin",
+      "text_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m7\\text\\f258fa0c1daced724ee9f98147b7ef94c96a7974d16bcac1eafa088a6874a0fd.txt",
+      "ingested_at": "2026-11-15T15:11:51.377310+00:00",
+      "fact_type": "EXIT",
+      "physical_pdf_pages": [
+        1,
+        2
+      ],
+      "cash_or_entitlement_amount": null,
+      "account_dependency": false,
+      "vote_effective": "2018-12-21",
+      "liquidation_start": "2018-12-25",
+      "available_at": "2018-12-25T21:00:00+08:00"
+    },
+    {
+      "instrument_id": "sz.159946",
+      "title": "全指消费：关于可能停牌及暂停赎回业务的公告",
+      "publication_date": "2018-12-19",
+      "source_url": "https://disc.static.szse.cn/download/disc/disk01/finalpage/2018-12-19/4d1643e4-188b-4d92-9c50-ddc9bb7ecb51.PDF",
+      "sha256": "b2b76f987e5025d89d7f8da5bc80c7372728b179bce23bd22c3eaa35b61e637e",
+      "raw_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m7\\objects\\b2b76f987e5025d89d7f8da5bc80c7372728b179bce23bd22c3eaa35b61e637e.bin",
+      "text_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m7\\text\\b2b76f987e5025d89d7f8da5bc80c7372728b179bce23bd22c3eaa35b61e637e.txt",
+      "ingested_at": "2026-11-15T15:11:51.767218+00:00",
+      "fact_type": "EXIT",
+      "physical_pdf_pages": [
+        1,
+        2
+      ],
+      "cash_or_entitlement_amount": null,
+      "account_dependency": false,
+      "suspension_effective": "2018-12-21",
+      "available_at": "2018-12-20T21:00:00+08:00"
+    }
+  ],
+  "correction": {
+    "issue": "Two different159938documents dated2020-03-12 initially shared one logical request label",
+    "detection": "Explicit URL-to-receipt comparison before building stage",
+    "remedy": "Retained first receipt; independently fetched name-change URL understate_namechange_20200312; collector now rejects label/URL mismatches",
+    "affected_dataset_rows": 0
+  },
+  "information_boundaries": {
+    "market_end": "2024-12-31",
+    "post2024_publications_downloaded": false,
+    "new_strategy_returns_viewed": false
+  },
+  "visual_review": {
+    "renderer": "pdftoppm",
+    "inspected_pages": 9,
+    "reviewer": "M7 data agent, not human signoff",
+    "directory": "data/raw_m7/visual"
+  }
+}

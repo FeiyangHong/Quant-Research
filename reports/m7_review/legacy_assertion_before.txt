@@ -1,0 +1,17 @@
+F                                                                        [100%]
+================================== FAILURES ===================================
+___ test_zero_hurdle_is_separate_exploratory_and_never_formal_confirmation ____
+
+    def test_zero_hurdle_is_separate_exploratory_and_never_formal_confirmation():
+        rng = np.random.default_rng(25)
+        candidate = pd.Series(rng.normal(0, .002, 300), index=pd.bdate_range("2022-01-03", periods=300))
+        result = ev.inference_for_pair(candidate, candidate * 0)
+        assert result["formal"]["status"] == "BLOCKED_HURDLE"
+        assert result["formal"]["p_net"] is None
+>       assert result["formal"]["ci95"] is None
+E       assert [-0.00014328872569819415, 0.0002632820915307448] is None
+
+tests\test_real_evaluation.py:205: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/test_real_evaluation.py::test_zero_hurdle_is_separate_exploratory_and_never_formal_confirmation
+1 failed in 2.10s

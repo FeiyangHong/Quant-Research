@@ -1,0 +1,112 @@
+{
+  "case_id": "sz.002729_2022-09-30",
+  "instrument_id": "sz.002729",
+  "period_end": "2022-09-30",
+  "queue_position": 7,
+  "case_status": "COMPLETE_DOCUMENTARY_PAIR",
+  "availability_mode": "historical_public_asof",
+  "publication_precision": "date_only",
+  "vendor_first_seen_at": null,
+  "source_unit": "CNY yuan",
+  "normalized_unit": "CNY yuan",
+  "report_scope": "consolidated; net profit attributable to parent; flow amounts YTD; assets at period end",
+  "independent_human_reviews": 0,
+  "counts_toward_human_admission_gate": false,
+  "processed_at": "2026-11-15T09:14:04.029095+00:00",
+  "agent_documentary_review": true,
+  "conflicts": [],
+  "missing": [
+    "independent human signoff",
+    "verified intraday publication",
+    "vendor historical first seen",
+    "exhaustive all-version-chain search"
+  ],
+  "revision_chain_scope": "explicit original and disclosed correction pair; no assertion that unobserved intermediate/later versions never existed",
+  "original": {
+    "revision_id": "sz.002729_2022-09-30_original",
+    "supersedes_id": null,
+    "published_date": "2022-10-31",
+    "available_at": "2022-11-01T21:00:00+08:00",
+    "earliest_execution": "2022-11-02",
+    "document": {
+      "id": 37,
+      "kind": "http_attempts",
+      "label": "original_002729_2022q3",
+      "started_at": "2026-11-15T09:03:54.556529+00:00",
+      "url": "https://static.cninfo.com.cn/finalpage/2022-10-31/1214959169.PDF",
+      "request_body": null,
+      "method": "GET",
+      "byte_count": 435241,
+      "sha256": "0308a6eac3872bfb2d16abec315c9247a474bd0f4b712d0faf0b7777d3fb4b1c",
+      "raw_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m4_equity\\objects\\0308a6eac3872bfb2d16abec315c9247a474bd0f4b712d0faf0b7777d3fb4b1c.bin",
+      "elapsed_seconds": 0.286512,
+      "ingested_at": "2026-11-15T09:03:54.844241+00:00",
+      "status": "FETCHED",
+      "http_status": 200,
+      "content_type": "application/pdf"
+    },
+    "pages": [
+      2
+    ],
+    "values": {
+      "net_profit_parent": "21426386.57",
+      "operating_cash_flow": "5001212.67",
+      "total_assets": "605965380.44"
+    }
+  },
+  "revision": {
+    "revision_id": "sz.002729_2022-09-30_revision_2024-12-11",
+    "supersedes_id": "sz.002729_2022-09-30_original",
+    "published_date": "2024-12-11",
+    "available_at": "2024-12-12T21:00:00+08:00",
+    "earliest_execution": "2024-12-13",
+    "document": {
+      "id": 38,
+      "kind": "http_attempts",
+      "label": "revised_002729_2022q3",
+      "started_at": "2026-11-15T09:04:11.667105+00:00",
+      "url": "https://static.cninfo.com.cn/finalpage/2024-12-11/1221981062.PDF",
+      "request_body": null,
+      "method": "GET",
+      "byte_count": 845897,
+      "sha256": "a05f255d53514d4e1e404583ba8ac1cdb0da18729a54ad6159781e93afdf7635",
+      "raw_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m4_equity\\objects\\a05f255d53514d4e1e404583ba8ac1cdb0da18729a54ad6159781e93afdf7635.bin",
+      "elapsed_seconds": 0.385082,
+      "ingested_at": "2026-11-15T09:04:12.054144+00:00",
+      "status": "FETCHED",
+      "http_status": 200,
+      "content_type": "application/pdf"
+    },
+    "pages": [
+      1
+    ],
+    "supporting_correction_document": {
+      "available_at": null,
+      "byte_count": 550084,
+      "content_type": "application/pdf",
+      "http_status": 200,
+      "id": "revision_candidate_002729_1221981063",
+      "ingested_at": "2026-11-14T19:20:59.474481+00:00",
+      "method": "GET",
+      "performance_evidence": false,
+      "raw_path": "F:/QuantTrade/Quant-Research/data/raw_equity_admission/http/revision_candidate_002729_1221981063_8702724777371322f3d277a926fe265ecc216bb41cb4ab9e255026536cff2f70.bin",
+      "request_body": null,
+      "requested_at": "2026-11-14T19:20:59.160550+00:00",
+      "role": "HISTORICAL_DOCUMENT_AUDIT",
+      "sha256": "8702724777371322f3d277a926fe265ecc216bb41cb4ab9e255026536cff2f70",
+      "status": "FETCHED",
+      "url": "https://static.cninfo.com.cn/finalpage/2024-12-11/1221981063.PDF",
+      "vendor_first_seen_at": null
+    },
+    "as_reported_values": {
+      "net_profit_parent": "21426386.57",
+      "operating_cash_flow": "5035278.32",
+      "total_assets": "579897054.72"
+    },
+    "values": {
+      "net_profit_parent": "21426386.57",
+      "operating_cash_flow": "5035278.32",
+      "total_assets": "579897054.72"
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "agent": "m6_r1i_data",
+  "started_at_utc": "2026-11-15T12:54:00+00:00",
+  "finished_at_utc": "2026-11-15T13:23:52.784363+00:00",
+  "elapsed_seconds": 1792.784,
+  "elapsed_agent_hours": 0.497996,
+  "measurement": "Conservative parent-assigned start to final branch stop, includes wait; not human hours",
+  "network_closed": true,
+  "new_http_equivalents": 46,
+  "new_baostock_wire_attempts": 0,
+  "new_observed_body_bytes": 4508462,
+  "independent_review": "Parent reports non-author verification of37pages,2014XLS,2023PDF,1970union andboundedDATA_BLOCKED; finalreviewpacket owned byroot",
+  "revision_rounds": "First implementation plus minor documentation/guard corrections before review; no postreview newcollection"
+}

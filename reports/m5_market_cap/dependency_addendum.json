@@ -1,0 +1,11 @@
+{
+  "registered_at": "2026-11-15T11:03:03.8692385Z",
+  "registered_at_source": "File CreationTimeUtc, before corresponding first query; draft clock corrected to observed file timestamp",
+  "root_authorization": "Same 002526 fixed structural case, existing CNInfo route; no further history expansion",
+  "reason": "2020 cash distribution document confirms no capital change; preserve that failed event hypothesis. Historical vendor response contains 2018 capital conversion requiring original notice for event-time semantics.",
+  "instrument_id": "sz.002526",
+  "query_date_range": "2018-01-01~2018-12-31",
+  "source_route": "official_documents",
+  "max_additional_http_attempts": 3,
+  "case_or_route_replacement": false
+}

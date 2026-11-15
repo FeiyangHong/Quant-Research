@@ -1,0 +1,26 @@
+{
+  "status": "PASS",
+  "issues": [],
+  "raw_data_objects_checked": 58,
+  "full_pool_rows": 3779,
+  "board_counts": {
+    "MAIN": 2946,
+    "CHINEXT": 833
+  },
+  "financial_card_counts": {
+    "COMPLETE_DOCUMENTARY_PAIR": 5,
+    "QUARANTINED_SOURCE_CONFLICT": 3
+  },
+  "human_accepted_cases": 0,
+  "engineering_artifact_hashes_checked": 102,
+  "engineering_source_hashes_checked": 8,
+  "engineering_cases": 6,
+  "limits": "Integrity/count checks only. This reviewer did not re-extract original financial PDFs or independently establish historical full-pool completeness.",
+  "input_report_hashes": {
+    "reports/m4_data/source_manifest.json": "58eb4c6bf9e70a68990b336ffdf978d968040914601bccb9d512f5a32e0b859c",
+    "reports/m4_data/coverage_summary.json": "64362b2c840a4ce34fb76346ce9f964b3790eb4b64af04c970d5bc9f171cd8f7",
+    "reports/m4_data/full_pool_2020-07-31.json": "0c19086243b883545fd0e7d4411530c475d996e580392a57a339eb998d1a7480",
+    "reports/m4_data/financial_vintage_cases.json": "134f43b506fdca59bb54ccd05e63781510a5eb461b787772a31155af0b645fb5",
+    "reports/m4_correctness/engineering_replay/provenance.json": "6544b418bdfe807b0c6608ede23195ac773b7981e2f9c899febefd4c3b348e54"
+  }
+}

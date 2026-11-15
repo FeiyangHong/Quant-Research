@@ -1,0 +1,68 @@
+{
+  "reason": "Final prose spacing replacement accidentally changed two output filename literals; filename-only repair restores canonical paths, without changing model, aggregation or original448 experiment artifacts.",
+  "account_file": {
+    "canonical_path_before_rerun": "F:\\QuantTrade\\Quant-Research\\reports\\m4_frozen\\annual_account_reconciliation_all448.csv",
+    "canonical_sha256_before_rerun": "c12da6fecd30249b50f9c3f4fdb8ccb13daaf2c16ae2cd1c658874c400cbcf8a",
+    "spaced_original_path": "F:\\QuantTrade\\Quant-Research\\reports\\m4_frozen\\annual_account_reconciliation_all 448.csv",
+    "archived_path": "F:\\QuantTrade\\Quant-Research\\reports\\m4_frozen\\superseded_audit_draft\\filename_spacing_repair\\annual_account_reconciliation_all 448.csv",
+    "spaced_sha256": "97abd0a08e34e7470ba3698aa6858df845f85514a6f1327dd609c1a7245667e9",
+    "rows": 2016,
+    "changed_column_counts": {
+      "etf_net_pnl_cny": 345,
+      "reconciliation_error_cny": 345
+    },
+    "maximum_absolute_numeric_difference": {
+      "etf_net_pnl_cny": 5.820766091346741e-11,
+      "reconciliation_error_cny": 5.820766091346741e-11
+    },
+    "examples": {
+      "etf_net_pnl_cny": {
+        "row_index": 4,
+        "run_id": "91ad2720d8cadf08-20261114T180910821842Z",
+        "year": "2020",
+        "canonical_before_repair": "4359.799999999999",
+        "spaced": "4359.8"
+      },
+      "reconciliation_error_cny": {
+        "row_index": 4,
+        "run_id": "91ad2720d8cadf08-20261114T180910821842Z",
+        "year": "2020",
+        "canonical_before_repair": "0.0",
+        "spaced": "9.094947017729282e-13"
+      }
+    },
+    "interpretation": "Only unordered floating-point summation-level differences; no account PnL, fees, identifier or daily-error changes."
+  },
+  "exact_duplicate_removed": {
+    "canonical_path": "F:\\QuantTrade\\Quant-Research\\reports\\m4_frozen\\annual_etf_pnl_all448.csv",
+    "spaced_path": "F:\\QuantTrade\\Quant-Research\\reports\\m4_frozen\\annual_etf_pnl_all 448.csv",
+    "sha256_both": "a24f06f8f002b56a729c486807bc5cff2444ba96c14447c047da4b309bf03fbf",
+    "byte_identical_verified": true
+  },
+  "script_hash_before_filename_fix": "62ceb5600fcbc0f04685cd7d96db376e604bf72b48364f9034b3603678f8f877",
+  "script_hash_after_filename_fix": "0218a10ad7d97ca53c6381775387c3aaaa8ae042e3221fcb4040bf5933c29cfe",
+  "exact_source_diff": {
+    "before": [
+      "csv_out(\"annual_etf_pnl_all 448.csv\", annual_rows)",
+      "csv_out(\"annual_account_reconciliation_all 448.csv\", annual_accounts)"
+    ],
+    "after": [
+      "csv_out(\"annual_etf_pnl_all448.csv\", annual_rows)",
+      "csv_out(\"annual_account_reconciliation_all448.csv\", annual_accounts)"
+    ]
+  },
+  "next_action": "Root independently reruns frozen impact and final review binding.",
+  "completed_validation": {
+    "focused_tests": "5 passed in1.24s",
+    "audit_status": "READ_ONLY_FROZEN_REVIEW_COMPLETE",
+    "runs": 448,
+    "original448_result_summary_sha256": "c238b235722bc73468ef1cc3af29f083c160a92d0ff18edead6c36d3b129aebb",
+    "exact_two_literal_only_repair_verified_by_restoring_prior_sha256_in_memory": true,
+    "current_maximum_annual_reconciliation_error_cny": 4.656612873077393e-10,
+    "outputs": {
+      "summary.json": "b6d82bbea16ba9a89345d3621b4d5531a6676bf7c8b6420d63ad2fac617b2d66",
+      "annual_etf_pnl_all448.csv": "a24f06f8f002b56a729c486807bc5cff2444ba96c14447c047da4b309bf03fbf",
+      "annual_account_reconciliation_all448.csv": "fa67b2b617e93703b9d8795cd8a695869b58a134546b9926b77e81c5faf637dc"
+    }
+  }
+}

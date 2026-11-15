@@ -1,0 +1,36 @@
+{
+  "status": "POSTPROCESSING_FIX_REVIEWED_STATISTICAL_CORE_UNCHANGED",
+  "reviewer": "/root/independent_admission",
+  "reviewed_at": "2026-11-14T18:35:34.502579+00:00",
+  "execution_commit": "b308ccce541b6e60207808d4d55bc1f4dfd61928",
+  "execution_source_hash": "d8d265eed26337ba8a58e2dff809af3acc71550232ecbddaa2b94a7a3da6ba7a",
+  "evaluation_commit": "7d6169f0be2138292a1c708ac3e3e44dcd55a620",
+  "changed_code_files_exact_to_commit": {
+    "scripts/evaluate_real_runs.py": "cce36f4c2aab72692f4f4cf9acfe916fbeb8048168344e612bf397c6da2b320a",
+    "scripts/summarize_runs.py": "bd5867667be1ad15d478adf2e48e173b2be99cac19b2a4e1ce333035bfed344a",
+    "tests/test_evaluator_decimal_notional.py": "4b3d92723e4aa555a3685fcaad9518e1226444447c451c29c5698beee21214d7",
+    "tests/test_real_evaluation.py": "1e1ed9f506be2644ee9dad7829a09503ab0905545a4d49730c5f754de10b1fb4"
+  },
+  "unchanged_core_files": {
+    "src/quant_research/evaluation.py": "b7210f97019eee9a54639b4f8cc22c31e3cb83a1cc7effc002f373835e7bcb3e",
+    "src/quant_research/provenance.py": "4d70338f8008e21a2b5555ef12af5f3bb5d9752649703071f6b14222c74a33ac"
+  },
+  "decision_log_note": "DECISION_LOG text matchescommit afterCRLF/LF normalization; it is not one of the4 hash-bound specification documents. No execution/evaluation code uses it.",
+  "regression_cases_original_bytes_preserved": true,
+  "reviewer_actual_regression_result": "2 passed in0.99s",
+  "changes_reviewed": [
+    "Decimal quantity and price operands multiply before HALF_UP cent rounding; tolerance unchanged.",
+    "Evaluation provenance/source snapshot is separate from original execution source.",
+    "Active-file equality remains mandatory for statistical and identity kernels; report orchestration/reconciliation versions may differ with explicit provenance."
+  ],
+  "unchanged_statistical_scope": [
+    "daily paired arithmetic endpoint",
+    "HAC/null-centered bootstrap method and seed",
+    "block60/20/120 and5000 draws",
+    "100000 primary capital",
+    "unknown hurdle and four-family not-ready placeholders",
+    "all448 frozen configurations"
+  ],
+  "actual_main_result_review": "PENDING_RESULT_SUMMARY",
+  "scope_limit": "This records source and regression review only; it is not the final448 statistical or engine verdict."
+}

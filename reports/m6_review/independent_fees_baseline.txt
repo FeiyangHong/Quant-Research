@@ -1,0 +1,180 @@
+FFFFFFF........F.......FFFFF.                                            [100%]
+================================== FAILURES ===================================
+_______ test_required_differential_and_independent_daily_decimal_oracle _______
+review_code\m6\test_independent_fees.py:59: in test_required_differential_and_independent_daily_decimal_oracle
+    assert_same(original, run(changed, decisions))
+review_code\m6\test_independent_fees.py:32: in assert_same
+    pd.testing.assert_frame_equal(left[key], right[key], obj=key)
+testing.pyx:55: in pandas._libs.testing.assert_almost_equal
+    ???
+testing.pyx:173: in pandas._libs.testing.assert_almost_equal
+    ???
+E   AssertionError: nav.iloc[:, 1] (column name="nav") are different
+E   
+E   nav.iloc[:, 1] (column name="nav") values are different (70.0 %)
+E   [index]: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69]
+E   [left]:  [100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98]
+E   [right]: [100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0]
+E   At positional index 21, first diff: 99994.98 != 100000.0
+________ test_irrelevant_time_rows_cannot_contaminate_any_ledger[past] ________
+review_code\m6\test_independent_fees.py:68: in test_irrelevant_time_rows_cannot_contaminate_any_ledger
+    assert_same(baseline, run(data, decisions))
+review_code\m6\test_independent_fees.py:32: in assert_same
+    pd.testing.assert_frame_equal(left[key], right[key], obj=key)
+testing.pyx:55: in pandas._libs.testing.assert_almost_equal
+    ???
+testing.pyx:173: in pandas._libs.testing.assert_almost_equal
+    ???
+E   AssertionError: nav.iloc[:, 1] (column name="nav") are different
+E   
+E   nav.iloc[:, 1] (column name="nav") values are different (70.0 %)
+E   [index]: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69]
+E   [left]:  [100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98]
+E   [right]: [100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0]
+E   At positional index 21, first diff: 99994.98 != 100000.0
+_______ test_irrelevant_time_rows_cannot_contaminate_any_ledger[future] _______
+review_code\m6\test_independent_fees.py:68: in test_irrelevant_time_rows_cannot_contaminate_any_ledger
+    assert_same(baseline, run(data, decisions))
+review_code\m6\test_independent_fees.py:32: in assert_same
+    pd.testing.assert_frame_equal(left[key], right[key], obj=key)
+testing.pyx:55: in pandas._libs.testing.assert_almost_equal
+    ???
+testing.pyx:173: in pandas._libs.testing.assert_almost_equal
+    ???
+E   AssertionError: nav.iloc[:, 1] (column name="nav") are different
+E   
+E   nav.iloc[:, 1] (column name="nav") values are different (70.0 %)
+E   [index]: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69]
+E   [left]:  [100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98]
+E   [right]: [100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0]
+E   At positional index 21, first diff: 99994.98 != 100000.0
+_ test_provably_unrelated_scope_cannot_contaminate_current_fee[asset_type-ETF] _
+review_code\m6\test_independent_fees.py:81: in test_provably_unrelated_scope_cannot_contaminate_current_fee
+    assert_same(baseline, run(data, decisions))
+review_code\m6\test_independent_fees.py:32: in assert_same
+    pd.testing.assert_frame_equal(left[key], right[key], obj=key)
+testing.pyx:55: in pandas._libs.testing.assert_almost_equal
+    ???
+testing.pyx:173: in pandas._libs.testing.assert_almost_equal
+    ???
+E   AssertionError: nav.iloc[:, 1] (column name="nav") are different
+E   
+E   nav.iloc[:, 1] (column name="nav") values are different (70.0 %)
+E   [index]: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69]
+E   [left]:  [100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98]
+E   [right]: [100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0]
+E   At positional index 21, first diff: 99994.98 != 100000.0
+__ test_provably_unrelated_scope_cannot_contaminate_current_fee[market-SZSE] __
+review_code\m6\test_independent_fees.py:81: in test_provably_unrelated_scope_cannot_contaminate_current_fee
+    assert_same(baseline, run(data, decisions))
+review_code\m6\test_independent_fees.py:32: in assert_same
+    pd.testing.assert_frame_equal(left[key], right[key], obj=key)
+testing.pyx:55: in pandas._libs.testing.assert_almost_equal
+    ???
+testing.pyx:173: in pandas._libs.testing.assert_almost_equal
+    ???
+E   AssertionError: nav.iloc[:, 1] (column name="nav") are different
+E   
+E   nav.iloc[:, 1] (column name="nav") values are different (70.0 %)
+E   [index]: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69]
+E   [left]:  [100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98]
+E   [right]: [100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0]
+E   At positional index 21, first diff: 99994.98 != 100000.0
+_ test_provably_unrelated_scope_cannot_contaminate_current_fee[component-DIVIDEND_TAX] _
+review_code\m6\test_independent_fees.py:81: in test_provably_unrelated_scope_cannot_contaminate_current_fee
+    assert_same(baseline, run(data, decisions))
+review_code\m6\test_independent_fees.py:32: in assert_same
+    pd.testing.assert_frame_equal(left[key], right[key], obj=key)
+testing.pyx:55: in pandas._libs.testing.assert_almost_equal
+    ???
+testing.pyx:173: in pandas._libs.testing.assert_almost_equal
+    ???
+E   AssertionError: nav.iloc[:, 1] (column name="nav") are different
+E   
+E   nav.iloc[:, 1] (column name="nav") values are different (70.0 %)
+E   [index]: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69]
+E   [left]:  [100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98]
+E   [right]: [100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0]
+E   At positional index 21, first diff: 99994.98 != 100000.0
+_ test_provably_unrelated_scope_cannot_contaminate_current_fee[instrument_id-SYNTHETIC_OTHER] _
+review_code\m6\test_independent_fees.py:81: in test_provably_unrelated_scope_cannot_contaminate_current_fee
+    assert_same(baseline, run(data, decisions))
+review_code\m6\test_independent_fees.py:32: in assert_same
+    pd.testing.assert_frame_equal(left[key], right[key], obj=key)
+testing.pyx:55: in pandas._libs.testing.assert_almost_equal
+    ???
+testing.pyx:173: in pandas._libs.testing.assert_almost_equal
+    ???
+E   AssertionError: nav.iloc[:, 1] (column name="nav") are different
+E   
+E   nav.iloc[:, 1] (column name="nav") values are different (70.0 %)
+E   [index]: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69]
+E   [left]:  [100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98]
+E   [right]: [100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0]
+E   At positional index 21, first diff: 99994.98 != 100000.0
+__ test_applicable_uncertainty_never_becomes_a_valid_fee[effective_to-None] ___
+review_code\m6\test_independent_fees.py:95: in test_applicable_uncertainty_never_becomes_a_valid_fee
+    assert_blocked(run(data, decisions))
+review_code\m6\test_independent_fees.py:38: in assert_blocked
+    assert result['fills'].empty
+E   assert False
+E    +  where False =          date  ... synthetic\n0  2023-08-01  ...      True\n\n[1 rows x 15 columns].empty
+_ test_applicable_overlap_cannot_fallback_to_one_valid_row[unverified_duplicate] _
+review_code\m6\test_independent_fees.py:119: in test_applicable_overlap_cannot_fallback_to_one_valid_row
+    assert_blocked(run(data, decisions))
+review_code\m6\test_independent_fees.py:38: in assert_blocked
+    assert result['fills'].empty
+E   assert False
+E    +  where False =          date  ... synthetic\n0  2023-08-01  ...      True\n\n[1 rows x 15 columns].empty
+_ test_applicable_overlap_cannot_fallback_to_one_valid_row[future_public_duplicate] _
+review_code\m6\test_independent_fees.py:119: in test_applicable_overlap_cannot_fallback_to_one_valid_row
+    assert_blocked(run(data, decisions))
+review_code\m6\test_independent_fees.py:38: in assert_blocked
+    assert result['fills'].empty
+E   assert False
+E    +  where False =          date  ... synthetic\n0  2023-08-01  ...      True\n\n[1 rows x 15 columns].empty
+________ test_row_order_invariance_for_valid_and_poisoned_future_rows _________
+review_code\m6\test_independent_fees.py:129: in test_row_order_invariance_for_valid_and_poisoned_future_rows
+    assert_same(baseline, run(permuted, decisions))
+review_code\m6\test_independent_fees.py:32: in assert_same
+    pd.testing.assert_frame_equal(left[key], right[key], obj=key)
+testing.pyx:55: in pandas._libs.testing.assert_almost_equal
+    ???
+testing.pyx:173: in pandas._libs.testing.assert_almost_equal
+    ???
+E   AssertionError: nav.iloc[:, 1] (column name="nav") are different
+E   
+E   nav.iloc[:, 1] (column name="nav") values are different (70.0 %)
+E   [index]: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69]
+E   [left]:  [100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98, 99994.98]
+E   [right]: [100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0]
+E   At positional index 21, first diff: 99994.98 != 100000.0
+_________ test_hand_roundtrip_tax_and_commission_stress[1-5-99987.96] _________
+review_code\m6\test_independent_fees.py:143: in test_hand_roundtrip_tax_and_commission_stress
+    assert Decimal(str(result['nav'].iloc[-1]['nav'])) == Decimal(expected_nav)
+E   AssertionError: assert Decimal('99987.95999999999') == Decimal('99987.96')
+E    +  where Decimal('99987.95999999999') = Decimal('99987.95999999999')
+E    +    where '99987.95999999999' = str(99987.95999999999)
+E    +  and   Decimal('99987.96') = Decimal('99987.96')
+________ test_hand_roundtrip_tax_and_commission_stress[3-15-99967.96] _________
+review_code\m6\test_independent_fees.py:143: in test_hand_roundtrip_tax_and_commission_stress
+    assert Decimal(str(result['nav'].iloc[-1]['nav'])) == Decimal(expected_nav)
+E   AssertionError: assert Decimal('99967.95999999999') == Decimal('99967.96')
+E    +  where Decimal('99967.95999999999') = Decimal('99967.95999999999')
+E    +    where '99967.95999999999' = str(99967.95999999999)
+E    +  and   Decimal('99967.96') = Decimal('99967.96')
+=========================== short test summary info ===========================
+FAILED review_code/m6/test_independent_fees.py::test_required_differential_and_independent_daily_decimal_oracle
+FAILED review_code/m6/test_independent_fees.py::test_irrelevant_time_rows_cannot_contaminate_any_ledger[past]
+FAILED review_code/m6/test_independent_fees.py::test_irrelevant_time_rows_cannot_contaminate_any_ledger[future]
+FAILED review_code/m6/test_independent_fees.py::test_provably_unrelated_scope_cannot_contaminate_current_fee[asset_type-ETF]
+FAILED review_code/m6/test_independent_fees.py::test_provably_unrelated_scope_cannot_contaminate_current_fee[market-SZSE]
+FAILED review_code/m6/test_independent_fees.py::test_provably_unrelated_scope_cannot_contaminate_current_fee[component-DIVIDEND_TAX]
+FAILED review_code/m6/test_independent_fees.py::test_provably_unrelated_scope_cannot_contaminate_current_fee[instrument_id-SYNTHETIC_OTHER]
+FAILED review_code/m6/test_independent_fees.py::test_applicable_uncertainty_never_becomes_a_valid_fee[effective_to-None]
+FAILED review_code/m6/test_independent_fees.py::test_applicable_overlap_cannot_fallback_to_one_valid_row[unverified_duplicate]
+FAILED review_code/m6/test_independent_fees.py::test_applicable_overlap_cannot_fallback_to_one_valid_row[future_public_duplicate]
+FAILED review_code/m6/test_independent_fees.py::test_row_order_invariance_for_valid_and_poisoned_future_rows
+FAILED review_code/m6/test_independent_fees.py::test_hand_roundtrip_tax_and_commission_stress[1-5-99987.96]
+FAILED review_code/m6/test_independent_fees.py::test_hand_roundtrip_tax_and_commission_stress[3-15-99967.96]
+13 failed, 16 passed in 2.29s

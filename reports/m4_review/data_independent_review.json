@@ -1,0 +1,733 @@
+{
+  "financial_source_json_sha256": "134f43b506fdca59bb54ccd05e63781510a5eb461b787772a31155af0b645fb5",
+  "case_checks": [
+    {
+      "case_id": "KANGMEI_2017_ORIGINAL_TO_2019_RESTATEMENT",
+      "case_status": "COMPLETE_DOCUMENTARY_PAIR",
+      "sides": {
+        "original": {
+          "document_sha256": "15b3b15df2dfd3310cc16e1e345e8950e8a9cb047bdad38d1263e2b55cfd2985",
+          "pdf_pages": 251,
+          "declared_pages": [
+            6,
+            7
+          ],
+          "value_page_hits": {
+            "net_profit_parent": [
+              6
+            ],
+            "operating_cash_flow": [
+              6
+            ],
+            "total_assets": [
+              7
+            ]
+          },
+          "date_only_clock_pass": true,
+          "available_at": "2018-04-27T21:00:00+08:00",
+          "earliest_execution": "2018-05-02",
+          "rendered_review_page": 6,
+          "render_path": "F:\\QuantTrade\\Quant-Research\\work\\m4_data_review\\case0_original_page6.png"
+        },
+        "revision": {
+          "document_sha256": "9f47aa0dc0a8838ffd21e600d7eca194052d91cf867d8e22a4ba56dee2b9f60a",
+          "pdf_pages": 252,
+          "declared_pages": [
+            6
+          ],
+          "value_page_hits": {
+            "net_profit_parent": [
+              6
+            ],
+            "operating_cash_flow": [
+              6
+            ],
+            "total_assets": [
+              6
+            ]
+          },
+          "date_only_clock_pass": true,
+          "available_at": "2019-05-06T21:00:00+08:00",
+          "earliest_execution": "2019-05-07",
+          "rendered_review_page": 6,
+          "render_path": "F:\\QuantTrade\\Quant-Research\\work\\m4_data_review\\case0_revision_page6.png",
+          "supplement_conflict_value_pages": {}
+        }
+      },
+      "conflicts": []
+    },
+    {
+      "case_id": "sz.002528_2019-12-31",
+      "case_status": "COMPLETE_DOCUMENTARY_PAIR",
+      "sides": {
+        "original": {
+          "document_sha256": "095c0e06dc4b0b1b034efe36c182a04894c9c48f0a0be1355a2e05d4a12f5b65",
+          "pdf_pages": 236,
+          "declared_pages": [
+            9
+          ],
+          "value_page_hits": {
+            "net_profit_parent": [
+              9
+            ],
+            "operating_cash_flow": [
+              9
+            ],
+            "total_assets": [
+              9
+            ]
+          },
+          "date_only_clock_pass": true,
+          "available_at": "2020-05-06T21:00:00+08:00",
+          "earliest_execution": "2020-05-07",
+          "rendered_review_page": 9,
+          "render_path": "F:\\QuantTrade\\Quant-Research\\work\\m4_data_review\\case1_original_page9.png"
+        },
+        "revision": {
+          "document_sha256": "329a767cc7cdbdc81cc7def0a90671aec58f0d0bfaead3acb9544ad8107aec58",
+          "pdf_pages": 10,
+          "declared_pages": [
+            2,
+            3
+          ],
+          "value_page_hits": {
+            "net_profit_parent": [
+              3
+            ],
+            "operating_cash_flow": [
+              3
+            ],
+            "total_assets": [
+              2,
+              3
+            ]
+          },
+          "date_only_clock_pass": true,
+          "available_at": "2025-01-02T21:00:00+08:00",
+          "earliest_execution": "2025-01-03",
+          "rendered_review_page": 3,
+          "render_path": "F:\\QuantTrade\\Quant-Research\\work\\m4_data_review\\case1_revision_page3.png",
+          "supplement_conflict_value_pages": {}
+        }
+      },
+      "conflicts": []
+    },
+    {
+      "case_id": "sz.000908_2023-12-31",
+      "case_status": "QUARANTINED_SOURCE_CONFLICT",
+      "sides": {
+        "original": {
+          "document_sha256": "1e6ad6b816e085723719c37b8c3fce1eb47f0dbca6a9ec57ff8829b913ef14d1",
+          "pdf_pages": 181,
+          "declared_pages": [
+            7,
+            8
+          ],
+          "value_page_hits": {
+            "net_profit_parent": [
+              7
+            ],
+            "operating_cash_flow": [
+              7
+            ],
+            "total_assets": [
+              8
+            ]
+          },
+          "date_only_clock_pass": true,
+          "available_at": "2024-05-06T21:00:00+08:00",
+          "earliest_execution": "2024-05-07",
+          "rendered_review_page": 7,
+          "render_path": "F:\\QuantTrade\\Quant-Research\\work\\m4_data_review\\case2_original_page7.png"
+        },
+        "revision": {
+          "document_sha256": "6d3759ac47e4586336ffc827da7eb869186176597d583df15eefe802e4b057a6",
+          "pdf_pages": 14,
+          "declared_pages": [
+            1,
+            2,
+            3,
+            8
+          ],
+          "value_page_hits": {
+            "net_profit_parent": [
+              1,
+              8
+            ],
+            "operating_cash_flow": [
+              1
+            ],
+            "total_assets": [
+              2,
+              3
+            ]
+          },
+          "date_only_clock_pass": true,
+          "available_at": "2025-01-02T21:00:00+08:00",
+          "earliest_execution": "2025-01-03",
+          "rendered_review_page": 1,
+          "render_path": "F:\\QuantTrade\\Quant-Research\\work\\m4_data_review\\case2_revision_page1.png",
+          "supplement_conflict_value_pages": {
+            "statement_value": [],
+            "correction_value": [
+              2
+            ]
+          }
+        }
+      },
+      "conflicts": [
+        {
+          "field": "net_profit_parent",
+          "statement_value": "-236100444.70",
+          "correction_value": "-236100444.69",
+          "difference_cny": "0.01",
+          "resolution": "UNRESOLVED; canonical revised field withheld"
+        }
+      ]
+    },
+    {
+      "case_id": "sh.600165_2022-12-31",
+      "case_status": "QUARANTINED_SOURCE_CONFLICT",
+      "sides": {
+        "original": {
+          "document_sha256": "9cf2e78f03160284afbc4484afc1add9a412410b8c1360abaf6679c6fb0cd7b3",
+          "pdf_pages": 168,
+          "declared_pages": [
+            6
+          ],
+          "value_page_hits": {
+            "net_profit_parent": [
+              6
+            ],
+            "operating_cash_flow": [
+              6
+            ],
+            "total_assets": [
+              6
+            ]
+          },
+          "date_only_clock_pass": true,
+          "available_at": "2023-05-04T21:00:00+08:00",
+          "earliest_execution": "2023-05-05",
+          "rendered_review_page": 6,
+          "render_path": "F:\\QuantTrade\\Quant-Research\\work\\m4_data_review\\case3_original_page6.png"
+        },
+        "revision": {
+          "document_sha256": "8892da6df0b5a67edcbb45dfd12c51c8c01ec45bf598e5b0cfb67e1ed968988b",
+          "pdf_pages": 169,
+          "declared_pages": [
+            6,
+            17,
+            76
+          ],
+          "value_page_hits": {
+            "net_profit_parent": [
+              6
+            ],
+            "operating_cash_flow": [
+              6,
+              76
+            ],
+            "total_assets": [
+              6
+            ]
+          },
+          "date_only_clock_pass": true,
+          "available_at": "2024-12-30T21:00:00+08:00",
+          "earliest_execution": "2024-12-31",
+          "rendered_review_page": 6,
+          "render_path": "F:\\QuantTrade\\Quant-Research\\work\\m4_data_review\\case3_revision_page6.png",
+          "supplement_conflict_value_pages": {
+            "statement_value": [],
+            "narrative_cashflow_table_value": []
+          }
+        }
+      },
+      "conflicts": [
+        {
+          "field": "operating_cash_flow",
+          "statement_value": "-33407119.79",
+          "narrative_cashflow_table_value": "53144180.21",
+          "statement_source_page": 76,
+          "conflict_source_page": 17,
+          "resolution": "UNRESOLVED internal revised-document conflict; canonical revised field withheld"
+        }
+      ]
+    },
+    {
+      "case_id": "sz.002857_2023-09-30",
+      "case_status": "COMPLETE_DOCUMENTARY_PAIR",
+      "sides": {
+        "original": {
+          "document_sha256": "9b57ae1e21bc1246d7acb7e044f7dca033ba93ba5055f92ad9b53951ed39da1d",
+          "pdf_pages": 11,
+          "declared_pages": [
+            2
+          ],
+          "value_page_hits": {
+            "net_profit_parent": [
+              2
+            ],
+            "operating_cash_flow": [
+              2
+            ],
+            "total_assets": [
+              2
+            ]
+          },
+          "date_only_clock_pass": true,
+          "available_at": "2023-10-27T21:00:00+08:00",
+          "earliest_execution": "2023-10-30",
+          "rendered_review_page": 2,
+          "render_path": "F:\\QuantTrade\\Quant-Research\\work\\m4_data_review\\case4_original_page2.png"
+        },
+        "revision": {
+          "document_sha256": "41d9370fd96d1860152079264f7a05448a6db7cc2c47b5e9dcda410037288e98",
+          "pdf_pages": 6,
+          "declared_pages": [
+            2,
+            3,
+            4
+          ],
+          "value_page_hits": {
+            "net_profit_parent": [
+              3
+            ],
+            "operating_cash_flow": [
+              3,
+              4
+            ],
+            "total_assets": [
+              2,
+              4
+            ]
+          },
+          "date_only_clock_pass": true,
+          "available_at": "2024-12-26T21:00:00+08:00",
+          "earliest_execution": "2024-12-27",
+          "rendered_review_page": 3,
+          "render_path": "F:\\QuantTrade\\Quant-Research\\work\\m4_data_review\\case4_revision_page3.png",
+          "supplement_conflict_value_pages": {}
+        }
+      },
+      "conflicts": []
+    },
+    {
+      "case_id": "sz.300632_2022-12-31",
+      "case_status": "COMPLETE_DOCUMENTARY_PAIR",
+      "sides": {
+        "original": {
+          "document_sha256": "bb3e11910fb404d087ff91a7297759919383c86a9b5389293486e3aea80dadb1",
+          "pdf_pages": 193,
+          "declared_pages": [
+            9
+          ],
+          "value_page_hits": {
+            "net_profit_parent": [
+              9
+            ],
+            "operating_cash_flow": [
+              9
+            ],
+            "total_assets": [
+              9
+            ]
+          },
+          "date_only_clock_pass": true,
+          "available_at": "2023-04-24T21:00:00+08:00",
+          "earliest_execution": "2023-04-25",
+          "rendered_review_page": 9,
+          "render_path": "F:\\QuantTrade\\Quant-Research\\work\\m4_data_review\\case5_original_page9.png"
+        },
+        "revision": {
+          "document_sha256": "38854296e87ba2d9df93a771122cdabbfb50eab51357eb6e64cac8d9ba0508f8",
+          "pdf_pages": 184,
+          "declared_pages": [
+            8
+          ],
+          "value_page_hits": {
+            "net_profit_parent": [
+              8
+            ],
+            "operating_cash_flow": [
+              8
+            ],
+            "total_assets": [
+              8
+            ]
+          },
+          "date_only_clock_pass": true,
+          "available_at": "2024-12-24T21:00:00+08:00",
+          "earliest_execution": "2024-12-25",
+          "rendered_review_page": 8,
+          "render_path": "F:\\QuantTrade\\Quant-Research\\work\\m4_data_review\\case5_revision_page8.png",
+          "supplement_conflict_value_pages": {}
+        }
+      },
+      "conflicts": [],
+      "unchanged_fields_correction_evidence_pages": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "case_id": "sz.300617_2021-06-30",
+      "case_status": "QUARANTINED_SOURCE_CONFLICT",
+      "sides": {
+        "original": {
+          "document_sha256": "f7342a7364bc932f82b44f785ff0be72f505600135e0d1d969a75c7589873475",
+          "pdf_pages": 193,
+          "declared_pages": [
+            8
+          ],
+          "value_page_hits": {
+            "net_profit_parent": [
+              8
+            ],
+            "operating_cash_flow": [
+              8
+            ],
+            "total_assets": [
+              8
+            ]
+          },
+          "date_only_clock_pass": true,
+          "available_at": "2021-08-19T21:00:00+08:00",
+          "earliest_execution": "2021-08-20",
+          "rendered_review_page": 8,
+          "render_path": "F:\\QuantTrade\\Quant-Research\\work\\m4_data_review\\case6_original_page8.png"
+        },
+        "revision": {
+          "document_sha256": "5a0d760214073f096d3c702c940a396e8d676c9d4284196c1ab96b5f8fca7049",
+          "pdf_pages": 144,
+          "declared_pages": [
+            2,
+            7,
+            22
+          ],
+          "value_page_hits": {
+            "net_profit_parent": [
+              7
+            ],
+            "operating_cash_flow": [
+              22
+            ],
+            "total_assets": [
+              2
+            ]
+          },
+          "date_only_clock_pass": true,
+          "available_at": "2024-12-13T21:00:00+08:00",
+          "earliest_execution": "2024-12-16",
+          "rendered_review_page": 2,
+          "render_path": "F:\\QuantTrade\\Quant-Research\\work\\m4_data_review\\case6_revision_page2.png",
+          "supplement_conflict_value_pages": {
+            "statement_value": [
+              3
+            ],
+            "correction_asset_row_value": [
+              3
+            ],
+            "correction_liabilities_equity_row_value": [
+              3
+            ]
+          }
+        }
+      },
+      "conflicts": [
+        {
+          "field": "total_assets",
+          "statement_value": "2936277134.72",
+          "correction_asset_row_value": "2936277134.73",
+          "correction_liabilities_equity_row_value": "2936277134.72",
+          "difference_cny": "0.01",
+          "resolution": "UNRESOLVED; canonical revised field withheld"
+        }
+      ]
+    },
+    {
+      "case_id": "sz.002729_2022-09-30",
+      "case_status": "COMPLETE_DOCUMENTARY_PAIR",
+      "sides": {
+        "original": {
+          "document_sha256": "0308a6eac3872bfb2d16abec315c9247a474bd0f4b712d0faf0b7777d3fb4b1c",
+          "pdf_pages": 13,
+          "declared_pages": [
+            2
+          ],
+          "value_page_hits": {
+            "net_profit_parent": [
+              2
+            ],
+            "operating_cash_flow": [
+              2
+            ],
+            "total_assets": [
+              2
+            ]
+          },
+          "date_only_clock_pass": true,
+          "available_at": "2022-11-01T21:00:00+08:00",
+          "earliest_execution": "2022-11-02",
+          "rendered_review_page": 2,
+          "render_path": "F:\\QuantTrade\\Quant-Research\\work\\m4_data_review\\case7_original_page2.png"
+        },
+        "revision": {
+          "document_sha256": "a05f255d53514d4e1e404583ba8ac1cdb0da18729a54ad6159781e93afdf7635",
+          "pdf_pages": 22,
+          "declared_pages": [
+            1
+          ],
+          "value_page_hits": {
+            "net_profit_parent": [
+              1
+            ],
+            "operating_cash_flow": [
+              1
+            ],
+            "total_assets": [
+              1
+            ]
+          },
+          "date_only_clock_pass": true,
+          "available_at": "2024-12-12T21:00:00+08:00",
+          "earliest_execution": "2024-12-13",
+          "rendered_review_page": 1,
+          "render_path": "F:\\QuantTrade\\Quant-Research\\work\\m4_data_review\\case7_revision_page1.png",
+          "supplement_conflict_value_pages": {}
+        }
+      },
+      "conflicts": []
+    }
+  ],
+  "page_text_files": [
+    "F:\\QuantTrade\\Quant-Research\\work\\m4_data_review\\case0_original_page6.txt",
+    "F:\\QuantTrade\\Quant-Research\\work\\m4_data_review\\case0_original_page7.txt",
+    "F:\\QuantTrade\\Quant-Research\\work\\m4_data_review\\case0_revision_page6.txt",
+    "F:\\QuantTrade\\Quant-Research\\work\\m4_data_review\\case1_original_page9.txt",
+    "F:\\QuantTrade\\Quant-Research\\work\\m4_data_review\\case1_revision_page2.txt",
+    "F:\\QuantTrade\\Quant-Research\\work\\m4_data_review\\case1_revision_page3.txt",
+    "F:\\QuantTrade\\Quant-Research\\work\\m4_data_review\\case2_original_page7.txt",
+    "F:\\QuantTrade\\Quant-Research\\work\\m4_data_review\\case2_original_page8.txt",
+    "F:\\QuantTrade\\Quant-Research\\work\\m4_data_review\\case2_revision_page1.txt",
+    "F:\\QuantTrade\\Quant-Research\\work\\m4_data_review\\case2_revision_page2.txt",
+    "F:\\QuantTrade\\Quant-Research\\work\\m4_data_review\\case2_revision_page3.txt",
+    "F:\\QuantTrade\\Quant-Research\\work\\m4_data_review\\case2_revision_page8.txt",
+    "F:\\QuantTrade\\Quant-Research\\work\\m4_data_review\\case3_original_page6.txt",
+    "F:\\QuantTrade\\Quant-Research\\work\\m4_data_review\\case3_revision_page6.txt",
+    "F:\\QuantTrade\\Quant-Research\\work\\m4_data_review\\case3_revision_page17.txt",
+    "F:\\QuantTrade\\Quant-Research\\work\\m4_data_review\\case3_revision_page76.txt",
+    "F:\\QuantTrade\\Quant-Research\\work\\m4_data_review\\case4_original_page2.txt",
+    "F:\\QuantTrade\\Quant-Research\\work\\m4_data_review\\case4_revision_page2.txt",
+    "F:\\QuantTrade\\Quant-Research\\work\\m4_data_review\\case4_revision_page3.txt",
+    "F:\\QuantTrade\\Quant-Research\\work\\m4_data_review\\case4_revision_page4.txt",
+    "F:\\QuantTrade\\Quant-Research\\work\\m4_data_review\\case5_original_page9.txt",
+    "F:\\QuantTrade\\Quant-Research\\work\\m4_data_review\\case5_revision_page8.txt",
+    "F:\\QuantTrade\\Quant-Research\\work\\m4_data_review\\case6_original_page8.txt",
+    "F:\\QuantTrade\\Quant-Research\\work\\m4_data_review\\case6_revision_page2.txt",
+    "F:\\QuantTrade\\Quant-Research\\work\\m4_data_review\\case6_revision_page7.txt",
+    "F:\\QuantTrade\\Quant-Research\\work\\m4_data_review\\case6_revision_page22.txt",
+    "F:\\QuantTrade\\Quant-Research\\work\\m4_data_review\\case7_original_page2.txt",
+    "F:\\QuantTrade\\Quant-Research\\work\\m4_data_review\\case7_revision_page1.txt"
+  ],
+  "source_hashes": {
+    "F:\\QuantTrade\\Quant-Research\\data\\raw_equity_admission\\http\\kangmei_original_2017_15b3b15df2dfd3310cc16e1e345e8950e8a9cb047bdad38d1263e2b55cfd2985.bin": "15b3b15df2dfd3310cc16e1e345e8950e8a9cb047bdad38d1263e2b55cfd2985",
+    "F:\\QuantTrade\\Quant-Research\\data\\raw_equity_admission\\http\\kangmei_2018_first_9f47aa0dc0a8838ffd21e600d7eca194052d91cf867d8e22a4ba56dee2b9f60a.bin": "9f47aa0dc0a8838ffd21e600d7eca194052d91cf867d8e22a4ba56dee2b9f60a",
+    "F:\\QuantTrade\\Quant-Research\\data\\raw_equity_admission\\http\\kangmei_revision_2019_ca22aa1858f56e2cd9181d15c88fde83312afb94701898a2de74c378c7c41bab.bin": "ca22aa1858f56e2cd9181d15c88fde83312afb94701898a2de74c378c7c41bab",
+    "F:\\QuantTrade\\Quant-Research\\data\\raw_m4_equity\\objects\\095c0e06dc4b0b1b034efe36c182a04894c9c48f0a0be1355a2e05d4a12f5b65.bin": "095c0e06dc4b0b1b034efe36c182a04894c9c48f0a0be1355a2e05d4a12f5b65",
+    "F:\\QuantTrade\\Quant-Research\\data\\raw_equity_admission\\http\\revision_candidate_002528_1222184404_329a767cc7cdbdc81cc7def0a90671aec58f0d0bfaead3acb9544ad8107aec58.bin": "329a767cc7cdbdc81cc7def0a90671aec58f0d0bfaead3acb9544ad8107aec58",
+    "F:\\QuantTrade\\Quant-Research\\data\\raw_m4_equity\\objects\\1e6ad6b816e085723719c37b8c3fce1eb47f0dbca6a9ec57ff8829b913ef14d1.bin": "1e6ad6b816e085723719c37b8c3fce1eb47f0dbca6a9ec57ff8829b913ef14d1",
+    "F:\\QuantTrade\\Quant-Research\\data\\raw_m4_equity\\objects\\6d3759ac47e4586336ffc827da7eb869186176597d583df15eefe802e4b057a6.bin": "6d3759ac47e4586336ffc827da7eb869186176597d583df15eefe802e4b057a6",
+    "F:\\QuantTrade\\Quant-Research\\data\\raw_equity_admission\\http\\revision_candidate_000908_1222181632_1d8f0a4e533ab4b59fe4decc94f02dbe89ac2eaeda85610a72de270b6a835673.bin": "1d8f0a4e533ab4b59fe4decc94f02dbe89ac2eaeda85610a72de270b6a835673",
+    "F:\\QuantTrade\\Quant-Research\\data\\raw_m4_equity\\objects\\9cf2e78f03160284afbc4484afc1add9a412410b8c1360abaf6679c6fb0cd7b3.bin": "9cf2e78f03160284afbc4484afc1add9a412410b8c1360abaf6679c6fb0cd7b3",
+    "F:\\QuantTrade\\Quant-Research\\data\\raw_m4_equity\\objects\\8892da6df0b5a67edcbb45dfd12c51c8c01ec45bf598e5b0cfb67e1ed968988b.bin": "8892da6df0b5a67edcbb45dfd12c51c8c01ec45bf598e5b0cfb67e1ed968988b",
+    "F:\\QuantTrade\\Quant-Research\\data\\raw_equity_admission\\http\\revision_candidate_600165_1222168010_1c92b2c73af2538b4785961e06ef2ac74da2bc9a5e67ca5aef863f4b66faf035.bin": "1c92b2c73af2538b4785961e06ef2ac74da2bc9a5e67ca5aef863f4b66faf035",
+    "F:\\QuantTrade\\Quant-Research\\data\\raw_m4_equity\\objects\\9b57ae1e21bc1246d7acb7e044f7dca033ba93ba5055f92ad9b53951ed39da1d.bin": "9b57ae1e21bc1246d7acb7e044f7dca033ba93ba5055f92ad9b53951ed39da1d",
+    "F:\\QuantTrade\\Quant-Research\\data\\raw_equity_admission\\http\\revision_candidate_002857_1222127532_41d9370fd96d1860152079264f7a05448a6db7cc2c47b5e9dcda410037288e98.bin": "41d9370fd96d1860152079264f7a05448a6db7cc2c47b5e9dcda410037288e98",
+    "F:\\QuantTrade\\Quant-Research\\data\\raw_m4_equity\\objects\\bb3e11910fb404d087ff91a7297759919383c86a9b5389293486e3aea80dadb1.bin": "bb3e11910fb404d087ff91a7297759919383c86a9b5389293486e3aea80dadb1",
+    "F:\\QuantTrade\\Quant-Research\\data\\raw_m4_equity\\objects\\38854296e87ba2d9df93a771122cdabbfb50eab51357eb6e64cac8d9ba0508f8.bin": "38854296e87ba2d9df93a771122cdabbfb50eab51357eb6e64cac8d9ba0508f8",
+    "F:\\QuantTrade\\Quant-Research\\data\\raw_equity_admission\\http\\revision_candidate_300632_1222115085_a30b2b7fa2f1494f1dc19eb32939a571ac5469babba16940d4a8c9c1c240fec3.bin": "a30b2b7fa2f1494f1dc19eb32939a571ac5469babba16940d4a8c9c1c240fec3",
+    "F:\\QuantTrade\\Quant-Research\\data\\raw_m4_equity\\objects\\f7342a7364bc932f82b44f785ff0be72f505600135e0d1d969a75c7589873475.bin": "f7342a7364bc932f82b44f785ff0be72f505600135e0d1d969a75c7589873475",
+    "F:\\QuantTrade\\Quant-Research\\data\\raw_m4_equity\\objects\\5a0d760214073f096d3c702c940a396e8d676c9d4284196c1ab96b5f8fca7049.bin": "5a0d760214073f096d3c702c940a396e8d676c9d4284196c1ab96b5f8fca7049",
+    "F:\\QuantTrade\\Quant-Research\\data\\raw_equity_admission\\http\\revision_candidate_300617_1222007360_26b2b13898fb2ec7f05cabc41c5d632c67af9f051e954cb3cf86f13b5f93f7e0.bin": "26b2b13898fb2ec7f05cabc41c5d632c67af9f051e954cb3cf86f13b5f93f7e0",
+    "F:\\QuantTrade\\Quant-Research\\data\\raw_m4_equity\\objects\\0308a6eac3872bfb2d16abec315c9247a474bd0f4b712d0faf0b7777d3fb4b1c.bin": "0308a6eac3872bfb2d16abec315c9247a474bd0f4b712d0faf0b7777d3fb4b1c",
+    "F:\\QuantTrade\\Quant-Research\\data\\raw_m4_equity\\objects\\a05f255d53514d4e1e404583ba8ac1cdb0da18729a54ad6159781e93afdf7635.bin": "a05f255d53514d4e1e404583ba8ac1cdb0da18729a54ad6159781e93afdf7635",
+    "F:\\QuantTrade\\Quant-Research\\data\\raw_equity_admission\\http\\revision_candidate_002729_1221981063_8702724777371322f3d277a926fe265ecc216bb41cb4ab9e255026536cff2f70.bin": "8702724777371322f3d277a926fe265ecc216bb41cb4ab9e255026536cff2f70"
+  },
+  "failures": [],
+  "rendered_pages": [
+    "F:\\QuantTrade\\Quant-Research\\work\\m4_data_review\\case0_original_page6.png",
+    "F:\\QuantTrade\\Quant-Research\\work\\m4_data_review\\case0_revision_page6.png",
+    "F:\\QuantTrade\\Quant-Research\\work\\m4_data_review\\case1_original_page9.png",
+    "F:\\QuantTrade\\Quant-Research\\work\\m4_data_review\\case1_revision_page3.png",
+    "F:\\QuantTrade\\Quant-Research\\work\\m4_data_review\\case2_original_page7.png",
+    "F:\\QuantTrade\\Quant-Research\\work\\m4_data_review\\case2_revision_page1.png",
+    "F:\\QuantTrade\\Quant-Research\\work\\m4_data_review\\case2_supplement_page2.png",
+    "F:\\QuantTrade\\Quant-Research\\work\\m4_data_review\\case3_original_page6.png",
+    "F:\\QuantTrade\\Quant-Research\\work\\m4_data_review\\case3_revision_page6.png",
+    "F:\\QuantTrade\\Quant-Research\\work\\m4_data_review\\case4_original_page2.png",
+    "F:\\QuantTrade\\Quant-Research\\work\\m4_data_review\\case4_revision_page3.png",
+    "F:\\QuantTrade\\Quant-Research\\work\\m4_data_review\\case5_original_page9.png",
+    "F:\\QuantTrade\\Quant-Research\\work\\m4_data_review\\case5_revision_page8.png",
+    "F:\\QuantTrade\\Quant-Research\\work\\m4_data_review\\case6_original_page8.png",
+    "F:\\QuantTrade\\Quant-Research\\work\\m4_data_review\\case6_revision_page2.png",
+    "F:\\QuantTrade\\Quant-Research\\work\\m4_data_review\\case6_supplement_page3.png",
+    "F:\\QuantTrade\\Quant-Research\\work\\m4_data_review\\case7_original_page2.png",
+    "F:\\QuantTrade\\Quant-Research\\work\\m4_data_review\\case7_revision_page1.png"
+  ],
+  "full_pool": {
+    "source_sha256": "b6b75e3564c4b601d8c4511b151009ee603ec5d5a73f9eba1e6da38a4d4fd78d",
+    "published_sha256": "0c19086243b883545fd0e7d4411530c475d996e580392a57a339eb998d1a7480",
+    "raw_security_rows": 4810,
+    "unfiltered_main_chinext_denominator": 3779,
+    "id_set_equal": true,
+    "st_counts": {
+      "0": 3567,
+      "1": 212
+    },
+    "trade_status_counts": {
+      "1": 3751,
+      "0": 28
+    },
+    "missing_critical_coverage_retained": true,
+    "size_denominator_not_fabricated": true,
+    "raw_daily_and_vendor_industry_join_rows_checked": 3779
+  },
+  "counts": {
+    "cases": 8,
+    "complete": 5,
+    "quarantined": 3,
+    "independent_human_reviews": 0
+  },
+  "status": "PASS_DOCUMENTARY_COVERAGE_AUDIT_ADMISSION_BLOCKED",
+  "reviewer": "/root/m4_frozen, independent of D collection/build author",
+  "review_type": "agent documentary/source review; independent human acceptance remains zero",
+  "visual_page_review": {
+    "primary_pairs": {
+      "Kangmei": {
+        "original": [
+          6,
+          7
+        ],
+        "revision": [
+          6
+        ]
+      },
+      "002528": {
+        "original": [
+          9
+        ],
+        "revision": [
+          2,
+          3
+        ]
+      },
+      "002857": {
+        "original": [
+          2
+        ],
+        "revision": [
+          2,
+          3,
+          4
+        ]
+      },
+      "300632": {
+        "original": [
+          9
+        ],
+        "revision": [
+          8
+        ]
+      },
+      "002729": {
+        "original": [
+          2
+        ],
+        "revision": [
+          1
+        ]
+      }
+    },
+    "quarantined": {
+      "000908": {
+        "original": [
+          7
+        ],
+        "revision": [
+          1
+        ],
+        "correction": [
+          2
+        ]
+      },
+      "600165": {
+        "original": [
+          6
+        ],
+        "revision": [
+          6,
+          17
+        ]
+      },
+      "300617": {
+        "original": [
+          8
+        ],
+        "revision": [
+          2,
+          7,
+          22
+        ],
+        "correction": [
+          3
+        ]
+      }
+    },
+    "full_pages_visually_inspected": 25,
+    "method": "Poppler110dpi complete-page PNGs, original/revision pair sheets, followed by additional full-page inspection. Other declared pages also text-checked."
+  },
+  "findings": [
+    {
+      "id": "D-REVIEW-001",
+      "severity": "documentation",
+      "status": "RESOLVED",
+      "case_id": "sh.600165_2022-12-31",
+      "finding": "Stale conflicting CFO is in revised PDF physical page17 but initial card pages6/76 omitted17.",
+      "repair": "Author added revision.pages=[6,17,76], statement_source_page76 and conflict_source_page17. Source values and quarantine unchanged.",
+      "verified": true
+    }
+  ],
+  "scope_checks": {
+    "48_reported_field_values_located_in_declared_pages": true,
+    "16_date_only_available_and_execution_clocks_match_calendar": true,
+    "parent_profit_not_total_profit": true,
+    "flow_fields_are_year_to_date_not_single_quarter": true,
+    "assets_are_period_end_stock": true,
+    "units_are_CNY_yuan": true,
+    "complete_documentary_cases_are_distinct_issuer_periods": true,
+    "300632_fields_unchanged_but_actual_revenue_revision_not_fabricated": true,
+    "conflicting_canonical_fields_withheld": true,
+    "all_human_reviews_zero": true,
+    "complete_chain_not_claimed": true,
+    "2025_dates_are_clock_only_no_market_observations": true,
+    "R2_R3_remain_blocked": true
+  },
+  "limits": [
+    "Reviewed the8 declared cases and their bound local documents, not an exhaustive first-release/intermediate/later revision search.",
+    "Current downloaded issuer originals support public-document reconstruction, not observed historical vendor first-seen; intraday time remains unknown.",
+    "Jan2/Jan3 2025 are calendar-only availability metadata for Dec31 2024 notices, not strategy or market-data access.",
+    "Provider full-date response denominator was independently reproduced; completeness against an independent exchange roster is still unverified.",
+    "Verified raw daily/vendor industry joins and missing critical-field preservation; did not independently parse all3,878 official industry-table codes or audit every intervening issuer industry event.",
+    "Normalized corporate-action/event collection and network-budget ledger are outside this financial/denominator review; root/other reviewers cover them.",
+    "No strategies, bootstrap, optimization, statistical hypothesis tests or admission release were performed."
+  ],
+  "binding": {
+    "reports\\m4_data\\financial_vintage_cases.json": "134f43b506fdca59bb54ccd05e63781510a5eb461b787772a31155af0b645fb5",
+    "reports\\m4_data\\coverage_summary.json": "64362b2c840a4ce34fb76346ce9f964b3790eb4b64af04c970d5bc9f171cd8f7",
+    "reports\\m4_data\\DATA_FEASIBILITY.md": "9b4591c42edcfcf867ab5153448f9aae237e90503e718906f540aab5dc2b1461",
+    "reports\\m4_data\\calendar_evidence.json": "c79fafdc4f37501d8adf276867cd0ef447beea1e2fd2c41b77421c1a9d0909ef",
+    "work\\m4_data_review\\review_sources.py": "a0d9f167ff2b86911f9e4a30813335cfc7685c98b9681922e2297eea88145b88"
+  }
+}

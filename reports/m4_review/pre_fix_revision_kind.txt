@@ -1,0 +1,18 @@
+F                                                                        [100%]
+================================== FAILURES ===================================
+_ test_unknown_explicit_revision_kind_cannot_silently_select_transition_semantics _
+
+    def test_unknown_explicit_revision_kind_cannot_silently_select_transition_semantics():
+        rows = [state("a", "2020-01-01", "2019-12-01T00:00:00+08:00"),
+                state("b", "2020-02-01", "2020-01-15T00:00:00+08:00",
+                      supersedes_id="a", revision_kind="CORRECTON")]
+        # Missing kind can use the established lifecycle inference. An explicit
+        # unrecognized kind cannot safely assert which supersession clock to use.
+        with pytest.raises(TemporalStateError):
+>           master_record(rows, "2020-01-20T00:00:00+08:00")
+E           Failed: DID NOT RAISE <class 'quant_research.temporal.TemporalStateError'>
+
+review_code\m4\test_external_independent.py:63: Failed
+=========================== short test summary info ===========================
+FAILED review_code/m4/test_external_independent.py::test_unknown_explicit_revision_kind_cannot_silently_select_transition_semantics
+1 failed in 1.03s

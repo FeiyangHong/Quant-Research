@@ -1,0 +1,15 @@
+{
+  "annual_volatility": 0.0,
+  "cagr": 0.0,
+  "economic_confirmation": "BLOCKED_HURDLE",
+  "max_drawdown": 0.0,
+  "max_drawdown_duration_sessions": 0,
+  "n_sessions": 726,
+  "research_scope": "R1I_FIXED_COHORT_V1",
+  "run_id": "0d55699d229af93d-20261115T152326673071Z",
+  "sharpe_zero_cash": null,
+  "status": "DAILY_SCREEN_ONLY",
+  "total_return": 0.0,
+  "warning": "Historical or synthetic simulation only; not realized account profit.",
+  "worst_day": 0.0
+}

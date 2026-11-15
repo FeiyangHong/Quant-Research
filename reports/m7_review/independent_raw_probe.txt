@@ -1,0 +1,62 @@
+{
+  "status": "PASS_RAW_AMOUNTS_AND_SOURCE_BOUNDARIES",
+  "raw_coverage": {
+    "sz.159936": {
+      "first": "2014-06-25",
+      "last": "2024-12-31",
+      "count": 2561,
+      "missing_sessions": 0
+    },
+    "sz.159938": {
+      "first": "2015-01-08",
+      "last": "2024-12-31",
+      "count": 2428,
+      "missing_sessions": 0
+    },
+    "sz.159939": {
+      "first": "2015-02-05",
+      "last": "2024-12-31",
+      "count": 2408,
+      "missing_sessions": 0
+    },
+    "sz.159940": {
+      "first": "2015-04-17",
+      "last": "2024-12-31",
+      "count": 2363,
+      "missing_sessions": 0
+    },
+    "sz.159944": {
+      "first": "2015-07-06",
+      "last": "2024-12-31",
+      "count": 2309,
+      "missing_sessions": 0
+    },
+    "sz.159945": {
+      "first": "2015-07-06",
+      "last": "2024-12-31",
+      "count": 2309,
+      "missing_sessions": 0
+    },
+    "sz.159946": {
+      "first": "2015-07-13",
+      "last": "2018-12-27",
+      "count": 847,
+      "missing_sessions": 0
+    }
+  },
+  "N_upper_bound_distribution": {
+    "0": 48,
+    "1": 20,
+    "2": 39
+  },
+  "raw_qualified_months": {
+    "sz.159936": 0,
+    "sz.159938": 51,
+    "sz.159939": 47,
+    "sz.159940": 0,
+    "sz.159944": 0,
+    "sz.159945": 0,
+    "sz.159946": 0
+  },
+  "dead_member_always_ineligible": true
+}

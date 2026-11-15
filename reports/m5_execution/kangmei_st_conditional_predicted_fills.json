@@ -1,0 +1,20 @@
+{
+  "status": "CONDITIONAL_UNVERIFIED_RULE_INPUTS",
+  "fills": [
+    {
+      "date": "2019-05-13",
+      "side": "BUY",
+      "quantity": 100,
+      "price": 5.78,
+      "fees": 5.01
+    },
+    {
+      "date": "2019-05-14",
+      "side": "BUY",
+      "quantity": 100,
+      "price": 5.6,
+      "fees": 5.01
+    }
+  ],
+  "not_actual_fills": true
+}

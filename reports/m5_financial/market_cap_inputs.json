@@ -1,0 +1,10 @@
+{
+  "records": [],
+  "dates": [
+    "2018-04-27",
+    "2023-10-27"
+  ],
+  "status": "BLOCKED_NO_PROVEN_SAME_DAY_SAME_SHARE_CLASS_CAP",
+  "reason": "No existing source proves both same-day price and matching complete capital classes at these cutoffs. Broader M5 market route uses2020-07-31 and cannot substitute. TOTAL_EQUITY tag, EPS inversion and current shares are not sufficient.",
+  "F02_F03_independent": true
+}
