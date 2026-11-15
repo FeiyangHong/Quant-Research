@@ -1,0 +1,108 @@
+{
+  "scope": "R1I_FIXED_COHORT_V1",
+  "registered_at": "2026-11-15T15:06:44.715023+00:00",
+  "cohort": [
+    "sz.159936",
+    "sz.159938",
+    "sz.159939",
+    "sz.159940",
+    "sz.159944",
+    "sz.159945",
+    "sz.159946"
+  ],
+  "sequence": [
+    "raw_amounts_identity_state",
+    "monthly_eligibility",
+    "necessary_TR_actions_exit_rights",
+    "independent_source_review",
+    "real_accounts"
+  ],
+  "http_estimate": {
+    "initial_listing_cohort_exit": 8,
+    "historical_all_titles": 50,
+    "necessary_annual_action_documents": 100,
+    "total": 158,
+    "reserve": 98
+  },
+  "sdk_estimate": {
+    "login_logout": 2,
+    "seven_histories": 7,
+    "estimated_extra_pages": 14,
+    "total": 23,
+    "reserve": 105
+  },
+  "bytes_estimate": 104857600,
+  "total_limits": {
+    "http": 256,
+    "sdk": 128,
+    "bytes": 268435456
+  },
+  "listings": [
+    {
+      "instrument_id": "sz.159936",
+      "title": "可选消费：上市交易公告书",
+      "publication_date": "2014-06-20",
+      "source_url": "https://disc.static.szse.cn/download/disc/disk01/finalpage/2014-06-20/150a938f-d045-44b3-af81-19b0790b07a6.PDF",
+      "capture_sha256": "7fed9cfd1ac61df92c8401320c1a8831ee9850b02d0020b02e0663316d390754",
+      "historical_scope_admitted": false
+    },
+    {
+      "instrument_id": "sz.159938",
+      "title": "广发医药：上市交易公告书",
+      "publication_date": "2015-01-05",
+      "source_url": "https://disc.static.szse.cn/download/disc/disk01/finalpage/2015-01-05/fc8e5078-5d16-4df1-aded-0d7b7ab9756a.PDF",
+      "capture_sha256": "0124f0df8b92daf852de97269f18e9f937ebc9a0eb9bec3c8961b598f4c4fec0",
+      "historical_scope_admitted": false
+    },
+    {
+      "instrument_id": "sz.159939",
+      "title": "信息技术：上市交易公告书",
+      "publication_date": "2015-02-02",
+      "source_url": "https://disc.static.szse.cn/download/disc/disk01/finalpage/2015-02-02/e4b12781-1c6e-4228-9b8f-bcf6989bb79f.PDF",
+      "capture_sha256": "0124f0df8b92daf852de97269f18e9f937ebc9a0eb9bec3c8961b598f4c4fec0",
+      "historical_scope_admitted": false
+    },
+    {
+      "instrument_id": "sz.159940",
+      "title": "全指金融：上市交易公告书",
+      "publication_date": "2015-04-14",
+      "source_url": "https://disc.static.szse.cn/download/disc/disk01/finalpage/2015-04-14/83b24cd6-c28c-4265-93e7-8cab9b536b30.PDF",
+      "capture_sha256": "0124f0df8b92daf852de97269f18e9f937ebc9a0eb9bec3c8961b598f4c4fec0",
+      "historical_scope_admitted": false
+    },
+    {
+      "instrument_id": "sz.159944",
+      "title": "全指材料：上市交易公告书",
+      "publication_date": "2015-07-01",
+      "source_url": "https://disc.static.szse.cn/download/disc/disk01/finalpage/2015-07-01/1452c45a-27a3-4030-b7dc-310ccc7de8da.PDF",
+      "capture_sha256": "e956faa8640f0ee6fa242f34f1a00ef4e8f2784704683c705162703918a440e8",
+      "historical_scope_admitted": false
+    },
+    {
+      "instrument_id": "sz.159945",
+      "title": "全指能源：上市交易公告书",
+      "publication_date": "2015-07-01",
+      "source_url": "https://disc.static.szse.cn/download/disc/disk01/finalpage/2015-07-01/7660e3fc-79a1-459c-951c-9a05d9dd78d3.PDF",
+      "capture_sha256": "e956faa8640f0ee6fa242f34f1a00ef4e8f2784704683c705162703918a440e8",
+      "historical_scope_admitted": false
+    },
+    {
+      "instrument_id": "sz.159946",
+      "title": "全指消费：上市交易公告书",
+      "publication_date": "2015-07-08",
+      "source_url": "https://disc.static.szse.cn/download/disc/disk01/finalpage/2015-07-08/1291b70a-07af-41c9-9bc1-6256d9555778.PDF",
+      "capture_sha256": "e956faa8640f0ee6fa242f34f1a00ef4e8f2784704683c705162703918a440e8",
+      "historical_scope_admitted": false
+    }
+  ],
+  "market_end": "2024-12-31",
+  "dead_member_history_end": "2018-12-27",
+  "reuse": [
+    "HS300TR2010_2024",
+    "exchange_calendar2010_2024",
+    "sz159940_original_listing",
+    "sz159946_2017_annual_and_titles"
+  ],
+  "limits_are_global_not_pilot": true,
+  "returns_inspected": false
+}
