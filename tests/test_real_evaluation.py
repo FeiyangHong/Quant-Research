@@ -202,7 +202,10 @@ def test_zero_hurdle_is_separate_exploratory_and_never_formal_confirmation():
     result = ev.inference_for_pair(candidate, candidate * 0)
     assert result["formal"]["status"] == "BLOCKED_HURDLE"
     assert result["formal"]["p_net"] is None
-    assert result["formal"]["ci95"] is None
+    # M7 separates descriptive uncertainty from the still-unknown fixed fee.
+    assert result["formal"]["descriptive_status"] == "DESCRIPTIVE_INFERENCE"
+    assert result["formal"]["economic_status"] == "BLOCKED_HURDLE"
+    assert result["formal"]["daily_hurdle"] is None
     diagnostic = result["exploratory_zero_hurdle"]
     assert diagnostic["status"] == "EXPLORATORY_ZERO_INCREMENTAL_COST_ASSUMPTION"
     assert diagnostic["annual_incremental_cost_assumed_cny"] == 0
@@ -211,6 +214,7 @@ def test_zero_hurdle_is_separate_exploratory_and_never_formal_confirmation():
     assert [r["block_length"] for r in diagnostic["blocks"]] == [60, 20, 120]
     assert all(r["repetitions"] == 5000 for r in diagnostic["blocks"])
     assert all(r["status"] == "DESCRIPTIVE_INFERENCE" for r in diagnostic["blocks"])
+    assert result["formal"]["ci95"] == diagnostic["blocks"][0]["ci95"]
 
 
 def test_incomplete_matrix_writes_no_provisional_results(tmp_path):

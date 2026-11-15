@@ -1,0 +1,62 @@
+{
+  "head": "da1003a5c783d9bf4cd86e56816637d7b3af79f9",
+  "python": "3.9.19 (main, May  6 2024, 20:12:36) [MSC v.1916 64 bit (AMD64)]",
+  "evaluation_sha256": "b7210f97019eee9a54639b4f8cc22c31e3cb83a1cc7effc002f373835e7bcb3e",
+  "synthetic_only": true,
+  "cases": {
+    "None": {
+      "n_dates": 360,
+      "block_length": 60,
+      "repetitions": 5000,
+      "seed": 20261114,
+      "mean_net_increment": 0.00015756549914317254,
+      "interval_type": "marginal_95_percent",
+      "method": "circular_block_bootstrap_t_HAC",
+      "status": "BLOCKED_HURDLE",
+      "p_net": null,
+      "ci95": null
+    },
+    "0": {
+      "n_dates": 360,
+      "block_length": 60,
+      "repetitions": 5000,
+      "seed": 20261114,
+      "mean_net_increment": 0.00015756549914317254,
+      "interval_type": "marginal_95_percent",
+      "method": "circular_block_bootstrap_t_HAC",
+      "daily_hurdle": 0.0,
+      "status": "DESCRIPTIVE_INFERENCE",
+      "hac_lag": 5,
+      "hac_se": 0.0002015070886508851,
+      "p_net": 0.23335332933413316,
+      "p_hac": 0.21712630882361528,
+      "ci95": [
+        -0.00026536964966635825,
+        0.0005809706507957048
+      ],
+      "minimum_detectable_daily_effect_80pct": 0.0005010423101478846,
+      "caveat": "Approximate under weak stationarity; short/nonstationary histories need caution."
+    },
+    "1000": {
+      "n_dates": 360,
+      "block_length": 60,
+      "repetitions": 5000,
+      "seed": 20261114,
+      "mean_net_increment": 0.00015756549914317254,
+      "interval_type": "marginal_95_percent",
+      "method": "circular_block_bootstrap_t_HAC",
+      "daily_hurdle": 3.968253968253968e-05,
+      "status": "DESCRIPTIVE_INFERENCE",
+      "hac_lag": 5,
+      "hac_se": 0.0002015070886508851,
+      "p_net": 0.29054189162167565,
+      "p_hac": 0.27927166841256246,
+      "ci95": [
+        -0.00026536964966635825,
+        0.0005809706507957048
+      ],
+      "minimum_detectable_daily_effect_80pct": 0.0005010423101478846,
+      "caveat": "Approximate under weak stationarity; short/nonstationary histories need caution."
+    }
+  }
+}

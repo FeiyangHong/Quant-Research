@@ -1,0 +1,55 @@
+{
+  "status": "PASS_SCOPED_NO_HOLDING_DEPENDENCY",
+  "reviewer": "M7 independent reviewer agent /root/m7_independent (not human signoff)",
+  "reviewed_at": "2026-11-15T15:20:10.820623+00:00",
+  "stage_manifest_sha256": "473e160beff935aef6b10fdac967214806acbe3f77f4c822ee918a73963e9bc6",
+  "source_files_checked": 102,
+  "table_files_checked": 5,
+  "raw_rows": 15225,
+  "title_counts": {
+    "sz.159936": 239,
+    "sz.159938": 256,
+    "sz.159939": 261,
+    "sz.159940": 247,
+    "sz.159944": 240,
+    "sz.159945": 240,
+    "sz.159946": 58
+  },
+  "legal_decisions": 107,
+  "model_qualified_N_distribution": {
+    "0": 48,
+    "1": 20,
+    "2": 39
+  },
+  "full_history_dependencies": [],
+  "audit_errors": [],
+  "pre_admission_blockers": [
+    "instruments: non-accepted records present",
+    "bars: non-accepted records present",
+    "benchmark: non-accepted records present",
+    "manifest: staging snapshot has not been admitted for research",
+    "evidence: source unverified",
+    "evidence: license unverified",
+    "evidence: calendar unverified",
+    "evidence: historical_coverage unverified",
+    "evidence: point_in_time unverified",
+    "evidence: lifecycle unverified",
+    "evidence: corporate_actions unverified",
+    "evidence: total_return unverified",
+    "evidence: historical_rules unverified",
+    "evidence: historical_fees unverified",
+    "evidence: account_permissions unverified",
+    "evidence: dual_source_reconciliation unverified"
+  ],
+  "qualifications": [
+    "Admission covers only32 registered all-cash paths starting with100000 and no positions; every legal decision has a raw liquidity/age upper bound below3.",
+    "Hypothetical ordinary domesticETF permissions are a stated research model, not observed personal broker permissions. Exact eligible counts have that model qualification.",
+    "No ETF TR, full action chain, liquidation cash timing, execution price, legal fee, or dual-source price completeness is certified. Those are unreachable under this hash-bound no-position dependency proof.",
+    "Empty actions is not a claim of no events:159938 has1:2 split in2022 and159946 terminates in2018; their account entitlements are zero by input proof.",
+    "All seven raw histories retained;159946847 lifetime sessions and zero eligible months independently proved. No current-survivor deletion or zero-recovery assumption.",
+    "Market-asof timing is the registered reconstructed close clock, not a vendor historical vintage guarantee.32 sub-one-yuan small-trade discrepancies retained; classification invariant under±1yuan.",
+    "Official source identity and calendar checks supplement one vendor amount history. The dual-source gate does not certify a second independent full market-price series.",
+    "Private local noncommercial source storage only; this review grants no redistribution or future live-trading permission.",
+    "If any snapshot, source, qualification, starting holding, or threshold changes, this attestation does not authorize a new holding dependency."
+  ]
+}

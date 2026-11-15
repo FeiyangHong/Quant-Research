@@ -319,27 +319,35 @@ def audit_dataset(dataset: Dataset) -> dict[str, Any]:
         numeric = bars[["open", "high", "low", "close", "volume", "amount", "upper_limit", "lower_limit", "total_return_index"]].apply(pd.to_numeric, errors="coerce")
         selection_only = pd.Series(False, index=bars.index)
         if "usage_scope" in bars:
-            if not bars.usage_scope.isin(["FULL_STRATEGY", "REPRESENTATIVE_SELECTION_ONLY"]).all():
+            cohort_scope = manifest.get("research_scope") == "R1I_FIXED_COHORT_V1"
+            scope = "COHORT_ELIGIBILITY_ONLY" if cohort_scope else "REPRESENTATIVE_SELECTION_ONLY"
+            if not bars.usage_scope.isin(["FULL_STRATEGY", scope]).all():
                 errors.append("bars: unknown dependency usage scope")
-            selection_only = bars.usage_scope.eq("REPRESENTATIVE_SELECTION_ONLY")
+            selection_only = bars.usage_scope.eq(scope)
             if manifest.get("schema_version") != SCHEMA_VERSION:
                 errors.append("bars: dependency scopes require schema r1-offline-1.2")
             try:
                 from .dependencies import representative_dependencies, required_tr_start
-                dependencies = representative_dependencies(dataset)
+                if cohort_scope:
+                    from .cohort import cohort_dependencies
+                    dependencies = cohort_dependencies(dataset)
+                else:
+                    dependencies = representative_dependencies(dataset)
                 required = set(dependencies["required_full_history_instruments"])
                 # A fixed pre-account warmup boundary is not a fund exclusion.
                 # Keep its raw selection/age inputs even when TR is not needed.
                 start = manifest.get("tr_coverage_start", calendar[0])
-                if _date_errors(pd.Series([start])) or start > required_tr_start(calendar):
+                if not cohort_scope and (_date_errors(pd.Series([start])) or start > required_tr_start(calendar)):
                     blockers.append("dependency: TR starts after the registered account warmup requires it")
-                scoped = set(bars.loc[selection_only & bars.date.ge(start), "instrument_id"])
+                scoped = set(bars.loc[selection_only if cohort_scope else selection_only & bars.date.ge(start), "instrument_id"])
                 if required & scoped:
-                    blockers.append("dependency: selected representative lacks full TR/event coverage: " + str(sorted(required & scoped)))
-                if manifest.get("representative_dependencies") != dependencies:
+                    label = "cohort ranking/holding product" if cohort_scope else "selected representative"
+                    blockers.append("dependency: " + label + " lacks full TR/event coverage: " + str(sorted(required & scoped)))
+                dependency_key = "cohort_dependencies" if cohort_scope else "representative_dependencies"
+                if manifest.get(dependency_key) != dependencies:
                     blockers.append("dependency: declared amount-only selection does not match independent recomputation")
             except (ValueError, TypeError, KeyError, AttributeError) as exc:
-                errors.append("dependency: unable to verify quarterly competition: " + str(exc))
+                errors.append("dependency: unable to verify " + ("fixed cohort qualification: " if cohort_scope else "quarterly competition: ") + str(exc))
         checked_numeric = numeric.copy()
         if "total_return_available_at" in bars:
             values = bars.loc[numeric.total_return_index.notna()]

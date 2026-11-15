@@ -1,0 +1,275 @@
+[
+  {
+    "instrument_id": "sz.159936",
+    "listed_on": "2014-06-25",
+    "announcement_date": "2014-06-20",
+    "published_at": "2014-06-20",
+    "publication_precision": "DATE_ONLY",
+    "available_at": "2014-06-23T21:00:00+08:00",
+    "source_url": "https://disc.static.szse.cn/download/disc/disk01/finalpage/2014-06-20/150a938f-d045-44b3-af81-19b0790b07a6.PDF",
+    "raw_object_hash": "3c1e081d59af5070fee3067eca55411ad79363d1f64da04d163cac67a7cfe6c5",
+    "source_sha256": "3c1e081d59af5070fee3067eca55411ad79363d1f64da04d163cac67a7cfe6c5",
+    "revision_id": "3c1e081d59af5070fee3067eca55411ad79363d1f64da04d163cac67a7cfe6c5",
+    "source_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m7\\objects\\3c1e081d59af5070fee3067eca55411ad79363d1f64da04d163cac67a7cfe6c5.bin",
+    "text_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m7\\text\\3c1e081d59af5070fee3067eca55411ad79363d1f64da04d163cac67a7cfe6c5.txt",
+    "benchmark_statements": [
+      {
+        "pdf_page": 3,
+        "statement": "标的指数简称:中证全指可选消费指数6、标的指数代码:0009897、2014年6月18日基金份额总额:838,156,094.00份8、2014年6月18日基金份额净值:1.00439、本次上市交易份额:838,156,094.00份10、上市交易的证券交易所:深圳证券交易所11、上市交易日期:2014年6月25日12、基金管理人:广发基金管理有限公司13、基金托管人:"
+      },
+      {
+        "pdf_page": 27,
+        "statement": "业绩比较基准;(8)基金推出新业务或服务;(9)按照中证指数有限公司的要求,根据指数使用许可协议的约定,变更标的指数许可使用费费率和计算方法;(10)按照法律法规和《基金合同》规定不需召开基金份额持有人大会的以外的其他情形。(二)会议召集人及召集方式1、除法律法规规定或《基金合同》另有约定外,基金份额持有人大会由基金管理人召集;2、基金管理人未按规定召集或不能召集时,由"
+      }
+    ],
+    "original_notice_title": "可选消费：",
+    "legal_fund_name": "广发中证全指可选消费交易型开放式指数证券投资基金",
+    "benchmark_id": null,
+    "benchmark_basis": "UNRESOLVED",
+    "original_statement_index_ids": [],
+    "benchmark_status": "ORIGINAL_NAME_CANDIDATE",
+    "is_final_version": false,
+    "is_correction": false,
+    "role": "ORIGINAL_PUBLIC_LISTING_NOTICE",
+    "raw_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m7\\objects\\3c1e081d59af5070fee3067eca55411ad79363d1f64da04d163cac67a7cfe6c5.bin",
+    "ingested_at": "2026-11-15T15:08:53.695061+00:00",
+    "exact_index_id": "000989",
+    "index_code_found_in_original": true,
+    "security_code_found_in_original": true,
+    "delisted_on": null
+  },
+  {
+    "instrument_id": "sz.159938",
+    "listed_on": "2015-01-08",
+    "announcement_date": "2015-01-05",
+    "published_at": "2015-01-05",
+    "publication_precision": "DATE_ONLY",
+    "available_at": "2015-01-06T21:00:00+08:00",
+    "source_url": "https://disc.static.szse.cn/download/disc/disk01/finalpage/2015-01-05/fc8e5078-5d16-4df1-aded-0d7b7ab9756a.PDF",
+    "raw_object_hash": "96185fbf519320344d220214ff1776c0689c66053912ff0ed31efec350fb2f97",
+    "source_sha256": "96185fbf519320344d220214ff1776c0689c66053912ff0ed31efec350fb2f97",
+    "revision_id": "96185fbf519320344d220214ff1776c0689c66053912ff0ed31efec350fb2f97",
+    "source_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m7\\objects\\96185fbf519320344d220214ff1776c0689c66053912ff0ed31efec350fb2f97.bin",
+    "text_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m7\\text\\96185fbf519320344d220214ff1776c0689c66053912ff0ed31efec350fb2f97.txt",
+    "benchmark_statements": [
+      {
+        "pdf_page": 3,
+        "statement": "标的指数简称:中证全指可选消费指数6、标的指数代码:0009917、2014年12月30日基金份额总额:473,283,618.00份8、2014年12月30日基金份额净值:0.99799、本次上市交易份额:473,283,618.00份10、上市交易的证券交易所:深圳证券交易所11、上市交易日期:2015年1月8日12、基金管理人:广发基金管理有限公司13、基金托管人"
+      },
+      {
+        "pdf_page": 26,
+        "statement": "业绩比较基准;(8)基金推出新业务或服务;(9)按照中证指数有限公司的要求,根据指数使用许可协议的约定,变更标的指数许可使用费费率和计算方法;(10)按照法律法规和《基金合同》规定不需召开基金份额持有人大会的以外的其他情形。(二)会议召集人及召集方式1、除法律法规规定或《基金合同》另有约定外,基金份额持有人大会由基金管理人召集;2、基金管理人未按规定召集或不能召集时,由"
+      }
+    ],
+    "original_notice_title": "广发医药：",
+    "legal_fund_name": "广发中证全指医药卫生交易型开放式指数证券投资基金",
+    "benchmark_id": null,
+    "benchmark_basis": "UNRESOLVED",
+    "original_statement_index_ids": [],
+    "benchmark_status": "ORIGINAL_NAME_CANDIDATE",
+    "is_final_version": false,
+    "is_correction": false,
+    "role": "ORIGINAL_PUBLIC_LISTING_NOTICE",
+    "raw_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m7\\objects\\96185fbf519320344d220214ff1776c0689c66053912ff0ed31efec350fb2f97.bin",
+    "ingested_at": "2026-11-15T15:08:53.921805+00:00",
+    "exact_index_id": "000991",
+    "index_code_found_in_original": true,
+    "security_code_found_in_original": true,
+    "delisted_on": null
+  },
+  {
+    "instrument_id": "sz.159939",
+    "listed_on": "2015-02-05",
+    "announcement_date": "2015-02-02",
+    "published_at": "2015-02-02",
+    "publication_precision": "DATE_ONLY",
+    "available_at": "2015-02-03T21:00:00+08:00",
+    "source_url": "https://disc.static.szse.cn/download/disc/disk01/finalpage/2015-02-02/e4b12781-1c6e-4228-9b8f-bcf6989bb79f.PDF",
+    "raw_object_hash": "667e05fa5925d322b2a260127c5daa70fdfe678ad702864c73cf9e154fbdfafa",
+    "source_sha256": "667e05fa5925d322b2a260127c5daa70fdfe678ad702864c73cf9e154fbdfafa",
+    "revision_id": "667e05fa5925d322b2a260127c5daa70fdfe678ad702864c73cf9e154fbdfafa",
+    "source_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m7\\objects\\667e05fa5925d322b2a260127c5daa70fdfe678ad702864c73cf9e154fbdfafa.bin",
+    "text_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m7\\text\\667e05fa5925d322b2a260127c5daa70fdfe678ad702864c73cf9e154fbdfafa.txt",
+    "benchmark_statements": [
+      {
+        "pdf_page": 3,
+        "statement": "标的指数简称:中证全指信息技术指数6、标的指数代码:0009937、2015年1月29日基金份额总额:354,828,053.00份8、2015年1月29日基金份额净值:1.00119、本次上市交易份额:354,828,053.00份10、上市交易的证券交易所:深圳证券交易所11、上市交易日期:2015年2月5日12、基金管理人:广发基金管理有限公司13、基金托管人:中"
+      },
+      {
+        "pdf_page": 26,
+        "statement": "业绩比较基准;(8)基金推出新业务或服务;(9)按照中证指数有限公司的要求,根据指数使用许可协议的约定,变更标的指数许可使用费费率和计算方法;(10)在不违反法律法规的情况下,调整基金的申购赎回方式及申购对价、赎回对价组成;(11)在不违反法律法规的情况下,调整基金份额净值、申购赎回清单的计算和公告时间或频率;(12)按照法律法规和《基金合同》规定不需召开基金份额持有人"
+      }
+    ],
+    "original_notice_title": "信息技术：",
+    "legal_fund_name": "广发中证全指信息技术交易型开放式指数证券投资基金",
+    "benchmark_id": null,
+    "benchmark_basis": "UNRESOLVED",
+    "original_statement_index_ids": [],
+    "benchmark_status": "ORIGINAL_NAME_CANDIDATE",
+    "is_final_version": false,
+    "is_correction": false,
+    "role": "ORIGINAL_PUBLIC_LISTING_NOTICE",
+    "raw_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m7\\objects\\667e05fa5925d322b2a260127c5daa70fdfe678ad702864c73cf9e154fbdfafa.bin",
+    "ingested_at": "2026-11-15T15:08:54.202553+00:00",
+    "exact_index_id": "000993",
+    "index_code_found_in_original": true,
+    "security_code_found_in_original": true,
+    "delisted_on": null
+  },
+  {
+    "instrument_id": "sz.159940",
+    "listed_on": "2015-04-17",
+    "announcement_date": "2015-04-14",
+    "published_at": "2015-04-14",
+    "publication_precision": "DATE_ONLY",
+    "available_at": "2015-04-15T21:00:00+08:00",
+    "source_url": "https://static.cninfo.com.cn/finalpage/2015-04-14/1200828055.PDF",
+    "raw_object_hash": "dabf087d41c9581dd4d8497e2f37f3ddf34220cb7ae8960e372524fe678060c3",
+    "source_sha256": "dabf087d41c9581dd4d8497e2f37f3ddf34220cb7ae8960e372524fe678060c3",
+    "revision_id": "dabf087d41c9581dd4d8497e2f37f3ddf34220cb7ae8960e372524fe678060c3",
+    "source_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m6\\objects\\dabf087d41c9581dd4d8497e2f37f3ddf34220cb7ae8960e372524fe678060c3.bin",
+    "text_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m7\\text\\dabf087d41c9581dd4d8497e2f37f3ddf34220cb7ae8960e372524fe678060c3.txt",
+    "benchmark_statements": [
+      {
+        "pdf_page": 3,
+        "statement": "标的指数简称:中证全指金融地产指数6、标的指数代码:0009927、2015年4月10日基金份额总额:579,059,983.00份8、2015年4月10日基金份额净值:1.00159、本次上市交易份额:579,059,983.00份10、上市交易的证券交易所:深圳证券交易所11、上市交易日期:2015年4月17日12、基金管理人:广发基金管理有限公司13、基金托管人:"
+      },
+      {
+        "pdf_page": 26,
+        "statement": "业绩比较基准;24"
+      }
+    ],
+    "original_notice_title": "全指金融：",
+    "legal_fund_name": "广发中证全指金融地产交易型开放式指数证券投资基金",
+    "benchmark_id": null,
+    "benchmark_basis": "UNRESOLVED",
+    "original_statement_index_ids": [],
+    "benchmark_status": "ORIGINAL_NAME_CANDIDATE",
+    "is_final_version": false,
+    "is_correction": false,
+    "role": "ORIGINAL_PUBLIC_LISTING_NOTICE",
+    "raw_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m6\\objects\\dabf087d41c9581dd4d8497e2f37f3ddf34220cb7ae8960e372524fe678060c3.bin",
+    "ingested_at": "2026-11-15T13:09:06.422215+00:00",
+    "exact_index_id": "000992",
+    "index_code_found_in_original": true,
+    "security_code_found_in_original": true,
+    "delisted_on": null
+  },
+  {
+    "instrument_id": "sz.159944",
+    "listed_on": "2015-07-06",
+    "announcement_date": "2015-07-01",
+    "published_at": "2015-07-01",
+    "publication_precision": "DATE_ONLY",
+    "available_at": "2015-07-02T21:00:00+08:00",
+    "source_url": "https://disc.static.szse.cn/download/disc/disk01/finalpage/2015-07-01/1452c45a-27a3-4030-b7dc-310ccc7de8da.PDF",
+    "raw_object_hash": "d5f8b186c19330dbab128ebb9a91002a24cbda6ccefc33ca8faa3377dda0c187",
+    "source_sha256": "d5f8b186c19330dbab128ebb9a91002a24cbda6ccefc33ca8faa3377dda0c187",
+    "revision_id": "d5f8b186c19330dbab128ebb9a91002a24cbda6ccefc33ca8faa3377dda0c187",
+    "source_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m7\\objects\\d5f8b186c19330dbab128ebb9a91002a24cbda6ccefc33ca8faa3377dda0c187.bin",
+    "text_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m7\\text\\d5f8b186c19330dbab128ebb9a91002a24cbda6ccefc33ca8faa3377dda0c187.txt",
+    "benchmark_statements": [
+      {
+        "pdf_page": 3,
+        "statement": "标的指数简称:中证全指原材料指数6、标的指数代码:0009877、2015年6月29日基金份额总额:281,608,342.00份8、2015年6月29日基金份额净值:0.99629、本次上市交易份额:281,608,342.00份10、上市交易的证券交易所:深圳证券交易所11、上市交易日期:2015年7月6日12、基金管理人:广发基金管理有限公司13、基金托管人:中国"
+      },
+      {
+        "pdf_page": 27,
+        "statement": "业绩比较基准;(8)基金推出新业务或服务;(9)按照中证指数有限公司的要求,根据指数使用许可协议的约定,变更标的指数许25"
+      }
+    ],
+    "original_notice_title": "全指材料：",
+    "legal_fund_name": "广发中证全指原材料交易型开放式指数证券投资基金",
+    "benchmark_id": null,
+    "benchmark_basis": "UNRESOLVED",
+    "original_statement_index_ids": [],
+    "benchmark_status": "ORIGINAL_NAME_CANDIDATE",
+    "is_final_version": false,
+    "is_correction": false,
+    "role": "ORIGINAL_PUBLIC_LISTING_NOTICE",
+    "raw_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m7\\objects\\d5f8b186c19330dbab128ebb9a91002a24cbda6ccefc33ca8faa3377dda0c187.bin",
+    "ingested_at": "2026-11-15T15:08:54.533687+00:00",
+    "exact_index_id": "000987",
+    "index_code_found_in_original": true,
+    "security_code_found_in_original": true,
+    "delisted_on": null
+  },
+  {
+    "instrument_id": "sz.159945",
+    "listed_on": "2015-07-06",
+    "announcement_date": "2015-07-01",
+    "published_at": "2015-07-01",
+    "publication_precision": "DATE_ONLY",
+    "available_at": "2015-07-02T21:00:00+08:00",
+    "source_url": "https://disc.static.szse.cn/download/disc/disk01/finalpage/2015-07-01/7660e3fc-79a1-459c-951c-9a05d9dd78d3.PDF",
+    "raw_object_hash": "55758a2eb78ee9a61990a56e939cd3f03d1e6358035f929c335c55b0105056df",
+    "source_sha256": "55758a2eb78ee9a61990a56e939cd3f03d1e6358035f929c335c55b0105056df",
+    "revision_id": "55758a2eb78ee9a61990a56e939cd3f03d1e6358035f929c335c55b0105056df",
+    "source_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m7\\objects\\55758a2eb78ee9a61990a56e939cd3f03d1e6358035f929c335c55b0105056df.bin",
+    "text_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m7\\text\\55758a2eb78ee9a61990a56e939cd3f03d1e6358035f929c335c55b0105056df.txt",
+    "benchmark_statements": [
+      {
+        "pdf_page": 3,
+        "statement": "标的指数简称:中证全指能源指数6、标的指数代码:0009867、2015年6月29日基金份额总额:272,572,327.00份8、2015年6月29日基金份额净值:0.99849、本次上市交易份额:272,572,327.00份10、上市交易的证券交易所:深圳证券交易所11、上市交易日期:2015年7月6日12、基金管理人:广发基金管理有限公司13、基金托管人:中国银"
+      },
+      {
+        "pdf_page": 27,
+        "statement": "业绩比较基准;(8)基金推出新业务或服务;(9)按照中证指数有限公司的要求,根据指数使用许可协议的约定,变更标的指数许25"
+      }
+    ],
+    "original_notice_title": "全指能源：",
+    "legal_fund_name": "广发中证全指能源交易型开放式指数证券投资基金",
+    "benchmark_id": null,
+    "benchmark_basis": "UNRESOLVED",
+    "original_statement_index_ids": [],
+    "benchmark_status": "ORIGINAL_NAME_CANDIDATE",
+    "is_final_version": false,
+    "is_correction": false,
+    "role": "ORIGINAL_PUBLIC_LISTING_NOTICE",
+    "raw_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m7\\objects\\55758a2eb78ee9a61990a56e939cd3f03d1e6358035f929c335c55b0105056df.bin",
+    "ingested_at": "2026-11-15T15:08:54.799164+00:00",
+    "exact_index_id": "000986",
+    "index_code_found_in_original": true,
+    "security_code_found_in_original": true,
+    "delisted_on": null
+  },
+  {
+    "instrument_id": "sz.159946",
+    "listed_on": "2015-07-13",
+    "announcement_date": "2015-07-08",
+    "published_at": "2015-07-08",
+    "publication_precision": "DATE_ONLY",
+    "available_at": "2015-07-09T21:00:00+08:00",
+    "source_url": "https://disc.static.szse.cn/download/disc/disk01/finalpage/2015-07-08/1291b70a-07af-41c9-9bc1-6256d9555778.PDF",
+    "raw_object_hash": "d293ae288442cb7860c7f3695c57c95f6cd848e839379481ec1fa41132075929",
+    "source_sha256": "d293ae288442cb7860c7f3695c57c95f6cd848e839379481ec1fa41132075929",
+    "revision_id": "d293ae288442cb7860c7f3695c57c95f6cd848e839379481ec1fa41132075929",
+    "source_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m7\\objects\\d293ae288442cb7860c7f3695c57c95f6cd848e839379481ec1fa41132075929.bin",
+    "text_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m7\\text\\d293ae288442cb7860c7f3695c57c95f6cd848e839379481ec1fa41132075929.txt",
+    "benchmark_statements": [
+      {
+        "pdf_page": 3,
+        "statement": "标的指数简称:中证全指主要消费指数6、标的指数代码:0009907、2015年7月6日基金份额总额:255,315,634.00份8、2015年7月6日基金份额净值:0.99999、本次上市交易份额:255,315,634.00份10、上市交易的证券交易所:深圳证券交易所11、上市交易日期:2015年7月13日12、基金管理人:广发基金管理有限公司13、基金托管人:中国"
+      },
+      {
+        "pdf_page": 27,
+        "statement": "业绩比较基准;(8)基金推出新业务或服务;(9)按照中证指数有限公司的要求,根据指数使用许可协议的约定,变更标的指数许25"
+      }
+    ],
+    "original_notice_title": "全指消费：",
+    "legal_fund_name": "广发中证全指主要消费交易型开放式指数证券投资基金",
+    "benchmark_id": null,
+    "benchmark_basis": "UNRESOLVED",
+    "original_statement_index_ids": [],
+    "benchmark_status": "ORIGINAL_NAME_CANDIDATE",
+    "is_final_version": false,
+    "is_correction": false,
+    "role": "ORIGINAL_PUBLIC_LISTING_NOTICE",
+    "raw_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m7\\objects\\d293ae288442cb7860c7f3695c57c95f6cd848e839379481ec1fa41132075929.bin",
+    "ingested_at": "2026-11-15T15:08:55.058721+00:00",
+    "exact_index_id": "000990",
+    "index_code_found_in_original": true,
+    "security_code_found_in_original": true,
+    "delisted_on": "2018-12-28"
+  }
+]

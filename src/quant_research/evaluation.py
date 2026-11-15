@@ -57,24 +57,31 @@ def paired_inference(candidate: pd.Series, baseline: pd.Series, *, annual_increm
     result = {"n_dates": len(d), "block_length": block_length, "repetitions": repetitions,
               "seed": seed, "mean_net_increment": float(d.mean()) if len(d) else None,
               "interval_type": "marginal_95_percent", "method": "circular_block_bootstrap_t_HAC"}
-    if annual_incremental_cost is None:
-        return dict(result, status="BLOCKED_HURDLE", p_net=None, ci95=None)
-    if (isinstance(annual_incremental_cost, bool) or not isinstance(annual_incremental_cost, (int, float))
+    if annual_incremental_cost is not None and (
+            isinstance(annual_incremental_cost, bool) or not isinstance(annual_incremental_cost, (int, float))
             or not math.isfinite(annual_incremental_cost) or annual_incremental_cost < 0):
         raise ValueError("Incremental cost must be finite and nonnegative")
-    h = annual_incremental_cost / (primary_capital * 252)
-    if not math.isfinite(h):
+    h = None if annual_incremental_cost is None else annual_incremental_cost / (primary_capital * 252)
+    if h is not None and not math.isfinite(h):
         raise ValueError("Economic hurdle must be finite")
-    result["daily_hurdle"] = h
+    result.update(annual_incremental_cost=annual_incremental_cost, daily_hurdle=h,
+                  p_net=None, p_hac=None, ci95=None,
+                  economic_status="BLOCKED_HURDLE" if h is None else "HURDLE_SPECIFIED")
+
+    def finish(descriptive_status, **values):
+        # Unknown fixed fees block economic confirmation, never the descriptive
+        # interval of the supplied transaction-cost-net paired returns.
+        return dict(result, status="BLOCKED_HURDLE" if h is None else descriptive_status,
+                    descriptive_status=descriptive_status, **values)
+
     n = len(d)
     if n < max(120, 2 * block_length):
-        return dict(result, status="INCONCLUSIVE_SHORT_SAMPLE", p_net=None, ci95=None)
+        return finish("INCONCLUSIVE_SHORT_SAMPLE")
     lag = max(1, int(4 * (n / 100) ** (2 / 9)))
     se = float(_hac_se(d, lag)[0])
     if se <= 1e-15:
-        return dict(result, status="INCONCLUSIVE_DEGENERATE", p_net=None, ci95=None)
+        return finish("INCONCLUSIVE_DEGENERATE")
     centered = d - d.mean()  # null bootstrap: E[d*] = h, so E[d*-h] = 0
-    observed_t = (float(d.mean()) - h) / se
     rng = np.random.default_rng(seed)
     statistics = []
     for start in range(0, repetitions, 128):
@@ -84,13 +91,15 @@ def paired_inference(candidate: pd.Series, baseline: pd.Series, *, annual_increm
         sample = centered[indices]
         sample_se = _hac_se(sample, lag)
         if (sample_se <= 1e-15).any():
-            return dict(result, status="INCONCLUSIVE_DEGENERATE_BOOTSTRAP", p_net=None, ci95=None)
+            return finish("INCONCLUSIVE_DEGENERATE_BOOTSTRAP")
         statistics.extend(sample.mean(axis=1) / sample_se)
     t = np.asarray(statistics)
     lower, upper = np.quantile(t, [0.025, 0.975])
-    return dict(result, status="DESCRIPTIVE_INFERENCE", hac_lag=lag, hac_se=se,
-                p_net=float((1 + (t >= observed_t).sum()) / (repetitions + 1)),
-                p_hac=float(norm.sf(observed_t)),
+    if h is not None:
+        observed_t = (float(d.mean()) - h) / se
+        result.update(p_net=float((1 + (t >= observed_t).sum()) / (repetitions + 1)),
+                      p_hac=float(norm.sf(observed_t)))
+    return finish("DESCRIPTIVE_INFERENCE", hac_lag=lag, hac_se=se,
                 ci95=[float(d.mean() - upper * se), float(d.mean() - lower * se)],
                 minimum_detectable_daily_effect_80pct=float((norm.ppf(.95) + norm.ppf(.8)) * se),
                 caveat="Approximate under weak stationarity; short/nonstationary histories need caution.")

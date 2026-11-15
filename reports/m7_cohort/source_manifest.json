@@ -1,0 +1,625 @@
+{
+  "scope": "R1I_FIXED_COHORT_V1",
+  "stage": "F:\\QuantTrade\\Quant-Research\\data\\m7_fixed_cohort\\stage_v1",
+  "stage_manifest_sha256": "473e160beff935aef6b10fdac967214806acbe3f77f4c822ee918a73963e9bc6",
+  "sources": [
+    {
+      "repository_path": "configs/r1_build_policy.json",
+      "local_path": "F:\\QuantTrade\\Quant-Research\\configs\\r1_build_policy.json",
+      "sha256": "be5c0acb71ab795ff8b425ea33b96620c69174c085635ad865030ef048696e29",
+      "available_locally": true
+    },
+    {
+      "repository_path": "data/admitted_r1/phase2_v1/validation/benchmark.json",
+      "local_path": "F:\\QuantTrade\\Quant-Research\\data\\admitted_r1\\phase2_v1\\validation\\benchmark.json",
+      "sha256": "cf17a0eb9c864901a2cce36df86ef1cc207850976da8a32323d514f1d626d560",
+      "available_locally": true
+    },
+    {
+      "repository_path": "data/normalized_csi/h00300_2010_2024_v1/calendar_audit.json",
+      "local_path": "F:\\QuantTrade\\Quant-Research\\data\\normalized_csi\\h00300_2010_2024_v1\\calendar_audit.json",
+      "sha256": "af6250907867febbe8fcd4447dba4f82af51e9f07f96833df752e817e6cbafbe",
+      "available_locally": true
+    },
+    {
+      "repository_path": "data/normalized_csi/h00300_2010_2024_v1/calendar_evidence/calendar_query.json",
+      "local_path": "F:\\QuantTrade\\Quant-Research\\data\\normalized_csi\\h00300_2010_2024_v1\\calendar_evidence\\calendar_query.json",
+      "sha256": "3ff74ef8ad46297ebb6e7144d222f7fab1c905fa9ffd7d0109fa7895e52129e5",
+      "available_locally": true
+    },
+    {
+      "repository_path": "data/normalized_csi/h00300_2010_2024_v1/calendar_evidence/manifests/6c53baad9d880219_fba4a743f5.json",
+      "local_path": "F:\\QuantTrade\\Quant-Research\\data\\normalized_csi\\h00300_2010_2024_v1\\calendar_evidence\\manifests\\6c53baad9d880219_fba4a743f5.json",
+      "sha256": "fc77f9dde9fd1dfd63e052acec0c4ec4d4819aaf1696f2bf56c79972b2ef257b",
+      "available_locally": true
+    },
+    {
+      "repository_path": "data/normalized_csi/h00300_2010_2024_v1/calendar_evidence/raw/6c53baad9d880219_fba4a743f5_a0_7fec5437b0119b4c1323734c9d47b98dbd08b8fd07357f58a669532486109ce4.json",
+      "local_path": "F:\\QuantTrade\\Quant-Research\\data\\normalized_csi\\h00300_2010_2024_v1\\calendar_evidence\\raw\\6c53baad9d880219_fba4a743f5_a0_7fec5437b0119b4c1323734c9d47b98dbd08b8fd07357f58a669532486109ce4.json",
+      "sha256": "7fec5437b0119b4c1323734c9d47b98dbd08b8fd07357f58a669532486109ce4",
+      "available_locally": true
+    },
+    {
+      "repository_path": "data/normalized_csi/h00300_2010_2024_v1/calendar_evidence/raw/6c53baad9d880219_fba4a743f5_a1_00ea4bd4d692d85808180cd9884c9ab9b85777cbae6ae197bfd08873cec626fe.json",
+      "local_path": "F:\\QuantTrade\\Quant-Research\\data\\normalized_csi\\h00300_2010_2024_v1\\calendar_evidence\\raw\\6c53baad9d880219_fba4a743f5_a1_00ea4bd4d692d85808180cd9884c9ab9b85777cbae6ae197bfd08873cec626fe.json",
+      "sha256": "00ea4bd4d692d85808180cd9884c9ab9b85777cbae6ae197bfd08873cec626fe",
+      "available_locally": true
+    },
+    {
+      "repository_path": "data/normalized_csi/h00300_2010_2024_v1/excluded_non_sessions.json",
+      "local_path": "F:\\QuantTrade\\Quant-Research\\data\\normalized_csi\\h00300_2010_2024_v1\\excluded_non_sessions.json",
+      "sha256": "353dc174bb8b83a32911b588b319485a211769f8afc6fe6ab3df6f933375510e",
+      "available_locally": true
+    },
+    {
+      "repository_path": "data/normalized_csi/h00300_2010_2024_v1/manifest.json",
+      "local_path": "F:\\QuantTrade\\Quant-Research\\data\\normalized_csi\\h00300_2010_2024_v1\\manifest.json",
+      "sha256": "e4e49868d86ba8af4b0b62bf29230f3a2afb6913dc4f7df171040ce51e48bca8",
+      "available_locally": true
+    },
+    {
+      "repository_path": "data/normalized_csi/h00300_2010_2024_v1/observations.json",
+      "local_path": "F:\\QuantTrade\\Quant-Research\\data\\normalized_csi\\h00300_2010_2024_v1\\observations.json",
+      "sha256": "31e60dcc7ec79152a8b01e0f31289113eb7c1c7777a807bbe143c245e2b64f69",
+      "available_locally": true
+    },
+    {
+      "repository_path": "data/normalized_csi/h00300_2010_2024_v1/raw/csi_h00300.payload",
+      "local_path": "F:\\QuantTrade\\Quant-Research\\data\\normalized_csi\\h00300_2010_2024_v1\\raw\\csi_h00300.payload",
+      "sha256": "5da9fa598ba64ab3a341c4616f6588d8fbcd2da8b9ae42637d558e563eec6d79",
+      "available_locally": true
+    },
+    {
+      "repository_path": "data/raw_m6/objects/dabf087d41c9581dd4d8497e2f37f3ddf34220cb7ae8960e372524fe678060c3.bin",
+      "local_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m6\\objects\\dabf087d41c9581dd4d8497e2f37f3ddf34220cb7ae8960e372524fe678060c3.bin",
+      "sha256": "dabf087d41c9581dd4d8497e2f37f3ddf34220cb7ae8960e372524fe678060c3",
+      "available_locally": true
+    },
+    {
+      "repository_path": "data/raw_m7/decoded/history_sz.159936.json",
+      "local_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m7\\decoded\\history_sz.159936.json",
+      "sha256": "143a4a3462b475038c1063ba494ccf5f3c8912f90f6eff86fe7ba6ac6a99707d",
+      "available_locally": true
+    },
+    {
+      "repository_path": "data/raw_m7/decoded/history_sz.159938.json",
+      "local_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m7\\decoded\\history_sz.159938.json",
+      "sha256": "46968192af56fe7f0796751b139cff98ce97038d61d3da30b01d43ff1a7ca38e",
+      "available_locally": true
+    },
+    {
+      "repository_path": "data/raw_m7/decoded/history_sz.159939.json",
+      "local_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m7\\decoded\\history_sz.159939.json",
+      "sha256": "402b06b3739d366b305514bf617fb65baf0923e8e2a78e3f58e08c500a339581",
+      "available_locally": true
+    },
+    {
+      "repository_path": "data/raw_m7/decoded/history_sz.159940.json",
+      "local_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m7\\decoded\\history_sz.159940.json",
+      "sha256": "00609f00e5f991048be3779a94d8b0d2e581be9b0639edd6112d1a03c527995d",
+      "available_locally": true
+    },
+    {
+      "repository_path": "data/raw_m7/decoded/history_sz.159944.json",
+      "local_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m7\\decoded\\history_sz.159944.json",
+      "sha256": "0fd0b465c5964affe4424be4fb55ef9e2b6b56712104f371e47c3172acc717a4",
+      "available_locally": true
+    },
+    {
+      "repository_path": "data/raw_m7/decoded/history_sz.159945.json",
+      "local_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m7\\decoded\\history_sz.159945.json",
+      "sha256": "1a6eea6efc9cdd24978ad6d9216dd06dcaffed993025cacbaee94f01c58836e4",
+      "available_locally": true
+    },
+    {
+      "repository_path": "data/raw_m7/decoded/history_sz.159946.json",
+      "local_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m7\\decoded\\history_sz.159946.json",
+      "sha256": "bfef0c81e3610e97df5c449741dbb3d721dda568722bd8895a361f8cb30b0ce9",
+      "available_locally": true
+    },
+    {
+      "repository_path": "data/raw_m7/objects/058c9c0d7bef7b37fdd90afc36670cbc5384842c9acf536a0a749936b2936a66.bin",
+      "local_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m7\\objects\\058c9c0d7bef7b37fdd90afc36670cbc5384842c9acf536a0a749936b2936a66.bin",
+      "sha256": "058c9c0d7bef7b37fdd90afc36670cbc5384842c9acf536a0a749936b2936a66",
+      "available_locally": true
+    },
+    {
+      "repository_path": "data/raw_m7/objects/068daf7092e66575ced613dbfaea0e87c7709e4ecd0945ab2bfab86605f3cd64.bin",
+      "local_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m7\\objects\\068daf7092e66575ced613dbfaea0e87c7709e4ecd0945ab2bfab86605f3cd64.bin",
+      "sha256": "068daf7092e66575ced613dbfaea0e87c7709e4ecd0945ab2bfab86605f3cd64",
+      "available_locally": true
+    },
+    {
+      "repository_path": "data/raw_m7/objects/0852e53e6325640370712ccea0e074b470be2354b319456190267e9a3758c229.bin",
+      "local_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m7\\objects\\0852e53e6325640370712ccea0e074b470be2354b319456190267e9a3758c229.bin",
+      "sha256": "0852e53e6325640370712ccea0e074b470be2354b319456190267e9a3758c229",
+      "available_locally": true
+    },
+    {
+      "repository_path": "data/raw_m7/objects/08f650143b01be7fd53336b8b4f80391fba665e7a66f4ec8f898b18ed43078ad.bin",
+      "local_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m7\\objects\\08f650143b01be7fd53336b8b4f80391fba665e7a66f4ec8f898b18ed43078ad.bin",
+      "sha256": "08f650143b01be7fd53336b8b4f80391fba665e7a66f4ec8f898b18ed43078ad",
+      "available_locally": true
+    },
+    {
+      "repository_path": "data/raw_m7/objects/108f64b9cc1eb7afc3aebb03be37fce7fc327a06cb04def6b26d7c7458b94d50.bin",
+      "local_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m7\\objects\\108f64b9cc1eb7afc3aebb03be37fce7fc327a06cb04def6b26d7c7458b94d50.bin",
+      "sha256": "108f64b9cc1eb7afc3aebb03be37fce7fc327a06cb04def6b26d7c7458b94d50",
+      "available_locally": true
+    },
+    {
+      "repository_path": "data/raw_m7/objects/121a21af6778a7a2d77c353ec875daf5f65bb4289659b7a5b14704f166f591da.bin",
+      "local_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m7\\objects\\121a21af6778a7a2d77c353ec875daf5f65bb4289659b7a5b14704f166f591da.bin",
+      "sha256": "121a21af6778a7a2d77c353ec875daf5f65bb4289659b7a5b14704f166f591da",
+      "available_locally": true
+    },
+    {
+      "repository_path": "data/raw_m7/objects/193a371b983c3ce88e1144d57718c5c8ecfb64d109a5592f6241d7d243a4ed31.bin",
+      "local_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m7\\objects\\193a371b983c3ce88e1144d57718c5c8ecfb64d109a5592f6241d7d243a4ed31.bin",
+      "sha256": "193a371b983c3ce88e1144d57718c5c8ecfb64d109a5592f6241d7d243a4ed31",
+      "available_locally": true
+    },
+    {
+      "repository_path": "data/raw_m7/objects/1afc76c1ece994594bdd77f3b2fba119587a2108b97f69c23f377448af9d6d61.bin",
+      "local_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m7\\objects\\1afc76c1ece994594bdd77f3b2fba119587a2108b97f69c23f377448af9d6d61.bin",
+      "sha256": "1afc76c1ece994594bdd77f3b2fba119587a2108b97f69c23f377448af9d6d61",
+      "available_locally": true
+    },
+    {
+      "repository_path": "data/raw_m7/objects/1cf7b695c392b2767157ad28babb56b0691fafff3ba9ab120753a1438aa13946.bin",
+      "local_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m7\\objects\\1cf7b695c392b2767157ad28babb56b0691fafff3ba9ab120753a1438aa13946.bin",
+      "sha256": "1cf7b695c392b2767157ad28babb56b0691fafff3ba9ab120753a1438aa13946",
+      "available_locally": true
+    },
+    {
+      "repository_path": "data/raw_m7/objects/20192e03e216e54242550c6aead4bd4aadc7578300a2606ba6975fcea979e2e6.bin",
+      "local_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m7\\objects\\20192e03e216e54242550c6aead4bd4aadc7578300a2606ba6975fcea979e2e6.bin",
+      "sha256": "20192e03e216e54242550c6aead4bd4aadc7578300a2606ba6975fcea979e2e6",
+      "available_locally": true
+    },
+    {
+      "repository_path": "data/raw_m7/objects/2552f24e468140ce0771384b4669e09ed142caed20cbc17b63910a9c1c07c703.bin",
+      "local_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m7\\objects\\2552f24e468140ce0771384b4669e09ed142caed20cbc17b63910a9c1c07c703.bin",
+      "sha256": "2552f24e468140ce0771384b4669e09ed142caed20cbc17b63910a9c1c07c703",
+      "available_locally": true
+    },
+    {
+      "repository_path": "data/raw_m7/objects/263375db9434fd10ad6abf897e77917df0e523f8c8aa970f1714c40d67ee0f44.bin",
+      "local_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m7\\objects\\263375db9434fd10ad6abf897e77917df0e523f8c8aa970f1714c40d67ee0f44.bin",
+      "sha256": "263375db9434fd10ad6abf897e77917df0e523f8c8aa970f1714c40d67ee0f44",
+      "available_locally": true
+    },
+    {
+      "repository_path": "data/raw_m7/objects/2749f19f3813fe337e0548431f46845ea8a64b2e94f1b045e361e89aadb90620.bin",
+      "local_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m7\\objects\\2749f19f3813fe337e0548431f46845ea8a64b2e94f1b045e361e89aadb90620.bin",
+      "sha256": "2749f19f3813fe337e0548431f46845ea8a64b2e94f1b045e361e89aadb90620",
+      "available_locally": true
+    },
+    {
+      "repository_path": "data/raw_m7/objects/2e76846a7b4f7ead76eb21807b8a07ecf4a411b28e79cc65fbcc451248441576.bin",
+      "local_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m7\\objects\\2e76846a7b4f7ead76eb21807b8a07ecf4a411b28e79cc65fbcc451248441576.bin",
+      "sha256": "2e76846a7b4f7ead76eb21807b8a07ecf4a411b28e79cc65fbcc451248441576",
+      "available_locally": true
+    },
+    {
+      "repository_path": "data/raw_m7/objects/3154718a3f16313310e81b5ddba49c3edb56600f4d4a09edd25a702c88587cad.bin",
+      "local_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m7\\objects\\3154718a3f16313310e81b5ddba49c3edb56600f4d4a09edd25a702c88587cad.bin",
+      "sha256": "3154718a3f16313310e81b5ddba49c3edb56600f4d4a09edd25a702c88587cad",
+      "available_locally": true
+    },
+    {
+      "repository_path": "data/raw_m7/objects/341df2b01a58142c11377fc5e8e3485d181e91f806e40afb5d474cc651a0cebb.bin",
+      "local_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m7\\objects\\341df2b01a58142c11377fc5e8e3485d181e91f806e40afb5d474cc651a0cebb.bin",
+      "sha256": "341df2b01a58142c11377fc5e8e3485d181e91f806e40afb5d474cc651a0cebb",
+      "available_locally": true
+    },
+    {
+      "repository_path": "data/raw_m7/objects/37222a1bafc47c79c4855a86c3c845ff9a30e686297d9cd39df57c82e0320a82.bin",
+      "local_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m7\\objects\\37222a1bafc47c79c4855a86c3c845ff9a30e686297d9cd39df57c82e0320a82.bin",
+      "sha256": "37222a1bafc47c79c4855a86c3c845ff9a30e686297d9cd39df57c82e0320a82",
+      "available_locally": true
+    },
+    {
+      "repository_path": "data/raw_m7/objects/3c1e081d59af5070fee3067eca55411ad79363d1f64da04d163cac67a7cfe6c5.bin",
+      "local_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m7\\objects\\3c1e081d59af5070fee3067eca55411ad79363d1f64da04d163cac67a7cfe6c5.bin",
+      "sha256": "3c1e081d59af5070fee3067eca55411ad79363d1f64da04d163cac67a7cfe6c5",
+      "available_locally": true
+    },
+    {
+      "repository_path": "data/raw_m7/objects/410a5f9b5addb3bb634a49817bf457bfa4bfb7227f123737cc04d5bf2ce0d748.bin",
+      "local_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m7\\objects\\410a5f9b5addb3bb634a49817bf457bfa4bfb7227f123737cc04d5bf2ce0d748.bin",
+      "sha256": "410a5f9b5addb3bb634a49817bf457bfa4bfb7227f123737cc04d5bf2ce0d748",
+      "available_locally": true
+    },
+    {
+      "repository_path": "data/raw_m7/objects/46f48de6532de8fdb1935fa82497a2bbbf0da5bc364942ea3aa63d2ff503831d.bin",
+      "local_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m7\\objects\\46f48de6532de8fdb1935fa82497a2bbbf0da5bc364942ea3aa63d2ff503831d.bin",
+      "sha256": "46f48de6532de8fdb1935fa82497a2bbbf0da5bc364942ea3aa63d2ff503831d",
+      "available_locally": true
+    },
+    {
+      "repository_path": "data/raw_m7/objects/55758a2eb78ee9a61990a56e939cd3f03d1e6358035f929c335c55b0105056df.bin",
+      "local_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m7\\objects\\55758a2eb78ee9a61990a56e939cd3f03d1e6358035f929c335c55b0105056df.bin",
+      "sha256": "55758a2eb78ee9a61990a56e939cd3f03d1e6358035f929c335c55b0105056df",
+      "available_locally": true
+    },
+    {
+      "repository_path": "data/raw_m7/objects/5cfda9200fb262ea2c9b9d884ab532f5729190bd1d90aa04a9b44da68c3077bc.bin",
+      "local_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m7\\objects\\5cfda9200fb262ea2c9b9d884ab532f5729190bd1d90aa04a9b44da68c3077bc.bin",
+      "sha256": "5cfda9200fb262ea2c9b9d884ab532f5729190bd1d90aa04a9b44da68c3077bc",
+      "available_locally": true
+    },
+    {
+      "repository_path": "data/raw_m7/objects/5f6485f9e447fc4c0c51797926ae1a6bfeb4d03bdde0f23c09e30ba2c8e23e6d.bin",
+      "local_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m7\\objects\\5f6485f9e447fc4c0c51797926ae1a6bfeb4d03bdde0f23c09e30ba2c8e23e6d.bin",
+      "sha256": "5f6485f9e447fc4c0c51797926ae1a6bfeb4d03bdde0f23c09e30ba2c8e23e6d",
+      "available_locally": true
+    },
+    {
+      "repository_path": "data/raw_m7/objects/6196663d3114bddadfac5108f1fea6d97880627a6c6586fe520193d596d5ae8e.bin",
+      "local_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m7\\objects\\6196663d3114bddadfac5108f1fea6d97880627a6c6586fe520193d596d5ae8e.bin",
+      "sha256": "6196663d3114bddadfac5108f1fea6d97880627a6c6586fe520193d596d5ae8e",
+      "available_locally": true
+    },
+    {
+      "repository_path": "data/raw_m7/objects/64777ada839c0fec9346b76d1f54f5c28e24bd91c8f6adea5cb037f5cbee6c05.bin",
+      "local_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m7\\objects\\64777ada839c0fec9346b76d1f54f5c28e24bd91c8f6adea5cb037f5cbee6c05.bin",
+      "sha256": "64777ada839c0fec9346b76d1f54f5c28e24bd91c8f6adea5cb037f5cbee6c05",
+      "available_locally": true
+    },
+    {
+      "repository_path": "data/raw_m7/objects/667e05fa5925d322b2a260127c5daa70fdfe678ad702864c73cf9e154fbdfafa.bin",
+      "local_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m7\\objects\\667e05fa5925d322b2a260127c5daa70fdfe678ad702864c73cf9e154fbdfafa.bin",
+      "sha256": "667e05fa5925d322b2a260127c5daa70fdfe678ad702864c73cf9e154fbdfafa",
+      "available_locally": true
+    },
+    {
+      "repository_path": "data/raw_m7/objects/69b58ff25e3d7cbc00c75f8232a4677da813d6e29facd3dd7cc87d47a1950569.bin",
+      "local_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m7\\objects\\69b58ff25e3d7cbc00c75f8232a4677da813d6e29facd3dd7cc87d47a1950569.bin",
+      "sha256": "69b58ff25e3d7cbc00c75f8232a4677da813d6e29facd3dd7cc87d47a1950569",
+      "available_locally": true
+    },
+    {
+      "repository_path": "data/raw_m7/objects/6a0392d4fc866addcec07c4938a291377838dee2eeadf412933cc1bac9283260.bin",
+      "local_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m7\\objects\\6a0392d4fc866addcec07c4938a291377838dee2eeadf412933cc1bac9283260.bin",
+      "sha256": "6a0392d4fc866addcec07c4938a291377838dee2eeadf412933cc1bac9283260",
+      "available_locally": true
+    },
+    {
+      "repository_path": "data/raw_m7/objects/6b24ede37dffb9c24bf571d7be421150df97e964cdc3c04abb5f29dba29d2108.bin",
+      "local_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m7\\objects\\6b24ede37dffb9c24bf571d7be421150df97e964cdc3c04abb5f29dba29d2108.bin",
+      "sha256": "6b24ede37dffb9c24bf571d7be421150df97e964cdc3c04abb5f29dba29d2108",
+      "available_locally": true
+    },
+    {
+      "repository_path": "data/raw_m7/objects/6e17d32960043409d119d3f5320e8fa929f716258fadc31b08705cb03063b7a5.bin",
+      "local_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m7\\objects\\6e17d32960043409d119d3f5320e8fa929f716258fadc31b08705cb03063b7a5.bin",
+      "sha256": "6e17d32960043409d119d3f5320e8fa929f716258fadc31b08705cb03063b7a5",
+      "available_locally": true
+    },
+    {
+      "repository_path": "data/raw_m7/objects/707db767b41cf956c7be4999a2642c39d18fb171ef90f62f491c3b910ae0d97b.bin",
+      "local_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m7\\objects\\707db767b41cf956c7be4999a2642c39d18fb171ef90f62f491c3b910ae0d97b.bin",
+      "sha256": "707db767b41cf956c7be4999a2642c39d18fb171ef90f62f491c3b910ae0d97b",
+      "available_locally": true
+    },
+    {
+      "repository_path": "data/raw_m7/objects/72f9963f9e343214b72cc51ba6bbcb2dd812784b73be6dbbfc855f4d31704dbb.bin",
+      "local_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m7\\objects\\72f9963f9e343214b72cc51ba6bbcb2dd812784b73be6dbbfc855f4d31704dbb.bin",
+      "sha256": "72f9963f9e343214b72cc51ba6bbcb2dd812784b73be6dbbfc855f4d31704dbb",
+      "available_locally": true
+    },
+    {
+      "repository_path": "data/raw_m7/objects/74214d33626c13a8340e5cf5548dfa42ca919bcef9bc874ff5de7482ef9f0a01.bin",
+      "local_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m7\\objects\\74214d33626c13a8340e5cf5548dfa42ca919bcef9bc874ff5de7482ef9f0a01.bin",
+      "sha256": "74214d33626c13a8340e5cf5548dfa42ca919bcef9bc874ff5de7482ef9f0a01",
+      "available_locally": true
+    },
+    {
+      "repository_path": "data/raw_m7/objects/748b7b95cdf2ea9973d83674792d64fe74309ffdad8a42f687f91584b1e0d9b0.bin",
+      "local_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m7\\objects\\748b7b95cdf2ea9973d83674792d64fe74309ffdad8a42f687f91584b1e0d9b0.bin",
+      "sha256": "748b7b95cdf2ea9973d83674792d64fe74309ffdad8a42f687f91584b1e0d9b0",
+      "available_locally": true
+    },
+    {
+      "repository_path": "data/raw_m7/objects/7b60220392afe4d3880f3bd1d24058791ee3d6cf9b4f5697d58955442ef3ee0b.bin",
+      "local_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m7\\objects\\7b60220392afe4d3880f3bd1d24058791ee3d6cf9b4f5697d58955442ef3ee0b.bin",
+      "sha256": "7b60220392afe4d3880f3bd1d24058791ee3d6cf9b4f5697d58955442ef3ee0b",
+      "available_locally": true
+    },
+    {
+      "repository_path": "data/raw_m7/objects/80efd4f82c488f8a4ebd5c884d6055ecd9e4b116403e8d000fb098e15d4b4dd4.bin",
+      "local_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m7\\objects\\80efd4f82c488f8a4ebd5c884d6055ecd9e4b116403e8d000fb098e15d4b4dd4.bin",
+      "sha256": "80efd4f82c488f8a4ebd5c884d6055ecd9e4b116403e8d000fb098e15d4b4dd4",
+      "available_locally": true
+    },
+    {
+      "repository_path": "data/raw_m7/objects/84f1c13ca185b67d43029abbd8f405c4aedab43a2b5d6c41a2dbff28d21c85c5.bin",
+      "local_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m7\\objects\\84f1c13ca185b67d43029abbd8f405c4aedab43a2b5d6c41a2dbff28d21c85c5.bin",
+      "sha256": "84f1c13ca185b67d43029abbd8f405c4aedab43a2b5d6c41a2dbff28d21c85c5",
+      "available_locally": true
+    },
+    {
+      "repository_path": "data/raw_m7/objects/863801b44178ca0018d25a6c0f65b7274d46c6be029f8f3ba23db4f397851049.bin",
+      "local_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m7\\objects\\863801b44178ca0018d25a6c0f65b7274d46c6be029f8f3ba23db4f397851049.bin",
+      "sha256": "863801b44178ca0018d25a6c0f65b7274d46c6be029f8f3ba23db4f397851049",
+      "available_locally": true
+    },
+    {
+      "repository_path": "data/raw_m7/objects/8a423438d477b08be8090d94de27186f9a0d6e85e17508374e5d5f6360c3b745.bin",
+      "local_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m7\\objects\\8a423438d477b08be8090d94de27186f9a0d6e85e17508374e5d5f6360c3b745.bin",
+      "sha256": "8a423438d477b08be8090d94de27186f9a0d6e85e17508374e5d5f6360c3b745",
+      "available_locally": true
+    },
+    {
+      "repository_path": "data/raw_m7/objects/8c6deebe646e6d4a67ca3748b0f49c0f1437262f6fa11ff4bc3346085139cdb7.bin",
+      "local_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m7\\objects\\8c6deebe646e6d4a67ca3748b0f49c0f1437262f6fa11ff4bc3346085139cdb7.bin",
+      "sha256": "8c6deebe646e6d4a67ca3748b0f49c0f1437262f6fa11ff4bc3346085139cdb7",
+      "available_locally": true
+    },
+    {
+      "repository_path": "data/raw_m7/objects/8c805d0796dad756e15a3dd8dfb68a252429cc1f6b7dd0f918582dcd7100093c.bin",
+      "local_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m7\\objects\\8c805d0796dad756e15a3dd8dfb68a252429cc1f6b7dd0f918582dcd7100093c.bin",
+      "sha256": "8c805d0796dad756e15a3dd8dfb68a252429cc1f6b7dd0f918582dcd7100093c",
+      "available_locally": true
+    },
+    {
+      "repository_path": "data/raw_m7/objects/96185fbf519320344d220214ff1776c0689c66053912ff0ed31efec350fb2f97.bin",
+      "local_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m7\\objects\\96185fbf519320344d220214ff1776c0689c66053912ff0ed31efec350fb2f97.bin",
+      "sha256": "96185fbf519320344d220214ff1776c0689c66053912ff0ed31efec350fb2f97",
+      "available_locally": true
+    },
+    {
+      "repository_path": "data/raw_m7/objects/997195c2b1163cf412286deebe9fc47896f6c9aea62ca7da6ab66e16b47acbec.bin",
+      "local_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m7\\objects\\997195c2b1163cf412286deebe9fc47896f6c9aea62ca7da6ab66e16b47acbec.bin",
+      "sha256": "997195c2b1163cf412286deebe9fc47896f6c9aea62ca7da6ab66e16b47acbec",
+      "available_locally": true
+    },
+    {
+      "repository_path": "data/raw_m7/objects/9d670df9a8a803c4789c3c7d08ce555be4a6544bb6521881090eae734408767f.bin",
+      "local_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m7\\objects\\9d670df9a8a803c4789c3c7d08ce555be4a6544bb6521881090eae734408767f.bin",
+      "sha256": "9d670df9a8a803c4789c3c7d08ce555be4a6544bb6521881090eae734408767f",
+      "available_locally": true
+    },
+    {
+      "repository_path": "data/raw_m7/objects/a7d4dee43b62d45b9d1d2925ea24659424a445737d1e8d1a3fb22aab89e3b46e.bin",
+      "local_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m7\\objects\\a7d4dee43b62d45b9d1d2925ea24659424a445737d1e8d1a3fb22aab89e3b46e.bin",
+      "sha256": "a7d4dee43b62d45b9d1d2925ea24659424a445737d1e8d1a3fb22aab89e3b46e",
+      "available_locally": true
+    },
+    {
+      "repository_path": "data/raw_m7/objects/ad1f9b38547fd599162ee6c98e47f5573d8efdfc79ee5c9d050cdf84cbe0fc96.bin",
+      "local_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m7\\objects\\ad1f9b38547fd599162ee6c98e47f5573d8efdfc79ee5c9d050cdf84cbe0fc96.bin",
+      "sha256": "ad1f9b38547fd599162ee6c98e47f5573d8efdfc79ee5c9d050cdf84cbe0fc96",
+      "available_locally": true
+    },
+    {
+      "repository_path": "data/raw_m7/objects/b2b76f987e5025d89d7f8da5bc80c7372728b179bce23bd22c3eaa35b61e637e.bin",
+      "local_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m7\\objects\\b2b76f987e5025d89d7f8da5bc80c7372728b179bce23bd22c3eaa35b61e637e.bin",
+      "sha256": "b2b76f987e5025d89d7f8da5bc80c7372728b179bce23bd22c3eaa35b61e637e",
+      "available_locally": true
+    },
+    {
+      "repository_path": "data/raw_m7/objects/b30df0f54069d71f10f534715f9b28319cf13e56da7f5be484fc3d00abd373db.bin",
+      "local_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m7\\objects\\b30df0f54069d71f10f534715f9b28319cf13e56da7f5be484fc3d00abd373db.bin",
+      "sha256": "b30df0f54069d71f10f534715f9b28319cf13e56da7f5be484fc3d00abd373db",
+      "available_locally": true
+    },
+    {
+      "repository_path": "data/raw_m7/objects/b661f109d47ee9a862725ddd0ecaf7de20d22ea56750504c36da8ba106094237.bin",
+      "local_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m7\\objects\\b661f109d47ee9a862725ddd0ecaf7de20d22ea56750504c36da8ba106094237.bin",
+      "sha256": "b661f109d47ee9a862725ddd0ecaf7de20d22ea56750504c36da8ba106094237",
+      "available_locally": true
+    },
+    {
+      "repository_path": "data/raw_m7/objects/b735532daf6dae111dc24b50cb9240ba3b4df7c3a4790e6458ae5248b4b56008.bin",
+      "local_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m7\\objects\\b735532daf6dae111dc24b50cb9240ba3b4df7c3a4790e6458ae5248b4b56008.bin",
+      "sha256": "b735532daf6dae111dc24b50cb9240ba3b4df7c3a4790e6458ae5248b4b56008",
+      "available_locally": true
+    },
+    {
+      "repository_path": "data/raw_m7/objects/b7f5136ff115297502d10a656b2275f4f2ca6b4a4ea33c0a915f9ece99e1a20a.bin",
+      "local_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m7\\objects\\b7f5136ff115297502d10a656b2275f4f2ca6b4a4ea33c0a915f9ece99e1a20a.bin",
+      "sha256": "b7f5136ff115297502d10a656b2275f4f2ca6b4a4ea33c0a915f9ece99e1a20a",
+      "available_locally": true
+    },
+    {
+      "repository_path": "data/raw_m7/objects/b81ec6bf4307705850380884d049d9e60e33e954ea8fd90ffaa31b8118f1aa2a.bin",
+      "local_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m7\\objects\\b81ec6bf4307705850380884d049d9e60e33e954ea8fd90ffaa31b8118f1aa2a.bin",
+      "sha256": "b81ec6bf4307705850380884d049d9e60e33e954ea8fd90ffaa31b8118f1aa2a",
+      "available_locally": true
+    },
+    {
+      "repository_path": "data/raw_m7/objects/ba03e37e05ddc7a04d506a75674e4bfa0b3642993c2714d2f134cfe54e6e8eb4.bin",
+      "local_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m7\\objects\\ba03e37e05ddc7a04d506a75674e4bfa0b3642993c2714d2f134cfe54e6e8eb4.bin",
+      "sha256": "ba03e37e05ddc7a04d506a75674e4bfa0b3642993c2714d2f134cfe54e6e8eb4",
+      "available_locally": true
+    },
+    {
+      "repository_path": "data/raw_m7/objects/bd2193651b17859c46e1254e7b0e3dc764daf75df0a74c4d53095cdfe4f9a373.bin",
+      "local_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m7\\objects\\bd2193651b17859c46e1254e7b0e3dc764daf75df0a74c4d53095cdfe4f9a373.bin",
+      "sha256": "bd2193651b17859c46e1254e7b0e3dc764daf75df0a74c4d53095cdfe4f9a373",
+      "available_locally": true
+    },
+    {
+      "repository_path": "data/raw_m7/objects/be5008a5d4aed9111ad0de6c5a58d6adfe5fc1e5c724cf62939edbdc92b56c02.bin",
+      "local_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m7\\objects\\be5008a5d4aed9111ad0de6c5a58d6adfe5fc1e5c724cf62939edbdc92b56c02.bin",
+      "sha256": "be5008a5d4aed9111ad0de6c5a58d6adfe5fc1e5c724cf62939edbdc92b56c02",
+      "available_locally": true
+    },
+    {
+      "repository_path": "data/raw_m7/objects/c9ce89d36a9df76a2e36b3a47de232a9d698d06007fc21db8b3a92ff12830183.bin",
+      "local_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m7\\objects\\c9ce89d36a9df76a2e36b3a47de232a9d698d06007fc21db8b3a92ff12830183.bin",
+      "sha256": "c9ce89d36a9df76a2e36b3a47de232a9d698d06007fc21db8b3a92ff12830183",
+      "available_locally": true
+    },
+    {
+      "repository_path": "data/raw_m7/objects/cdea6ad2afa197a6e5703c1bde57cb08e2605b48df5e93803ada46688188322c.bin",
+      "local_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m7\\objects\\cdea6ad2afa197a6e5703c1bde57cb08e2605b48df5e93803ada46688188322c.bin",
+      "sha256": "cdea6ad2afa197a6e5703c1bde57cb08e2605b48df5e93803ada46688188322c",
+      "available_locally": true
+    },
+    {
+      "repository_path": "data/raw_m7/objects/d293ae288442cb7860c7f3695c57c95f6cd848e839379481ec1fa41132075929.bin",
+      "local_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m7\\objects\\d293ae288442cb7860c7f3695c57c95f6cd848e839379481ec1fa41132075929.bin",
+      "sha256": "d293ae288442cb7860c7f3695c57c95f6cd848e839379481ec1fa41132075929",
+      "available_locally": true
+    },
+    {
+      "repository_path": "data/raw_m7/objects/d5f8b186c19330dbab128ebb9a91002a24cbda6ccefc33ca8faa3377dda0c187.bin",
+      "local_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m7\\objects\\d5f8b186c19330dbab128ebb9a91002a24cbda6ccefc33ca8faa3377dda0c187.bin",
+      "sha256": "d5f8b186c19330dbab128ebb9a91002a24cbda6ccefc33ca8faa3377dda0c187",
+      "available_locally": true
+    },
+    {
+      "repository_path": "data/raw_m7/objects/d6cc496d73eaf6fa824ae86764a03aa9199fa7f494438c872a8314fe11ff81d0.bin",
+      "local_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m7\\objects\\d6cc496d73eaf6fa824ae86764a03aa9199fa7f494438c872a8314fe11ff81d0.bin",
+      "sha256": "d6cc496d73eaf6fa824ae86764a03aa9199fa7f494438c872a8314fe11ff81d0",
+      "available_locally": true
+    },
+    {
+      "repository_path": "data/raw_m7/objects/dc6e902db8b49859af9a36e9b901ad8a876d5efdb264f2930c2b6b5969673b1e.bin",
+      "local_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m7\\objects\\dc6e902db8b49859af9a36e9b901ad8a876d5efdb264f2930c2b6b5969673b1e.bin",
+      "sha256": "dc6e902db8b49859af9a36e9b901ad8a876d5efdb264f2930c2b6b5969673b1e",
+      "available_locally": true
+    },
+    {
+      "repository_path": "data/raw_m7/objects/e01d50b2433dfbdf09e09530555ec14e800708a1c435f9c942005adebe2a5f9b.bin",
+      "local_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m7\\objects\\e01d50b2433dfbdf09e09530555ec14e800708a1c435f9c942005adebe2a5f9b.bin",
+      "sha256": "e01d50b2433dfbdf09e09530555ec14e800708a1c435f9c942005adebe2a5f9b",
+      "available_locally": true
+    },
+    {
+      "repository_path": "data/raw_m7/objects/e33ebbf5fd83618bf44142ecbb439dc37c1e853e7fe1f83f0d2b3cbabba52f70.bin",
+      "local_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m7\\objects\\e33ebbf5fd83618bf44142ecbb439dc37c1e853e7fe1f83f0d2b3cbabba52f70.bin",
+      "sha256": "e33ebbf5fd83618bf44142ecbb439dc37c1e853e7fe1f83f0d2b3cbabba52f70",
+      "available_locally": true
+    },
+    {
+      "repository_path": "data/raw_m7/objects/e60d1e0f906de705ea118593d567e6f05afabbc3221ece4e31b58432f1e7fe6e.bin",
+      "local_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m7\\objects\\e60d1e0f906de705ea118593d567e6f05afabbc3221ece4e31b58432f1e7fe6e.bin",
+      "sha256": "e60d1e0f906de705ea118593d567e6f05afabbc3221ece4e31b58432f1e7fe6e",
+      "available_locally": true
+    },
+    {
+      "repository_path": "data/raw_m7/objects/ea5692bf162d57db3915c251ff3ee01946671ef731ddada7679d67113c10c3a7.bin",
+      "local_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m7\\objects\\ea5692bf162d57db3915c251ff3ee01946671ef731ddada7679d67113c10c3a7.bin",
+      "sha256": "ea5692bf162d57db3915c251ff3ee01946671ef731ddada7679d67113c10c3a7",
+      "available_locally": true
+    },
+    {
+      "repository_path": "data/raw_m7/objects/f045a4076bb8308feba752ac1b0d48b2710172491b921fa5e0fc741557730999.bin",
+      "local_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m7\\objects\\f045a4076bb8308feba752ac1b0d48b2710172491b921fa5e0fc741557730999.bin",
+      "sha256": "f045a4076bb8308feba752ac1b0d48b2710172491b921fa5e0fc741557730999",
+      "available_locally": true
+    },
+    {
+      "repository_path": "data/raw_m7/objects/f0d72c06dcf496812060c14ed02021824ac7618e086a7580e971147eb9ee5573.bin",
+      "local_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m7\\objects\\f0d72c06dcf496812060c14ed02021824ac7618e086a7580e971147eb9ee5573.bin",
+      "sha256": "f0d72c06dcf496812060c14ed02021824ac7618e086a7580e971147eb9ee5573",
+      "available_locally": true
+    },
+    {
+      "repository_path": "data/raw_m7/objects/f258fa0c1daced724ee9f98147b7ef94c96a7974d16bcac1eafa088a6874a0fd.bin",
+      "local_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m7\\objects\\f258fa0c1daced724ee9f98147b7ef94c96a7974d16bcac1eafa088a6874a0fd.bin",
+      "sha256": "f258fa0c1daced724ee9f98147b7ef94c96a7974d16bcac1eafa088a6874a0fd",
+      "available_locally": true
+    },
+    {
+      "repository_path": "data/raw_m7/objects/f4d50e6f5dd1442e6196cf5ab2158225b46d8aeacb63401ad92527a060a10c13.bin",
+      "local_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m7\\objects\\f4d50e6f5dd1442e6196cf5ab2158225b46d8aeacb63401ad92527a060a10c13.bin",
+      "sha256": "f4d50e6f5dd1442e6196cf5ab2158225b46d8aeacb63401ad92527a060a10c13",
+      "available_locally": true
+    },
+    {
+      "repository_path": "data/raw_m7/objects/f681a55dc351919ef27f28ce0120ea43b2c84eb15a816bb1102dd11a845d1a6b.bin",
+      "local_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m7\\objects\\f681a55dc351919ef27f28ce0120ea43b2c84eb15a816bb1102dd11a845d1a6b.bin",
+      "sha256": "f681a55dc351919ef27f28ce0120ea43b2c84eb15a816bb1102dd11a845d1a6b",
+      "available_locally": true
+    },
+    {
+      "repository_path": "data/raw_m7/objects/f962732d372d8a472dea967c16c9d8628fb519782c4412f1a73e558d2e680fc6.bin",
+      "local_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m7\\objects\\f962732d372d8a472dea967c16c9d8628fb519782c4412f1a73e558d2e680fc6.bin",
+      "sha256": "f962732d372d8a472dea967c16c9d8628fb519782c4412f1a73e558d2e680fc6",
+      "available_locally": true
+    },
+    {
+      "repository_path": "data/raw_policy/availability_calendar_boundary_1c5da711eadf.html",
+      "local_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_policy\\availability_calendar_boundary_1c5da711eadf.html",
+      "sha256": "1c5da711eadf27308c84f12b5908ef461fa9dc739d1476512da2754249c90c1f",
+      "available_locally": true
+    },
+    {
+      "repository_path": "reports/m7_cohort/RAW_ELIGIBILITY.json",
+      "local_path": "F:\\QuantTrade\\Quant-Research\\reports\\m7_cohort\\RAW_ELIGIBILITY.json",
+      "sha256": "1d875279f3fd13f7e6c95baec6e7eeed033cf3a59a01ace26063bdd21067d269",
+      "available_locally": true
+    },
+    {
+      "repository_path": "reports/m7_cohort/SOURCE_PLAN.json",
+      "local_path": "F:\\QuantTrade\\Quant-Research\\reports\\m7_cohort\\SOURCE_PLAN.json",
+      "sha256": "e1790dad608c0b1f081a9595305e1d2c4980c6dc32d4b6eb48e4894da9ffc48c",
+      "available_locally": true
+    },
+    {
+      "repository_path": "reports/m7_cohort/identity_evidence.json",
+      "local_path": "F:\\QuantTrade\\Quant-Research\\reports\\m7_cohort\\identity_evidence.json",
+      "sha256": "22a5f3796e9e02f7a3cc6e0966734651bd2427b6ad391e2315b49b4ab30932ea",
+      "available_locally": true
+    },
+    {
+      "repository_path": "reports/m7_cohort/state_documents.json",
+      "local_path": "F:\\QuantTrade\\Quant-Research\\reports\\m7_cohort\\state_documents.json",
+      "sha256": "5f0eaaf2ec6135e43940baf28db2fc89eb54f3b562879cb3f6e5492bcb2e9e41",
+      "available_locally": true
+    },
+    {
+      "repository_path": "reports/m7_cohort/titles/sz.159936.json",
+      "local_path": "F:\\QuantTrade\\Quant-Research\\reports\\m7_cohort\\titles\\sz.159936.json",
+      "sha256": "0544e6c1ebe7baa50755d9f9ae8085df8ed9fcd0d64e67a6f782ef356ce4c1ff",
+      "available_locally": true
+    },
+    {
+      "repository_path": "reports/m7_cohort/titles/sz.159938.json",
+      "local_path": "F:\\QuantTrade\\Quant-Research\\reports\\m7_cohort\\titles\\sz.159938.json",
+      "sha256": "0e34f26e189054d18e0e4e310939585fc698d1ddec9d88d0458483efcd3a776f",
+      "available_locally": true
+    },
+    {
+      "repository_path": "reports/m7_cohort/titles/sz.159939.json",
+      "local_path": "F:\\QuantTrade\\Quant-Research\\reports\\m7_cohort\\titles\\sz.159939.json",
+      "sha256": "f443784e7897347cb7765e6f6b6bfd267bb898f1865399b422e9460ad9f49a75",
+      "available_locally": true
+    },
+    {
+      "repository_path": "reports/m7_cohort/titles/sz.159940.json",
+      "local_path": "F:\\QuantTrade\\Quant-Research\\reports\\m7_cohort\\titles\\sz.159940.json",
+      "sha256": "0c5d4b21e5689b809610a30996306228fdc6f5e4f9c3d335433aa3277c155645",
+      "available_locally": true
+    },
+    {
+      "repository_path": "reports/m7_cohort/titles/sz.159944.json",
+      "local_path": "F:\\QuantTrade\\Quant-Research\\reports\\m7_cohort\\titles\\sz.159944.json",
+      "sha256": "8fd43eb1263fa09cf558f1106d8ce9f45d2adac40dfbe8dbdc8c85bad63d7c2e",
+      "available_locally": true
+    },
+    {
+      "repository_path": "reports/m7_cohort/titles/sz.159945.json",
+      "local_path": "F:\\QuantTrade\\Quant-Research\\reports\\m7_cohort\\titles\\sz.159945.json",
+      "sha256": "40412c659edb4e8bfb7974456014c326776901a1fcea55a7228f430f1fec27de",
+      "available_locally": true
+    },
+    {
+      "repository_path": "reports/m7_cohort/titles/sz.159946.json",
+      "local_path": "F:\\QuantTrade\\Quant-Research\\reports\\m7_cohort\\titles\\sz.159946.json",
+      "sha256": "12139c93511f1e9a1d079616a8753edb1aa3fd7e07c01068feb6e789f7e423c2",
+      "available_locally": true
+    }
+  ],
+  "redistribution": "Local raw objects are not uploaded; indexes and hashes may be shared",
+  "budget": {
+    "http_attempts": 56,
+    "baostock_wire_attempts": 15,
+    "new_body_bytes": 9842572
+  }
+}
