@@ -13,6 +13,9 @@ import math
 import pandas as pd
 
 from .settlement import RULE_MODE, rule_errors
+from .temporal import master_record, TemporalStateError
+from .equity_accounting import CashDividendTaxLedger, EquityAccountingBlocked
+from .engineering_replay import REPLAY_TAG, validate_replay, verify_daily_limits
 
 
 class ExecutionBlockedError(ValueError):
@@ -112,7 +115,7 @@ def _account_split_lots(lots, factor, rounding):
 
 def run_backtest(dataset, decisions, initial_cash, cost_multiplier=1,
                  slippage_multiplier=1, max_sell_attempts=5, tax_rules=None,
-                 start_date=None, cash_delay_sessions=0):
+                 start_date=None, cash_delay_sessions=0, engineering_replay=False):
     """Return auditable DataFrames for a cash-only daily backtest.
 
     ``decisions`` are dictionaries or TargetDecision objects with ISO
@@ -136,6 +139,13 @@ def run_backtest(dataset, decisions, initial_cash, cost_multiplier=1,
     if type(cash_delay_sessions) is not int or cash_delay_sessions not in (0, 1, 3):
         raise ValueError("Cash settlement stress must be 0, 1 or 3 trading sessions")
     calendar = [str(d)[:10] for d in _get(dataset, "calendar")]
+    dividend_tax = None
+    if engineering_replay:
+        try:
+            validate_replay(dataset, calendar)
+            dividend_tax = CashDividendTaxLedger("DOMESTIC_INDIVIDUAL_ORDINARY_A_SHARE")
+        except EquityAccountingBlocked as exc:
+            raise ExecutionBlockedError(str(exc)) from exc
     if calendar != sorted(set(calendar)):
         raise ExecutionBlockedError("Calendar must be sorted and unique")
     day_index = {day: i for i, day in enumerate(calendar)}
@@ -147,7 +157,9 @@ def run_backtest(dataset, decisions, initial_cash, cost_multiplier=1,
     # Source provenance is audited and snapshotted by the data/runner layers.
     # Avoid copying unused document metadata into every daily lookup record.
     bar_fields = ("date", "instrument_id", "available_at", "open", "high", "low", "close",
-                  "volume", "amount", "upper_limit", "lower_limit", "suspended")
+                  "volume", "amount", "upper_limit", "lower_limit", "suspended",
+                  "limit_terms_verified", "limit_source_url", "limit_rule_available_at",
+                  "listing_session", "special_session", "limit_reference_price")
     bars = source_bars.loc[:, [key for key in bar_fields if key in source_bars]].copy()
     actions = _get(dataset, "actions", pd.DataFrame()).copy()
     rules = tax_rules if tax_rules is not None else _get(dataset, "tax_rules", pd.DataFrame())
@@ -157,6 +169,9 @@ def run_backtest(dataset, decisions, initial_cash, cost_multiplier=1,
     for record in masters.to_dict("records"):
         record["_available"] = _timestamp(record["available_at"])
         master_rows[record["instrument_id"]].append(record)
+    stock_ids = {sid for sid, records in master_rows.items() if any(row.get("asset_type") == "STOCK" for row in records)}
+    if dividend_tax is not None and any(len({row.get("asset_type") for row in records}) != 1 for records in master_rows.values()):
+        raise ExecutionBlockedError("Engineering replay requires stable asset-class identity")
     parsed_bar_times = {}
     for record in bars.to_dict("records"):
         record["date"] = str(record["date"])[:10]
@@ -165,14 +180,16 @@ def run_backtest(dataset, decisions, initial_cash, cost_multiplier=1,
             parsed_bar_times[value] = _timestamp(value)
         record["_available"] = parsed_bar_times[value]
         bar_rows[(record["instrument_id"], record["date"])].append(record)
-    for rows in list(master_rows.values()) + list(bar_rows.values()):
+    for rows in bar_rows.values():
         rows.sort(key=lambda row: row["_available"])
         if len({row["_available"] for row in rows}) != len(rows):
             raise ExecutionBlockedError("Ambiguous same-time source revisions")
 
     def master(sid, cutoff):
-        rows = [r for r in master_rows[sid] if r["_available"] <= cutoff]
-        return rows[-1] if rows else None
+        try:
+            return master_record(master_rows[sid], cutoff)
+        except TemporalStateError as exc:
+            raise ExecutionBlockedError(str(exc)) from exc
 
     def bar(sid, day, cutoff=None):
         rows = [r for r in bar_rows[(sid, day)] if r["_available"] <= (cutoff or _cutoff(day))]
@@ -232,7 +249,7 @@ def run_backtest(dataset, decisions, initial_cash, cost_multiplier=1,
             known = rule.get("available_at")
             if pd.notna(known) and _timestamp(known) > _cutoff(day, "09:30:00"):
                 continue
-            if _get(dataset, "manifest", {}).get("synthetic") is False and pd.isna(known):
+            if (engineering_replay or _get(dataset, "manifest", {}).get("synthetic") is False) and pd.isna(known):
                 raise ExecutionBlockedError("STOCK_TAX_RULE_AVAILABILITY_REQUIRED")
             if (str(rule.get("effective_from", "9999"))[:10] <= day <= str(rule.get("effective_to", "0000"))[:10]
                     and rule.get("verified") is True and rule.get("source_url")):
@@ -251,6 +268,17 @@ def run_backtest(dataset, decisions, initial_cash, cost_multiplier=1,
     decision_by_day = {}
     for decision in decisions:
         d = asdict(decision) if is_dataclass(decision) else dict(decision)
+        if "fixed_quantities" in d:
+            if not engineering_replay:
+                raise ExecutionBlockedError("Fixed quantities are engineering replay only")
+            fixed = d["fixed_quantities"]
+            if (not isinstance(fixed, dict)
+                    or any(not isinstance(sid, str) or not sid.strip() for sid in fixed)
+                    or any(type(qty) is not int or qty < 0 or qty % 100 for qty in fixed.values())):
+                raise ExecutionBlockedError("Fixed engineering targets require a mapping of instrument IDs to nonnegative round lots")
+            # Explicit shares are a complete engineering target. Weight keys
+            # are not needed to discover which instruments must be processed.
+            d.setdefault("weights", {})
         day, execution = str(d["decision_date"])[:10], str(d["execution_date"])[:10]
         if execution < start_date:
             continue
@@ -266,6 +294,24 @@ def run_backtest(dataset, decisions, initial_cash, cost_multiplier=1,
         decision_by_day[day] = d
 
     events = defaultdict(list)
+    dividend_records = defaultdict(list)
+    def register_dividend_record(action):
+        if dividend_tax is None or action["action_type"] != "CASH_DIVIDEND":
+            return
+        sid = action["instrument_id"]
+        if sid not in stock_ids:
+            return
+        record_day = str(action.get("record_date", ""))[:10]
+        if record_day not in day_index or record_day >= str(action["ex_date"])[:10] or record_day < start_date:
+            raise ExecutionBlockedError("Stock dividend requires account record-date capture")
+        if _timestamp(action["available_at"]) > _cutoff(record_day):
+            raise ExecutionBlockedError("Stock dividend terms not known at record close")
+        if (action.get("cash_dividend_kind") not in ("ORDINARY", "SPECIAL")
+                or action.get("tax_category") != "ORDINARY_CASH_DIVIDEND"):
+            raise ExecutionBlockedError("Explicit cash dividend and tax classification required")
+        if action.get("settlement_mode") != "SYNTHETIC_SCHEDULED_SIMULATION":
+            raise ExecutionBlockedError("Synthetic dividend cash requires explicit modeled settlement")
+        dividend_records[record_day].append(action)
     warmup_share_events = []
     if not actions.empty:
         resolved_actions = []
@@ -306,6 +352,12 @@ def run_backtest(dataset, decisions, initial_cash, cost_multiplier=1,
             if not candidates:
                 if any(calendar[0] <= str(d)[:10] <= calendar[-1] for d in revisions["ex_date"]):
                     raise ExecutionBlockedError("Corporate action not known by its effective open")
+                if dividend_tax is not None and known_versions:
+                    last = known_versions[-1]
+                    record_day = str(last.get("record_date", ""))[:10]
+                    if (last["action_type"] == "CASH_DIVIDEND" and str(last["ex_date"])[:10] > calendar[-1]
+                            and record_day in day_index and record_day >= start_date):
+                        register_dividend_record(last)
                 continue
             if len({time for time, _ in candidates}) != len(candidates):
                 raise ExecutionBlockedError("Ambiguous same-time corporate-action revisions")
@@ -323,6 +375,7 @@ def run_backtest(dataset, decisions, initial_cash, cost_multiplier=1,
             if action["action_type"] not in ("CASH_DIVIDEND", "SPLIT", "DELISTING", "LIQUIDATION", "LIQUIDATION_PAYMENT"):
                 raise ExecutionBlockedError("Unsupported corporate action")
             events[effective].append(action)
+            register_dividend_record(action)
     action_rank = {"SPLIT": 0, "CASH_DIVIDEND": 1, "LIQUIDATION": 2, "LIQUIDATION_PAYMENT": 3, "DELISTING": 4}
     for day_events in events.values():
         day_events.sort(key=lambda action: (action_rank[action["action_type"]], str(action["action_id"])))
@@ -337,7 +390,7 @@ def run_backtest(dataset, decisions, initial_cash, cost_multiplier=1,
     observation_replay = False
     assumed_settlement = False
     rule_based_settlement = False
-    output = {key: [] for key in ("nav", "positions", "orders", "fills", "rejected_orders", "costs", "exposure", "cash_events", "order_events", "rights", "share_events")}
+    output = {key: [] for key in ("nav", "positions", "orders", "fills", "rejected_orders", "costs", "exposure", "cash_events", "order_events", "rights", "share_events", "tax_balances", "tax_lots", "dividend_entitlements", "tax_events")}
     output["share_events"].extend(warmup_share_events)
     sequence = 0
 
@@ -363,7 +416,10 @@ def run_backtest(dataset, decisions, initial_cash, cost_multiplier=1,
         return calendar[index] if index < len(calendar) else None
 
     def equity():
-        return cash + sum(quantity(sid) * marks.get(sid, 0.) for sid in lots) + sum(r["amount"] for r in receivables)
+        return cash + sum(quantity(sid) * marks.get(sid, 0.) for sid in lots) + sum(r["amount"] for r in receivables) - (float(dividend_tax.tax_payable) if dividend_tax else 0.)
+
+    def tax_reserve(day):
+        return float(dividend_tax.reserve(day)) if dividend_tax else 0.
 
     def reject(order, day, reason, qty=None):
         output["rejected_orders"].append({"order_id": order["order_id"], "date": day,
@@ -518,7 +574,7 @@ def run_backtest(dataset, decisions, initial_cash, cost_multiplier=1,
                 raise ExecutionBlockedError("Corporate action lacks known instrument")
             qty, kind = quantity(sid), action["action_type"]
             if kind == "CASH_DIVIDEND":
-                if meta["asset_type"] != "ETF":
+                if meta["asset_type"] != "ETF" and dividend_tax is None:
                     raise ExecutionBlockedError("Stock dividend holding-period taxation unsupported")
                 record_day = str(action.get("record_date", ""))[:10]
                 if record_day not in day_index or record_day >= day:
@@ -529,16 +585,17 @@ def run_backtest(dataset, decisions, initial_cash, cost_multiplier=1,
                 entitlement = record_holdings.get((record_day, sid), 0)
                 amount = _product_money(entitlement, per_share)
                 modeled = action.get("settlement_mode") == RULE_MODE
+                synthetic_modeled = meta["asset_type"] == "STOCK" and dividend_tax is not None
                 ledger_pay_day = rule_payment_date(action) if modeled else pay_day
                 rule_based_settlement = rule_based_settlement or (modeled and entitlement > 0)
                 if amount:
                     receivables.append({"action_id": action["action_id"], "instrument_id": sid,
-                        "amount": amount, "pay_date": ledger_pay_day, "settlement_mode": RULE_MODE if modeled else "SCHEDULED",
-                        "actual_pay_date": None if modeled else pay_day,
-                        "scheduled_pay_date": pay_day, "modeled_pay_date": ledger_pay_day if modeled else None})
+                        "amount": amount, "pay_date": ledger_pay_day, "settlement_mode": "SYNTHETIC_SCHEDULED_SIMULATION" if synthetic_modeled else RULE_MODE if modeled else "SCHEDULED",
+                        "actual_pay_date": None if modeled or synthetic_modeled else pay_day,
+                        "scheduled_pay_date": pay_day, "modeled_pay_date": ledger_pay_day if modeled or synthetic_modeled else None})
                     output["cash_events"].append({"date": day, "event": "DIVIDEND_RECEIVABLE", "instrument_id": sid, "amount": amount,
-                        "settlement_mode": RULE_MODE if modeled else "SCHEDULED", "actual_pay_date": None if modeled else pay_day,
-                        "scheduled_pay_date": pay_day, "modeled_pay_date": ledger_pay_day if modeled else None})
+                        "settlement_mode": "SYNTHETIC_SCHEDULED_SIMULATION" if synthetic_modeled else RULE_MODE if modeled else "SCHEDULED", "actual_pay_date": None if modeled or synthetic_modeled else pay_day,
+                        "scheduled_pay_date": pay_day, "modeled_pay_date": ledger_pay_day if modeled or synthetic_modeled else None})
                 if sid in marks:
                     marks[sid] = max(0., marks[sid] - float(per_share))
             elif kind == "LIQUIDATION":
@@ -681,7 +738,9 @@ def run_backtest(dataset, decisions, initial_cash, cost_multiplier=1,
             if reason is None:
                 try:
                     statutory = rates(meta, day)
-                except ExecutionBlockedError as exc:
+                    if dividend_tax is not None and meta["asset_type"] == "STOCK":
+                        verify_daily_limits(meta, row, day)
+                except (ExecutionBlockedError, EquityAccountingBlocked) as exc:
                     reason = str(exc)
             if reason is None and (row is None or not all(_valid(row.get(k), True) for k in ("open", "high", "low", "upper_limit", "lower_limit"))):
                 reason = "MISSING_PRICE_OR_LIMIT_RULE"
@@ -739,12 +798,13 @@ def run_backtest(dataset, decisions, initial_cash, cost_multiplier=1,
                     fill_qty = risk_qty
                 # Reservation is based on the immutable known reference. A gap
                 # is allowed to consume only this reservation, never extra cash.
-                reserve_qty = min(fill_qty, int(cash / reserve_price)) // 100 * 100
+                spendable = max(0., cash - tax_reserve(day))
+                reserve_qty = min(fill_qty, int(spendable / reserve_price)) // 100 * 100
                 while reserve_qty > 0:
                     reserve_notional = _product_money(reserve_qty, reserve_price)
                     reserve_fees = sum(charges(reserve_notional, True, statutory))
                     reserved = reserve_notional + reserve_fees
-                    if reserved <= cash + 1e-9:
+                    if reserved <= spendable + 1e-9:
                         break
                     reserve_qty -= 100
                 if reserve_qty <= 0:
@@ -785,6 +845,11 @@ def run_backtest(dataset, decisions, initial_cash, cost_multiplier=1,
                 notional = _product_money(fill_qty, price)
                 commission, stamp, transfer = charges(notional, buy, statutory)
                 total_fees = commission + stamp + transfer
+                if dividend_tax is not None and meta["asset_type"] == "STOCK":
+                    if buy:
+                        dividend_tax.buy(sid, fill_qty, day)
+                    else:
+                        dividend_tax.sell(sid, fill_qty, day)
                 if buy:
                     debit = notional + total_fees
                     cash -= debit
@@ -850,6 +915,30 @@ def run_backtest(dataset, decisions, initial_cash, cost_multiplier=1,
                 old, new = split_totals.get(sid, (0, 0))
                 remainder = new if old and remainder >= old else min(int(remainder * split_factors[sid]), quantity(sid))
             retry(order, day, remainder)
+        if dividend_tax is not None:
+            for settlement in _get(dataset, "tax_settlements", []):
+                if settlement["debit_date"] == day:
+                    if settlement.get("mode") != "RULE_BASED_SIMULATION":
+                        raise ExecutionBlockedError("Synthetic replay cannot claim observed account tax debits")
+                    amount = float(settlement["amount"])
+                    if amount > cash:
+                        raise ExecutionBlockedError("Tax debit exceeds actual cash")
+                    dividend_tax.settle_tax(**settlement)
+                    cash -= amount
+                    withdrawable = max(0., withdrawable - amount)
+                    output["cash_events"].append(dict(date=day, event="DIVIDEND_TAX_DEBIT", amount=-amount,
+                        actual_debit_date=None, settlement_mode="RULE_BASED_SIMULATION"))
+            for action in dividend_records[day]:
+                dividend_tax.record_dividend(action["action_id"], action["instrument_id"], day,
+                    action.get("cash_per_share"), tax_category=action["tax_category"],
+                    terms_verified=action.get("terms_verified"), source_url=action.get("source_url"))
+            for sid in lots:
+                tax_qty = sum(lot["remaining"] for lot in dividend_tax.lots if lot["instrument_id"] == sid)
+                if sid in stock_ids and tax_qty != quantity(sid):
+                    raise ExecutionBlockedError("FIFO and account share reconciliation failure")
+            output["tax_lots"].extend(dict(lot, date=day) for lot in dividend_tax.lots)
+            output["dividend_entitlements"].extend(dict(claim, date=day) for claim in dividend_tax.entitlements)
+        reserve = tax_reserve(day)
         nav = equity()
         if cash < -1e-7 or withdrawable < -1e-7 or withdrawable > cash + 1e-7:
             raise ExecutionBlockedError("Cash conservation failure")
@@ -858,20 +947,27 @@ def run_backtest(dataset, decisions, initial_cash, cost_multiplier=1,
                               for right in liquidation_rights.values())
         # Zero is a conservative mark, never proof that a delisted shareholder
         # has no recovery rights. Keep the shares and explicitly mark uncertainty.
-        unpriced_stock_rights = any(quantity(sid) > 0 and sid in dead
-            and (master(sid, _cutoff(day)) or {}).get("asset_type") == "STOCK" for sid in lots)
+        unpriced_stock_rights = any(quantity(sid) > 0 and sid in dead for sid in lots)
         stale_stock_marks = any(quantity(sid) > 0 and stale[sid] > 0 and sid not in dead
             and (master(sid, _cutoff(day)) or {}).get("asset_type") == "STOCK" for sid in lots)
+        unknown_master = any(quantity(sid) > 0 and master(sid, _cutoff(day)) is None for sid in lots)
         unpriced_rights = unpriced_rights or unpriced_stock_rights
         valuation_status = ("ASSUMED_SCHEDULED_CREDIT" if assumed_settlement else
                             "OBSERVATION_TIME_REPLAY" if observation_replay else
                             "CONSERVATIVE_UNPRICED_RIGHTS" if unpriced_rights else
+                            "UNKNOWN_INSTRUMENT_STATE" if unknown_master else
                             "STALE_STOCK_MARK" if stale_stock_marks else "PRICED_LEDGER")
         output["nav"].append({"date": day, "nav": nav, "cash_total": cash, "cash": cash,
-            "cash_available": cash, "cash_withdrawable": withdrawable, "cash_reserved": 0.,
+            "cash_available": max(0., cash - reserve), "cash_withdrawable": max(0., min(withdrawable, cash - reserve)), "cash_reserved": reserve,
+            "dividend_tax_payable": float(dividend_tax.tax_payable) if dividend_tax else 0.,
+            "dividend_tax_paid": float(dividend_tax.tax_paid) if dividend_tax else 0.,
+            "hypothetical_liquidation_nav": nav - reserve + (float(dividend_tax.tax_payable) if dividend_tax else 0.),
             "holdings_value": holdings_value, "receivables": float(sum(r["amount"] for r in receivables)), "mode": "DAILY_SCREEN_ONLY",
-            "valuation_status": valuation_status, "valuation_uncertainty": observation_replay or assumed_settlement or unpriced_rights or stale_stock_marks,
+            "valuation_status": valuation_status, "valuation_uncertainty": observation_replay or assumed_settlement or unpriced_rights or stale_stock_marks or unknown_master,
             "assumed_settlement": assumed_settlement, "late_recognition": observation_replay})
+        if dividend_tax is not None:
+            output["tax_balances"].append(dict(date=day, tax_payable=float(dividend_tax.tax_payable),
+                tax_paid=float(dividend_tax.tax_paid), tax_reserve=reserve))
         for right in liquidation_rights.values():
             if right["entitled_quantity"] == 0 and right["retired_quantity"] == 0:
                 continue
@@ -891,6 +987,12 @@ def run_backtest(dataset, decisions, initial_cash, cost_multiplier=1,
             qty = quantity(sid)
             if qty == 0:
                 continue
+            if sid in dead and sid not in retired_instruments:
+                output["rights"].append(dict(date=day, entitlement_action_id="DELISTING:" + sid,
+                    instrument_id=sid, entitled_quantity=qty, retired_quantity=0,
+                    recognized_amount=0., paid_amount=0., outstanding_receivable=0.,
+                    carrying_value=0., final_recognized=False, late_recognition=False,
+                    assumed_settlement=False, status="UNPRICED_DELISTED_RIGHT", valuation_uncertainty=True))
             value, meta = qty * marks.get(sid, 0.), master(sid, _cutoff(day))
             sellable = sum(lot["quantity"] for lot in lots[sid] if lot["sellable_index"] <= index)
             weight = value / nav if nav > 0 else 0.
@@ -899,11 +1001,11 @@ def run_backtest(dataset, decisions, initial_cash, cost_multiplier=1,
                 "sellable_quantity": sellable, "locked_quantity": qty - sellable,
                 "price": marks.get(sid, 0.), "market_value": value, "weight": weight,
                 "stale_days": stale[sid], "delisted_rights": sid in dead})
-            cap = .35 if meta["asset_type"] == "ETF" else .05
+            cap = .35 if (meta or {}).get("asset_type") == "ETF" else .05
             output["exposure"].append({"date": day, "scope": "INSTRUMENT", "key": sid,
                 "weight": weight, "limit": cap, "breach": weight > cap + 1e-10})
-            if meta["asset_type"] == "STOCK":
-                industries[str(meta.get("industry"))] += weight
+            if meta is None or meta["asset_type"] == "STOCK":
+                industries[str((meta or {}).get("industry", "UNKNOWN"))] += weight
         for industry, weight in industries.items():
             output["exposure"].append({"date": day, "scope": "STOCK_INDUSTRY", "key": industry,
                 "weight": weight, "limit": .20, "breach": weight > .20 + 1e-10})
@@ -964,7 +1066,7 @@ def run_backtest(dataset, decisions, initial_cash, cost_multiplier=1,
             decision = decision_by_day[day]
             weights, refs, advs = decision["weights"], decision["reference_prices"], decision["adv20"]
             execution = str(decision["execution_date"])[:10]
-            for sid in sorted(set(weights) | {s for s in lots if quantity(s)}):
+            for sid in sorted(set(weights) | set(decision.get("fixed_quantities", {})) | {s for s in lots if quantity(s)}):
                 meta, row = master(sid, _cutoff(day)), bar(sid, day)
                 ref, supplied_adv = refs.get(sid), advs.get(sid)
                 reason = None
@@ -974,7 +1076,9 @@ def run_backtest(dataset, decisions, initial_cash, cost_multiplier=1,
                 if not _valid(supplied_adv, True) or not _valid(actual_adv, True):
                     reason = reason or "MISSING_HISTORICAL_ADV"
                 if reason:
-                    order = create_order(day, execution, sid, "BUY" if weights.get(sid, 0) > 0 else "SELL", 0, ref, supplied_adv)
+                    buying = (decision["fixed_quantities"].get(sid, 0) > quantity(sid)
+                              if "fixed_quantities" in decision else weights.get(sid, 0) > 0)
+                    order = create_order(day, execution, sid, "BUY" if buying else "SELL", 0, ref, supplied_adv)
                     reject(order, day, reason)
                     continue
                 source_ref = float(ref)
@@ -989,6 +1093,8 @@ def run_backtest(dataset, decisions, initial_cash, cost_multiplier=1,
                         reject(order, day, "SUSPENDED_DECISION_REFERENCE")
                         continue
                 target = int(nav * float(weights.get(sid, 0.)) / float(ref)) // 100 * 100
+                if "fixed_quantities" in decision:
+                    target = decision["fixed_quantities"].get(sid, 0)
                 delta = target - quantity(sid)
                 if delta == 0:
                     continue
@@ -1022,17 +1128,25 @@ def run_backtest(dataset, decisions, initial_cash, cost_multiplier=1,
                    "entitled_quantity", "retired_quantity", "recognized_amount", "paid_amount",
                    "outstanding_receivable", "carrying_value", "final_recognized", "late_recognition", "assumed_settlement", "status", "valuation_uncertainty"],
     }
+    if dividend_tax is not None:
+        output["tax_events"] = dividend_tax.events
     result = {key: pd.DataFrame(rows, columns=schemas.get(key)) for key, rows in output.items()}
+    if engineering_replay:
+        for table in result.values():
+            table["purpose"] = REPLAY_TAG
+            table["synthetic"] = True
     for key, table in result.items():
         if "date" in table.columns and key != "share_events":
             result[key] = table.loc[table["date"] >= start_date].reset_index(drop=True)
     result["mode"] = "DAILY_SCREEN_ONLY"
+    result["purpose"] = REPLAY_TAG if engineering_replay else "DAILY_SCREEN_ONLY"
+    result["performance_evidence"] = False
     result["rule_based_settlement"] = rule_based_settlement
     result["cash_delay_sessions"] = cash_delay_sessions
     result["accounting_timing_eligible"] = not bool(result["nav"]["valuation_uncertainty"].any())
     result["confirmation_eligible"] = False  # Daily screening never verifies executable confirmation.
     result["limitations"] = ["Daily bars do not establish opening queue liquidity.",
-        "Stock statutory fees require explicit verified dated rules; stock dividend tax is unsupported.",
+        "Stock dividend FIFO is connected only for explicit synthetic engineering replay; real stock admission remains blocked.",
         "Pending orders are canceled on a corporate-action ex-date; buys are not retried.",
         "Unpriced liquidation rights carry zero with explicit valuation uncertainty; late recovery observations never backfill cash.",
         "ETF look-through industry exposure is unavailable; observed stock industries only."]

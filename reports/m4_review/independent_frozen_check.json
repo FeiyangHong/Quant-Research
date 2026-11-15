@@ -1,0 +1,77 @@
+{
+  "status": "INDEPENDENT_READ_ONLY_CHECK_COMPLETE",
+  "runs": 448,
+  "boundary_checks": 4356,
+  "repaired_vs_original_strategy_drift": [],
+  "raw_interval_grid_rows": 585,
+  "actual_position_order_rows": {
+    "positions": 1459715,
+    "orders": 78545
+  },
+  "position_order_intersections": [],
+  "retained_exit_master_records": [
+    {
+      "instrument_id": "sh.510520",
+      "period": "development",
+      "delisted_on": "2019-10-31",
+      "available_at": "2019-10-28T21:00:00+08:00"
+    },
+    {
+      "instrument_id": "sz.159846",
+      "period": "development",
+      "delisted_on": "2022-01-05",
+      "available_at": "2021-12-31T21:00:00+08:00"
+    },
+    {
+      "instrument_id": "sz.159927",
+      "period": "development",
+      "delisted_on": "2018-02-14",
+      "available_at": "2018-02-12T21:00:00+08:00"
+    },
+    {
+      "instrument_id": "sh.510520",
+      "period": "validation",
+      "delisted_on": "2019-10-31",
+      "available_at": "2019-10-28T21:00:00+08:00"
+    },
+    {
+      "instrument_id": "sh.515930",
+      "period": "validation",
+      "delisted_on": "2023-07-31",
+      "available_at": "2023-07-27T21:00:00+08:00"
+    },
+    {
+      "instrument_id": "sz.159846",
+      "period": "validation",
+      "delisted_on": "2022-01-05",
+      "available_at": "2021-12-31T21:00:00+08:00"
+    },
+    {
+      "instrument_id": "sz.159927",
+      "period": "validation",
+      "delisted_on": "2018-02-14",
+      "available_at": "2018-02-12T21:00:00+08:00"
+    },
+    {
+      "instrument_id": "sz.159955",
+      "period": "validation",
+      "delisted_on": "2022-11-30",
+      "available_at": "2022-11-28T21:00:00+08:00"
+    },
+    {
+      "instrument_id": "sz.159999",
+      "period": "validation",
+      "delisted_on": "2023-03-20",
+      "available_at": "2023-03-16T21:00:00+08:00"
+    }
+  ],
+  "retirement_action_rows": {
+    "development": [],
+    "validation": []
+  },
+  "positions_in_retained_exit_securities": [],
+  "delisted_rights_position_rows": [],
+  "source_sha256": "bd804b7a5fd79ebfcc581f5a728530ba762e0cc138729c8f54510a66c2dcaac4",
+  "temporal_sha256": "94ad0dd7183025d7def486e511b619e985e42238c981ff31b139d8bf1159f4ae",
+  "limitation": "Positions/orders checked independently; other call contexts and annual attribution checked separately. No internal complete call trace; no strategy replay or holdout."
+}

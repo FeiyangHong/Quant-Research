@@ -1,0 +1,71 @@
+[
+  {
+    "label": "login",
+    "snapshot_date": "2020-07-31",
+    "fields": [],
+    "error_code": "0",
+    "error_msg": "success",
+    "elapsed_seconds": 0.091974,
+    "processed_at": "2026-11-15T08:57:02.474756+00:00",
+    "row_count": 0
+  },
+  {
+    "label": "full_universe_20200731",
+    "snapshot_date": "2020-07-31",
+    "fields": [
+      "code",
+      "tradeStatus",
+      "code_name"
+    ],
+    "error_code": "0",
+    "error_msg": "success",
+    "elapsed_seconds": 5.512092,
+    "processed_at": "2026-11-15T08:57:07.994778+00:00",
+    "row_count": 4810
+  },
+  {
+    "label": "full_daily_20200731",
+    "snapshot_date": "2020-07-31",
+    "fields": [
+      "date",
+      "code",
+      "open",
+      "high",
+      "low",
+      "close",
+      "preclose",
+      "volume",
+      "amount",
+      "adjustflag",
+      "turn",
+      "tradestatus",
+      "pctChg",
+      "peTTM",
+      "pbMRQ",
+      "psTTM",
+      "pcfNcfTTM",
+      "isST"
+    ],
+    "error_code": "0",
+    "error_msg": "success",
+    "elapsed_seconds": 9.240757,
+    "processed_at": "2026-11-15T08:57:17.256334+00:00",
+    "row_count": 3923
+  },
+  {
+    "label": "full_industry_20200731",
+    "snapshot_date": "2020-07-31",
+    "fields": [
+      "updateDate",
+      "code",
+      "code_name",
+      "industry",
+      "industryClassification"
+    ],
+    "error_code": "0",
+    "error_msg": "success",
+    "elapsed_seconds": 16.762271,
+    "processed_at": "2026-11-15T08:57:34.054586+00:00",
+    "row_count": 4030
+  }
+]

@@ -1,0 +1,71 @@
+.....FF.FF.....                                                          [100%]
+================================== FAILURES ===================================
+__________ test_correction_links_require_stable_child_identity[None] __________
+
+child_identity = None
+
+    @pytest.mark.parametrize("child_identity", [None, ""])
+    def test_correction_links_require_stable_child_identity(child_identity):
+        rows = [state("a", "2020-01-01", "2019-12-01T00:00:00+08:00"),
+                state(child_identity, "2020-01-01", "2020-01-20T00:00:00+08:00", supersedes_id="a")]
+        with pytest.raises(TemporalStateError):
+>           master_record(rows, "2020-02-01T00:00:00+08:00")
+E           Failed: DID NOT RAISE <class 'quant_research.temporal.TemporalStateError'>
+
+review_code\m4\test_external_independent.py:50: Failed
+____________ test_correction_links_require_stable_child_identity[] ____________
+
+child_identity = ''
+
+    @pytest.mark.parametrize("child_identity", [None, ""])
+    def test_correction_links_require_stable_child_identity(child_identity):
+        rows = [state("a", "2020-01-01", "2019-12-01T00:00:00+08:00"),
+                state(child_identity, "2020-01-01", "2020-01-20T00:00:00+08:00", supersedes_id="a")]
+        with pytest.raises(TemporalStateError):
+>           master_record(rows, "2020-02-01T00:00:00+08:00")
+E           Failed: DID NOT RAISE <class 'quant_research.temporal.TemporalStateError'>
+
+review_code\m4\test_external_independent.py:50: Failed
+_________ test_fixed_share_targets_do_not_depend_on_weight_membership _________
+
+    def test_fixed_share_targets_do_not_depend_on_weight_membership():
+        data, instructions = synthetic_fixture()
+        data["actions"] = pd.DataFrame()
+        data["tax_settlements"] = []
+        # Fixed engineering instructions are explicit shares, not strategy signals.
+        for instruction in instructions:
+            instruction["weights"] = {}
+        result = run_backtest(data, instructions, 100000, slippage_multiplier=0, engineering_replay=True)
+>       assert list(zip(result["fills"].side, result["fills"].quantity)) == [
+            ("BUY", 200), ("BUY", 200), ("SELL", 400)]
+E       AssertionError: assert [] == [('BUY', 200)...('SELL', 400)]
+E         
+E         Right contains 3 more items, first extra item: ('BUY', 200)
+E         Use -v to get more diff
+
+review_code\m4\test_external_independent.py:100: AssertionError
+_ test_fixed_quantity_contract_is_rejected_outside_engineering_even_without_weight_keys _
+
+    def test_fixed_quantity_contract_is_rejected_outside_engineering_even_without_weight_keys():
+        data, instructions = synthetic_fixture()
+        data["actions"] = pd.DataFrame()
+        data["tax_settlements"] = []
+        for instruction in instructions:
+            instruction["weights"] = {}
+        with pytest.raises(ExecutionBlockedError, match="engineering"):
+>           run_backtest(data, instructions, 100000)
+E           Failed: DID NOT RAISE <class 'quant_research.execution.ExecutionBlockedError'>
+
+review_code\m4\test_external_independent.py:111: Failed
+============================== warnings summary ===============================
+review_code/m4/test_external_independent.py::test_current_unknown_exit_rule_cannot_fill_and_shares_remain[tick]
+  F:\QuantTrade\Quant-Research\review_code\m4\test_external_independent.py:126: FutureWarning: The behavior of DataFrame concatenation with empty or all-NA entries is deprecated. In a future version, this will no longer exclude empty or all-NA columns when determining the result dtypes. To retain the old behavior, exclude the relevant entries before the concat operation.
+    data["instruments"] = pd.concat([data["instruments"], pd.DataFrame([successor])], ignore_index=True)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+FAILED review_code/m4/test_external_independent.py::test_correction_links_require_stable_child_identity[None]
+FAILED review_code/m4/test_external_independent.py::test_correction_links_require_stable_child_identity[]
+FAILED review_code/m4/test_external_independent.py::test_fixed_share_targets_do_not_depend_on_weight_membership
+FAILED review_code/m4/test_external_independent.py::test_fixed_quantity_contract_is_rejected_outside_engineering_even_without_weight_keys
+4 failed, 11 passed, 1 warning in 1.28s

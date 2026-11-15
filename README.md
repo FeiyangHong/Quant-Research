@@ -4,13 +4,21 @@
 
 首个研究策略为阶段一预注册的 R1B：ETF 中期相对强弱；透明基线为同池等权。四组 E0/R0/E1/R1 分离排名和趋势效应，共同波动缩放单独比较。所有结果都必须区分合成工程验证、真实日线筛查和最终确认性证据。
 
-## 当前决策：归档R1，推进既定个股路线（2026-11-15）
+## 当前M4：正确性、冻结归因与股票可行性（2026-11-15）
+
+已复现并修复证券主表双时间及ETF未知退市权益问题。旧448账户只读影响审查、独立仓位/订单交集检查未发现实际触发证据，未重跑或整体作废；到期与内部调用轨迹的限制如实保留。全部旧801条有效/失效尝试保持不变，R1继续归档、停止参数搜索。新归因覆盖864个月度记录、432个持有段配对和182,784个年度×ETF行；原收缩估计器的重复暴露反例保留为设计测试，没有换模型找收益。
+
+股票数据试验固定2020-07-31全池，3,779只主板/创业板诊断身份不缩水；5个完整财务文档配对及3个冲突案例保留，人类签核0，原20例门槛未降低。历史限价/费用/FIFO红利税已接入主账户的明确合成工程回放，真实事件和股票策略准入仍阻断。2025—2026留出、paper/live及采购保持关闭。
+
+入口：[M4计划](docs/M4_PLAN.md)、[集中审查包](reports/m4_review/REVIEW_PACKET.md)、[冻结影响与归因](reports/m4_frozen/REVIEW.md)、[数据可行性](reports/m4_data/DATA_FEASIBILITY.md)、[执行接线](reports/m4_correctness/EXECUTION_REVIEW.md)、[独立审查](reports/m4_review/INDEPENDENT_REVIEW.md)、[最终验证](reports/m4_review/VERIFICATION.md)。所有工程账表均标ENGINEERING_REPLAY_NOT_STRATEGY_PERFORMANCE，不是虚构市场收益。
+
+## 前轮M3决策：归档R1，推进既定个股路线
 
 已完成448条R1实验的机制、固定成本容量和风险审查，**归档当前配置，停止ETF参数搜索**。排序缺少跨期一致优势，趋势八个主要消融均为负，波动缩放降低风险但不能证明Alpha。10万元账户R1开启缩放的验证期年度增量费用容量点估计2,096.61元，开发期为−237.87元；这不是可承诺预算。验证最大回撤20.05%，超过风险政策12%的paper复核参考线。没有提出或执行新ETF方案；未来依据已看验证结果形成的方案必须标探索性。
 
 R2、R3各自完成第一轮免费真实数据准入审计，**分别BLOCKED，真实个股绩效实验0次**。历史退市股和官方行业、原财务文档可取得，但全池历史状态/股本/公司行为尚未重建；R2原稿—修订完整案例仅1/20。R3不因R2财务或R1收益受阻，它有自己的行业、市值、状态和执行依赖。已经实现并独立检查PIT财务、价值/质量与R3残差研究核，修复股票执行误放行，红利税FIFO组件尚未接入完整主账簿；不将组件测试称作真实策略验收。
 
-当前入口：[集中决策包](reports/m3_equity_admission/REVIEW_PACKET.md)、[R1归因与停止条件](reports/m3_equity_admission/R1_MILESTONE_REVIEW.md)、[真实个股数据审计](reports/m3_equity_admission/DATA_AUDIT.md)、[执行准入](reports/m3_equity_admission/EXECUTION_ADMISSION.md)、[独立准入审查](reports/m3_equity_admission/INDEPENDENT_ADMISSION_REVIEW.md)、[研究核审查](reports/m3_equity_admission/FEATURE_REVIEW.md)、[工程准备规范](docs/EQUITY_RESEARCH_PROTOCOL.md)、[当前验证与复现](reports/m3_equity_admission/VERIFICATION.md)。2025—2026最终集继续锁定；没有采购、paper或实盘。
+前轮入口：[集中决策包](reports/m3_equity_admission/REVIEW_PACKET.md)、[R1归因与停止条件](reports/m3_equity_admission/R1_MILESTONE_REVIEW.md)、[真实个股数据审计](reports/m3_equity_admission/DATA_AUDIT.md)、[执行准入](reports/m3_equity_admission/EXECUTION_ADMISSION.md)、[独立准入审查](reports/m3_equity_admission/INDEPENDENT_ADMISSION_REVIEW.md)、[研究核审查](reports/m3_equity_admission/FEATURE_REVIEW.md)、[工程准备规范](docs/EQUITY_RESEARCH_PROTOCOL.md)、[前轮验证与复现](reports/m3_equity_admission/VERIFICATION.md)。2025—2026最终集继续锁定；没有采购、paper或实盘。
 
 ## 已完成的真实ETF回测里程碑（冻结历史）
 

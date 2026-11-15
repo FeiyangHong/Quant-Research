@@ -16,3 +16,15 @@ review_code/equity/** -text whitespace=cr-at-eol
 docs/EQUITY_RESEARCH_PROTOCOL.md -text whitespace=cr-at-eol
 docs/IMPLEMENTATION_STATUS.md -text whitespace=cr-at-eol
 docs/DECISION_LOG.md -text whitespace=cr-at-eol
+docs/M4_PLAN.md -text whitespace=cr-at-eol
+reports/m4_correctness/** -text whitespace=cr-at-eol
+reports/m4_frozen/** -text whitespace=cr-at-eol
+reports/m4_data/** -text whitespace=cr-at-eol
+reports/m4_review/** -text whitespace=cr-at-eol
+review_code/m4/** -text whitespace=cr-at-eol
+.github/workflows/tests.yml -text whitespace=cr-at-eol
+README.md -text whitespace=cr-at-eol
+.gitattributes -text whitespace=cr-at-eol
+# Preserve pytest's original failed-assertion padding in immutable evidence.
+reports/m4_correctness/engineering_replay/baseline_failures.txt whitespace=cr-at-eol,-blank-at-eol
+reports/m4_review/pre_fix_counterexamples.txt whitespace=cr-at-eol,-blank-at-eol

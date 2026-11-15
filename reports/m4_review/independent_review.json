@@ -1,0 +1,236 @@
+{
+  "schema_version": "m4-independent-review-1",
+  "generated_at": "2026-11-15T09:35:21.369310+00:00",
+  "baseline": "7d5bcebbf98a1fe68b50f760e63f7fbd66d28d78",
+  "status": "PASS_SCOPED_ENGINEERING_REVIEW",
+  "reviewer": "Independent M4 agent; not the author of reviewed production implementation",
+  "purpose": "ENGINEERING_AND_FROZEN_EVIDENCE_REVIEW_NOT_STRATEGY_PERFORMANCE",
+  "checks": {
+    "all_tests_pass": true,
+    "source_and_review_stable_during_checks": true,
+    "integrity_pass": true,
+    "frozen_selector_hash_matches_current": true,
+    "frozen_analysis_hash_matches_current": true,
+    "frozen_actual_trigger_contexts_zero": true,
+    "frozen_position_order_intersections_empty": true,
+    "annual_original_account_reconciliation_pass": true
+  },
+  "test_runs": [
+    {
+      "command": [
+        "F:\\QuantTrade\\Quant-Research\\.venv\\Scripts\\python.exe",
+        "-m",
+        "pytest",
+        "-q",
+        "review_code/m4"
+      ],
+      "exit_code": 0,
+      "passed": 33,
+      "output": "reports/m4_review/independent_final_tests.txt",
+      "sha256": "f26b03787c836116cbe7a1e2138899383acc973e5303ee37f7a04e089f21b125"
+    },
+    {
+      "command": [
+        "F:\\QuantTrade\\Quant-Research\\.venv\\Scripts\\python.exe",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/test_m4_execution.py",
+        "tests/test_equity_execution.py",
+        "tests/test_execution.py",
+        "tests/test_share_events.py",
+        "tests/test_settlement.py",
+        "tests/test_decimal_money.py",
+        "tests/test_data.py",
+        "tests/test_strategy.py"
+      ],
+      "exit_code": 0,
+      "passed": 220,
+      "output": "reports/m4_review/independent_focused_regression.txt",
+      "sha256": "56241a61c97c966bc3e697e6a082169ec28805d2868573f14ba3226b39fc0c8e"
+    },
+    {
+      "command": [
+        "F:\\QuantTrade\\Quant-Research\\.venv\\Scripts\\python.exe",
+        "review_code/m4/audit_integrity.py"
+      ],
+      "exit_code": 0,
+      "passed": null,
+      "output": "reports/m4_review/independent_artifact_integrity.txt",
+      "sha256": "29f13fcea9e8bc1815e70ba9edf0fbd7575c3ab340ed1a4f3ee3e086eab75906"
+    }
+  ],
+  "source_and_review_sha256": {
+    "src/quant_research/temporal.py": "94ad0dd7183025d7def486e511b619e985e42238c981ff31b139d8bf1159f4ae",
+    "src/quant_research/data.py": "b82a8d15f3fa40a7054f93b45fa018320475d3f79628e936a0af1f6cc40d81fa",
+    "src/quant_research/strategy.py": "64e289461926d695d5350ee3820359dee55d28de52715e32dfb1c3c408a4ecac",
+    "src/quant_research/execution.py": "91c1bdeec0a07c03b929b2e756b2ff6a3494538fca222c6d46fa260390519976",
+    "src/quant_research/engineering_replay.py": "3dab841f1da0d7ad3a65a79e882f2b8e507648e218e4905438648a7fb383db19",
+    "src/quant_research/equity_accounting.py": "96bd0b4a9ab232093d349118cfabc9d1684ab47060ebc8f35920790777d138d1",
+    "scripts/replay_equity_engineering.py": "fbb4076bac2076cc8bc466d74b63d23f524b3b5d9a88b84b65bc80f4ec8d9982",
+    "scripts/m4_frozen_review.py": "0218a10ad7d97ca53c6381775387c3aaaa8ae042e3221fcb4040bf5933c29cfe",
+    "tests/test_m4_execution.py": "1ed51492296e25f39a8e9235e374f40f176d1ed0f600f77ed958e01bd7f28ebc",
+    "tests/test_equity_execution.py": "1debb21a85d690db8188588680e78193cba51b851cf4231df11f3aea6f84ce12",
+    "tests/test_execution.py": "a239c00f7db0cb241134a63c13b4ced140802df0b8cd1b3f8c9645f8f0c85cb1",
+    "tests/test_share_events.py": "9c9db1d2f58fb78dcce472a57b1ad8be73e0259101f62a6cb8ed974fb90bbf6f",
+    "tests/test_settlement.py": "0afab1641160639c0e776b931f33770b1c3fe7af95b043207646f27baa687846",
+    "tests/test_decimal_money.py": "f6955bc944012e85579ea740f3d83d57088ee90cf4350e067eedcdfa89a30d95",
+    "tests/test_data.py": "d2ea15d0d4f95b046e87bb9da316260a07e6929b326ea3a4b724f67da2c96b9a",
+    "tests/test_strategy.py": "96c75a8a00881404b6d4ab745357b2af730e781c7333d896f6cd69e3363ff30c",
+    "review_code/m4/audit_integrity.py": "edd8d62fb9517e58d3ecb9dfa0d71458e58c5099ecebb871966e5689354e2c42",
+    "review_code/m4/finalize_independent_review.py": "44c0081bd6cdd8144b6b4d60bb0920fd35ec499a8aa4c2514cfa97f987386aa2",
+    "review_code/m4/test_external_independent.py": "2809ded7b220c61f853b6443c0672e72e1cfa9a05f4319305fb2d1c85ab2f68f",
+    "review_code/m4/test_independent_stock_ledger.py": "72decc3e4e5fea2b498d20314ba286c0a8cbb57824f91555769e9b8c136e481a",
+    "review_code/m4/test_independent_temporal.py": "cac24649ec61991726e9127102d070132d995d3e60cbc3356a3abdf44fef792d",
+    "review_code/m4/verify_frozen_impact.py": "bd804b7a5fd79ebfcc581f5a728530ba762e0cc138729c8f54510a66c2dcaac4"
+  },
+  "resolved_findings": [
+    {
+      "id": "M4-I-01",
+      "priority": "P2",
+      "issue": "Fixed share target keys silently omitted from decision universe; normal-runner guard depended on iteration.",
+      "reproduction": "test_fixed_share_targets_do_not_depend_on_weight_membership / test_fixed_quantity_contract_is_rejected_outside_engineering_even_without_weight_keys",
+      "resolution": "Author added input-stage engineering-only validation and fixed-target universe enumeration; independently retested."
+    },
+    {
+      "id": "M4-I-02",
+      "priority": "P2",
+      "issue": "Linked corrections could omit stable child identity, and unknown explicit revision kinds silently selected transition semantics.",
+      "reproduction": "test_correction_links_require_stable_child_identity[None] / []; test_unknown_explicit_revision_kind_cannot_silently_select_transition_semantics",
+      "resolution": "Author requires stable child identity for linked rows and rejects unknown explicit revision kinds; unlinked unversioned fixtures remain supported; independently retested."
+    }
+  ],
+  "unresolved_in_scope_findings": [],
+  "integrity": {
+    "status": "PASS",
+    "issues": [],
+    "raw_data_objects_checked": 58,
+    "full_pool_rows": 3779,
+    "board_counts": {
+      "MAIN": 2946,
+      "CHINEXT": 833
+    },
+    "financial_card_counts": {
+      "COMPLETE_DOCUMENTARY_PAIR": 5,
+      "QUARANTINED_SOURCE_CONFLICT": 3
+    },
+    "human_accepted_cases": 0,
+    "engineering_artifact_hashes_checked": 102,
+    "engineering_source_hashes_checked": 8,
+    "engineering_cases": 6,
+    "limits": "Integrity/count checks only. This reviewer did not re-extract original financial PDFs or independently establish historical full-pool completeness.",
+    "input_report_hashes": {
+      "reports/m4_data/source_manifest.json": "58eb4c6bf9e70a68990b336ffdf978d968040914601bccb9d512f5a32e0b859c",
+      "reports/m4_data/coverage_summary.json": "64362b2c840a4ce34fb76346ce9f964b3790eb4b64af04c970d5bc9f171cd8f7",
+      "reports/m4_data/full_pool_2020-07-31.json": "0c19086243b883545fd0e7d4411530c475d996e580392a57a339eb998d1a7480",
+      "reports/m4_data/financial_vintage_cases.json": "134f43b506fdca59bb54ccd05e63781510a5eb461b787772a31155af0b645fb5",
+      "reports/m4_correctness/engineering_replay/provenance.json": "6544b418bdfe807b0c6608ede23195ac773b7981e2f9c899febefd4c3b348e54"
+    }
+  },
+  "frozen_checks_attributed_to_root": {
+    "status": "INDEPENDENT_READ_ONLY_CHECK_COMPLETE",
+    "runs": 448,
+    "boundary_checks": 4356,
+    "repaired_vs_original_strategy_drift": [],
+    "raw_interval_grid_rows": 585,
+    "actual_position_order_rows": {
+      "positions": 1459715,
+      "orders": 78545
+    },
+    "position_order_intersections": [],
+    "retained_exit_master_records": [
+      {
+        "instrument_id": "sh.510520",
+        "period": "development",
+        "delisted_on": "2019-10-31",
+        "available_at": "2019-10-28T21:00:00+08:00"
+      },
+      {
+        "instrument_id": "sz.159846",
+        "period": "development",
+        "delisted_on": "2022-01-05",
+        "available_at": "2021-12-31T21:00:00+08:00"
+      },
+      {
+        "instrument_id": "sz.159927",
+        "period": "development",
+        "delisted_on": "2018-02-14",
+        "available_at": "2018-02-12T21:00:00+08:00"
+      },
+      {
+        "instrument_id": "sh.510520",
+        "period": "validation",
+        "delisted_on": "2019-10-31",
+        "available_at": "2019-10-28T21:00:00+08:00"
+      },
+      {
+        "instrument_id": "sh.515930",
+        "period": "validation",
+        "delisted_on": "2023-07-31",
+        "available_at": "2023-07-27T21:00:00+08:00"
+      },
+      {
+        "instrument_id": "sz.159846",
+        "period": "validation",
+        "delisted_on": "2022-01-05",
+        "available_at": "2021-12-31T21:00:00+08:00"
+      },
+      {
+        "instrument_id": "sz.159927",
+        "period": "validation",
+        "delisted_on": "2018-02-14",
+        "available_at": "2018-02-12T21:00:00+08:00"
+      },
+      {
+        "instrument_id": "sz.159955",
+        "period": "validation",
+        "delisted_on": "2022-11-30",
+        "available_at": "2022-11-28T21:00:00+08:00"
+      },
+      {
+        "instrument_id": "sz.159999",
+        "period": "validation",
+        "delisted_on": "2023-03-20",
+        "available_at": "2023-03-16T21:00:00+08:00"
+      }
+    ],
+    "retirement_action_rows": {
+      "development": [],
+      "validation": []
+    },
+    "positions_in_retained_exit_securities": [],
+    "delisted_rights_position_rows": [],
+    "source_sha256": "bd804b7a5fd79ebfcc581f5a728530ba762e0cc138729c8f54510a66c2dcaac4",
+    "temporal_sha256": "94ad0dd7183025d7def486e511b619e985e42238c981ff31b139d8bf1159f4ae",
+    "limitation": "Positions/orders checked independently; other call contexts and annual attribution checked separately. No internal complete call trace; no strategy replay or holdout."
+  },
+  "annual_checks_attributed_to_root": {
+    "status": "PASS",
+    "frozen_runs": 448,
+    "account_years": 2016,
+    "annual_etf_rows": 182784,
+    "zero_etf_rows": 172624,
+    "max_pnl_difference_cny": 4.802132025361061e-10,
+    "max_fee_difference_cny": 9.094947017729282e-13,
+    "method": "Independent groupby of annual ETF output against original frozen per-run year_contributions; no new strategy performance.",
+    "source_sha256": "bd804b7a5fd79ebfcc581f5a728530ba762e0cc138729c8f54510a66c2dcaac4"
+  },
+  "frozen_actual_execution_dependency_discrepancies": 0,
+  "limitations": [
+    "Only synthetic engineering replay is validated. No actual original corporate-action event has completed main-ledger admission.",
+    "Tax debit timing and per-disposal rounding remain modeled conventions, pending broker/CSDC reconciliation.",
+    "Stock share conversion/bonus/rights/merger/liquidation payments, missing calendar anniversaries, and intraday effective bounds remain unsupported.",
+    "Data review here checks archive integrity and report counts, not independent original-PDF extraction or full historical pool completeness.",
+    "Frozen zero-impact conclusion uses reconstructed actual contexts and root-authored independent checks; no complete persisted internal lookup trace exists.",
+    "No strategy rerun, real performance registration, 2025--2026 market access, purchase, paper, live or change to frozen run artifacts performed by this reviewer."
+  ],
+  "evidence_sha256": {
+    "reports/m4_review/pre_fix_counterexamples.txt": "f8daed3660c120b0ec2088bc51a10eb94dde05a5bb1afeb6718d2d9bd02125f2",
+    "reports/m4_review/pre_fix_revision_kind.txt": "ac14d26a8fac50e71d6e53ec386c16af96eb6ab47e1cd32102ec1c1d040b56a2",
+    "reports/m4_review/independent_frozen_check.json": "1c2b6a4ebe8b3fbc8695a2d09c0c52d4cc1774d64fdb02b962143040448c1d75",
+    "reports/m4_review/independent_annual_reconciliation.json": "1d3af8c1ba38c92c46d884e7f8f16758dc6bf97078bd1fa421f34e301bd6fa61",
+    "reports/m4_frozen/summary.json": "b6d82bbea16ba9a89345d3621b4d5531a6676bf7c8b6420d63ad2fac617b2d66",
+    "reports/m4_frozen/input_hash_manifest.json": "ebaa2f8149797a7d28613704cd9055fe140918d6ef31cef77b8161c0de6067a9",
+    "reports/m4_correctness/EXECUTION_REVIEW.md": "332bd5173bc80e3f3c73bc160caeefeb6d306028e77ee90f1fea5e880edddc5e"
+  }
+}

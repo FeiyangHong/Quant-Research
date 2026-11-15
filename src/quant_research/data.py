@@ -17,6 +17,7 @@ import numpy as np
 import pandas as pd
 
 from .settlement import RULE_MODE, rule_errors
+from .temporal import master_snapshot, TemporalStateError
 
 
 SCHEMA_VERSION = "r1-offline-1.2"
@@ -109,7 +110,10 @@ def asof_records(frame: pd.DataFrame, cutoff: Any, keys: list[str]) -> pd.DataFr
 
 def master_asof(dataset: Dataset, cutoff: Any) -> pd.DataFrame:
     """Historical knowledge of identities; does not silently remove dead assets."""
-    return asof_records(dataset.instruments, cutoff, ["instrument_id"])
+    try:
+        return master_snapshot(dataset.instruments, cutoff)
+    except TemporalStateError as exc:
+        raise DataValidationError(str(exc)) from exc
 
 
 def bars_asof(dataset: Dataset, cutoff: Any) -> pd.DataFrame:
@@ -197,7 +201,7 @@ def audit_dataset(dataset: Dataset) -> dict[str, Any]:
             errors.append(f"{name}: null primary key, revision or availability")
         if frame.duplicated(keys + ["revision_id"]).any():
             errors.append(f"{name}: duplicate versioned primary key")
-        if frame.duplicated(keys + ["available_at"]).any():
+        if name != "instruments" and frame.duplicated(keys + ["available_at"]).any():
             errors.append(f"{name}: ambiguous equal-time revisions")
         try:
             if not frame["available_at"].astype(str).str.contains(r"(?:Z|[+-]\d{2}:\d{2})$", regex=True).all():
@@ -209,6 +213,11 @@ def audit_dataset(dataset: Dataset) -> dict[str, Any]:
             errors.append(f"{name}: invalid or timezone-naive available_at")
             times = None
         if times is not None and not frame.empty:
+            if name == "instruments":
+                try:
+                    master_snapshot(frame, times.max())
+                except TemporalStateError as exc:
+                    errors.append(f"instruments: {exc}")
             revised = frame.loc[frame["supersedes_id"].notna()]
             if not revised.empty:
                 revisions = {tuple(row[key] for key in keys) + (row["revision_id"],): idx
@@ -218,7 +227,7 @@ def audit_dataset(dataset: Dataset) -> dict[str, Any]:
                     if prior is None or times.loc[prior] >= times.loc[idx]:
                         errors.append(f"{name}: invalid revision lineage for {row['revision_id']}")
             duplicates = frame.loc[frame.duplicated(keys, keep=False)]
-            for _, group in duplicates.groupby(keys, dropna=False):
+            for _, group in (duplicates.groupby(keys, dropna=False) if name != "instruments" else []):
                 if len(group) > 1 and group["supersedes_id"].isna().sum() != 1:
                     errors.append(f"{name}: revision chain needs one original per economic key")
                     break

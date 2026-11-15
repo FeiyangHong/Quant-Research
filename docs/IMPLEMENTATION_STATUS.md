@@ -1,6 +1,21 @@
 # 实现与实验状态
 
-## 当前集中决策与个股准备（2026-11-15）
+## 当前M4：正确性、冻结归因与股票数据可行性（2026-11-15）
+
+基准7d5bceb，用户本轮M4任务不等于阶段一同名阶段的holdout/paper授权。**R1归档不变；旧448无本次实际触发证据，不重放；R2/R3真实实验仍0、分别BLOCKED。**
+
+| 任务 | 实际交付 | 未完成与边界 |
+|---|---|---|
+| A双时间/未知权益 | 四项基准失败已复现并修复；共用半开生效区间、版本链/纠错与未来转换；ETF未知退市权益不入现金 | 仅日期型有效期；日内生效时间拒绝。未知状态保留持仓且禁止无规则交易 |
+| B旧448影响 | 585元数据差异、4,704全主表查询上下文；实际依赖差异0；独立检查1,459,715仓位、78,545订单、4,356边界 | 原master没有有限effective_to；没有完整内部调用轨迹。新审计器首稿分类错误保留并修复，最终结论另有独立核验 |
+| C冻结归因 | 864月度、432持有段配对、182,784年度ETF行汇总2,016账户年；最大核对差小于10⁻⁶元；零年度保留 | 描述性非因果；重复暴露反例固定为设计测试，不修改原50%收缩或添加显著性网格 |
+| D预算可行性 | 2020-07-31历史全截面、3,779主板/创业板分母、6事件规范化、5财务完整配对和3冲突隔离 | 全池股本市值、完整风险状态/资格/行为及财务链仍缺；人类签核0，20例门槛不降低 |
+| E账户接线 | 历史限价、法定费用、FIFO现金红利税接入主账簿工程模式；六个固定批次场景420日账户行逐日核对 | 仅明确虚构工程夹具；真实事件、送转/配股/合并/清偿付款等未完成准入，不将真实源标synthetic |
+| 独立复核/测试 | 独立时间、账户、原件和冻结归因复核；全套及CI结果见最终验证记录 | 工程PASS不等于R2/R3策略、数据或实盘PASS |
+
+本轮[M4集中包](../reports/m4_review/REVIEW_PACKET.md)、[可复现验证](../reports/m4_review/VERIFICATION.md)、[独立审查](../reports/m4_review/INDEPENDENT_REVIEW.md)、[独立数据核验](../reports/m4_review/DATA_INDEPENDENT_REVIEW.md)。实际数据工作量与失败见[DATA_FEASIBILITY](../reports/m4_data/DATA_FEASIBILITY.md)。继续免费补齐可复用依赖；不以R1收益或R2财务失败代替R3独立判断。不采购、不启用paper/live、不打开2025—2026。
+
+## 前轮M3集中决策与个股准备
 
 **R1：ARCHIVE_CURRENT_CONFIGURATION / STOP_ETF_PARAMETER_SEARCH。R2、R3：分别NOT_RUN_BLOCKED_ADMISSION。** 本轮完成R1现有448实验的只读机制/成本/风险复核，启动阶段一既定个股路线的实际源数据审计与工程准备；未运行新增ETF或真实个股绩效实验。
 
@@ -16,7 +31,7 @@
 | 个股真实实验 | 注册0、运行0；绩效null | preparation配置不是实验注册，不通过R1B标签、synthetic标记、删除退市样本或修订后财务绕过门槛 |
 | 最终集/实盘/采购 | LOCKED / DISABLED / NONE | 2025—2026未用于策略选择；主板和创业板，主本金10万元、四档对照不变 |
 
-本轮[集中审查](../reports/m3_equity_admission/REVIEW_PACKET.md)、[独立数据/执行审查](../reports/m3_equity_admission/INDEPENDENT_ADMISSION_REVIEW.md)、[研究核审查](../reports/m3_equity_admission/FEATURE_REVIEW.md)及[最终测试与复现记录](../reports/m3_equity_admission/VERIFICATION.md)为当前入口。具体缺字段和最低现金成本路线见[数据审计](../reports/m3_equity_admission/DATA_AUDIT.md)。免费官方补建已显示可行，当前未收集完整不等于免费永远不可得；尚无购买建议或报价。
+本轮[集中审查](../reports/m3_equity_admission/REVIEW_PACKET.md)、[独立数据/执行审查](../reports/m3_equity_admission/INDEPENDENT_ADMISSION_REVIEW.md)、[研究核审查](../reports/m3_equity_admission/FEATURE_REVIEW.md)及[最终测试与复现记录](../reports/m3_equity_admission/VERIFICATION.md)为前轮入口。具体缺字段和最低现金成本路线见[数据审计](../reports/m3_equity_admission/DATA_AUDIT.md)。免费官方补建已显示可行，当前未收集完整不等于免费永远不可得；尚无购买建议或报价。
 
 后续可复用工作顺序：全池身份/状态、行业公开时钟、股本与日市值、完整行为与税类；R2原稿配对和全池财务链并行。股票税务/公司行为接线属于待完成工程，不混称外部不可补的数据缺口。只有各自数据与执行全部通过，才冻结真实配置和版本、运行既定对照；研发细则见[EQUITY_RESEARCH_PROTOCOL](EQUITY_RESEARCH_PROTOCOL.md)。
 

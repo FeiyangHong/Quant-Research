@@ -3,10 +3,11 @@
 Cash-dividend FIFO follows Cai Shui [2015] 101 and the 2015 official Q&A.
 This component has no market data, orders or cash-account access. A sale
 accrues tax; a separate settlement call records a modeled/observed debit.
-The main execution ledger intentionally still blocks stock dividends.
+The main execution ledger connects this only in explicitly synthetic
+engineering replay. Real stock dividend admission remains blocked.
 """
 from collections import defaultdict
-from datetime import date
+from datetime import date, timedelta
 from decimal import Decimal, ROUND_CEILING, ROUND_HALF_UP
 
 
@@ -60,6 +61,10 @@ def dividend_tax_rate(acquired_on, disposed_on, record_date):
         raise EquityAccountingBlocked("Disposal must follow acquisition and dividend record date")
     if disposed > date(2024, 12, 31):
         raise EquityAccountingBlocked("Final holdout is locked")
+    return _holding_rate(acquired, disposed)
+
+
+def _holding_rate(acquired, disposed):
     try:
         year_end = acquired.replace(year=acquired.year + 1)
         month_end = acquired.replace(year=acquired.year + (acquired.month == 12),
@@ -74,7 +79,7 @@ def dividend_tax_rate(acquired_on, disposed_on, record_date):
 
 
 class CashDividendTaxLedger:
-    """FIFO lots and retained dividend claims; cash/NAV integration is pending.
+    """FIFO lots and retained dividend claims for engineering cash/NAV replay.
 
     Caller supplies verified record-date events chronologically, after that
     day's trades. Rates concern tax liability, not proof of broker debit time.
@@ -176,8 +181,11 @@ class CashDividendTaxLedger:
         potential = defaultdict(Decimal)
         for claim in self.entitlements:
             if claim["remaining"]:
-                potential[claim["action_id"]] += claim["remaining"] * claim["gross_per_share"] * dividend_tax_rate(
-                    claim["acquired_on"], liquidation_date, claim["record_date"])
+                # Record-close reserve anticipates the earliest following
+                # calendar-day disposal without manufacturing a future trade.
+                disposal = max(_day(liquidation_date), _day(claim["record_date"]) + timedelta(days=1))
+                rate = _holding_rate(_day(claim["acquired_on"]), disposal)
+                potential[claim["action_id"]] += claim["remaining"] * claim["gross_per_share"] * rate
         # Sale rounds separately per dividend action. Rounding the combined
         # reserve could underfund several simultaneous half-cent liabilities.
         return self.tax_payable + sum((value.quantize(Decimal("0.01"), rounding=ROUND_CEILING)

@@ -1,0 +1,91 @@
+{
+  "availability_mode": "historical_public_asof",
+  "case_id": "KANGMEI_2017_ORIGINAL_TO_2019_RESTATEMENT",
+  "gate_count": 1,
+  "instrument_id": "sh.600518",
+  "limitation": "One issuer-period revision case, not three cases for three fields; agent documentary reconciliation is not independent human signoff.",
+  "original": {
+    "available_at": "2018-04-27T21:00:00+08:00",
+    "document": {
+      "id": "kangmei_original_2017",
+      "ingested_at": "2026-11-14T19:17:17.511549+00:00",
+      "raw_path": "F:/QuantTrade/Quant-Research/data/raw_equity_admission/http/kangmei_original_2017_15b3b15df2dfd3310cc16e1e345e8950e8a9cb047bdad38d1263e2b55cfd2985.bin",
+      "requested_at": "2026-11-14T19:17:16.321095+00:00",
+      "role": "HISTORICAL_DOCUMENT_AUDIT_PUBLIC_ASOF_CANDIDATE",
+      "sha256": "15b3b15df2dfd3310cc16e1e345e8950e8a9cb047bdad38d1263e2b55cfd2985",
+      "url": "https://static.cninfo.com.cn/finalpage/2018-04-26/1204793690.PDF"
+    },
+    "earliest_execution": "2018-05-02",
+    "pages": [
+      6,
+      7
+    ],
+    "published_date": "2018-04-26",
+    "revision_id": "KM2017_AS_PUBLISHED_20180426",
+    "supersedes_id": null,
+    "values": {
+      "net_profit_parent": "4100926148.57",
+      "operating_cash_flow": "1842794237.84",
+      "total_assets": "68722020630.61"
+    }
+  },
+  "period_end": "2017-12-31",
+  "publication_precision": "date_only",
+  "report_scope": "consolidated; net profit attributable to parent",
+  "revision": {
+    "available_at": "2019-05-06T21:00:00+08:00",
+    "document": {
+      "id": "kangmei_2018_first",
+      "ingested_at": "2026-11-14T19:20:10.221563+00:00",
+      "raw_path": "F:/QuantTrade/Quant-Research/data/raw_equity_admission/http/kangmei_2018_first_9f47aa0dc0a8838ffd21e600d7eca194052d91cf867d8e22a4ba56dee2b9f60a.bin",
+      "requested_at": "2026-11-14T19:20:09.066716+00:00",
+      "role": "HISTORICAL_DOCUMENT_AUDIT",
+      "sha256": "9f47aa0dc0a8838ffd21e600d7eca194052d91cf867d8e22a4ba56dee2b9f60a",
+      "url": "https://static.cninfo.com.cn/finalpage/2019-04-30/1206168292.PDF"
+    },
+    "earliest_execution": "2019-05-07",
+    "pages": [
+      6
+    ],
+    "published_date": "2019-04-30",
+    "revision_id": "KM2017_RESTATED_20190430",
+    "supersedes_id": "KM2017_AS_PUBLISHED_20180426",
+    "supporting_correction_document": {
+      "id": "kangmei_revision_2019",
+      "ingested_at": "2026-11-14T19:17:17.367154+00:00",
+      "raw_path": "F:/QuantTrade/Quant-Research/data/raw_equity_admission/http/kangmei_revision_2019_ca22aa1858f56e2cd9181d15c88fde83312afb94701898a2de74c378c7c41bab.bin",
+      "requested_at": "2026-11-14T19:17:16.321599+00:00",
+      "role": "HISTORICAL_DOCUMENT_AUDIT_PUBLIC_ASOF_CANDIDATE",
+      "sha256": "ca22aa1858f56e2cd9181d15c88fde83312afb94701898a2de74c378c7c41bab",
+      "url": "https://static.cninfo.com.cn/finalpage/2019-04-30/1206168283.PDF"
+    },
+    "values": {
+      "net_profit_parent": "2149836281.41",
+      "operating_cash_flow": "-4840052606.46",
+      "total_assets": "65292951329.52"
+    }
+  },
+  "validation": {
+    "calendar_api_verified": true,
+    "comparative_pdf_page6_render_viewed": true,
+    "exact_intraday_time_verified": false,
+    "independent_human_signoff": false,
+    "original_and_comparative_values_crosschecked": true,
+    "original_pdf_page6_render_viewed": true,
+    "scanned_correction_pdf_pages5_6_render_viewed": true
+  },
+  "vendor_first_seen_at": null,
+  "case_status": "COMPLETE_DOCUMENTARY_PAIR",
+  "independent_human_reviews": 0,
+  "counts_toward_human_admission_gate": false,
+  "queue_position": 0,
+  "missing": [
+    "independent human signoff",
+    "verified intraday publication",
+    "vendor historical first seen",
+    "exhaustive later revision history beyond demonstrated pair"
+  ],
+  "source_unit": "CNY yuan",
+  "normalized_unit": "CNY yuan",
+  "revision_chain_scope": "demonstrated original-to-2019 pair only; later 2020 revision not falsely declared absent"
+}

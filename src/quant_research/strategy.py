@@ -10,6 +10,7 @@ from typing import Any, Dict, List
 
 import numpy as np
 import pandas as pd
+from .temporal import master_snapshot, TemporalStateError
 
 
 class StrategyBlockedError(ValueError):
@@ -42,17 +43,15 @@ def _prepare(frame: pd.DataFrame) -> pd.DataFrame:
 
 def _snapshot(frame: pd.DataFrame, at: pd.Timestamp, keys: List[str],
               master: bool = False) -> pd.DataFrame:
+    if master:
+        try:
+            return master_snapshot(frame, at)
+        except TemporalStateError as exc:
+            raise StrategyBlockedError(str(exc)) from exc
     day = at.strftime("%Y-%m-%d")
     keep = frame["_available"] <= at
     if "date" in frame:
         keep &= frame["date"] <= day
-    if master:
-        for column, compare in (("effective_from", "le"), ("effective_to", "gt")):
-            if column in frame:
-                # Effective dates are interpreted in the exchange timezone.
-                dates = frame[column].map(
-                    lambda x: pd.Timestamp(x).strftime("%Y-%m-%d") if pd.notna(x) and x != "" else None)
-                keep &= dates.isna() | (dates.le(day) if compare == "le" else dates.gt(day))
     result = frame.loc[keep].sort_values("_available", kind="stable")
     if result.duplicated(keys + ["_available"]).any():
         raise StrategyBlockedError("BLOCKED_DATA: ambiguous revisions at equal available_at")

@@ -1,0 +1,67 @@
+FFFF                                                                     [100%]
+================================== FAILURES ===================================
+______________ test_published_future_grant_does_not_trade_early _______________
+
+    def test_published_future_grant_does_not_trade_early():
+        data = stock_fixture()
+        data['instruments']['account_verified'] = False
+        update = data['instruments'].iloc[0].to_dict()
+        update.update(account_verified=True, available_at=data['calendar'][19] + 'T20:00:00+08:00',
+                      effective_from=data['calendar'][25])
+        data['instruments'] = pd.concat([data['instruments'], pd.DataFrame([update])], ignore_index=True)
+        at = pd.Timestamp(data['calendar'][20] + 'T21:00:00+08:00')
+>       assert not bool(master_asof(SimpleNamespace(**data), at).iloc[0].account_verified)
+E       assert not True
+E        +  where True = bool(True)
+E        +    where True = instrument_id                               A\nasset_type                              STOCK\nboard                     ...RMAL\nis_st                                   False\neffective_from                     2020-02-05\nName: 1, dtype: object.account_verified
+
+tests\test_m4_execution.py:21: AssertionError
+___________ test_execution_future_revocation_is_not_early_risk_exit ___________
+
+    def test_execution_future_revocation_is_not_early_risk_exit():
+        data = stock_fixture()
+        update = data['instruments'].iloc[0].to_dict()
+        update.update(account_verified=False, available_at=data['calendar'][22] + 'T20:00:00+08:00',
+                      effective_from=data['calendar'][27])
+        data['instruments'] = pd.concat([data['instruments'], pd.DataFrame([update])], ignore_index=True)
+        result = run_backtest(data, [decision(data)], 100000, tax_rules=rules())
+>       assert result['orders'].query("intent_type == 'RISK_EXIT'").iloc[0].decision_date == data['calendar'][27]
+E       AssertionError: assert '2020-01-31' == '2020-02-07'
+E         
+E         - 2020-02-07
+E         + 2020-01-31
+
+tests\test_m4_execution.py:33: AssertionError
+_________ test_expiry_retains_position_and_blocks_unknown_rule_sales __________
+
+    def test_expiry_retains_position_and_blocks_unknown_rule_sales():
+        data = stock_fixture()
+        data['instruments']['effective_to'] = data['calendar'][24]
+        result = run_backtest(data, [decision(data), decision(data, 25, 0)], 100000, tax_rules=rules())
+>       assert list(result['fills'].side) == ['BUY']
+E       AssertionError: assert ['BUY', 'SELL'] == ['BUY']
+E         
+E         Left contains one more item: 'SELL'
+E         Use -v to get more diff
+
+tests\test_m4_execution.py:40: AssertionError
+_____________ test_standalone_etf_delisting_marks_unknown_rights ______________
+
+    def test_standalone_etf_delisting_marks_unknown_rights():
+        data = stock_fixture()
+        data['instruments']['asset_type'] = 'ETF'
+        ex = data['calendar'][24]
+        data['actions'] = pd.DataFrame([dict(action_id='X', instrument_id='A', action_type='DELISTING',
+            ex_date=ex, available_at=ex + 'T08:00:00+08:00', recovery_per_share=None)])
+        result = run_backtest(data, [decision(data)], 100000)
+>       assert result['nav'].iloc[-1].valuation_uncertainty
+E       assert False
+E        +  where False = date                            2020-02-25\nnav                                95991.0\ncash_total                      ...    False\nassumed_settlement                   False\nlate_recognition                     False\nName: 39, dtype: object.valuation_uncertainty
+
+tests\test_m4_execution.py:52: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/test_m4_execution.py::test_published_future_grant_does_not_trade_early
+FAILED tests/test_m4_execution.py::test_execution_future_revocation_is_not_early_risk_exit
+FAILED tests/test_m4_execution.py::test_expiry_retains_position_and_blocks_unknown_rule_sales
+FAILED tests/test_m4_execution.py::test_standalone_etf_delisting_marks_unknown_rights
+4 failed in 1.33s

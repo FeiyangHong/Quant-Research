@@ -1,0 +1,425 @@
+{
+  "schema_version": "m4-source-manifest-1",
+  "created_at": "2026-11-15T09:14:05.104261+00:00",
+  "raw_objects": [
+    {
+      "path": "data/raw_equity_admission/http/kangmei_original_2017_15b3b15df2dfd3310cc16e1e345e8950e8a9cb047bdad38d1263e2b55cfd2985.bin",
+      "sha256": "15b3b15df2dfd3310cc16e1e345e8950e8a9cb047bdad38d1263e2b55cfd2985",
+      "byte_count": 3886671,
+      "source_url": "https://static.cninfo.com.cn/finalpage/2018-04-26/1204793690.PDF",
+      "expected_sha256": "15b3b15df2dfd3310cc16e1e345e8950e8a9cb047bdad38d1263e2b55cfd2985"
+    },
+    {
+      "path": "data/raw_equity_admission/http/kangmei_2018_first_9f47aa0dc0a8838ffd21e600d7eca194052d91cf867d8e22a4ba56dee2b9f60a.bin",
+      "sha256": "9f47aa0dc0a8838ffd21e600d7eca194052d91cf867d8e22a4ba56dee2b9f60a",
+      "byte_count": 4252218,
+      "source_url": "https://static.cninfo.com.cn/finalpage/2019-04-30/1206168292.PDF",
+      "expected_sha256": "9f47aa0dc0a8838ffd21e600d7eca194052d91cf867d8e22a4ba56dee2b9f60a"
+    },
+    {
+      "path": "data/raw_equity_admission/http/kangmei_revision_2019_ca22aa1858f56e2cd9181d15c88fde83312afb94701898a2de74c378c7c41bab.bin",
+      "sha256": "ca22aa1858f56e2cd9181d15c88fde83312afb94701898a2de74c378c7c41bab",
+      "byte_count": 4526309,
+      "source_url": "https://static.cninfo.com.cn/finalpage/2019-04-30/1206168283.PDF",
+      "expected_sha256": "ca22aa1858f56e2cd9181d15c88fde83312afb94701898a2de74c378c7c41bab"
+    },
+    {
+      "path": "data/raw_m4_equity/objects/095c0e06dc4b0b1b034efe36c182a04894c9c48f0a0be1355a2e05d4a12f5b65.bin",
+      "sha256": "095c0e06dc4b0b1b034efe36c182a04894c9c48f0a0be1355a2e05d4a12f5b65",
+      "byte_count": 8538712,
+      "source_url": "https://static.cninfo.com.cn/finalpage/2020-04-30/1207685837.PDF",
+      "expected_sha256": "095c0e06dc4b0b1b034efe36c182a04894c9c48f0a0be1355a2e05d4a12f5b65"
+    },
+    {
+      "path": "data/raw_equity_admission/http/revision_candidate_002528_1222184404_329a767cc7cdbdc81cc7def0a90671aec58f0d0bfaead3acb9544ad8107aec58.bin",
+      "sha256": "329a767cc7cdbdc81cc7def0a90671aec58f0d0bfaead3acb9544ad8107aec58",
+      "byte_count": 637369,
+      "source_url": "https://static.cninfo.com.cn/finalpage/2024-12-31/1222184404.PDF",
+      "expected_sha256": "329a767cc7cdbdc81cc7def0a90671aec58f0d0bfaead3acb9544ad8107aec58"
+    },
+    {
+      "path": "data/raw_m4_equity/objects/1e6ad6b816e085723719c37b8c3fce1eb47f0dbca6a9ec57ff8829b913ef14d1.bin",
+      "sha256": "1e6ad6b816e085723719c37b8c3fce1eb47f0dbca6a9ec57ff8829b913ef14d1",
+      "byte_count": 3481297,
+      "source_url": "https://static.cninfo.com.cn/finalpage/2024-04-30/1219924795.PDF",
+      "expected_sha256": "1e6ad6b816e085723719c37b8c3fce1eb47f0dbca6a9ec57ff8829b913ef14d1"
+    },
+    {
+      "path": "data/raw_m4_equity/objects/6d3759ac47e4586336ffc827da7eb869186176597d583df15eefe802e4b057a6.bin",
+      "sha256": "6d3759ac47e4586336ffc827da7eb869186176597d583df15eefe802e4b057a6",
+      "byte_count": 546670,
+      "source_url": "https://static.cninfo.com.cn/finalpage/2024-12-31/1222181621.PDF",
+      "expected_sha256": "6d3759ac47e4586336ffc827da7eb869186176597d583df15eefe802e4b057a6"
+    },
+    {
+      "path": "data/raw_equity_admission/http/revision_candidate_000908_1222181632_1d8f0a4e533ab4b59fe4decc94f02dbe89ac2eaeda85610a72de270b6a835673.bin",
+      "sha256": "1d8f0a4e533ab4b59fe4decc94f02dbe89ac2eaeda85610a72de270b6a835673",
+      "byte_count": 248899,
+      "source_url": "https://static.cninfo.com.cn/finalpage/2024-12-31/1222181632.PDF",
+      "expected_sha256": "1d8f0a4e533ab4b59fe4decc94f02dbe89ac2eaeda85610a72de270b6a835673"
+    },
+    {
+      "path": "data/raw_m4_equity/objects/9cf2e78f03160284afbc4484afc1add9a412410b8c1360abaf6679c6fb0cd7b3.bin",
+      "sha256": "9cf2e78f03160284afbc4484afc1add9a412410b8c1360abaf6679c6fb0cd7b3",
+      "byte_count": 3620327,
+      "source_url": "https://static.cninfo.com.cn/finalpage/2023-04-28/1216661824.PDF",
+      "expected_sha256": "9cf2e78f03160284afbc4484afc1add9a412410b8c1360abaf6679c6fb0cd7b3"
+    },
+    {
+      "path": "data/raw_m4_equity/objects/8892da6df0b5a67edcbb45dfd12c51c8c01ec45bf598e5b0cfb67e1ed968988b.bin",
+      "sha256": "8892da6df0b5a67edcbb45dfd12c51c8c01ec45bf598e5b0cfb67e1ed968988b",
+      "byte_count": 3721565,
+      "source_url": "https://static.cninfo.com.cn/finalpage/2024-12-28/1222168015.PDF",
+      "expected_sha256": "8892da6df0b5a67edcbb45dfd12c51c8c01ec45bf598e5b0cfb67e1ed968988b"
+    },
+    {
+      "path": "data/raw_equity_admission/http/revision_candidate_600165_1222168010_1c92b2c73af2538b4785961e06ef2ac74da2bc9a5e67ca5aef863f4b66faf035.bin",
+      "sha256": "1c92b2c73af2538b4785961e06ef2ac74da2bc9a5e67ca5aef863f4b66faf035",
+      "byte_count": 635727,
+      "source_url": "https://static.cninfo.com.cn/finalpage/2024-12-28/1222168010.PDF",
+      "expected_sha256": "1c92b2c73af2538b4785961e06ef2ac74da2bc9a5e67ca5aef863f4b66faf035"
+    },
+    {
+      "path": "data/raw_m4_equity/objects/9b57ae1e21bc1246d7acb7e044f7dca033ba93ba5055f92ad9b53951ed39da1d.bin",
+      "sha256": "9b57ae1e21bc1246d7acb7e044f7dca033ba93ba5055f92ad9b53951ed39da1d",
+      "byte_count": 382343,
+      "source_url": "https://static.cninfo.com.cn/finalpage/2023-10-26/1218147817.PDF",
+      "expected_sha256": "9b57ae1e21bc1246d7acb7e044f7dca033ba93ba5055f92ad9b53951ed39da1d"
+    },
+    {
+      "path": "data/raw_equity_admission/http/revision_candidate_002857_1222127532_41d9370fd96d1860152079264f7a05448a6db7cc2c47b5e9dcda410037288e98.bin",
+      "sha256": "41d9370fd96d1860152079264f7a05448a6db7cc2c47b5e9dcda410037288e98",
+      "byte_count": 384675,
+      "source_url": "https://static.cninfo.com.cn/finalpage/2024-12-25/1222127532.PDF",
+      "expected_sha256": "41d9370fd96d1860152079264f7a05448a6db7cc2c47b5e9dcda410037288e98"
+    },
+    {
+      "path": "data/raw_m4_equity/objects/bb3e11910fb404d087ff91a7297759919383c86a9b5389293486e3aea80dadb1.bin",
+      "sha256": "bb3e11910fb404d087ff91a7297759919383c86a9b5389293486e3aea80dadb1",
+      "byte_count": 5905605,
+      "source_url": "https://static.cninfo.com.cn/finalpage/2023-04-22/1216528308.PDF",
+      "expected_sha256": "bb3e11910fb404d087ff91a7297759919383c86a9b5389293486e3aea80dadb1"
+    },
+    {
+      "path": "data/raw_m4_equity/objects/38854296e87ba2d9df93a771122cdabbfb50eab51357eb6e64cac8d9ba0508f8.bin",
+      "sha256": "38854296e87ba2d9df93a771122cdabbfb50eab51357eb6e64cac8d9ba0508f8",
+      "byte_count": 3172808,
+      "source_url": "https://static.cninfo.com.cn/finalpage/2024-12-23/1222115078.PDF",
+      "expected_sha256": "38854296e87ba2d9df93a771122cdabbfb50eab51357eb6e64cac8d9ba0508f8"
+    },
+    {
+      "path": "data/raw_equity_admission/http/revision_candidate_300632_1222115085_a30b2b7fa2f1494f1dc19eb32939a571ac5469babba16940d4a8c9c1c240fec3.bin",
+      "sha256": "a30b2b7fa2f1494f1dc19eb32939a571ac5469babba16940d4a8c9c1c240fec3",
+      "byte_count": 152083,
+      "source_url": "https://static.cninfo.com.cn/finalpage/2024-12-23/1222115085.PDF",
+      "expected_sha256": "a30b2b7fa2f1494f1dc19eb32939a571ac5469babba16940d4a8c9c1c240fec3"
+    },
+    {
+      "path": "data/raw_m4_equity/objects/f7342a7364bc932f82b44f785ff0be72f505600135e0d1d969a75c7589873475.bin",
+      "sha256": "f7342a7364bc932f82b44f785ff0be72f505600135e0d1d969a75c7589873475",
+      "byte_count": 2834550,
+      "source_url": "https://static.cninfo.com.cn/finalpage/2021-08-18/1210769220.PDF",
+      "expected_sha256": "f7342a7364bc932f82b44f785ff0be72f505600135e0d1d969a75c7589873475"
+    },
+    {
+      "path": "data/raw_m4_equity/objects/5a0d760214073f096d3c702c940a396e8d676c9d4284196c1ab96b5f8fca7049.bin",
+      "sha256": "5a0d760214073f096d3c702c940a396e8d676c9d4284196c1ab96b5f8fca7049",
+      "byte_count": 5642438,
+      "source_url": "https://static.cninfo.com.cn/finalpage/2024-12-12/1222007363.PDF",
+      "expected_sha256": "5a0d760214073f096d3c702c940a396e8d676c9d4284196c1ab96b5f8fca7049"
+    },
+    {
+      "path": "data/raw_equity_admission/http/revision_candidate_300617_1222007360_26b2b13898fb2ec7f05cabc41c5d632c67af9f051e954cb3cf86f13b5f93f7e0.bin",
+      "sha256": "26b2b13898fb2ec7f05cabc41c5d632c67af9f051e954cb3cf86f13b5f93f7e0",
+      "byte_count": 509619,
+      "source_url": "https://static.cninfo.com.cn/finalpage/2024-12-12/1222007360.PDF",
+      "expected_sha256": "26b2b13898fb2ec7f05cabc41c5d632c67af9f051e954cb3cf86f13b5f93f7e0"
+    },
+    {
+      "path": "data/raw_m4_equity/objects/0308a6eac3872bfb2d16abec315c9247a474bd0f4b712d0faf0b7777d3fb4b1c.bin",
+      "sha256": "0308a6eac3872bfb2d16abec315c9247a474bd0f4b712d0faf0b7777d3fb4b1c",
+      "byte_count": 435241,
+      "source_url": "https://static.cninfo.com.cn/finalpage/2022-10-31/1214959169.PDF",
+      "expected_sha256": "0308a6eac3872bfb2d16abec315c9247a474bd0f4b712d0faf0b7777d3fb4b1c"
+    },
+    {
+      "path": "data/raw_m4_equity/objects/a05f255d53514d4e1e404583ba8ac1cdb0da18729a54ad6159781e93afdf7635.bin",
+      "sha256": "a05f255d53514d4e1e404583ba8ac1cdb0da18729a54ad6159781e93afdf7635",
+      "byte_count": 845897,
+      "source_url": "https://static.cninfo.com.cn/finalpage/2024-12-11/1221981062.PDF",
+      "expected_sha256": "a05f255d53514d4e1e404583ba8ac1cdb0da18729a54ad6159781e93afdf7635"
+    },
+    {
+      "path": "data/raw_equity_admission/http/revision_candidate_002729_1221981063_8702724777371322f3d277a926fe265ecc216bb41cb4ab9e255026536cff2f70.bin",
+      "sha256": "8702724777371322f3d277a926fe265ecc216bb41cb4ab9e255026536cff2f70",
+      "byte_count": 550084,
+      "source_url": "https://static.cninfo.com.cn/finalpage/2024-12-11/1221981063.PDF",
+      "expected_sha256": "8702724777371322f3d277a926fe265ecc216bb41cb4ab9e255026536cff2f70"
+    },
+    {
+      "path": "data/raw_equity_admission/http/csrc_industry_2020q2_84e1e0382561a4627c6ad7076a57b1d3b51e88192f19b898db0bccaaed10a546.bin",
+      "sha256": "84e1e0382561a4627c6ad7076a57b1d3b51e88192f19b898db0bccaaed10a546",
+      "byte_count": 731889,
+      "source_url": "https://www.csrc.gov.cn/csrc/c100103/c1451994/1451994/files/1616066674038_28028.pdf",
+      "expected_sha256": "84e1e0382561a4627c6ad7076a57b1d3b51e88192f19b898db0bccaaed10a546"
+    },
+    {
+      "path": "data/raw_equity_admission/http/csrc_industry_2020q2_page_92d6dad6659f5bdd78045c2ae294321374bfacffd58789d6d6244cdc4248bab7.bin",
+      "sha256": "92d6dad6659f5bdd78045c2ae294321374bfacffd58789d6d6244cdc4248bab7",
+      "byte_count": 11421,
+      "source_url": "https://www.csrc.gov.cn/csrc/c100103/c1451994/content.shtml",
+      "expected_sha256": "92d6dad6659f5bdd78045c2ae294321374bfacffd58789d6d6244cdc4248bab7"
+    },
+    {
+      "path": "data/raw_equity_admission/http/maotai_dividend_20230626_a4c07cb17a1ca6e1fd5e49a2324aa71a4900347da51810781f1457df4940978f.bin",
+      "sha256": "a4c07cb17a1ca6e1fd5e49a2324aa71a4900347da51810781f1457df4940978f",
+      "byte_count": 339457,
+      "source_url": "https://www.moutaichina.com/maotaigf/fileDir/resource/cms/article/408428/561111/2023062617072666236.pdf",
+      "expected_sha256": "a4c07cb17a1ca6e1fd5e49a2324aa71a4900347da51810781f1457df4940978f"
+    },
+    {
+      "path": "data/raw_equity_admission/http/maotai_special_original_20231214_42b90060ad3fb579172f60f1c5b43f35f5a4e052b8e7c6b1ebd4ceba72b015f1.bin",
+      "sha256": "42b90060ad3fb579172f60f1c5b43f35f5a4e052b8e7c6b1ebd4ceba72b015f1",
+      "byte_count": 3872,
+      "source_url": "https://www.sse.com.cn/disclosure/listedinfo/announcement/c/new/2023-12-14/600519_20231214_WR1C.pdf",
+      "expected_sha256": "42b90060ad3fb579172f60f1c5b43f35f5a4e052b8e7c6b1ebd4ceba72b015f1"
+    },
+    {
+      "path": "data/raw_m4_equity/objects/0dbe732b03eb90ba8cd5dabc9757b42700f774d2ad6fb9195777119a249f8172.bin",
+      "sha256": "0dbe732b03eb90ba8cd5dabc9757b42700f774d2ad6fb9195777119a249f8172",
+      "byte_count": 151878,
+      "source_url": "https://static.cninfo.com.cn/finalpage/2019-05-18/1206283586.PDF",
+      "expected_sha256": "0dbe732b03eb90ba8cd5dabc9757b42700f774d2ad6fb9195777119a249f8172"
+    },
+    {
+      "path": "data/raw_equity_admission/http/leshi_delisting_20200514_f09a96cf4e79178e6c7be17ca89e6c135549103ed7cf207a78b7ab5027493fb5.bin",
+      "sha256": "f09a96cf4e79178e6c7be17ca89e6c135549103ed7cf207a78b7ab5027493fb5",
+      "byte_count": 202244,
+      "source_url": "https://disc.static.szse.cn/download/disc/disk02/finalpage/2020-05-14/b8e4ea78-2685-46cc-9b93-43aab6c8bd29.PDF",
+      "expected_sha256": "f09a96cf4e79178e6c7be17ca89e6c135549103ed7cf207a78b7ab5027493fb5"
+    },
+    {
+      "path": "data/raw_equity_admission/http/leshi_registration_end_20200724_967f67bd2891228a5c0d9961e7f44f486cc665a80306a425cab41b3cc23747b1.bin",
+      "sha256": "967f67bd2891228a5c0d9961e7f44f486cc665a80306a425cab41b3cc23747b1",
+      "byte_count": 15135,
+      "source_url": "https://www.szse.cn/disclosure/notice/t20200727_580003.html",
+      "expected_sha256": "967f67bd2891228a5c0d9961e7f44f486cc665a80306a425cab41b3cc23747b1"
+    },
+    {
+      "path": "data/raw_equity_admission/http/shijia_industry_change_20200717_c244c96f1adb03f5646a6393674926c632dcf420e7dbc8dd1238d8a4b9bf7d7c.bin",
+      "sha256": "c244c96f1adb03f5646a6393674926c632dcf420e7dbc8dd1238d8a4b9bf7d7c",
+      "byte_count": 138916,
+      "source_url": "https://static.cninfo.com.cn/finalpage/2020-07-17/1208039030.PDF",
+      "expected_sha256": "c244c96f1adb03f5646a6393674926c632dcf420e7dbc8dd1238d8a4b9bf7d7c"
+    },
+    {
+      "path": "data/raw_m4_equity/objects/955734539f4e29b84551ec6e977789660b8645f81dc48c07ad7e9c0a1dbadcdc.bin",
+      "sha256": "955734539f4e29b84551ec6e977789660b8645f81dc48c07ad7e9c0a1dbadcdc",
+      "byte_count": 88,
+      "source_url": null,
+      "expected_sha256": "955734539f4e29b84551ec6e977789660b8645f81dc48c07ad7e9c0a1dbadcdc"
+    },
+    {
+      "path": "data/raw_m4_equity/objects/b9edf23cb4c7a3de240987ba2dea03f5a9121893b555c0ffa9e5553a6c475059.bin",
+      "sha256": "b9edf23cb4c7a3de240987ba2dea03f5a9121893b555c0ffa9e5553a6c475059",
+      "byte_count": 69266,
+      "source_url": null,
+      "expected_sha256": "b9edf23cb4c7a3de240987ba2dea03f5a9121893b555c0ffa9e5553a6c475059"
+    },
+    {
+      "path": "data/raw_m4_equity/objects/4948bd533b0bff889e2aaba9843f7dff3d871d6ae26fa7308342411b0639a699.bin",
+      "sha256": "4948bd533b0bff889e2aaba9843f7dff3d871d6ae26fa7308342411b0639a699",
+      "byte_count": 65529,
+      "source_url": null,
+      "expected_sha256": "4948bd533b0bff889e2aaba9843f7dff3d871d6ae26fa7308342411b0639a699"
+    },
+    {
+      "path": "data/raw_m4_equity/objects/d29b3706c03b37a3f96ee2444e3a938d1227b4eab1b397bdee846748074fbfb6.bin",
+      "sha256": "d29b3706c03b37a3f96ee2444e3a938d1227b4eab1b397bdee846748074fbfb6",
+      "byte_count": 30534,
+      "source_url": null,
+      "expected_sha256": "d29b3706c03b37a3f96ee2444e3a938d1227b4eab1b397bdee846748074fbfb6"
+    },
+    {
+      "path": "data/raw_m4_equity/objects/fd3b7e500e062765aca29ff962a1196197266afc2a28651500a954aa853a9d68.bin",
+      "sha256": "fd3b7e500e062765aca29ff962a1196197266afc2a28651500a954aa853a9d68",
+      "byte_count": 719327,
+      "source_url": null,
+      "expected_sha256": "fd3b7e500e062765aca29ff962a1196197266afc2a28651500a954aa853a9d68"
+    },
+    {
+      "path": "data/raw_m4_equity/objects/84b3cf3766795090c7821d5cdafb80ac8e38081472ae7be5919e434bf42df30c.bin",
+      "sha256": "84b3cf3766795090c7821d5cdafb80ac8e38081472ae7be5919e434bf42df30c",
+      "byte_count": 190574,
+      "source_url": null,
+      "expected_sha256": "84b3cf3766795090c7821d5cdafb80ac8e38081472ae7be5919e434bf42df30c"
+    },
+    {
+      "path": "data/raw_m4_equity/objects/dd135a6c9e17df15134772e6873b9e38ec6e553d8803934e27832fb6584c4e2d.bin",
+      "sha256": "dd135a6c9e17df15134772e6873b9e38ec6e553d8803934e27832fb6584c4e2d",
+      "byte_count": 197431,
+      "source_url": null,
+      "expected_sha256": "dd135a6c9e17df15134772e6873b9e38ec6e553d8803934e27832fb6584c4e2d"
+    },
+    {
+      "path": "data/raw_m4_equity/objects/750245bdc8a48065b7174da8cd1a99f7f467df0c629c9191f1dfc1b3d91041b3.bin",
+      "sha256": "750245bdc8a48065b7174da8cd1a99f7f467df0c629c9191f1dfc1b3d91041b3",
+      "byte_count": 3242,
+      "source_url": null,
+      "expected_sha256": "750245bdc8a48065b7174da8cd1a99f7f467df0c629c9191f1dfc1b3d91041b3"
+    },
+    {
+      "path": "data/raw_m4_equity/objects/c5b9fbe12e2b6f661647902298d013048056cc2627d06de617fb138b3bd925b4.bin",
+      "sha256": "c5b9fbe12e2b6f661647902298d013048056cc2627d06de617fb138b3bd925b4",
+      "byte_count": 2186,
+      "source_url": "https://www.cninfo.com.cn/new/hisAnnouncement/query",
+      "expected_sha256": "c5b9fbe12e2b6f661647902298d013048056cc2627d06de617fb138b3bd925b4"
+    },
+    {
+      "path": "data/raw_m4_equity/objects/057c7ecd4c8ed30b76305fc474163d414ccec75efc5d7b6c290a4e9346510d53.bin",
+      "sha256": "057c7ecd4c8ed30b76305fc474163d414ccec75efc5d7b6c290a4e9346510d53",
+      "byte_count": 4213,
+      "source_url": "https://www.cninfo.com.cn/new/hisAnnouncement/query",
+      "expected_sha256": "057c7ecd4c8ed30b76305fc474163d414ccec75efc5d7b6c290a4e9346510d53"
+    },
+    {
+      "path": "data/raw_m4_equity/objects/8e782880963f8ee7c7ba19e162089c0460d9df62f66f9f118e64d5df88707718.bin",
+      "sha256": "8e782880963f8ee7c7ba19e162089c0460d9df62f66f9f118e64d5df88707718",
+      "byte_count": 4651,
+      "source_url": "https://www.cninfo.com.cn/new/hisAnnouncement/query",
+      "expected_sha256": "8e782880963f8ee7c7ba19e162089c0460d9df62f66f9f118e64d5df88707718"
+    },
+    {
+      "path": "data/raw_m4_equity/objects/c2a890bbf3a6a53ab02ddc6c1794bf1c72ba45799fe9f59dcc5ba2cc18467114.bin",
+      "sha256": "c2a890bbf3a6a53ab02ddc6c1794bf1c72ba45799fe9f59dcc5ba2cc18467114",
+      "byte_count": 165,
+      "source_url": "https://www.cninfo.com.cn/new/hisAnnouncement/query",
+      "expected_sha256": "c2a890bbf3a6a53ab02ddc6c1794bf1c72ba45799fe9f59dcc5ba2cc18467114"
+    },
+    {
+      "path": "data/raw_m4_equity/objects/3d91afcccceb1c23a2e1225a689f4a86f96bf859059522cfdb8680dd1af3d544.bin",
+      "sha256": "3d91afcccceb1c23a2e1225a689f4a86f96bf859059522cfdb8680dd1af3d544",
+      "byte_count": 821,
+      "source_url": "https://www.cninfo.com.cn/new/hisAnnouncement/query",
+      "expected_sha256": "3d91afcccceb1c23a2e1225a689f4a86f96bf859059522cfdb8680dd1af3d544"
+    },
+    {
+      "path": "data/raw_m4_equity/objects/1917d81733338c4fd9301349c25e448e070e8366a55b2a0e507a7f83dc13c791.bin",
+      "sha256": "1917d81733338c4fd9301349c25e448e070e8366a55b2a0e507a7f83dc13c791",
+      "byte_count": 20700,
+      "source_url": "https://www.cninfo.com.cn/new/hisAnnouncement/query",
+      "expected_sha256": "1917d81733338c4fd9301349c25e448e070e8366a55b2a0e507a7f83dc13c791"
+    },
+    {
+      "path": "data/raw_m4_equity/objects/6f70056ad59a798f89b0ef314b65414cfb20e9431ec210eb457234a4399228b5.bin",
+      "sha256": "6f70056ad59a798f89b0ef314b65414cfb20e9431ec210eb457234a4399228b5",
+      "byte_count": 9045,
+      "source_url": "https://www.cninfo.com.cn/new/hisAnnouncement/query",
+      "expected_sha256": "6f70056ad59a798f89b0ef314b65414cfb20e9431ec210eb457234a4399228b5"
+    },
+    {
+      "path": "data/raw_m4_equity/objects/c21951b02835a5d90ddfb165d148c149cd1b95f8f4baa2f425a07259b9a2c948.bin",
+      "sha256": "c21951b02835a5d90ddfb165d148c149cd1b95f8f4baa2f425a07259b9a2c948",
+      "byte_count": 2784,
+      "source_url": "https://www.cninfo.com.cn/new/hisAnnouncement/query",
+      "expected_sha256": "c21951b02835a5d90ddfb165d148c149cd1b95f8f4baa2f425a07259b9a2c948"
+    },
+    {
+      "path": "data/raw_m4_equity/objects/cf52638806662a0bdc7dc9d1417112b4d070609ea31ec4f4e4595c7c28bef394.bin",
+      "sha256": "cf52638806662a0bdc7dc9d1417112b4d070609ea31ec4f4e4595c7c28bef394",
+      "byte_count": 1503,
+      "source_url": "https://www.cninfo.com.cn/new/hisAnnouncement/query",
+      "expected_sha256": "cf52638806662a0bdc7dc9d1417112b4d070609ea31ec4f4e4595c7c28bef394"
+    },
+    {
+      "path": "data/raw_m4_equity/objects/8fcce72f393aff69afed4eb8c22a850b3cd529a897b5fd12919002e36e619240.bin",
+      "sha256": "8fcce72f393aff69afed4eb8c22a850b3cd529a897b5fd12919002e36e619240",
+      "byte_count": 22651,
+      "source_url": "https://www.cninfo.com.cn/new/hisAnnouncement/query",
+      "expected_sha256": "8fcce72f393aff69afed4eb8c22a850b3cd529a897b5fd12919002e36e619240"
+    },
+    {
+      "path": "data/raw_m4_equity/objects/0799feb8e1eb55f3f1109aa4267c39cb7fface459ff2fe9ba6b227e1600a32a6.bin",
+      "sha256": "0799feb8e1eb55f3f1109aa4267c39cb7fface459ff2fe9ba6b227e1600a32a6",
+      "byte_count": 4367,
+      "source_url": "https://www.cninfo.com.cn/new/hisAnnouncement/query",
+      "expected_sha256": "0799feb8e1eb55f3f1109aa4267c39cb7fface459ff2fe9ba6b227e1600a32a6"
+    },
+    {
+      "path": "data/raw_m4_equity/objects/df6177bea51fc85c84d43380966f944af853cd9a1a57cbf361cd8720b6cff697.bin",
+      "sha256": "df6177bea51fc85c84d43380966f944af853cd9a1a57cbf361cd8720b6cff697",
+      "byte_count": 7749,
+      "source_url": "https://www.cninfo.com.cn/new/hisAnnouncement/query",
+      "expected_sha256": "df6177bea51fc85c84d43380966f944af853cd9a1a57cbf361cd8720b6cff697"
+    },
+    {
+      "path": "data/raw_m4_equity/objects/cbd4ae01327fff0ce2d94fabef9060c2ea3edd8fe6b8366c689831738b631f12.bin",
+      "sha256": "cbd4ae01327fff0ce2d94fabef9060c2ea3edd8fe6b8366c689831738b631f12",
+      "byte_count": 8400,
+      "source_url": "https://www.cninfo.com.cn/new/hisAnnouncement/query",
+      "expected_sha256": "cbd4ae01327fff0ce2d94fabef9060c2ea3edd8fe6b8366c689831738b631f12"
+    },
+    {
+      "path": "data/raw_m4_equity/objects/ad6b59d24f2f132b694c9af4c58255425c963153a1402b86c0f289d6e7347dab.bin",
+      "sha256": "ad6b59d24f2f132b694c9af4c58255425c963153a1402b86c0f289d6e7347dab",
+      "byte_count": 3599,
+      "source_url": "https://www.cninfo.com.cn/new/hisAnnouncement/query",
+      "expected_sha256": "ad6b59d24f2f132b694c9af4c58255425c963153a1402b86c0f289d6e7347dab"
+    },
+    {
+      "path": "data/raw_m4_equity/objects/7ef1caecca41c58473ebb3a6acb2db5dd2662c97f7d3e16eb9a7a9bd8fbe6efd.bin",
+      "sha256": "7ef1caecca41c58473ebb3a6acb2db5dd2662c97f7d3e16eb9a7a9bd8fbe6efd",
+      "byte_count": 21366,
+      "source_url": "https://www.cninfo.com.cn/new/hisAnnouncement/query",
+      "expected_sha256": "7ef1caecca41c58473ebb3a6acb2db5dd2662c97f7d3e16eb9a7a9bd8fbe6efd"
+    },
+    {
+      "path": "data/raw_m4_equity/objects/c8b2bc3ef504e609ecfc5d995d58bef1ebf94a36816da0d0bf24d286e96679a3.bin",
+      "sha256": "c8b2bc3ef504e609ecfc5d995d58bef1ebf94a36816da0d0bf24d286e96679a3",
+      "byte_count": 904,
+      "source_url": "https://www.cninfo.com.cn/new/hisAnnouncement/query",
+      "expected_sha256": "c8b2bc3ef504e609ecfc5d995d58bef1ebf94a36816da0d0bf24d286e96679a3"
+    },
+    {
+      "path": "data/raw_m4_equity/baostock/full_daily_20200731.json",
+      "sha256": "3221ea348ffecf3e57a49ef7146d110f85e9d6e42bd74c70823be9c35700417a",
+      "byte_count": 1331623
+    },
+    {
+      "path": "data/raw_m4_equity/baostock/full_industry_20200731.json",
+      "sha256": "0583f642a9a57947fe1d2509f9dd5af9f25c6072b01c101adf75499f127a51d4",
+      "byte_count": 600618
+    },
+    {
+      "path": "data/raw_m4_equity/baostock/full_universe_20200731.json",
+      "sha256": "b6b75e3564c4b601d8c4511b151009ee603ec5d5a73f9eba1e6da38a4d4fd78d",
+      "byte_count": 338374
+    },
+    {
+      "path": "data/raw_m4_equity/baostock/login.json",
+      "sha256": "161e931a2ffb36bf5a235c355f6e54f3c86c27f3ea6256a60b4ca1b3960a7e15",
+      "byte_count": 226
+    }
+  ],
+  "verified_hash_count": 58,
+  "source_hash_status": "ALL_MATCH",
+  "budget": {
+    "http_attempts": 33,
+    "baostock_wire_attempts": 8,
+    "new_body_bytes": 40671086
+  },
+  "scope": "Local research raw evidence; no public redistribution licence implied",
+  "rebuild_requires": "Original M3 raw archive, new M4 raw archive, admitted R1 calendars and existing 2024-published 2025 calendar notice; only calendar values reused from R1, no performance",
+  "code": [
+    {
+      "path": "scripts/m4_data_feasibility.py",
+      "sha256": "87f2a965204b5a62923643e8c056f5525cb5d7ef979f52325b47efea5646fe70",
+      "byte_count": 8762
+    },
+    {
+      "path": "scripts/m4_data_build.py",
+      "sha256": "14af2964794788bfc23931b2a3e120f8ad67bc84a6cfd7412fc3fd32378f7ba0",
+      "byte_count": 21773
+    }
+  ]
+}
