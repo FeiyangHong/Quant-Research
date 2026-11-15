@@ -19,6 +19,8 @@ import time
 from urllib.request import Request, urlopen
 from urllib.parse import urlencode, urlparse
 
+from quant_research.budget import BudgetLedger, atomic_json
+
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / 'data/raw_m4_equity'
 REPORT = ROOT / 'reports/m4_data'
@@ -29,8 +31,7 @@ def now():
     return datetime.now(timezone.utc).isoformat()
 
 def save(path, obj):
-    path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(json.dumps(obj, ensure_ascii=False, indent=2), encoding='utf-8')
+    atomic_json(path, obj)
 
 def budget():
     path = OUT/'budget.json'
@@ -42,25 +43,10 @@ def budget():
     return json.loads(path.read_text(encoding='utf-8'))
 
 def begin(kind, label, **extra):
-    b=budget()
-    if b['used'][kind] >= b['limits'][kind] or b['used']['new_body_bytes'] >= b['limits']['new_body_bytes']:
-        raise RuntimeError('M4 hard budget exhausted before request')
-    b['used'][kind]+=1
-    rec={'id':len(b['attempts'])+1,'kind':kind,'label':label,'started_at':now(),**extra}
-    b['attempts'].append(rec);save(OUT/'budget.json', b)
-    return rec['id']
+    return BudgetLedger(OUT, LIMITS).begin(kind, label, **extra)
 
 def finish(idx, payload, started, **extra):
-    b=budget();b['used']['new_body_bytes']+=len(payload)
-    if b['used']['new_body_bytes']>b['limits']['new_body_bytes']:
-        raise RuntimeError('Body byte cap breached')
-    sha=hashlib.sha256(payload).hexdigest()
-    path=OUT/'objects'/f'{sha}.bin';path.parent.mkdir(exist_ok=True)
-    if not path.exists():path.write_bytes(payload)
-    rec=b['attempts'][idx-1]
-    rec.update(byte_count=len(payload),sha256=sha,raw_path=str(path),elapsed_seconds=round(time.perf_counter()-started,6),ingested_at=now(),**extra)
-    save(OUT/'budget.json',b)
-    return rec
+    return BudgetLedger(OUT, LIMITS).finish(idx, payload, started, **extra)
 
 def fetch(label,url,body=None):
     validate_document_url(url)
@@ -74,9 +60,10 @@ def fetch(label,url,body=None):
                 chunk=response.read(min(65536,remaining-len(payload)))
                 if not chunk:break
                 payload+=chunk
-            rec=finish(idx,payload,started,status='FETCHED' if len(payload)<remaining else 'TRUNCATED_BUDGET',http_status=response.status,content_type=response.headers.get('Content-Type'))
+            terminal={'status':'FETCHED' if len(payload)<remaining else 'TRUNCATED_BUDGET','http_status':response.status,'content_type':response.headers.get('Content-Type')}
     except Exception as exc:
-        rec=finish(idx,payload,started,status='FAILED',error=f'{type(exc).__name__}: {exc}')
+        terminal={'status':'FAILED','error':f'{type(exc).__name__}: {exc}'}
+    rec=finish(idx,payload,started,**terminal)
     save(OUT/'manifests'/f'{label}_{idx:04d}.json',rec)
     # Convenience pointer only. Immutable request identities remain in the ledger
     # and the ID-suffixed manifests; a repeated label cannot erase evidence.
@@ -120,7 +107,11 @@ def collect_baostock():
     active=['login']
     def send(msg):
         idx=begin('baostock_wire_attempts',active[0]);started=time.perf_counter()
-        result=old_send(msg)
+        try:
+            result=old_send(msg)
+        except Exception as exc:
+            finish(idx,b'',started,status='FAILED',error=f'{type(exc).__name__}: {exc}')
+            raise
         finish(idx,(result or '').encode(),started,status='RETURNED' if result else 'FAILED')
         return result
     sock.send_msg=send;socket.setdefaulttimeout(25)

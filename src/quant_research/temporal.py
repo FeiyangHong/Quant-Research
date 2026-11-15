@@ -112,3 +112,31 @@ def master_snapshot(frame, cutoff):
         if row is not None:
             selected.append(row)
     return pd.DataFrame(selected, columns=frame.columns)
+
+
+def representative_record(rows, cutoff):
+    """Select economic state first, then require its benchmark evidence.
+
+    A pending index source never resurrects an older state. Account execution
+    uses master_record directly because benchmark knowledge is a research gate.
+    """
+    row = master_record(rows, cutoff)
+    if row is None:
+        return None
+    source = row.get("benchmark_source_available_at")
+    if source is None or pd.isna(source) or source == "":
+        source = row.get("available_at")
+    stamp = pd.Timestamp(source)
+    if pd.isna(stamp) or stamp.tzinfo is None:
+        raise TemporalStateError("Timezone-aware benchmark source availability required")
+    return row if stamp <= pd.Timestamp(cutoff) else None
+
+
+def representative_snapshot(frame, cutoff):
+    if frame.empty:
+        return frame.copy()
+    if not {"instrument_id", "available_at"}.issubset(frame.columns):
+        raise TemporalStateError("Missing master identity or available_at")
+    rows = [representative_record(group.to_dict("records"), cutoff)
+            for _, group in frame.groupby("instrument_id", sort=False)]
+    return pd.DataFrame([row for row in rows if row is not None], columns=frame.columns)

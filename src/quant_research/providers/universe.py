@@ -22,6 +22,7 @@ import time
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 from quant_research.providers.baostock import canonical, write_immutable, HISTORY_END, SDK_VERSION
+from quant_research.temporal import representative_record
 
 
 def quarter_sessions(sessions):
@@ -231,22 +232,10 @@ def provisional_amount_representatives(calendar, candidates, histories, master_r
             category = candidate.get("category")
             if master_records is not None:
                 at = datetime.fromisoformat(previous + "T21:00:00+08:00")
-                versions = []
-                for row in master_records:
-                    if row["instrument_id"] != code:
-                        continue
-                    known = datetime.fromisoformat(row["available_at"])
-                    benchmark_known = datetime.fromisoformat(row.get("benchmark_source_available_at") or row["available_at"])
-                    if known.tzinfo is None or benchmark_known.tzinfo is None:
-                        raise ValueError("Original metadata availability requires timezone")
-                    if known > at or benchmark_known > at or (row.get("effective_from") and row["effective_from"] > previous) or (row.get("effective_to") and row["effective_to"] <= previous):
-                        continue
-                    versions.append((known, row))
-                if not versions:
+                master = representative_record(
+                    [row for row in master_records if row["instrument_id"] == code], at)
+                if master is None:
                     continue
-                if len({known for known, _ in versions}) != len(versions):
-                    raise ValueError("Ambiguous master revisions at equal availability: " + code)
-                _, master = max(versions, key=lambda pair: pair[0])
                 if master.get("strategy_universe") != "R1B" or (master.get("delisted_on") and master["delisted_on"] <= previous):
                     continue
                 listed_on, category = master["listed_on"], master["benchmark_id"]

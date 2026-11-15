@@ -2,6 +2,7 @@
 import numpy as np
 import pandas as pd
 from bisect import bisect_left
+from .temporal import representative_snapshot
 
 
 def required_tr_start(calendar, account_start="2016-01-01"):
@@ -16,7 +17,7 @@ def required_tr_start(calendar, account_start="2016-01-01"):
 
 
 def representative_dependencies(dataset):
-    """Independent amount-only reconstruction of the registered selector.
+    """Amount-only reconstruction sharing the registered master clock contract.
 
     No total-return, future survival, monthly age or data-availability ranking
     enters this calculation. Every selected identity requires full event data.
@@ -36,12 +37,7 @@ def representative_dependencies(dataset):
             continue
         previous = dates[index - 1]
         cutoff = pd.Timestamp(previous + "T21:00:00+08:00")
-        m = master.loc[master._known <= cutoff].copy()
-        for column, lower in (("effective_from", True), ("effective_to", False)):
-            if column in m:
-                values = m[column].fillna("").astype(str).str[:10]
-                m = m.loc[values.eq("") | (values.le(previous) if lower else values.gt(previous))]
-        m = m.sort_values("_known").drop_duplicates("instrument_id", keep="last")
+        m = representative_snapshot(master, cutoff)
         live = m.asset_type.eq("ETF") & m.account_verified.eq(True) & m.listed_on.le(previous)
         live &= m.delisted_on.isna() | m.delisted_on.eq("") | m.delisted_on.gt(previous)
         if "strategy_universe" in m:

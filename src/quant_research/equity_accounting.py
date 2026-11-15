@@ -3,8 +3,8 @@
 Cash-dividend FIFO follows Cai Shui [2015] 101 and the 2015 official Q&A.
 This component has no market data, orders or cash-account access. A sale
 accrues tax; a separate settlement call records a modeled/observed debit.
-The main execution ledger connects this only in explicitly synthetic
-engineering replay. Real stock dividend admission remains blocked.
+The main execution ledger connects this only in explicitly declared
+engineering accounting. Real stock strategy admission remains blocked.
 """
 from collections import defaultdict
 from datetime import date, timedelta

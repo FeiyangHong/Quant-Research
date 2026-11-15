@@ -1,0 +1,8 @@
+{
+  "registered_at": "2026-11-15T10:56:40.627609+00:00",
+  "before_new_network": true,
+  "reason": "Synthetic fixed200shares at10.10 is reducedto100 by priorclose10 budget despite amplecash andriskcap; reference reservation budgets weight allocation rather than integerintent",
+  "counterexample": "fixed_quantity_gap_before.txt",
+  "correction": "Explicit fixedquantity engineering buy reserves at current verified upper daily limit (known before its opening match); cash/risk/capacity can reduce shares; no open-price-based target changes. Ordinary weight targets retain priorclose reservation.",
+  "dates_quantities_unchanged": true
+}

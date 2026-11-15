@@ -1,0 +1,23 @@
+{
+  "agent": "m5_data",
+  "session_start_utc": "2026-11-15T10:52:35+00:00",
+  "production_end_utc": "2026-11-15T11:10:46.594832+00:00",
+  "session_seconds": 1091.594832,
+  "measurement": "Cumulative parallel agent session wall-clock, includes waiting; not human labor",
+  "http_attempts": 18,
+  "baostock_wire_attempts": 0,
+  "response_bytes": 18489682,
+  "request_elapsed_seconds": 5.029177000000001,
+  "pdf_documents_extracted": 7,
+  "pdf_pages_visually_reviewed": 13,
+  "structural_cases": 5,
+  "share_change_events_transcribed": 2,
+  "human_reviews": 0,
+  "purchases_cny": 0,
+  "source_storage": "Public-original raw data local-only, no external redistribution",
+  "review_rounds_budget": 2,
+  "review_rounds_market": 1,
+  "code_hash_manifest": "code_manifest.json",
+  "test_command": ".venv/Scripts/python.exe -m pytest review_code/m5/test_independent_budget.py tests/test_m5_budget.py tests/test_m5_market_cap.py tests/test_m4_data_feasibility.py -q",
+  "tests_passed": 36
+}

@@ -1,0 +1,50 @@
+{
+  "status": "PASS_BOUNDED_SOURCE_AND_REPORTING_REVIEW_FORMAL_ADMISSION_BLOCKED",
+  "reviewer": "M5_FINANCIAL_AGENT_NON_AUTHOR_MARKET_CAP",
+  "session_started_at": "2026-11-15T11:21:18.438632+00:00",
+  "session_ended_at": "2026-11-15T11:32:09.081934+00:00",
+  "elapsed_session_seconds": 650.643302,
+  "human_labor_hours": null,
+  "network_requests": 0,
+  "implementation_review_rounds": 2,
+  "initial_failures": 2,
+  "final_tests_passed": 4,
+  "source_checks": "reports/m5_review/market_cap_source_checks.json",
+  "real_source_value_changes": false,
+  "formal_admitted_capital_chains": 0,
+  "findings": [
+    {
+      "priority": "P2",
+      "status": "FIXED_ROUND2",
+      "issue": "Provider/original total orAshare mismatch labelledPASS",
+      "resolution": "Both countmatch booleans required; conflictstatus propagated into case and preserveddenominatorrow; summarysuccess count requiresboth"
+    }
+  ],
+  "hashes": {
+    "scripts/m5_market_cap.py": "69c88d0abafa52dfcc765cfe2bcef3062f31e0fdbc7c5d55d8bf183e1340bcc5",
+    "scripts/m5_sources.py": "f26b3c53cea2ee20992cce1d7fbaf7dbb53a76224ab06d5580b271170a33264d",
+    "reports/m5_market_cap/coverage_summary.json": "ee4c5d24caabb12dc67b3b40230d8de618f00da661f12f246bcfbdaee1c29f36",
+    "reports/m5_market_cap/full_pool_market_cap_2020-07-31.json": "0898124af70187fb680c6a66feea129f1f8f693083fe89aabfb2efc77b4d80e9",
+    "reports/m5_market_cap/source_manifest.json": "4f52ae91c4488b0551bc7888e5e38ad03890f72b21889fa9428c023e951d8edc",
+    "reports/m5_market_cap/registration.json": "14170b51fa5d50190a21a9be8b3319be86b16ab9539a15b3b131d5582ab040f8",
+    "reports/m5_market_cap/share_change_events.json": "1ab138021ede296fbf139bd2252538fc24c4837b27c1943cffed0aada13fb716",
+    "reports/m5_review/market_cap_source_checks.json": "2ba572770475510f50dc6b2cf9b56a55b50c4f08d0d6bb5b0f732c8a5723de35",
+    "review_code/m5/test_external_market_cap.py": "b49b5c2aa40a9cfc649a03ab4c7211e7648522bf9a22a87d7dc5a6ae1479cf54",
+    "reports/m5_review/market_cap_round1_finding.json": "0788c58ce52ca90dbcc2df8bf36519d35282ece6118464fa575aadf2fa9f06cb",
+    "reports/m5_review/market_cap_round1_failures.txt": "00c4bc3194500af22f92bc55f971c950bd155a2d70f59d35e1d413921ce7a000",
+    "reports/m5_review/market_cap_round2_tests.txt": "5053c1137599f50c94c9df0c1faf226e3847aacfec6144653db966ea6426e0e6",
+    "reports/m5_review/MARKET_CAP_INDEPENDENT.md": "bc7c5eb0ab14c9fe0fba4e1ece39262deccc71600e6a89b09704d5d79ad81dd5",
+    "tests/fixtures/m5_verified_calendar_2015_2024.json": "d2975e5273586d38907a6cb0784a70d0b92261d57cca54cb9015539809538103"
+  },
+  "final_tests_skipped": 0,
+  "portability": "Raw-source verification separately completed;3guard tests run from committed artifacts and explicitly invented temporary report inputs without local raw caches",
+  "portability_refinement_interval": {
+    "started_at": "2026-11-15T11:34:24.277832+00:00",
+    "ended_at": "2026-11-15T11:35:19.972446+00:00",
+    "elapsed_seconds": 55.694614
+  },
+  "total_review_intervals_seconds": 706.337916,
+  "portable_tests": 3,
+  "archived_source_tests": 1,
+  "missing_original_policy": "Only archived_source test skips if source file absent in current checkout; current originals passed SHA/bytes/fullrowassertions."
+}

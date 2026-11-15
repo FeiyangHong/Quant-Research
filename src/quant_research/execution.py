@@ -15,7 +15,7 @@ import pandas as pd
 from .settlement import RULE_MODE, rule_errors
 from .temporal import master_record, TemporalStateError
 from .equity_accounting import CashDividendTaxLedger, EquityAccountingBlocked
-from .engineering_replay import REPLAY_TAG, validate_replay, verify_daily_limits
+from .engineering_replay import REPLAY_TAG, REAL_ACCOUNTING_TAG, REAL_CASH_MODE, validate_replay, verify_daily_limits
 
 
 class ExecutionBlockedError(ValueError):
@@ -140,6 +140,8 @@ def run_backtest(dataset, decisions, initial_cash, cost_multiplier=1,
         raise ValueError("Cash settlement stress must be 0, 1 or 3 trading sessions")
     calendar = [str(d)[:10] for d in _get(dataset, "calendar")]
     dividend_tax = None
+    replay_manifest = _get(dataset, "manifest", {})
+    real_accounting = engineering_replay and replay_manifest.get("purpose") == REAL_ACCOUNTING_TAG
     if engineering_replay:
         try:
             validate_replay(dataset, calendar)
@@ -159,7 +161,7 @@ def run_backtest(dataset, decisions, initial_cash, cost_multiplier=1,
     bar_fields = ("date", "instrument_id", "available_at", "open", "high", "low", "close",
                   "volume", "amount", "upper_limit", "lower_limit", "suspended",
                   "limit_terms_verified", "limit_source_url", "limit_rule_available_at",
-                  "listing_session", "special_session", "limit_reference_price")
+                  "listing_session", "listing_session_lower_bound", "special_session", "limit_reference_price")
     bars = source_bars.loc[:, [key for key in bar_fields if key in source_bars]].copy()
     actions = _get(dataset, "actions", pd.DataFrame()).copy()
     rules = tax_rules if tax_rules is not None else _get(dataset, "tax_rules", pd.DataFrame())
@@ -309,8 +311,19 @@ def run_backtest(dataset, decisions, initial_cash, cost_multiplier=1,
         if (action.get("cash_dividend_kind") not in ("ORDINARY", "SPECIAL")
                 or action.get("tax_category") != "ORDINARY_CASH_DIVIDEND"):
             raise ExecutionBlockedError("Explicit cash dividend and tax classification required")
-        if action.get("settlement_mode") != "SYNTHETIC_SCHEDULED_SIMULATION":
-            raise ExecutionBlockedError("Synthetic dividend cash requires explicit modeled settlement")
+        expected_mode = REAL_CASH_MODE if real_accounting else "SYNTHETIC_SCHEDULED_SIMULATION"
+        if action.get("settlement_mode") != expected_mode:
+            raise ExecutionBlockedError("Engineering dividend cash requires explicit modeled settlement")
+        if real_accounting:
+            pay_date = str(action.get("pay_date", ""))
+            modeled_date = action.get("modeled_cash_date")
+            idx = bisect_left(calendar, pay_date)
+            # A prefix ending before credit keeps a receivable. The registered
+            # future date is not treated as observed cash or verified session.
+            if modeled_date is None or modeled_date <= pay_date:
+                raise ExecutionBlockedError("Conservative dividend credit must follow scheduled pay date")
+            if idx + 1 < len(calendar) and modeled_date != calendar[idx + 1]:
+                raise ExecutionBlockedError("Conservative dividend credit must be next verified session")
         dividend_records[record_day].append(action)
     warmup_share_events = []
     if not actions.empty:
@@ -428,7 +441,7 @@ def run_backtest(dataset, decisions, initial_cash, cost_multiplier=1,
 
     def create_order(day, execution, sid, side, qty, reference, adv, attempt=1, parent=None,
                      intent_type="REBALANCE", risk_reason=None, source_reference_price=None,
-                     reference_basis="RAW_CLOSE"):
+                     reference_basis="RAW_CLOSE", fixed_quantity_intent=False):
         nonlocal sequence
         sequence += 1
         order = {"order_id": f"O{sequence:08d}", "parent_order_id": parent,
@@ -438,7 +451,7 @@ def run_backtest(dataset, decisions, initial_cash, cost_multiplier=1,
             "attempt": attempt, "mode": "DAILY_SCREEN_ONLY",
             "intent_type": intent_type, "risk_reason": risk_reason,
             "source_reference_price": reference if source_reference_price is None else source_reference_price,
-            "reference_basis": reference_basis}
+            "reference_basis": reference_basis, "fixed_quantity_intent": fixed_quantity_intent}
         output["orders"].append(order.copy())
         return order
 
@@ -585,17 +598,19 @@ def run_backtest(dataset, decisions, initial_cash, cost_multiplier=1,
                 entitlement = record_holdings.get((record_day, sid), 0)
                 amount = _product_money(entitlement, per_share)
                 modeled = action.get("settlement_mode") == RULE_MODE
-                synthetic_modeled = meta["asset_type"] == "STOCK" and dividend_tax is not None
-                ledger_pay_day = rule_payment_date(action) if modeled else pay_day
+                engineering_modeled = meta["asset_type"] == "STOCK" and dividend_tax is not None
+                engineering_mode = REAL_CASH_MODE if real_accounting else "SYNTHETIC_SCHEDULED_SIMULATION"
+                ledger_pay_day = (action["modeled_cash_date"] if real_accounting and engineering_modeled
+                                  else rule_payment_date(action) if modeled else pay_day)
                 rule_based_settlement = rule_based_settlement or (modeled and entitlement > 0)
                 if amount:
                     receivables.append({"action_id": action["action_id"], "instrument_id": sid,
-                        "amount": amount, "pay_date": ledger_pay_day, "settlement_mode": "SYNTHETIC_SCHEDULED_SIMULATION" if synthetic_modeled else RULE_MODE if modeled else "SCHEDULED",
-                        "actual_pay_date": None if modeled or synthetic_modeled else pay_day,
-                        "scheduled_pay_date": pay_day, "modeled_pay_date": ledger_pay_day if modeled or synthetic_modeled else None})
+                        "amount": amount, "pay_date": ledger_pay_day, "settlement_mode": engineering_mode if engineering_modeled else RULE_MODE if modeled else "SCHEDULED",
+                        "actual_pay_date": None if modeled or engineering_modeled else pay_day,
+                        "scheduled_pay_date": pay_day, "modeled_pay_date": ledger_pay_day if modeled or engineering_modeled else None})
                     output["cash_events"].append({"date": day, "event": "DIVIDEND_RECEIVABLE", "instrument_id": sid, "amount": amount,
-                        "settlement_mode": "SYNTHETIC_SCHEDULED_SIMULATION" if synthetic_modeled else RULE_MODE if modeled else "SCHEDULED", "actual_pay_date": None if modeled or synthetic_modeled else pay_day,
-                        "scheduled_pay_date": pay_day, "modeled_pay_date": ledger_pay_day if modeled or synthetic_modeled else None})
+                        "settlement_mode": engineering_mode if engineering_modeled else RULE_MODE if modeled else "SCHEDULED", "actual_pay_date": None if modeled or engineering_modeled else pay_day,
+                        "scheduled_pay_date": pay_day, "modeled_pay_date": ledger_pay_day if modeled or engineering_modeled else None})
                 if sid in marks:
                     marks[sid] = max(0., marks[sid] - float(per_share))
             elif kind == "LIQUIDATION":
@@ -774,6 +789,10 @@ def run_backtest(dataset, decisions, initial_cash, cost_multiplier=1,
             reserved = 0.
             if buy:
                 reserve_price = _tick(Decimal(str(order["reference_price"])) * (1 + slip), tick, True)
+                if order.get("fixed_quantity_intent"):
+                    # Integer-share engineering instructions preauthorize the
+                    # verified daily price band, subject to cash/risk checks.
+                    reserve_price = max(reserve_price, float(row["upper_limit"]))
                 risk_price = max(reserve_price, price)
                 current_equity = equity()
                 instrument_value = quantity(sid) * marks.get(sid, float(row["open"]))
@@ -919,7 +938,7 @@ def run_backtest(dataset, decisions, initial_cash, cost_multiplier=1,
             for settlement in _get(dataset, "tax_settlements", []):
                 if settlement["debit_date"] == day:
                     if settlement.get("mode") != "RULE_BASED_SIMULATION":
-                        raise ExecutionBlockedError("Synthetic replay cannot claim observed account tax debits")
+                        raise ExecutionBlockedError("Engineering replay cannot claim observed account tax debits")
                     amount = float(settlement["amount"])
                     if amount > cash:
                         raise ExecutionBlockedError("Tax debit exceeds actual cash")
@@ -1103,7 +1122,7 @@ def run_backtest(dataset, decisions, initial_cash, cost_multiplier=1,
                 pending_sell = any(o["instrument_id"] == sid and o["side"] == "SELL" for pending in queues.values() for o in pending)
                 order = create_order(day, execution, sid, side, abs(delta), float(ref), min(float(supplied_adv), actual_adv),
                     source_reference_price=source_ref,
-                    reference_basis=reference_basis)
+                    reference_basis=reference_basis, fixed_quantity_intent="fixed_quantities" in decision)
                 reason = permission(meta, day, side == "BUY")
                 if sid in unresolved_shares and unresolved_shares[sid] > _cutoff(day):
                     reason = "SHARE_TERMS_NOT_YET_KNOWN"
@@ -1119,7 +1138,7 @@ def run_backtest(dataset, decisions, initial_cash, cost_multiplier=1,
                     queues[execution].append(order)
 
     schemas = {
-        "orders": ["order_id", "parent_order_id", "decision_date", "decision_at", "execution_date", "instrument_id", "side", "quantity", "qty_requested", "reference_price", "adv20", "attempt", "mode", "intent_type", "risk_reason", "source_reference_price", "reference_basis"],
+        "orders": ["order_id", "parent_order_id", "decision_date", "decision_at", "execution_date", "instrument_id", "side", "quantity", "qty_requested", "reference_price", "adv20", "attempt", "mode", "intent_type", "risk_reason", "source_reference_price", "reference_basis", "fixed_quantity_intent"],
         "fills": ["date", "order_id", "instrument_id", "side", "quantity", "price", "notional", "commission", "stamp_duty", "transfer_fee", "fees", "slippage_cost", "mode"],
         "rejected_orders": ["order_id", "date", "instrument_id", "side", "quantity", "reason"],
         "costs": ["date", "order_id", "instrument_id", "commission", "stamp_duty", "transfer_fee", "total_cost", "slippage_cost"],
@@ -1133,20 +1152,23 @@ def run_backtest(dataset, decisions, initial_cash, cost_multiplier=1,
     result = {key: pd.DataFrame(rows, columns=schemas.get(key)) for key, rows in output.items()}
     if engineering_replay:
         for table in result.values():
-            table["purpose"] = REPLAY_TAG
-            table["synthetic"] = True
+            table["purpose"] = replay_manifest["purpose"]
+            table["synthetic"] = replay_manifest["synthetic"]
+            if real_accounting:
+                table["data_origin"] = "REAL"
+                table["broker_ledger_verification"] = "UNVERIFIED"
     for key, table in result.items():
         if "date" in table.columns and key != "share_events":
             result[key] = table.loc[table["date"] >= start_date].reset_index(drop=True)
     result["mode"] = "DAILY_SCREEN_ONLY"
-    result["purpose"] = REPLAY_TAG if engineering_replay else "DAILY_SCREEN_ONLY"
+    result["purpose"] = replay_manifest["purpose"] if engineering_replay else "DAILY_SCREEN_ONLY"
     result["performance_evidence"] = False
     result["rule_based_settlement"] = rule_based_settlement
     result["cash_delay_sessions"] = cash_delay_sessions
     result["accounting_timing_eligible"] = not bool(result["nav"]["valuation_uncertainty"].any())
     result["confirmation_eligible"] = False  # Daily screening never verifies executable confirmation.
     result["limitations"] = ["Daily bars do not establish opening queue liquidity.",
-        "Stock dividend FIFO is connected only for explicit synthetic engineering replay; real stock admission remains blocked.",
+        "Stock dividend FIFO is connected only for explicitly labeled engineering accounting; real stock strategy admission remains blocked.",
         "Pending orders are canceled on a corporate-action ex-date; buys are not retried.",
         "Unpriced liquidation rights carry zero with explicit valuation uncertainty; late recovery observations never backfill cash.",
         "ETF look-through industry exposure is unavailable; observed stock industries only."]

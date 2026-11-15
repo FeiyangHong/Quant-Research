@@ -1,15 +1,39 @@
 """Explicit accounting replay contract; no strategy or admission entry point."""
 from decimal import Decimal, ROUND_HALF_UP
+import hashlib
+from pathlib import Path
 import pandas as pd
 from .equity_accounting import EquityAccountingBlocked, daily_limit_ratio
 
 REPLAY_TAG = "ENGINEERING_REPLAY_NOT_STRATEGY_PERFORMANCE"
+REAL_ACCOUNTING_TAG = "ENGINEERING_ACCOUNTING_VALIDATION"
+REAL_CASH_MODE = "ENGINEERING_CONSERVATIVE_CASH_SCENARIO"
 
 
 def validate_replay(dataset, calendar):
     manifest = dataset.get('manifest', {}) if isinstance(dataset, dict) else dataset.manifest
-    if manifest.get('purpose') != REPLAY_TAG or manifest.get('synthetic') is not True:
-        raise EquityAccountingBlocked('Engineering replay currently requires explicitly synthetic fixtures; real admission remains blocked')
+    synthetic = (manifest.get('purpose') == REPLAY_TAG and manifest.get('synthetic') is True
+                 and manifest.get('data_origin') in (None, 'SYNTHETIC'))
+    real = (manifest.get('purpose') == REAL_ACCOUNTING_TAG and manifest.get('synthetic') is False
+            and manifest.get('data_origin') == 'REAL')
+    if not synthetic and not real:
+        raise EquityAccountingBlocked('Explicit synthetic fixture or real-source accounting purpose required; strategy admission remains blocked')
+    if real:
+        if (manifest.get('performance_evidence') is not False
+                or manifest.get('broker_ledger_verification') != 'UNVERIFIED'
+                or manifest.get('cash_scenario') != REAL_CASH_MODE):
+            raise EquityAccountingBlocked('Real-source replay requires explicit nonperformance and unverified broker scenario')
+        artifacts = manifest.get('source_artifacts', [])
+        if not artifacts:
+            raise EquityAccountingBlocked('Archived real-source artifacts required')
+        for artifact in artifacts:
+            try:
+                path = Path(artifact['path'])
+                if (artifact.get('origin') != 'REAL' or not path.is_file()
+                        or hashlib.sha256(path.read_bytes()).hexdigest() != artifact['sha256']):
+                    raise ValueError
+            except (KeyError, TypeError, OSError, ValueError):
+                raise EquityAccountingBlocked('Archived source hash/origin verification failed') from None
     if not calendar or any(not '2016-01-01' <= day <= '2024-12-31' for day in calendar):
         raise EquityAccountingBlocked('Engineering replay scope 2016--2024; final holdout is locked')
     if manifest.get('account_type') != 'DOMESTIC_INDIVIDUAL_ORDINARY_A_SHARE':
@@ -23,8 +47,16 @@ def verify_daily_limits(meta, row, day):
     known = pd.Timestamp(row.get('limit_rule_available_at'))
     if pd.isna(known) or known.tzinfo is None or known > pd.Timestamp(day + 'T09:30:00+08:00'):
         raise EquityAccountingBlocked('HISTORICAL_LIMIT_NOT_KNOWN_AT_OPEN')
+    listing_session = row.get('listing_session')
+    if listing_session is None or pd.isna(listing_session):
+        bound = row.get('listing_session_lower_bound')
+        if type(bound) is not int or bound <= 5 or not meta.get('listed_on', '9999') < day:
+            raise EquityAccountingBlocked('VERIFIED_SEASONED_LISTING_BOUND_REQUIRED')
+        # A verified lower bound >5 suffices for every supported ordinary
+        # regime; it is not mislabeled as the exact IPO session ordinal.
+        listing_session = bound
     ratio = daily_limit_ratio(board=meta.get('board'), day=day, is_st=meta.get('is_st'),
-        listed_on=meta.get('listed_on'), listing_session=row.get('listing_session'),
+        listed_on=meta.get('listed_on'), listing_session=listing_session,
         ipo_regime=meta.get('ipo_regime'), special_session=row.get('special_session', False),
         delisting_started_on=meta.get('delisting_started_on'))
     if ratio is None:
@@ -34,10 +66,11 @@ def verify_daily_limits(meta, row, day):
         if not reference.is_finite() or reference <= 0 or tick <= 0:
             raise ValueError
         expected = [(reference * (1 + sign * ratio) / tick).quantize(Decimal('1'), rounding=ROUND_HALF_UP) * tick for sign in (1, -1)]
-        if expected != [Decimal(str(row.get('upper_limit'))), Decimal(str(row.get('lower_limit')))]:
-            raise EquityAccountingBlocked('HISTORICAL_LIMIT_PRICE_MISMATCH')
+        supplied = [Decimal(str(row.get('upper_limit'))), Decimal(str(row.get('lower_limit')))]
     except (ValueError, ArithmeticError):
         raise EquityAccountingBlocked('HISTORICAL_LIMIT_REFERENCE_REQUIRED') from None
+    if expected != supplied:
+        raise EquityAccountingBlocked('HISTORICAL_LIMIT_PRICE_MISMATCH')
 
 
 def synthetic_fixture(board='MAIN', case='ordinary_special'):

@@ -114,12 +114,17 @@ def financial_asof(facts: pd.DataFrame, cutoff, calendar: Iterable[str]):
 
 
 def r2_factors(facts: pd.DataFrame, market: pd.DataFrame, cutoff, calendar: Iterable[str],
-               universe_ids: Iterable[str]):
+               universe_ids: Iterable[str], *, report_coverage: pd.DataFrame = None):
     """Compute F01-F03 without filling a missing vintage or a bad denominator.
 
     `market` supplies same-date, audited total-equity market capitalization.
     The stock-pool gate, historical shares/share-class consistency and source
-    authenticity are separate admission responsibilities.
+    authenticity are separate admission responsibilities. Optional report_coverage
+    binds an issuer's latest visible report period to this exact cutoff, including
+    reports whose facts have not been transcribed. It requires instrument_id,
+    asof, latest_visible_period, coverage_status and evidence_sha256. PARTIAL
+    coverage can establish a newer known report, but cannot prove completeness.
+    Without a registered freshness policy these outputs never grant admission.
     """
     at = _signal_at(cutoff)
     visible = financial_asof(facts, at, calendar)
@@ -134,21 +139,51 @@ def r2_factors(facts: pd.DataFrame, market: pd.DataFrame, cutoff, calendar: Iter
     if len(set(expected)) != len(expected) or any(not isinstance(i, str) or not i for i in expected):
         raise DataValidationError("Explicit unique historical universe identities required")
     capitals = {row["instrument_id"]: row for row in current.to_dict("records")}
+    coverage = {}
+    if report_coverage is not None:
+        required = {"instrument_id", "asof", "latest_visible_period", "coverage_status", "evidence_sha256"}
+        if required - set(report_coverage) or report_coverage.instrument_id.duplicated().any():
+            raise DataValidationError("Unique latest-report coverage contract required")
+        for item in report_coverage.to_dict("records"):
+            if _at(item["asof"]) != at:
+                raise DataValidationError("Latest-report coverage must bind the exact factor cutoff")
+            end = str(item["latest_visible_period"])
+            if not re.fullmatch(r"\d{4}-(?:03-31|06-30|09-30|12-31)", end) or pd.Timestamp(end).date() > at.date():
+                raise DataValidationError("Invalid latest visible report period")
+            if item["coverage_status"] not in ("PARTIAL", "COMPLETE_THROUGH_CUTOFF"):
+                raise DataValidationError("Unknown report coverage status")
+            if not re.fullmatch(r"[0-9a-f]{64}", str(item["evidence_sha256"])):
+                raise DataValidationError("Latest-report coverage evidence hash required")
+            coverage[item["instrument_id"]] = item
     output = []
     for identity in expected:
         cap = capitals.get(identity)
         rows = visible.loc[visible.instrument_id.eq(identity)]
         record = {"instrument_id": identity, "asof": at.isoformat(), "F01": None, "F02": None,
                   "F03": None, "period_end": None, "input_revision_ids": [], "missing_reasons": [],
-                  "all_three_valid": False}
+                  "all_three_valid": False, "report_coverage_status": "UNVERIFIED",
+                  "latest_period_status": "UNVERIFIED",
+                  "freshness_status": "UNASSESSED_NO_REGISTERED_POLICY", "freshness_policy": None,
+                  "report_age_days": None, "formal_eligible": False,
+                  "formal_blockers": ["KERNEL_NOT_DATA_ADMISSION", "FRESHNESS_POLICY_UNREGISTERED"]}
+        contract = coverage.get(identity)
+        if contract is not None:
+            record["report_coverage_status"] = contract["coverage_status"]
+            if contract["coverage_status"] == "COMPLETE_THROUGH_CUTOFF":
+                record["latest_period_status"] = "VERIFIED_BY_INPUT_CONTRACT"
+        if contract is None or contract["coverage_status"] != "COMPLETE_THROUGH_CUTOFF":
+            record["formal_blockers"].append("LATEST_REPORT_COVERAGE_UNVERIFIED")
         if cap is None:
             record["missing_reasons"].append("NO_VISIBLE_SAME_DAY_MARKET_CAP")
-        if rows.empty:
+        if rows.empty and contract is None:
             record["missing_reasons"].append("NO_VISIBLE_ORIGINAL_FINANCIALS")
             output.append(record)
             continue
-        period = rows.period_end.max()
+        period = contract["latest_visible_period"] if contract is not None else rows.period_end.max()
+        if not rows.empty and rows.period_end.max() > period:
+            raise DataValidationError("Coverage contract omits a later visible financial report")
         record["period_end"] = period
+        record["report_age_days"] = (at.date() - pd.Timestamp(period).date()).days
         year, suffix = int(period[:4]), period[4:]
         lookup = {(r["field"], r["period_end"]): r for r in rows.to_dict("records")}
         def value(field, end):
@@ -175,6 +210,13 @@ def r2_factors(facts: pd.DataFrame, market: pd.DataFrame, cutoff, calendar: Iter
             pass
         elif cap["market_cap_scope"] != "TOTAL_EQUITY" or pd.isna(capitalization) or not math.isfinite(float(capitalization)) or capitalization <= 0:
             record["missing_reasons"].append("INVALID_TOTAL_EQUITY_MARKET_CAP")
+        elif (report_coverage is not None or "share_class_consistent" in cap) and not (
+            cap.get("share_class_consistent") is True
+            and cap.get("price_share_class") == cap.get("capital_share_class") == "A_ORDINARY"
+            and re.fullmatch(r"[0-9a-f]{64}", str(cap.get("price_source_sha256", "")))
+            and re.fullmatch(r"[0-9a-f]{64}", str(cap.get("shares_source_sha256", "")))
+        ):
+            record["missing_reasons"].append("UNVERIFIED_MARKET_CAP_SHARE_CLASS")
         elif profit is not None:
             record["F01"] = profit / capitalization  # Negative earnings remain negative.
         if average is not None:

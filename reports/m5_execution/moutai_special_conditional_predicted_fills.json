@@ -1,0 +1,27 @@
+{
+  "status": "CONDITIONAL_UNVERIFIED_RULE_INPUTS",
+  "fills": [
+    {
+      "date": "2023-12-15",
+      "side": "BUY",
+      "quantity": 100,
+      "price": 1648.23,
+      "fees": 51.1
+    },
+    {
+      "date": "2023-12-18",
+      "side": "BUY",
+      "quantity": 100,
+      "price": 1640.0,
+      "fees": 50.84
+    },
+    {
+      "date": "2023-12-21",
+      "side": "SELL",
+      "quantity": 100,
+      "price": 1640.01,
+      "fees": 132.84
+    }
+  ],
+  "not_actual_fills": true
+}

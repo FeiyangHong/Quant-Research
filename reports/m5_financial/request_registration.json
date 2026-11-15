@@ -1,0 +1,65 @@
+{
+  "registered_at": "2026-11-15T10:58:33.988535+00:00",
+  "requests": [
+    [
+      "km_2018_inventory",
+      "600518",
+      "报告",
+      "2018-01-01~2018-04-27"
+    ],
+    [
+      "km_2019_inventory",
+      "600518",
+      "报告",
+      "2019-01-01~2019-05-06"
+    ],
+    [
+      "sanhui_dependencies",
+      "002857",
+      "报告",
+      "2022-10-01~2023-10-27"
+    ],
+    [
+      "sanhui_later_inventory",
+      "002857",
+      "报告",
+      "2024-01-01~2024-12-26"
+    ]
+  ],
+  "pdf_download_rule": "Only original report dependencies/latest-report metadata already frozen in registration; select by issuer, fiscal period and publication, never performance.",
+  "supplement_registered_at": "2026-11-15T10:58:56.388654+00:00",
+  "supplement_requests": [
+    [
+      "km_q1_boundary",
+      "600518",
+      "",
+      "2018-04-01~2018-04-30"
+    ],
+    [
+      "sanhui_2022q3",
+      "https://static.cninfo.com.cn/finalpage/2022-10-31/1214964032.PDF",
+      "2022-10-31~2022-10-31"
+    ],
+    [
+      "sanhui_2022fy",
+      "https://static.cninfo.com.cn/finalpage/2023-04-29/1216695158.PDF",
+      "2023-04-29~2023-04-29"
+    ]
+  ],
+  "pagination_registered_at": "2026-11-15T10:59:12.640769+00:00",
+  "pagination": [
+    "km_q1_boundary_page2",
+    "2018-04-01~2018-04-30",
+    2
+  ],
+  "narrow_boundary_registration": {
+    "registered_at": "2026-11-15T10:59:40.308447+00:00",
+    "request": [
+      "km_q1_narrow",
+      "600518",
+      "",
+      "2018-04-27~2018-04-30"
+    ],
+    "reason": "page2 repeated page1; partition dates rather than assume completion"
+  }
+}

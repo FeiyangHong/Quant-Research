@@ -10,7 +10,7 @@ from typing import Any, Dict, List
 
 import numpy as np
 import pandas as pd
-from .temporal import master_snapshot, TemporalStateError
+from .temporal import representative_snapshot, TemporalStateError
 
 
 class StrategyBlockedError(ValueError):
@@ -45,7 +45,7 @@ def _snapshot(frame: pd.DataFrame, at: pd.Timestamp, keys: List[str],
               master: bool = False) -> pd.DataFrame:
     if master:
         try:
-            return master_snapshot(frame, at)
+            return representative_snapshot(frame, at)
         except TemporalStateError as exc:
             raise StrategyBlockedError(str(exc)) from exc
     day = at.strftime("%Y-%m-%d")

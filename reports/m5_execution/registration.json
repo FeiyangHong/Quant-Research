@@ -1,0 +1,101 @@
+{
+  "registered_at": "2026-11-15T10:55:13.336290+00:00",
+  "session_started_at": "2026-11-15T10:53:24+00:00",
+  "purpose": "ENGINEERING_ACCOUNTING_VALIDATION",
+  "data_origin": "REAL",
+  "synthetic": false,
+  "performance_evidence": false,
+  "real_strategy_runs": 0,
+  "initial_cash_cny": 10000000,
+  "deployment_cash_unchanged": true,
+  "stock_cap": 0.05,
+  "slippage_multiplier": 0,
+  "cost_multiplier": 1,
+  "max_sell_attempts": 5,
+  "cases": [
+    {
+      "case_id": "moutai_ordinary",
+      "instrument_id": "sh.600519",
+      "start": "2023-05-22",
+      "end": "2023-07-10",
+      "targets": [
+        [
+          "2023-06-27",
+          100
+        ],
+        [
+          "2023-06-28",
+          200
+        ],
+        [
+          "2023-07-03",
+          100
+        ]
+      ],
+      "event_ids": [
+        "600519_2023-021"
+      ]
+    },
+    {
+      "case_id": "moutai_special",
+      "instrument_id": "sh.600519",
+      "start": "2023-11-13",
+      "end": "2023-12-29",
+      "targets": [
+        [
+          "2023-12-15",
+          100
+        ],
+        [
+          "2023-12-18",
+          200
+        ],
+        [
+          "2023-12-21",
+          100
+        ]
+      ],
+      "event_ids": [
+        "600519_2023-040"
+      ]
+    },
+    {
+      "case_id": "kangmei_st",
+      "instrument_id": "sh.600518",
+      "start": "2019-04-01",
+      "end": "2019-05-31",
+      "targets": [
+        [
+          "2019-05-13",
+          100
+        ],
+        [
+          "2019-05-14",
+          200
+        ],
+        [
+          "2019-05-21",
+          0
+        ]
+      ],
+      "event_ids": [
+        "KM_OTHER_RISK_20190521"
+      ]
+    }
+  ],
+  "decision_clock": "Prior verified exchange session21:00 Asia/Shanghai",
+  "dividend_cash_clock": "Official scheduled payment date plus one verified exchange session; modeled only",
+  "tax_debit_clock": "Fixed scheduled sale date plus one verified exchange session; payable amount computed from independently predicted fills; no debit when no liability",
+  "broker_ledger_verification": "UNVERIFIED",
+  "commission": "3bp minimumCNY5 scenario, not broker history",
+  "registered_gap_policy": "Prior-close reservation and all existing liquidity/risk rules retained; no change to dates/targets after raw prices; missing fills retained as rejection",
+  "existing_events": "reports/m4_data/normalized_events.json",
+  "missing_inputs": [
+    "Raw OHLC/preclose/volume/amount/tradestatus/isST in fixed windows",
+    "Dated historical MAIN10% and ST5%, minimumlot/tick/T+1 and fee evidence",
+    "listing identity and historical state"
+  ],
+  "source_evidence_scope": "archived public originals and historical vendor daily data; ingestion today is not historical first seen",
+  "unsupported_actions": "BONUS/RIGHTS/MERGER/LIQUIDATION_PAYMENT rejected, never discarded",
+  "holdout_access": false
+}

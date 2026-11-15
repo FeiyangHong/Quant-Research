@@ -28,3 +28,16 @@ README.md -text whitespace=cr-at-eol
 # Preserve pytest's original failed-assertion padding in immutable evidence.
 reports/m4_correctness/engineering_replay/baseline_failures.txt whitespace=cr-at-eol,-blank-at-eol
 reports/m4_review/pre_fix_counterexamples.txt whitespace=cr-at-eol,-blank-at-eol
+docs/M5_PLAN.md -text whitespace=cr-at-eol
+docs/CODEX_HANDOFF.md -text whitespace=cr-at-eol
+reports/m5_review/** -text whitespace=cr-at-eol
+reports/m5_financial/** -text whitespace=cr-at-eol
+reports/m5_execution/** -text whitespace=cr-at-eol
+reports/m5_market_cap/** -text whitespace=cr-at-eol
+review_code/m5/** -text whitespace=cr-at-eol
+reports/m5_review/*failures.txt whitespace=cr-at-eol,-blank-at-eol
+reports/m5_execution/fixed_quantity_gap_before.txt whitespace=cr-at-eol,-blank-at-eol
+# Preserve the independently hashed review source and captured test output.
+reports/m5_review/portability_clean_clone.txt whitespace=cr-at-eol,-blank-at-eol,-blank-at-eof
+review_code/m5/test_external_market_cap.py whitespace=cr-at-eol,-blank-at-eol,-blank-at-eof
+.gitignore -text whitespace=cr-at-eol

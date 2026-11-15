@@ -1,0 +1,114 @@
+{
+  "status": "BLOCKED_RULE_SOURCES",
+  "verified": false,
+  "sources": [
+    {
+      "id": "dividend_2015_101",
+      "url": "https://www.mof.gov.cn/gp/xxgkml/szs/201509/t20150907_2510529.htm",
+      "status": "ARCHIVED_UNREVIEWED",
+      "performance_data": false,
+      "content_type": "text/html",
+      "http_status": 200,
+      "final_url": "https://www.mof.gov.cn/gp/xxgkml/szs/201509/t20150907_2510529.htm",
+      "path": "work/equity_execution/dividend_2015_101.html",
+      "bytes": 10428,
+      "sha256": "2dd4edb94577ba25fb4fe0249c56225890e7f2f29f84a42126d24a0028ba70d3",
+      "review_status": "OFFICIAL_CONTENT_REVIEWED_NOT_DATASET_ADMISSION"
+    },
+    {
+      "id": "dividend_fifo_2015_qa",
+      "url": "https://szs.mof.gov.cn/zhengcejiedu/201509/t20150909_1455696.htm",
+      "status": "ARCHIVED_UNREVIEWED",
+      "performance_data": false,
+      "content_type": "text/html",
+      "http_status": 200,
+      "final_url": "https://szs.mof.gov.cn/zhengcejiedu/201509/t20150909_1455696.htm",
+      "path": "work/equity_execution/dividend_fifo_2015_qa.html",
+      "bytes": 17978,
+      "sha256": "87cc6cb1dc2bd6c4e960ce8448ecebcc2adadd854d4c8627119078572c760188",
+      "review_status": "OFFICIAL_CONTENT_REVIEWED_NOT_DATASET_ADMISSION"
+    },
+    {
+      "id": "stamp_2023_39",
+      "url": "https://fgk.chinatax.gov.cn/zcfgk/c102416/c5211343/content.html",
+      "status": "ARCHIVED_UNREVIEWED",
+      "performance_data": false,
+      "content_type": "text/html",
+      "http_status": 200,
+      "final_url": "https://fgk.chinatax.gov.cn/zcfgk/c102416/c5211343/content.html",
+      "path": "work/equity_execution/stamp_2023_39.html",
+      "bytes": 36736,
+      "sha256": "bdad8369ee854d205de9a1e355beecc4fa7841f7293e332997e6cadd2b923c35",
+      "review_status": "OFFICIAL_CONTENT_REVIEWED_NOT_DATASET_ADMISSION"
+    },
+    {
+      "id": "sse_2015_fees",
+      "path": "data/raw_m5_equity/objects/cabe6de3ca7c3b2b16411de8bbb5d7ed9cfe4272fc0012f8aecbcb6929141607.bin",
+      "sha256": "cabe6de3ca7c3b2b16411de8bbb5d7ed9cfe4272fc0012f8aecbcb6929141607",
+      "url": "https://www.sse.com.cn/aboutus/mediacenter/hotandd/c/c_20150912_3988782.shtml",
+      "review_status": "PRIMARY_PARTIAL_TRADING_MECHANICS_NOT_COMPLETE_REAL_ADMISSION"
+    },
+    {
+      "id": "sse_2018_rules_index",
+      "path": "data/raw_m5_equity/objects/5642ba183f1037d5e7133e52908f7843eeff050eca6238d1016ac9df6f7a8d0d.bin",
+      "sha256": "5642ba183f1037d5e7133e52908f7843eeff050eca6238d1016ac9df6f7a8d0d",
+      "url": "https://www.sse.com.cn/lawandrules/sselawsrules/repeal/rules/c/c_20210531_5478087.shtml",
+      "review_status": "PRIMARY_PARTIAL_TRADING_MECHANICS_NOT_COMPLETE_REAL_ADMISSION"
+    },
+    {
+      "id": "sse_2018_rules_full",
+      "path": "data/raw_m5_equity/objects/0dd8168dfcd2b105a70459319b5f8dcdbc84eeb1216aad23f83214501ad5ce64.bin",
+      "sha256": "0dd8168dfcd2b105a70459319b5f8dcdbc84eeb1216aad23f83214501ad5ce64",
+      "url": "https://www.sse.com.cn/lawandrules/sselawsrules/repeal/rules/c/10118961/files/ab243f7259464115b6522389422784b3.doc",
+      "review_status": "PRIMARY_PARTIAL_TRADING_MECHANICS_NOT_COMPLETE_REAL_ADMISSION"
+    }
+  ],
+  "limit_source_url": null,
+  "limit_available_at": null,
+  "fee_rows": [
+    {
+      "effective_from": "2016-01-01",
+      "effective_to": "2022-04-28",
+      "stamp_duty_sell": 0.001,
+      "transfer_fee_both": 2e-05,
+      "verified": false,
+      "source_url": null,
+      "available_at": null,
+      "status": "REGISTERED_CANDIDATE_RATE_MISSING_COMPLETE_PRIMARY_RULE"
+    },
+    {
+      "effective_from": "2022-04-29",
+      "effective_to": "2023-08-27",
+      "stamp_duty_sell": 0.001,
+      "transfer_fee_both": 1e-05,
+      "verified": false,
+      "source_url": null,
+      "available_at": null,
+      "status": "REGISTERED_CANDIDATE_RATE_MISSING_COMPLETE_PRIMARY_RULE"
+    },
+    {
+      "effective_from": "2023-08-28",
+      "effective_to": "2024-12-31",
+      "stamp_duty_sell": 0.0005,
+      "transfer_fee_both": 1e-05,
+      "verified": false,
+      "source_url": null,
+      "available_at": null,
+      "status": "REGISTERED_CANDIDATE_RATE_MISSING_COMPLETE_PRIMARY_RULE"
+    }
+  ],
+  "missing": [
+    "Applicable2023SSE trading-rule amendment chain and explicitstockT+1settlement-day original;2018 ordinaryband/lot/tick text nowarchived",
+    "CSDC transferfee2015effective original forShanghai",
+    "CSDC transferfee2022effective original forShanghai",
+    "Baseline stampduty1permille original applicable2019/2023"
+  ],
+  "reviewed_partial_evidence": [
+    "2015individual cashdividendFIFO/holdingperiod tax",
+    "2023stampdutyhalving",
+    "Kangmei20190518 issueroriginal explicitly5percent ST from20190521",
+    "SSE2014/2018originalordinary10percentroundedband,100lot,0.01tick,noresalebefore settlement andcash ex-reference clauses"
+  ],
+  "broker_ledger_verification": "UNVERIFIED",
+  "fetched_challenge_bodies_not_rule_evidence": true
+}

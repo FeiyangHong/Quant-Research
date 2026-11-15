@@ -1,0 +1,133 @@
+{
+  "case": {
+    "case_id": "sz.300632_2022-12-31",
+    "instrument_id": "sz.300632",
+    "period_end": "2022-12-31",
+    "queue_position": 5,
+    "case_status": "COMPLETE_DOCUMENTARY_PAIR",
+    "availability_mode": "historical_public_asof",
+    "publication_precision": "date_only",
+    "vendor_first_seen_at": null,
+    "source_unit": "CNY yuan",
+    "normalized_unit": "CNY yuan",
+    "report_scope": "consolidated; net profit attributable to parent; flow amounts YTD; assets at period end",
+    "independent_human_reviews": 0,
+    "counts_toward_human_admission_gate": false,
+    "processed_at": "2026-11-15T09:14:04.027096+00:00",
+    "agent_documentary_review": true,
+    "conflicts": [],
+    "missing": [
+      "independent human signoff",
+      "verified intraday publication",
+      "vendor historical first seen",
+      "exhaustive all-version-chain search"
+    ],
+    "revision_chain_scope": "explicit original and disclosed correction pair; no assertion that unobserved intermediate/later versions never existed",
+    "original": {
+      "revision_id": "sz.300632_2022-12-31_original",
+      "supersedes_id": null,
+      "published_date": "2023-04-22",
+      "available_at": "2023-04-24T21:00:00+08:00",
+      "earliest_execution": "2023-04-25",
+      "document": {
+        "id": 30,
+        "kind": "http_attempts",
+        "label": "original_300632_2022",
+        "started_at": "2026-11-15T09:02:10.792036+00:00",
+        "url": "https://static.cninfo.com.cn/finalpage/2023-04-22/1216528308.PDF",
+        "request_body": null,
+        "method": "GET",
+        "byte_count": 5905605,
+        "sha256": "bb3e11910fb404d087ff91a7297759919383c86a9b5389293486e3aea80dadb1",
+        "raw_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m4_equity\\objects\\bb3e11910fb404d087ff91a7297759919383c86a9b5389293486e3aea80dadb1.bin",
+        "elapsed_seconds": 0.416554,
+        "ingested_at": "2026-11-15T09:02:11.209831+00:00",
+        "status": "FETCHED",
+        "http_status": 200,
+        "content_type": "application/pdf"
+      },
+      "pages": [
+        9
+      ],
+      "values": {
+        "net_profit_parent": "52513080.53",
+        "operating_cash_flow": "61552281.48",
+        "total_assets": "2588079679.94"
+      }
+    },
+    "revision": {
+      "revision_id": "sz.300632_2022-12-31_revision_2024-12-23",
+      "supersedes_id": "sz.300632_2022-12-31_original",
+      "published_date": "2024-12-23",
+      "available_at": "2024-12-24T21:00:00+08:00",
+      "earliest_execution": "2024-12-25",
+      "document": {
+        "id": 31,
+        "kind": "http_attempts",
+        "label": "revised_300632_2022",
+        "started_at": "2026-11-15T09:02:11.573874+00:00",
+        "url": "https://static.cninfo.com.cn/finalpage/2024-12-23/1222115078.PDF",
+        "request_body": null,
+        "method": "GET",
+        "byte_count": 3172808,
+        "sha256": "38854296e87ba2d9df93a771122cdabbfb50eab51357eb6e64cac8d9ba0508f8",
+        "raw_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m4_equity\\objects\\38854296e87ba2d9df93a771122cdabbfb50eab51357eb6e64cac8d9ba0508f8.bin",
+        "elapsed_seconds": 0.292862,
+        "ingested_at": "2026-11-15T09:02:11.867913+00:00",
+        "status": "FETCHED",
+        "http_status": 200,
+        "content_type": "application/pdf"
+      },
+      "pages": [
+        8
+      ],
+      "supporting_correction_document": {
+        "available_at": null,
+        "byte_count": 152083,
+        "content_type": "application/pdf",
+        "http_status": 200,
+        "id": "revision_candidate_300632_1222115085",
+        "ingested_at": "2026-11-14T19:20:58.869764+00:00",
+        "method": "GET",
+        "performance_evidence": false,
+        "raw_path": "F:/QuantTrade/Quant-Research/data/raw_equity_admission/http/revision_candidate_300632_1222115085_a30b2b7fa2f1494f1dc19eb32939a571ac5469babba16940d4a8c9c1c240fec3.bin",
+        "request_body": null,
+        "requested_at": "2026-11-14T19:20:58.526181+00:00",
+        "role": "HISTORICAL_DOCUMENT_AUDIT",
+        "sha256": "a30b2b7fa2f1494f1dc19eb32939a571ac5469babba16940d4a8c9c1c240fec3",
+        "status": "FETCHED",
+        "url": "https://static.cninfo.com.cn/finalpage/2024-12-23/1222115085.PDF",
+        "vendor_first_seen_at": null
+      },
+      "as_reported_values": {
+        "net_profit_parent": "52513080.53",
+        "operating_cash_flow": "61552281.48",
+        "total_assets": "2588079679.94"
+      },
+      "values": {
+        "net_profit_parent": "52513080.53",
+        "operating_cash_flow": "61552281.48",
+        "total_assets": "2588079679.94"
+      }
+    },
+    "unchanged_fields_note": "R2 fields unchanged; revenue and cost both corrected by -31,568,345.38 CNY. Still one genuine original/revised report pair, not three field-cases."
+  },
+  "agent_documentary_status": "M4_INDEPENDENT_AGENT_REVIEW_COMPLETE",
+  "human_review": {
+    "reviewer": "",
+    "reviewed_at": "",
+    "decision": "",
+    "signature": "",
+    "notes": ""
+  },
+  "required_checks": [
+    "Original and revised document hashes/pages",
+    "Correct row and YTD/comparison columns",
+    "Unit, currency, consolidated scope",
+    "Revision chain and publication precision",
+    "Conservative availability calendar",
+    "Unchanged fields and disclosed scope limits"
+  ],
+  "human_accepted": false,
+  "full_pool_admission": false
+}

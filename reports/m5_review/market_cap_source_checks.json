@@ -1,0 +1,321 @@
+{
+  "review_role": "NON_AUTHOR_SOURCE_REVIEW",
+  "session_started_at": "2026-11-15T11:21:18.4386321Z",
+  "observed_at": "2026-11-15T11:26:32.536570+00:00",
+  "network_requests": 0,
+  "source_manifest_checks": [
+    {
+      "label": "market_eastmoney_600519_20200731",
+      "sha256": "0f478720a47fb845b0c36f57e7a082652561194661b56f2546d5586d90678886",
+      "bytes": 27005,
+      "hash_and_bytes_match": true
+    },
+    {
+      "label": "market_search_600519",
+      "sha256": "71659a5ba08dc1c815d6ce02bc40249c6d39525684a058cf351ffe24ed948fe5",
+      "bytes": 1399,
+      "hash_and_bytes_match": true
+    },
+    {
+      "label": "market_search_002526",
+      "sha256": "682d34ad3c143a928420b935ba5f3b9b4090c7e6b83fb7dd7cd4454bc05a1ad4",
+      "bytes": 840,
+      "hash_and_bytes_match": true
+    },
+    {
+      "label": "market_search_601398",
+      "sha256": "96f254eb7574777a24eab152103dadd1be1381ddb3a31ececf0dfd35fd0b202c",
+      "bytes": 787,
+      "hash_and_bytes_match": true
+    },
+    {
+      "label": "market_search_600518",
+      "sha256": "146740855276706ee41e89d163103a7e59bfbcb9f3402240ae3dae676386c11c",
+      "bytes": 2898,
+      "hash_and_bytes_match": true
+    },
+    {
+      "label": "market_search_300855",
+      "sha256": "b9f95dfd013563080f0cb562f750a7800a1a5a20236d65fb40b323c8736959e7",
+      "bytes": 1711,
+      "hash_and_bytes_match": true
+    },
+    {
+      "label": "market_eastmoney_002526_20200731",
+      "sha256": "2204b07e4b757fdade8524b5d7d9be7a673ab86459e4fd154f80472e44957592",
+      "bytes": 61071,
+      "hash_and_bytes_match": true
+    },
+    {
+      "label": "market_eastmoney_601398_20200731",
+      "sha256": "77663922fa2de4a7b9f90547015985198af706017af5b23263b8e7f79c9be0f8",
+      "bytes": 91393,
+      "hash_and_bytes_match": true
+    },
+    {
+      "label": "market_eastmoney_600518_20200731",
+      "sha256": "0b5f491b48f52f42c133ef36513c4231fc0a15850bfa878ea54ec1b6d6290fc7",
+      "bytes": 48771,
+      "hash_and_bytes_match": true
+    },
+    {
+      "label": "market_eastmoney_300855_20200731",
+      "sha256": "fba48610ff1e5653c0420358f38a7f81606dae1b1bdd37ab0bf1028b41326e09",
+      "bytes": 12190,
+      "hash_and_bytes_match": true
+    },
+    {
+      "label": "market_pdf_600519",
+      "sha256": "2a2b384ab09a7bc295fd2e33b999acdf4212340b0141031c991060dea2fad03d",
+      "bytes": 2272239,
+      "hash_and_bytes_match": true
+    },
+    {
+      "label": "market_pdf_002526",
+      "sha256": "5568139044b9b5539fa1fa66c1fe54bf984d9aafd06b694305cd3006d412573f",
+      "bytes": 90761,
+      "hash_and_bytes_match": true
+    },
+    {
+      "label": "market_pdf_601398",
+      "sha256": "4508d4a8490e810ca97ff53fd9f13d7019bde6efaf9e37a537ae953cfa9b6208",
+      "bytes": 6801455,
+      "hash_and_bytes_match": true
+    },
+    {
+      "label": "market_pdf_600518",
+      "sha256": "4a9a350bb6c0f4709fe41d378f2b7ecb90eea6a62ed782eefa2a3697d0286f7b",
+      "bytes": 6281835,
+      "hash_and_bytes_match": true
+    },
+    {
+      "label": "market_pdf_300855",
+      "sha256": "fab0a650f09ef49ece8f1146c1c87f7319086001a07916f69ed56e96eada860c",
+      "bytes": 2599513,
+      "hash_and_bytes_match": true
+    },
+    {
+      "label": "market_002526_2018_capital_query",
+      "sha256": "ed76b91447611e193d3e7a912379b6b9a47e9b99a0852a32eca4fb0ec3f9fe96",
+      "bytes": 1524,
+      "hash_and_bytes_match": true
+    },
+    {
+      "label": "market_002526_2018_annual",
+      "sha256": "4aa491b616b9c09dce490a611ff783b31f03c0549c818d61f2bb5260bc3199e9",
+      "bytes": 88025,
+      "hash_and_bytes_match": true
+    },
+    {
+      "label": "market_002526_2018_interim",
+      "sha256": "83857c4201cd32185bbf13c179de7a9bebc8fe5930fac1d37d1e6fa3d8928726",
+      "bytes": 106265,
+      "hash_and_bytes_match": true
+    }
+  ],
+  "case_checks": [
+    {
+      "instrument_id": "sh.600519",
+      "manually_transcribed_ordinary_total": 1256197800,
+      "A": 1256197800,
+      "H": 0,
+      "economic_date": "2019-12-31",
+      "publication_date_shanghai": "2020-04-22",
+      "unit": "万股",
+      "page_token_checks": [
+        {
+          "page": 2,
+          "tokens": [
+            "125,619.78"
+          ],
+          "all_found": true,
+          "text_sha256": "82ea02059b2c13de3a692d334c6893942cbf69ddcc7b50b6a6bef9eb12eb72f5"
+        },
+        {
+          "page": 5,
+          "tokens": [
+            "1,256,197,800.00"
+          ],
+          "all_found": true,
+          "text_sha256": "b10b558cebb4c323533f2ab56784a58ef60caedcee49667064d265309fda8d3d"
+        }
+      ],
+      "metadata_and_calendar_match": true,
+      "provider_total_A_H_match": true,
+      "decimal_valuations_match": true,
+      "source_sha256": "2a2b384ab09a7bc295fd2e33b999acdf4212340b0141031c991060dea2fad03d"
+    },
+    {
+      "instrument_id": "sz.002526",
+      "manually_transcribed_ordinary_total": 1782793836,
+      "A": 1782793836,
+      "H": 0,
+      "economic_date": "2020-05-26",
+      "publication_date_shanghai": "2020-05-26",
+      "unit": "股",
+      "page_token_checks": [
+        {
+          "page": 1,
+          "tokens": [
+            "1,782,793,836"
+          ],
+          "all_found": true,
+          "text_sha256": "50bc28592e7dac59b88a1cd563f7b986526ae51b2a5de105ea902d04705b101d"
+        }
+      ],
+      "metadata_and_calendar_match": true,
+      "provider_total_A_H_match": true,
+      "decimal_valuations_match": true,
+      "source_sha256": "5568139044b9b5539fa1fa66c1fe54bf984d9aafd06b694305cd3006d412573f"
+    },
+    {
+      "instrument_id": "sh.601398",
+      "manually_transcribed_ordinary_total": 356406257089,
+      "A": 269612212539,
+      "H": 86794044550,
+      "economic_date": "2019-12-31",
+      "publication_date_shanghai": "2020-04-25",
+      "unit": "股",
+      "page_token_checks": [
+        {
+          "page": 89,
+          "tokens": [
+            "356,406,257,089",
+            "269,612,212,539",
+            "86,794,044,550"
+          ],
+          "all_found": true,
+          "text_sha256": "5ffd34660562198ac1ff7ac58699bfa8e5b292afe34a9aee69252370de05648f"
+        }
+      ],
+      "metadata_and_calendar_match": true,
+      "provider_total_A_H_match": true,
+      "decimal_valuations_match": true,
+      "source_sha256": "4508d4a8490e810ca97ff53fd9f13d7019bde6efaf9e37a537ae953cfa9b6208"
+    },
+    {
+      "instrument_id": "sh.600518",
+      "manually_transcribed_ordinary_total": 4973861675,
+      "A": 4973861675,
+      "H": 0,
+      "economic_date": "2019-12-31",
+      "publication_date_shanghai": "2020-06-18",
+      "unit": "股",
+      "page_token_checks": [
+        {
+          "page": 69,
+          "tokens": [
+            "565,074,709"
+          ],
+          "all_found": true,
+          "text_sha256": "8d427dccf18d34b82ce3c5f762db7ae6a7f62624c1a4176488978ecca9535c46"
+        },
+        {
+          "page": 70,
+          "tokens": [
+            "4,973,861,675",
+            "4,408,786,966"
+          ],
+          "all_found": true,
+          "text_sha256": "02610ed9c8d5fa5b74d3677ed397d783f330c12ebed808d9d42e7913c41b36bc"
+        }
+      ],
+      "metadata_and_calendar_match": true,
+      "provider_total_A_H_match": true,
+      "decimal_valuations_match": true,
+      "source_sha256": "4a9a350bb6c0f4709fe41d378f2b7ecb90eea6a62ed782eefa2a3697d0286f7b"
+    },
+    {
+      "instrument_id": "sz.300855",
+      "manually_transcribed_ordinary_total": 200000000,
+      "A": 200000000,
+      "H": 0,
+      "economic_date": "2020-07-23",
+      "publication_date_shanghai": "2020-07-22",
+      "unit": "万股",
+      "page_token_checks": [
+        {
+          "page": 28,
+          "tokens": [
+            "20,000",
+            "5,000"
+          ],
+          "all_found": true,
+          "text_sha256": "86cf74848bd651889624b2dbe46895ecbc61c6a4279b50cc45f226f68177f575"
+        },
+        {
+          "page": 29,
+          "tokens": [
+            "150,000,000",
+            "50,000,000",
+            "200,000,000"
+          ],
+          "all_found": true,
+          "text_sha256": "69a7109f4c814fe261a588d230b7dbf6bb669c56ecb0e655b3431be68db8d513"
+        }
+      ],
+      "metadata_and_calendar_match": true,
+      "provider_total_A_H_match": true,
+      "decimal_valuations_match": true,
+      "source_sha256": "fab0a650f09ef49ece8f1146c1c87f7319086001a07916f69ed56e96eada860c"
+    }
+  ],
+  "share_change_checks": [
+    {
+      "source_sha256": "4aa491b616b9c09dce490a611ff783b31f03c0549c818d61f2bb5260bc3199e9",
+      "pages_checked": [
+        1,
+        2
+      ],
+      "published": "2018-05-19",
+      "signed": "2018-05-18",
+      "effective": "2018-05-28",
+      "before": 616883681,
+      "after": 1048702257,
+      "fractional_multiplier_result": "1048702257.7",
+      "issuer_integer_total_preserved": true,
+      "metadata_and_calendar_match": true
+    },
+    {
+      "source_sha256": "83857c4201cd32185bbf13c179de7a9bebc8fe5930fac1d37d1e6fa3d8928726",
+      "pages_checked": [
+        1,
+        2
+      ],
+      "published": "2018-09-13",
+      "signed": "2018-09-13",
+      "effective": "2018-09-20",
+      "before": 1048702257,
+      "after": 1782793836,
+      "fractional_multiplier_result": "1782793836.9",
+      "issuer_integer_total_preserved": true,
+      "metadata_and_calendar_match": true
+    }
+  ],
+  "identity_checks": {
+    "count": 3779,
+    "unique": 3779,
+    "exact_M4_ID_set_match": true,
+    "order_match": true,
+    "all_formal_caps_null": true,
+    "all_percentiles_null": true,
+    "all_bottom30_null": true
+  },
+  "independently_viewed_rendered_pages": [
+    "601398:89",
+    "600519:2",
+    "600518:70",
+    "300855:28",
+    "002526_May:1",
+    "002526_May:2",
+    "002526_Sep:1",
+    "002526_Sep:2"
+  ],
+  "review_clock_note": "CNInfo epoch converted toAsia/Shanghai; initial reviewer UTC-date comparison was corrected before concluding publication checks.",
+  "limits": [
+    "No complete historical capital chain admission",
+    "No per-class aggregate ICBC value without H price and FX",
+    "No intraday or vendor-first-seen clock proof",
+    "No newnetwork or marketreturns"
+  ]
+}

@@ -1,0 +1,90 @@
+{
+  "kind": "M5_TEST_PORTABILITY_ONLY",
+  "production_changed": false,
+  "original_review_results_preserved": true,
+  "network_requests": 0,
+  "vendor_raw_objects_added_for_ci": 0,
+  "calendar": {
+    "path": "tests/fixtures/m5_verified_calendar_2015_2024.json",
+    "sha256": "d2975e5273586d38907a6cb0784a70d0b92261d57cca54cb9015539809538103",
+    "sessions": 2431,
+    "first": "2015-01-05",
+    "last": "2024-12-31",
+    "data_origin": "REAL_DERIVED_FROM_PREVIOUSLY_VERIFIED_EXCHANGE_CALENDAR",
+    "synthetic": false,
+    "sources": [
+      {
+        "path": "data/admitted_r1/phase2_v1/development/calendar.json",
+        "sha256": "8200cca2c04cc847ebddf43c0783ff1b8d15b28a9d11e48a3b3f51661c4e52ae",
+        "sessions": 2917,
+        "first": "2010-01-04",
+        "last": "2021-12-31"
+      },
+      {
+        "path": "data/admitted_r1/phase2_v1/validation/calendar.json",
+        "sha256": "be8124db8fbc33b9162df4948f6669c0e17fc89f3251b0027ce41687e28c3526",
+        "sessions": 3643,
+        "first": "2010-01-04",
+        "last": "2024-12-31"
+      }
+    ]
+  },
+  "current_hashes": {
+    "tests/fixtures/m5_verified_calendar_2015_2024.json": "d2975e5273586d38907a6cb0784a70d0b92261d57cca54cb9015539809538103",
+    "tests/test_m5_financial.py": "b2c77aea078db24194d43249d865f3f534055d27f9f23d5c85087b0b0d213bb7",
+    "tests/test_m5_budget.py": "a054f3934cf36710505f1dec2f31762d04b2c4cd935c9ba57f65d53e3e959f34",
+    "review_code/m5/test_external_financial.py": "e1a98368fae8ac8f38d43a52266908754d5a47f61f24ef6c9409b7fa504891f4",
+    "review_code/m5/test_external_accounting.py": "6a6f43c9dd85e644e8f9cfaf59bdd1a0b61c66525f2735263f69d4e26d863599",
+    "review_code/m5/test_external_market_cap.py": "b49b5c2aa40a9cfc649a03ab4c7211e7648522bf9a22a87d7dc5a6ae1479cf54",
+    "pyproject.toml": "234b7bfb332f60e0ad5fb560941d622662943d50a5a1837408df75c1ae45044a"
+  },
+  "clean_data_simulation": {
+    "passed": 143,
+    "skipped": 8,
+    "failed": 0,
+    "pytest_seconds": 17.38,
+    "exit_code": 0,
+    "command": "python -m pytest -q -ra tests/test_m5_budget.py tests/test_m5_dependencies.py tests/test_m5_execution.py tests/test_m5_financial.py tests/test_m5_market_cap.py review_code/m5",
+    "scratch": "work/m5_portability_no_raw",
+    "no_original_data_or_work_trees": true,
+    "scope": "Proposed source/test/report snapshot with no ignored original caches; not a network clone",
+    "output": "reports/m5_review/portability_clean_clone.txt",
+    "exact_skip_scope": [
+      {
+        "test": "test_local_original_pdf_matches_recorded_digest",
+        "cases": 6,
+        "scope": "Only unavailable original PDF byte SHA checks; all transcription and factor checks run"
+      },
+      {
+        "test": "test_registered_rule_artifact_hash_is_not_silently_repinned",
+        "cases": 1,
+        "scope": "Unavailable original calendars/budget/wire/event/rule builder integration; portable artifact mismatch contract and accounting arithmetic run"
+      },
+      {
+        "test": "market archived provider raw-byte check",
+        "cases": 1,
+        "scope": "Unavailable original provider response SHA/full-row check; committed real-row notice contract and invented conflict integrations run"
+      }
+    ]
+  },
+  "local_checks": [
+    {
+      "scope": "changed financial/accounting/budget suites",
+      "passed": 109,
+      "skipped": 0,
+      "pytest_seconds": 6.52
+    },
+    {
+      "scope": "market suite, delegated reviewer",
+      "passed": 4,
+      "skipped": 0,
+      "pytest_seconds": 0.56
+    }
+  ],
+  "whole_repository_final_suite": "Root runs and binds separately",
+  "conservative_session_started_at_utc": "2026-11-15T11:29:00+00:00",
+  "first_observed_clock_utc": "2026-11-15T11:29:07Z",
+  "session_completed_at_utc": "2026-11-15T11:37:07.715195+00:00",
+  "conservative_session_wall_seconds": 487.715195,
+  "time_basis": "Agent-session elapsed occupancy including waits; separate from earlier accounting/financial reviews and delegated market reviewer interval."
+}

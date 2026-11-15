@@ -1,0 +1,137 @@
+{
+  "status": "PARTIAL_PRIMARY_RULE_PROGRESS_EXECUTION_STILL_BLOCKED",
+  "sources": [
+    {
+      "label": "sse_2015_fees",
+      "url": "https://www.sse.com.cn/aboutus/mediacenter/hotandd/c/c_20150912_3988782.shtml",
+      "raw_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m5_equity\\objects\\cabe6de3ca7c3b2b16411de8bbb5d7ed9cfe4272fc0012f8aecbcb6929141607.bin",
+      "sha256": "cabe6de3ca7c3b2b16411de8bbb5d7ed9cfe4272fc0012f8aecbcb6929141607",
+      "http_status": 200,
+      "collection_status": "FETCHED",
+      "review": {
+        "actual_title": "SSE2014 trading-rule amendment and full text; not fee notice",
+        "published_date": "2014-09-26",
+        "effective_from": "2014-09-26",
+        "status": "PRIMARY_HISTORICAL_TRADING_RULE_TEXT_PARTIAL_CHAIN",
+        "clauses": [
+          "3.1.4: no resale before settlement, exempt turnaround products specified separately",
+          "3.4.7:100-share buy lots",
+          "3.4.11:A-share tick CNY0.01",
+          "3.4.13:10percent band and tick rounding",
+          "4.3.2/4.3.3:cash ex-reference and limit basis"
+        ],
+        "limits": "Does not itself establish later2019/2023 applicability or settlement date"
+      }
+    },
+    {
+      "label": "sse_2018_rules_index",
+      "url": "https://www.sse.com.cn/lawandrules/sselawsrules/repeal/rules/c/c_20210531_5478087.shtml",
+      "raw_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m5_equity\\objects\\5642ba183f1037d5e7133e52908f7843eeff050eca6238d1016ac9df6f7a8d0d.bin",
+      "sha256": "5642ba183f1037d5e7133e52908f7843eeff050eca6238d1016ac9df6f7a8d0d",
+      "http_status": 200,
+      "collection_status": "FETCHED",
+      "review": {
+        "actual_title": "SSE2018 trading-rule amendment",
+        "published_date": "2018-08-06",
+        "effective_from": "2018-08-20",
+        "status": "PRIMARY_AMENDMENT_WITH_LINKED_ORIGINAL",
+        "limits": "Archived repeal index contains historical document; current inactive status is not evidence it was inactive in2019"
+      }
+    },
+    {
+      "label": "sse_2018_rules_full",
+      "url": "https://www.sse.com.cn/lawandrules/sselawsrules/repeal/rules/c/10118961/files/ab243f7259464115b6522389422784b3.doc",
+      "raw_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m5_equity\\objects\\0dd8168dfcd2b105a70459319b5f8dcdbc84eeb1216aad23f83214501ad5ce64.bin",
+      "sha256": "0dd8168dfcd2b105a70459319b5f8dcdbc84eeb1216aad23f83214501ad5ce64",
+      "http_status": 200,
+      "collection_status": "FETCHED",
+      "review": {
+        "actual_title": "SSETradingRules2018 revision",
+        "published_date": "2018-08-06",
+        "effective_from": "2018-08-20",
+        "status": "PRIMARY_LINKED_ORIGINAL_ORDINARY_MECHANICS_REVIEWED",
+        "clauses": [
+          "3.1.4:no resale before settlement",
+          "3.4.7:100-share buy lots/whole odd-lot exit",
+          "3.4.11:CNY0.01 tick",
+          "3.4.13:10percent ordinary band and rounded tick",
+          "4.3.2/4.3.3:cash ex-reference",
+          "11.7:effective2018-08-20"
+        ],
+        "extraction": "Contiguous UTF-16LE text in original OLE doc, clause identifiers retained; no fabricated PDF page numbers",
+        "limits": "No complete2023 amendment chain or explicit settlement-day primary evidence established"
+      }
+    },
+    {
+      "label": "sse_2023_rules_index",
+      "url": "https://www.sse.com.cn/lawandrules/sselawsrules/repeal/rules/c/c_20230418_5720136.shtml",
+      "raw_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m5_equity\\objects\\e2a71b8becc01a82e3ad7200ab43c3b456cebe76775c01f0377043a51439ffc7.bin",
+      "sha256": "e2a71b8becc01a82e3ad7200ab43c3b456cebe76775c01f0377043a51439ffc7",
+      "http_status": 200,
+      "collection_status": "FETCHED",
+      "review": {
+        "actual_title": "SSETradingRules2006",
+        "published_date": "2006-05-15",
+        "effective_from": "2006-07-01",
+        "status": "WRONG_VINTAGE_FOR_2023",
+        "limits": "URL includes20230418 but actual historical content is2006; not2023 evidence"
+      }
+    },
+    {
+      "label": "csdc_202207_schedule_retry",
+      "url": "https://www.chinaclear.cn/zdjs/editor_file/20220701154723234.pdf",
+      "raw_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m5_equity\\objects\\e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.bin",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "http_status": null,
+      "collection_status": "FAILED",
+      "review": {
+        "status": "FAILED_404",
+        "limits": "Prior404 reproduced; search indexed fee snippet not accepted original"
+      }
+    },
+    {
+      "label": "csrc_2023_rule_review",
+      "url": "https://www.csrc.gov.cn/csrc/c105938/c905d6f8c17234a5e8c17e41de0d05e8f/content.shtml",
+      "raw_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m5_equity\\objects\\f80acf17a0031fb914e5f87d9a1f7498355aca1e24ec2dd538cdb510d6b592df.bin",
+      "sha256": "f80acf17a0031fb914e5f87d9a1f7498355aca1e24ec2dd538cdb510d6b592df",
+      "http_status": 200,
+      "collection_status": "FETCHED",
+      "review": {
+        "actual_title": "CSRC administrative reconsideration decision2023",
+        "published_date": "2023-02-01",
+        "status": "PRIMARY_ADJUDICATION_LIMITED_SHENZHEN_FACT",
+        "limits": "Quotes2015transfer-fee rule specificallyShenzhen. No Shanghai extrapolation or historicalpublic clockbackfill"
+      }
+    },
+    {
+      "label": "csdc_fee_index",
+      "url": "https://www.chinaclear.cn/zdjs/fbzyls/service_tlist.shtml",
+      "raw_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m5_equity\\objects\\aaa9cce5d81f1ce50bf1db505a2c565c0827c819685bc3a95f9e0c5e17ab76ef.bin",
+      "sha256": "aaa9cce5d81f1ce50bf1db505a2c565c0827c819685bc3a95f9e0c5e17ab76ef",
+      "http_status": 200,
+      "collection_status": "FETCHED",
+      "review": {
+        "status": "DISCOVERY_ONLY",
+        "limits": "Current fee-index metadata; no historicalfee original"
+      }
+    },
+    {
+      "label": "csdc_fee_index_content",
+      "url": "https://www.chinaclear.cn/zdjs/fbzyls/service_tlist/code_0.shtml",
+      "raw_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m5_equity\\objects\\a442b6304f6d9cb70bf6faa5f69960fc692d72e04cf5eeb74f95453390cf4643.bin",
+      "sha256": "a442b6304f6d9cb70bf6faa5f69960fc692d72e04cf5eeb74f95453390cf4643",
+      "http_status": 200,
+      "collection_status": "FETCHED",
+      "review": {
+        "status": "POST2024_LINK_METADATA_QUARANTINED",
+        "limits": "Only2025-12-31 and2026documentlinks; no linkedfuturePDFs fetched; no market/strategy data"
+      }
+    }
+  ],
+  "not_relaxed": [
+    "OriginalCSDCtransferfees",
+    "Stampdutybaseline",
+    "2023trading-rule applicability",
+    "Explicitstocksettlement-day evidence"
+  ]
+}

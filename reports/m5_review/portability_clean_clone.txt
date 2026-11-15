@@ -1,0 +1,14 @@
+........................................................................ [ 47%]
+...........................s.................ssssss..................... [ 95%]
+s......                                                                  [100%]
+=========================== short test summary info ===========================
+SKIPPED [1] review_code\m5\test_external_accounting.py:248: Archived real-source builder integration unavailable; mechanism and conditional arithmetic tests still run: F:\QuantTrade\Quant-Research\work\m5_portability_no_raw\data\admitted_r1\phase2_v1\development\calendar.json
+SKIPPED [1] review_code\m5\test_external_financial.py:83: Archived original PDF unavailable; portable transcription and factor tests still run: 15b3b15df2df
+SKIPPED [1] review_code\m5\test_external_financial.py:83: Archived original PDF unavailable; portable transcription and factor tests still run: 9f47aa0dc0a8
+SKIPPED [1] review_code\m5\test_external_financial.py:83: Archived original PDF unavailable; portable transcription and factor tests still run: 9b57ae1e21bc
+SKIPPED [1] review_code\m5\test_external_financial.py:83: Archived original PDF unavailable; portable transcription and factor tests still run: 41d9370fd96d
+SKIPPED [1] review_code\m5\test_external_financial.py:83: Archived original PDF unavailable; portable transcription and factor tests still run: 7028b0a1c7b8
+SKIPPED [1] review_code\m5\test_external_financial.py:83: Archived original PDF unavailable; portable transcription and factor tests still run: 3ae8304f34e4
+SKIPPED [1] review_code\m5\test_external_market_cap.py:38: Archived original provider bytes absent in this checkout
+143 passed, 8 skipped in 17.38s
+
