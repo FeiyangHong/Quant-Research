@@ -1,0 +1,134 @@
+{
+  "status": "CASE_RULES_PASS",
+  "verified": true,
+  "sources": [
+    {
+      "id": "sse_2018_rules_full",
+      "path": "data/raw_m5_equity/objects/0dd8168dfcd2b105a70459319b5f8dcdbc84eeb1216aad23f83214501ad5ce64.bin",
+      "sha256": "0dd8168dfcd2b105a70459319b5f8dcdbc84eeb1216aad23f83214501ad5ce64",
+      "url": "https://www.sse.com.cn/lawandrules/sselawsrules/repeal/rules/c/10118961/files/ab243f7259464115b6522389422784b3.doc",
+      "review_status": "PRIMARY_PARTIAL_TRADING_MECHANICS_NOT_COMPLETE_REAL_ADMISSION"
+    },
+    {
+      "id": "mof_2008_stamp",
+      "path": "data\\raw_m6\\objects\\4edaa053cbc7c2727e183a27f2e974aabb3534e4485522e3675f40ca7a6d8263.bin",
+      "sha256": "4edaa053cbc7c2727e183a27f2e974aabb3534e4485522e3675f40ca7a6d8263",
+      "url": "https://www.mof.gov.cn/zhengwuxinxi/caizhengxinwen/200809/t20080919_76432.htm"
+    },
+    {
+      "id": "sse_2015_joint_fees",
+      "path": "data\\raw_m6\\objects\\fcf430cc9809007752f34eb6b6bec594ffb1ea81a70e558cce37c9ea79675491.bin",
+      "sha256": "fcf430cc9809007752f34eb6b6bec594ffb1ea81a70e558cce37c9ea79675491",
+      "url": "https://www.sse.com.cn/aboutus/mediacenter/hotandd/c/c_20150912_3988866.shtml"
+    },
+    {
+      "id": "sse_2019_trading_mechanism_qa",
+      "path": "data\\raw_m6\\objects\\97b3485e67a58760ede8c7fe10ed2058890288695e01ae638ba0bfcd634b796d.bin",
+      "sha256": "97b3485e67a58760ede8c7fe10ed2058890288695e01ae638ba0bfcd634b796d",
+      "url": "https://www.sse.com.cn/aboutus/mediacenter/hotandd/c/c_20190301_4729501.shtml"
+    }
+  ],
+  "limit_source_url": "https://www.sse.com.cn/lawandrules/sselawsrules/repeal/rules/c/10118961/files/ab243f7259464115b6522389422784b3.doc",
+  "limit_available_at": "2018-08-07T21:00:00+08:00",
+  "fee_rows": [
+    {
+      "effective_from": "2016-01-01",
+      "effective_to": "2022-04-28",
+      "stamp_duty_sell": 0.001,
+      "transfer_fee_both": 2e-05,
+      "verified": true,
+      "source_url": "https://www.sse.com.cn/aboutus/mediacenter/hotandd/c/c_20150912_3988866.shtml",
+      "available_at": "2015-07-02T21:00:00+08:00",
+      "status": "ACCEPTED_COMPOSITE2008STAMP_AND2015TRANSFER",
+      "evidence": [
+        "mof_2008_stamp",
+        "sse_2015_joint_fees"
+      ]
+    },
+    {
+      "effective_from": "2022-04-29",
+      "effective_to": "2023-08-27",
+      "stamp_duty_sell": 0.001,
+      "transfer_fee_both": 1e-05,
+      "verified": false,
+      "source_url": null,
+      "available_at": null,
+      "status": "TRANSFER_COMPONENT_UNVERIFIED_STAMP_COMPONENT_ACCEPTED",
+      "evidence": [
+        "guangdong_2023_stamp_law",
+        "tianjin_2022_stamp",
+        "stamp_2023_39"
+      ]
+    },
+    {
+      "effective_from": "2023-08-28",
+      "effective_to": "2024-12-31",
+      "stamp_duty_sell": 0.0005,
+      "transfer_fee_both": 1e-05,
+      "verified": false,
+      "source_url": null,
+      "available_at": null,
+      "status": "TRANSFER_COMPONENT_UNVERIFIED_STAMP_COMPONENT_ACCEPTED",
+      "evidence": [
+        "guangdong_2023_stamp_law",
+        "tianjin_2022_stamp",
+        "stamp_2023_39"
+      ]
+    }
+  ],
+  "missing": [],
+  "reviewed_partial_evidence": [
+    "2015individual cashdividendFIFO/holdingperiod tax",
+    "2023stampdutyhalving",
+    "Kangmei20190518 issueroriginal explicitly5percent ST from20190521",
+    "SSE2014/2018originalordinary10percentroundedband,100lot,0.01tick,noresalebefore settlement andcash ex-reference clauses"
+  ],
+  "broker_ledger_verification": "UNVERIFIED",
+  "fetched_challenge_bodies_not_rule_evidence": true,
+  "case_id": "kangmei_st",
+  "source_gate": {
+    "components": {
+      "stamp_duty": {
+        "status": "PASS",
+        "evidence": [
+          "mof_2008_stamp"
+        ],
+        "detail": "seller0.001before2023-08-28;0.0005after;buyzero"
+      },
+      "transfer_fee": {
+        "status": "PASS",
+        "evidence": [
+          "sse_2015_joint_fees"
+        ],
+        "detail": "bothsides0.00002from2015-08-01"
+      },
+      "lot_tick_limit_exreference": {
+        "status": "PASS",
+        "evidence": [
+          "sse_2018_rules_full",
+          "KM_OTHER_RISK_20190521"
+        ],
+        "detail": "100sharelot,0.01tick,normal10%;KangmeiST5%fromissueroriginal;cash-exreferenceandrounding"
+      },
+      "stock_next_session_sellability": {
+        "status": "PASS",
+        "evidence": [
+          "sse_2019_trading_mechanism_qa",
+          "sse_2018_rules_full"
+        ],
+        "detail": "Dated SSE official explanation of A-share T+1 trading, combined with the applicable no-resale-before-settlement rule, supports next-session sellability only. Actual clearing cash delivery remains unverified."
+      },
+      "event_terms_and_tax": {
+        "status": "PASS",
+        "evidence": [
+          "KM_OTHER_RISK_20190521"
+        ],
+        "detail": "ReuseoriginalM5eventdocumentsand2015individualFIFOdividendtax;modelcash/debitclocksunchanged"
+      }
+    },
+    "source_gate_passed": true,
+    "source_status": "PASS",
+    "case_status": "PASS"
+  },
+  "adapter_note": "verified is the composite case gate. If any component is missing, limit_terms_verified remains false to prevent execution; the component audit still separately identifies accepted limit evidence."
+}

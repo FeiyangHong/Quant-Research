@@ -1,0 +1,27 @@
+{
+  "status": "CONDITIONAL_UNVERIFIED_RULE_INPUTS",
+  "fills": [
+    {
+      "date": "2023-06-27",
+      "side": "BUY",
+      "quantity": 100,
+      "price": 1709.99,
+      "fees": 53.01
+    },
+    {
+      "date": "2023-06-28",
+      "side": "BUY",
+      "quantity": 100,
+      "price": 1713.18,
+      "fees": 53.11
+    },
+    {
+      "date": "2023-07-03",
+      "side": "SELL",
+      "quantity": 100,
+      "price": 1699.0,
+      "fees": 222.57
+    }
+  ],
+  "not_actual_fills": true
+}

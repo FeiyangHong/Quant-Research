@@ -1,0 +1,519 @@
+{
+  "scope": "Only the three original M5 engineering cases. No general stock or strategy admission.",
+  "broker_cash_delivery_status": "UNVERIFIED; the original conservative cash model is unchanged.",
+  "sources": [
+    {
+      "label": "mof_2008_stamp",
+      "id": 1,
+      "url": "https://www.mof.gov.cn/zhengwuxinxi/caizhengxinwen/200809/t20080919_76432.htm",
+      "raw_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m6\\objects\\4edaa053cbc7c2727e183a27f2e974aabb3534e4485522e3675f40ca7a6d8263.bin",
+      "sha256": "4edaa053cbc7c2727e183a27f2e974aabb3534e4485522e3675f40ca7a6d8263",
+      "byte_count": 20049,
+      "started_at": "2026-11-15T13:05:29.818002+00:00",
+      "ingested_at": "2026-11-15T13:05:30.096332+00:00",
+      "status": "FETCHED",
+      "error": null,
+      "review": {
+        "status": "ACCEPTED_OFFICIAL_ORIGINAL",
+        "published_date": "2008-09-19",
+        "effective_from": "2008-09-19",
+        "components": [
+          "stamp_sell_0.001",
+          "stamp_buy_0"
+        ],
+        "locator": "announcement正文:from2008-09-19, seller1permille;buyeruntaxed"
+      }
+    },
+    {
+      "label": "sse_2015_joint_fees",
+      "id": 2,
+      "url": "https://www.sse.com.cn/aboutus/mediacenter/hotandd/c/c_20150912_3988866.shtml",
+      "raw_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m6\\objects\\fcf430cc9809007752f34eb6b6bec594ffb1ea81a70e558cce37c9ea79675491.bin",
+      "sha256": "fcf430cc9809007752f34eb6b6bec594ffb1ea81a70e558cce37c9ea79675491",
+      "byte_count": 26858,
+      "started_at": "2026-11-15T13:05:30.111457+00:00",
+      "ingested_at": "2026-11-15T13:05:30.553149+00:00",
+      "status": "FETCHED",
+      "error": null,
+      "review": {
+        "status": "ACCEPTED_OFFICIAL_JOINT_PRIMARY_EXPLANATION",
+        "published_date": "2015-07-01",
+        "effective_from": "2015-08-01",
+        "components": [
+          "SSE_and_SZSE_transfer_both_0.00002"
+        ],
+        "locator": "answerparagraph:成交金额0.02‰双向;8月1日正式实施",
+        "acceptance": "Direct joint exchange/depository announcement explicitly accepted under registered official-original evidence policy. URLmigration20150912 is not actual publication date."
+      }
+    },
+    {
+      "label": "tianjin_2022_stamp",
+      "id": 3,
+      "url": "https://tianjin.chinatax.gov.cn/11200000000/0300/030005/20220725150235434.shtml",
+      "raw_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m6\\objects\\d591c00404d01583b9fee11288900815f9a1315ce0bd3704ccd7ecd9d368f075.bin",
+      "sha256": "d591c00404d01583b9fee11288900815f9a1315ce0bd3704ccd7ecd9d368f075",
+      "byte_count": 30513,
+      "started_at": "2026-11-15T13:05:30.568667+00:00",
+      "ingested_at": "2026-11-15T13:05:30.757545+00:00",
+      "status": "FETCHED",
+      "error": null,
+      "review": {
+        "status": "ACCEPTED_OFFICIAL_EXPLANATION",
+        "published_date": "2022-07-25",
+        "effective_from": "2022-07-01",
+        "components": [
+          "stamp_sell_0.001"
+        ],
+        "locator": "Officialquestionanswer quoteslawannex1permille"
+      }
+    },
+    {
+      "label": "guangdong_2023_stamp_law",
+      "id": 4,
+      "url": "https://guangdong.chinatax.gov.cn/gdsw/zssw_gkwj/2023-03/09/content_8c6b826493184a5e906cb687b339d58e.shtml",
+      "raw_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m6\\objects\\f00d5b79b3a9963e3faa6202aced5796c41f55d82dc8567786f4ba5e03cf87d2.bin",
+      "sha256": "f00d5b79b3a9963e3faa6202aced5796c41f55d82dc8567786f4ba5e03cf87d2",
+      "byte_count": 32925,
+      "started_at": "2026-11-15T13:05:30.780162+00:00",
+      "ingested_at": "2026-11-15T13:05:31.198466+00:00",
+      "status": "FETCHED",
+      "error": null,
+      "review": {
+        "status": "ACCEPTED_OFFICIAL_LAW_REPUBLICATION",
+        "published_date": "2023-03-09",
+        "original_enactment_date": "2021-06-10",
+        "effective_from": "2022-07-01",
+        "components": [
+          "seller_only_stamp"
+        ],
+        "locator": "Article3selleronly;Article20effective2022-07-01",
+        "availability": "Use actual2023-03-09 republication before fixedcases;do not backdate page to2021"
+      }
+    },
+    {
+      "label": "sse_2023_rules_migrated",
+      "id": 5,
+      "url": "https://www.sse.com.cn/lawandrules/sselawsrules2025/repeal/rules/c/c_20250612_10824490.shtml",
+      "raw_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m6\\objects\\41674dd8ae45aa79628c5a298c9b90f3a50e8b7a2f0a5df96cc146870ca13b46.bin",
+      "sha256": "41674dd8ae45aa79628c5a298c9b90f3a50e8b7a2f0a5df96cc146870ca13b46",
+      "byte_count": 34499,
+      "started_at": "2026-11-15T13:05:31.215476+00:00",
+      "ingested_at": "2026-11-15T13:05:31.581871+00:00",
+      "status": "FETCHED",
+      "error": null,
+      "review": {
+        "status": "ACCEPTED_HISTORICAL_ORIGINAL_WITH_CONDITIONAL_EFFECTIVENESS",
+        "published_date": "2023-02-17",
+        "effective_from": "2023-04-10",
+        "migration_year": 2025,
+        "locator": "正文一: effectivefirstregisteredmainboardlisting;正文二:deferredclauses",
+        "note": "Header2023-02-17 metadata notusedaseffective;2025URLisarchiveonly,currentrepealtagnotbackfilled"
+      }
+    },
+    {
+      "label": "sse_2023_first_listing",
+      "id": 6,
+      "url": "https://www.sse.com.cn/aboutus/mediacenter/hotandd/c/c_20230404_5719112.shtml",
+      "raw_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m6\\objects\\02650e7c119d5551be8a4039157ebcd554fd565803e499a5a9287c57498424a2.bin",
+      "sha256": "02650e7c119d5551be8a4039157ebcd554fd565803e499a5a9287c57498424a2",
+      "byte_count": 26446,
+      "started_at": "2026-11-15T13:05:31.597924+00:00",
+      "ingested_at": "2026-11-15T13:05:32.074876+00:00",
+      "status": "FETCHED",
+      "error": null,
+      "review": {
+        "status": "ACCEPTED_OFFICIAL_EFFECTIVE_TRIGGER_EVIDENCE",
+        "published_date": "2023-04-04",
+        "effective_from": "2023-04-10",
+        "locator": "answer:10issuerscompletedissuance;April10listingceremony"
+      }
+    },
+    {
+      "label": "official_t1_and_transfer_discovery",
+      "id": 7,
+      "url": null,
+      "raw_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m6\\objects\\7a2f2bb13f254049e94f135f38746aa228abcdbeab9d1f59b092d2075c798ddb.bin",
+      "sha256": "7a2f2bb13f254049e94f135f38746aa228abcdbeab9d1f59b092d2075c798ddb",
+      "byte_count": 27803,
+      "started_at": "2026-11-15T13:05:59.727688+00:00",
+      "ingested_at": "2026-11-15T13:06:39.338364+00:00",
+      "status": "FETCHED",
+      "error": null,
+      "review": {
+        "status": "DISCOVERY_ONLY_NOT_RULE_ADMISSION"
+      }
+    },
+    {
+      "label": "sse_2023_rules_full",
+      "id": 8,
+      "url": "https://www.sse.com.cn/lawandrules/sselawsrules2025/repeal/rules/c/10824490/files/dcbe58edb194451d93f19b1f7dd8fb4c.docx",
+      "raw_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m6\\objects\\7aa2319f6dcf597be1e86b3b69d7c2ad0e6acb2a5d0cc6be48a01af602fded40.bin",
+      "sha256": "7aa2319f6dcf597be1e86b3b69d7c2ad0e6acb2a5d0cc6be48a01af602fded40",
+      "byte_count": 51948,
+      "started_at": "2026-11-15T13:08:49.241919+00:00",
+      "ingested_at": "2026-11-15T13:08:49.636141+00:00",
+      "status": "FETCHED",
+      "error": null,
+      "review": {
+        "status": "ACCEPTED_ORIGINAL_LINKED_ATTACHMENT",
+        "published_date": "2023-02-17",
+        "effective_from": "2023-04-10",
+        "locator": "3.1.4noresalebeforesettlement;3.3.8lot100;3.3.11tick0.01;3.3.13band10%;3.3.17rounding;4.3.2/3exreference",
+        "extraction": "word/document.xml paragraphs;noinventedPDFpages"
+      }
+    },
+    {
+      "label": "sse_2023_rules_deferred",
+      "id": 9,
+      "url": "https://www.sse.com.cn/lawandrules/sselawsrules2025/repeal/rules/c/10824490/files/3f0cc77bae0543c795a42731398bc8e0.docx",
+      "raw_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m6\\objects\\13cd6f14fdc5b8ecb5fad1876c6ecb05bf6c163d5217a2f2d687029ffa5bf4e2.bin",
+      "sha256": "13cd6f14fdc5b8ecb5fad1876c6ecb05bf6c163d5217a2f2d687029ffa5bf4e2",
+      "byte_count": 17995,
+      "started_at": "2026-11-15T13:08:49.653726+00:00",
+      "ingested_at": "2026-11-15T13:08:50.057094+00:00",
+      "status": "FETCHED",
+      "error": null,
+      "review": {
+        "status": "ACCEPTED_ORIGINAL_LINKED_ATTACHMENT",
+        "published_date": "2023-02-17",
+        "locator": "6rows:3.6.2/3/4/9/10blocktrading;4.2.5nonstockhaltauction",
+        "applicability": "Noneofdeferredclauseschangesregisteredstockdaily-openinglot/tick/band/exreferenceorT+1sellability. No blocktrades modeled."
+      }
+    },
+    {
+      "label": "sse_2023_rules_repeal",
+      "id": 10,
+      "url": "https://www.sse.com.cn/lawandrules/sselawsrules2025/repeal/rules/c/10824490/files/2dd188e159c243a384004b3dc48167a8.docx",
+      "raw_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m6\\objects\\7f89cfdc37f7fafdf48037bbbc5f3d608b35ae39d658484755550718f1d902a6.bin",
+      "sha256": "7f89cfdc37f7fafdf48037bbbc5f3d608b35ae39d658484755550718f1d902a6",
+      "byte_count": 16934,
+      "started_at": "2026-11-15T13:08:50.075094+00:00",
+      "ingested_at": "2026-11-15T13:08:50.514715+00:00",
+      "status": "FETCHED",
+      "error": null,
+      "review": {
+        "status": "ACCEPTED_ORIGINAL_LINKED_ATTACHMENT",
+        "published_date": "2023-02-17",
+        "locator": "12repealedrulesincluding2020tradingrulesand2022blocktrades;versionchaincrosscheck"
+      }
+    },
+    {
+      "label": "official_t1_and_transfer_domains_search",
+      "id": 14,
+      "url": null,
+      "raw_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m6\\objects\\9e86e5abf6fd7c422f281e96881feaa4cadfc6f09753ab56ca326bf0a066b2ff.bin",
+      "sha256": "9e86e5abf6fd7c422f281e96881feaa4cadfc6f09753ab56ca326bf0a066b2ff",
+      "byte_count": 28999,
+      "started_at": "2026-11-15T13:09:15.430819+00:00",
+      "ingested_at": "2026-11-15T13:09:36.226002+00:00",
+      "status": "FETCHED",
+      "error": null,
+      "review": {
+        "status": "DISCOVERY_ONLY_NOT_RULE_ADMISSION"
+      }
+    },
+    {
+      "label": "historical_settlement_and_transfer_exact_search",
+      "id": 19,
+      "url": null,
+      "raw_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m6\\objects\\106bc3600ca7c8ef3579f2e9de835ffa3c8b36f8f80eef98fa9cda6d2b60b51b.bin",
+      "sha256": "106bc3600ca7c8ef3579f2e9de835ffa3c8b36f8f80eef98fa9cda6d2b60b51b",
+      "byte_count": 27454,
+      "started_at": "2026-11-15T13:09:51.784958+00:00",
+      "ingested_at": "2026-11-15T13:10:06.846810+00:00",
+      "status": "FETCHED",
+      "error": null,
+      "review": {
+        "status": "DISCOVERY_ONLY_NOT_RULE_ADMISSION"
+      }
+    },
+    {
+      "label": "sse_2019_trading_mechanism_qa",
+      "id": 20,
+      "url": "https://www.sse.com.cn/aboutus/mediacenter/hotandd/c/c_20190301_4729501.shtml",
+      "raw_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m6\\objects\\97b3485e67a58760ede8c7fe10ed2058890288695e01ae638ba0bfcd634b796d.bin",
+      "sha256": "97b3485e67a58760ede8c7fe10ed2058890288695e01ae638ba0bfcd634b796d",
+      "byte_count": 39019,
+      "started_at": "2026-11-15T13:10:06.864812+00:00",
+      "ingested_at": "2026-11-15T13:10:07.346287+00:00",
+      "status": "FETCHED",
+      "error": null,
+      "review": {
+        "status": "ACCEPTED_OFFICIAL_EXPLANATION_SELLABILITY_ONLY",
+        "published_date": "2019-03-01",
+        "locator": "Question7:AsharehistoryT+0toT+1;2019rulesdidnotintroduceT+0",
+        "applicability": "Next-sessionstockSELLABILITYevidencecombined2018rule3.1.4,independentagentaccepted. Notoriginalclearingcashdeliveryschedule;noSTARpermissioninferred."
+      }
+    },
+    {
+      "label": "csdc_2022_fee_schedule_retry",
+      "id": 21,
+      "url": "https://www.chinaclear.cn/zdjs/editor_file/20220701154723234.pdf",
+      "raw_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m6\\objects\\e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.bin",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "byte_count": 0,
+      "started_at": "2026-11-15T13:10:07.366459+00:00",
+      "ingested_at": "2026-11-15T13:10:07.742930+00:00",
+      "status": "FAILED",
+      "error": "HTTPError: HTTP Error 404: Not Found",
+      "review": {
+        "status": "FAILED404_NOT_EVIDENCE",
+        "gap": "2022transferfee"
+      }
+    },
+    {
+      "label": "csdc2022_exact_notice_discovery",
+      "id": 23,
+      "url": null,
+      "raw_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m6\\objects\\3fcf0d40a0ae7afbf940459ced775989542095da66332ca52182f423c2b6dba0.bin",
+      "sha256": "3fcf0d40a0ae7afbf940459ced775989542095da66332ca52182f423c2b6dba0",
+      "byte_count": 30598,
+      "started_at": "2026-11-15T13:10:55.749568+00:00",
+      "ingested_at": "2026-11-15T13:11:10.025587+00:00",
+      "status": "FETCHED",
+      "error": null,
+      "review": {
+        "status": "DISCOVERY_ONLY_NOT_RULE_ADMISSION"
+      }
+    },
+    {
+      "label": "csdc2022_original_notice",
+      "id": 24,
+      "url": "https://www.chinaclear.cn/zdjs/gszb/202204/f89e788c65a241e88e7f0d0348de586f.shtml",
+      "raw_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m6\\objects\\e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.bin",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "byte_count": 0,
+      "started_at": "2026-11-15T13:11:10.050030+00:00",
+      "ingested_at": "2026-11-15T13:11:10.413232+00:00",
+      "status": "FAILED",
+      "error": "ValueError: Redirect refused; validate and register destination separately: http://www.chinaclear.cn/",
+      "review": {
+        "status": "REDIRECT_HOMEPAGE_REJECTED",
+        "gap": "2022transferfee"
+      }
+    },
+    {
+      "label": "csdc2022_original_notice_mobile",
+      "id": 65,
+      "url": "https://m.chinaclear.cn/zdjs/gszb/202204/f89e788c65a241e88e7f0d0348de586f.shtml",
+      "raw_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m6\\objects\\e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.bin",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "byte_count": 0,
+      "started_at": "2026-11-15T13:13:20.955685+00:00",
+      "ingested_at": "2026-11-15T13:13:21.329211+00:00",
+      "status": "FAILED",
+      "error": "ValueError: Redirect refused; validate and register destination separately: http://www.chinaclear.cn/",
+      "review": {
+        "status": "REDIRECT_HOMEPAGE_REJECTED"
+      }
+    },
+    {
+      "label": "official_full_republication_2022_transfer",
+      "id": 67,
+      "url": null,
+      "raw_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m6\\objects\\d8fede5644e334c61dee1d1bd3251d400a1be9bb03976fd9bdd8a18c77f3da85.bin",
+      "sha256": "d8fede5644e334c61dee1d1bd3251d400a1be9bb03976fd9bdd8a18c77f3da85",
+      "byte_count": 31031,
+      "started_at": "2026-11-15T13:14:06.064198+00:00",
+      "ingested_at": "2026-11-15T13:14:20.615591+00:00",
+      "status": "FETCHED",
+      "error": null,
+      "review": {
+        "status": "DISCOVERY_ONLY_NOT_RULE_ADMISSION"
+      }
+    },
+    {
+      "label": "wuhan_official_fee_republication",
+      "id": 68,
+      "url": "https://jrj.wuhan.gov.cn/ynzx_57/xwzx/202204/t20220429_1964160.shtml",
+      "raw_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m6\\objects\\75b1d3ca4c4559be1534846c9c0b065df1694177de16334274419f36df0d9a1a.bin",
+      "sha256": "75b1d3ca4c4559be1534846c9c0b065df1694177de16334274419f36df0d9a1a",
+      "byte_count": 20628,
+      "started_at": "2026-11-15T13:17:00.231552+00:00",
+      "ingested_at": "2026-11-15T13:17:00.494639+00:00",
+      "status": "FETCHED",
+      "error": null,
+      "review": {
+        "status": "OFFICIAL_HOSTED_MEDIA_REPRINT_NOT_FULL_OFFICIAL_RULE_REPUBLICATION",
+        "published_date": "2022-04-29",
+        "claimed_original_publication": "2022-04-28",
+        "claimed_effective_from": "2022-04-29",
+        "corroborated_terms": "SSE/SZSE A shares; 0.01 per mille charged to both sides.",
+        "limits": "The official host attributes a media report, without the complete original notice or linked original. Wuhan explicitly disclaims endorsement of other-source extracts. Retained as corroboration; not admitted as an official full rule republication."
+      }
+    },
+    {
+      "label": "shanghai_official_fee_republication",
+      "id": 69,
+      "url": "https://jrj.sh.gov.cn/SCDT197/20220429/f715759a877b4158812eb6df70ccb49e.html",
+      "raw_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m6\\objects\\2dd2a8a1550e680afc16ef049cacc08fdf6744d5ba12b13bd85c65c2a9204bf9.bin",
+      "sha256": "2dd2a8a1550e680afc16ef049cacc08fdf6744d5ba12b13bd85c65c2a9204bf9",
+      "byte_count": 10194,
+      "started_at": "2026-11-15T13:17:00.553919+00:00",
+      "ingested_at": "2026-11-15T13:17:01.159370+00:00",
+      "status": "FETCHED",
+      "error": null,
+      "review": {
+        "status": "OFFICIAL_HOSTED_MEDIA_REPRINT_NOT_FULL_OFFICIAL_RULE_REPUBLICATION",
+        "published_date": "2022-04-29",
+        "claimed_original_publication": "2022-04-28",
+        "claimed_effective_from": "2022-04-29",
+        "corroborated_terms": "SSE/SZSE A shares; 0.01 per mille charged to both sides.",
+        "limits": "The official host attributes a media report, without the complete original notice or linked original. Wuhan explicitly disclaims endorsement of other-source extracts. Retained as corroboration; not admitted as an official full rule republication."
+      }
+    }
+  ],
+  "cases": {
+    "moutai_ordinary": {
+      "components": {
+        "stamp_duty": {
+          "status": "PASS",
+          "evidence": [
+            "guangdong_2023_stamp_law",
+            "tianjin_2022_stamp"
+          ],
+          "detail": "seller0.001before2023-08-28;0.0005after;buyzero"
+        },
+        "transfer_fee": {
+          "status": "BLOCKED",
+          "evidence": [
+            "csdc2022_original_notice",
+            "csdc_2022_fee_schedule_retry",
+            "csdc2022_original_notice_mobile",
+            "wuhan_official_fee_republication",
+            "shanghai_official_fee_republication"
+          ],
+          "detail": "Applicable 2022 transfer fee lacks a verifiable official original or official full republication. Original desktop/mobile notice redirects to a home page; archived fee schedule returns404. Two official government hosts republish attributed media reports, not the full official notice. No particular original URL is mandatory."
+        },
+        "lot_tick_limit_exreference": {
+          "status": "PASS",
+          "evidence": [
+            "sse_2023_rules_migrated",
+            "sse_2023_first_listing",
+            "sse_2023_rules_full",
+            "sse_2023_rules_deferred"
+          ],
+          "detail": "100sharelot,0.01tick,normal10%;KangmeiST5%fromissueroriginal;cash-exreferenceandrounding"
+        },
+        "stock_next_session_sellability": {
+          "status": "PASS",
+          "evidence": [
+            "sse_2019_trading_mechanism_qa",
+            "sse_2023_rules_full"
+          ],
+          "detail": "Dated SSE official explanation of A-share T+1 trading, combined with the applicable no-resale-before-settlement rule, supports next-session sellability only. Actual clearing cash delivery remains unverified."
+        },
+        "event_terms_and_tax": {
+          "status": "PASS",
+          "evidence": [
+            "600519_2023-021",
+            "dividend_2015_101",
+            "dividend_fifo_2015_qa"
+          ],
+          "detail": "ReuseoriginalM5eventdocumentsand2015individualFIFOdividendtax;modelcash/debitclocksunchanged"
+        }
+      },
+      "source_gate_passed": false,
+      "source_status": "PARTIAL",
+      "case_status": "BLOCKED"
+    },
+    "moutai_special": {
+      "components": {
+        "stamp_duty": {
+          "status": "PASS",
+          "evidence": [
+            "guangdong_2023_stamp_law",
+            "tianjin_2022_stamp",
+            "stamp_2023_39"
+          ],
+          "detail": "seller0.001before2023-08-28;0.0005after;buyzero"
+        },
+        "transfer_fee": {
+          "status": "BLOCKED",
+          "evidence": [
+            "csdc2022_original_notice",
+            "csdc_2022_fee_schedule_retry",
+            "csdc2022_original_notice_mobile",
+            "wuhan_official_fee_republication",
+            "shanghai_official_fee_republication"
+          ],
+          "detail": "Applicable 2022 transfer fee lacks a verifiable official original or official full republication. Original desktop/mobile notice redirects to a home page; archived fee schedule returns404. Two official government hosts republish attributed media reports, not the full official notice. No particular original URL is mandatory."
+        },
+        "lot_tick_limit_exreference": {
+          "status": "PASS",
+          "evidence": [
+            "sse_2023_rules_migrated",
+            "sse_2023_first_listing",
+            "sse_2023_rules_full",
+            "sse_2023_rules_deferred"
+          ],
+          "detail": "100sharelot,0.01tick,normal10%;KangmeiST5%fromissueroriginal;cash-exreferenceandrounding"
+        },
+        "stock_next_session_sellability": {
+          "status": "PASS",
+          "evidence": [
+            "sse_2019_trading_mechanism_qa",
+            "sse_2023_rules_full"
+          ],
+          "detail": "Dated SSE official explanation of A-share T+1 trading, combined with the applicable no-resale-before-settlement rule, supports next-session sellability only. Actual clearing cash delivery remains unverified."
+        },
+        "event_terms_and_tax": {
+          "status": "PASS",
+          "evidence": [
+            "600519_2023-040",
+            "dividend_2015_101",
+            "dividend_fifo_2015_qa"
+          ],
+          "detail": "ReuseoriginalM5eventdocumentsand2015individualFIFOdividendtax;modelcash/debitclocksunchanged"
+        }
+      },
+      "source_gate_passed": false,
+      "source_status": "PARTIAL",
+      "case_status": "BLOCKED"
+    },
+    "kangmei_st": {
+      "components": {
+        "stamp_duty": {
+          "status": "PASS",
+          "evidence": [
+            "mof_2008_stamp"
+          ],
+          "detail": "seller0.001before2023-08-28;0.0005after;buyzero"
+        },
+        "transfer_fee": {
+          "status": "PASS",
+          "evidence": [
+            "sse_2015_joint_fees"
+          ],
+          "detail": "bothsides0.00002from2015-08-01"
+        },
+        "lot_tick_limit_exreference": {
+          "status": "PASS",
+          "evidence": [
+            "sse_2018_rules_full",
+            "KM_OTHER_RISK_20190521"
+          ],
+          "detail": "100sharelot,0.01tick,normal10%;KangmeiST5%fromissueroriginal;cash-exreferenceandrounding"
+        },
+        "stock_next_session_sellability": {
+          "status": "PASS",
+          "evidence": [
+            "sse_2019_trading_mechanism_qa",
+            "sse_2018_rules_full"
+          ],
+          "detail": "Dated SSE official explanation of A-share T+1 trading, combined with the applicable no-resale-before-settlement rule, supports next-session sellability only. Actual clearing cash delivery remains unverified."
+        },
+        "event_terms_and_tax": {
+          "status": "PASS",
+          "evidence": [
+            "KM_OTHER_RISK_20190521"
+          ],
+          "detail": "ReuseoriginalM5eventdocumentsand2015individualFIFOdividendtax;modelcash/debitclocksunchanged"
+        }
+      },
+      "source_gate_passed": true,
+      "source_status": "PASS",
+      "case_status": "PASS"
+    }
+  }
+}

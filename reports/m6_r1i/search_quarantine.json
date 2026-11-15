@@ -1,0 +1,40 @@
+{
+  "source_receipt_id": 22,
+  "source_sha256": "8df3a36262658cb03561c6cb5f0af7c809c878b42e94ca5e1e4f28d25ee7f3ca",
+  "unsolicited_result_urls": [
+    "https://paper.cnstock.com/html/2025-07/08/content_2090299.htm",
+    "https://oss-ch.csindex.com.cn/industryClassification/%E4%B8%AD%E8%AF%81%E8%A1%8C%E4%B8%9A%E5%88%86%E7%B1%BB%E7%9A%84%E8%AF%B4%E6%98%8E.pdf"
+  ],
+  "treatment": "QUARANTINED_NOT_OPENED_NOT_ADMITTED_NOT_USED",
+  "reason": "Historical search returned unsolicited post2024 market-summary snippet and known mutable current classification URL. No follow-up open or local market/factor/strategy calculation used these results. This exposure is disclosed; no claim that the search engine returned no future text.",
+  "prevention": "No more web search after this repeated unsolicited future-content exposure. Pilot uses known historical primary links only.",
+  "second_search": {
+    "receipt_id": 60,
+    "sha256": "1d330f46239bea2e1ab08df0725905db3cf2f153fbeb9b134a85eb0c24f10c47",
+    "treatment": "ENTIRE_RESULT_QUARANTINED_NO_FOLLOWUP_OPEN_NO_ADMISSION",
+    "reason": "Domain/before filters did not suppress unsolicited current issuer profiles and2025/26index factsheet excerpts.",
+    "excluded_source_metadata": [
+      {
+        "url": "https://oss-ch.csindex.com.cn/static/html/csindex/public/uploads/indices/detail/files/zh_CN/932080factsheet.pdf",
+        "displayed_document_date": "2025-09-30",
+        "category": "POST2024_INDEX_FACTSHEET_SNIPPET"
+      },
+      {
+        "url": "https://oss-ch.csindex.com.cn/static/html/csindex/public/uploads/indices/detail/files/zh_CN/932082factsheet.pdf",
+        "displayed_document_date": "2026-03-31",
+        "category": "POST2024_INDEX_FACTSHEET_SNIPPET"
+      },
+      {
+        "url": "https://oss-ch.csindex.com.cn/static/html/csindex/public/uploads/indices/detail/files/zh_CN/932085factsheet.pdf",
+        "displayed_document_date": "2025-09-30",
+        "category": "POST2024_INDEX_FACTSHEET_SNIPPET"
+      },
+      {
+        "url": "https://www.sse.com.cn/assortment/stock/list/info/company/index.shtml?COMPANY_CODE=688082",
+        "displayed_observation_date": "2026-11-13",
+        "category": "CURRENT_ISSUER_PROFILE_SNIPPET"
+      }
+    ]
+  },
+  "performance_values_copied_to_quarantine": false
+}

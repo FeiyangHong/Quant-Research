@@ -1,0 +1,10 @@
+{
+  "observed_at_utc": "2026-11-15T13:06:13.083859+00:00",
+  "action": "First R1I fixed historical PDF via m6_sources.fetch",
+  "label": "r1i_csi_method_2023",
+  "result": "REJECTED_BEFORE_SEND",
+  "exception": "BudgetExceeded: Budget exhausted/stopped: unresolved inflight request",
+  "new_r1i_http_attempts": 0,
+  "new_r1i_bytes": 0,
+  "preserved_state": "Root records/reviews cross-tool collector lease recovery; this data author did not reset ledger or retry."
+}

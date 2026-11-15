@@ -50,3 +50,4 @@ reports/m6_r1i/** -text whitespace=cr-at-eol
 reports/m6_stock_execution/** -text whitespace=cr-at-eol
 reports/m6_stock_source/** -text whitespace=cr-at-eol
 review_code/m6/** -text whitespace=cr-at-eol
+reports/m6_review/*.txt whitespace=cr-at-eol,-blank-at-eol,-blank-at-eof

@@ -1,0 +1,188 @@
+{
+  "status": "BLOCKED_CASE_RULES",
+  "verified": false,
+  "sources": [
+    {
+      "id": "dividend_2015_101",
+      "url": "https://www.mof.gov.cn/gp/xxgkml/szs/201509/t20150907_2510529.htm",
+      "status": "ARCHIVED_UNREVIEWED",
+      "performance_data": false,
+      "content_type": "text/html",
+      "http_status": 200,
+      "final_url": "https://www.mof.gov.cn/gp/xxgkml/szs/201509/t20150907_2510529.htm",
+      "path": "work/equity_execution/dividend_2015_101.html",
+      "bytes": 10428,
+      "sha256": "2dd4edb94577ba25fb4fe0249c56225890e7f2f29f84a42126d24a0028ba70d3",
+      "review_status": "OFFICIAL_CONTENT_REVIEWED_NOT_DATASET_ADMISSION"
+    },
+    {
+      "id": "dividend_fifo_2015_qa",
+      "url": "https://szs.mof.gov.cn/zhengcejiedu/201509/t20150909_1455696.htm",
+      "status": "ARCHIVED_UNREVIEWED",
+      "performance_data": false,
+      "content_type": "text/html",
+      "http_status": 200,
+      "final_url": "https://szs.mof.gov.cn/zhengcejiedu/201509/t20150909_1455696.htm",
+      "path": "work/equity_execution/dividend_fifo_2015_qa.html",
+      "bytes": 17978,
+      "sha256": "87cc6cb1dc2bd6c4e960ce8448ecebcc2adadd854d4c8627119078572c760188",
+      "review_status": "OFFICIAL_CONTENT_REVIEWED_NOT_DATASET_ADMISSION"
+    },
+    {
+      "id": "tianjin_2022_stamp",
+      "path": "data\\raw_m6\\objects\\d591c00404d01583b9fee11288900815f9a1315ce0bd3704ccd7ecd9d368f075.bin",
+      "sha256": "d591c00404d01583b9fee11288900815f9a1315ce0bd3704ccd7ecd9d368f075",
+      "url": "https://tianjin.chinatax.gov.cn/11200000000/0300/030005/20220725150235434.shtml"
+    },
+    {
+      "id": "guangdong_2023_stamp_law",
+      "path": "data\\raw_m6\\objects\\f00d5b79b3a9963e3faa6202aced5796c41f55d82dc8567786f4ba5e03cf87d2.bin",
+      "sha256": "f00d5b79b3a9963e3faa6202aced5796c41f55d82dc8567786f4ba5e03cf87d2",
+      "url": "https://guangdong.chinatax.gov.cn/gdsw/zssw_gkwj/2023-03/09/content_8c6b826493184a5e906cb687b339d58e.shtml"
+    },
+    {
+      "id": "sse_2023_rules_migrated",
+      "path": "data\\raw_m6\\objects\\41674dd8ae45aa79628c5a298c9b90f3a50e8b7a2f0a5df96cc146870ca13b46.bin",
+      "sha256": "41674dd8ae45aa79628c5a298c9b90f3a50e8b7a2f0a5df96cc146870ca13b46",
+      "url": "https://www.sse.com.cn/lawandrules/sselawsrules2025/repeal/rules/c/c_20250612_10824490.shtml"
+    },
+    {
+      "id": "sse_2023_first_listing",
+      "path": "data\\raw_m6\\objects\\02650e7c119d5551be8a4039157ebcd554fd565803e499a5a9287c57498424a2.bin",
+      "sha256": "02650e7c119d5551be8a4039157ebcd554fd565803e499a5a9287c57498424a2",
+      "url": "https://www.sse.com.cn/aboutus/mediacenter/hotandd/c/c_20230404_5719112.shtml"
+    },
+    {
+      "id": "sse_2023_rules_full",
+      "path": "data\\raw_m6\\objects\\7aa2319f6dcf597be1e86b3b69d7c2ad0e6acb2a5d0cc6be48a01af602fded40.bin",
+      "sha256": "7aa2319f6dcf597be1e86b3b69d7c2ad0e6acb2a5d0cc6be48a01af602fded40",
+      "url": "https://www.sse.com.cn/lawandrules/sselawsrules2025/repeal/rules/c/10824490/files/dcbe58edb194451d93f19b1f7dd8fb4c.docx"
+    },
+    {
+      "id": "sse_2023_rules_deferred",
+      "path": "data\\raw_m6\\objects\\13cd6f14fdc5b8ecb5fad1876c6ecb05bf6c163d5217a2f2d687029ffa5bf4e2.bin",
+      "sha256": "13cd6f14fdc5b8ecb5fad1876c6ecb05bf6c163d5217a2f2d687029ffa5bf4e2",
+      "url": "https://www.sse.com.cn/lawandrules/sselawsrules2025/repeal/rules/c/10824490/files/3f0cc77bae0543c795a42731398bc8e0.docx"
+    },
+    {
+      "id": "sse_2019_trading_mechanism_qa",
+      "path": "data\\raw_m6\\objects\\97b3485e67a58760ede8c7fe10ed2058890288695e01ae638ba0bfcd634b796d.bin",
+      "sha256": "97b3485e67a58760ede8c7fe10ed2058890288695e01ae638ba0bfcd634b796d",
+      "url": "https://www.sse.com.cn/aboutus/mediacenter/hotandd/c/c_20190301_4729501.shtml"
+    }
+  ],
+  "limit_source_url": "https://www.sse.com.cn/lawandrules/sselawsrules2025/repeal/rules/c/10824490/files/dcbe58edb194451d93f19b1f7dd8fb4c.docx",
+  "limit_available_at": "2023-04-06T21:00:00+08:00",
+  "fee_rows": [
+    {
+      "effective_from": "2016-01-01",
+      "effective_to": "2022-04-28",
+      "stamp_duty_sell": 0.001,
+      "transfer_fee_both": 2e-05,
+      "verified": true,
+      "source_url": "https://www.sse.com.cn/aboutus/mediacenter/hotandd/c/c_20150912_3988866.shtml",
+      "available_at": "2015-07-02T21:00:00+08:00",
+      "status": "ACCEPTED_COMPOSITE2008STAMP_AND2015TRANSFER",
+      "evidence": [
+        "mof_2008_stamp",
+        "sse_2015_joint_fees"
+      ]
+    },
+    {
+      "effective_from": "2022-04-29",
+      "effective_to": "2023-08-27",
+      "stamp_duty_sell": 0.001,
+      "transfer_fee_both": 1e-05,
+      "verified": false,
+      "source_url": null,
+      "available_at": null,
+      "status": "TRANSFER_COMPONENT_UNVERIFIED_STAMP_COMPONENT_ACCEPTED",
+      "evidence": [
+        "guangdong_2023_stamp_law",
+        "tianjin_2022_stamp",
+        "stamp_2023_39"
+      ]
+    },
+    {
+      "effective_from": "2023-08-28",
+      "effective_to": "2024-12-31",
+      "stamp_duty_sell": 0.0005,
+      "transfer_fee_both": 1e-05,
+      "verified": false,
+      "source_url": null,
+      "available_at": null,
+      "status": "TRANSFER_COMPONENT_UNVERIFIED_STAMP_COMPONENT_ACCEPTED",
+      "evidence": [
+        "guangdong_2023_stamp_law",
+        "tianjin_2022_stamp",
+        "stamp_2023_39"
+      ]
+    }
+  ],
+  "missing": [
+    "Applicable 2022 transfer fee: verifiable official original or official full republication"
+  ],
+  "reviewed_partial_evidence": [
+    "2015individual cashdividendFIFO/holdingperiod tax",
+    "2023stampdutyhalving",
+    "Kangmei20190518 issueroriginal explicitly5percent ST from20190521",
+    "SSE2014/2018originalordinary10percentroundedband,100lot,0.01tick,noresalebefore settlement andcash ex-reference clauses"
+  ],
+  "broker_ledger_verification": "UNVERIFIED",
+  "fetched_challenge_bodies_not_rule_evidence": true,
+  "case_id": "moutai_ordinary",
+  "source_gate": {
+    "components": {
+      "stamp_duty": {
+        "status": "PASS",
+        "evidence": [
+          "guangdong_2023_stamp_law",
+          "tianjin_2022_stamp"
+        ],
+        "detail": "seller0.001before2023-08-28;0.0005after;buyzero"
+      },
+      "transfer_fee": {
+        "status": "BLOCKED",
+        "evidence": [
+          "csdc2022_original_notice",
+          "csdc_2022_fee_schedule_retry",
+          "csdc2022_original_notice_mobile",
+          "wuhan_official_fee_republication",
+          "shanghai_official_fee_republication"
+        ],
+        "detail": "Applicable 2022 transfer fee lacks a verifiable official original or official full republication. Original desktop/mobile notice redirects to a home page; archived fee schedule returns404. Two official government hosts republish attributed media reports, not the full official notice. No particular original URL is mandatory."
+      },
+      "lot_tick_limit_exreference": {
+        "status": "PASS",
+        "evidence": [
+          "sse_2023_rules_migrated",
+          "sse_2023_first_listing",
+          "sse_2023_rules_full",
+          "sse_2023_rules_deferred"
+        ],
+        "detail": "100sharelot,0.01tick,normal10%;KangmeiST5%fromissueroriginal;cash-exreferenceandrounding"
+      },
+      "stock_next_session_sellability": {
+        "status": "PASS",
+        "evidence": [
+          "sse_2019_trading_mechanism_qa",
+          "sse_2023_rules_full"
+        ],
+        "detail": "Dated SSE official explanation of A-share T+1 trading, combined with the applicable no-resale-before-settlement rule, supports next-session sellability only. Actual clearing cash delivery remains unverified."
+      },
+      "event_terms_and_tax": {
+        "status": "PASS",
+        "evidence": [
+          "600519_2023-021",
+          "dividend_2015_101",
+          "dividend_fifo_2015_qa"
+        ],
+        "detail": "ReuseoriginalM5eventdocumentsand2015individualFIFOdividendtax;modelcash/debitclocksunchanged"
+      }
+    },
+    "source_gate_passed": false,
+    "source_status": "PARTIAL",
+    "case_status": "BLOCKED"
+  },
+  "adapter_note": "verified is the composite case gate. If any component is missing, limit_terms_verified remains false to prevent execution; the component audit still separately identifies accepted limit evidence."
+}

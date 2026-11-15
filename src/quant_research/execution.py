@@ -6,6 +6,7 @@ explicit DAILY_SCREEN_ONLY assumption, not evidence of an executable queue.
 from collections import defaultdict
 from bisect import bisect_left
 from dataclasses import asdict, is_dataclass
+from datetime import date
 from decimal import Decimal, ROUND_CEILING, ROUND_FLOOR, ROUND_HALF_UP
 from functools import lru_cache
 import math
@@ -248,17 +249,65 @@ def run_backtest(dataset, decisions, initial_cash, cost_multiplier=1,
             return 0., 0.
         matches = []
         for rule in rules.to_dict("records"):
-            known = rule.get("available_at")
-            if pd.notna(known) and _timestamp(known) > _cutoff(day, "09:30:00"):
+            # Legacy tables are bundled stock transaction fees for all A-share
+            # markets. Optional explicit scope columns narrow that contract;
+            # a present but unknown scope is not the same as an absent column.
+            unrelated, unknown = False, False
+            market = meta.get("market")
+            if market is None:
+                market = {"sh": "SSE", "sz": "SZSE"}.get(str(meta.get("instrument_id", "")).split(".")[0])
+            scopes = {
+                "asset_type": (meta["asset_type"], ("STOCK", "ETF")),
+                "market": (market, ("ALL", "SSE", "SZSE")),
+                "component": ("STOCK_TRANSACTION_FEES", ("STOCK_TRANSACTION_FEES", "DIVIDEND_TAX")),
+                "instrument_id": (meta.get("instrument_id"), None),
+            }
+            for key, (target, allowed) in scopes.items():
+                if key not in rule:
+                    continue
+                value = rule[key]
+                if not isinstance(value, str) or not value.strip() or (allowed is not None and value not in allowed):
+                    unknown = True
+                elif value == "ALL" and key in ("market", "instrument_id"):
+                    pass
+                elif not isinstance(target, str) or not target:
+                    unknown = True
+                elif value != target:
+                    unrelated = True
+            try:
+                bounds = [rule.get(key) for key in ("effective_from", "effective_to")]
+                if any(not isinstance(value, str) or len(value) != 10 or date.fromisoformat(value).isoformat() != value for value in bounds):
+                    raise ValueError
+                if bounds[0] > bounds[1]:
+                    raise ValueError
+                unrelated |= not bounds[0] <= day <= bounds[1]
+            except (TypeError, ValueError):
+                unknown = True
+            if unrelated:
                 continue
-            if (engineering_replay or _get(dataset, "manifest", {}).get("synthetic") is False) and pd.isna(known):
-                raise ExecutionBlockedError("STOCK_TAX_RULE_AVAILABILITY_REQUIRED")
-            if (str(rule.get("effective_from", "9999"))[:10] <= day <= str(rule.get("effective_to", "0000"))[:10]
-                    and rule.get("verified") is True and rule.get("source_url")):
-                matches.append(rule)
+            if unknown:
+                raise ExecutionBlockedError("UNKNOWN_STOCK_TAX_RULE_SCOPE")
+            matches.append(rule)
         if len(matches) != 1:
             raise ExecutionBlockedError("UNKNOWN_OR_AMBIGUOUS_STOCK_TAX_RULE")
         rule = matches[0]
+        # Count every applicable candidate before validation: an unpublished or
+        # unverified overlapping row must not resurrect another candidate.
+        known = rule.get("available_at")
+        if pd.isna(known):
+            if engineering_replay or _get(dataset, "manifest", {}).get("synthetic") is False:
+                raise ExecutionBlockedError("STOCK_TAX_RULE_AVAILABILITY_REQUIRED")
+        else:
+            try:
+                if _timestamp(known) > _cutoff(day, "09:30:00"):
+                    raise ExecutionBlockedError("STOCK_TAX_RULE_NOT_KNOWN_AT_OPEN")
+            except (TypeError, ValueError) as exc:
+                if isinstance(exc, ExecutionBlockedError):
+                    raise
+                raise ExecutionBlockedError("INVALID_STOCK_TAX_RULE_AVAILABILITY") from exc
+        source = rule.get("source_url")
+        if rule.get("verified") is not True or not isinstance(source, str) or not source.startswith("https://"):
+            raise ExecutionBlockedError("UNKNOWN_OR_AMBIGUOUS_STOCK_TAX_RULE")
         if (not _valid(rule.get("stamp_duty_sell")) or not _valid(rule.get("transfer_fee_both"))
                 or float(rule["stamp_duty_sell"]) > 1 or float(rule["transfer_fee_both"]) > 1):
             raise ExecutionBlockedError("INVALID_STOCK_TAX_RULE")

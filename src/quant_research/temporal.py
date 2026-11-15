@@ -33,11 +33,16 @@ def _revision_kind(value):
     return value
 
 
-def master_record(rows, cutoff):
+def master_record(rows, cutoff, *, effective_date=None):
     stamp = pd.Timestamp(cutoff)
     if pd.isna(stamp) or stamp.tzinfo is None:
         raise TemporalStateError("Timezone-aware cutoff required")
     day = stamp.tz_convert("Asia/Shanghai").date().isoformat()
+    if effective_date is not None:
+        effective = _bound(effective_date)
+        if effective is None or effective > day:
+            raise TemporalStateError("Explicit historical effective date must not exceed knowledge cutoff")
+        day = effective
     known = []
     for row in rows:
         available = pd.Timestamp(row.get("_available", row.get("available_at")))

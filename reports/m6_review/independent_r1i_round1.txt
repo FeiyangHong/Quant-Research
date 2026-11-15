@@ -1,0 +1,18 @@
+......F.....F.......                                                     [100%]
+================================== FAILURES ===================================
+______ test_index_identity_roundtrip_cannot_reenter_before_next_quarter _______
+review_code\m6\test_independent_r1i.py:110: in test_index_identity_roundtrip_cannot_reenter_before_next_quarter
+    assert result['eligible']==list('DEF')
+E   AssertionError: assert ['A', 'D', 'E', 'F'] == ['D', 'E', 'F']
+E     
+E     At index 0 diff: 'A' != 'D'
+E     Left contains one more item: 'F'
+E     Use -v to get more diff
+_ test_mixed_contemporary_taxonomy_versions_are_not_one_historical_classification _
+review_code\m6\test_independent_r1i.py:132: in test_mixed_contemporary_taxonomy_versions_are_not_one_historical_classification
+    select(master,bars,calendar)
+E   Failed: DID NOT RAISE <class 'quant_research.strategy.StrategyBlockedError'>
+=========================== short test summary info ===========================
+FAILED review_code/m6/test_independent_r1i.py::test_index_identity_roundtrip_cannot_reenter_before_next_quarter
+FAILED review_code/m6/test_independent_r1i.py::test_mixed_contemporary_taxonomy_versions_are_not_one_historical_classification
+2 failed, 18 passed in 2.57s

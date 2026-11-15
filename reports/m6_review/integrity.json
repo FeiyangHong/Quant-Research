@@ -1,0 +1,16 @@
+{
+  "base_commit": "5df2fc9f74dcc8ffc498e0a08562bb7f6156c958",
+  "protected_hashes": {
+    "reports/real_data_phase3/results_summary.json": "c238b235722bc73468ef1cc3af29f083c160a92d0ff18edead6c36d3b129aebb",
+    "data/raw_m4_equity/budget.json": "44658bc3ba757c5bd3951e11106f42631143dac651fb40e089d3b1dbcb0ee8f6",
+    "data/raw_m5_equity/budget.json": "89e0c9f7088c3f8bffa9af4f5d1cfe36347cd041ff1342ce578a91d9a78d8a82",
+    "reports/m6_r1i/EXPERIMENT_REGISTRY.json": "9e799ccb30fddf9e51a4c1637362c9573a77f68dd5cc481004be2878992def96",
+    "reports/m6_review/M5_INDEPENDENT_REVIEW_AND_M6_HANDOFF_2026-11-15.md": "6228f8b27d26730680b892f1da4c84524c4f259d0b39f0e1825fa39cf0758faf"
+  },
+  "old_reports_and_configs_unchanged": true,
+  "source_budget_sha256": "bcfbf8bf905338a5d4116f2168320db0bff5c9385b6fabc54ef329f7623f4757",
+  "all_69_requests_terminal": true,
+  "real_r1i_paths": 0,
+  "real_r2_r3_alpha_paths": 0,
+  "old_r1b_performance_replays": 0
+}

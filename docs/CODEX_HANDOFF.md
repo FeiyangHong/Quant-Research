@@ -1,6 +1,18 @@
 # Codex Astra Ultra 第二阶段直接任务书
 
-## 当前恢复入口：M5已停止在有限里程碑边界
+## 当前恢复入口：M6已停止在有限里程碑边界
+
+先读[本轮计划](M6_PLAN.md)、[用户完整审查任务](../reports/m6_review/M5_INDEPENDENT_REVIEW_AND_M6_HANDOFF_2026-11-15.md)第7节、[M6审查包](../reports/m6_review/REVIEW_PACKET.md)、[验证](../reports/m6_review/VERIFICATION.md)、[独立审查](../reports/m6_review/INDEPENDENT_REVIEW.md)和本文件/IMPLEMENTATION_STATUS。基准5df2fc9，事前登记02d0f0d；最终commit、源/代码/规则/结果hash由验证包及版本化收据绑定。不要根据旧阶段任务自动重新采集。
+
+本轮优先级已由用户改为R1I行业代理ETF，唯一历史中证一级分类，固定56账户路径、全部不波动缩放。批量发现可行、历史分类和共同依赖未全，故56均NOT_RUN_DATA_BLOCKED，收益/配对区间/经济增量null。原1148供应商ETF加官方补充共1970身份保留；991待审量额、历史十→十一行业过渡/指数方法链、发现差异是具体阻断。108计划决策N未知，不能以0伪装有效现金或LIMITED_IDENTIFICATION。源pilot已在46HTTP停止，不自动花剩余额度。
+
+费率未来行缺clock反例已修复，独立29例通过；R1I纯选择核23例通过，但真实资格/runner仍未接线。康美ST真实固定持仓41日独立账通过；茅台普通/特别两案仍缺2022过户费官方原文或可核完整官方转载，零成交账不能算事件PASS。现有官方媒体托管稿只旁证，不应再次机械抓同一失败URL。独立Decimal期望不依赖实际fills/NAV。没有私人券商流水，工程模型不称真实交割验收。
+
+股票股本批量来源3HTTP已证明技术可取，下一候选只允许另登记的有限合同pilot；不得自动抓全389页或3779公司PDF。原3779分母完整PIT股本链仍0，NOTICE/版本链/许可及A普通股与全普通股估值分子合同未决。R2财务20例human门槛保持，R3不依赖R2财务但共同数据不可豁免。本轮未扩手工财务。
+
+当前范围已结束，须集中研究审查另定下一预算/数据方案后继续；不为R1I未运行降低门槛，不因R1B失败外推行业方向，也不把R1I数据困难当已否证Alpha。R1B448+353和原summary哈希、R2/R3 Alpha0、最终留出/paper/live关闭均保持。原M5/更早任务保留下方作历史，不构成新授权。
+
+## M5恢复入口（历史，已由以上M6状态更新）
 
 先读 docs/M5_PLAN.md、reports/m5_review/REVIEW_PACKET.md、VERIFICATION.md、INDEPENDENT_REVIEW.md 和 IMPLEMENTATION_STATUS.md。M5基准8a9977c，最终代码以审查包所属提交及哈希清单为准；不要仅凭下文第一阶段任务书重新执行旧阶段。
 

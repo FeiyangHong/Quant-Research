@@ -279,7 +279,9 @@ def test_missing_stock_quote_carries_value_but_is_not_verified_valuation():
 
 
 def test_future_fee_rule_cannot_authorize_trade_and_real_requires_rule_availability():
-    for real, known, expected in [(False, "2030-01-01T00:00:00+08:00", "UNKNOWN_OR_AMBIGUOUS_STOCK_TAX_RULE"),
+    # M6 validates the unique applicable row after scope selection. Its future
+    # publication now has an explicit reason; the no-fill guard remains intact.
+    for real, known, expected in [(False, "2030-01-01T00:00:00+08:00", "STOCK_TAX_RULE_NOT_KNOWN_AT_OPEN"),
                                    (True, None, "STOCK_TAX_RULE_AVAILABILITY_REQUIRED")]:
         data = stock_fixture()
         data["manifest"] = {"synthetic": not real}

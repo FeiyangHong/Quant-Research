@@ -2,11 +2,14 @@
 from contextlib import contextmanager
 import hashlib
 import json
+import os
 from pathlib import Path
 import re
 import socket
 import sys
 import time
+import uuid
+from datetime import datetime, timezone
 from urllib.parse import urlencode, urlparse, parse_qs, unquote
 from urllib.request import Request, build_opener, HTTPRedirectHandler
 
@@ -25,7 +28,8 @@ OFFICIAL = {'www.cninfo.com.cn','static.cninfo.com.cn','www.csrc.gov.cn','www.ss
             'www.szse.cn','investor.szse.cn','disc.static.szse.cn','www.chinaclear.cn',
             'www.chinatax.gov.cn','www.gov.cn','fgk.chinatax.gov.cn',
             'www.mof.gov.cn','tianjin.chinatax.gov.cn','guangdong.chinatax.gov.cn',
-            'www.csindex.com.cn','oss-ch.csindex.com.cn'}
+            'www.csindex.com.cn','oss-ch.csindex.com.cn','m.chinaclear.cn',
+            'jrj.wuhan.gov.cn','jrj.sh.gov.cn'}
 
 
 def ledger():
@@ -44,7 +48,7 @@ def validate_dates(dates):
 def validate_url(url, *, dates, route='official_documents', body=None):
     bounds=validate_dates(dates)
     parsed=urlparse(url)
-    hosts=OFFICIAL if route=='official_documents' else {'datacenter-web.eastmoney.com'} if route=='historical_shares' else {'cn.bing.com','www.bing.com','www.google.com','www.google.com.hk','www.baidu.com'} if route=='historical_rule_discovery' else set()
+    hosts=OFFICIAL if route=='official_documents' else {'query.sse.com.cn'} if route=='historical_etf_listing' else {'datacenter-web.eastmoney.com'} if route=='historical_shares' else {'cn.bing.com','www.bing.com','www.google.com','www.google.com.hk','www.baidu.com'} if route in {'historical_rule_discovery','historical_industry_discovery'} else set()
     if parsed.scheme!='https' or parsed.hostname not in hosts or parsed.username or parsed.password:
         raise ValueError('Registered HTTPS source host required')
     decoded=unquote(url + ' ' + (body or ''))
@@ -60,14 +64,22 @@ def validate_url(url, *, dates, route='official_documents', body=None):
             raise ValueError('Only registered historical-share route/date allowed')
         if 'END_DATE<=\'2020-07-31\'' not in query.get('filter',[''])[0]:
             raise ValueError('Historical-share server-side cutoff required')
-    if route=='historical_rule_discovery':
+    if route=='historical_etf_listing':
+        query=parse_qs(parsed.query,keep_blank_values=True)
+        if (parsed.path!='/commonQuery.do' or body is not None
+            or query.get('sqlId')!=['COMMON_PL_JJXX_JJGG_NEW_L']
+            or query.get('START_DATE')!=[bounds[0]] or query.get('END_DATE')!=[bounds[1]]
+            or query.get('TITLE')!=['上市交易公告书']):
+            raise ValueError('Only fixed historical ETF listing-title query allowed')
+    if route in {'historical_rule_discovery','historical_industry_discovery'}:
         query=parse_qs(parsed.query)
         key='wd' if parsed.hostname=='www.baidu.com' else 'q'
         search_path='/s' if parsed.hostname=='www.baidu.com' else '/search'
         if parsed.path!=search_path or not query.get(key) or body is not None:
             raise ValueError('Only bounded historical rule search queries allowed')
-        if not any(word in query[key][0].lower() for word in ('交易规则','过户费','印花税','chinaclear','交易费用')):
-            raise ValueError('Historical-rule discovery only')
+        terms=('交易规则','过户费','印花税','chinaclear','交易费用') if route=='historical_rule_discovery' else ('中证','csindex','行业分类','指数编制')
+        if not any(word in query[key][0].lower() for word in terms):
+            raise ValueError('Registered historical discovery purpose required')
 
 
 class NoRedirects(HTTPRedirectHandler):
@@ -75,7 +87,7 @@ class NoRedirects(HTTPRedirectHandler):
         raise ValueError('Redirect refused; validate and register destination separately: ' + newurl)
 
 
-def fetch(label, url, body=None, *, dates, scope, route='official_documents'):
+def fetch(label, url, body=None, *, dates, scope, route='official_documents', headers=None):
     validate_url(url,dates=dates,route=route,body=body)
     if not re.fullmatch(r'[A-Za-z0-9_.-]+',label):
         raise ValueError('Safe manifest label required')
@@ -84,9 +96,13 @@ def fetch(label, url, body=None, *, dates, scope, route='official_documents'):
         idx=book.begin('http_attempts',label,scope=scope,url=url,request_body=body,dates=dates,route=route,method='POST' if body is not None else 'GET')
         started=time.perf_counter();payload=b''
         try:
-            request=Request(url,data=body.encode() if body is not None else None,
-                            headers={'User-Agent':'Mozilla/5.0','Referer':'https://www.cninfo.com.cn/',
-                                     'Content-Type':'application/x-www-form-urlencoded'})
+            request_headers={'User-Agent':'Mozilla/5.0','Referer':'https://www.cninfo.com.cn/',
+                             'Content-Type':'application/x-www-form-urlencoded'}
+            if headers:
+                if set(headers)-{'Referer','Content-Type','Accept'}:
+                    raise ValueError('Only documentary request headers may be overridden')
+                request_headers.update(headers)
+            request=Request(url,data=body.encode() if body is not None else None,headers=request_headers)
             with build_opener(NoRedirects()).open(request,timeout=30) as response:
                 remaining=book.remaining(scope)
                 while len(payload)<remaining:
@@ -100,6 +116,52 @@ def fetch(label, url, body=None, *, dates, scope, route='official_documents'):
         rec=book.finish(idx,payload,started,**terminal)
         atomic_json(OUT/'manifests'/f'{idx:04d}_{label}.json',rec)
         return rec
+
+
+def begin_external(label, *, scope, query, dates):
+    """Reserve a tool-visible request while holding the shared network lease.
+
+    The caller must finish even a failed tool call. A lost token/abandoned lease
+    fails closed, never ages out automatically or resets consumed budget.
+    """
+    validate_dates(dates)
+    OUT.mkdir(parents=True,exist_ok=True)
+    token=uuid.uuid4().hex
+    lock=OUT/'network.lock'
+    deadline=time.monotonic()+50
+    while True:
+        try:
+            descriptor=os.open(lock,os.O_CREAT|os.O_EXCL|os.O_WRONLY)
+            break
+        except FileExistsError:
+            if time.monotonic()>=deadline:
+                raise RuntimeError('Network lease unavailable; no request reserved')
+            time.sleep(.05)
+    try:
+        os.write(descriptor,token.encode());os.fsync(descriptor)
+    finally:
+        os.close(descriptor)
+    try:
+        idx=ledger().begin('http_attempts',label,scope=scope,route='external_metadata_tool',query=query,dates=dates)
+    except BaseException:
+        lock.unlink()
+        raise
+    return dict(id=idx,lease_token=token,started_at=datetime.now(timezone.utc).isoformat())
+
+
+def finish_external(ticket, payload, *, failed=False, **metadata):
+    lock=OUT/'network.lock'
+    if not lock.exists() or lock.read_text()!=ticket['lease_token']:
+        raise RuntimeError('External response requires its own active network lease')
+    elapsed=max(0,(datetime.now(timezone.utc)-datetime.fromisoformat(ticket['started_at'])).total_seconds())
+    try:
+        rec=ledger().finish(ticket['id'],payload,time.perf_counter()-elapsed,
+            status='FAILED' if failed else 'FETCHED',
+            byte_observation='VISIBLE_TOOL_RESPONSE_UTF8_ONLY_BACKGROUND_TRANSPORT_UNKNOWN',**metadata)
+        atomic_json(OUT/'manifests'/f"{rec['id']:04d}_{rec['label']}.json",rec)
+        return rec
+    finally:
+        lock.unlink()
 
 
 def query_cninfo(label, code, key, dates, *, scope, org_id=None, page=1):

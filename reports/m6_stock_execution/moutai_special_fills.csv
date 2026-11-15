@@ -1,0 +1,1 @@
+date,order_id,instrument_id,side,quantity,price,notional,commission,stamp_duty,transfer_fee,fees,slippage_cost,mode,purpose,synthetic,data_origin,broker_ledger_verification

@@ -1,0 +1,59 @@
+{
+  "status": "FEE_MECHANISM_PASS_R1I_AND_REAL_CASE_REVIEW_PENDING",
+  "reviewer": "independent non-author agent m6_independent",
+  "human_signoffs": 0,
+  "baseline_commit": "5df2fc9f74dcc8ffc498e0a08562bb7f6156c958",
+  "registration_commit": "02d0f0d",
+  "recorded_at": "2026-11-15T13:07:26.305265+00:00",
+  "session_start_conservative": "2026-11-15T12:54:00Z",
+  "new_http": 0,
+  "new_sdk": 0,
+  "baseline_execution_sha256": "0aaf6dc8eeea12c5123205527fab4f53ee93a3c2b01f9885b166e124c2131a56",
+  "baseline_observed": {
+    "fill_quantity": 200,
+    "buy_fees": "5.02",
+    "cash": "97994.98",
+    "nav": "99994.98",
+    "future_missing_rule_fill_quantity": 0,
+    "future_missing_rule_reject": "STOCK_TAX_RULE_AVAILABILITY_REQUIRED"
+  },
+  "baseline_tests": {
+    "first_run_failed": 13,
+    "first_run_passed": 16,
+    "reviewer_oracle_correction": "Two aggregate binary-float-to-Decimal exact comparisons replaced with cent quantization; both original failure logs retained. Not production failures.",
+    "corrected_failed": 11,
+    "corrected_passed": 18
+  },
+  "round1": {
+    "fee_passed": 29,
+    "fee_failed": 0,
+    "fee_seconds": 2.0,
+    "registration_budget_passed": 6,
+    "registration_budget_failed": 0,
+    "registration_budget_seconds": 0.35
+  },
+  "independent_oracles": [
+    "Fixed200shares x CNY10 plus fixed5commission and0.02transfer per buy",
+    "Roundtrip stamp tax2 and transfer0.02 per side; expectedNAV99987.96(base),99967.96(3xcommission)",
+    "Hand-built Cartesian32+24 matrix; no production matrix constructor",
+    "Invented budget byte strings/counts; no external transport"
+  ],
+  "limitations": [
+    "Synthetic clocks/marketprices are engineering tests, not real-source admission or alpha evidence",
+    "Reviewer source gate/real daily ledgers and R1I API not yet ready",
+    "Scope byte overshoot/TRUNCATED_BUDGET conservatively stops shared collector; ordinary scope-attempt exhaustion does not",
+    "Collector wall-hour cap operationally tracked; no automatic clock guard",
+    "Existing paired_inference with null fixed costs yields noCI; descriptiveCI remains required only if data gate permits finite real experiment"
+  ],
+  "hashes": {
+    "src/quant_research/execution.py": "9198a41981dc2e968964a61c5f71b5f3427f0e28cca670ec20bb4432d70ba863",
+    "review_code/m6/test_independent_fees.py": "13d2fc780a56f8136f424840ae2031b57533cd15ff8fd0576ef15eaa36f67fd2",
+    "review_code/m6/test_independent_registration_budget.py": "d038309dccad37b9ce397152d293a27a95224bb5bb5eeda7d5aa3c55e0d83dbf",
+    "scripts/m6_sources.py": "2b37f51f380392a60ecac4f3c2aa5377186fdf5cc4f82bc3ea8b513249e234fd",
+    "src/quant_research/budget.py": "09df745b80f095102afc033c853e98c55474032dd68526d81fe38e3517905247",
+    "reports/m6_review/independent_fees_baseline.txt": "41dd5894afa7762f767c9985c8a74693180751f6d82d7ffffcef416fdbfc66f3",
+    "reports/m6_review/independent_fees_baseline_corrected_oracle.txt": "2d25ffe29b204393a1814dfd9aa7b7a1bfc440e02c78d503ab0cef4e1e28774e",
+    "reports/m6_review/independent_fees_round1.txt": "558fdc652fb9e627933390e851c83833ffb2b98f9dc58b8bed8ec0a9ec5ede3d",
+    "reports/m6_review/independent_registration_budget_round1.txt": "eca7e3a6bc1d3b6f623fa007ed08e6df1f37574cdde3bc30f2d8277a7cc92830"
+  }
+}

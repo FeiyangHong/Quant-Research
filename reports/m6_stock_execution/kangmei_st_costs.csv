@@ -1,0 +1,3 @@
+date,order_id,instrument_id,commission,stamp_duty,transfer_fee,total_cost,slippage_cost,purpose,synthetic,data_origin,broker_ledger_verification
+2019-05-13,O00000001,sh.600518,5.0,0.0,0.01,5.01,0.0,ENGINEERING_ACCOUNTING_VALIDATION,False,REAL,UNVERIFIED
+2019-05-14,O00000002,sh.600518,5.0,0.0,0.01,5.01,0.0,ENGINEERING_ACCOUNTING_VALIDATION,False,REAL,UNVERIFIED

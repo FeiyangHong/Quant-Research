@@ -1,0 +1,13 @@
+{
+  "agent": "m6_stock_execution",
+  "started_at": "2026-11-15T12:54:00+00:00",
+  "ended_at": "2026-11-15T13:21:50.719244+00:00",
+  "start_basis": "Root-registered conservative common session start, preceding first local saved observation.",
+  "elapsed_seconds": 1670.719244,
+  "agent_session_hours": 0.4640886788888889,
+  "includes_waiting": true,
+  "human_hours": false,
+  "max_session_hours": 4,
+  "network_closed": true,
+  "delivery": "Author implementation and independent fee/account/source review completed; final commit bound by root."
+}

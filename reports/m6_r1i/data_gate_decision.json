@@ -1,0 +1,32 @@
+{
+  "scope": "r1i-csi-historical-proxy-m6-v1",
+  "status": "DATA_BLOCKED",
+  "returns_matrix_data_gate_passed": false,
+  "decision": "STOP_THIS_M6_DATASET_NO_PERFORMANCE_MATRIX",
+  "specific_blockers": [
+    "Historical CSI ten/eleven-industry transition and intervening effective/public versions not complete for2016-2024.",
+    "Exact-index-to-one-historical-L1 methods and identity changes for the full potential competitor set not verified.",
+    "991 required-provider-review IDs lack full raw amount histories; no selection over available-only competitors.",
+    "Official batch and provider discovery disagree;822supplemental fund IDs retained, not deleted by present-day type or name.",
+    "Final representatives therefore unknown; their TR, actions, daily status, account and risk dependencies cannot be signed off."
+  ],
+  "eligibility_distribution": {
+    "UNKNOWN": 108
+  },
+  "n_ge4_development": null,
+  "n_ge4_validation": null,
+  "n_ge4_by_validation_year": {
+    "2022": null,
+    "2023": null,
+    "2024": null
+  },
+  "n_ge4_and_trend_on": null,
+  "not_claimed": [
+    "Strategy unprofitable",
+    "Insufficient true selection opportunity",
+    "All free historical sources impossible",
+    "Stock financial/human gates block ETFs"
+  ],
+  "finite_stop": true,
+  "performance_metrics_computed": false
+}
