@@ -1,0 +1,3490 @@
+[
+  {
+    "adv20": {
+      "sz.159936": 395287.95,
+      "sz.159938": 12659288.6,
+      "sz.159939": 16016864.35,
+      "sz.159940": 3426839.15,
+      "sz.159944": 501939.4,
+      "sz.159945": 3260278.15
+    },
+    "decision_at": "2022-01-04T21:00:00+08:00",
+    "decision_date": "2022-01-04",
+    "diagnostics": {
+      "anchor_date": "2021-12-31",
+      "eligible": [],
+      "eligible_count": 0,
+      "exclusions": {
+        "sz.159936": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159938": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159939": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159940": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159944": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159945": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159946": "DELISTED"
+      },
+      "execution_date": "2022-01-05",
+      "momentum": {},
+      "momentum_order": [],
+      "order_reference_date": "2022-01-04",
+      "qualification": {
+        "sz.159936": {
+          "account_verified": true,
+          "listed_sessions": 1835,
+          "median_amount20": 325208.0,
+          "status": "NORMAL"
+        },
+        "sz.159938": {
+          "account_verified": true,
+          "listed_sessions": 1702,
+          "median_amount20": 10823034.0,
+          "status": "NORMAL"
+        },
+        "sz.159939": {
+          "account_verified": true,
+          "listed_sessions": 1682,
+          "median_amount20": 8001256.0,
+          "status": "NORMAL"
+        },
+        "sz.159940": {
+          "account_verified": true,
+          "listed_sessions": 1637,
+          "median_amount20": 1476391.0,
+          "status": "NORMAL"
+        },
+        "sz.159944": {
+          "account_verified": true,
+          "listed_sessions": 1583,
+          "median_amount20": 470011.0,
+          "status": "NORMAL"
+        },
+        "sz.159945": {
+          "account_verified": true,
+          "listed_sessions": 1583,
+          "median_amount20": 2631701.0,
+          "status": "NORMAL"
+        },
+        "sz.159946": {
+          "account_verified": true,
+          "listed_sessions": 1578,
+          "status": "RETIRED"
+        }
+      },
+      "ranking_freedom": false,
+      "release_date": "2022-01-04",
+      "risk_scaling": false,
+      "signal_anchor_at": "2021-12-31T21:00:00+08:00",
+      "signal_anchor_date": "2021-12-31",
+      "signal_release_delay": 1,
+      "status": "QUALIFIED_INPUTS",
+      "target_gross_weight": 0,
+      "trend": false,
+      "universe": "R1I_FIXED_COHORT_V1",
+      "variant": "E1"
+    },
+    "execution_date": "2022-01-05",
+    "ranks": {},
+    "reference_prices": {
+      "sz.159936": 2.008,
+      "sz.159938": 1.96,
+      "sz.159939": 1.519,
+      "sz.159940": 1.051,
+      "sz.159944": 1.264,
+      "sz.159945": 0.834
+    },
+    "status": "CASH_INSUFFICIENT_PRODUCTS",
+    "weights": {}
+  },
+  {
+    "adv20": {
+      "sz.159936": 108001.35,
+      "sz.159938": 42578806.05,
+      "sz.159939": 6277480.9,
+      "sz.159940": 3083263.7,
+      "sz.159944": 324692.8,
+      "sz.159945": 2083909.55
+    },
+    "decision_at": "2022-02-07T21:00:00+08:00",
+    "decision_date": "2022-02-07",
+    "diagnostics": {
+      "anchor_date": "2022-01-28",
+      "eligible": [],
+      "eligible_count": 0,
+      "exclusions": {
+        "sz.159936": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159938": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159939": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159940": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159944": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159945": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159946": "DELISTED"
+      },
+      "execution_date": "2022-02-08",
+      "momentum": {},
+      "momentum_order": [],
+      "order_reference_date": "2022-02-07",
+      "qualification": {
+        "sz.159936": {
+          "account_verified": true,
+          "listed_sessions": 1854,
+          "median_amount20": 106378.5,
+          "status": "NORMAL"
+        },
+        "sz.159938": {
+          "account_verified": true,
+          "listed_sessions": 1721,
+          "median_amount20": 17155525.5,
+          "status": "NORMAL"
+        },
+        "sz.159939": {
+          "account_verified": true,
+          "listed_sessions": 1701,
+          "median_amount20": 4605349.0,
+          "status": "NORMAL"
+        },
+        "sz.159940": {
+          "account_verified": true,
+          "listed_sessions": 1656,
+          "median_amount20": 2156213.5,
+          "status": "NORMAL"
+        },
+        "sz.159944": {
+          "account_verified": true,
+          "listed_sessions": 1602,
+          "median_amount20": 250659.5,
+          "status": "NORMAL"
+        },
+        "sz.159945": {
+          "account_verified": true,
+          "listed_sessions": 1602,
+          "median_amount20": 1843507.0,
+          "status": "NORMAL"
+        },
+        "sz.159946": {
+          "account_verified": true,
+          "listed_sessions": 1597,
+          "status": "RETIRED"
+        }
+      },
+      "ranking_freedom": false,
+      "release_date": "2022-02-07",
+      "risk_scaling": false,
+      "signal_anchor_at": "2022-01-28T21:00:00+08:00",
+      "signal_anchor_date": "2022-01-28",
+      "signal_release_delay": 1,
+      "status": "QUALIFIED_INPUTS",
+      "target_gross_weight": 0,
+      "trend": false,
+      "universe": "R1I_FIXED_COHORT_V1",
+      "variant": "E1"
+    },
+    "execution_date": "2022-02-08",
+    "ranks": {},
+    "reference_prices": {
+      "sz.159936": 1.878,
+      "sz.159938": 1.695,
+      "sz.159939": 1.334,
+      "sz.159940": 1.049,
+      "sz.159944": 1.179,
+      "sz.159945": 0.831
+    },
+    "status": "CASH_INSUFFICIENT_PRODUCTS",
+    "weights": {}
+  },
+  {
+    "adv20": {
+      "sz.159936": 113974.75,
+      "sz.159938": 23917087.35,
+      "sz.159939": 10496448.85,
+      "sz.159940": 2880722.15,
+      "sz.159944": 303497.1,
+      "sz.159945": 2482419.45
+    },
+    "decision_at": "2022-03-01T21:00:00+08:00",
+    "decision_date": "2022-03-01",
+    "diagnostics": {
+      "anchor_date": "2022-02-28",
+      "eligible": [],
+      "eligible_count": 0,
+      "exclusions": {
+        "sz.159936": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159938": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159939": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159940": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159944": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159945": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159946": "DELISTED"
+      },
+      "execution_date": "2022-03-02",
+      "momentum": {},
+      "momentum_order": [],
+      "order_reference_date": "2022-03-01",
+      "qualification": {
+        "sz.159936": {
+          "account_verified": true,
+          "listed_sessions": 1870,
+          "median_amount20": 112805.0,
+          "status": "NORMAL"
+        },
+        "sz.159938": {
+          "account_verified": true,
+          "listed_sessions": 1737,
+          "median_amount20": 16528680.5,
+          "status": "NORMAL"
+        },
+        "sz.159939": {
+          "account_verified": true,
+          "listed_sessions": 1717,
+          "median_amount20": 6042537.5,
+          "status": "NORMAL"
+        },
+        "sz.159940": {
+          "account_verified": true,
+          "listed_sessions": 1672,
+          "median_amount20": 2389481.5,
+          "status": "NORMAL"
+        },
+        "sz.159944": {
+          "account_verified": true,
+          "listed_sessions": 1618,
+          "median_amount20": 226370.5,
+          "status": "NORMAL"
+        },
+        "sz.159945": {
+          "account_verified": true,
+          "listed_sessions": 1618,
+          "median_amount20": 2449292.5,
+          "status": "NORMAL"
+        },
+        "sz.159946": {
+          "account_verified": true,
+          "listed_sessions": 1613,
+          "status": "RETIRED"
+        }
+      },
+      "ranking_freedom": false,
+      "release_date": "2022-03-01",
+      "risk_scaling": false,
+      "signal_anchor_at": "2022-02-28T21:00:00+08:00",
+      "signal_anchor_date": "2022-02-28",
+      "signal_release_delay": 1,
+      "status": "QUALIFIED_INPUTS",
+      "target_gross_weight": 0,
+      "trend": false,
+      "universe": "R1I_FIXED_COHORT_V1",
+      "variant": "E1"
+    },
+    "execution_date": "2022-03-02",
+    "ranks": {},
+    "reference_prices": {
+      "sz.159936": 1.829,
+      "sz.159938": 1.748,
+      "sz.159939": 1.354,
+      "sz.159940": 1.024,
+      "sz.159944": 1.259,
+      "sz.159945": 0.908
+    },
+    "status": "CASH_INSUFFICIENT_PRODUCTS",
+    "weights": {}
+  },
+  {
+    "adv20": {
+      "sz.159936": 89673.55,
+      "sz.159938": 28251334.45,
+      "sz.159939": 18454641.6,
+      "sz.159940": 4539588.25,
+      "sz.159944": 395389.65,
+      "sz.159945": 5695943.1
+    },
+    "decision_at": "2022-04-01T21:00:00+08:00",
+    "decision_date": "2022-04-01",
+    "diagnostics": {
+      "anchor_date": "2022-03-31",
+      "eligible": [],
+      "eligible_count": 0,
+      "exclusions": {
+        "sz.159936": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159938": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159939": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159940": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159944": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159945": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159946": "DELISTED"
+      },
+      "execution_date": "2022-04-06",
+      "momentum": {},
+      "momentum_order": [],
+      "order_reference_date": "2022-04-01",
+      "qualification": {
+        "sz.159936": {
+          "account_verified": true,
+          "listed_sessions": 1893,
+          "median_amount20": 73420.5,
+          "status": "NORMAL"
+        },
+        "sz.159938": {
+          "account_verified": true,
+          "listed_sessions": 1760,
+          "median_amount20": 17828362.5,
+          "status": "NORMAL"
+        },
+        "sz.159939": {
+          "account_verified": true,
+          "listed_sessions": 1740,
+          "median_amount20": 12393938.5,
+          "status": "NORMAL"
+        },
+        "sz.159940": {
+          "account_verified": true,
+          "listed_sessions": 1695,
+          "median_amount20": 2405977.0,
+          "status": "NORMAL"
+        },
+        "sz.159944": {
+          "account_verified": true,
+          "listed_sessions": 1641,
+          "median_amount20": 135844.0,
+          "status": "NORMAL"
+        },
+        "sz.159945": {
+          "account_verified": true,
+          "listed_sessions": 1641,
+          "median_amount20": 5209332.5,
+          "status": "NORMAL"
+        },
+        "sz.159946": {
+          "account_verified": true,
+          "listed_sessions": 1636,
+          "status": "RETIRED"
+        }
+      },
+      "ranking_freedom": false,
+      "release_date": "2022-04-01",
+      "risk_scaling": false,
+      "signal_anchor_at": "2022-03-31T21:00:00+08:00",
+      "signal_anchor_date": "2022-03-31",
+      "signal_release_delay": 1,
+      "status": "QUALIFIED_INPUTS",
+      "target_gross_weight": 0,
+      "trend": false,
+      "universe": "R1I_FIXED_COHORT_V1",
+      "variant": "E1"
+    },
+    "execution_date": "2022-04-06",
+    "ranks": {},
+    "reference_prices": {
+      "sz.159936": 1.638,
+      "sz.159938": 1.726,
+      "sz.159939": 1.167,
+      "sz.159940": 1.007,
+      "sz.159944": 1.147,
+      "sz.159945": 0.938
+    },
+    "status": "CASH_INSUFFICIENT_PRODUCTS",
+    "weights": {}
+  },
+  {
+    "adv20": {
+      "sz.159936": 177234.4,
+      "sz.159938": 31914822.45,
+      "sz.159939": 53737093.35,
+      "sz.159940": 30660899.9,
+      "sz.159944": 251838.55,
+      "sz.159945": 4128227.1
+    },
+    "decision_at": "2022-05-05T21:00:00+08:00",
+    "decision_date": "2022-05-05",
+    "diagnostics": {
+      "anchor_date": "2022-04-29",
+      "eligible": [
+        "sz.159938",
+        "sz.159939"
+      ],
+      "eligible_count": 2,
+      "exclusions": {
+        "sz.159936": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159940": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159944": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159945": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159946": "DELISTED"
+      },
+      "execution_date": "2022-05-06",
+      "momentum": {},
+      "momentum_order": [],
+      "order_reference_date": "2022-05-05",
+      "qualification": {
+        "sz.159936": {
+          "account_verified": true,
+          "listed_sessions": 1912,
+          "median_amount20": 76194.5,
+          "status": "NORMAL"
+        },
+        "sz.159938": {
+          "account_verified": true,
+          "listed_sessions": 1779,
+          "median_amount20": 23611550.0,
+          "status": "NORMAL"
+        },
+        "sz.159939": {
+          "account_verified": true,
+          "listed_sessions": 1759,
+          "median_amount20": 27225642.5,
+          "status": "NORMAL"
+        },
+        "sz.159940": {
+          "account_verified": true,
+          "listed_sessions": 1714,
+          "median_amount20": 13997353.5,
+          "status": "NORMAL"
+        },
+        "sz.159944": {
+          "account_verified": true,
+          "listed_sessions": 1660,
+          "median_amount20": 226723.0,
+          "status": "NORMAL"
+        },
+        "sz.159945": {
+          "account_verified": true,
+          "listed_sessions": 1660,
+          "median_amount20": 3391247.0,
+          "status": "NORMAL"
+        },
+        "sz.159946": {
+          "account_verified": true,
+          "listed_sessions": 1655,
+          "status": "RETIRED"
+        }
+      },
+      "ranking_freedom": false,
+      "release_date": "2022-05-05",
+      "risk_scaling": false,
+      "signal_anchor_at": "2022-04-29T21:00:00+08:00",
+      "signal_anchor_date": "2022-04-29",
+      "signal_release_delay": 1,
+      "status": "QUALIFIED_INPUTS",
+      "target_gross_weight": 0,
+      "trend": false,
+      "universe": "R1I_FIXED_COHORT_V1",
+      "variant": "E1"
+    },
+    "execution_date": "2022-05-06",
+    "ranks": {},
+    "reference_prices": {
+      "sz.159936": 1.593,
+      "sz.159938": 1.536,
+      "sz.159939": 0.993,
+      "sz.159940": 0.927,
+      "sz.159944": 1.032,
+      "sz.159945": 0.907
+    },
+    "status": "CASH_INSUFFICIENT_PRODUCTS",
+    "weights": {}
+  },
+  {
+    "adv20": {
+      "sz.159936": 269885.85,
+      "sz.159938": 30024384.2,
+      "sz.159939": 21233770.45,
+      "sz.159940": 6793351.5,
+      "sz.159944": 118841.5,
+      "sz.159945": 3497176.3
+    },
+    "decision_at": "2022-06-01T21:00:00+08:00",
+    "decision_date": "2022-06-01",
+    "diagnostics": {
+      "anchor_date": "2022-05-31",
+      "eligible": [
+        "sz.159938",
+        "sz.159939"
+      ],
+      "eligible_count": 2,
+      "exclusions": {
+        "sz.159936": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159940": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159944": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159945": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159946": "DELISTED"
+      },
+      "execution_date": "2022-06-02",
+      "momentum": {},
+      "momentum_order": [],
+      "order_reference_date": "2022-06-01",
+      "qualification": {
+        "sz.159936": {
+          "account_verified": true,
+          "listed_sessions": 1931,
+          "median_amount20": 228239.0,
+          "status": "NORMAL"
+        },
+        "sz.159938": {
+          "account_verified": true,
+          "listed_sessions": 1798,
+          "median_amount20": 29585449.0,
+          "status": "NORMAL"
+        },
+        "sz.159939": {
+          "account_verified": true,
+          "listed_sessions": 1778,
+          "median_amount20": 20388416.0,
+          "status": "NORMAL"
+        },
+        "sz.159940": {
+          "account_verified": true,
+          "listed_sessions": 1733,
+          "median_amount20": 4795455.0,
+          "status": "NORMAL"
+        },
+        "sz.159944": {
+          "account_verified": true,
+          "listed_sessions": 1679,
+          "median_amount20": 83629.5,
+          "status": "NORMAL"
+        },
+        "sz.159945": {
+          "account_verified": true,
+          "listed_sessions": 1679,
+          "median_amount20": 2978308.5,
+          "status": "NORMAL"
+        },
+        "sz.159946": {
+          "account_verified": true,
+          "listed_sessions": 1674,
+          "status": "RETIRED"
+        }
+      },
+      "ranking_freedom": false,
+      "release_date": "2022-06-01",
+      "risk_scaling": false,
+      "signal_anchor_at": "2022-05-31T21:00:00+08:00",
+      "signal_anchor_date": "2022-05-31",
+      "signal_release_delay": 1,
+      "status": "QUALIFIED_INPUTS",
+      "target_gross_weight": 0,
+      "trend": false,
+      "universe": "R1I_FIXED_COHORT_V1",
+      "variant": "E1"
+    },
+    "execution_date": "2022-06-02",
+    "ranks": {},
+    "reference_prices": {
+      "sz.159936": 1.707,
+      "sz.159938": 0.768,
+      "sz.159939": 1.061,
+      "sz.159940": 0.907,
+      "sz.159944": 1.097,
+      "sz.159945": 0.999
+    },
+    "status": "CASH_INSUFFICIENT_PRODUCTS",
+    "weights": {}
+  },
+  {
+    "adv20": {
+      "sz.159936": 4151337.75,
+      "sz.159938": 49662406.4,
+      "sz.159939": 36248446.6,
+      "sz.159940": 8336262.75,
+      "sz.159944": 212556.3,
+      "sz.159945": 8244406.75
+    },
+    "decision_at": "2022-07-01T21:00:00+08:00",
+    "decision_date": "2022-07-01",
+    "diagnostics": {
+      "anchor_date": "2022-06-30",
+      "eligible": [
+        "sz.159938"
+      ],
+      "eligible_count": 1,
+      "exclusions": {
+        "sz.159936": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159939": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159940": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159944": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159945": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159946": "DELISTED"
+      },
+      "execution_date": "2022-07-04",
+      "momentum": {},
+      "momentum_order": [],
+      "order_reference_date": "2022-07-01",
+      "qualification": {
+        "sz.159936": {
+          "account_verified": true,
+          "listed_sessions": 1952,
+          "median_amount20": 512086.0,
+          "status": "NORMAL"
+        },
+        "sz.159938": {
+          "account_verified": true,
+          "listed_sessions": 1819,
+          "median_amount20": 42714135.5,
+          "status": "NORMAL"
+        },
+        "sz.159939": {
+          "account_verified": true,
+          "listed_sessions": 1799,
+          "median_amount20": 15919102.5,
+          "status": "NORMAL"
+        },
+        "sz.159940": {
+          "account_verified": true,
+          "listed_sessions": 1754,
+          "median_amount20": 4226147.5,
+          "status": "NORMAL"
+        },
+        "sz.159944": {
+          "account_verified": true,
+          "listed_sessions": 1700,
+          "median_amount20": 183986.5,
+          "status": "NORMAL"
+        },
+        "sz.159945": {
+          "account_verified": true,
+          "listed_sessions": 1700,
+          "median_amount20": 7402036.0,
+          "status": "NORMAL"
+        },
+        "sz.159946": {
+          "account_verified": true,
+          "listed_sessions": 1695,
+          "status": "RETIRED"
+        }
+      },
+      "ranking_freedom": false,
+      "release_date": "2022-07-01",
+      "risk_scaling": false,
+      "signal_anchor_at": "2022-06-30T21:00:00+08:00",
+      "signal_anchor_date": "2022-06-30",
+      "signal_release_delay": 1,
+      "status": "QUALIFIED_INPUTS",
+      "target_gross_weight": 0,
+      "trend": false,
+      "universe": "R1I_FIXED_COHORT_V1",
+      "variant": "E1"
+    },
+    "execution_date": "2022-07-04",
+    "ranks": {},
+    "reference_prices": {
+      "sz.159936": 1.874,
+      "sz.159938": 0.852,
+      "sz.159939": 1.142,
+      "sz.159940": 0.969,
+      "sz.159944": 1.216,
+      "sz.159945": 1.012
+    },
+    "status": "CASH_INSUFFICIENT_PRODUCTS",
+    "weights": {}
+  },
+  {
+    "adv20": {
+      "sz.159936": 3606779.75,
+      "sz.159938": 35204293.05,
+      "sz.159939": 31860239.45,
+      "sz.159940": 11825579.0,
+      "sz.159944": 157943.95,
+      "sz.159945": 7018961.65
+    },
+    "decision_at": "2022-08-01T21:00:00+08:00",
+    "decision_date": "2022-08-01",
+    "diagnostics": {
+      "anchor_date": "2022-07-29",
+      "eligible": [
+        "sz.159938"
+      ],
+      "eligible_count": 1,
+      "exclusions": {
+        "sz.159936": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159939": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159940": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159944": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159945": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159946": "DELISTED"
+      },
+      "execution_date": "2022-08-02",
+      "momentum": {},
+      "momentum_order": [],
+      "order_reference_date": "2022-08-01",
+      "qualification": {
+        "sz.159936": {
+          "account_verified": true,
+          "listed_sessions": 1973,
+          "median_amount20": 399298.5,
+          "status": "NORMAL"
+        },
+        "sz.159938": {
+          "account_verified": true,
+          "listed_sessions": 1840,
+          "median_amount20": 30068376.0,
+          "status": "NORMAL"
+        },
+        "sz.159939": {
+          "account_verified": true,
+          "listed_sessions": 1820,
+          "median_amount20": 16519314.0,
+          "status": "NORMAL"
+        },
+        "sz.159940": {
+          "account_verified": true,
+          "listed_sessions": 1775,
+          "median_amount20": 4222915.0,
+          "status": "NORMAL"
+        },
+        "sz.159944": {
+          "account_verified": true,
+          "listed_sessions": 1721,
+          "median_amount20": 122905.5,
+          "status": "NORMAL"
+        },
+        "sz.159945": {
+          "account_verified": true,
+          "listed_sessions": 1721,
+          "median_amount20": 7148325.5,
+          "status": "NORMAL"
+        },
+        "sz.159946": {
+          "account_verified": true,
+          "listed_sessions": 1716,
+          "status": "RETIRED"
+        }
+      },
+      "ranking_freedom": false,
+      "release_date": "2022-08-01",
+      "risk_scaling": false,
+      "signal_anchor_at": "2022-07-29T21:00:00+08:00",
+      "signal_anchor_date": "2022-07-29",
+      "signal_release_delay": 1,
+      "status": "QUALIFIED_INPUTS",
+      "target_gross_weight": 0,
+      "trend": false,
+      "universe": "R1I_FIXED_COHORT_V1",
+      "variant": "E1"
+    },
+    "execution_date": "2022-08-02",
+    "ranks": {},
+    "reference_prices": {
+      "sz.159936": 1.91,
+      "sz.159938": 0.792,
+      "sz.159939": 1.125,
+      "sz.159940": 0.902,
+      "sz.159944": 1.185,
+      "sz.159945": 0.987
+    },
+    "status": "CASH_INSUFFICIENT_PRODUCTS",
+    "weights": {}
+  },
+  {
+    "adv20": {
+      "sz.159936": 262055.45,
+      "sz.159938": 30143446.9,
+      "sz.159939": 27824801.9,
+      "sz.159940": 3365295.8,
+      "sz.159944": 368832.85,
+      "sz.159945": 6402843.45
+    },
+    "decision_at": "2022-09-01T21:00:00+08:00",
+    "decision_date": "2022-09-01",
+    "diagnostics": {
+      "anchor_date": "2022-08-31",
+      "eligible": [
+        "sz.159938",
+        "sz.159939"
+      ],
+      "eligible_count": 2,
+      "exclusions": {
+        "sz.159936": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159940": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159944": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159945": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159946": "DELISTED"
+      },
+      "execution_date": "2022-09-02",
+      "momentum": {},
+      "momentum_order": [],
+      "order_reference_date": "2022-09-01",
+      "qualification": {
+        "sz.159936": {
+          "account_verified": true,
+          "listed_sessions": 1996,
+          "median_amount20": 177807.5,
+          "status": "NORMAL"
+        },
+        "sz.159938": {
+          "account_verified": true,
+          "listed_sessions": 1863,
+          "median_amount20": 27635301.0,
+          "status": "NORMAL"
+        },
+        "sz.159939": {
+          "account_verified": true,
+          "listed_sessions": 1843,
+          "median_amount20": 21827474.0,
+          "status": "NORMAL"
+        },
+        "sz.159940": {
+          "account_verified": true,
+          "listed_sessions": 1798,
+          "median_amount20": 2860084.0,
+          "status": "NORMAL"
+        },
+        "sz.159944": {
+          "account_verified": true,
+          "listed_sessions": 1744,
+          "median_amount20": 84672.0,
+          "status": "NORMAL"
+        },
+        "sz.159945": {
+          "account_verified": true,
+          "listed_sessions": 1744,
+          "median_amount20": 5972509.5,
+          "status": "NORMAL"
+        },
+        "sz.159946": {
+          "account_verified": true,
+          "listed_sessions": 1739,
+          "status": "RETIRED"
+        }
+      },
+      "ranking_freedom": false,
+      "release_date": "2022-09-01",
+      "risk_scaling": false,
+      "signal_anchor_at": "2022-08-31T21:00:00+08:00",
+      "signal_anchor_date": "2022-08-31",
+      "signal_release_delay": 1,
+      "status": "QUALIFIED_INPUTS",
+      "target_gross_weight": 0,
+      "trend": false,
+      "universe": "R1I_FIXED_COHORT_V1",
+      "variant": "E1"
+    },
+    "execution_date": "2022-09-02",
+    "ranks": {},
+    "reference_prices": {
+      "sz.159936": 1.759,
+      "sz.159938": 0.769,
+      "sz.159939": 1.069,
+      "sz.159940": 0.913,
+      "sz.159944": 1.126,
+      "sz.159945": 1.071
+    },
+    "status": "CASH_INSUFFICIENT_PRODUCTS",
+    "weights": {}
+  },
+  {
+    "adv20": {
+      "sz.159936": 579318.45,
+      "sz.159938": 53256625.05,
+      "sz.159939": 17020596.95,
+      "sz.159940": 4591723.05,
+      "sz.159944": 168921.1,
+      "sz.159945": 13194748.55
+    },
+    "decision_at": "2022-10-10T21:00:00+08:00",
+    "decision_date": "2022-10-10",
+    "diagnostics": {
+      "anchor_date": "2022-09-30",
+      "eligible": [
+        "sz.159938"
+      ],
+      "eligible_count": 1,
+      "exclusions": {
+        "sz.159936": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159939": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159940": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159944": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159945": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159946": "DELISTED"
+      },
+      "execution_date": "2022-10-11",
+      "momentum": {},
+      "momentum_order": [],
+      "order_reference_date": "2022-10-10",
+      "qualification": {
+        "sz.159936": {
+          "account_verified": true,
+          "listed_sessions": 2017,
+          "median_amount20": 510430.5,
+          "status": "NORMAL"
+        },
+        "sz.159938": {
+          "account_verified": true,
+          "listed_sessions": 1884,
+          "median_amount20": 38792047.0,
+          "status": "NORMAL"
+        },
+        "sz.159939": {
+          "account_verified": true,
+          "listed_sessions": 1864,
+          "median_amount20": 9131193.0,
+          "status": "NORMAL"
+        },
+        "sz.159940": {
+          "account_verified": true,
+          "listed_sessions": 1819,
+          "median_amount20": 3198766.5,
+          "status": "NORMAL"
+        },
+        "sz.159944": {
+          "account_verified": true,
+          "listed_sessions": 1765,
+          "median_amount20": 52717.5,
+          "status": "NORMAL"
+        },
+        "sz.159945": {
+          "account_verified": true,
+          "listed_sessions": 1765,
+          "median_amount20": 11877672.0,
+          "status": "NORMAL"
+        },
+        "sz.159946": {
+          "account_verified": true,
+          "listed_sessions": 1760,
+          "status": "RETIRED"
+        }
+      },
+      "ranking_freedom": false,
+      "release_date": "2022-10-10",
+      "risk_scaling": false,
+      "signal_anchor_at": "2022-09-30T21:00:00+08:00",
+      "signal_anchor_date": "2022-09-30",
+      "signal_release_delay": 1,
+      "status": "QUALIFIED_INPUTS",
+      "target_gross_weight": 0,
+      "trend": false,
+      "universe": "R1I_FIXED_COHORT_V1",
+      "variant": "E1"
+    },
+    "execution_date": "2022-10-11",
+    "ranks": {},
+    "reference_prices": {
+      "sz.159936": 1.6,
+      "sz.159938": 0.702,
+      "sz.159939": 0.921,
+      "sz.159940": 0.861,
+      "sz.159944": 1.006,
+      "sz.159945": 1.07
+    },
+    "status": "CASH_INSUFFICIENT_PRODUCTS",
+    "weights": {}
+  },
+  {
+    "adv20": {
+      "sz.159936": 440232.8,
+      "sz.159938": 51624863.2,
+      "sz.159939": 38191885.9,
+      "sz.159940": 3510974.2,
+      "sz.159944": 354858.4,
+      "sz.159945": 16308509.55
+    },
+    "decision_at": "2022-11-01T21:00:00+08:00",
+    "decision_date": "2022-11-01",
+    "diagnostics": {
+      "anchor_date": "2022-10-31",
+      "eligible": [
+        "sz.159938",
+        "sz.159939"
+      ],
+      "eligible_count": 2,
+      "exclusions": {
+        "sz.159936": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159940": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159944": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159945": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159946": "DELISTED"
+      },
+      "execution_date": "2022-11-02",
+      "momentum": {},
+      "momentum_order": [],
+      "order_reference_date": "2022-11-01",
+      "qualification": {
+        "sz.159936": {
+          "account_verified": true,
+          "listed_sessions": 2033,
+          "median_amount20": 199995.0,
+          "status": "NORMAL"
+        },
+        "sz.159938": {
+          "account_verified": true,
+          "listed_sessions": 1900,
+          "median_amount20": 51595351.0,
+          "status": "NORMAL"
+        },
+        "sz.159939": {
+          "account_verified": true,
+          "listed_sessions": 1880,
+          "median_amount20": 31206064.0,
+          "status": "NORMAL"
+        },
+        "sz.159940": {
+          "account_verified": true,
+          "listed_sessions": 1835,
+          "median_amount20": 2825992.0,
+          "status": "NORMAL"
+        },
+        "sz.159944": {
+          "account_verified": true,
+          "listed_sessions": 1781,
+          "median_amount20": 116473.0,
+          "status": "NORMAL"
+        },
+        "sz.159945": {
+          "account_verified": true,
+          "listed_sessions": 1781,
+          "median_amount20": 15986379.0,
+          "status": "NORMAL"
+        },
+        "sz.159946": {
+          "account_verified": true,
+          "listed_sessions": 1776,
+          "status": "RETIRED"
+        }
+      },
+      "ranking_freedom": false,
+      "release_date": "2022-11-01",
+      "risk_scaling": false,
+      "signal_anchor_at": "2022-10-31T21:00:00+08:00",
+      "signal_anchor_date": "2022-10-31",
+      "signal_release_delay": 1,
+      "status": "QUALIFIED_INPUTS",
+      "target_gross_weight": 0,
+      "trend": false,
+      "universe": "R1I_FIXED_COHORT_V1",
+      "variant": "E1"
+    },
+    "execution_date": "2022-11-02",
+    "ranks": {},
+    "reference_prices": {
+      "sz.159936": 1.57,
+      "sz.159938": 0.783,
+      "sz.159939": 1.055,
+      "sz.159940": 0.816,
+      "sz.159944": 1.009,
+      "sz.159945": 0.952
+    },
+    "status": "CASH_INSUFFICIENT_PRODUCTS",
+    "weights": {}
+  },
+  {
+    "adv20": {
+      "sz.159936": 490080.2,
+      "sz.159938": 50536363.4,
+      "sz.159939": 31017545.9,
+      "sz.159940": 9002739.25,
+      "sz.159944": 530565.65,
+      "sz.159945": 16186453.4
+    },
+    "decision_at": "2022-12-01T21:00:00+08:00",
+    "decision_date": "2022-12-01",
+    "diagnostics": {
+      "anchor_date": "2022-11-30",
+      "eligible": [
+        "sz.159938",
+        "sz.159939"
+      ],
+      "eligible_count": 2,
+      "exclusions": {
+        "sz.159936": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159940": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159944": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159945": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159946": "DELISTED"
+      },
+      "execution_date": "2022-12-02",
+      "momentum": {},
+      "momentum_order": [],
+      "order_reference_date": "2022-12-01",
+      "qualification": {
+        "sz.159936": {
+          "account_verified": true,
+          "listed_sessions": 2055,
+          "median_amount20": 256522.0,
+          "status": "NORMAL"
+        },
+        "sz.159938": {
+          "account_verified": true,
+          "listed_sessions": 1922,
+          "median_amount20": 51538163.0,
+          "status": "NORMAL"
+        },
+        "sz.159939": {
+          "account_verified": true,
+          "listed_sessions": 1902,
+          "median_amount20": 28064686.0,
+          "status": "NORMAL"
+        },
+        "sz.159940": {
+          "account_verified": true,
+          "listed_sessions": 1857,
+          "median_amount20": 4264642.0,
+          "status": "NORMAL"
+        },
+        "sz.159944": {
+          "account_verified": true,
+          "listed_sessions": 1803,
+          "median_amount20": 109132.5,
+          "status": "NORMAL"
+        },
+        "sz.159945": {
+          "account_verified": true,
+          "listed_sessions": 1803,
+          "median_amount20": 15485680.5,
+          "status": "NORMAL"
+        },
+        "sz.159946": {
+          "account_verified": true,
+          "listed_sessions": 1798,
+          "status": "RETIRED"
+        }
+      },
+      "ranking_freedom": false,
+      "release_date": "2022-12-01",
+      "risk_scaling": false,
+      "signal_anchor_at": "2022-11-30T21:00:00+08:00",
+      "signal_anchor_date": "2022-11-30",
+      "signal_release_delay": 1,
+      "status": "QUALIFIED_INPUTS",
+      "target_gross_weight": 0,
+      "trend": false,
+      "universe": "R1I_FIXED_COHORT_V1",
+      "variant": "E1"
+    },
+    "execution_date": "2022-12-02",
+    "ranks": {},
+    "reference_prices": {
+      "sz.159936": 1.694,
+      "sz.159938": 0.812,
+      "sz.159939": 1.067,
+      "sz.159940": 0.925,
+      "sz.159944": 1.077,
+      "sz.159945": 1.003
+    },
+    "status": "CASH_INSUFFICIENT_PRODUCTS",
+    "weights": {}
+  },
+  {
+    "adv20": {
+      "sz.159936": 885874.1,
+      "sz.159938": 51413700.8,
+      "sz.159939": 16154810.6,
+      "sz.159940": 9938278.9,
+      "sz.159944": 804086.05,
+      "sz.159945": 16372206.1
+    },
+    "decision_at": "2023-01-03T21:00:00+08:00",
+    "decision_date": "2023-01-03",
+    "diagnostics": {
+      "anchor_date": "2022-12-30",
+      "eligible": [
+        "sz.159938"
+      ],
+      "eligible_count": 1,
+      "exclusions": {
+        "sz.159936": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159939": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159940": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159944": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159945": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159946": "DELISTED"
+      },
+      "execution_date": "2023-01-04",
+      "momentum": {},
+      "momentum_order": [],
+      "order_reference_date": "2023-01-03",
+      "qualification": {
+        "sz.159936": {
+          "account_verified": true,
+          "listed_sessions": 2077,
+          "median_amount20": 566252.5,
+          "status": "NORMAL"
+        },
+        "sz.159938": {
+          "account_verified": true,
+          "listed_sessions": 1944,
+          "median_amount20": 51013200.0,
+          "status": "NORMAL"
+        },
+        "sz.159939": {
+          "account_verified": true,
+          "listed_sessions": 1924,
+          "median_amount20": 10805952.5,
+          "status": "NORMAL"
+        },
+        "sz.159940": {
+          "account_verified": true,
+          "listed_sessions": 1879,
+          "median_amount20": 4585497.5,
+          "status": "NORMAL"
+        },
+        "sz.159944": {
+          "account_verified": true,
+          "listed_sessions": 1825,
+          "median_amount20": 256356.0,
+          "status": "NORMAL"
+        },
+        "sz.159945": {
+          "account_verified": true,
+          "listed_sessions": 1825,
+          "median_amount20": 15785618.5,
+          "status": "NORMAL"
+        },
+        "sz.159946": {
+          "account_verified": true,
+          "listed_sessions": 1820,
+          "status": "RETIRED"
+        }
+      },
+      "ranking_freedom": false,
+      "release_date": "2023-01-03",
+      "risk_scaling": false,
+      "signal_anchor_at": "2022-12-30T21:00:00+08:00",
+      "signal_anchor_date": "2022-12-30",
+      "signal_release_delay": 1,
+      "status": "QUALIFIED_INPUTS",
+      "target_gross_weight": 0,
+      "trend": false,
+      "universe": "R1I_FIXED_COHORT_V1",
+      "variant": "E1"
+    },
+    "execution_date": "2023-01-04",
+    "ranks": {},
+    "reference_prices": {
+      "sz.159936": 1.673,
+      "sz.159938": 0.795,
+      "sz.159939": 1.041,
+      "sz.159940": 0.918,
+      "sz.159944": 1.038,
+      "sz.159945": 0.928
+    },
+    "status": "CASH_INSUFFICIENT_PRODUCTS",
+    "weights": {}
+  },
+  {
+    "adv20": {
+      "sz.159936": 952169.15,
+      "sz.159938": 51165440.45,
+      "sz.159939": 29251104.8,
+      "sz.159940": 13226612.6,
+      "sz.159944": 1830099.25,
+      "sz.159945": 17025667.65
+    },
+    "decision_at": "2023-02-01T21:00:00+08:00",
+    "decision_date": "2023-02-01",
+    "diagnostics": {
+      "anchor_date": "2023-01-31",
+      "eligible": [
+        "sz.159938"
+      ],
+      "eligible_count": 1,
+      "exclusions": {
+        "sz.159936": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159939": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159940": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159944": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159945": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159946": "DELISTED"
+      },
+      "execution_date": "2023-02-02",
+      "momentum": {},
+      "momentum_order": [],
+      "order_reference_date": "2023-02-01",
+      "qualification": {
+        "sz.159936": {
+          "account_verified": true,
+          "listed_sessions": 2093,
+          "median_amount20": 464095.0,
+          "status": "NORMAL"
+        },
+        "sz.159938": {
+          "account_verified": true,
+          "listed_sessions": 1960,
+          "median_amount20": 39322254.5,
+          "status": "NORMAL"
+        },
+        "sz.159939": {
+          "account_verified": true,
+          "listed_sessions": 1940,
+          "median_amount20": 19373227.0,
+          "status": "NORMAL"
+        },
+        "sz.159940": {
+          "account_verified": true,
+          "listed_sessions": 1895,
+          "median_amount20": 5443192.5,
+          "status": "NORMAL"
+        },
+        "sz.159944": {
+          "account_verified": true,
+          "listed_sessions": 1841,
+          "median_amount20": 1415117.0,
+          "status": "NORMAL"
+        },
+        "sz.159945": {
+          "account_verified": true,
+          "listed_sessions": 1841,
+          "median_amount20": 17081351.5,
+          "status": "NORMAL"
+        },
+        "sz.159946": {
+          "account_verified": true,
+          "listed_sessions": 1836,
+          "status": "RETIRED"
+        }
+      },
+      "ranking_freedom": false,
+      "release_date": "2023-02-01",
+      "risk_scaling": false,
+      "signal_anchor_at": "2023-01-31T21:00:00+08:00",
+      "signal_anchor_date": "2023-01-31",
+      "signal_release_delay": 1,
+      "status": "QUALIFIED_INPUTS",
+      "target_gross_weight": 0,
+      "trend": true,
+      "universe": "R1I_FIXED_COHORT_V1",
+      "variant": "E1"
+    },
+    "execution_date": "2023-02-02",
+    "ranks": {},
+    "reference_prices": {
+      "sz.159936": 1.809,
+      "sz.159938": 0.841,
+      "sz.159939": 1.136,
+      "sz.159940": 0.97,
+      "sz.159944": 1.136,
+      "sz.159945": 0.978
+    },
+    "status": "CASH_INSUFFICIENT_PRODUCTS",
+    "weights": {}
+  },
+  {
+    "adv20": {
+      "sz.159936": 688415.35,
+      "sz.159938": 37090993.65,
+      "sz.159939": 88135453.6,
+      "sz.159940": 4278772.7,
+      "sz.159944": 1499769.15,
+      "sz.159945": 15762849.2
+    },
+    "decision_at": "2023-03-01T21:00:00+08:00",
+    "decision_date": "2023-03-01",
+    "diagnostics": {
+      "anchor_date": "2023-02-28",
+      "eligible": [
+        "sz.159938",
+        "sz.159939"
+      ],
+      "eligible_count": 2,
+      "exclusions": {
+        "sz.159936": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159940": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159944": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159945": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159946": "DELISTED"
+      },
+      "execution_date": "2023-03-02",
+      "momentum": {},
+      "momentum_order": [],
+      "order_reference_date": "2023-03-01",
+      "qualification": {
+        "sz.159936": {
+          "account_verified": true,
+          "listed_sessions": 2113,
+          "median_amount20": 353124.5,
+          "status": "NORMAL"
+        },
+        "sz.159938": {
+          "account_verified": true,
+          "listed_sessions": 1980,
+          "median_amount20": 37147796.5,
+          "status": "NORMAL"
+        },
+        "sz.159939": {
+          "account_verified": true,
+          "listed_sessions": 1960,
+          "median_amount20": 79113325.0,
+          "status": "NORMAL"
+        },
+        "sz.159940": {
+          "account_verified": true,
+          "listed_sessions": 1915,
+          "median_amount20": 4244488.5,
+          "status": "NORMAL"
+        },
+        "sz.159944": {
+          "account_verified": true,
+          "listed_sessions": 1861,
+          "median_amount20": 235059.5,
+          "status": "NORMAL"
+        },
+        "sz.159945": {
+          "account_verified": true,
+          "listed_sessions": 1861,
+          "median_amount20": 15940610.0,
+          "status": "NORMAL"
+        },
+        "sz.159946": {
+          "account_verified": true,
+          "listed_sessions": 1856,
+          "status": "RETIRED"
+        }
+      },
+      "ranking_freedom": false,
+      "release_date": "2023-03-01",
+      "risk_scaling": false,
+      "signal_anchor_at": "2023-02-28T21:00:00+08:00",
+      "signal_anchor_date": "2023-02-28",
+      "signal_release_delay": 1,
+      "status": "QUALIFIED_INPUTS",
+      "target_gross_weight": 0,
+      "trend": true,
+      "universe": "R1I_FIXED_COHORT_V1",
+      "variant": "E1"
+    },
+    "execution_date": "2023-03-02",
+    "ranks": {},
+    "reference_prices": {
+      "sz.159936": 1.797,
+      "sz.159938": 0.831,
+      "sz.159939": 0.578,
+      "sz.159940": 0.948,
+      "sz.159944": 1.127,
+      "sz.159945": 0.999
+    },
+    "status": "CASH_INSUFFICIENT_PRODUCTS",
+    "weights": {}
+  },
+  {
+    "adv20": {
+      "sz.159936": 636230.25,
+      "sz.159938": 64612176.35,
+      "sz.159939": 122375105.55,
+      "sz.159940": 2279373.9,
+      "sz.159944": 802616.85,
+      "sz.159945": 16408205.95
+    },
+    "decision_at": "2023-04-03T21:00:00+08:00",
+    "decision_date": "2023-04-03",
+    "diagnostics": {
+      "anchor_date": "2023-03-31",
+      "eligible": [
+        "sz.159938",
+        "sz.159939"
+      ],
+      "eligible_count": 2,
+      "exclusions": {
+        "sz.159936": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159940": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159944": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159945": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159946": "DELISTED"
+      },
+      "execution_date": "2023-04-04",
+      "momentum": {},
+      "momentum_order": [],
+      "order_reference_date": "2023-04-03",
+      "qualification": {
+        "sz.159936": {
+          "account_verified": true,
+          "listed_sessions": 2136,
+          "median_amount20": 432988.5,
+          "status": "NORMAL"
+        },
+        "sz.159938": {
+          "account_verified": true,
+          "listed_sessions": 2003,
+          "median_amount20": 55143961.5,
+          "status": "NORMAL"
+        },
+        "sz.159939": {
+          "account_verified": true,
+          "listed_sessions": 1983,
+          "median_amount20": 95485913.0,
+          "status": "NORMAL"
+        },
+        "sz.159940": {
+          "account_verified": true,
+          "listed_sessions": 1938,
+          "median_amount20": 1562397.5,
+          "status": "NORMAL"
+        },
+        "sz.159944": {
+          "account_verified": true,
+          "listed_sessions": 1884,
+          "median_amount20": 226834.0,
+          "status": "NORMAL"
+        },
+        "sz.159945": {
+          "account_verified": true,
+          "listed_sessions": 1884,
+          "median_amount20": 15590202.5,
+          "status": "NORMAL"
+        },
+        "sz.159946": {
+          "account_verified": true,
+          "listed_sessions": 1879,
+          "status": "RETIRED"
+        }
+      },
+      "ranking_freedom": false,
+      "release_date": "2023-04-03",
+      "risk_scaling": false,
+      "signal_anchor_at": "2023-03-31T21:00:00+08:00",
+      "signal_anchor_date": "2023-03-31",
+      "signal_release_delay": 1,
+      "status": "QUALIFIED_INPUTS",
+      "target_gross_weight": 0,
+      "trend": true,
+      "universe": "R1I_FIXED_COHORT_V1",
+      "variant": "E1"
+    },
+    "execution_date": "2023-04-04",
+    "ranks": {},
+    "reference_prices": {
+      "sz.159936": 1.721,
+      "sz.159938": 0.792,
+      "sz.159939": 0.665,
+      "sz.159940": 0.919,
+      "sz.159944": 1.06,
+      "sz.159945": 0.988
+    },
+    "status": "CASH_INSUFFICIENT_PRODUCTS",
+    "weights": {}
+  },
+  {
+    "adv20": {
+      "sz.159936": 1112006.5,
+      "sz.159938": 73285412.25,
+      "sz.159939": 122952473.6,
+      "sz.159940": 3789376.05,
+      "sz.159944": 531543.15,
+      "sz.159945": 16441213.75
+    },
+    "decision_at": "2023-05-04T21:00:00+08:00",
+    "decision_date": "2023-05-04",
+    "diagnostics": {
+      "anchor_date": "2023-04-28",
+      "eligible": [
+        "sz.159938",
+        "sz.159939"
+      ],
+      "eligible_count": 2,
+      "exclusions": {
+        "sz.159936": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159940": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159944": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159945": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159946": "DELISTED"
+      },
+      "execution_date": "2023-05-05",
+      "momentum": {},
+      "momentum_order": [],
+      "order_reference_date": "2023-05-04",
+      "qualification": {
+        "sz.159936": {
+          "account_verified": true,
+          "listed_sessions": 2155,
+          "median_amount20": 1036523.0,
+          "status": "NORMAL"
+        },
+        "sz.159938": {
+          "account_verified": true,
+          "listed_sessions": 2022,
+          "median_amount20": 64324466.5,
+          "status": "NORMAL"
+        },
+        "sz.159939": {
+          "account_verified": true,
+          "listed_sessions": 2002,
+          "median_amount20": 111851908.5,
+          "status": "NORMAL"
+        },
+        "sz.159940": {
+          "account_verified": true,
+          "listed_sessions": 1957,
+          "median_amount20": 2103846.0,
+          "status": "NORMAL"
+        },
+        "sz.159944": {
+          "account_verified": true,
+          "listed_sessions": 1903,
+          "median_amount20": 484749.0,
+          "status": "NORMAL"
+        },
+        "sz.159945": {
+          "account_verified": true,
+          "listed_sessions": 1903,
+          "median_amount20": 16503489.5,
+          "status": "NORMAL"
+        },
+        "sz.159946": {
+          "account_verified": true,
+          "listed_sessions": 1898,
+          "status": "RETIRED"
+        }
+      },
+      "ranking_freedom": false,
+      "release_date": "2023-05-04",
+      "risk_scaling": false,
+      "signal_anchor_at": "2023-04-28T21:00:00+08:00",
+      "signal_anchor_date": "2023-04-28",
+      "signal_release_delay": 1,
+      "status": "QUALIFIED_INPUTS",
+      "target_gross_weight": 0,
+      "trend": true,
+      "universe": "R1I_FIXED_COHORT_V1",
+      "variant": "E1"
+    },
+    "execution_date": "2023-05-05",
+    "ranks": {},
+    "reference_prices": {
+      "sz.159936": 1.644,
+      "sz.159938": 0.796,
+      "sz.159939": 0.586,
+      "sz.159940": 0.963,
+      "sz.159944": 1.009,
+      "sz.159945": 1.028
+    },
+    "status": "CASH_INSUFFICIENT_PRODUCTS",
+    "weights": {}
+  },
+  {
+    "adv20": {
+      "sz.159936": 420144.9,
+      "sz.159938": 66690509.9,
+      "sz.159939": 103508815.85,
+      "sz.159940": 4630101.4,
+      "sz.159944": 1426930.05,
+      "sz.159945": 14563638.05
+    },
+    "decision_at": "2023-06-01T21:00:00+08:00",
+    "decision_date": "2023-06-01",
+    "diagnostics": {
+      "anchor_date": "2023-05-31",
+      "eligible": [
+        "sz.159938",
+        "sz.159939"
+      ],
+      "eligible_count": 2,
+      "exclusions": {
+        "sz.159936": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159940": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159944": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159945": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159946": "DELISTED"
+      },
+      "execution_date": "2023-06-02",
+      "momentum": {},
+      "momentum_order": [],
+      "order_reference_date": "2023-06-01",
+      "qualification": {
+        "sz.159936": {
+          "account_verified": true,
+          "listed_sessions": 2175,
+          "median_amount20": 410227.5,
+          "status": "NORMAL"
+        },
+        "sz.159938": {
+          "account_verified": true,
+          "listed_sessions": 2042,
+          "median_amount20": 63045162.5,
+          "status": "NORMAL"
+        },
+        "sz.159939": {
+          "account_verified": true,
+          "listed_sessions": 2022,
+          "median_amount20": 94898636.0,
+          "status": "NORMAL"
+        },
+        "sz.159940": {
+          "account_verified": true,
+          "listed_sessions": 1977,
+          "median_amount20": 2690803.0,
+          "status": "NORMAL"
+        },
+        "sz.159944": {
+          "account_verified": true,
+          "listed_sessions": 1923,
+          "median_amount20": 1205169.0,
+          "status": "NORMAL"
+        },
+        "sz.159945": {
+          "account_verified": true,
+          "listed_sessions": 1923,
+          "median_amount20": 16657482.0,
+          "status": "NORMAL"
+        },
+        "sz.159946": {
+          "account_verified": true,
+          "listed_sessions": 1918,
+          "status": "RETIRED"
+        }
+      },
+      "ranking_freedom": false,
+      "release_date": "2023-06-01",
+      "risk_scaling": false,
+      "signal_anchor_at": "2023-05-31T21:00:00+08:00",
+      "signal_anchor_date": "2023-05-31",
+      "signal_release_delay": 1,
+      "status": "QUALIFIED_INPUTS",
+      "target_gross_weight": 0,
+      "trend": false,
+      "universe": "R1I_FIXED_COHORT_V1",
+      "variant": "E1"
+    },
+    "execution_date": "2023-06-02",
+    "ranks": {},
+    "reference_prices": {
+      "sz.159936": 1.561,
+      "sz.159938": 0.758,
+      "sz.159939": 0.602,
+      "sz.159940": 0.906,
+      "sz.159944": 0.943,
+      "sz.159945": 0.946
+    },
+    "status": "CASH_INSUFFICIENT_PRODUCTS",
+    "weights": {}
+  },
+  {
+    "adv20": {
+      "sz.159936": 1710297.35,
+      "sz.159938": 90340261.95,
+      "sz.159939": 99478655.05,
+      "sz.159940": 3776387.2,
+      "sz.159944": 606411.35,
+      "sz.159945": 12885978.15
+    },
+    "decision_at": "2023-07-03T21:00:00+08:00",
+    "decision_date": "2023-07-03",
+    "diagnostics": {
+      "anchor_date": "2023-06-30",
+      "eligible": [
+        "sz.159938",
+        "sz.159939"
+      ],
+      "eligible_count": 2,
+      "exclusions": {
+        "sz.159936": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159940": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159944": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159945": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159946": "DELISTED"
+      },
+      "execution_date": "2023-07-04",
+      "momentum": {},
+      "momentum_order": [],
+      "order_reference_date": "2023-07-03",
+      "qualification": {
+        "sz.159936": {
+          "account_verified": true,
+          "listed_sessions": 2195,
+          "median_amount20": 615297.5,
+          "status": "NORMAL"
+        },
+        "sz.159938": {
+          "account_verified": true,
+          "listed_sessions": 2062,
+          "median_amount20": 71307462.0,
+          "status": "NORMAL"
+        },
+        "sz.159939": {
+          "account_verified": true,
+          "listed_sessions": 2042,
+          "median_amount20": 91325884.0,
+          "status": "NORMAL"
+        },
+        "sz.159940": {
+          "account_verified": true,
+          "listed_sessions": 1997,
+          "median_amount20": 2038845.5,
+          "status": "NORMAL"
+        },
+        "sz.159944": {
+          "account_verified": true,
+          "listed_sessions": 1943,
+          "median_amount20": 250445.0,
+          "status": "NORMAL"
+        },
+        "sz.159945": {
+          "account_verified": true,
+          "listed_sessions": 1943,
+          "median_amount20": 10533847.0,
+          "status": "NORMAL"
+        },
+        "sz.159946": {
+          "account_verified": true,
+          "listed_sessions": 1938,
+          "status": "RETIRED"
+        }
+      },
+      "ranking_freedom": false,
+      "release_date": "2023-07-03",
+      "risk_scaling": false,
+      "signal_anchor_at": "2023-06-30T21:00:00+08:00",
+      "signal_anchor_date": "2023-06-30",
+      "signal_release_delay": 1,
+      "status": "QUALIFIED_INPUTS",
+      "target_gross_weight": 0,
+      "trend": false,
+      "universe": "R1I_FIXED_COHORT_V1",
+      "variant": "E1"
+    },
+    "execution_date": "2023-07-04",
+    "ranks": {},
+    "reference_prices": {
+      "sz.159936": 1.72,
+      "sz.159938": 0.733,
+      "sz.159939": 0.598,
+      "sz.159940": 0.921,
+      "sz.159944": 0.968,
+      "sz.159945": 0.996
+    },
+    "status": "CASH_INSUFFICIENT_PRODUCTS",
+    "weights": {}
+  },
+  {
+    "adv20": {
+      "sz.159936": 1604113.6,
+      "sz.159938": 64161587.1,
+      "sz.159939": 65578346.7,
+      "sz.159940": 6261253.15,
+      "sz.159944": 1151292.55,
+      "sz.159945": 11961729.3
+    },
+    "decision_at": "2023-08-01T21:00:00+08:00",
+    "decision_date": "2023-08-01",
+    "diagnostics": {
+      "anchor_date": "2023-07-31",
+      "eligible": [
+        "sz.159938",
+        "sz.159939"
+      ],
+      "eligible_count": 2,
+      "exclusions": {
+        "sz.159936": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159940": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159944": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159945": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159946": "DELISTED"
+      },
+      "execution_date": "2023-08-02",
+      "momentum": {},
+      "momentum_order": [],
+      "order_reference_date": "2023-08-01",
+      "qualification": {
+        "sz.159936": {
+          "account_verified": true,
+          "listed_sessions": 2216,
+          "median_amount20": 988184.0,
+          "status": "NORMAL"
+        },
+        "sz.159938": {
+          "account_verified": true,
+          "listed_sessions": 2083,
+          "median_amount20": 56593342.5,
+          "status": "NORMAL"
+        },
+        "sz.159939": {
+          "account_verified": true,
+          "listed_sessions": 2063,
+          "median_amount20": 58736744.5,
+          "status": "NORMAL"
+        },
+        "sz.159940": {
+          "account_verified": true,
+          "listed_sessions": 2018,
+          "median_amount20": 2955186.0,
+          "status": "NORMAL"
+        },
+        "sz.159944": {
+          "account_verified": true,
+          "listed_sessions": 1964,
+          "median_amount20": 630016.0,
+          "status": "NORMAL"
+        },
+        "sz.159945": {
+          "account_verified": true,
+          "listed_sessions": 1964,
+          "median_amount20": 11017976.0,
+          "status": "NORMAL"
+        },
+        "sz.159946": {
+          "account_verified": true,
+          "listed_sessions": 1959,
+          "status": "RETIRED"
+        }
+      },
+      "ranking_freedom": false,
+      "release_date": "2023-08-01",
+      "risk_scaling": false,
+      "signal_anchor_at": "2023-07-31T21:00:00+08:00",
+      "signal_anchor_date": "2023-07-31",
+      "signal_release_delay": 1,
+      "status": "QUALIFIED_INPUTS",
+      "target_gross_weight": 0,
+      "trend": true,
+      "universe": "R1I_FIXED_COHORT_V1",
+      "variant": "E1"
+    },
+    "execution_date": "2023-08-02",
+    "ranks": {},
+    "reference_prices": {
+      "sz.159936": 1.769,
+      "sz.159938": 0.73,
+      "sz.159939": 0.59,
+      "sz.159940": 1.004,
+      "sz.159944": 1.012,
+      "sz.159945": 1.01
+    },
+    "status": "CASH_INSUFFICIENT_PRODUCTS",
+    "weights": {}
+  },
+  {
+    "adv20": {
+      "sz.159936": 728329.3,
+      "sz.159938": 115410251.85,
+      "sz.159939": 67399408.8,
+      "sz.159940": 9780328.65,
+      "sz.159944": 5472122.05,
+      "sz.159945": 11544676.6
+    },
+    "decision_at": "2023-09-01T21:00:00+08:00",
+    "decision_date": "2023-09-01",
+    "diagnostics": {
+      "anchor_date": "2023-08-31",
+      "eligible": [
+        "sz.159938",
+        "sz.159939"
+      ],
+      "eligible_count": 2,
+      "exclusions": {
+        "sz.159936": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159940": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159944": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159945": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159946": "DELISTED"
+      },
+      "execution_date": "2023-09-04",
+      "momentum": {},
+      "momentum_order": [],
+      "order_reference_date": "2023-09-01",
+      "qualification": {
+        "sz.159936": {
+          "account_verified": true,
+          "listed_sessions": 2239,
+          "median_amount20": 619156.0,
+          "status": "NORMAL"
+        },
+        "sz.159938": {
+          "account_verified": true,
+          "listed_sessions": 2106,
+          "median_amount20": 97463498.0,
+          "status": "NORMAL"
+        },
+        "sz.159939": {
+          "account_verified": true,
+          "listed_sessions": 2086,
+          "median_amount20": 57146761.5,
+          "status": "NORMAL"
+        },
+        "sz.159940": {
+          "account_verified": true,
+          "listed_sessions": 2041,
+          "median_amount20": 9615328.5,
+          "status": "NORMAL"
+        },
+        "sz.159944": {
+          "account_verified": true,
+          "listed_sessions": 1987,
+          "median_amount20": 6084647.5,
+          "status": "NORMAL"
+        },
+        "sz.159945": {
+          "account_verified": true,
+          "listed_sessions": 1987,
+          "median_amount20": 11557223.0,
+          "status": "NORMAL"
+        },
+        "sz.159946": {
+          "account_verified": true,
+          "listed_sessions": 1982,
+          "status": "RETIRED"
+        }
+      },
+      "ranking_freedom": false,
+      "release_date": "2023-09-01",
+      "risk_scaling": false,
+      "signal_anchor_at": "2023-08-31T21:00:00+08:00",
+      "signal_anchor_date": "2023-08-31",
+      "signal_release_delay": 1,
+      "status": "QUALIFIED_INPUTS",
+      "target_gross_weight": 0,
+      "trend": false,
+      "universe": "R1I_FIXED_COHORT_V1",
+      "variant": "E1"
+    },
+    "execution_date": "2023-09-04",
+    "ranks": {},
+    "reference_prices": {
+      "sz.159936": 1.69,
+      "sz.159938": 0.692,
+      "sz.159939": 0.554,
+      "sz.159940": 0.961,
+      "sz.159944": 0.958,
+      "sz.159945": 1.007
+    },
+    "status": "CASH_INSUFFICIENT_PRODUCTS",
+    "weights": {}
+  },
+  {
+    "adv20": {
+      "sz.159936": 11372940.75,
+      "sz.159938": 72664880.95,
+      "sz.159939": 50918652.3,
+      "sz.159940": 6762907.3,
+      "sz.159944": 5876625.05,
+      "sz.159945": 11428664.6
+    },
+    "decision_at": "2023-10-09T21:00:00+08:00",
+    "decision_date": "2023-10-09",
+    "diagnostics": {
+      "anchor_date": "2023-09-28",
+      "eligible": [
+        "sz.159938",
+        "sz.159939"
+      ],
+      "eligible_count": 2,
+      "exclusions": {
+        "sz.159936": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159940": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159944": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159945": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159946": "DELISTED"
+      },
+      "execution_date": "2023-10-10",
+      "momentum": {},
+      "momentum_order": [],
+      "order_reference_date": "2023-10-09",
+      "qualification": {
+        "sz.159936": {
+          "account_verified": true,
+          "listed_sessions": 2259,
+          "median_amount20": 11714551.5,
+          "status": "NORMAL"
+        },
+        "sz.159938": {
+          "account_verified": true,
+          "listed_sessions": 2126,
+          "median_amount20": 67154737.0,
+          "status": "NORMAL"
+        },
+        "sz.159939": {
+          "account_verified": true,
+          "listed_sessions": 2106,
+          "median_amount20": 49415260.5,
+          "status": "NORMAL"
+        },
+        "sz.159940": {
+          "account_verified": true,
+          "listed_sessions": 2061,
+          "median_amount20": 6827292.5,
+          "status": "NORMAL"
+        },
+        "sz.159944": {
+          "account_verified": true,
+          "listed_sessions": 2007,
+          "median_amount20": 6121807.5,
+          "status": "NORMAL"
+        },
+        "sz.159945": {
+          "account_verified": true,
+          "listed_sessions": 2007,
+          "median_amount20": 11582974.5,
+          "status": "NORMAL"
+        },
+        "sz.159946": {
+          "account_verified": true,
+          "listed_sessions": 2002,
+          "status": "RETIRED"
+        }
+      },
+      "ranking_freedom": false,
+      "release_date": "2023-10-09",
+      "risk_scaling": false,
+      "signal_anchor_at": "2023-09-28T21:00:00+08:00",
+      "signal_anchor_date": "2023-09-28",
+      "signal_release_delay": 1,
+      "status": "QUALIFIED_INPUTS",
+      "target_gross_weight": 0,
+      "trend": false,
+      "universe": "R1I_FIXED_COHORT_V1",
+      "variant": "E1"
+    },
+    "execution_date": "2023-10-10",
+    "ranks": {},
+    "reference_prices": {
+      "sz.159936": 1.672,
+      "sz.159938": 0.718,
+      "sz.159939": 0.539,
+      "sz.159940": 0.942,
+      "sz.159944": 0.93,
+      "sz.159945": 1.059
+    },
+    "status": "CASH_INSUFFICIENT_PRODUCTS",
+    "weights": {}
+  },
+  {
+    "adv20": {
+      "sz.159936": 11856233.75,
+      "sz.159938": 66424945.2,
+      "sz.159939": 54011038.4,
+      "sz.159940": 5777962.35,
+      "sz.159944": 5360764.25,
+      "sz.159945": 10074420.4
+    },
+    "decision_at": "2023-11-01T21:00:00+08:00",
+    "decision_date": "2023-11-01",
+    "diagnostics": {
+      "anchor_date": "2023-10-31",
+      "eligible": [
+        "sz.159938",
+        "sz.159939"
+      ],
+      "eligible_count": 2,
+      "exclusions": {
+        "sz.159936": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159940": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159944": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159945": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159946": "DELISTED"
+      },
+      "execution_date": "2023-11-02",
+      "momentum": {},
+      "momentum_order": [],
+      "order_reference_date": "2023-11-01",
+      "qualification": {
+        "sz.159936": {
+          "account_verified": true,
+          "listed_sessions": 2276,
+          "median_amount20": 12163212.0,
+          "status": "NORMAL"
+        },
+        "sz.159938": {
+          "account_verified": true,
+          "listed_sessions": 2143,
+          "median_amount20": 61314463.5,
+          "status": "NORMAL"
+        },
+        "sz.159939": {
+          "account_verified": true,
+          "listed_sessions": 2123,
+          "median_amount20": 47414341.0,
+          "status": "NORMAL"
+        },
+        "sz.159940": {
+          "account_verified": true,
+          "listed_sessions": 2078,
+          "median_amount20": 6313683.5,
+          "status": "NORMAL"
+        },
+        "sz.159944": {
+          "account_verified": true,
+          "listed_sessions": 2024,
+          "median_amount20": 5512394.0,
+          "status": "NORMAL"
+        },
+        "sz.159945": {
+          "account_verified": true,
+          "listed_sessions": 2024,
+          "median_amount20": 10658222.5,
+          "status": "NORMAL"
+        },
+        "sz.159946": {
+          "account_verified": true,
+          "listed_sessions": 2019,
+          "status": "RETIRED"
+        }
+      },
+      "ranking_freedom": false,
+      "release_date": "2023-11-01",
+      "risk_scaling": false,
+      "signal_anchor_at": "2023-10-31T21:00:00+08:00",
+      "signal_anchor_date": "2023-10-31",
+      "signal_release_delay": 1,
+      "status": "QUALIFIED_INPUTS",
+      "target_gross_weight": 0,
+      "trend": false,
+      "universe": "R1I_FIXED_COHORT_V1",
+      "variant": "E1"
+    },
+    "execution_date": "2023-11-02",
+    "ranks": {},
+    "reference_prices": {
+      "sz.159936": 1.625,
+      "sz.159938": 0.718,
+      "sz.159939": 0.53,
+      "sz.159940": 0.915,
+      "sz.159944": 0.909,
+      "sz.159945": 1.002
+    },
+    "status": "CASH_INSUFFICIENT_PRODUCTS",
+    "weights": {}
+  },
+  {
+    "adv20": {
+      "sz.159936": 12799429.5,
+      "sz.159938": 62295164.5,
+      "sz.159939": 46959364.75,
+      "sz.159940": 5014318.35,
+      "sz.159944": 3429966.6,
+      "sz.159945": 10426021.05
+    },
+    "decision_at": "2023-12-01T21:00:00+08:00",
+    "decision_date": "2023-12-01",
+    "diagnostics": {
+      "anchor_date": "2023-11-30",
+      "eligible": [
+        "sz.159938",
+        "sz.159939"
+      ],
+      "eligible_count": 2,
+      "exclusions": {
+        "sz.159936": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159940": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159944": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159945": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159946": "DELISTED"
+      },
+      "execution_date": "2023-12-04",
+      "momentum": {},
+      "momentum_order": [],
+      "order_reference_date": "2023-12-01",
+      "qualification": {
+        "sz.159936": {
+          "account_verified": true,
+          "listed_sessions": 2298,
+          "median_amount20": 11628410.5,
+          "status": "NORMAL"
+        },
+        "sz.159938": {
+          "account_verified": true,
+          "listed_sessions": 2165,
+          "median_amount20": 57413297.0,
+          "status": "NORMAL"
+        },
+        "sz.159939": {
+          "account_verified": true,
+          "listed_sessions": 2145,
+          "median_amount20": 47438528.0,
+          "status": "NORMAL"
+        },
+        "sz.159940": {
+          "account_verified": true,
+          "listed_sessions": 2100,
+          "median_amount20": 3828391.5,
+          "status": "NORMAL"
+        },
+        "sz.159944": {
+          "account_verified": true,
+          "listed_sessions": 2046,
+          "median_amount20": 4111875.5,
+          "status": "NORMAL"
+        },
+        "sz.159945": {
+          "account_verified": true,
+          "listed_sessions": 2046,
+          "median_amount20": 11039266.5,
+          "status": "NORMAL"
+        },
+        "sz.159946": {
+          "account_verified": true,
+          "listed_sessions": 2041,
+          "status": "RETIRED"
+        }
+      },
+      "ranking_freedom": false,
+      "release_date": "2023-12-01",
+      "risk_scaling": false,
+      "signal_anchor_at": "2023-11-30T21:00:00+08:00",
+      "signal_anchor_date": "2023-11-30",
+      "signal_release_delay": 1,
+      "status": "QUALIFIED_INPUTS",
+      "target_gross_weight": 0,
+      "trend": false,
+      "universe": "R1I_FIXED_COHORT_V1",
+      "variant": "E1"
+    },
+    "execution_date": "2023-12-04",
+    "ranks": {},
+    "reference_prices": {
+      "sz.159936": 1.595,
+      "sz.159938": 0.733,
+      "sz.159939": 0.539,
+      "sz.159940": 0.894,
+      "sz.159944": 0.875,
+      "sz.159945": 1.042
+    },
+    "status": "CASH_INSUFFICIENT_PRODUCTS",
+    "weights": {}
+  },
+  {
+    "adv20": {
+      "sz.159936": 4396027.05,
+      "sz.159938": 57100088.3,
+      "sz.159939": 45680843.0,
+      "sz.159940": 2053246.95,
+      "sz.159944": 481216.45,
+      "sz.159945": 4424194.0
+    },
+    "decision_at": "2024-01-02T21:00:00+08:00",
+    "decision_date": "2024-01-02",
+    "diagnostics": {
+      "anchor_date": "2023-12-29",
+      "eligible": [
+        "sz.159938",
+        "sz.159939"
+      ],
+      "eligible_count": 2,
+      "exclusions": {
+        "sz.159936": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159940": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159944": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159945": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159946": "DELISTED"
+      },
+      "execution_date": "2024-01-03",
+      "momentum": {},
+      "momentum_order": [],
+      "order_reference_date": "2024-01-02",
+      "qualification": {
+        "sz.159936": {
+          "account_verified": true,
+          "listed_sessions": 2319,
+          "median_amount20": 4099746.0,
+          "status": "NORMAL"
+        },
+        "sz.159938": {
+          "account_verified": true,
+          "listed_sessions": 2186,
+          "median_amount20": 50002628.0,
+          "status": "NORMAL"
+        },
+        "sz.159939": {
+          "account_verified": true,
+          "listed_sessions": 2166,
+          "median_amount20": 45358789.0,
+          "status": "NORMAL"
+        },
+        "sz.159940": {
+          "account_verified": true,
+          "listed_sessions": 2121,
+          "median_amount20": 1466378.5,
+          "status": "NORMAL"
+        },
+        "sz.159944": {
+          "account_verified": true,
+          "listed_sessions": 2067,
+          "median_amount20": 415486.0,
+          "status": "NORMAL"
+        },
+        "sz.159945": {
+          "account_verified": true,
+          "listed_sessions": 2067,
+          "median_amount20": 4792989.5,
+          "status": "NORMAL"
+        },
+        "sz.159946": {
+          "account_verified": true,
+          "listed_sessions": 2062,
+          "status": "RETIRED"
+        }
+      },
+      "ranking_freedom": false,
+      "release_date": "2024-01-02",
+      "risk_scaling": false,
+      "signal_anchor_at": "2023-12-29T21:00:00+08:00",
+      "signal_anchor_date": "2023-12-29",
+      "signal_release_delay": 1,
+      "status": "QUALIFIED_INPUTS",
+      "target_gross_weight": 0,
+      "trend": false,
+      "universe": "R1I_FIXED_COHORT_V1",
+      "variant": "E1"
+    },
+    "execution_date": "2024-01-03",
+    "ranks": {},
+    "reference_prices": {
+      "sz.159936": 1.542,
+      "sz.159938": 0.696,
+      "sz.159939": 0.514,
+      "sz.159940": 0.857,
+      "sz.159944": 0.874,
+      "sz.159945": 1.063
+    },
+    "status": "CASH_INSUFFICIENT_PRODUCTS",
+    "weights": {}
+  },
+  {
+    "adv20": {
+      "sz.159936": 4741062.95,
+      "sz.159938": 61470279.1,
+      "sz.159939": 36700536.05,
+      "sz.159940": 3503379.3,
+      "sz.159944": 1012759.4,
+      "sz.159945": 5753273.95
+    },
+    "decision_at": "2024-02-01T21:00:00+08:00",
+    "decision_date": "2024-02-01",
+    "diagnostics": {
+      "anchor_date": "2024-01-31",
+      "eligible": [
+        "sz.159938",
+        "sz.159939"
+      ],
+      "eligible_count": 2,
+      "exclusions": {
+        "sz.159936": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159940": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159944": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159945": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159946": "DELISTED"
+      },
+      "execution_date": "2024-02-02",
+      "momentum": {},
+      "momentum_order": [],
+      "order_reference_date": "2024-02-01",
+      "qualification": {
+        "sz.159936": {
+          "account_verified": true,
+          "listed_sessions": 2341,
+          "median_amount20": 4166731.5,
+          "status": "NORMAL"
+        },
+        "sz.159938": {
+          "account_verified": true,
+          "listed_sessions": 2208,
+          "median_amount20": 55688171.5,
+          "status": "NORMAL"
+        },
+        "sz.159939": {
+          "account_verified": true,
+          "listed_sessions": 2188,
+          "median_amount20": 36934302.5,
+          "status": "NORMAL"
+        },
+        "sz.159940": {
+          "account_verified": true,
+          "listed_sessions": 2143,
+          "median_amount20": 2596953.0,
+          "status": "NORMAL"
+        },
+        "sz.159944": {
+          "account_verified": true,
+          "listed_sessions": 2089,
+          "median_amount20": 532718.5,
+          "status": "NORMAL"
+        },
+        "sz.159945": {
+          "account_verified": true,
+          "listed_sessions": 2089,
+          "median_amount20": 5803102.5,
+          "status": "NORMAL"
+        },
+        "sz.159946": {
+          "account_verified": true,
+          "listed_sessions": 2084,
+          "status": "RETIRED"
+        }
+      },
+      "ranking_freedom": false,
+      "release_date": "2024-02-01",
+      "risk_scaling": false,
+      "signal_anchor_at": "2024-01-31T21:00:00+08:00",
+      "signal_anchor_date": "2024-01-31",
+      "signal_release_delay": 1,
+      "status": "QUALIFIED_INPUTS",
+      "target_gross_weight": 0,
+      "trend": false,
+      "universe": "R1I_FIXED_COHORT_V1",
+      "variant": "E1"
+    },
+    "execution_date": "2024-02-02",
+    "ranks": {},
+    "reference_prices": {
+      "sz.159936": 1.44,
+      "sz.159938": 0.581,
+      "sz.159939": 0.417,
+      "sz.159940": 0.871,
+      "sz.159944": 0.784,
+      "sz.159945": 1.085
+    },
+    "status": "CASH_INSUFFICIENT_PRODUCTS",
+    "weights": {}
+  },
+  {
+    "adv20": {
+      "sz.159936": 5282393.2,
+      "sz.159938": 57337949.15,
+      "sz.159939": 36889776.15,
+      "sz.159940": 8340574.1,
+      "sz.159944": 1669987.85,
+      "sz.159945": 5850391.4
+    },
+    "decision_at": "2024-03-01T21:00:00+08:00",
+    "decision_date": "2024-03-01",
+    "diagnostics": {
+      "anchor_date": "2024-02-29",
+      "eligible": [
+        "sz.159938",
+        "sz.159939"
+      ],
+      "eligible_count": 2,
+      "exclusions": {
+        "sz.159936": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159940": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159944": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159945": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159946": "DELISTED"
+      },
+      "execution_date": "2024-03-04",
+      "momentum": {},
+      "momentum_order": [],
+      "order_reference_date": "2024-03-01",
+      "qualification": {
+        "sz.159936": {
+          "account_verified": true,
+          "listed_sessions": 2356,
+          "median_amount20": 4267136.5,
+          "status": "NORMAL"
+        },
+        "sz.159938": {
+          "account_verified": true,
+          "listed_sessions": 2223,
+          "median_amount20": 50602527.0,
+          "status": "NORMAL"
+        },
+        "sz.159939": {
+          "account_verified": true,
+          "listed_sessions": 2203,
+          "median_amount20": 30307030.5,
+          "status": "NORMAL"
+        },
+        "sz.159940": {
+          "account_verified": true,
+          "listed_sessions": 2158,
+          "median_amount20": 4564284.5,
+          "status": "NORMAL"
+        },
+        "sz.159944": {
+          "account_verified": true,
+          "listed_sessions": 2104,
+          "median_amount20": 1521721.0,
+          "status": "NORMAL"
+        },
+        "sz.159945": {
+          "account_verified": true,
+          "listed_sessions": 2104,
+          "median_amount20": 6076003.0,
+          "status": "NORMAL"
+        },
+        "sz.159946": {
+          "account_verified": true,
+          "listed_sessions": 2099,
+          "status": "RETIRED"
+        }
+      },
+      "ranking_freedom": false,
+      "release_date": "2024-03-01",
+      "risk_scaling": false,
+      "signal_anchor_at": "2024-02-29T21:00:00+08:00",
+      "signal_anchor_date": "2024-02-29",
+      "signal_release_delay": 1,
+      "status": "QUALIFIED_INPUTS",
+      "target_gross_weight": 0,
+      "trend": false,
+      "universe": "R1I_FIXED_COHORT_V1",
+      "variant": "E1"
+    },
+    "execution_date": "2024-03-04",
+    "ranks": {},
+    "reference_prices": {
+      "sz.159936": 1.632,
+      "sz.159938": 0.649,
+      "sz.159939": 0.506,
+      "sz.159940": 0.92,
+      "sz.159944": 0.875,
+      "sz.159945": 1.184
+    },
+    "status": "CASH_INSUFFICIENT_PRODUCTS",
+    "weights": {}
+  },
+  {
+    "adv20": {
+      "sz.159936": 3514819.6,
+      "sz.159938": 47520634.85,
+      "sz.159939": 33266081.1,
+      "sz.159940": 3806771.4,
+      "sz.159944": 655083.4,
+      "sz.159945": 5999963.9
+    },
+    "decision_at": "2024-04-01T21:00:00+08:00",
+    "decision_date": "2024-04-01",
+    "diagnostics": {
+      "anchor_date": "2024-03-29",
+      "eligible": [
+        "sz.159938",
+        "sz.159939"
+      ],
+      "eligible_count": 2,
+      "exclusions": {
+        "sz.159936": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159940": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159944": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159945": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159946": "DELISTED"
+      },
+      "execution_date": "2024-04-02",
+      "momentum": {},
+      "momentum_order": [],
+      "order_reference_date": "2024-04-01",
+      "qualification": {
+        "sz.159936": {
+          "account_verified": true,
+          "listed_sessions": 2377,
+          "median_amount20": 3410054.5,
+          "status": "NORMAL"
+        },
+        "sz.159938": {
+          "account_verified": true,
+          "listed_sessions": 2244,
+          "median_amount20": 46880193.0,
+          "status": "NORMAL"
+        },
+        "sz.159939": {
+          "account_verified": true,
+          "listed_sessions": 2224,
+          "median_amount20": 31997422.5,
+          "status": "NORMAL"
+        },
+        "sz.159940": {
+          "account_verified": true,
+          "listed_sessions": 2179,
+          "median_amount20": 2035845.5,
+          "status": "NORMAL"
+        },
+        "sz.159944": {
+          "account_verified": true,
+          "listed_sessions": 2125,
+          "median_amount20": 321256.5,
+          "status": "NORMAL"
+        },
+        "sz.159945": {
+          "account_verified": true,
+          "listed_sessions": 2125,
+          "median_amount20": 5798229.5,
+          "status": "NORMAL"
+        },
+        "sz.159946": {
+          "account_verified": true,
+          "listed_sessions": 2120,
+          "status": "RETIRED"
+        }
+      },
+      "ranking_freedom": false,
+      "release_date": "2024-04-01",
+      "risk_scaling": false,
+      "signal_anchor_at": "2024-03-29T21:00:00+08:00",
+      "signal_anchor_date": "2024-03-29",
+      "signal_release_delay": 1,
+      "status": "QUALIFIED_INPUTS",
+      "target_gross_weight": 0,
+      "trend": false,
+      "universe": "R1I_FIXED_COHORT_V1",
+      "variant": "E1"
+    },
+    "execution_date": "2024-04-02",
+    "ranks": {},
+    "reference_prices": {
+      "sz.159936": 1.694,
+      "sz.159938": 0.633,
+      "sz.159939": 0.496,
+      "sz.159940": 0.901,
+      "sz.159944": 0.936,
+      "sz.159945": 1.17
+    },
+    "status": "CASH_INSUFFICIENT_PRODUCTS",
+    "weights": {}
+  },
+  {
+    "adv20": {
+      "sz.159936": 1708660.55,
+      "sz.159938": 53367478.5,
+      "sz.159939": 27514708.4,
+      "sz.159940": 5047827.15,
+      "sz.159944": 827552.65,
+      "sz.159945": 5918588.5
+    },
+    "decision_at": "2024-05-06T21:00:00+08:00",
+    "decision_date": "2024-05-06",
+    "diagnostics": {
+      "anchor_date": "2024-04-30",
+      "eligible": [
+        "sz.159938",
+        "sz.159939"
+      ],
+      "eligible_count": 2,
+      "exclusions": {
+        "sz.159936": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159940": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159944": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159945": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159946": "DELISTED"
+      },
+      "execution_date": "2024-05-07",
+      "momentum": {},
+      "momentum_order": [],
+      "order_reference_date": "2024-05-06",
+      "qualification": {
+        "sz.159936": {
+          "account_verified": true,
+          "listed_sessions": 2397,
+          "median_amount20": 1401840.0,
+          "status": "NORMAL"
+        },
+        "sz.159938": {
+          "account_verified": true,
+          "listed_sessions": 2264,
+          "median_amount20": 42284006.0,
+          "status": "NORMAL"
+        },
+        "sz.159939": {
+          "account_verified": true,
+          "listed_sessions": 2244,
+          "median_amount20": 23592222.5,
+          "status": "NORMAL"
+        },
+        "sz.159940": {
+          "account_verified": true,
+          "listed_sessions": 2199,
+          "median_amount20": 3706768.5,
+          "status": "NORMAL"
+        },
+        "sz.159944": {
+          "account_verified": true,
+          "listed_sessions": 2145,
+          "median_amount20": 524283.0,
+          "status": "NORMAL"
+        },
+        "sz.159945": {
+          "account_verified": true,
+          "listed_sessions": 2145,
+          "median_amount20": 5796789.5,
+          "status": "NORMAL"
+        },
+        "sz.159946": {
+          "account_verified": true,
+          "listed_sessions": 2140,
+          "status": "RETIRED"
+        }
+      },
+      "ranking_freedom": false,
+      "release_date": "2024-05-06",
+      "risk_scaling": false,
+      "signal_anchor_at": "2024-04-30T21:00:00+08:00",
+      "signal_anchor_date": "2024-04-30",
+      "signal_release_delay": 1,
+      "status": "QUALIFIED_INPUTS",
+      "target_gross_weight": 0,
+      "trend": true,
+      "universe": "R1I_FIXED_COHORT_V1",
+      "variant": "E1"
+    },
+    "execution_date": "2024-05-07",
+    "ranks": {},
+    "reference_prices": {
+      "sz.159936": 1.773,
+      "sz.159938": 0.659,
+      "sz.159939": 0.493,
+      "sz.159940": 0.923,
+      "sz.159944": 0.974,
+      "sz.159945": 1.185
+    },
+    "status": "CASH_INSUFFICIENT_PRODUCTS",
+    "weights": {}
+  },
+  {
+    "adv20": {
+      "sz.159936": 1890738.1,
+      "sz.159938": 40000217.0,
+      "sz.159939": 20950907.8,
+      "sz.159940": 6046622.1,
+      "sz.159944": 2254864.0,
+      "sz.159945": 7608221.65
+    },
+    "decision_at": "2024-06-03T21:00:00+08:00",
+    "decision_date": "2024-06-03",
+    "diagnostics": {
+      "anchor_date": "2024-05-31",
+      "eligible": [
+        "sz.159938"
+      ],
+      "eligible_count": 1,
+      "exclusions": {
+        "sz.159936": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159939": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159940": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159944": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159945": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159946": "DELISTED"
+      },
+      "execution_date": "2024-06-04",
+      "momentum": {},
+      "momentum_order": [],
+      "order_reference_date": "2024-06-03",
+      "qualification": {
+        "sz.159936": {
+          "account_verified": true,
+          "listed_sessions": 2417,
+          "median_amount20": 1164498.0,
+          "status": "NORMAL"
+        },
+        "sz.159938": {
+          "account_verified": true,
+          "listed_sessions": 2284,
+          "median_amount20": 40652193.5,
+          "status": "NORMAL"
+        },
+        "sz.159939": {
+          "account_verified": true,
+          "listed_sessions": 2264,
+          "median_amount20": 19768359.5,
+          "status": "NORMAL"
+        },
+        "sz.159940": {
+          "account_verified": true,
+          "listed_sessions": 2219,
+          "median_amount20": 3597138.5,
+          "status": "NORMAL"
+        },
+        "sz.159944": {
+          "account_verified": true,
+          "listed_sessions": 2165,
+          "median_amount20": 2175253.0,
+          "status": "NORMAL"
+        },
+        "sz.159945": {
+          "account_verified": true,
+          "listed_sessions": 2165,
+          "median_amount20": 7385810.0,
+          "status": "NORMAL"
+        },
+        "sz.159946": {
+          "account_verified": true,
+          "listed_sessions": 2160,
+          "status": "RETIRED"
+        }
+      },
+      "ranking_freedom": false,
+      "release_date": "2024-06-03",
+      "risk_scaling": false,
+      "signal_anchor_at": "2024-05-31T21:00:00+08:00",
+      "signal_anchor_date": "2024-05-31",
+      "signal_release_delay": 1,
+      "status": "QUALIFIED_INPUTS",
+      "target_gross_weight": 0,
+      "trend": true,
+      "universe": "R1I_FIXED_COHORT_V1",
+      "variant": "E1"
+    },
+    "execution_date": "2024-06-04",
+    "ranks": {},
+    "reference_prices": {
+      "sz.159936": 1.708,
+      "sz.159938": 0.613,
+      "sz.159939": 0.475,
+      "sz.159940": 0.922,
+      "sz.159944": 0.933,
+      "sz.159945": 1.226
+    },
+    "status": "CASH_INSUFFICIENT_PRODUCTS",
+    "weights": {}
+  },
+  {
+    "adv20": {
+      "sz.159936": 1713512.0,
+      "sz.159938": 31890444.05,
+      "sz.159939": 21747158.1,
+      "sz.159940": 4535781.0,
+      "sz.159944": 2848196.25,
+      "sz.159945": 6652909.9
+    },
+    "decision_at": "2024-07-01T21:00:00+08:00",
+    "decision_date": "2024-07-01",
+    "diagnostics": {
+      "anchor_date": "2024-06-28",
+      "eligible": [
+        "sz.159938"
+      ],
+      "eligible_count": 1,
+      "exclusions": {
+        "sz.159936": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159939": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159940": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159944": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159945": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159946": "DELISTED"
+      },
+      "execution_date": "2024-07-02",
+      "momentum": {},
+      "momentum_order": [],
+      "order_reference_date": "2024-07-01",
+      "qualification": {
+        "sz.159936": {
+          "account_verified": true,
+          "listed_sessions": 2436,
+          "median_amount20": 1144275.0,
+          "status": "NORMAL"
+        },
+        "sz.159938": {
+          "account_verified": true,
+          "listed_sessions": 2303,
+          "median_amount20": 31964639.5,
+          "status": "NORMAL"
+        },
+        "sz.159939": {
+          "account_verified": true,
+          "listed_sessions": 2283,
+          "median_amount20": 19067591.5,
+          "status": "NORMAL"
+        },
+        "sz.159940": {
+          "account_verified": true,
+          "listed_sessions": 2238,
+          "median_amount20": 2468322.0,
+          "status": "NORMAL"
+        },
+        "sz.159944": {
+          "account_verified": true,
+          "listed_sessions": 2184,
+          "median_amount20": 2543646.0,
+          "status": "NORMAL"
+        },
+        "sz.159945": {
+          "account_verified": true,
+          "listed_sessions": 2184,
+          "median_amount20": 6732444.0,
+          "status": "NORMAL"
+        },
+        "sz.159946": {
+          "account_verified": true,
+          "listed_sessions": 2179,
+          "status": "RETIRED"
+        }
+      },
+      "ranking_freedom": false,
+      "release_date": "2024-07-01",
+      "risk_scaling": false,
+      "signal_anchor_at": "2024-06-28T21:00:00+08:00",
+      "signal_anchor_date": "2024-06-28",
+      "signal_release_delay": 1,
+      "status": "QUALIFIED_INPUTS",
+      "target_gross_weight": 0,
+      "trend": false,
+      "universe": "R1I_FIXED_COHORT_V1",
+      "variant": "E1"
+    },
+    "execution_date": "2024-07-02",
+    "ranks": {},
+    "reference_prices": {
+      "sz.159936": 1.628,
+      "sz.159938": 0.573,
+      "sz.159939": 0.48,
+      "sz.159940": 0.907,
+      "sz.159944": 0.906,
+      "sz.159945": 1.23
+    },
+    "status": "CASH_INSUFFICIENT_PRODUCTS",
+    "weights": {}
+  },
+  {
+    "adv20": {
+      "sz.159936": 2508503.15,
+      "sz.159938": 32912225.2,
+      "sz.159939": 18792951.25,
+      "sz.159940": 4946551.15,
+      "sz.159944": 1930299.9,
+      "sz.159945": 6947106.6
+    },
+    "decision_at": "2024-08-01T21:00:00+08:00",
+    "decision_date": "2024-08-01",
+    "diagnostics": {
+      "anchor_date": "2024-07-31",
+      "eligible": [
+        "sz.159938"
+      ],
+      "eligible_count": 1,
+      "exclusions": {
+        "sz.159936": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159939": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159940": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159944": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159945": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159946": "DELISTED"
+      },
+      "execution_date": "2024-08-02",
+      "momentum": {},
+      "momentum_order": [],
+      "order_reference_date": "2024-08-01",
+      "qualification": {
+        "sz.159936": {
+          "account_verified": true,
+          "listed_sessions": 2459,
+          "median_amount20": 1995775.0,
+          "status": "NORMAL"
+        },
+        "sz.159938": {
+          "account_verified": true,
+          "listed_sessions": 2326,
+          "median_amount20": 32046032.5,
+          "status": "NORMAL"
+        },
+        "sz.159939": {
+          "account_verified": true,
+          "listed_sessions": 2306,
+          "median_amount20": 18348666.0,
+          "status": "NORMAL"
+        },
+        "sz.159940": {
+          "account_verified": true,
+          "listed_sessions": 2261,
+          "median_amount20": 4588028.0,
+          "status": "NORMAL"
+        },
+        "sz.159944": {
+          "account_verified": true,
+          "listed_sessions": 2207,
+          "median_amount20": 1765763.5,
+          "status": "NORMAL"
+        },
+        "sz.159945": {
+          "account_verified": true,
+          "listed_sessions": 2207,
+          "median_amount20": 7330059.0,
+          "status": "NORMAL"
+        },
+        "sz.159946": {
+          "account_verified": true,
+          "listed_sessions": 2202,
+          "status": "RETIRED"
+        }
+      },
+      "ranking_freedom": false,
+      "release_date": "2024-08-01",
+      "risk_scaling": false,
+      "signal_anchor_at": "2024-07-31T21:00:00+08:00",
+      "signal_anchor_date": "2024-07-31",
+      "signal_release_delay": 1,
+      "status": "QUALIFIED_INPUTS",
+      "target_gross_weight": 0,
+      "trend": true,
+      "universe": "R1I_FIXED_COHORT_V1",
+      "variant": "E1"
+    },
+    "execution_date": "2024-08-02",
+    "ranks": {},
+    "reference_prices": {
+      "sz.159936": 1.597,
+      "sz.159938": 0.566,
+      "sz.159939": 0.486,
+      "sz.159940": 0.933,
+      "sz.159944": 0.854,
+      "sz.159945": 1.105
+    },
+    "status": "CASH_INSUFFICIENT_PRODUCTS",
+    "weights": {}
+  },
+  {
+    "adv20": {
+      "sz.159936": 1573148.6,
+      "sz.159938": 29341496.0,
+      "sz.159939": 13154842.9,
+      "sz.159940": 5505174.8,
+      "sz.159944": 2528884.65,
+      "sz.159945": 4120340.6
+    },
+    "decision_at": "2024-09-02T21:00:00+08:00",
+    "decision_date": "2024-09-02",
+    "diagnostics": {
+      "anchor_date": "2024-08-30",
+      "eligible": [
+        "sz.159938"
+      ],
+      "eligible_count": 1,
+      "exclusions": {
+        "sz.159936": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159939": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159940": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159944": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159945": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159946": "DELISTED"
+      },
+      "execution_date": "2024-09-03",
+      "momentum": {},
+      "momentum_order": [],
+      "order_reference_date": "2024-09-02",
+      "qualification": {
+        "sz.159936": {
+          "account_verified": true,
+          "listed_sessions": 2481,
+          "median_amount20": 1417953.5,
+          "status": "NORMAL"
+        },
+        "sz.159938": {
+          "account_verified": true,
+          "listed_sessions": 2348,
+          "median_amount20": 27886666.5,
+          "status": "NORMAL"
+        },
+        "sz.159939": {
+          "account_verified": true,
+          "listed_sessions": 2328,
+          "median_amount20": 11570251.5,
+          "status": "NORMAL"
+        },
+        "sz.159940": {
+          "account_verified": true,
+          "listed_sessions": 2283,
+          "median_amount20": 3415739.0,
+          "status": "NORMAL"
+        },
+        "sz.159944": {
+          "account_verified": true,
+          "listed_sessions": 2229,
+          "median_amount20": 2778414.0,
+          "status": "NORMAL"
+        },
+        "sz.159945": {
+          "account_verified": true,
+          "listed_sessions": 2229,
+          "median_amount20": 4329429.0,
+          "status": "NORMAL"
+        },
+        "sz.159946": {
+          "account_verified": true,
+          "listed_sessions": 2224,
+          "status": "RETIRED"
+        }
+      },
+      "ranking_freedom": false,
+      "release_date": "2024-09-02",
+      "risk_scaling": false,
+      "signal_anchor_at": "2024-08-30T21:00:00+08:00",
+      "signal_anchor_date": "2024-08-30",
+      "signal_release_delay": 1,
+      "status": "QUALIFIED_INPUTS",
+      "target_gross_weight": 0,
+      "trend": false,
+      "universe": "R1I_FIXED_COHORT_V1",
+      "variant": "E1"
+    },
+    "execution_date": "2024-09-03",
+    "ranks": {},
+    "reference_prices": {
+      "sz.159936": 1.546,
+      "sz.159938": 0.54,
+      "sz.159939": 0.441,
+      "sz.159940": 0.912,
+      "sz.159944": 0.804,
+      "sz.159945": 1.12
+    },
+    "status": "CASH_INSUFFICIENT_PRODUCTS",
+    "weights": {}
+  },
+  {
+    "adv20": {
+      "sz.159936": 3361232.45,
+      "sz.159938": 47691296.15,
+      "sz.159939": 17249313.5,
+      "sz.159940": 13435338.75,
+      "sz.159944": 2820058.7,
+      "sz.159945": 4227477.2
+    },
+    "decision_at": "2024-10-08T21:00:00+08:00",
+    "decision_date": "2024-10-08",
+    "diagnostics": {
+      "anchor_date": "2024-09-30",
+      "eligible": [
+        "sz.159938"
+      ],
+      "eligible_count": 1,
+      "exclusions": {
+        "sz.159936": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159939": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159940": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159944": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159945": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159946": "DELISTED"
+      },
+      "execution_date": "2024-10-09",
+      "momentum": {},
+      "momentum_order": [],
+      "order_reference_date": "2024-10-08",
+      "qualification": {
+        "sz.159936": {
+          "account_verified": true,
+          "listed_sessions": 2500,
+          "median_amount20": 1510673.0,
+          "status": "NORMAL"
+        },
+        "sz.159938": {
+          "account_verified": true,
+          "listed_sessions": 2367,
+          "median_amount20": 27809279.5,
+          "status": "NORMAL"
+        },
+        "sz.159939": {
+          "account_verified": true,
+          "listed_sessions": 2347,
+          "median_amount20": 12296902.5,
+          "status": "NORMAL"
+        },
+        "sz.159940": {
+          "account_verified": true,
+          "listed_sessions": 2302,
+          "median_amount20": 4074686.5,
+          "status": "NORMAL"
+        },
+        "sz.159944": {
+          "account_verified": true,
+          "listed_sessions": 2248,
+          "median_amount20": 2586283.0,
+          "status": "NORMAL"
+        },
+        "sz.159945": {
+          "account_verified": true,
+          "listed_sessions": 2248,
+          "median_amount20": 3676875.0,
+          "status": "NORMAL"
+        },
+        "sz.159946": {
+          "account_verified": true,
+          "listed_sessions": 2243,
+          "status": "RETIRED"
+        }
+      },
+      "ranking_freedom": false,
+      "release_date": "2024-10-08",
+      "risk_scaling": false,
+      "signal_anchor_at": "2024-09-30T21:00:00+08:00",
+      "signal_anchor_date": "2024-09-30",
+      "signal_release_delay": 1,
+      "status": "QUALIFIED_INPUTS",
+      "target_gross_weight": 0,
+      "trend": true,
+      "universe": "R1I_FIXED_COHORT_V1",
+      "variant": "E1"
+    },
+    "execution_date": "2024-10-09",
+    "ranks": {},
+    "reference_prices": {
+      "sz.159936": 2.042,
+      "sz.159938": 0.743,
+      "sz.159939": 0.601,
+      "sz.159940": 1.212,
+      "sz.159944": 1.023,
+      "sz.159945": 1.245
+    },
+    "status": "CASH_INSUFFICIENT_PRODUCTS",
+    "weights": {}
+  },
+  {
+    "adv20": {
+      "sz.159936": 5166407.65,
+      "sz.159938": 71385292.15,
+      "sz.159939": 55937064.9,
+      "sz.159940": 26188918.85,
+      "sz.159944": 4249686.6,
+      "sz.159945": 5687316.1
+    },
+    "decision_at": "2024-11-01T21:00:00+08:00",
+    "decision_date": "2024-11-01",
+    "diagnostics": {
+      "anchor_date": "2024-10-31",
+      "eligible": [
+        "sz.159938",
+        "sz.159939"
+      ],
+      "eligible_count": 2,
+      "exclusions": {
+        "sz.159936": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159940": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159944": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159945": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159946": "DELISTED"
+      },
+      "execution_date": "2024-11-04",
+      "momentum": {},
+      "momentum_order": [],
+      "order_reference_date": "2024-11-01",
+      "qualification": {
+        "sz.159936": {
+          "account_verified": true,
+          "listed_sessions": 2518,
+          "median_amount20": 3054559.5,
+          "status": "NORMAL"
+        },
+        "sz.159938": {
+          "account_verified": true,
+          "listed_sessions": 2385,
+          "median_amount20": 53735541.5,
+          "status": "NORMAL"
+        },
+        "sz.159939": {
+          "account_verified": true,
+          "listed_sessions": 2365,
+          "median_amount20": 49522481.0,
+          "status": "NORMAL"
+        },
+        "sz.159940": {
+          "account_verified": true,
+          "listed_sessions": 2320,
+          "median_amount20": 17602876.5,
+          "status": "NORMAL"
+        },
+        "sz.159944": {
+          "account_verified": true,
+          "listed_sessions": 2266,
+          "median_amount20": 3519637.0,
+          "status": "NORMAL"
+        },
+        "sz.159945": {
+          "account_verified": true,
+          "listed_sessions": 2266,
+          "median_amount20": 4812558.0,
+          "status": "NORMAL"
+        },
+        "sz.159946": {
+          "account_verified": true,
+          "listed_sessions": 2261,
+          "status": "RETIRED"
+        }
+      },
+      "ranking_freedom": false,
+      "release_date": "2024-11-01",
+      "risk_scaling": false,
+      "signal_anchor_at": "2024-10-31T21:00:00+08:00",
+      "signal_anchor_date": "2024-10-31",
+      "signal_release_delay": 1,
+      "status": "QUALIFIED_INPUTS",
+      "target_gross_weight": 0,
+      "trend": true,
+      "universe": "R1I_FIXED_COHORT_V1",
+      "variant": "E1"
+    },
+    "execution_date": "2024-11-04",
+    "ranks": {},
+    "reference_prices": {
+      "sz.159936": 1.892,
+      "sz.159938": 0.628,
+      "sz.159939": 0.601,
+      "sz.159940": 1.147,
+      "sz.159944": 0.959,
+      "sz.159945": 1.154
+    },
+    "status": "CASH_INSUFFICIENT_PRODUCTS",
+    "weights": {}
+  },
+  {
+    "adv20": {
+      "sz.159936": 4088322.75,
+      "sz.159938": 54738526.95,
+      "sz.159939": 62185972.2,
+      "sz.159940": 20761410.1,
+      "sz.159944": 2100260.9,
+      "sz.159945": 5978097.3
+    },
+    "decision_at": "2024-12-02T21:00:00+08:00",
+    "decision_date": "2024-12-02",
+    "diagnostics": {
+      "anchor_date": "2024-11-29",
+      "eligible": [
+        "sz.159938",
+        "sz.159939"
+      ],
+      "eligible_count": 2,
+      "exclusions": {
+        "sz.159936": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159940": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159944": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159945": "MEDIAN_AMOUNT_BELOW_20000000",
+        "sz.159946": "DELISTED"
+      },
+      "execution_date": "2024-12-03",
+      "momentum": {},
+      "momentum_order": [],
+      "order_reference_date": "2024-12-02",
+      "qualification": {
+        "sz.159936": {
+          "account_verified": true,
+          "listed_sessions": 2539,
+          "median_amount20": 3529405.5,
+          "status": "NORMAL"
+        },
+        "sz.159938": {
+          "account_verified": true,
+          "listed_sessions": 2406,
+          "median_amount20": 51415676.5,
+          "status": "NORMAL"
+        },
+        "sz.159939": {
+          "account_verified": true,
+          "listed_sessions": 2386,
+          "median_amount20": 50795427.0,
+          "status": "NORMAL"
+        },
+        "sz.159940": {
+          "account_verified": true,
+          "listed_sessions": 2341,
+          "median_amount20": 9476655.5,
+          "status": "NORMAL"
+        },
+        "sz.159944": {
+          "account_verified": true,
+          "listed_sessions": 2287,
+          "median_amount20": 1683035.5,
+          "status": "NORMAL"
+        },
+        "sz.159945": {
+          "account_verified": true,
+          "listed_sessions": 2287,
+          "median_amount20": 5714615.0,
+          "status": "NORMAL"
+        },
+        "sz.159946": {
+          "account_verified": true,
+          "listed_sessions": 2282,
+          "status": "RETIRED"
+        }
+      },
+      "ranking_freedom": false,
+      "release_date": "2024-12-02",
+      "risk_scaling": false,
+      "signal_anchor_at": "2024-11-29T21:00:00+08:00",
+      "signal_anchor_date": "2024-11-29",
+      "signal_release_delay": 1,
+      "status": "QUALIFIED_INPUTS",
+      "target_gross_weight": 0,
+      "trend": true,
+      "universe": "R1I_FIXED_COHORT_V1",
+      "variant": "E1"
+    },
+    "execution_date": "2024-12-03",
+    "ranks": {},
+    "reference_prices": {
+      "sz.159936": 1.951,
+      "sz.159938": 0.645,
+      "sz.159939": 0.638,
+      "sz.159940": 1.164,
+      "sz.159944": 0.949,
+      "sz.159945": 1.134
+    },
+    "status": "CASH_INSUFFICIENT_PRODUCTS",
+    "weights": {}
+  }
+]

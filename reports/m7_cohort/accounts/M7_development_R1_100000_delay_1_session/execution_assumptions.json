@@ -1,0 +1,16 @@
+{
+  "accounting_timing_eligible": true,
+  "cash_delay_sessions": 0,
+  "confirmation_eligible": false,
+  "limitations": [
+    "Daily bars do not establish opening queue liquidity.",
+    "Stock dividend FIFO is connected only for explicitly labeled engineering accounting; real stock strategy admission remains blocked.",
+    "Pending orders are canceled on a corporate-action ex-date; buys are not retried.",
+    "Unpriced liquidation rights carry zero with explicit valuation uncertainty; late recovery observations never backfill cash.",
+    "ETF look-through industry exposure is unavailable; observed stock industries only."
+  ],
+  "mode": "DAILY_SCREEN_ONLY",
+  "performance_evidence": false,
+  "purpose": "DAILY_SCREEN_ONLY",
+  "rule_based_settlement": false
+}

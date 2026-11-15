@@ -1,0 +1,1 @@
+{"status": "PASS_SCOPED_NO_HOLDING_DEPENDENCY", "source_files_checked": 102, "table_files_checked": 5, "raw_rows": 15225, "title_counts": {"sz.159936": 239, "sz.159938": 256, "sz.159939": 261, "sz.159940": 247, "sz.159944": 240, "sz.159945": 240, "sz.159946": 58}, "model_qualified_N_distribution": {"0": 48, "1": 20, "2": 39}}

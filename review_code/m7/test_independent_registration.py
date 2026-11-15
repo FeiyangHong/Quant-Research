@@ -50,13 +50,12 @@ def test_hand_calendar_boundary_does_not_backdate_cohort():
 
 
 def test_old_dynamic_r1i_and_r1b_frozen():
-    # Use Git identity rather than deriving a new expectation from changed files.
-    import subprocess
-    frozen = ['reports/m6_r1i/EXPERIMENT_REGISTRY.json',
-              'reports/m6_r1i/matrix_status.json']
-    for relative in frozen:
-        old = subprocess.check_output(['git', 'show', 'da1003a:' + relative], cwd=ROOT)
-        assert (ROOT / relative).read_bytes() == old
-    summary = ROOT / 'reports/real_data_phase3/summary.json'
-    if summary.exists():
-        assert hashlib.sha256(summary.read_bytes()).hexdigest() == 'c238b235722bc73468ef1cc3af29f083c160a92d0ff18edead6c36d3b129aebb'
+    # Independently measured from git show da1003a5c783d9bf4cd86e56816637d7b3af79f9:<path>.
+    # Pin content identities so shallow CI need not possess the older commit.
+    frozen = {
+        'reports/m6_r1i/EXPERIMENT_REGISTRY.json': '9e799ccb30fddf9e51a4c1637362c9573a77f68dd5cc481004be2878992def96',
+        'reports/m6_r1i/matrix_status.json': 'f63a24941e2d266884861d5be674f434d73d1646a79154b20e5c7e12463c63e5',
+        'reports/real_data_phase3/results_summary.json': 'c238b235722bc73468ef1cc3af29f083c160a92d0ff18edead6c36d3b129aebb',
+    }
+    for relative, expected in frozen.items():
+        assert hashlib.sha256((ROOT / relative).read_bytes()).hexdigest() == expected

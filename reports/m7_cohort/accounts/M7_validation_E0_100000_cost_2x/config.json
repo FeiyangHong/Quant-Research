@@ -1,0 +1,17 @@
+{
+  "annual_incremental_cost": null,
+  "claim_type": "economic_increment",
+  "cost_multiplier": 2,
+  "execution_delay": 1,
+  "initial_cash": 100000,
+  "live_enabled": false,
+  "primary_capital_confirmed": true,
+  "protocol_version": "phase2-mvp-0.1",
+  "risk_scaling": false,
+  "sample": "validation",
+  "seed": 20261114,
+  "signal_release_delay": 1,
+  "slippage_multiplier": 2,
+  "universe": "R1I_FIXED_COHORT_V1",
+  "variant": "E0"
+}

@@ -1,6 +1,18 @@
 # Codex Astra Ultra 第二阶段直接任务书
 
-## 当前恢复入口：M6已停止在有限里程碑边界
+## 当前恢复入口：M7固定32条已完成并停止
+
+先读[M7计划](M7_PLAN.md)、[完整原任务第7节](../reports/m7_review/M6_INDEPENDENT_REVIEW_AND_M7_HANDOFF_2026-11-15.md)、[集中审查](../reports/m7_review/REVIEW_PACKET.md)、[RESULTS](../reports/m7_cohort/RESULTS.md)、[VERIFICATION](../reports/m7_review/VERIFICATION.md)及[非作者审查](../reports/m7_review/INDEPENDENT_REVIEW.md)。基准da1003a，登记18eeba4，实际32账户均运行于`679e80813daefea0b5fb312d120e7ada9b8cc40a`，详细hash在ACCOUNT_PATHS/RUN_PROVENANCE。不依赖聊天记忆恢复状态。
+
+结论LIMITED_IDENTIFICATION。新独立范围R1I_FIXED_COHORT_V1仅159936/159938/159939/159940/159944/159945/159946，无季度代表竞争。107个合法月末N最多2，四规则实际32账户全现金；已运行8base+24压力，34,992日账，0失败、0未运行。验证R0−E0净增量0与开发一致，但无选择机会，不能称动量失败、趋势无效或成本稳健。额外固定费null，经济BLOCKED_HURDLE；真实区间因差序列退化而null，统计接口的未知费漏洞已另以合成独立oracle修复验收。
+
+七身份和退市存续量额完整；159946清算未知、完整ETF TR/行为和有仓费用/真实交割未验收，只在本次零起始仓位且无持仓依赖证明下免除。原件在data/raw_m7和复用归档中，Git有102项hash/路径索引；不要把普通境内ETF权限研究模型说成读取了私人券商。任何新持仓依赖须另审，不能把此限定准入直接推广。
+
+本轮研究到固定范围即结束，剩余额度不自动续用。原动态R1I仍DATA_BLOCKED、56 NOT_RUN冻结；旧R1B448+353归档及summary不改。股票旁线本轮暂停，M6康美PASS/茅台两案BLOCKED维持；同源股本只能作事件线索，缺历史vintage，不自动续pilot。R2/R3真实Alpha、2025-01-01至2026-11-13留出、paper/live、采购/供应商联系仍关闭。后续如新授权，先明确可识别的研究问题及独立范围，不改本组产品/阈值/K/年份来寻优。
+
+当前决策路径仍为月末资格→等权或相对动量Top3→可选共同沪深300TR趋势→D+1晚目标→D+2差额订单→原主引擎费用/成交限制；M7关闭波动缩放。因为资格不足，真实目标全为空，完整现金账已保存。R2/R3只有研究核及部分来源工程，未实测。行业全市场方向、股票两路线是否继续均需新的具体依据，不由本轮零结果推断或自动启动。
+
+## 前轮恢复入口：M6已停止在有限里程碑边界
 
 先读[本轮计划](M6_PLAN.md)、[用户完整审查任务](../reports/m6_review/M5_INDEPENDENT_REVIEW_AND_M6_HANDOFF_2026-11-15.md)第7节、[M6审查包](../reports/m6_review/REVIEW_PACKET.md)、[验证](../reports/m6_review/VERIFICATION.md)、[独立审查](../reports/m6_review/INDEPENDENT_REVIEW.md)和本文件/IMPLEMENTATION_STATUS。基准5df2fc9，事前登记02d0f0d；最终commit、源/代码/规则/结果hash由验证包及版本化收据绑定。不要根据旧阶段任务自动重新采集。
 

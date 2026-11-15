@@ -1,6 +1,16 @@
 # 实现与实验状态
 
-## 当前M6：行业代理ETF数据门槛与股票定点收尾（2026-11-15）
+## 当前M7：固定历史行业ETF组有限实证已完成
+
+**LIMITED_IDENTIFICATION：32/32真实历史数据模拟账户完成，0失败、0未运行。** 基准da1003a，事前登记18eeba4，全部账户执行提交`679e80813daefea0b5fb312d120e7ada9b8cc40a`。集中入口：[M7审查包](../reports/m7_review/REVIEW_PACKET.md)、[投资结果](../reports/m7_cohort/RESULTS.md)、[独立审查](../reports/m7_review/INDEPENDENT_REVIEW.md)、[复现与验证](../reports/m7_review/VERIFICATION.md)。
+
+七产品15,225条原始量额完整，107个合法月末N=0/1/2为48/20/39，无N≥3。8base通过独立会计核验后自动完成24压力，共34,992个日账；全部现金、无订单/成交，验证主比较R0−E0净增量0，开发同样0。成本/延迟相同是无交易的机械结果，不是稳健性证据。趋势未改变持仓，无法识别收益/风险作用；不等于行业轮动或动量被否定。
+
+统计接口已修复：未知固定费不再删去非退化收益差的描述性CI，独立合成核验通过；本轮真实差值恒0，描述性推断INCONCLUSIVE_DEGENERATE，固定费仍null/BLOCKED_HURDLE。年度产品1,008行、账户144年含零值全部保存，对账误差0。159946退出身份保留，清算字段仅因完整无持仓依赖证明而不构成此次前置条件。准入不认证完整TR/行为、实际交易或券商权限。
+
+预算56 HTTP、15 SDK、9,842,572字节；完整投入/测试/CI见验证收据。本轮到固定矩阵即停止，不自动续采、换产品或降阈值。旧R1B448+353和M6动态R1I56 NOT_RUN冻结；股票旁线暂停，康美M6 PASS及茅台两案BLOCKED不变，R2/R3真实Alpha0；最终留出和paper/live关闭。
+
+## 前轮M6：行业代理ETF数据门槛与股票定点收尾（2026-11-15）
 
 基准5df2fc9，事前登记02d0f0d，未回退或重做M5。集中入口：[M6审查包](../reports/m6_review/REVIEW_PACKET.md)、[验证](../reports/m6_review/VERIFICATION.md)、[独立审查](../reports/m6_review/INDEPENDENT_REVIEW.md)。**有限范围完成并停止：费率修复PASS；R1I数据门槛DATA_BLOCKED，56条预注册路径全部未运行；康美有仓事件PASS，茅台普通/特别分红仍BLOCKED。**
 

@@ -1,0 +1,47 @@
+[
+  {
+    "component": "statistics",
+    "phase": "baseline",
+    "result": "CONFIRMED_PREEXISTING_DEFECT",
+    "detail": "Same synthetic data/seed: None removed CI, zero and1000 retained identical CI. Baseline hash and values saved."
+  },
+  {
+    "component": "registration reviewer",
+    "phase": "first probe",
+    "result": "REVIEWER_FIXTURE_NAMING_ERROR",
+    "detail": "Expected delay_1d; frozen registry uses delay_1_session. Reviewer fixed name only; all32 Cartesian cells then passed."
+  },
+  {
+    "component": "raw source",
+    "phase": "first probe",
+    "result": "SOURCE_PRECISION_FINDING",
+    "detail": "Price-space0.002 tolerance caught32 tiny-trade amount/VWAP discrepancies. Separate monetary test proves each within1yuan OHLC-volume bound; every median qualification invariant under plus/minus1yuan. Raw amounts never altered."
+  },
+  {
+    "component": "stage reviewer",
+    "phase": "first probe",
+    "result": "REVIEWER_EXPECTATION_ERROR",
+    "detail": "Reviewer pending-blocker assertion omitted known manifest staging-not-admitted blocker. Corrected to exact expected16 pending gate/quality blockers; no production changes."
+  },
+  {
+    "component": "cohort",
+    "phase": "first independent review",
+    "result": "PASS11",
+    "detail": "Separate synthetic quantities/cash/NAV oracle; no reviewer production defect."
+  },
+  {
+    "component": "cohort",
+    "phase": "single correction",
+    "result": "PASS14",
+    "detail": "Root fixed registered fixedfeeNone enforcement; strategy author tightened falsepermission ambiguity; reviewer verified3newnegativechecks+11original."
+  },
+  {
+    "component": "independent registration test",
+    "phase": "CI portability corrective round",
+    "result": "FOCUSED3_PASS",
+    "ci_run": "43729568526",
+    "ci_job": "132858800768",
+    "observed_ci": "816 passed,12 skipped,1failed: old git commit absent in shallow checkout",
+    "correction": "Pinned two independently measured da1003a Gitblob SHA256 hashes instead of requiring repository history; no skip. Also corrected reviewer R1B path from nonexisting summary.json to required results_summary.json and removed exists fallback; exact known frozenSHA verified. Production, attestation-bound evidence and actual account sourcehash unchanged."
+  }
+]

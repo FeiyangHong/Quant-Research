@@ -1,0 +1,19 @@
+{
+  "expected_ci_missing_archives": 12,
+  "nodes": [
+    "review_code/m5/test_external_accounting.py::test_registered_rule_artifact_hash_is_not_silently_repinned",
+    "review_code/m5/test_external_financial.py::test_local_original_pdf_matches_recorded_digest[15b3b15df2df]",
+    "review_code/m5/test_external_financial.py::test_local_original_pdf_matches_recorded_digest[9f47aa0dc0a8]",
+    "review_code/m5/test_external_financial.py::test_local_original_pdf_matches_recorded_digest[9b57ae1e21bc]",
+    "review_code/m5/test_external_financial.py::test_local_original_pdf_matches_recorded_digest[41d9370fd96d]",
+    "review_code/m5/test_external_financial.py::test_local_original_pdf_matches_recorded_digest[7028b0a1c7b8]",
+    "review_code/m5/test_external_financial.py::test_local_original_pdf_matches_recorded_digest[3ae8304f34e4]",
+    "review_code/m5/test_external_market_cap.py::test_archived_provider_hash_and_full_rows_reproduce_selection",
+    "review_code/m6/test_independent_collector_lease.py::test_recovery_preserved_original_consumption_and_terminal_records",
+    "review_code/m6/test_independent_data_gate.py::test_independently_hash_archived_identity_and_history_bytes",
+    "review_code/m6/test_independent_real_accounts.py::test_replay_real_manifest_through_main_engine_and_hand_oracle",
+    "review_code/m6/test_independent_stock_source.py::test_raw_batch_pagination_units_clocks_and_structure_only_events"
+  ],
+  "local_full_run_skipped": 0,
+  "skipped_is_not_passed": true
+}
