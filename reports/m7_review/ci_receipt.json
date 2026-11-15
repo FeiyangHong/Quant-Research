@@ -1,0 +1,17 @@
+{
+  "tested_content_commit": "2ca1b0ed235180dfba6b35521012ff13aa9c9dcf",
+  "actual_pr_merge_check_commit": "70efb7f16ec257a2b2e118856c5629e9c3b3a7e1",
+  "workflow_run_id": 43730783785,
+  "job_id": 132862501864,
+  "conclusion": "success",
+  "passed": 817,
+  "skipped": 12,
+  "warnings": 1,
+  "seconds": 74.48,
+  "log_sha256": "290bdfd6cf0f2d64f8e17b7a7da0c4916c929b6217927659519d126a39171429",
+  "local_passed": 829,
+  "local_skipped": 0,
+  "skip_inventory": "reports/m7_review/ci_skip_inventory.json",
+  "not_claimed": "CI does not rerun local archived source probes or real market accounts",
+  "initial_failed_run": 43729568526
+}

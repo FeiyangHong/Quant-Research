@@ -1,0 +1,321 @@
+﻿2026-11-15T15:36:04.1695837Z Current runner version: '2.338.2'
+2026-11-15T15:36:04.1723176Z ##[group]Runner Image Provisioner
+2026-11-15T15:36:04.1723998Z Hosted Compute Agent
+2026-11-15T15:36:04.1724549Z Version: 20261103.629
+2026-11-15T15:36:04.1725180Z Commit: 15dbd9ccb5dbf34fae002b6ed1a2670f52df37bc
+2026-11-15T15:36:04.1726435Z Build Date: 2026-11-03T17:26:59Z
+2026-11-15T15:36:04.1727128Z Worker ID: {68ef969e-408c-4ad1-8ec9-cf6e6c4144f8}
+2026-11-15T15:36:04.1727836Z Region: westus
+2026-11-15T15:36:04.1728337Z Cloud: Azure
+2026-11-15T15:36:04.1728869Z ##[endgroup]
+2026-11-15T15:36:04.1730255Z ##[group]Operating System
+2026-11-15T15:36:04.1731290Z Microsoft Windows Server 2025
+2026-11-15T15:36:04.1732133Z 10.0.26100
+2026-11-15T15:36:04.1732629Z Datacenter
+2026-11-15T15:36:04.1733136Z ##[endgroup]
+2026-11-15T15:36:04.1733643Z ##[group]Runner Image
+2026-11-15T15:36:04.1734228Z Image: windows-2025-vs2026
+2026-11-15T15:36:04.1734829Z Version: 20261103.298.1
+2026-11-15T15:36:04.1736310Z Included Software: https://github.com/actions/runner-images/blob/win25-vs2026/20261103.298/images/windows/Windows2025-VS2026-Readme.md
+2026-11-15T15:36:04.1738265Z Image Release: https://github.com/actions/runner-images/releases/tag/win25-vs2026%2F20261103.298
+2026-11-15T15:36:04.1739206Z ##[endgroup]
+2026-11-15T15:36:04.1740288Z ##[group]GITHUB_TOKEN Permissions
+2026-11-15T15:36:04.1742202Z Contents: read
+2026-11-15T15:36:04.1742789Z Metadata: read
+2026-11-15T15:36:04.1743292Z ##[endgroup]
+2026-11-15T15:36:04.1745357Z Secret source: Actions
+2026-11-15T15:36:04.1746207Z Cache mode: write
+2026-11-15T15:36:04.1746925Z Prepare workflow directory
+2026-11-15T15:36:04.2098529Z Prepare all required actions
+2026-11-15T15:36:04.2158434Z Getting action download info
+2026-11-15T15:36:04.5332000Z Download action repository 'actions/checkout@v4' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+2026-11-15T15:36:04.6650104Z Download action repository 'actions/setup-python@v5' (SHA:a26af69be951a213d495a4c3e4e4022e16d87065)
+2026-11-15T15:36:04.9435217Z Complete job name: test
+2026-11-15T15:36:05.0901274Z ##[group]Run actions/checkout@v4
+2026-11-15T15:36:05.0902269Z with:
+2026-11-15T15:36:05.0902704Z   repository: FeiyangHong/Quant-Research
+2026-11-15T15:36:05.0906916Z   token: ***
+2026-11-15T15:36:05.0907312Z   ssh-strict: true
+2026-11-15T15:36:05.0907718Z   ssh-user: git
+2026-11-15T15:36:05.0908133Z   persist-credentials: true
+2026-11-15T15:36:05.0908588Z   clean: true
+2026-11-15T15:36:05.0908997Z   sparse-checkout-cone-mode: true
+2026-11-15T15:36:05.0909481Z   fetch-depth: 1
+2026-11-15T15:36:05.0909877Z   fetch-tags: false
+2026-11-15T15:36:05.0910284Z   show-progress: true
+2026-11-15T15:36:05.0910718Z   lfs: false
+2026-11-15T15:36:05.0911117Z   submodules: false
+2026-11-15T15:36:05.0911550Z   set-safe-directory: true
+2026-11-15T15:36:05.0912042Z   allow-unsafe-pr-checkout: false
+2026-11-15T15:36:05.0913265Z ##[endgroup]
+2026-11-15T15:36:05.2394986Z Syncing repository: FeiyangHong/Quant-Research
+2026-11-15T15:36:05.2397615Z ##[group]Getting Git version info
+2026-11-15T15:36:05.2398986Z Working directory is 'D:\a\Quant-Research\Quant-Research'
+2026-11-15T15:36:05.3474766Z [command]"C:\Program Files\Git\bin\git.exe" version
+2026-11-15T15:36:05.6927993Z git version 2.56.0.windows.4
+2026-11-15T15:36:05.6990469Z ##[endgroup]
+2026-11-15T15:36:05.7013660Z Temporarily overriding HOME='D:\a\_temp\3e827d10-7e1a-427a-aa63-d65959b548da' before making global git config changes
+2026-11-15T15:36:05.7015159Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-15T15:36:05.7025790Z [command]"C:\Program Files\Git\bin\git.exe" config --global --add safe.directory D:\a\Quant-Research\Quant-Research
+2026-11-15T15:36:05.7719441Z Deleting the contents of 'D:\a\Quant-Research\Quant-Research'
+2026-11-15T15:36:05.7726210Z ##[group]Initializing the repository
+2026-11-15T15:36:05.7735797Z [command]"C:\Program Files\Git\bin\git.exe" init D:\a\Quant-Research\Quant-Research
+2026-11-15T15:36:05.8619221Z Initialized empty Git repository in D:/a/Quant-Research/Quant-Research/.git/
+2026-11-15T15:36:05.8674934Z [command]"C:\Program Files\Git\bin\git.exe" remote add origin https://github.com/FeiyangHong/Quant-Research
+2026-11-15T15:36:05.9424258Z ##[endgroup]
+2026-11-15T15:36:05.9425584Z ##[group]Disabling automatic garbage collection
+2026-11-15T15:36:05.9437594Z [command]"C:\Program Files\Git\bin\git.exe" config --local gc.auto 0
+2026-11-15T15:36:05.9871102Z ##[endgroup]
+2026-11-15T15:36:05.9872997Z ##[group]Setting up auth
+2026-11-15T15:36:05.9884049Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp core\.sshCommand
+2026-11-15T15:36:06.0361766Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :\""
+2026-11-15T15:36:07.4030951Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-15T15:36:07.4413393Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :\""
+2026-11-15T15:36:07.9850697Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-15T15:36:08.0249002Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "git config --local --show-origin --name-only --get-regexp remote.origin.url"
+2026-11-15T15:36:08.5884253Z [command]"C:\Program Files\Git\bin\git.exe" config --local http.https://github.com/.extraheader "AUTHORIZATION: basic ***"
+2026-11-15T15:36:08.6277830Z ##[endgroup]
+2026-11-15T15:36:08.6278724Z ##[group]Fetching the repository
+2026-11-15T15:36:08.6294050Z [command]"C:\Program Files\Git\bin\git.exe" -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +70efb7f16ec257a2b2e118856c5629e9c3b3a7e1:refs/remotes/pull/1/merge
+2026-11-15T15:36:10.7999726Z From https://github.com/FeiyangHong/Quant-Research
+2026-11-15T15:36:10.8000753Z  * [new ref]         70efb7f16ec257a2b2e118856c5629e9c3b3a7e1 -> pull/1/merge
+2026-11-15T15:36:10.8046680Z ##[endgroup]
+2026-11-15T15:36:10.8047336Z ##[group]Determining the checkout info
+2026-11-15T15:36:10.8050424Z ##[endgroup]
+2026-11-15T15:36:10.8061519Z [command]"C:\Program Files\Git\bin\git.exe" sparse-checkout disable
+2026-11-15T15:36:10.8647350Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset-all extensions.worktreeConfig
+2026-11-15T15:36:10.9058119Z ##[group]Checking out the ref
+2026-11-15T15:36:10.9066662Z [command]"C:\Program Files\Git\bin\git.exe" checkout --progress --force refs/remotes/pull/1/merge
+2026-11-15T15:36:11.5889554Z Note: switching to 'refs/remotes/pull/1/merge'.
+2026-11-15T15:36:11.5889892Z 
+2026-11-15T15:36:11.5890126Z You are in 'detached HEAD' state. You can look around, make experimental
+2026-11-15T15:36:11.5891137Z changes and commit them, and you can discard any commits you make in this
+2026-11-15T15:36:11.5891917Z state without impacting any branches by switching back to a branch.
+2026-11-15T15:36:11.5892772Z 
+2026-11-15T15:36:11.5893635Z If you want to create a new branch to retain commits you create, you may
+2026-11-15T15:36:11.5894431Z do so (now or later) by using -c with the switch command. Example:
+2026-11-15T15:36:11.5894887Z 
+2026-11-15T15:36:11.5895493Z   git switch -c <new-branch-name>
+2026-11-15T15:36:11.5895890Z 
+2026-11-15T15:36:11.5896051Z Or undo this operation with:
+2026-11-15T15:36:11.5896335Z 
+2026-11-15T15:36:11.5896469Z   git switch -
+2026-11-15T15:36:11.5896652Z 
+2026-11-15T15:36:11.5896977Z Turn off this advice by setting config variable advice.detachedHead to false
+2026-11-15T15:36:11.5897563Z 
+2026-11-15T15:36:11.5898248Z HEAD is now at 70efb7f Merge 2ca1b0ed235180dfba6b35521012ff13aa9c9dcf into 2d940c21242df5653debb437c2397dd037a07cf6
+2026-11-15T15:36:11.6059942Z ##[endgroup]
+2026-11-15T15:36:11.6572034Z [command]"C:\Program Files\Git\bin\git.exe" log -1 --format=%H
+2026-11-15T15:36:11.6932383Z 70efb7f16ec257a2b2e118856c5629e9c3b3a7e1
+2026-11-15T15:36:11.7487054Z ##[group]Run actions/setup-python@v5
+2026-11-15T15:36:11.7487406Z with:
+2026-11-15T15:36:11.7487616Z   python-version: 3.9
+2026-11-15T15:36:11.7487820Z   cache: pip
+2026-11-15T15:36:11.7488007Z   check-latest: false
+2026-11-15T15:36:11.7490493Z   token: ***
+2026-11-15T15:36:11.7490697Z   update-environment: true
+2026-11-15T15:36:11.7490922Z   allow-prereleases: false
+2026-11-15T15:36:11.7491144Z   freethreaded: false
+2026-11-15T15:36:11.7491337Z ##[endgroup]
+2026-11-15T15:36:11.9217998Z ##[group]Installed versions
+2026-11-15T15:36:11.9373997Z Version 3.9 was not found in the local cache
+2026-11-15T15:36:11.9575893Z (node:9512) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-15T15:36:11.9580604Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-15T15:36:12.7275371Z Version 3.9 is available for downloading
+2026-11-15T15:36:12.7277138Z Download from "https://github.com/actions/python-versions/releases/download/3.9.13-11183687820/python-3.9.13-win32-x64.zip"
+2026-11-15T15:36:13.2879015Z Extract downloaded archive
+2026-11-15T15:36:13.3890238Z [command]"C:\Program Files\PowerShell\7\pwsh.exe" -NoLogo -NoProfile -NonInteractive -ExecutionPolicy Unrestricted -Command "$ErrorActionPreference = 'Stop' ; try { Add-Type -AssemblyName System.IO.Compression.ZipFile } catch { } ; try { [System.IO.Compression.ZipFile]::ExtractToDirectory('D:\a\_temp\python-3.9.13-win32-x64.zip', 'D:\a\_temp\83a716cb-1bb9-40b0-9bad-e2f28df0de1f', $true) } catch { if (($_.Exception.GetType().FullName -eq 'System.Management.Automation.MethodException') -or ($_.Exception.GetType().FullName -eq 'System.Management.Automation.RuntimeException') ){ Expand-Archive -LiteralPath 'D:\a\_temp\python-3.9.13-win32-x64.zip' -DestinationPath 'D:\a\_temp\83a716cb-1bb9-40b0-9bad-e2f28df0de1f' -Force } else { throw $_ } } ;"
+2026-11-15T15:36:13.8819757Z Execute installation script
+2026-11-15T15:36:16.6398041Z Check if Python hostedtoolcache folder exist...
+2026-11-15T15:36:16.6400608Z 
+2026-11-15T15:36:16.6502820Z Check if current Python version is installed...
+2026-11-15T15:36:16.6503260Z 
+2026-11-15T15:36:16.6616904Z No Python3.9.* found
+2026-11-15T15:36:16.6618130Z 
+2026-11-15T15:36:16.6627178Z Remove registry entries for Python 3.9(x64)...
+2026-11-15T15:36:16.6630108Z 
+2026-11-15T15:36:17.3817963Z Create Python 3.9.13 folder in C:\hostedtoolcache\windows\Python
+2026-11-15T15:36:17.3818454Z 
+2026-11-15T15:36:17.3885995Z Copy Python binaries to C:\hostedtoolcache\windows\Python\3.9.13\x64
+2026-11-15T15:36:17.3887163Z 
+2026-11-15T15:36:17.4016950Z Install Python 3.9.13 in C:\hostedtoolcache\windows\Python...
+2026-11-15T15:36:17.4017420Z 
+2026-11-15T15:36:49.1143776Z Create python3 symlink
+2026-11-15T15:36:49.1144329Z 
+2026-11-15T15:36:49.1920733Z 
+2026-11-15T15:36:49.1923921Z 
+2026-11-15T15:36:49.2050777Z Directory: C:\hostedtoolcache\windows\Python\3.9.13\x64
+2026-11-15T15:36:49.2051404Z 
+2026-11-15T15:36:49.2062615Z Mode                 LastWriteTime         Length Name
+2026-11-15T15:36:49.2067460Z ----                 -------------         ------ ----
+2026-11-15T15:36:49.2083995Z -a---l        11/15/2026   3:36 PM              0 python3.exe
+2026-11-15T15:36:49.2094056Z Install and upgrade Pip
+2026-11-15T15:36:49.2096322Z 
+2026-11-15T15:36:51.5616593Z Looking in links: c:\Users\RUNNER~1\AppData\Local\Temp\tmp51vluyj2
+2026-11-15T15:36:51.5621952Z Requirement already satisfied: setuptools in c:\hostedtoolcache\windows\python\3.9.13\x64\lib\site-packages (58.1.0)
+2026-11-15T15:36:51.5626725Z Requirement already satisfied: pip in c:\hostedtoolcache\windows\python\3.9.13\x64\lib\site-packages (22.0.4)
+2026-11-15T15:36:52.8170878Z Collecting pip
+2026-11-15T15:36:52.8616922Z Downloading pip-26.0.1-py3-none-any.whl (1.8 MB)
+2026-11-15T15:36:52.9125367Z ---------------------------------------- 1.8/1.8 MB 38.6 MB/s eta 0:00:00
+2026-11-15T15:36:52.9126435Z 
+2026-11-15T15:36:52.9473705Z Installing collected packages: pip
+2026-11-15T15:36:52.9474341Z Attempting uninstall: pip
+2026-11-15T15:36:52.9479198Z Found existing installation: pip 22.0.4
+2026-11-15T15:36:53.4742737Z Uninstalling pip-22.0.4:
+2026-11-15T15:36:53.5096401Z Successfully uninstalled pip-22.0.4
+2026-11-15T15:36:56.2656109Z Successfully installed pip-26.0.1
+2026-11-15T15:36:56.9527572Z Create complete file
+2026-11-15T15:36:56.9527927Z 
+2026-11-15T15:36:56.9543600Z 
+2026-11-15T15:36:56.9544173Z 
+2026-11-15T15:36:57.0109995Z Successfully set up CPython (3.9.13)
+2026-11-15T15:36:57.0111170Z ##[endgroup]
+2026-11-15T15:36:58.1756758Z Cache hit for: setup-python-Windows-x64-python-3.9.13-pip-fb74992103441a76036b881b690d30e842480bacc41b74145226731a277c9287
+2026-11-15T15:36:58.1892611Z (node:9512) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-11-15T15:36:59.4765925Z Received 41943040 of 78870919 (53.2%), 39.7 MBs/sec
+2026-11-15T15:36:59.7823307Z Received 78870919 of 78870919 (100.0%), 57.1 MBs/sec
+2026-11-15T15:36:59.7826183Z Cache Size: ~75 MB (78870919 B)
+2026-11-15T15:36:59.7924564Z [command]"C:\Program Files\Git\usr\bin\tar.exe" -xf D:/a/_temp/e7dfe8cc-c441-4c41-9c4c-fd83eb732198/cache.tzst -P -C D:/a/Quant-Research/Quant-Research --force-local --use-compress-program "zstd -d"
+2026-11-15T15:37:00.2733630Z Cache restored successfully
+2026-11-15T15:37:00.2802905Z Cache restored from key: setup-python-Windows-x64-python-3.9.13-pip-fb74992103441a76036b881b690d30e842480bacc41b74145226731a277c9287
+2026-11-15T15:37:00.3175592Z ##[group]Run python -m pip install -r requirements.lock
+2026-11-15T15:37:00.3176142Z [36;1mpython -m pip install -r requirements.lock[0m
+2026-11-15T15:37:00.3315651Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2026-11-15T15:37:00.3316226Z env:
+2026-11-15T15:37:00.3316658Z   pythonLocation: C:\hostedtoolcache\windows\Python\3.9.13\x64
+2026-11-15T15:37:00.3317430Z   PKG_CONFIG_PATH: C:\hostedtoolcache\windows\Python\3.9.13\x64/lib/pkgconfig
+2026-11-15T15:37:00.3318172Z   Python_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.9.13\x64
+2026-11-15T15:37:00.3319136Z   Python2_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.9.13\x64
+2026-11-15T15:37:00.3319811Z   Python3_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.9.13\x64
+2026-11-15T15:37:00.3320339Z ##[endgroup]
+2026-11-15T15:37:02.0017104Z Collecting numpy==1.26.4 (from -r requirements.lock (line 1))
+2026-11-15T15:37:02.0053509Z   Using cached numpy-1.26.4-cp39-cp39-win_amd64.whl.metadata (61 kB)
+2026-11-15T15:37:02.1598074Z Collecting pandas==2.2.3 (from -r requirements.lock (line 2))
+2026-11-15T15:37:02.1629949Z   Using cached pandas-2.2.3-cp39-cp39-win_amd64.whl.metadata (19 kB)
+2026-11-15T15:37:02.3616372Z Collecting scipy==1.13.1 (from -r requirements.lock (line 3))
+2026-11-15T15:37:02.3648921Z   Using cached scipy-1.13.1-cp39-cp39-win_amd64.whl.metadata (60 kB)
+2026-11-15T15:37:02.3928830Z Collecting python-dateutil==2.9.0.post0 (from -r requirements.lock (line 4))
+2026-11-15T15:37:02.3978381Z   Using cached python_dateutil-2.9.0.post0-py2.py3-none-any.whl.metadata (8.4 kB)
+2026-11-15T15:37:02.4477416Z Collecting pytz==2025.2 (from -r requirements.lock (line 5))
+2026-11-15T15:37:02.4510249Z   Using cached pytz-2025.2-py2.py3-none-any.whl.metadata (22 kB)
+2026-11-15T15:37:02.4733491Z Collecting tzdata==2025.2 (from -r requirements.lock (line 6))
+2026-11-15T15:37:02.4761693Z   Using cached tzdata-2025.2-py2.py3-none-any.whl.metadata (1.4 kB)
+2026-11-15T15:37:02.4945016Z Collecting six==1.17.0 (from -r requirements.lock (line 7))
+2026-11-15T15:37:02.4973568Z   Using cached six-1.17.0-py2.py3-none-any.whl.metadata (1.7 kB)
+2026-11-15T15:37:02.5369042Z Collecting pytest==8.3.5 (from -r requirements.lock (line 8))
+2026-11-15T15:37:02.5397583Z   Using cached pytest-8.3.5-py3-none-any.whl.metadata (7.6 kB)
+2026-11-15T15:37:02.5648065Z Collecting colorama==0.4.6 (from -r requirements.lock (line 9))
+2026-11-15T15:37:02.5677163Z   Using cached colorama-0.4.6-py2.py3-none-any.whl.metadata (17 kB)
+2026-11-15T15:37:02.5866335Z Collecting exceptiongroup==1.2.2 (from -r requirements.lock (line 10))
+2026-11-15T15:37:02.5895731Z   Using cached exceptiongroup-1.2.2-py3-none-any.whl.metadata (6.6 kB)
+2026-11-15T15:37:02.6083125Z Collecting iniconfig==2.1.0 (from -r requirements.lock (line 11))
+2026-11-15T15:37:02.6113075Z   Using cached iniconfig-2.1.0-py3-none-any.whl.metadata (2.7 kB)
+2026-11-15T15:37:02.6366013Z Collecting packaging==24.2 (from -r requirements.lock (line 12))
+2026-11-15T15:37:02.6397873Z   Using cached packaging-24.2-py3-none-any.whl.metadata (3.2 kB)
+2026-11-15T15:37:02.6595762Z Collecting pluggy==1.5.0 (from -r requirements.lock (line 13))
+2026-11-15T15:37:02.6623691Z   Using cached pluggy-1.5.0-py3-none-any.whl.metadata (4.8 kB)
+2026-11-15T15:37:02.7020282Z Collecting tomli==2.2.1 (from -r requirements.lock (line 14))
+2026-11-15T15:37:02.7050472Z   Using cached tomli-2.2.1-py3-none-any.whl.metadata (10 kB)
+2026-11-15T15:37:02.7297096Z Collecting typing_extensions==4.12.2 (from -r requirements.lock (line 15))
+2026-11-15T15:37:02.7325210Z   Using cached typing_extensions-4.12.2-py3-none-any.whl.metadata (3.0 kB)
+2026-11-15T15:37:02.8355331Z Collecting setuptools==75.8.2 (from -r requirements.lock (line 16))
+2026-11-15T15:37:02.8389482Z   Using cached setuptools-75.8.2-py3-none-any.whl.metadata (6.7 kB)
+2026-11-15T15:37:02.8951539Z Collecting wheel==0.45.1 (from -r requirements.lock (line 17))
+2026-11-15T15:37:02.8982612Z   Using cached wheel-0.45.1-py3-none-any.whl.metadata (2.3 kB)
+2026-11-15T15:37:02.9227028Z Using cached numpy-1.26.4-cp39-cp39-win_amd64.whl (15.8 MB)
+2026-11-15T15:37:02.9341831Z Using cached pandas-2.2.3-cp39-cp39-win_amd64.whl (11.6 MB)
+2026-11-15T15:37:02.9453930Z Using cached scipy-1.13.1-cp39-cp39-win_amd64.whl (46.2 MB)
+2026-11-15T15:37:02.9718009Z Using cached python_dateutil-2.9.0.post0-py2.py3-none-any.whl (229 kB)
+2026-11-15T15:37:02.9742631Z Using cached pytz-2025.2-py2.py3-none-any.whl (509 kB)
+2026-11-15T15:37:02.9770136Z Using cached tzdata-2025.2-py2.py3-none-any.whl (347 kB)
+2026-11-15T15:37:02.9797218Z Using cached six-1.17.0-py2.py3-none-any.whl (11 kB)
+2026-11-15T15:37:02.9821679Z Using cached pytest-8.3.5-py3-none-any.whl (343 kB)
+2026-11-15T15:37:02.9848461Z Using cached pluggy-1.5.0-py3-none-any.whl (20 kB)
+2026-11-15T15:37:02.9873362Z Using cached colorama-0.4.6-py2.py3-none-any.whl (25 kB)
+2026-11-15T15:37:02.9897926Z Using cached exceptiongroup-1.2.2-py3-none-any.whl (16 kB)
+2026-11-15T15:37:02.9922323Z Using cached iniconfig-2.1.0-py3-none-any.whl (6.0 kB)
+2026-11-15T15:37:02.9947174Z Using cached packaging-24.2-py3-none-any.whl (65 kB)
+2026-11-15T15:37:02.9971773Z Using cached tomli-2.2.1-py3-none-any.whl (14 kB)
+2026-11-15T15:37:02.9996169Z Using cached typing_extensions-4.12.2-py3-none-any.whl (37 kB)
+2026-11-15T15:37:03.0041263Z Using cached setuptools-75.8.2-py3-none-any.whl (1.2 MB)
+2026-11-15T15:37:03.0078988Z Using cached wheel-0.45.1-py3-none-any.whl (72 kB)
+2026-11-15T15:37:03.3621909Z Installing collected packages: pytz, wheel, tzdata, typing_extensions, tomli, six, setuptools, pluggy, packaging, numpy, iniconfig, exceptiongroup, colorama, scipy, python-dateutil, pytest, pandas
+2026-11-15T15:37:05.1314634Z   Attempting uninstall: setuptools
+2026-11-15T15:37:05.1323684Z     Found existing installation: setuptools 58.1.0
+2026-11-15T15:37:05.1793279Z     Uninstalling setuptools-58.1.0:
+2026-11-15T15:37:05.2394716Z       Successfully uninstalled setuptools-58.1.0
+2026-11-15T15:37:26.6412674Z 
+2026-11-15T15:37:26.6507223Z Successfully installed colorama-0.4.6 exceptiongroup-1.2.2 iniconfig-2.1.0 numpy-1.26.4 packaging-24.2 pandas-2.2.3 pluggy-1.5.0 pytest-8.3.5 python-dateutil-2.9.0.post0 pytz-2025.2 scipy-1.13.1 setuptools-75.8.2 six-1.17.0 tomli-2.2.1 typing_extensions-4.12.2 tzdata-2025.2 wheel-0.45.1
+2026-11-15T15:37:26.9809106Z ##[group]Run python -m pip install --no-deps --no-build-isolation -e .
+2026-11-15T15:37:26.9809901Z [36;1mpython -m pip install --no-deps --no-build-isolation -e .[0m
+2026-11-15T15:37:26.9888442Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2026-11-15T15:37:26.9888846Z env:
+2026-11-15T15:37:26.9889175Z   pythonLocation: C:\hostedtoolcache\windows\Python\3.9.13\x64
+2026-11-15T15:37:26.9889705Z   PKG_CONFIG_PATH: C:\hostedtoolcache\windows\Python\3.9.13\x64/lib/pkgconfig
+2026-11-15T15:37:26.9890221Z   Python_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.9.13\x64
+2026-11-15T15:37:26.9890678Z   Python2_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.9.13\x64
+2026-11-15T15:37:26.9891137Z   Python3_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.9.13\x64
+2026-11-15T15:37:26.9891511Z ##[endgroup]
+2026-11-15T15:37:28.2543618Z Obtaining file:///D:/a/Quant-Research/Quant-Research
+2026-11-15T15:37:28.2566943Z   Checking if build backend supports build_editable: started
+2026-11-15T15:37:28.4839468Z   Checking if build backend supports build_editable: finished with status 'done'
+2026-11-15T15:37:28.4868614Z   Preparing editable metadata (pyproject.toml): started
+2026-11-15T15:37:28.8730991Z   Preparing editable metadata (pyproject.toml): finished with status 'done'
+2026-11-15T15:37:28.8845748Z Building wheels for collected packages: quant-research
+2026-11-15T15:37:28.8872773Z   Building editable for quant-research (pyproject.toml): started
+2026-11-15T15:37:29.3079363Z   Building editable for quant-research (pyproject.toml): finished with status 'done'
+2026-11-15T15:37:29.3119929Z   Created wheel for quant-research: filename=quant_research-0.1.0-0.editable-py3-none-any.whl size=1655 sha256=5ba582f8e482dd56b06047d4b51d98d7f2b58f5eeb31446c0d62b591dc5fab5a
+2026-11-15T15:37:29.3121817Z   Stored in directory: C:\Users\runneradmin\AppData\Local\Temp\pip-ephem-wheel-cache-blubzkbc\wheels\26\3a\44\3ab42556c3179436dd4d7a2ba4307b1ac0ecefeb7e75b87684
+2026-11-15T15:37:29.3151909Z Successfully built quant-research
+2026-11-15T15:37:29.3154973Z Installing collected packages: quant-research
+2026-11-15T15:37:29.3639991Z Successfully installed quant-research-0.1.0
+2026-11-15T15:37:29.5535011Z ##[group]Run python -m pytest -q tests review_code
+2026-11-15T15:37:29.5535515Z [36;1mpython -m pytest -q tests review_code[0m
+2026-11-15T15:37:29.5610556Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2026-11-15T15:37:29.5610980Z env:
+2026-11-15T15:37:29.5611296Z   pythonLocation: C:\hostedtoolcache\windows\Python\3.9.13\x64
+2026-11-15T15:37:29.5611863Z   PKG_CONFIG_PATH: C:\hostedtoolcache\windows\Python\3.9.13\x64/lib/pkgconfig
+2026-11-15T15:37:29.5612398Z   Python_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.9.13\x64
+2026-11-15T15:37:29.5612853Z   Python2_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.9.13\x64
+2026-11-15T15:37:29.5613326Z   Python3_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.9.13\x64
+2026-11-15T15:37:29.5613685Z ##[endgroup]
+2026-11-15T15:37:37.4463449Z ........................................................................ [  8%]
+2026-11-15T15:37:38.9046844Z ........................................................................ [ 17%]
+2026-11-15T15:37:46.0099962Z ........................................................................ [ 26%]
+2026-11-15T15:37:55.4856809Z ........................................................................ [ 34%]
+2026-11-15T15:38:04.2284606Z ........................................................................ [ 43%]
+2026-11-15T15:38:04.6969039Z ........................................................................ [ 52%]
+2026-11-15T15:38:10.2613802Z ........................................................................ [ 60%]
+2026-11-15T15:38:27.0295205Z ........................................................................ [ 69%]
+2026-11-15T15:38:28.7658980Z ........................................................................ [ 78%]
+2026-11-15T15:38:36.5168980Z .............................s.................ssssss................... [ 86%]
+2026-11-15T15:38:40.2024439Z ..s........s..s.....................................................s... [ 95%]
+2026-11-15T15:38:44.6241325Z ......s..............................                                    [100%]
+2026-11-15T15:38:44.6242402Z ============================== warnings summary ===============================
+2026-11-15T15:38:44.6243975Z review_code/m4/test_external_independent.py::test_current_unknown_exit_rule_cannot_fill_and_shares_remain[tick]
+2026-11-15T15:38:44.6247334Z   D:\a\Quant-Research\Quant-Research\review_code\m4\test_external_independent.py:136: FutureWarning: The behavior of DataFrame concatenation with empty or all-NA entries is deprecated. In a future version, this will no longer exclude empty or all-NA columns when determining the result dtypes. To retain the old behavior, exclude the relevant entries before the concat operation.
+2026-11-15T15:38:44.6250872Z     data["instruments"] = pd.concat([data["instruments"], pd.DataFrame([successor])], ignore_index=True)
+2026-11-15T15:38:44.6251609Z 
+2026-11-15T15:38:44.6251985Z -- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+2026-11-15T15:38:44.6252780Z 817 passed, 12 skipped, 1 warning in 74.48s (0:01:14)
+2026-11-15T15:38:44.9069519Z Post job cleanup.
+2026-11-15T15:38:45.0557645Z Cache hit occurred on the primary key setup-python-Windows-x64-python-3.9.13-pip-fb74992103441a76036b881b690d30e842480bacc41b74145226731a277c9287, not saving cache.
+2026-11-15T15:38:45.0559955Z (node:6904) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-15T15:38:45.0564077Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-15T15:38:45.0899575Z Post job cleanup.
+2026-11-15T15:38:45.3239853Z [command]"C:\Program Files\Git\bin\git.exe" version
+2026-11-15T15:38:45.3644512Z git version 2.56.0.windows.4
+2026-11-15T15:38:45.3727402Z Temporarily overriding HOME='D:\a\_temp\d89e7759-b9a0-4066-a49d-fbdd6fef156c' before making global git config changes
+2026-11-15T15:38:45.3728689Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-15T15:38:45.3741303Z [command]"C:\Program Files\Git\bin\git.exe" config --global --add safe.directory D:\a\Quant-Research\Quant-Research
+2026-11-15T15:38:45.4160582Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp core\.sshCommand
+2026-11-15T15:38:45.4553970Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :\""
+2026-11-15T15:38:46.0282865Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-15T15:38:46.0620949Z http.https://github.com/.extraheader
+2026-11-15T15:38:46.0671938Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset-all http.https://github.com/.extraheader
+2026-11-15T15:38:46.1057985Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :\""
+2026-11-15T15:38:46.6733497Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-15T15:38:46.7151996Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "git config --local --show-origin --name-only --get-regexp remote.origin.url"
+2026-11-15T15:38:47.3317814Z Cleaning up orphan processes
+2026-11-15T15:38:47.3631283Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-python@v5. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+

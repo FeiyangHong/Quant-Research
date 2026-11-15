@@ -15,8 +15,9 @@
 |旧档案|旧R1B/M4/M5/M6报告树相对基准无diff，保护hash一致|FROZEN_ARTIFACTS.json；旧448未重跑|
 |初次CI|816 passed、12 skipped、1 failed，76.93秒|ci_initial_failure.txt；旧Git提交在浅克隆不存在，非账户故障|
 |CI测试修正|固定基准blob SHA核验，未跳过；聚焦3项通过|independent_ci_portability_fix.txt；同时纠正reviewer旧summary路径及exists守卫|
+|交付内容CI|817 passed、12 skipped、1既有warning，74.48秒|ci_receipt.json、ci_job_log.txt；缺原件的跳过不算通过|
 
-首次CI：[run43729568526](https://github.com/FeiyangHong/Quant-Research/actions/runs/43729568526)，job132858800768。最终CI收据另存ci_receipt.json；不要把初次失败写成通过。修正只在review_code，未改变32账户的源码hash或原结果。旧测试原先要求未知费CI=null的断言随授权接口语义更新，原失败日志legacy_assertion_before.txt保留；经济阻断与null费用断言增强。
+首次CI：[run43729568526](https://github.com/FeiyangHong/Quant-Research/actions/runs/43729568526)，job132858800768。修正后交付内容提交`2ca1b0ed235180dfba6b35521012ff13aa9c9dcf`的[CI43730783785](https://github.com/FeiyangHong/Quant-Research/actions/runs/43730783785)成功，job132862501864，实际PR合并检查SHA`70efb7f16ec257a2b2e118856c5629e9c3b3a7e1`，不等于已合并PR。修正只在review_code，未改变32账户的源码hash或原结果。旧测试原先要求未知费CI=null的断言随授权接口语义更新，原失败日志legacy_assertion_before.txt保留；经济阻断与null费用断言增强。之后版本收据提交只保存这些事实，不伪称该收据已在前一次CI中出现。
 
 生产各组件首稿加一次有依据的修正；统计描述无参数变化。来源同标签不同URL的组装问题、32条低额成交量价微差、reviewer名称/期望/路径错误和CI故障全部记录，见DATA_AUDIT与independent_probe_history。真实差值恒0，30个登记区间状态在退化检查处返回，未声称实际执行了无意义的5000次重采样；非退化合成独立检验确实执行5000次。
 

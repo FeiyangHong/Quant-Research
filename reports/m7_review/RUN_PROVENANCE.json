@@ -56,8 +56,11 @@
   "registration_hashes": [
     "b8582383246d6913cd0c25d58e59422827b4613c019058d724714c245fcdbc3a"
   ],
-  "root_observation_asof_utc": "2026-11-15T15:35:48.977281+00:00",
-  "root_seconds_observed_including_wait": 2448.977281,
-  "total_agent_hours_observed": 2.1760265988888885,
-  "active_root_delivery_continues": true
+  "root_observation_asof_utc": "2026-11-15T15:39:50.801648+00:00",
+  "root_seconds_observed_including_wait": 2690.801648,
+  "total_agent_hours_observed": 2.2432000341666667,
+  "active_root_delivery_continues": true,
+  "result_delivery_commit": "2ca1b0ed235180dfba6b35521012ff13aa9c9dcf",
+  "research_calculation_finished": true,
+  "remaining_activity": "Version-receipt commit/push, delivery-head CI observation and final report only; no collection or strategy rerun"
 }
