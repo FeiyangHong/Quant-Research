@@ -4,6 +4,8 @@
 
 基准 `8a9977cb5538a3ffd3c07506035c0dca7c3a0f14`，分支 `codex/phase2-research-mvp`。开始核验本地及远程均为该提交，无需回退或覆盖。最终代码提交与逐文件哈希见 [VERIFICATION](VERIFICATION.md) 和 [机器记录](verification.json)。计划及固定依赖见 [M5_PLAN](../../docs/M5_PLAN.md)。
 
+用户在e97a7b1交付期间追加的说明已作为同一M5收尾纳入：[六策略买卖决策、已测/未测范围与下一轮R1I/R2/R3候选](../../docs/STRATEGY_IMPLEMENTATION.md)。只读核对并更新文字，生产代码/配置、采集及收益运行均未改变；最新说明文件哈希、原调仓摘录和追加会话计量见[收尾版本绑定](closeout_scope_binding.json)。原verification/release_binding保存48c695f工程及其CI快照，未将后写文字倒填成原测试版本。
+
 ## 逐项结果
 
 |任务|状态|已通过|未通过/未做及原因|

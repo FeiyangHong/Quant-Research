@@ -41,3 +41,4 @@ reports/m5_execution/fixed_quantity_gap_before.txt whitespace=cr-at-eol,-blank-a
 reports/m5_review/portability_clean_clone.txt whitespace=cr-at-eol,-blank-at-eol,-blank-at-eof
 review_code/m5/test_external_market_cap.py whitespace=cr-at-eol,-blank-at-eol,-blank-at-eof
 .gitignore -text whitespace=cr-at-eol
+docs/STRATEGY_IMPLEMENTATION.md -text whitespace=cr-at-eol
