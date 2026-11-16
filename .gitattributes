@@ -58,3 +58,15 @@ reports/m7_review/** -text whitespace=cr-at-eol
 reports/m7_review/M6_INDEPENDENT_REVIEW_AND_M7_HANDOFF_2026-11-15.md whitespace=cr-at-eol,-blank-at-eol,-blank-at-eof
 reports/m7_review/*.txt whitespace=cr-at-eol,-blank-at-eol,-blank-at-eof
 review_code/m7/** -text whitespace=cr-at-eol
+# M8: preserve the originally registered M7 SOURCE_PLAN bytes on clean checkout.
+reports/m7_cohort/SOURCE_PLAN.json -text whitespace=cr-at-eol
+docs/M8_PLAN.md -text whitespace=cr-at-eol
+docs/M7_INDEPENDENT_REVIEW_AND_M8_HANDOFF_2026-11-15.md -text whitespace=cr-at-eol,-blank-at-eol,-blank-at-eof
+reports/m8_rotation/** -text whitespace=cr-at-eol
+reports/m8_review/** -text whitespace=cr-at-eol,-blank-at-eol,-blank-at-eof
+review_code/m8/** -text whitespace=cr-at-eol
+docs/M9_PLAN.md -text whitespace=cr-at-eol
+docs/M8_INDEPENDENT_REVIEW_AND_M9_HANDOFF_2026-11-16.md -text whitespace=cr-at-eol,-blank-at-eol,-blank-at-eof
+reports/m9_risk/** -text whitespace=cr-at-eol
+reports/m9_review/** -text whitespace=cr-at-eol,-blank-at-eol,-blank-at-eof
+review_code/m9/** -text whitespace=cr-at-eol
