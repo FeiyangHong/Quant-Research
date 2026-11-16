@@ -1,0 +1,79 @@
+{
+  "scope": "R1I_HISTORICAL_LIQUID_V1",
+  "formation_date": "2019-12-31",
+  "cohort_available_at": "2020-01-02T21:00:00+08:00",
+  "full_local_selection_sha256": "d70a12d508e6abfda0ca45f23c348c48d650b2fc6ffea690d32bd682c66dc42a",
+  "source_window_values_redistributed": false,
+  "members": [
+    {
+      "instrument_id": "sh.512880",
+      "exact_index_id": "NAME:中证全指证券公司指数",
+      "listed_on": "2016-08-08",
+      "median_amount60": "496567226.0000",
+      "listed_sessions": 829
+    },
+    {
+      "instrument_id": "sh.515000",
+      "exact_index_id": "NAME:中证科技龙头指数",
+      "listed_on": "2019-08-16",
+      "median_amount60": "423420652.5000",
+      "listed_sessions": 92
+    },
+    {
+      "instrument_id": "sh.512760",
+      "exact_index_id": "NAME:中华交易服务半导体行业指数",
+      "listed_on": "2019-06-12",
+      "median_amount60": "247633747.0000",
+      "listed_sessions": 139
+    },
+    {
+      "instrument_id": "sh.515880",
+      "exact_index_id": "NAME:中证全指通信设备指数",
+      "listed_on": "2019-09-06",
+      "median_amount60": "104632852.5000",
+      "listed_sessions": 77
+    },
+    {
+      "instrument_id": "sh.512800",
+      "exact_index_id": "NAME:中证银行指数",
+      "listed_on": "2017-08-03",
+      "median_amount60": "103402156.5000",
+      "listed_sessions": 589
+    },
+    {
+      "instrument_id": "sh.512710",
+      "exact_index_id": "NAME:中证军工龙头指数",
+      "listed_on": "2019-08-26",
+      "median_amount60": "98899067.5000",
+      "listed_sessions": 86
+    },
+    {
+      "instrument_id": "sh.512660",
+      "exact_index_id": "NAME:中证军工指数",
+      "listed_on": "2016-08-08",
+      "median_amount60": "68185195.5000",
+      "listed_sessions": 829
+    },
+    {
+      "instrument_id": "sz.159939",
+      "exact_index_id": "NAME:中证全指信息技术指数",
+      "listed_on": "2015-02-05",
+      "median_amount60": "55567986.0000",
+      "listed_sessions": 1196
+    },
+    {
+      "instrument_id": "sh.512720",
+      "exact_index_id": "NAME:中证计算机主题指数",
+      "listed_on": "2019-08-16",
+      "median_amount60": "47541385.0000",
+      "listed_sessions": 92
+    },
+    {
+      "instrument_id": "sh.512290",
+      "exact_index_id": "NAME:中证生物医药指数",
+      "listed_on": "2019-05-20",
+      "median_amount60": "40677084.5000",
+      "listed_sessions": 155
+    }
+  ]
+}

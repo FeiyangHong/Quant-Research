@@ -1,0 +1,110 @@
+{
+  "schema_version": "m8-independent-public-package-content-review-1",
+  "status": "PASS_CONTENT_AND_INTEGRITY_WITH_DISCLOSED_LIMITATIONS",
+  "reviewer": "/root/m8_execution",
+  "independence": "Reviewer authored execution capacity and holding-rule policy, but did not author the public-package generator or release boundary. This review concerns package contents and integrity, not independent approval of the reviewer's own implementation.",
+  "record_basis": "Persisted once from the already-completed read-only inspection; no repeated tests or source acquisition for this receipt.",
+  "result_artifact_commit_supplied_by_root": "99ac64f792daf18742652a980958c10567026cca",
+  "package": {
+    "path": "work/m8_public_safe.zip",
+    "receipt_path": "reports/m8_review/PUBLIC_PACKAGE_RECEIPT.json",
+    "release_boundary_path": "reports/m8_review/PUBLIC_RELEASE_BOUNDARY.md",
+    "size_bytes": 1306811,
+    "sha256": "5966a82f050ceeb0cf15d93da2441c754579439b5d9b452be6150e064a1e888f",
+    "manifest_path_inside_zip": "MANIFEST.json",
+    "manifest_sha256": "8128dce268dd70e654b7acf2707932e9d6855b898d68950ed135d50b708af86a",
+    "archive_entries": 51,
+    "manifest_payload_files": 50,
+    "baseline_commit": "3df2391dc646ab98122ac6b029d0ef7a5cef2b32",
+    "account_commit": "3f86333db8e3b4f9ac46e8c696bfa4bb18ee7b3f"
+  },
+  "checks": [
+    {"name": "zip_sha256_matches_receipt", "status": "PASS"},
+    {"name": "zip_byte_size_matches_receipt", "status": "PASS"},
+    {"name": "manifest_sha256_matches_receipt", "status": "PASS"},
+    {"name": "entry_count_matches_receipt", "status": "PASS", "count": 51},
+    {"name": "unique_archive_entry_names", "status": "PASS", "count": 51},
+    {"name": "archive_names_exactly_manifest_files_plus_manifest", "status": "PASS"},
+    {"name": "all_manifest_payload_sha256_values_match", "status": "PASS", "checked": 50, "mismatches": 0},
+    {"name": "zip_crc_integrity", "status": "PASS", "method": "zipfile.ZipFile.testzip returned None"},
+    {"name": "no_absolute_or_parent_traversal_archive_paths", "status": "PASS"},
+    {"name": "all_zip_entries_byte_identical_to_expanded_package", "status": "PASS", "checked": 51},
+    {"name": "all_account_nav_hashes_match_local_audit_pointers", "status": "PASS", "checked": 32},
+    {"name": "eleven_derived_result_files_byte_identical_to_local_results", "status": "PASS", "checked": 11},
+    {"name": "account_implementation_patch_exact_declared_commit_diff", "status": "PASS"},
+    {"name": "postrun_plot_patch_exact_plot_only_diff", "status": "PASS"},
+    {"name": "independent_review_patch_exact_review_code_diff_at_inspection", "status": "PASS"},
+    {"name": "code_patches_contain_no_git_binary_payload", "status": "PASS", "checked": 3},
+    {"name": "recursive_json_source_observation_keys_scan", "status": "PASS", "matches": 0},
+    {"name": "long_chinese_json_string_scan", "status": "PASS", "matches": 0},
+    {"name": "patch_sensitive_field_references_inspected", "status": "PASS", "references": 5, "finding": "References to window_observations, relevant_pages and first-page excerpts are executable generation or review code, not captured source payloads."},
+    {"name": "source_text_excerpt_comparison", "status": "PASS", "source_text_files": 330, "package_windows_checked": 74, "window_length_characters": 160, "exact_matches": 0},
+    {"name": "patch_dense_dated_numeric_observation_pattern_scan", "status": "PASS", "matches": 0},
+    {"name": "readme_and_manifest_disclose_incomplete_source_reproducibility", "status": "PASS", "finding": "README requires licensed local source objects and frozen admission artifacts; MANIFEST explicitly sets full_source_admission_reproducible_from_package_alone to false."}
+  ],
+  "payload_counts": {
+    "account_nav_files": 32,
+    "local_audit_pointer_accounts": 32,
+    "account_metrics_csv_rows": 32,
+    "annual_account_reconciliation_csv_rows": 80,
+    "annual_product_pnl_csv_rows": 800,
+    "daily_account_returns_csv_rows": 19392,
+    "paired_month_contributions_csv_rows": 1200,
+    "paired_product_contributions_csv_rows": 10400,
+    "target_and_holdings_differences_csv_rows": 32
+  },
+  "patch_sha256": {
+    "ACCOUNT_IMPLEMENTATION.patch": "a4e3376315987eaf7862a9b6042c3b836ead0b11cb4a4845725848b2fd87a2fa",
+    "INDEPENDENT_REVIEW_CODE.patch": "c44103c9df5a2571eb21e8abb96aac965e721a236bf5008f2ba39c8dd704f6e1",
+    "POSTRUN_PLOT_ONLY.patch": "a1137815b80775767fe5f5ded73dfdd2d09b970834263bb021eb25a7c52fde91"
+  },
+  "derived_files_compared_byte_for_byte": [
+    "account_metrics.csv",
+    "annual_account_reconciliation.csv",
+    "annual_product_pnl.csv",
+    "daily_account_returns.csv",
+    "paired_month_contributions.csv",
+    "paired_product_contributions.csv",
+    "target_and_holdings_differences.csv",
+    "PAIRED_EVALUATION.json",
+    "RESULTS_SUMMARY.json",
+    "base_nav.png",
+    "base_nav.svg"
+  ],
+  "recursive_json_forbidden_keys_checked": [
+    "window_observations", "relevant_pages", "firstpage", "first_page", "qt",
+    "reference_prices", "open", "high", "low", "close", "price", "volume",
+    "amount", "raw_response", "source_record"
+  ],
+  "content_conclusion": "No captured raw daily vendor price/amount observations, original PDF files, long original-source page extracts or private broker records were found in the inspected package. Included daily NAV/returns, product contributions and formation medians are derived research outputs. Full orders, fills, positions and source-admission evidence are intentionally local-only.",
+  "nonblocking_documentation_observations": [
+    {
+      "item": "Manifest pointer precision",
+      "finding_at_inspection": "PUBLIC_RELEASE_BOUNDARY stated that the whitelist and per-file hashes were in PUBLIC_PACKAGE_RECEIPT. That receipt contains package and manifest hashes plus the file count; the actual whitelist and per-file hashes are inside the zip MANIFEST.json.",
+      "disposition": "Reported to root; root stated the boundary sentence would be clarified in the final receipt-only commit. This receipt does not assert the later wording was rechecked."
+    },
+    {
+      "item": "Summary local-only references",
+      "finding_at_inspection": "SUMMARY.md refers to ACCOUNT_PATHS and accounts/ complete ledgers, which are absent by design. README and LOCAL_AUDIT_POINTERS explicitly distinguish the local full audit and the public subset.",
+      "disposition": "No completeness blocker when package context is preserved; do not distribute SUMMARY alone as if the full ledger were included."
+    }
+  ],
+  "limitations": [
+    "This is a content/integrity review, not a legal license or redistribution authorization opinion.",
+    "No network or remote-state check was performed; uploaded=false and the absence of a remote push are not independently proved by inspecting a local zip.",
+    "Byte identity checks do not independently establish historical claims that frozen artifacts were never modified; those claims require the separate immutable-artifact and execution receipts.",
+    "Source-excerpt comparison used normalized windows from long Chinese package lines against 330 saved source text files. It is bounded evidence, not a universal proof against every paraphrase, short quotation or omitted source.",
+    "The public package alone cannot reproduce source admission or reconstruct the full accounts without licensed local originals, frozen selection, configuration and admission evidence.",
+    "Account tests and simulations were not repeated. CSV counts, package hashes, source-content scans and byte equality checks are the scope of this review.",
+    "The recorded result-artifact commit was supplied by root; this receipt does not claim an additional commit-history audit."
+  ],
+  "review_operations": {
+    "network_calls": 0,
+    "new_source_acquisitions": 0,
+    "account_test_runs": 0,
+    "strategy_replays": 0,
+    "public_package_mutations": 0,
+    "frozen_artifact_mutations": 0,
+    "persistence_write_scope": "reports/m8_review/public_package_independent_review.json only"
+  }
+}

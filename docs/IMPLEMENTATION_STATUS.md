@@ -1,3 +1,9 @@
+# Current delivery: M8 public results
+
+M8 completed all 32 accounts; conclusion INCONCLUSIVE. Read [M8 publication scope](M8_PUBLIC_DELIVERY.md), [results](../reports/m8_public/SUMMARY.md), and [persistent push requirement](DELIVERY_POLICY.md). This public branch contains the independently checked derived package and code patches. Complete local source evidence and private commit ancestors are not published. Existing source CI on this branch is not an M8 account replay.
+
+---
+
 # 实现与实验状态
 
 ## 当前M7：固定历史行业ETF组有限实证已完成

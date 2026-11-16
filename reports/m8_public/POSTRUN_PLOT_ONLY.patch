@@ -1,0 +1,12 @@
+diff --git a/scripts/m8_plot.py b/scripts/m8_plot.py
+index 13e827b..ecbf550 100644
+--- a/scripts/m8_plot.py
++++ b/scripts/m8_plot.py
+@@ -21,6 +21,7 @@ def main():
+                 raise ValueError('Do not plot an unrun or failed account as zero return')
+             nav = pd.read_json(ROOT / row['artifact_directory'] / 'nav.json')
+             ax.plot(pd.to_datetime(nav.date), nav.nav, label=variant, color=color, lw=1.35)
++        ax.set_xlim(pd.to_datetime(nav.date).min(), pd.to_datetime(nav.date).max())
+         ax.axhline(100000, color='#999999', ls=':', lw=.8)
+         ax.set_title(title)
+         ax.set_ylabel('Net account value (CNY)')

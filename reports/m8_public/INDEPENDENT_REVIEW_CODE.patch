@@ -1,0 +1,2108 @@
+diff --git a/review_code/m8/formation_receipt.py b/review_code/m8/formation_receipt.py
+new file mode 100644
+index 0000000..d9897f9
+--- /dev/null
++++ b/review_code/m8/formation_receipt.py
+@@ -0,0 +1,36 @@
++"""Bind independently completed formation checks to immutable selection bytes."""
++from pathlib import Path
++import datetime
++import hashlib
++import json
++
++ROOT = Path(__file__).resolve().parents[2]
++def sha(path):
++    return hashlib.sha256((ROOT/path).read_bytes()).hexdigest()
++def read(path):
++    return json.loads((ROOT/path).read_bytes())
++
++checks = {
++    "reports/m8_review/independent_registration.json": ("status", "PASS_CLOSED_FRAME_AND_REGISTRATION_ONLY"),
++    "reports/m8_review/NON_ETF_REVIEW.json": ("status", "COMPLETE"),
++    "reports/m8_review/independent_formation_arithmetic.json": ("status", "PASS_RAW_FORMATION_ARITHMETIC"),
++    "reports/m8_review/independent_lifecycle_review.json": ("decision", "PASS_CLOSED_FORMATION_DOCUMENT_REVIEW"),
++}
++for path,(field,value) in checks.items():
++    assert read(path)[field] == value
++selected = "reports/m8_rotation/COHORT_SELECTION.json"
++assert sha(selected) == sha("reports/m8_rotation/FORMATION_REVIEW_DRAFT.json")
++assert sha(selected) == read("reports/m8_review/independent_formation_arithmetic.json")["author_draft_sha256"]
++assert sha(selected) == read("reports/m8_review/independent_lifecycle_review.json")["draft_sha256"]
++out = dict(decision="PASS_COHORT_SELECTION_ONLY", author_role="INDEPENDENT_REVIEWER", reviewer="/root/m8_independent",
++    reviewed_at=datetime.datetime.now(datetime.timezone.utc).isoformat(), cohort_selection_sha256=sha(selected),
++    evidence_files={p:sha(p) for p in [*checks,"reports/m8_review/title_archive_review.json"]},
++    selected_instruments=read(selected)["selected_instruments"],
++    summary="Closed1970 frame;220 hits=17 explicit historical exclusions+134 original nonETF+69 ETF.54 mature active candidates independently recomputed from3240 raw rows:37 belowthreshold,17 qualify,15 exact indices,10 selected.6 preformation exits and9 young separately excluded. All required index/lifecycle documents and conservative date-only clocks verified.",
++    limitations=["Conditional historical-public reconstruction within frozen frame, not national sector universe or vendor-vintage certification.",
++        "Review permits selection freeze and subsequent scoped acquisition only. It does not admit holding data or authorize strategy performance claims.",
++        "Formation60-session age is separate from252-session trading eligibility. Old7 M7 products are not automatically new candidates.",
++        "Technology exposures overlap; exact-index deduplication does not produce industry neutrality."],
++    new_network_calls_by_reviewer=0, strategy_accounts_run_by_reviewer=0, post2019_etf_market_data_used=False)
++(ROOT/"reports/m8_review/FORMATION_INDEPENDENT_REVIEW.json").write_text(json.dumps(out,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
++print(out["decision"],out["cohort_selection_sha256"])
+diff --git a/review_code/m8/holding_admission_receipt.py b/review_code/m8/holding_admission_receipt.py
+new file mode 100644
+index 0000000..39f6f16
+--- /dev/null
++++ b/review_code/m8/holding_admission_receipt.py
+@@ -0,0 +1,80 @@
++"""Issue only the completed independent full-holding scope, never all-cash waiver."""
++from pathlib import Path
++from datetime import datetime,timezone
++import hashlib
++import json
++from independent_accounts import ROOT,read,sha,load_stage
++from independent_signals import calculate
++
++STAGE=ROOT/"data/m8_rotation/stage_v1"
++report=ROOT/"reports/m8_review"
++manifest=read(STAGE/"manifest.json")
++source=load_stage(STAGE)
++selection=read(ROOT/"reports/m8_rotation/COHORT_SELECTION.json")
++assert sha(STAGE/"manifest.json")=="2c21eb27ed214a07cc9062b1db87934d201ba2b7c2a60104b1a85c05a7ca1c15"
++assert manifest["cohort_selection_sha256"]==sha(ROOT/"reports/m8_rotation/COHORT_SELECTION.json")
++assert read(report/"independent_holding_stage.json")["decision"]=="PASS_NORMALIZED_HOLDING_DATA_RAW_AND_TR"
++assert read(report/"independent_holding_stage.json")["stage_manifest_sha256"]==sha(STAGE/"manifest.json")
++assert read(report/"independent_action_documents.json")["decision"]=="PASS_ORIGINAL_ACTION_TERMS_AND_ANNUAL_COMPLETENESS"
++assert read(report/"independent_holding_lifecycle.json")["decision"]=="PASS_BOUNDED_HOLDING_LIFECYCLE"
++assert read(report/"independent_holding_rules.json")["policy_sha256"]==sha(ROOT/"reports/m8_rotation/HOLDING_RULE_POLICY.json")
++products={r["instrument_id"]:r["product_evidence"] for r in selection["ETF_candidate_rows"]}
++assert len(source["instruments"])==11 and {r["instrument_id"] for r in source["instruments"]}==set(selection["selected_instruments"])
++for row in source["instruments"]:
++    assert row["vendor_first_seen_at"] is None and row["actual_broker_permission_observed"] is False
++    assert row["account_permission_basis"]=="HYPOTHETICAL_ORDINARY_DOMESTIC_EQUITY_ETF_ACCOUNT"
++    assert row["status"]=="NORMAL" and row["benchmark_id"]==products[row["instrument_id"]]["exact_index_id"]
++    if row["supersedes_id"] is None:
++        product=products[row["instrument_id"]]
++        assert row["available_at"]==max(product["available_at"],product.get("index_contract_available_at",product["available_at"]))
++    else:
++        assert row["instrument_id"]=="sh.512760" and row["effective_from"]=="2020-06-16"
++        assert row["available_at"]=="2020-06-12T21:00:00+08:00"
++opportunities=calculate(source,selection,"E0",1,"2020-01-01","2024-12-31")
++registered=manifest["liquid_dependencies"]["schedule"]
++assert len(opportunities)==len(registered)==60
++for expected,actual in zip(opportunities,registered):
++    assert expected["anchor"]==actual["anchor_date"] and expected["eligible"]==actual["eligible"]
++    assert expected["eligible_count"]==actual["eligible_count"] and expected["execution"]==actual["execution_date"]
++opportunity_summary=dict(decision="PASS_INDEPENDENT_PRE_ACCOUNT_QUALIFICATION",stage_manifest_sha256=sha(STAGE/"manifest.json"),
++    scheduled_anchors=60,preformation_cash_anchors=1,N_ge4_anchors=sum(len(x["eligible"])>=4 for x in opportunities),
++    trend_on_anchors=sum(x["trend"] is True for x in opportunities),all10_competitors_in_scope=True,
++    account_returns_read=False,ledger_accounts_run=0,method="Independent Decimal monthly20 median and original listing-calendar age252; all N>=3 competitors have complete raw-action TR.")
++(report/"independent_pre_account_qualification.json").write_text(json.dumps(opportunity_summary,indent=2)+"\n",encoding="utf-8")
++evidence_names=["FORMATION_INDEPENDENT_REVIEW.json","independent_raw_bars.json","independent_holding_stage.json",
++    "independent_action_documents.json","independent_holding_lifecycle.json","independent_holding_rules.json",
++    "benchmark_calendar_source_review.json","holding_title_archive_review.json","independent_pre_account_qualification.json"]
++evidence_files={"reports/m8_review/"+name:sha(report/name) for name in evidence_names}
++for path,digest in read(report/"independent_holding_rules.json")["license_source_hashes"].items(): evidence_files[path]=digest
++gates={
++    "source":["independent_raw_bars.json","independent_holding_stage.json"],
++    "license":["independent_holding_rules.json"],
++    "calendar":["benchmark_calendar_source_review.json"],
++    "historical_coverage":["independent_raw_bars.json","independent_pre_account_qualification.json"],
++    "point_in_time":["independent_holding_stage.json","benchmark_calendar_source_review.json","independent_holding_lifecycle.json"],
++    "lifecycle":["independent_holding_lifecycle.json","holding_title_archive_review.json"],
++    "corporate_actions":["independent_action_documents.json","independent_holding_stage.json"],
++    "total_return":["independent_holding_stage.json"],
++    "historical_rules":["independent_holding_rules.json"],
++    "historical_fees":["independent_holding_rules.json"],
++    "account_permissions":["independent_holding_rules.json"],
++    "dual_source_reconciliation":["independent_holding_stage.json"]}
++now=datetime.now(timezone.utc).isoformat()
++output=dict(schema_version=1,decision="ADMIT_DAILY_SCREEN",author_role="INDEPENDENT_REVIEWER",reviewer="/root/m8_independent",
++    reviewed_at=now,research_scope="R1I_HISTORICAL_LIQUID_V1",admission_scope="FULL_HOLDING_DEPENDENCIES",
++    stage_manifest_sha256=sha(STAGE/"manifest.json"),evidence_files=evidence_files,
++    evidence_gates={key:dict(status="VERIFIED",reviewer="/root/m8_independent",reviewed_at=now,evidence=["reports/m8_review/"+n for n in names]) for key,names in gates.items()},
++    qualifications=[
++        "All10 formed competitors:13,737 raw bars, five source-confirmed economic events,60 annual fund-year action proofs, full raw-action proportional TR. No M7 all-cash or null-TR waiver.",
++        "Historical public as-of reconstruction, not vendor vintage. Unknown first-seen timestamps remain null. Market-close21:00 and benchmark next-exchange-session21:00 are labeled conservative research clocks.",
++        "Calendar comes from actual BaoStock exchange-session query, corroborated by CSI membership; it is not represented as an exchange-issued primary calendar. Pre2019 calendar proves listing age only; fixed2019 prices cover every registered warmup.",
++        "2024 annual reports published2025 are retrospective action-completeness evidence only. Exact historical plans, not annual publication backfill, supply event terms and clocks. No2025–26 market/factor/strategy observations admitted.",
++        "Ordinary domestic equity ETF account and3bp/min5 commission are hypothetical research scenarios. ETF statutory stock-tax and stock-transfer nonapplication is source-scoped; SSE stamp exclusion is an explicit national-law scope inference, not a direct SSE-specific exemption claim.",
++        "Announced cash-dividend dates are rule-based designated-broker credit simulation, not observed investor receipts. No actual user broker permissions inferred.",
++        "Ordinary10% limits follow historical sector-index product scope and closed lifecycle evidence, not a certified per-day constituent matrix or exchange product-limit feed; source conflicts would block.",
++        "Private local noncommercial research only; no raw-data redistribution or commercial/live license asserted. Tencent OHLC only corroborates primary raw prices; primary share/CNY units are separately validated.",
++        "This is source admission only. Eight real base accounts still require independent source-based accounting gate before registered24 stress paths; profitability is never the gate."],
++    reviewed_counts=dict(bars=13737,actions=5,master_revisions=11,benchmark=3643,source_snapshot_files=544),
++    production_edits_by_reviewer=0,new_network_requests_by_reviewer=0)
++(report/"HOLDING_ADMISSION.json").write_text(json.dumps(output,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
++print(output["decision"],output["admission_scope"],output["stage_manifest_sha256"])
+diff --git a/review_code/m8/independent_accounts.py b/review_code/m8/independent_accounts.py
+new file mode 100644
+index 0000000..0e27bc4
+--- /dev/null
++++ b/review_code/m8/independent_accounts.py
+@@ -0,0 +1,285 @@
++"""Independent Decimal account reconstruction; no production engine imports.
++
++Actual fills are assertions to audit against admitted source bars and immutable
++intent, then inputs to an independently maintained share/cash/receivable ledger.
++No actual NAV is used to generate any expected account value or order quantity.
++"""
++import argparse
++from bisect import bisect_left
++from collections import defaultdict
++from datetime import datetime, timezone
++from decimal import Decimal, ROUND_CEILING, ROUND_FLOOR, ROUND_HALF_UP
++import hashlib
++import json
++from pathlib import Path
++
++ROOT = Path(__file__).resolve().parents[2]
++D = Decimal
++ZERO = D(0)
++
++
++def read(path):
++    return json.loads(Path(path).read_text(encoding="utf-8"), parse_float=D)
++
++
++def sha(path):
++    return hashlib.sha256(Path(path).read_bytes()).hexdigest()
++
++
++def money(value):
++    return value.quantize(D("0.01"), rounding=ROUND_HALF_UP)
++
++
++def close(actual, expected, label, tolerance=D("0.000001")):
++    assert abs(D(str(actual))-expected) <= tolerance, (label, str(actual), str(expected))
++
++
++def load_stage(path):
++    result = {name:read(path/(name+".json"))["records"] for name in ("bars","instruments","actions","benchmark")}
++    raw = read(path/"calendar.json")
++    result["calendar"] = raw if isinstance(raw,list) else raw.get("sessions",raw.get("calendar"))
++    assert result["calendar"], raw
++    return result
++
++
++def review_account(record, source):
++    path = ROOT/record["artifact_directory"]
++    for name,digest in record["exported_tables"].items():
++        assert sha(path/name) == digest, (path,name)
++    actual = {name:read(path/(name+".json")) for name in ("nav","positions","fills","orders","decisions","cash_events","share_events","order_events","config")}
++    calendar = source["calendar"]
++    index = {day:i for i,day in enumerate(calendar)}
++    start,end = ("2020-01-01","2021-12-31") if record["period"] == "development" else ("2022-01-01","2024-12-31")
++    funded = [d for d in calendar if start <= d <= end]
++    assert [r["date"] for r in actual["nav"]] == funded
++    assert actual["config"]["initial_cash"] == 100000
++    for field in ("variant","cost_multiplier","slippage_multiplier","execution_delay","risk_scaling","signal_release_delay","seed","annual_incremental_cost"):
++        assert actual["config"][field] == record[field], (record["trial_id"],field)
++    assert actual["config"]["sample"] == record["period"]
++    assert actual["config"]["annual_incremental_cost"] is None
++    bars = {(r["date"],r["instrument_id"]):r for r in source["bars"]}
++    masters = defaultdict(list)
++    for r in source["instruments"]:
++        masters[r["instrument_id"]].append(r)
++    def master(sid,day):
++        choices = [r for r in masters[sid] if r["available_at"] <= day+"T09:30:00+08:00"]
++        assert choices
++        return sorted(choices,key=lambda r:r["available_at"])[-1]
++    def adv(sid,day):
++        days = calendar[index[day]-19:index[day]+1]
++        assert len(days) == 20
++        return sum(D(str(bars[d,sid]["amount"])) for d in days)/20
++    orders = {r["order_id"]:r for r in actual["orders"]}
++    by_fill,by_order,by_position,by_event = (defaultdict(list) for _ in range(4))
++    for r in actual["fills"]: by_fill[r["date"]].append(r)
++    for r in actual["orders"]: by_order[r["decision_date"]].append(r)
++    for r in actual["positions"]: by_position[r["date"]].append(r)
++    for r in source["actions"]:
++        if start <= r["ex_date"] <= end:
++            assert r["action_type"] in ("CASH_DIVIDEND","SPLIT"), r
++            by_event[r["ex_date"]].append(r)
++    decisions = {r["decision_at"][:10]:r for r in actual["decisions"]}
++    cash,positions,marks = D(100000),defaultdict(int),{}
++    lots,record_quantity,receivables = defaultdict(list),{},[]
++    max_residual,expected_cash_events,expected_share_events = ZERO,[],[]
++    daily,fill_checks,intent_checks,capacity_checks = [],0,0,0
++    maximum_participation = dict(shares=ZERO,amount=ZERO,historical=ZERO)
++    def split(action,day):
++        sid = action["instrument_id"]
++        if action.get("action_status") == "CANCELLED": return
++        factor = D(str(action["share_factor"]))
++        total = D(positions[sid])*factor
++        policy = action.get("rounding_policy") or "EXACT"
++        rounding = {"FLOOR":ROUND_FLOOR,"CEIL":ROUND_CEILING,"EXACT":ROUND_FLOOR}[policy]
++        new = int(total.to_integral_value(rounding=rounding))
++        if policy == "EXACT": assert D(new) == total
++        # Allocate integer rounding to the latest-locked lots; source policy is
++        # account-total rounding, not independently rounded per acquisition.
++        converted = [[int((D(q)*factor).to_integral_value(rounding=ROUND_FLOOR)),lock] for q,lock in lots[sid]]
++        remainder = new-sum(q for q,lock in converted)
++        fractional = [j for j,(q,lock) in enumerate(lots[sid]) if D(q)*factor != converted[j][0]]
++        for j in sorted(fractional,key=lambda j:(converted[j][1],j),reverse=True):
++            if remainder <= 0: break
++            converted[j][0] += 1
++            remainder -= 1
++        assert remainder == 0
++        old = positions[sid]
++        positions[sid],lots[sid] = new,converted
++        if sid in marks: marks[sid] /= factor
++        expected_share_events.append(dict(date=day,instrument_id=sid,old_quantity=old,new_quantity=new,share_factor=str(factor)))
++    for day,observed in zip(funded,actual["nav"]):
++        withdrawable = cash
++        for action in by_event[day]:
++            sid = action["instrument_id"]
++            if action["action_type"] == "SPLIT":
++                if action.get("effective_phase","BOD") == "BOD": split(action,day)
++                continue
++            entitled = record_quantity.get((action["record_date"],sid),0)
++            amount = money(D(entitled)*D(str(action["cash_per_share"])))
++            pay = action["pay_date"]
++            if action.get("settlement_mode") == "RULE_BASED_SIMULATION" and action.get("settlement_rule_credit_basis") == "NEXT_SESSION_AFTER_PARTICIPANT_TRANSFER":
++                pay = calendar[index[action["participant_transfer_date"]]+1]
++                assert action["modeled_cash_date"] == pay
++            if amount:
++                receivables.append((pay,amount,sid))
++                expected_cash_events.append(dict(date=day,event="DIVIDEND_RECEIVABLE",instrument_id=sid,amount=str(amount)))
++            if sid in marks: marks[sid] = max(ZERO,marks[sid]-D(str(action["cash_per_share"])))
++        for item in list(receivables):
++            pay,amount,sid = item
++            if pay <= day:
++                cash += amount
++                withdrawable += amount
++                receivables.remove(item)
++                expected_cash_events.append(dict(date=day,event="DIVIDEND_PAID",instrument_id=sid,amount=str(amount)))
++        capacity = defaultdict(lambda:[ZERO,ZERO,ZERO])
++        daily_limits = {}
++        for r in actual["orders"]:
++            if r["execution_date"] == day and r.get("adv20") is not None:
++                lim = D(str(r["adv20"]))*D("0.01")
++                daily_limits[r["instrument_id"]] = min(daily_limits.get(r["instrument_id"],lim),lim)
++        for fill in by_fill[day]:
++            sid,q = fill["instrument_id"],fill["quantity"]
++            order = orders[fill["order_id"]]
++            raw = bars[day,sid]
++            assert order["execution_date"] == day and order["decision_date"] < day
++            assert sid == order["instrument_id"] and fill["side"] == order["side"]
++            assert 0 < q <= order["quantity"] == order["qty_requested"]
++            assert not raw["suspended"] and D(str(raw["amount"])) > 0 and D(str(raw["volume"])) > 0
++            buy = fill["side"] == "BUY"
++            meta = master(sid,day)
++            tick = D(str(meta["tick_size"]))
++            slip = D("0.0003")*record["slippage_multiplier"]
++            raw_open = D(str(raw["open"]))
++            adverse = raw_open*(1+slip if buy else 1-slip)
++            price = (adverse/tick).to_integral_value(rounding=ROUND_CEILING if buy else ROUND_FLOOR)*tick
++            close(fill["price"],price,"fill price")
++            assert D(str(raw["low"])) <= price <= D(str(raw["high"]))
++            assert D(str(raw["lower_limit"])) <= price <= D(str(raw["upper_limit"]))
++            assert raw_open < D(str(raw["upper_limit"])) if buy else raw_open > D(str(raw["lower_limit"]))
++            nominal = money(D(q)*price)
++            fee = money(max(D(5),nominal*D("0.0003"))*record["cost_multiplier"])
++            for field,value in (("notional",nominal),("commission",fee),("fees",fee),("stamp_duty",ZERO),("transfer_fee",ZERO),
++                ("slippage_cost",money(D(q)*abs(price-raw_open)))):
++                close(fill[field],value,field)
++            used = capacity[sid]
++            used[0] += D(q)
++            used[1] += max(D(q)*price,nominal)
++            used[2] += D(q)*max(price,D(str(order["reference_price"])))
++            limits = [D(str(raw["volume"]))*D("0.01"),D(str(raw["amount"]))*D("0.01"),daily_limits[sid]]
++            for k,key in enumerate(("shares","amount","historical")):
++                assert used[k] <= limits[k]+D("0.0000001"), (day,sid,key,used[k],limits[k])
++                maximum_participation[key] = max(maximum_participation[key],used[k]/(limits[k]*100))
++            capacity_checks += 1
++            if buy:
++                assert q % 100 == 0
++                cash -= nominal+fee
++                withdrawable = max(ZERO,withdrawable-nominal-fee)
++                lots[sid].append([q,index[day]+int(meta["t_plus"])])
++                positions[sid] += q
++            else:
++                assert q <= sum(lot[0] for lot in lots[sid] if lot[1] <= index[day])
++                remaining = q
++                for lot in lots[sid]:
++                    if lot[1] <= index[day]:
++                        remove = min(remaining,lot[0]); lot[0] -= remove; remaining -= remove
++                assert remaining == 0
++                lots[sid] = [lot for lot in lots[sid] if lot[0]]
++                positions[sid] -= q
++                cash += nominal-fee
++            assert cash >= 0 and positions[sid] >= 0
++            fill_checks += 1
++        for sid,q in positions.items():
++            raw = bars.get((day,sid))
++            if raw and not raw["suspended"] and D(str(raw["volume"])) > 0:
++                marks[sid] = D(str(raw["close"]))
++        for action in by_event[day]:
++            if action["action_type"] == "SPLIT" and action.get("effective_phase","BOD") == "EOD": split(action,day)
++        holding = sum(D(q)*marks.get(sid,ZERO) for sid,q in positions.items())
++        owing = sum((r[1] for r in receivables),ZERO)
++        nav = cash+holding+owing
++        for field,value in (("cash_total",cash),("cash",cash),("cash_available",cash),("cash_withdrawable",min(withdrawable,cash)),
++                            ("cash_reserved",ZERO),("dividend_tax_payable",ZERO),("holdings_value",holding),("receivables",owing),("nav",nav)):
++            close(observed[field],value,(day,field))
++        max_residual = max(max_residual,abs(D(str(observed["nav"]))-nav))
++        assert not observed["valuation_uncertainty"]
++        expected_pos = {sid:q for sid,q in positions.items() if q}
++        assert {p["instrument_id"]:p["quantity"] for p in by_position[day]} == expected_pos
++        for p in by_position[day]:
++            sid = p["instrument_id"]
++            close(p["price"],marks[sid],"position raw mark")
++            close(p["market_value"],D(p["quantity"])*marks[sid],"position value")
++            assert p["sellable_quantity"] == sum(q for q,lock in lots[sid] if lock <= index[day])
++            assert p["locked_quantity"] == positions[sid]-p["sellable_quantity"]
++        for sid,q in positions.items(): record_quantity[day,sid] = q
++        if day in decisions:
++            decision = decisions[day]
++            for order in by_order[day]:
++                if order["parent_order_id"] is not None or order["intent_type"] != "REBALANCE": continue
++                sid = order["instrument_id"]
++                reference = D(str(bars[day,sid]["close"]))
++                close(order["source_reference_price"],reference,"intent source reference")
++                if order["reference_basis"] == "POST_EOD_ADJUSTED":
++                    factor = next(D(str(a["share_factor"])) for a in by_event[day] if a["instrument_id"] == sid and a["action_type"] == "SPLIT")
++                    reference /= factor
++                close(order["reference_price"],reference,"immutable reference")
++                close(order["adv20"],adv(sid,day),"historical ADV",D("0.00001"))
++                weight = D(str(decision["weights"].get(sid,0)))
++                target = int(nav*weight/reference)//100*100
++                delta = target-positions[sid]
++                assert order["quantity"] == abs(delta), (day,sid,order["quantity"],abs(delta))
++                assert order["side"] == ("BUY" if delta>0 else "SELL")
++                intent_checks += 1
++        daily.append(dict(date=day,cash=str(cash),holding_value=str(holding),receivables=str(owing),nav=str(nav),positions=dict(expected_pos)))
++    actual_dividends = [r for r in actual["cash_events"] if r["event"] in ("DIVIDEND_RECEIVABLE","DIVIDEND_PAID")]
++    assert len(actual_dividends) == len(expected_cash_events)
++    for expected,observed in zip(expected_cash_events,actual_dividends):
++        for field in ("date","event","instrument_id"): assert expected[field] == observed[field]
++        close(observed["amount"],D(expected["amount"]),"dividend source entitlement")
++    for expected in expected_share_events:
++        hits = [r for r in actual["share_events"] if r["date"] == expected["date"] and r["instrument_id"] == expected["instrument_id"]]
++        assert len(hits) == 1
++        for field in ("old_quantity","new_quantity"): assert hits[0][field] == expected[field]
++    output = ROOT/"reports/m8_review/independent_ledgers"/(record["trial_id"]+".json")
++    output.parent.mkdir(exist_ok=True)
++    payload = (json.dumps(daily,ensure_ascii=False,indent=2)+"\n").encode("utf-8")
++    if output.exists():
++        # The first exploratory ledger used Windows text-mode CRLF. Retain
++        # those exact bytes; either serialization must have identical facts.
++        assert output.read_bytes() in (payload,payload.replace(b"\n",b"\r\n")), (record["trial_id"],"independent ledger changed; retain and register correction")
++    else:
++        output.write_bytes(payload)
++    return dict(trial_id=record["trial_id"],sessions=len(funded),fill_checks=fill_checks,original_intent_checks=intent_checks,
++        capacity_checks=capacity_checks,dividend_cash_events=len(expected_cash_events),share_events=len(expected_share_events),
++        maximum_nav_difference_cny=str(max_residual),maximum_participation={k:str(v) for k,v in maximum_participation.items()},
++        independent_ledger_sha256=sha(output),independent_ledger_path=output.relative_to(ROOT).as_posix())
++
++
++def main():
++    parser = argparse.ArgumentParser()
++    parser.add_argument("--stage",type=Path,required=True)
++    parser.add_argument("--phase",choices=["base","all"],required=True)
++    args = parser.parse_args()
++    records = read(ROOT/"reports/m8_rotation/ACCOUNT_PATHS.json")
++    wanted = [r for r in records if args.phase == "all" or r["path"] == "base"]
++    assert len(wanted) == (8 if args.phase == "base" else 32)
++    admission = read(ROOT/"reports/m8_review/HOLDING_ADMISSION.json")
++    assert admission["decision"] == "ADMIT_DAILY_SCREEN" and admission["admission_scope"] == "FULL_HOLDING_DEPENDENCIES"
++    assert admission["stage_manifest_sha256"] == sha(args.stage/"manifest.json")
++    signal_review = read(ROOT/"reports/m8_review"/("independent_signals_"+args.phase+".json"))
++    assert signal_review["decision"] == "PASS_INDEPENDENT_MONTHLY_SIGNALS"
++    assert signal_review["stage_manifest_sha256"] == sha(args.stage/"manifest.json")
++    source = load_stage(args.stage)
++    reviews = [review_account(r,source) for r in wanted]
++    result = dict(decision="PASS_DATA_AND_ACCOUNTING",author_role="INDEPENDENT_REVIEWER",reviewer="/root/m8_independent",
++        reviewed_at=datetime.now(timezone.utc).isoformat(),base_account_hashes={r["trial_id"]:r["exported_tables"] for r in wanted if r["path"] == "base"},
++        accounts=reviews,stage_manifest_sha256=sha(args.stage/"manifest.json"),
++        source_admission_sha256=sha(ROOT/"reports/m8_review/HOLDING_ADMISSION.json"),
++        independent_signal_review_sha256=sha(ROOT/"reports/m8_review"/("independent_signals_"+args.phase+".json")),
++        method="Independent Decimal from100k cash/zero positions, source action entitlements and audited fills. Raw-source equality and signals checked separately. Actual NAV never generates expected NAV or immutable intent.",
++        profitability_is_not_a_gate=True)
++    name = "BASE_INDEPENDENT_REVIEW.json" if args.phase == "base" else "ALL_ACCOUNT_INDEPENDENT_REVIEW.json"
++    (ROOT/"reports/m8_review"/name).write_text(json.dumps(result,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
++    print(name,len(reviews))
++
++
++if __name__ == "__main__": main()
+diff --git a/review_code/m8/independent_action_documents.py b/review_code/m8/independent_action_documents.py
+new file mode 100644
+index 0000000..3782d53
+--- /dev/null
++++ b/review_code/m8/independent_action_documents.py
+@@ -0,0 +1,90 @@
++"""Read saved original action pages, not parsed action values, as the oracle."""
++from pathlib import Path
++import hashlib
++import json
++import re
++import fitz
++from independent_raw_bars import ROOT, read, checked
++
++
++EXPECTED = [
++    dict(instrument_id="sh.512760",action_type="SPLIT",announcement_date="2020-08-31",record_date="2020-09-08",ex_date="2020-09-09",effective_phase="BOD",share_factor="2"),
++    dict(instrument_id="sh.512710",action_type="SPLIT",announcement_date="2021-03-10",record_date="2021-03-18",ex_date="2021-03-19",effective_phase="BOD",share_factor="2"),
++    dict(instrument_id="sz.159939",action_type="SPLIT",announcement_date="2023-02-10",record_date="2023-02-15",ex_date="2023-02-15",market_ex_date="2023-02-16",effective_phase="EOD",share_factor="2"),
++    dict(instrument_id="sh.512720",action_type="CASH_DIVIDEND",announcement_date="2023-09-21",record_date="2023-09-22",ex_date="2023-09-25",pay_date="2023-09-28",cash_per_share="0.048"),
++    dict(instrument_id="sh.512720",action_type="CASH_DIVIDEND",announcement_date="2023-12-21",record_date="2023-12-22",ex_date="2023-12-25",pay_date="2023-12-28",cash_per_share="0.048"),
++]
++
++
++def compact(text): return re.sub(r"\s+","",text)
++def chinese(day):
++    y,m,d = map(int,day.split("-"))
++    return f"{y}年{m}月{d}日"
++
++
++def run():
++    docs = read(ROOT/"reports/m8_rotation/holding_documents.json")
++    author = read(ROOT/"reports/m8_rotation/ANNUAL_ACTION_EVIDENCE.json")["records"]
++    annual_reviews = []
++    for row in author:
++        entry = row["document"]
++        raw = checked(entry["receipt"])
++        pdf = fitz.open(stream=raw,filetype="pdf")
++        sid,year = row["instrument_id"],row["year"]
++        # Locator metadata is permitted, but no author-derived values establish
++        # the expected facts. Read original PDF pages directly and re-extract.
++        div_pages = {x["pdf_page"] for x in row["dividend_none_evidence"]+row["dividend_totals"]}
++        split_pages = {x["pdf_page"] for x in row["split_evidence"]}
++        if (sid,year) == ("sh.512880",2019): div_pages |= {10,45}
++        if (sid,year) == ("sh.512710",2019): split_pages.add(53)
++        assert div_pages and split_pages, (sid,year)
++        division = [(p,compact(pdf[p-1].get_text())) for p in sorted(div_pages)]
++        splits = [(p,compact(pdf[p-1].get_text())) for p in sorted(split_pages)]
++        none = [(p,m.group()) for p,t in division for m in re.finditer(r"(?:本基金)?(?:本报告期(?:内)?|过去三年)(?:未进行|未实施|未发生|无)利润分配(?:事项)?",t)]
++        if (sid,year) == ("sh.512720",2023):
++            # Displayed annual table is CNY per10 shares:0.960 =>0.096.
++            assert any("2023年0.960" in t or "20230.960" in t for p,t in division)
++            dividend = "0.096"
++        else:
++            assert none, (sid,year,"no explicit zero dividend proof")
++            dividend = "0"
++        split_values = []
++        for p,t in splits:
++            for match in re.finditer(r"基金拆分变动份额(?:（[^）]*）|\([^)]*\))?([\d,]+\.\d+|[-－—])",t):
++                split_values.append((p,match.group(1),t[max(0,match.start()-65):match.end()+70]))
++        assert len(split_values) == 1, (sid,year,split_values)
++        p,value,quote = split_values[0]
++        expected_nonzero = {("sh.512760",2020):"5,656,661,386.00",("sh.512710",2021):"4,048,329,199.00",("sz.159939",2023):"2,504,828,053.00"}
++        assert value == expected_nonzero[sid,year] if (sid,year) in expected_nonzero else value in ("-","－","—")
++        if year == 2024:
++            assert entry["publication_date"] >= "2025-01-01"
++            assert entry["documentary_only"] is True and entry["not_signal_input"] is True and entry["historical_fact_end"] == "2024-12-31"
++        annual_reviews.append(dict(instrument_id=sid,year=year,source_sha256=entry["receipt"]["sha256"],publication_date=entry["publication_date"],
++            dividend_per_share=dividend,dividend_none_original_quotes=none,dividend_physical_pages=sorted(div_pages),split_physical_page=p,split_original_quote=quote,
++            documentary_only=year==2024))
++    assert len(annual_reviews) == 60 and len({(r["instrument_id"],r["year"]) for r in annual_reviews}) == 60
++    event_reviews = []
++    for expected in EXPECTED:
++        hits = [r for r in docs if r["instrument_id"] == expected["instrument_id"] and r["publication_date"] == expected["announcement_date"] and ("实施基金份额拆分" in r["title"] or "基金份额拆分并调整" in r["title"] or "分红公告" in r["title"])]
++        assert len(hits) == 1
++        entry = hits[0]
++        pdf = fitz.open(stream=checked(entry["receipt"]),filetype="pdf")
++        text = compact(pdf[0].get_text())
++        assert expected["instrument_id"][3:] in text
++        for key in ("record_date","ex_date","pay_date"):
++            if key in expected: assert chinese(expected[key]) in text
++        if expected["action_type"] == "SPLIT":
++            assert "1:2" in text or "1：2" in text
++            if expected["effective_phase"] == "EOD": assert "权益登记日日终" in text and chinese(expected["market_ex_date"]) in text
++        else:
++            assert "元/10份基金份额" in text and "0.480" in text
++        event_reviews.append(dict(expected,raw_sha256=entry["receipt"]["sha256"],source_url=entry["source_url"],physical_pdf_page=1,original_quote=text[:2100]))
++    output = dict(decision="PASS_ORIGINAL_ACTION_TERMS_AND_ANNUAL_COMPLETENESS",author_role="INDEPENDENT_REVIEWER",
++        annual_reviews=annual_reviews,expected_actions=event_reviews,
++        scope="60 original annual fund-years2019–24 and5 contemporaneous event plans.2024 annuals published2025 read only identified historic profit-distribution/share-change pages; never used as signal clocks.",
++        limits=["ETF cash credits remain announced-date rule-based simulation, not observed broker account credits.","Full title archive/lifecycle review and normalized TR equality are separate gates."])
++    (ROOT/"reports/m8_review/independent_action_documents.json").write_text(json.dumps(output,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
++    print(output["decision"],len(annual_reviews),len(event_reviews))
++
++
++if __name__ == "__main__": run()
+diff --git a/review_code/m8/independent_capacity_probe.py b/review_code/m8/independent_capacity_probe.py
+new file mode 100644
+index 0000000..02ded19
+--- /dev/null
++++ b/review_code/m8/independent_capacity_probe.py
+@@ -0,0 +1,158 @@
++"""Independent M8 synthetic execution evidence; no market-data acquisition.
++
++The fixture and Decimal expectations are reviewer-owned, not imported from
++implementation tests. The immutable Git baseline is loaded without checkout.
++"""
++from pathlib import Path
++from decimal import Decimal, ROUND_HALF_UP
++import argparse
++import copy
++import hashlib
++import json
++import subprocess
++import sys
++import types
++
++ROOT = Path(__file__).resolve().parents[2]
++sys.path.insert(0, str(ROOT / "src"))
++import pandas as pd
++
++BASE = "3df2391dc646ab98122ac6b029d0ef7a5cef2b32"
++D = Decimal
++
++
++def fixture(amount=10000000):
++    days = pd.bdate_range("2020-01-02", periods=35).strftime("%Y-%m-%d").tolist()
++    master = dict(instrument_id="REVIEW_SYNTHETIC", asset_type="ETF", board="ETF",
++        listed_on="2010-01-01", delisted_on=None,
++        available_at="2010-01-01T00:00:00+08:00", account_verified=True,
++        benchmark_id="SYNTHETIC_INDEX", industry="SYNTHETIC", lot_size=100,
++        tick_size=.001, t_plus=1, status="NORMAL", is_st=False)
++    rows = [dict(date=day, instrument_id=master["instrument_id"], open=10.,
++        high=10.01, low=9.99, close=10., volume=1000000., amount=float(amount),
++        upper_limit=11., lower_limit=9., suspended=False,
++        available_at=day + "T16:00:00+08:00") for day in days]
++    return dict(calendar=days, instruments=pd.DataFrame([master]),
++        bars=pd.DataFrame(rows), actions=pd.DataFrame())
++
++
++def decision(data, at=20, execution=21, weight=.3, adv=10000000):
++    sid = "REVIEW_SYNTHETIC"
++    return dict(decision_date=data["calendar"][at], execution_date=data["calendar"][execution],
++        weights={sid: weight}, reference_prices={sid: 10.}, adv20={sid: float(adv)})
++
++
++def market(data, at, volume=None, amount=None):
++    mask = data["bars"].date == data["calendar"][at]
++    if volume is not None:
++        data["bars"].loc[mask, "volume"] = volume
++    if amount is not None:
++        data["bars"].loc[mask, "amount"] = amount
++
++
++def load_baseline():
++    source = subprocess.check_output(["git", "show", BASE + ":src/quant_research/execution.py"], cwd=ROOT)
++    module = types.ModuleType("quant_research._m8_independent_baseline")
++    module.__package__ = "quant_research"
++    sys.modules[module.__name__] = module
++    exec(compile(source, "baseline_execution.py", "exec"), module.__dict__)
++    return module.run_backtest, hashlib.sha256(source).hexdigest()
++
++
++def decimal_money(value):
++    return D(value).quantize(D("0.01"), rounding=ROUND_HALF_UP)
++
++
++def baseline_probe():
++    run, digest = load_baseline()
++    normal = fixture()
++    tiny = fixture()
++    market(tiny, 21, 1000., 10000.)
++    a = run(normal, [decision(normal)], 100000)
++    b = run(tiny, [decision(tiny)], 100000)
++    assert list(a["orders"].quantity) == list(b["orders"].quantity) == [3000]
++    assert list(b["fills"].quantity) == [3000]
++    assert D(str(b["fills"].iloc[0].price)) == D("10.003")
++    assert D(str(b["fills"].iloc[0].notional)) == D("30009")
++    return dict(status="REPRODUCED", baseline=BASE, source_sha256=digest,
++        synthetic=True, order_quantity_normal=3000, order_quantity_low_volume=3000,
++        actual_market_quantity=1000, actual_market_amount=10000,
++        fill_quantity=3000, fill_price="10.003", fill_notional="30009",
++        reviewer_expected_repaired_fill_quantity=0,
++        explanation="One percent of 1000 shares is 10 shares, below the 100-share buy lot.")
++
++
++def repaired_probe():
++    from quant_research.execution import run_backtest
++    checks = []
++    # Independent arithmetic: q*10.003 rounded cents, max(5, 3bp*q*price),
++    # cash=100000-notional-fee; marked equity is cash+q*10.
++    cases = [("normal", 10000000, 1000000, 10000000, 3000),
++        ("old_counterexample", 10000000, 1000, 10000, 0),
++        ("actual_amount_binds", 10000000, 1000000, 250000, 200),
++        ("actual_shares_binds", 10000000, 25000, 10000000, 200),
++        ("historical_adv_binds", 250000, 1000000, 10000000, 200)]
++    for label, adv, volume, amount, expected_q in cases:
++        data = fixture(adv)
++        market(data, 21, volume, amount)
++        intent = decision(data, adv=adv)
++        saved = copy.deepcopy(intent)
++        result = run_backtest(data, [intent], 100000)
++        assert intent == saved
++        assert list(result["orders"].quantity) == [3000]
++        observed = int(result["fills"].quantity.sum())
++        assert observed == expected_q, (label, observed, expected_q)
++        notional = decimal_money(D(expected_q) * D("10.003"))
++        fee = decimal_money(max(D(5), notional * D(".0003"))) if expected_q else D(0)
++        cash = D(100000) - notional - fee
++        nav = cash + D(expected_q) * D(10)
++        final = result["nav"].iloc[-1]
++        assert abs(D(str(final.cash_total)) - cash) < D(".0000001")
++        assert abs(D(str(final.nav)) - nav) < D(".0000001")
++        checks.append(dict(case=label, order_quantity=3000, fill_quantity=expected_q,
++            expected_cash=str(cash), expected_nav=str(nav), expected_commission=str(fee)))
++    # Two independent past decisions both queue a buy before either executes.
++    data = fixture()
++    market(data, 23, 1000000, 3000000)
++    result = run_backtest(data, [decision(data, 20, 23), decision(data, 21, 23)], 100000)
++    assert list(result["orders"].quantity) == [3000, 3000]
++    assert list(result["fills"].quantity) == [2900]
++    checks.append(dict(case="two_buys_share_actual_amount", orders=[3000, 3000],
++        expected_fills=[2900], expected_notional="29008.70", amount_cap="30000"))
++    # Queue small buy first, then full sell, same later date; sales execute first.
++    # A 3050-share actual cap permits 3000 sell, leaving 50 < one buy lot.
++    data = fixture()
++    market(data, 25, 305000, 10000000)
++    result = run_backtest(data, [decision(data), decision(data, 22, 25, .35),
++        decision(data, 23, 25, 0)], 100000)
++    same_day = result["fills"].loc[result["fills"].date == data["calendar"][25]]
++    assert list(result["orders"].quantity) == [3000, 400, 3000]
++    assert list(same_day.side) == ["SELL"] and list(same_day.quantity) == [3000]
++    expected_cash = D(100000) - D("30009") - D("9") + D("29991") - D("9")
++    assert abs(D(str(result["nav"].iloc[-1].cash_total)) - expected_cash) < D(".0000001")
++    checks.append(dict(case="buy_sell_share_actual_quantity", orders=[3000,400,3000],
++        expected_same_day_sides=["SELL"], expected_same_day_fills=[3000],
++        expected_final_cash=str(expected_cash), share_cap=3050))
++    for field in ("volume", "amount"):
++        for invalid in (0., -1., float("nan"), float("inf")):
++            data = fixture()
++            data["bars"].loc[data["bars"].date == data["calendar"][21], field] = invalid
++            result = run_backtest(data, [decision(data)], 100000)
++            assert list(result["orders"].quantity) == [3000]
++            assert result["fills"].empty
++            assert result["nav"].iloc[-1].cash_total == 100000
++            checks.append(dict(case="invalid_actual_" + field, value=str(invalid), expected_fills=0))
++    return dict(status="PASS", synthetic=True, checks=checks,
++        source_sha256=hashlib.sha256((ROOT / "src/quant_research/execution.py").read_bytes()).hexdigest(),
++        limitations=["Daily aggregate synthetic checks do not establish intraday queue liquidity.",
++            "No inference is made about counts of affected old historical fills."])
++
++
++if __name__ == "__main__":
++    parser = argparse.ArgumentParser()
++    parser.add_argument("--phase", choices=("baseline", "repaired"), required=True)
++    args = parser.parse_args()
++    result = baseline_probe() if args.phase == "baseline" else repaired_probe()
++    target = ROOT / "reports/m8_review" / ("independent_capacity_" + args.phase + ".json")
++    target.write_text(json.dumps(result, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
++    print(json.dumps({"status": result["status"], "path": str(target)}))
+diff --git a/review_code/m8/independent_evaluation.py b/review_code/m8/independent_evaluation.py
+new file mode 100644
+index 0000000..ff0c66f
+--- /dev/null
++++ b/review_code/m8/independent_evaluation.py
+@@ -0,0 +1,181 @@
++"""Independent statistics from reconstructed ledgers; descriptive, not fee imputation."""
++from collections import defaultdict
++from datetime import date
++import csv
++import json
++from pathlib import Path
++import numpy as np
++from independent_accounts import ROOT,D,read,sha,close
++
++
++def hac(values,lag):
++    values=np.atleast_2d(values)
++    length=values.shape[1]
++    centered=values-values.mean(axis=1)[:,None]
++    long_variance=np.einsum("ij,ij->i",centered,centered)/length
++    for distance in range(1,lag+1):
++        covariance=np.einsum("ij,ij->i",centered[:,distance:],centered[:,:-distance])/length
++        long_variance+=2*(1-distance/(lag+1))*covariance
++    return np.sqrt(np.maximum(0,long_variance)/length)
++
++
++def intervals(values,block):
++    values=np.asarray(values,dtype=float)
++    count=len(values)
++    lag=max(1,int(4*(count/100)**(2/9)))
++    se=hac(values,lag)[0]
++    rng=np.random.Generator(np.random.PCG64(20261114))
++    starts=rng.integers(0,count,size=(5000,(count+block-1)//block))
++    centered=values-values.mean()
++    studentized=[]
++    for start in range(0,5000,100):
++        indices=(starts[start:start+100,:,None]+np.arange(block))%count
++        draw=centered[indices.reshape(len(indices),-1)[:,:count]]
++        standard_error=hac(draw,lag)
++        assert np.all(standard_error>1e-15)
++        studentized.extend(draw.mean(axis=1)/standard_error)
++    low,high=np.quantile(studentized,[.025,.975])
++    return dict(hac_lag=lag,hac_se=float(se),ci95=[float(values.mean()-high*se),float(values.mean()-low*se)])
++
++
++def concentration(contributions):
++    positive=sorted(((key,value) for key,value in contributions.items() if value>0),key=lambda kv:(-kv[1],kv[0]))
++    total_positive=sum(value for key,value in positive)
++    magnitude=sum(abs(value) for value in contributions.values())
++    top=sorted(contributions.items(),key=lambda kv:(-abs(kv[1]),kv[0]))
++    return dict(total_signed=float(sum(contributions.values())),total_positive=float(total_positive),total_absolute=float(magnitude),
++        largest_absolute=[dict(key=key,value=float(value)) for key,value in top[:5]],
++        largest_positive_share=float(positive[0][1]/total_positive) if total_positive else None,
++        top3_positive_share=float(sum(value for key,value in positive[:3])/total_positive) if total_positive else None)
++
++
++def main():
++    records=read(ROOT/"reports/m8_rotation/ACCOUNT_PATHS.json")
++    assert len(records)==32 and all(r["status"]=="COMPLETED" for r in records)
++    paired=read(ROOT/"reports/m8_rotation/PAIRED_EVALUATION.json")
++    series,ledgers={},{}
++    per_account=[]
++    for record in records:
++        key=(record["period"],record["path"],record["variant"])
++        path=ROOT/"reports/m8_review/independent_ledgers"/(record["trial_id"]+".json")
++        ledger=read(path)
++        prior=D(100000)
++        returns=[]
++        peak=D(100000);drawdown=[]
++        for row in ledger:
++            nav=D(row["nav"]);returns.append(nav/prior-1);prior=nav
++            peak=max(peak,nav);drawdown.append(nav/peak-1)
++        series[key]=dict(zip([r["date"] for r in ledger],returns));ledgers[key]=ledger
++        close(record["metrics"]["total_return"],prior/100000-1,"full calendar total return",D("1e-11"))
++        close(record["metrics"]["max_drawdown"],min(drawdown),"drawdown with initial cash",D("1e-11"))
++        span=(date.fromisoformat(ledger[-1]["date"])-date.fromisoformat(ledger[0]["date"])).days+1
++        cagr=(float(prior)/100000)**(365.25/span)-1
++        close(record["metrics"]["cagr"],D(str(cagr)),"calendar CAGR",D("1e-11"))
++        per_account.append(dict(trial_id=record["trial_id"],sessions=len(returns),independent_ledger_sha256=sha(path),final_nav=str(prior)))
++    checks=[]
++    mapping=[("R0-E0",{"R0":1,"E0":-1}),("R1-E1",{"R1":1,"E1":-1}),
++        ("E1-E0",{"E1":1,"E0":-1}),("R1-R0",{"R1":1,"R0":-1}),("R1-R0-E1+E0",{"R1":1,"R0":-1,"E1":-1,"E0":1})]
++    primary_concentration={}
++    for entry in paired:
++        period,pressure,label=entry["period"],entry["path"],entry["pair"]
++        coefficients=dict(mapping)[label]
++        dates=list(series[period,pressure,"E0"])
++        assert all(list(series[period,pressure,v])==dates for v in coefficients)
++        delta=[sum(D(coef)*series[period,pressure,v][day] for v,coef in coefficients.items()) for day in dates]
++        average=sum(delta)/len(delta)
++        assert len(delta)==entry["n_dates"]
++        close(entry["mean_daily_net_increment"],average,"paired mean",D("1e-12"))
++        close(entry["signed_annual_fixed_cost_capacity_cny"],average*252*100000,"signed arithmetic capacity",D("1e-5"))
++        assert entry["annual_incremental_cost"] is None and entry["economic_status"]=="BLOCKED_HURDLE"
++        intervals_checked=[]
++        if pressure=="base":
++            assert [r["block_length"] for r in entry["descriptive_intervals"]]==[60,20,120]
++            for interval in entry["descriptive_intervals"]:
++                assert interval["p_net"] is None and interval["p_hac"] is None
++                assert interval["daily_hurdle"] is None and interval["annual_incremental_cost"] is None
++                assert interval["seed"]==20261114 and interval["repetitions"]==5000
++                if label=="R0-E0":
++                    expected=intervals(delta,interval["block_length"])
++                    assert interval["hac_lag"]==expected["hac_lag"]
++                    close(interval["hac_se"],D(str(expected["hac_se"])),"independent HAC",D("1e-12"))
++                    for actual,value in zip(interval["ci95"],expected["ci95"]): close(actual,D(str(value)),"independent bootstrap-t CI",D("1e-12"))
++                    intervals_checked.append(dict(block_length=interval["block_length"],**expected))
++        else: assert "descriptive_intervals" not in entry
++        checks.append(dict(period=period,path=pressure,pair=label,n_dates=len(delta),mean=str(average),independent_intervals=intervals_checked))
++        if period=="validation" and pressure=="base" and label=="R0-E0":
++            monthly,yearly=defaultdict(lambda:D(0)),defaultdict(lambda:D(0))
++            for day,value in zip(dates,delta):monthly[day[:7]]+=value;yearly[day[:4]]+=value
++            primary_concentration=dict(monthly_paired_return_differences=concentration(monthly),yearly_paired_return_differences=concentration(yearly),
++                annual_signed_sums={k:str(v) for k,v in yearly.items()},interpretation="Sums of paired daily return differences, not compounded wealth differences")
++    assert len(checks)==40
++    # Independent per-product cash-PnL accounting from source-verified fills and
++    # reconstructed holdings. This is a separate cash attribution measure.
++    product_cash={}
++    product_return_daily={}
++    product_cash_daily={}
++    for variant in ("R0","E0"):
++        record=next(r for r in records if r["period"]=="validation" and r["path"]=="base" and r["variant"]==variant)
++        path=ROOT/record["artifact_directory"]
++        flows=defaultdict(lambda:D(0))
++        day_flows=defaultdict(lambda:defaultdict(lambda:D(0)))
++        for fill in read(path/"fills.json"):
++            cash_flow=(D(str(fill["notional"])) if fill["side"]=="SELL" else -D(str(fill["notional"])))-D(str(fill["fees"]))
++            flows[fill["instrument_id"]]+=cash_flow
++            day_flows[fill["date"]][fill["instrument_id"]]+=cash_flow
++        for event in read(path/"cash_events.json"):
++            if event["event"]=="DIVIDEND_RECEIVABLE":
++                flows[event["instrument_id"]]+=D(str(event["amount"]))
++                day_flows[event["date"]][event["instrument_id"]]+=D(str(event["amount"]))
++        last=ledgers["validation","base",variant][-1]["date"]
++        position_values=defaultdict(dict)
++        for position in read(path/"positions.json"):
++            position_values[position["date"]][position["instrument_id"]]=D(str(position["market_value"]))
++            if position["date"]==last: flows[position["instrument_id"]]+=D(str(position["market_value"]))
++        close(sum(flows.values()),D(ledgers["validation","base",variant][-1]["nav"])-100000,"product cash PnL",D("1e-6"))
++        product_cash[variant]=flows
++        prior_values={};prior_nav=D(100000)
++        product_return_daily[variant]={};product_cash_daily[variant]={}
++        for ledger_day in ledgers["validation","base",variant]:
++            day=ledger_day["date"]
++            current=position_values[day]
++            pnls={sid:current.get(sid,D(0))-prior_values.get(sid,D(0))+day_flows[day].get(sid,D(0))
++                for sid in set(current)|set(prior_values)|set(day_flows[day])}
++            close(sum(pnls.values()),D(ledger_day["nav"])-prior_nav,"independent daily cash attribution",D("1e-6"))
++            product_return_daily[variant][day]={sid:pnl/prior_nav for sid,pnl in pnls.items()}
++            product_cash_daily[variant][day]=pnls
++            prior_values=current;prior_nav=D(ledger_day["nav"])
++    members=set(product_cash["R0"])|set(product_cash["E0"])
++    increments={sid:product_cash["R0"][sid]-product_cash["E0"][sid] for sid in members}
++    primary_concentration["product_cash_pnl_difference"]=concentration(increments)
++    primary_concentration["product_cash_pnl_values"]={sid:str(increments[sid]) for sid in sorted(increments)}
++    return_buckets=defaultdict(lambda:D(0));cash_buckets=defaultdict(lambda:D(0));return_totals=defaultdict(lambda:D(0))
++    all_members=read(ROOT/"reports/m8_rotation/COHORT_SELECTION.json")["selected_instruments"]
++    for day in product_return_daily["R0"]:
++        for sid in all_members:
++            delta=product_return_daily["R0"][day].get(sid,D(0))-product_return_daily["E0"][day].get(sid,D(0))
++            cash_delta=product_cash_daily["R0"][day].get(sid,D(0))-product_cash_daily["E0"][day].get(sid,D(0))
++            return_totals[sid]+=delta
++            for width in (4,7):
++                return_buckets[day[:width],sid]+=delta
++                cash_buckets[day[:width],sid]+=cash_delta
++    attribution_checks=0
++    with (ROOT/"reports/m8_rotation/paired_product_contributions.csv").open(encoding="utf-8",newline="") as stream:
++        for row in csv.DictReader(stream):
++            if (row["period"],row["path"],row["pair"])!=("validation","base","R0-E0"):continue
++            key=(row["bucket"],row["instrument_id"])
++            close(row["sum_paired_daily_return_contribution"],return_buckets[key],"product paired return contribution",D("1e-11"))
++            close(row["difference_in_cash_pnl_cny"],cash_buckets[key],"product cash contribution",D("1e-6"))
++            attribution_checks+=1
++    assert attribution_checks==390
++    primary_concentration["product_paired_daily_return_contributions"]=concentration(return_totals)
++    primary_concentration["independently_checked_product_buckets"]=attribution_checks
++    out=dict(decision="PASS_INDEPENDENT_FULL_CALENDAR_EVALUATION",author_role="INDEPENDENT_REVIEWER",accounts=per_account,
++        paired_checks=checks,primary_validation_concentration=primary_concentration,
++        limits=["Own bootstrap-t/HAC numerically replicated primary R0-E0 in both physically separate periods, all3 registered block lengths; auxiliary comparisons audited pointwise and configuration only.",
++            "Unknown annual incremental fixed cost stays null; no economic pvalue or actionable uplift conclusion. Descriptive intervals are marginal, not a new significance search.",
++            "Product cash attribution and sums of paired daily-return differences use different units; concentration is reported separately."])
++    (ROOT/"reports/m8_review/independent_evaluation.json").write_text(json.dumps(out,indent=2)+"\n",encoding="utf-8")
++    print(out["decision"],len(per_account),len(checks))
++
++
++if __name__=="__main__":main()
+diff --git a/review_code/m8/independent_formation_probe.py b/review_code/m8/independent_formation_probe.py
+new file mode 100644
+index 0000000..bbb32fe
+--- /dev/null
++++ b/review_code/m8/independent_formation_probe.py
+@@ -0,0 +1,171 @@
++"""Independent raw-wire Decimal formation calculations and source binding."""
++from pathlib import Path
++from collections import Counter, defaultdict
++from decimal import Decimal
++from bisect import bisect_left
++import hashlib
++import json
++import re
++import fitz
++
++ROOT = Path(__file__).resolve().parents[2]
++D = Decimal
++
++
++def sha(raw):
++    return hashlib.sha256(raw).hexdigest()
++
++
++def read(path):
++    return json.loads(Path(path).read_text(encoding="utf-8"))
++
++
++def checked(path, expected):
++    raw = Path(path).read_bytes()
++    assert sha(raw) == expected, path
++    return raw
++
++
++def run():
++    author_path = ROOT / "reports/m8_rotation/FORMATION_REVIEW_DRAFT.json"
++    author = read(author_path)
++    calendar_path = ROOT / "data/normalized_csi/h00300_2010_2024_v1/calendar_evidence/raw/6c53baad9d880219_fba4a743f5_a1_00ea4bd4d692d85808180cd9884c9ab9b85777cbae6ae197bfd08873cec626fe.json"
++    calendar_raw = checked(calendar_path, "00ea4bd4d692d85808180cd9884c9ab9b85777cbae6ae197bfd08873cec626fe")
++    calendar = [r[0] for r in json.loads(calendar_raw)["rows"] if r[1] == "1"]
++    observation = [d for d in calendar if d <= "2019-12-31"][-60:]
++    assert observation == author["formation_window"] and observation[0] == "2019-10-09"
++    assert observation[-1] == "2019-12-31"
++    first_month = max(d for d in calendar if "2020-01-01" <= d <= "2020-01-31")
++    i = calendar.index(first_month)
++    assert first_month == "2020-01-23" and calendar[i+1:i+3] == ["2020-02-03", "2020-02-04"]
++    budget = read(ROOT / "data/raw_m8/budget.json")
++    evidence, qualified, source_hashes, pending = [], [], {}, []
++    source_date_checks = []
++    for candidate in author["ETF_candidate_rows"]:
++        sid = candidate["instrument_id"]
++        product = candidate["product_evidence"]
++        original = product["original"]["receipt"]
++        raw = checked(original["raw_path"], original["sha256"])
++        source_hashes[original["raw_path"]] = original["sha256"]
++        doc = fitz.open(stream=raw, filetype="pdf")
++        pages = [re.sub(r"\s+", "", page.get_text()) for page in doc]
++        y,m,d = map(int, candidate["listed_on"].split("-"))
++        date_regex = re.compile(fr"{y}年0?{m}月0?{d}日")
++        dates = [(p+1, match.start()) for p, text in enumerate(pages[:8]) for match in date_regex.finditer(text)]
++        if not dates:
++            pending.append(dict(instrument_id=sid, issue="Listing date requires visual/manual confirmation", declared=candidate["listed_on"]))
++        else:
++            p,pos = dates[0]
++            source_date_checks.append(dict(instrument_id=sid, declared=candidate["listed_on"], page=p,
++                quote=pages[p-1][max(0,pos-35):pos+45]))
++        age = sum(candidate["listed_on"] <= d <= "2019-12-31" for d in calendar)
++        if age != candidate["listed_sessions"]:
++            pending.append(dict(instrument_id=sid, issue="Listed age differs from nonnegative direct session count",
++                expected=age, observed=candidate["listed_sessions"]))
++        result = dict(instrument_id=sid, listed_on=candidate["listed_on"], independently_counted_sessions=age)
++        if candidate["status"] == "EXCLUDED_LISTED_LESS_THAN_60":
++            assert age < 60
++            result["status"] = candidate["status"]
++        elif candidate["status"] == "EXCLUDED_EXITED_BEFORE_FORMATION":
++            exit_ev = candidate["exit_evidence"]
++            event = exit_ev["document"]
++            rec = event["receipt"]
++            raw_exit = checked(rec["raw_path"], rec["sha256"])
++            source_hashes[rec["raw_path"]] = rec["sha256"]
++            text = re.sub(r"\s+", "", "".join(page.get_text() for page in fitz.open(stream=raw_exit,filetype="pdf")))
++            ey,em,ed = map(int,exit_ev["date"].split("-"))
++            assert exit_ev["date"] <= "2019-12-31" and "终止上市" in text
++            assert re.search(fr"{ey}年0?{em}月0?{ed}日",text), sid
++            result.update(status=candidate["status"], exit_date=exit_ev["date"], exit_raw_hash=rec["sha256"])
++        else:
++            records = []
++            captures = [r for r in budget["attempts"] if r["kind"] == "baostock_wire_attempts" and r["label"] == "formation_" + sid]
++            assert captures, sid
++            for rec in captures:
++                wire = checked(rec["raw_path"], rec["sha256"])
++                assert len(wire) == rec["byte_count"]
++                source_hashes[rec["raw_path"]] = rec["sha256"]
++                text = wire.decode("utf-8")
++                payload, _ = json.JSONDecoder().raw_decode(text[text.index("{"):])
++                records.extend(payload["record"])
++            assert all(r[1] == sid and r[9] == "3" and r[0] <= "2019-12-31" for r in records)
++            assert len({r[0] for r in records}) == len(records)
++            decoded = read(candidate["raw_path"])
++            assert sha(Path(candidate["raw_path"]).read_bytes()) == candidate["raw_sha256"]
++            assert decoded["rows"] == records
++            by_date = {r[0]: r for r in records}
++            assert set(observation).issubset(by_date), sid
++            window = [by_date[d] for d in observation]
++            amounts = [D(r[8]) for r in window]
++            assert all(a.is_finite() and a >= 0 for a in amounts)
++            for r in window:
++                assert r[11] in ("0","1")
++                if r[11] == "0":
++                    assert D(r[7]) == D(r[8]) == 0
++                if D(r[7]) > 0:
++                    assert D(r[7])*D(r[4])-1 <= D(r[8]) <= D(r[7])*D(r[3])+1, (sid,r[0],"units")
++            ordered = sorted(amounts)
++            median = (ordered[29]+ordered[30])/2
++            assert median == D(candidate["median_amount60"]), sid
++            result.update(median_amount60=str(median), window_count=60)
++            if median < 20000000:
++                assert candidate["status"] == "EXCLUDED_MEDIAN_LT_20M"
++                result["status"] = "EXCLUDED_MEDIAN_LT_20M"
++            else:
++                assert candidate["status"] == "QUALIFIED_INDEX_CANDIDATE" and age >= 60
++                assert window[-1][11] == "1"
++                name = candidate["exact_index_id"].removeprefix("NAME:")
++                index_pages = pages
++                index_source = original
++                if product.get("index_contract_document"):
++                    contract = product["index_contract_document"]
++                    assert contract["publication_date"] <= "2019-12-31"
++                    index_source = contract["receipt"]
++                    index_raw = checked(index_source["raw_path"], index_source["sha256"])
++                    source_hashes[index_source["raw_path"]] = index_source["sha256"]
++                    index_pages = [re.sub(r"\s+", "",page.get_text()) for page in fitz.open(stream=index_raw,filetype="pdf")]
++                found = [(p+1, text.index(name)) for p,text in enumerate(index_pages) if name in text]
++                if found:
++                    p,pos = found[0]
++                    # Prefer explicit definition clauses over generic risk mentions.
++                    clause = [(p+1,m.start()) for p,text in enumerate(index_pages)
++                        for m in re.finditer(r"标的指数.{0,80}"+re.escape(name),text)]
++                    if clause:
++                        p,pos = clause[0]
++                    result.update(index_original_page=p,index_original_quote=index_pages[p-1][max(0,pos-30):pos+len(name)+180],
++                        index_source_sha256=index_source["sha256"])
++                    if sid == "sh.515000":
++                        theme = next((text for text in index_pages if "电子、计算机、通信、生物科技" in text),None)
++                        assert theme is not None
++                        result["sector_scope_quote"] = theme[theme.index("中证科技龙头指数由"):][:180]
++                        result["style_qualifier"] = "Sector-restricted technology leaders with size/market-share/growth/R&D filters; overlapping technology exposures, not industry neutrality"
++                else:
++                    pending.append(dict(instrument_id=sid, issue="Exact declared index name requires original alias confirmation", declared=name))
++                result.update(status="QUALIFIED_INDEX_CANDIDATE", exact_index_id=candidate["exact_index_id"])
++                qualified.append((median, sid, candidate["exact_index_id"]))
++        evidence.append(result)
++    by_index = defaultdict(list)
++    for median,sid,index in qualified:
++        by_index[index].append((median,sid))
++    representatives = [(sorted(rows,key=lambda row:(-row[0],row[1]))[0][0], index,
++        sorted(rows,key=lambda row:(-row[0],row[1]))[0][1]) for index,rows in by_index.items()]
++    ranked = sorted(representatives,key=lambda row:(-row[0],row[1],row[2]))
++    selected = [row[2] for row in ranked[:10]]
++    assert selected == author["selected_instruments"]
++    assert len(by_index) == 15 and len(qualified) == 17
++    assert [r[2] for r in ranked] == [r["instrument_id"] for r in author["representative_ranking"]]
++    result = dict(status="PASS_RAW_FORMATION_ARITHMETIC_PENDING_DOCUMENT_REVIEW" if pending else "PASS_RAW_FORMATION_ARITHMETIC",
++        author_draft_sha256=sha(author_path.read_bytes()), observation_window=observation,
++        candidate_count=69, qualified_products=17, unique_indices=15, selected_instruments=selected,
++        counts=dict(Counter(r["status"] for r in evidence)), candidates=evidence,
++        listing_date_original_checks=source_date_checks, source_hashes=source_hashes,
++        document_followups=pending, first_anchor=first_month, first_release=calendar[i+1], first_execution=calendar[i+2],
++        independent_raw_market_rows=sum(r.get("window_count",0) for r in evidence),
++        limitations=["Arithmetic is independently recomputed from raw SDK response bytes, not author medians.",
++            "Contract amendment/history and date-only clocks are reviewed separately in independent_lifecycle_review.json; this arithmetic receipt alone is not holding-source admission."])
++    (ROOT / "reports/m8_review/independent_formation_arithmetic.json").write_text(json.dumps(result,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
++    print(json.dumps({k:v for k,v in result.items() if k not in ("candidates","source_hashes","listing_date_original_checks","observation_window")},ensure_ascii=True,indent=2))
++
++
++if __name__ == "__main__":
++    run()
+diff --git a/review_code/m8/independent_holding_lifecycle.py b/review_code/m8/independent_holding_lifecycle.py
+new file mode 100644
+index 0000000..50802d3
+--- /dev/null
++++ b/review_code/m8/independent_holding_lifecycle.py
+@@ -0,0 +1,62 @@
++"""Dated identity continuity from pre2025 originals and captured amendments."""
++from pathlib import Path
++import hashlib
++import json
++import re
++import fitz
++from independent_raw_bars import ROOT, read, checked
++
++
++def compact(s): return re.sub(r"\s+","",s)
++
++
++def run():
++    selection=read(ROOT/"reports/m8_rotation/COHORT_SELECTION.json")
++    expected={r["instrument_id"]:r["exact_index_id"].removeprefix("NAME:") for r in selection["ETF_candidate_rows"]}
++    annual=read(ROOT/"reports/m8_rotation/ANNUAL_ACTION_EVIDENCE.json")["records"]
++    identities=[]
++    for item in annual:
++        if item["year"]==2024: continue  # Late2025 report exception is action-only.
++        doc=item["document"];pdf=fitz.open(stream=checked(doc["receipt"]),filetype="pdf")
++        sid=item["instrument_id"]
++        pages=[compact(p.get_text()) for p in list(pdf)[:12]]
++        assert any(sid[3:] in t for t in pages)
++        name=expected[sid]
++        if sid=="sh.512760" and item["year"]>=2020: name="中华交易服务半导体芯片行业指数"
++        matches=[(i+1,t.find(name)) for i,t in enumerate(pages) if name in t]
++        assert matches,(sid,item["year"],name)
++        p,at=matches[0]
++        identities.append(dict(instrument_id=sid,year=item["year"],index_display_name=name,physical_page=p,
++            source_sha256=doc["receipt"]["sha256"],quote=pages[p-1][max(0,at-25):at+100]))
++    supplementary=read(ROOT/"reports/m8_rotation/HOLDING_SUPPLEMENTAL_DOCUMENTS.json")
++    rename=next(r for r in supplementary if r["instrument_id"]=="sh.512760" and r["publication_date"]=="2020-06-11")
++    text=compact(fitz.open(stream=checked(rename["receipt"]),filetype="pdf")[0].get_text())
++    assert "自2020年6月15日起将“中华交易服务半导体行业指数”名称变更为“中华交易服务半导体芯片行业指数”" in text
++    assert "自2020年6月16日起" in text and "基金代码保持不变" in text
++    docs=read(ROOT/"reports/m8_rotation/holding_documents.json")
++    originals={r["receipt"]["sha256"]:r for r in docs if r["kind"]!="ANNUAL" and not any(w in r["title"] for w in ("拆分","分红公告"))}
++    reviews=[]
++    for digest,doc in originals.items():
++        pdf=fitz.open(stream=checked(doc["receipt"]),filetype="pdf")
++        first=compact(pdf[0].get_text())
++        labels=[]
++        for keyword,label in [("指数基金指引","regulatory index-risk and contingent future transition clauses"),("存托凭证","depositary receipt investment eligibility"),
++            ("指数许可使用费","fund-level index-license cost"),("信息披露","disclosure rules"),("分红方式变更","distribution election procedure"),("场内申购赎回","creation/redemption mechanism")]:
++            if keyword in first: labels.append(label)
++        assert labels,(doc["title"],first[:100])
++        reviews.append(dict(source_sha256=digest,title=doc["title"],publication_date=doc["publication_date"],
++            classification=labels,first_page_quote=first[:1500]))
++    archive=ROOT/"reports/m8_review/holding_title_archive_review.json"
++    output=dict(decision="PASS_BOUNDED_HOLDING_LIFECYCLE",author_role="INDEPENDENT_REVIEWER",annual_identity_original_checks=identities,
++        distinct_generic_amendment_originals=reviews,rename=dict(source_sha256=rename["receipt"]["sha256"],publication_date="2020-06-11",
++            index_name_effective="2020-06-15",fund_name_effective="2020-06-16",physical_page=1,quote=text[:1850],
++            conclusion="Issuer explicitly identifies name change of same index; preserve frozen2019 exact index identity with dated display-name revision."),
++        holding_title_archive_review_sha256=hashlib.sha256(archive.read_bytes()).hexdigest(),
++        limits=["50 annual identities published before2025 independently checked.2024 annuals published2025 are used only for separate historical action completeness, not index selection.",
++            "Captured contract amendments change disclosure, CDR eligibility, risk/contingency rules, fund-level index fees, or dealing procedures; no captured economic index substitution or retirement of selected10.",
++            "Title audit has82 broad routine manager/abbreviation attention notices without standalone originals; all narrowly material lifecycle/contract/index/fund-name notices covered. This is bounded archive reconstruction, not universal disclosure certification."])
++    (ROOT/"reports/m8_review/independent_holding_lifecycle.json").write_text(json.dumps(output,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
++    print(output["decision"],len(identities),len(reviews))
++
++
++if __name__=="__main__":run()
+diff --git a/review_code/m8/independent_holding_rules.py b/review_code/m8/independent_holding_rules.py
+new file mode 100644
+index 0000000..f68c813
+--- /dev/null
++++ b/review_code/m8/independent_holding_rules.py
+@@ -0,0 +1,91 @@
++"""Independent preserved-original rule, fee and private-source-use review."""
++import hashlib
++import html
++import json
++from pathlib import Path
++import re
++import zipfile
++import xml.etree.ElementTree as ET
++import fitz
++from independent_raw_bars import ROOT, read, checked
++
++
++def text(path):
++    path = Path(path)
++    raw = path.read_bytes()
++    if path.suffix == ".pdf": return "".join(p.get_text() for p in fitz.open(stream=raw,filetype="pdf"))
++    if path.suffix == ".docx": return "".join(ET.fromstring(zipfile.ZipFile(path).read("word/document.xml")).itertext())
++    return html.unescape(re.sub(r"<[^>]+>"," ",raw.decode("utf-8")))
++
++
++def compact(s): return re.sub(r"\s+","",s)
++
++
++def run():
++    policy_path = ROOT/"reports/m8_rotation/HOLDING_RULE_POLICY.json"
++    policy = read(policy_path)
++    hashes = dict(policy["source_evidence_files"])
++    for path,digest in hashes.items(): assert hashlib.sha256((ROOT/path).read_bytes()).hexdigest() == digest, path
++    rules = {key:compact(text(ROOT/value["local_path"])) for key,value in policy["rule_sources"].items()}
++    for key in ("sse_rules_2014","sse_rules_2020","sse_rules_2023_full"):
++        assert "10%" in rules[key] and "0.001元" in rules[key]
++        assert "交收前不得卖出" in rules[key]
++    assert "基金资产比例不低于80%的上证LOF" in rules["sse_20pct_2020"]
++    assert "跟踪指数成份股仅为科创板股票" in rules["sse_20pct_2020"]
++    assert "159939" not in rules["szse_20pct_list_20200824"]
++    # SZ2016 encoding is visually verified on original physicalpages9/10;
++    # SZ2020 clause2.9 p4 and SZ2023 p12 visually confirm the special20% limb.
++    portfolio_reviews = []
++    for product in policy["product_applicability"]:
++        sid = product["instrument_id"]
++        proof = product["original_portfolio_example"]
++        candidates = [p for p,d in hashes.items() if d == product["identity_source_sha256"] and p.endswith(".bin")]
++        assert len(candidates) == 1
++        pdf = fitz.open(ROOT/candidates[0],filetype="pdf")
++        content = compact(pdf[proof["physical_pdf_page"]-1].get_text())
++        assert proof["stock_code"] in content and proof["stock_name"] in content
++        portfolio_reviews.append(dict(instrument_id=sid,original_page=proof["physical_pdf_page"],
++            historic_mainboard_example=proof["stock_code"],identity_sha256=product["identity_source_sha256"]))
++    costs = policy["cost_scenario"]
++    fee_text = compact(checked(costs["direct_etf_source"]).decode("utf-8"))
++    assert "2009-02-13" in fee_text and "买卖深市ETF份额免征交易印花税" in fee_text
++    assert "只需要向其经纪证券公司交纳相应的买卖佣金" in fee_text
++    statutory = {r["label"]:compact(html.unescape(re.sub(r"<[^>]+>"," ",checked(r).decode("utf-8")))) for r in costs["stock_only_statutory_scope_sources"]}
++    assert "Ａ股、Ｂ股股权转让书据" in statutory["mof_2008_stamp"]
++    assert "股票和以股票为基础的存托凭证" in statutory["guangdong_2023_stamp_law"]
++    assert "A股交易过户费" in statutory["sse_2015_joint_fees"]
++    assert "股票交易过户费" in statutory["shanghai_official_fee_republication"]
++    licenses = {
++        "data/raw_policy/baostock_help_home_650853bc35ac.bin":"650853bc35ac9d3a4f51a3944b2a57bbce5262a8cb520b178879d5f463d275f5",
++        "data/raw_policy/csi_disclaimer_script_4d7a21d98f56.html":"4d7a21d98f56252270903c5ea9488b7715db1bbbc83ba364484798cf43ca2786"}
++    for path,digest in licenses.items(): assert hashlib.sha256((ROOT/path).read_bytes()).hexdigest() == digest
++    bao = text(ROOT/next(iter(licenses)))
++    csi = text(ROOT/list(licenses)[1])
++    assert "免费" in bao and "本地后进行分析" in bao
++    assert "可基于非商业目的浏览、下载本网站的内容" in csi
++    settlement_reviews=[]
++    docs=read(ROOT/"reports/m8_rotation/holding_documents.json")
++    for doc in docs:
++        if "分红公告" not in doc["title"]: continue
++        pdf=fitz.open(stream=checked(doc["receipt"]),filetype="pdf")
++        page=compact(pdf[1].get_text())
++        phrase="投资者可在红利发放日领取现金红利"
++        assert phrase in page and "指定交易" in page
++        at=page.index(phrase)
++        settlement_reviews.append(dict(source_sha256=doc["receipt"]["sha256"],physical_page=2,quote=page[max(0,at-180):at+70]))
++    assert len(settlement_reviews)==2
++    output=dict(decision="PASS_CONDITIONAL_HISTORICAL_RULES_AND_PRIVATE_SOURCE_USE",author_role="INDEPENDENT_REVIEWER",
++        policy_sha256=hashlib.sha256(policy_path.read_bytes()).hexdigest(),source_hashes_checked=len(hashes),license_source_hashes=licenses,
++        independent_visual_pages=["SZ2016 physical9/10:100units,0.001CNY,10%,HALF_UP","SZ2020 physical4:20%index-exclusive exception,80%limbLOF only","SZ2023 physical12:ordinary10%,same exception"],
++        historic_product_corroboration=portfolio_reviews,dividend_cash_rule_originals=settlement_reviews,
++        fees=dict(commission="Counterfactual3bp/min5 research assumption, no broker invoice",stamp="SZ direct2009 ETF-secondary exemption; SSE nonapplication inferred from national stock-only tax scope plus same ETF legal form, not direct SSE exemption",transfer="Stock-only statutory transfer fee not charged to ETF shares; no double-count of handling charges within modeled commission"),
++        rule_scope="Ordinary domestic equity ETF,100-share lot,0.001CNY tick,T+1,ordinary10%limit; special20%requires index exclusively20%-limit stocks. Original sector index definitions and historic main-board examples support ordinary class, subject to lifecycle conflicts.",
++        limitations=["No complete daily historical constituent matrix or exchange per-product limit feed certified. No conflicting conversion/product limit announcement found in separately audited closed title archive.",
++            "Public-source private local noncommercial research only; no raw redistribution, commercial service or live-trading permission inferred.",
++            "Tencent raw OHLC is corroboration only, not admitted as primary price/signal series; no broad Tencent license is claimed.",
++            "Hypothetical ordinary account eligibility and announced-date cash settlement are scenarios, not actual user broker permissions or observed credit timestamps."])
++    (ROOT/"reports/m8_review/independent_holding_rules.json").write_text(json.dumps(output,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
++    print(output["decision"])
++
++
++if __name__=="__main__":run()
+diff --git a/review_code/m8/independent_holding_stage.py b/review_code/m8/independent_holding_stage.py
+new file mode 100644
+index 0000000..ca55bd4
+--- /dev/null
++++ b/review_code/m8/independent_holding_stage.py
+@@ -0,0 +1,136 @@
++"""Independently bind raw prices/actions and a virtual reinvested fund ledger."""
++import argparse
++from bisect import bisect_right
++from decimal import Decimal, ROUND_HALF_UP
++import hashlib
++import json
++from pathlib import Path
++from independent_raw_bars import ROOT, build, checked
++from independent_action_documents import EXPECTED
++from independent_accounts import read, sha, load_stage, close
++
++D = Decimal
++
++
++def secondary(primary):
++    manifest = read(ROOT/"reports/m8_rotation/PRICE_RECONCILIATION.json")
++    summaries = []
++    for item in manifest["records"]:
++        sid = item["instrument_id"]
++        rows = {}
++        for receipt in item["captures"]:
++            raw = checked(receipt)
++            # Access only requested historical day arrays; all unsolicited
++            # current-quote/name fields in the transport body remain unused.
++            payload = json.loads(raw)
++            assert payload["code"] == 0
++            day_rows = payload["data"][sid.replace(".","")].get("day",[])
++            for values in day_rows:
++                assert "2019-01-01" <= values[0] <= "2024-12-31" and values[0] not in rows
++                rows[values[0]] = dict(zip(("date","open","close","high","low","vendor_volume"),values[:6]))
++        comparisons = 0
++        for (day,identity),row in primary.items():
++            if identity != sid: continue
++            if row["tradestatus"] == "1": assert day in rows, (sid,day)
++            if day not in rows: continue
++            for field in ("open","high","low","close"):
++                assert abs(D(row[field])-D(rows[day][field])) <= D("0.00005"), (sid,day,field)
++                comparisons += 1
++        assert comparisons == item["comparisons"]
++        summaries.append(dict(instrument_id=sid,matched_raw_OHLC_fields=comparisons,source_hashes=[r["sha256"] for r in item["captures"]]))
++    assert len(summaries) == 10
++    return summaries
++
++
++def run(stage):
++    source = load_stage(stage)
++    manifest = read(stage/"manifest.json")
++    assert manifest["market_history_start"] == "2019-01-01" and not manifest["build_blockers"]
++    assert manifest["synthetic"] is False
++    for path,digest in manifest["file_sha256"].items(): assert sha(stage/path) == digest
++    for path,digest in manifest["source_snapshot_hashes"].items(): assert sha(ROOT/path) == digest, path
++    primary,raw_summary = build()
++    corroboration = secondary(primary)
++    assert len(source["bars"]) == len(primary)
++    assert set((r["date"],r["instrument_id"]) for r in source["bars"]) == set(primary)
++    days = source["calendar"]
++    def available(day): return days[bisect_right(days,day)]+"T21:00:00+08:00"
++    actual_actions = source["actions"]
++    assert len(actual_actions) == len(EXPECTED) == 5
++    event_map = {}
++    for expected in EXPECTED:
++        matches = [r for r in actual_actions if r["instrument_id"] == expected["instrument_id"] and r["ex_date"] == expected["ex_date"]]
++        assert len(matches) == 1
++        row = matches[0]
++        for key,value in expected.items():
++            if key == "market_ex_date": assert row["source_ex_date"] == value
++            elif key in ("share_factor","cash_per_share"): close(row[key],D(value),key,D("1e-12"))
++            else: assert row[key] == value, (key,row[key],value)
++        assert row["available_at"] == available(expected["announcement_date"])
++        assert row["terms_verified"] is True and row["action_status"] == "CONFIRMED"
++        if expected["action_type"] == "CASH_DIVIDEND":
++            assert row["actual_pay_date"] is None and row["actual_account_receipt_observed"] is False
++            assert row["settlement_mode"] == "RULE_BASED_SIMULATION" and row["settlement_rule_credit_basis"] == "ANNOUNCED_INVESTOR_PAY_DATE"
++            assert row["settlement_rule_verified"] is True
++        event_map[expected["ex_date"],expected["instrument_id"]] = expected
++    tr_summaries = []
++    for sid in sorted({r["instrument_id"] for r in source["bars"]}):
++        rows = sorted((r for r in source["bars"] if r["instrument_id"] == sid),key=lambda r:r["date"])
++        virtual_shares = None
++        mark = None
++        largest_error = D(0)
++        for row in rows:
++            day = row["date"]
++            raw = primary[day,sid]
++            for field in ("open","high","low","close","preclose","amount","volume"):
++                close(row[field],D(raw[field]),(day,sid,field),D("1e-10"))
++            assert row["suspended"] == (raw["tradestatus"]=="0")
++            assert row["available_at"] == day+"T21:00:00+08:00"
++            assert row["total_return_available_at"] == row["available_at"]
++            assert row["vendor_first_seen_at"] is None
++            assert row["usage_scope"] == "FULL_STRATEGY"
++            for field,factor in (("upper_limit",D("1.1")),("lower_limit",D("0.9"))):
++                expected_limit = (D(raw["preclose"])*factor/D("0.001")).to_integral_value(rounding=ROUND_HALF_UP)*D("0.001")
++                close(row[field],expected_limit,(day,sid,field),D("1e-10"))
++            event = event_map.get((day,sid))
++            if virtual_shares is None:
++                assert event is None
++                mark = D(raw["close"])
++                virtual_shares = D(100)/mark
++            dividend_cash = D(0)
++            if event and event["action_type"] == "SPLIT" and event["effective_phase"] == "BOD":
++                virtual_shares *= D(event["share_factor"])
++                mark /= D(event["share_factor"])
++            if event and event["action_type"] == "CASH_DIVIDEND":
++                dividend_cash = virtual_shares*D(event["cash_per_share"])
++                mark -= D(event["cash_per_share"])
++            if raw["tradestatus"] == "1": mark = D(raw["close"])
++            if event and event["action_type"] == "SPLIT" and event["effective_phase"] == "EOD":
++                virtual_shares *= D(event["share_factor"])
++                mark /= D(event["share_factor"])
++            # A separate proportional fund starts with100 and immediately
++            # reinvests ex-date cash into fractional units at source close.
++            virtual_shares += dividend_cash/mark
++            total_return = virtual_shares*mark
++            close(row["valuation_close"],mark,"theoretical valuation close",D("1e-10"))
++            close(row["total_return_index"],total_return,(day,sid,"TR"),D("1e-8"))
++            largest_error = max(largest_error,abs(D(str(row["total_return_index"]))-total_return))
++        tr_summaries.append(dict(instrument_id=sid,rows=len(rows),maximum_TR_difference=str(largest_error)))
++    expected_benchmark = read(ROOT/"data/admitted_r1/phase2_v1/validation/benchmark.json")["records"]
++    assert len(source["benchmark"]) == len(expected_benchmark)
++    for row,prior in zip(source["benchmark"],expected_benchmark):
++        assert {k:v for k,v in row.items() if k!="quality_status"} == {k:v for k,v in prior.items() if k!="quality_status"}
++    output = dict(decision="PASS_NORMALIZED_HOLDING_DATA_RAW_AND_TR",author_role="INDEPENDENT_REVIEWER",
++        stage_manifest_sha256=sha(stage/"manifest.json"),source_hashes_checked=len(manifest["source_snapshot_hashes"]),
++        full_rows=len(primary),all_competitors_have_nonnull_TR=True,secondary_raw_OHLC=corroboration,TR_virtual_share_ledgers=tr_summaries,
++        action_count=5,source_scope="2019–2024 selected cohort only; earlier calendar is listing-age evidence; unknown vendor vintage remains unknown",
++        limits=["Primary volume/amount retain vendor share/CNY units and OHLC bounds; secondary provider does not independently certify amounts.",
++            "Source timing is historical public reconstruction, not observed vendor first-seen or live feed.",
++            "Benchmark value/calendar raw-original review is separately bound; fee/license/lifecycle review is separately bound."])
++    (ROOT/"reports/m8_review/independent_holding_stage.json").write_text(json.dumps(output,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
++    print(output["decision"],output["full_rows"])
++
++
++if __name__ == "__main__":
++    parser=argparse.ArgumentParser();parser.add_argument("--stage",type=Path,required=True)
++    run(parser.parse_args().stage)
+diff --git a/review_code/m8/independent_lifecycle_probe.py b/review_code/m8/independent_lifecycle_probe.py
+new file mode 100644
+index 0000000..09d6884
+--- /dev/null
++++ b/review_code/m8/independent_lifecycle_probe.py
+@@ -0,0 +1,85 @@
++"""Bounded documentary formation review; no collection or production writes."""
++from pathlib import Path
++import bisect
++import hashlib
++import json
++import re
++import fitz
++
++ROOT = Path(__file__).resolve().parents[2]
++
++
++def read(path):
++    return json.loads((ROOT / path).read_text(encoding="utf-8"))
++
++
++def digest(path):
++    return hashlib.sha256(Path(path).read_bytes()).hexdigest()
++
++
++def pages(entry):
++    receipt = entry["receipt"]
++    raw = Path(receipt["raw_path"]).read_bytes()
++    assert hashlib.sha256(raw).hexdigest() == receipt["sha256"]
++    assert len(raw) == receipt["byte_count"]
++    return [re.sub(r"\s+", "", p.get_text()) for p in fitz.open(stream=raw, filetype="pdf")]
++
++
++def run():
++    draft = read("reports/m8_rotation/FORMATION_REVIEW_DRAFT.json")
++    documents = read("reports/m8_rotation/formation_documents.json")
++    calendar = [r[0] for r in read("data/normalized_csi/h00300_2010_2024_v1/calendar_evidence/raw/6c53baad9d880219_fba4a743f5_a1_00ea4bd4d692d85808180cd9884c9ab9b85777cbae6ae197bfd08873cec626fe.json")["rows"] if r[1] == "1"]
++    def available(day):
++        return calendar[bisect.bisect_right(calendar, day)] + "T21:00:00+08:00"
++    categories = {
++        0:"information disclosure", 1:"related-party index replication restriction", 2:"termination", 3:"related-party index replication restriction",
++        4:"termination", 5:"related-party index replication restriction", 6:"information disclosure", 7:"liquidity risk", 8:"manager/fund name prefix",
++        9:"information disclosure", 10:"liquidity risk", 11:"termination", 12:"off-exchange share precision", 13:"termination", 14:"termination",
++        15:"information disclosure", 16:"information disclosure", 17:"information disclosure", 18:"information disclosure", 19:"liquidity risk", 20:"manager/fund name prefix",
++        21:"information disclosure", 22:"information disclosure", 23:"technology index prospectus", 24:"technology index prospectus summary", 25:"information disclosure",
++        26:"information disclosure", 27:"creation/redemption and information disclosure", 28:"liquidity risk", 29:"off-exchange cash creation/redemption",
++        30:"on-exchange creation/redemption", 31:"liquidity risk", 32:"termination", 33:"liquidity risk", 34:"off-exchange creation/redemption"}
++    assert len(documents) == len(categories) == 35
++    reviews = []
++    for i, entry in enumerate(documents):
++        text = pages(entry)
++        assert entry["publication_date"] <= "2019-12-31"
++        reviews.append(dict(instrument_id=entry["instrument_id"], publication_date=entry["publication_date"], title=entry["title"],
++            raw_sha256=entry["receipt"]["sha256"], classification=categories[i], first_page_quote=text[0][:1100],
++            index_related_clauses=[dict(page=k+1,quote=t[max(0,m.start()-35):m.start()+160]) for k,t in enumerate(text)
++                for m in re.finditer("变更标的指数|标的指数发生变更|关联交易|关联方",t)][:8]))
++    clock_checks = []
++    for row in draft["ETF_candidate_rows"]:
++        p = row["product_evidence"]
++        assert p["available_at"] == available(p["published_at"]), row["instrument_id"]
++        if p.get("index_contract_document"):
++            day = p["index_contract_document"]["publication_date"]
++            assert p["index_contract_available_at"] == available(day)
++            assert p["index_contract_available_at"] <= draft["cohort_available_at"]
++        if row["status"] == "QUALIFIED_INDEX_CANDIDATE":
++            assert p["available_at"] <= draft["cohort_available_at"]
++        clock_checks.append(dict(instrument_id=row["instrument_id"], listing_available_at=p["available_at"],
++            index_available_at=p.get("index_contract_available_at")))
++    assert draft["cohort_available_at"] == available("2019-12-31")
++    bad = read("reports/m8_rotation/METADATA_TITLE_CONFLICT_EVIDENCE.json")[0]
++    badpages = pages(bad)
++    assert bad["instrument_id"] == "sh.512000" and "华宝中证银行" in badpages[0]
++    assert "基金主代码512800交易代码512800" in badpages[5]
++    assert all(row["product_evidence"].get("raw_object_hash") != bad["receipt"]["sha256"]
++               and row["product_evidence"].get("index_contract_document",{}).get("receipt",{}).get("sha256") != bad["receipt"]["sha256"]
++               for row in draft["ETF_candidate_rows"])
++    out = dict(decision="PASS_CLOSED_FORMATION_DOCUMENT_REVIEW", author_role="INDEPENDENT_REVIEWER",
++        draft_sha256=digest(ROOT/"reports/m8_rotation/FORMATION_REVIEW_DRAFT.json"), documentary_reviews=reviews,
++        publication_clock_checks=clock_checks, metadata_conflict=dict(raw_sha256=bad["receipt"]["sha256"],
++            physical_pdf_page=6,actual_identity_quote=badpages[5][:600],resolution="Excluded from 512000 identity; correct latest 2019-11-30 contract establishes securities-company index"),
++        title_archive_review_sha256=digest(ROOT/"reports/m8_review/title_archive_review.json"),
++        conclusion="35 saved lifecycle/amendment originals reviewed; captured amendments concern disclosure, liquidity, name prefixes, creation/redemption or accounting precision. No captured amendment changes an eligible candidate's target index. Exact formation index clauses independently checked in independent_formation_arithmetic.json.",
++        limits=["Bounded to the frozen historical exchange archive and saved originals; not a claim about every possible disclosure anywhere.",
++            "Selected overlapping technology/industry exposures are not industry-neutral. Formation age60 does not grant trading permission before252 sessions.",
++            "No post2019 ETF market observations or strategy returns read in this review."])
++    (ROOT/"reports/m8_review/independent_lifecycle_review.json").write_text(json.dumps(out,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
++    print(out["decision"])
++
++
++if __name__ == "__main__":
++    run()
+diff --git a/review_code/m8/independent_m7_reproducibility.py b/review_code/m8/independent_m7_reproducibility.py
+new file mode 100644
+index 0000000..c9d7a3c
+--- /dev/null
++++ b/review_code/m8/independent_m7_reproducibility.py
+@@ -0,0 +1,44 @@
++"""One-time byte-level M7 portability audit, no account replay."""
++from pathlib import Path
++import hashlib
++import json
++import subprocess
++
++ROOT = Path(__file__).resolve().parents[2]
++BASE = "3df2391dc646ab98122ac6b029d0ef7a5cef2b32"
++
++
++def sha(raw):
++    return hashlib.sha256(raw).hexdigest()
++
++
++def run():
++    path = "reports/m7_cohort/SOURCE_PLAN.json"
++    old = subprocess.check_output(["git", "show", BASE + ":" + path], cwd=ROOT)
++    expected = old.replace(b"\n", b"\r\n")
++    working = (ROOT / path).read_bytes()
++    clean = (ROOT / "work/m8_clean_checkout" / path).read_bytes()
++    assert b"\r" not in old and len(old) == 4024
++    assert working == clean == expected and len(clean) == 4132
++    assert sha(clean) == "e1790dad608c0b1f081a9595305e1d2c4980c6dc32d4b6eb48e4894da9ffc48c"
++    manifest = json.loads((ROOT / "reports/m7_cohort/source_manifest.json").read_text(encoding="utf-8"))
++    rows = []
++    for source in manifest["sources"]:
++        local = ROOT / source["repository_path"]
++        actual = sha(local.read_bytes()) if local.exists() else None
++        rows.append(dict(path=source["repository_path"], expected_sha256=source["sha256"],
++            observed_sha256=actual, status="MATCH" if actual == source["sha256"] else "MISSING" if actual is None else "MISMATCH"))
++    result = dict(status="PASS" if all(r["status"] == "MATCH" for r in rows) else "PARTIAL",
++        baseline=BASE, old_lf_sha256=sha(old), old_lf_bytes=len(old),
++        clean_checkout_sha256=sha(clean), clean_checkout_bytes=len(clean),
++        exact_lf_to_crlf=True, semantic_change=False, old_accounts_rerun=False,
++        source_counts={status: sum(r["status"] == status for r in rows) for status in ("MATCH", "MISSING", "MISMATCH")},
++        source_hash_verification=rows,
++        limitations=["Byte presence and hash matching do not constitute new semantic admission or a complete account replay.",
++            "M7 all-cash TR/action waiver does not authorize M8 holdings."])
++    (ROOT / "reports/m8_review/independent_m7_reproducibility.json").write_text(json.dumps(result, indent=2) + "\n", encoding="utf-8")
++    print(json.dumps({key: value for key, value in result.items() if key != "source_hash_verification"}))
++
++
++if __name__ == "__main__":
++    run()
+diff --git a/review_code/m8/independent_non_etf_probe.py b/review_code/m8/independent_non_etf_probe.py
+new file mode 100644
+index 0000000..9c57832
+--- /dev/null
++++ b/review_code/m8/independent_non_etf_probe.py
+@@ -0,0 +1,110 @@
++"""Direct original-PDF scope exclusion proof, never code-prefix exclusion."""
++from pathlib import Path
++from collections import Counter
++import hashlib
++import json
++import re
++import fitz
++
++ROOT = Path(__file__).resolve().parents[2]
++
++
++def walk(value):
++    if isinstance(value, dict):
++        yield value
++        for child in value.values():
++            yield from walk(child)
++    elif isinstance(value, list):
++        for child in value:
++            yield from walk(child)
++
++
++def main():
++    candidates = json.loads((ROOT / "reports/m8_rotation/CANDIDATE_REVIEW.json").read_text(encoding="utf-8"))
++    sources = json.loads((ROOT / "reports/m8_rotation/listing_documents.json").read_text(encoding="utf-8"))
++    # Prefix chooses review division only. Every exclusion below requires content.
++    candidates = [r for r in candidates["records"] if r["status"] == "PENDING_ORIGINAL_PRODUCT_REVIEW"
++        and not r["instrument_id"].startswith(("sh.51", "sh.56", "sh.58", "sz.159"))]
++    by_id = {r["instrument_id"]: r for r in sources}
++    records = []
++    for candidate in candidates:
++        sid = candidate["instrument_id"]
++        row = dict(instrument_id=sid, status="PENDING_ORIGINAL_REVIEW", reason="Original not yet available")
++        source = by_id.get(sid)
++        if not source or not source.get("receipt", {}).get("raw_path"):
++            records.append(row)
++            continue
++        receipt = source["receipt"]
++        raw = Path(receipt["raw_path"]).read_bytes()
++        digest = hashlib.sha256(raw).hexdigest()
++        assert digest == receipt["sha256"], sid
++        doc = fitz.open(stream=raw, filetype="pdf")
++        pages = [page.get_text() for page in doc]
++        compact = [re.sub(r"\s+", "", text) for text in pages]
++        code = sid.split(".")[1]
++        code_pages = [n for n, text in enumerate(compact) if code in text]
++        row.update(source_url=source["listing"]["source_url"], published_at=source["listing"]["publication_date"],
++            raw_path=receipt["raw_path"], raw_sha256=digest, page_count=len(pages))
++        # Avoid finding an unrelated fund in manager biographies or comparison tables:
++        # scope proof must be in the document's title, before the listing heading.
++        title = compact[0].split("基金管理人")[0]
++        title = title[:500]
++        reason = None
++        if "分级" in title:
++            reason = "Original listing title explicitly identifies a structured/split-share fund (分级), not an ordinary ETF"
++        elif "LOF" in title.upper() or "上市开放式" in title:
++            reason = "Original listing title explicitly identifies LOF/listed open-ended structure, not ETF"
++        official_association = None
++        if reason and not code_pages:
++            capture_hash = source["listing"]["capture_sha256"]
++            capture_path = ROOT / "data/raw_m6/objects" / (capture_hash + ".bin")
++            capture_bytes = capture_path.read_bytes()
++            assert hashlib.sha256(capture_bytes).hexdigest() == capture_hash
++            associations = [node for node in walk(json.loads(capture_bytes))
++                if code in node.get("secCode", []) and node.get("attachPath")
++                and source["listing"]["source_url"].endswith(node["attachPath"])]
++            assert len(associations) == 1, sid
++            official_association = dict(capture_sha256=capture_hash,
++                secCode=associations[0]["secCode"], secName=associations[0]["secName"],
++                title=associations[0]["title"], attachPath=associations[0]["attachPath"])
++        if sid == "sz.161029":
++            # Manual visual review of original pp1/3/5: declassified fund
++            # remains contractual ordinary open-ended, not a conversion to ETF.
++            assert digest == "ccc7012c93a2844266a2d382714dc773ccd183a00a8df63e39576edabccaf16d"
++            assert "契约型开放式" in compact[2] and "161029" in compact[2]
++            assert "终止分级运作并变更而来" in compact[4]
++            row.update(status="EXCLUDED_ORIGINAL_NON_ETF",
++                reason="Original pp3-5 establish ordinary contractual open-ended fund and terminated split-share structure; not ETF",
++                product_type_physical_page=3, product_type_quote=compact[2][compact[2].index("基金概览"):][-650:],
++                identity_physical_page=3, identity_quote="场内简称：银行FG；交易代码：161029",
++                additional_physical_page=5, additional_quote="富国中证银行指数型证券投资基金由富国中证银行指数分级证券投资基金终止分级运作并变更而来",
++                visual_review_pages=[1,3,5])
++            records.append(row)
++            continue
++        if reason and code_pages:
++            n = code_pages[0]
++            start = max(0, compact[n].index(code) - 85)
++            row.update(status="EXCLUDED_ORIGINAL_NON_ETF", reason=reason,
++                product_type_physical_page=1, product_type_quote=title,
++                identity_physical_page=n + 1, identity_quote=compact[n][start:start + 190])
++        elif reason and official_association:
++            row.update(status="EXCLUDED_ORIGINAL_NON_ETF", reason=reason,
++                product_type_physical_page=1, product_type_quote=title,
++                identity_basis="Hash-verified original exchange disclosure response links this code directly to the PDF URL; code need not be printed in the correction/short notice body",
++                official_identity_association=official_association,
++                visual_review_pages=[1])
++        else:
++            row.update(reason="Original available but title/type or same-document code identity requires manual review",
++                first_page_excerpt=compact[0][:900], code_found=bool(code_pages))
++        records.append(row)
++    result = dict(status="COMPLETE" if all(r["status"] == "EXCLUDED_ORIGINAL_NON_ETF" for r in records) else "PARTIAL_PENDING_ORIGINALS_OR_MANUAL_REVIEW",
++        reviewer="independent agent /root/m8_independent", method="Direct PyMuPDF extraction of hash-verified originals; no author text-cache or classification used",
++        counts=dict(Counter(r["status"] for r in records)), records=records,
++        limitations=["This proof classifies original listing product structure; it does not certify an ETF's formation eligibility.",
++            "A code prefix controls review division only and never serves as an exclusion reason."])
++    (ROOT / "reports/m8_review/NON_ETF_REVIEW.json").write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
++    print(json.dumps(dict(status=result["status"], counts=result["counts"])))
++
++
++if __name__ == "__main__":
++    main()
+diff --git a/review_code/m8/independent_raw_bars.py b/review_code/m8/independent_raw_bars.py
+new file mode 100644
+index 0000000..b904f76
+--- /dev/null
++++ b/review_code/m8/independent_raw_bars.py
+@@ -0,0 +1,72 @@
++"""Direct source SDK-response audit, independent from normalized builder."""
++from collections import Counter
++from decimal import Decimal
++import hashlib
++import json
++from pathlib import Path
++
++ROOT = Path(__file__).resolve().parents[2]
++D = Decimal
++
++
++def read(path): return json.loads(Path(path).read_bytes())
++def checked(receipt):
++    raw = Path(receipt["raw_path"]).read_bytes()
++    assert hashlib.sha256(raw).hexdigest() == receipt["sha256"]
++    assert len(raw) == receipt["byte_count"]
++    return raw
++
++
++def build():
++    selection = read(ROOT/"reports/m8_rotation/COHORT_SELECTION.json")
++    listing = {r["instrument_id"]:r["listed_on"] for r in selection["ETF_candidate_rows"]}
++    raw_calendar = read(ROOT/"data/normalized_csi/h00300_2010_2024_v1/calendar_evidence/raw/6c53baad9d880219_fba4a743f5_a1_00ea4bd4d692d85808180cd9884c9ab9b85777cbae6ae197bfd08873cec626fe.json")
++    calendar = [r[0] for r in raw_calendar["rows"] if r[1] == "1"]
++    new = read(ROOT/"data/raw_m8/budget.json")
++    old = read(ROOT/"data/raw_m7/budget.json")
++    output,summary,hashes = {},[],{}
++    for sid in selection["selected_instruments"]:
++        decoded = ROOT/"data/raw_m8/decoded"/("holding_"+sid+".json")
++        source = read(decoded)
++        if source.get("reused_source_path"):
++            prior = Path(source["reused_source_path"])
++            assert hashlib.sha256(prior.read_bytes()).hexdigest() == source["reused_source_sha256"]
++            captures = [r for r in old["attempts"] if r["kind"] == "baostock_wire_attempts" and r["label"] == "history_"+sid]
++        else:
++            captures = [r for r in new["attempts"] if r["kind"] == "baostock_wire_attempts" and r["label"] == "holding_"+sid]
++        assert captures
++        wire_rows = []
++        for receipt in captures:
++            text = checked(receipt).decode("utf-8")
++            assert "\x01success\x01query_history_k_data_plus\x01" in text
++            payload,_ = json.JSONDecoder().raw_decode(text[text.index("{"):])
++            wire_rows.extend(payload["record"])
++            hashes[receipt["raw_path"]] = receipt["sha256"]
++        rows = [r for r in wire_rows if "2019-01-01" <= r[0] <= "2024-12-31"]
++        assert rows == source["rows"], sid
++        assert len({r[0] for r in rows}) == len(rows)
++        expected = [d for d in calendar if max("2019-01-01",listing[sid]) <= d <= "2024-12-31"]
++        assert [r[0] for r in rows] == expected, (sid,"missing/extra listed session")
++        suspension = 0
++        for r in rows:
++            assert r[1] == sid and r[9] == "3" and r[11] in ("0","1")
++            values = [D(v) for v in r[2:9]]
++            assert all(v.is_finite() and v>=0 for v in values)
++            op,hi,lo,cl,prev,vol,amount = values
++            if r[11] == "0":
++                assert vol == amount == 0
++                suspension += 1
++            else:
++                assert vol > 0 and amount > 0 and lo <= op <= hi and lo <= cl <= hi
++                assert lo*vol-1 <= amount <= hi*vol+1, (sid,r[0],"amount/volume unit")
++            output[r[0],sid] = dict(zip(source["fields"],r))
++        summary.append(dict(instrument_id=sid,sessions=len(rows),first=rows[0][0],last=rows[-1][0],
++            suspended_sessions=suspension,original_response_count=len(captures),decoded_sha256=hashlib.sha256(decoded.read_bytes()).hexdigest()))
++    return output,dict(decision="PASS_PRIMARY_RAW_BARS_ONLY",rows=len(output),instruments=summary,source_hashes=hashes,
++        method="Direct original SDK payload parse; exact identity/adjustflag3/date bounds/calendar coverage/decoded equality/finite OHLC and volume/amount consistency. No TR/event completeness inferred from raw prices.")
++
++
++if __name__ == "__main__":
++    rows,summary = build()
++    (ROOT/"reports/m8_review/independent_raw_bars.json").write_text(json.dumps(summary,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
++    print(summary["decision"],summary["rows"])
+diff --git a/review_code/m8/independent_registration_probe.py b/review_code/m8/independent_registration_probe.py
+new file mode 100644
+index 0000000..3e0f22e
+--- /dev/null
++++ b/review_code/m8/independent_registration_probe.py
+@@ -0,0 +1,102 @@
++"""Read-only independent M8 closed-frame and preregistration audit."""
++from pathlib import Path
++from collections import Counter
++from itertools import product
++import hashlib
++import json
++import subprocess
++
++ROOT = Path(__file__).resolve().parents[2]
++BASE = "3df2391dc646ab98122ac6b029d0ef7a5cef2b32"
++PREREG = "e30ae6157c8ee69aae439f2980bcc08b6fc5aae2"
++WORDS = "能源、材料、原料、资源、有色、煤炭、钢铁、化工、工业、制造、机械、军工、国防、消费、食品、饮料、酒、农业、医药、医疗、生物、健康、金融、银行、非银、证券、保险、地产、房地产、信息、科技、TMT、通信、计算机、电子、半导体、芯片、互联网、人工智能、机器人、新能源、环保、公用事业、大宗商品股票".split("、")
++GENERIC = ["证券投资基金", "上市交易公告书", "上市交易公告", "基金份额", "交易型开放式", "指数发起式", "证券投资", "指数型"]
++
++
++def read(path):
++    return json.loads((ROOT / path).read_text(encoding="utf-8"))
++
++
++def digest(raw):
++    return hashlib.sha256(raw).hexdigest()
++
++
++def git_bytes(ref, path):
++    return subprocess.check_output(["git", "show", ref + ":" + path], cwd=ROOT)
++
++
++def run():
++    frame_path = "reports/m6_r1i/official_listing_inventory.json"
++    raw = (ROOT / frame_path).read_bytes()
++    assert digest(raw) == "55b7b554d5e785b91a743960dec5f84f45bfdac13c70f191fd5f71c308e58b7a"
++    assert raw == git_bytes(BASE, frame_path)
++    frame = json.loads(raw)
++    candidate = read("reports/m8_rotation/CANDIDATE_REVIEW.json")
++    receipt = read("reports/m8_rotation/CANDIDATE_FREEZE_RECEIPT.json")
++    assert digest((ROOT / receipt["path"]).read_bytes()) == receipt["sha256"]
++    assert candidate["keywords"] == WORDS and candidate["stripped_generic_phrases"] == GENERIC
++    original = {r["instrument_id"]: r for r in frame["records"]}
++    actual = {r["instrument_id"]: r for r in candidate["records"]}
++    assert len(original) == len(actual) == 1970
++    assert set(original) == set(actual)
++    pre = hits = 0
++    for sid, row in original.items():
++        historical = sorted([r for r in row["original_listing_title_evidence"] if r["publication_date"] <= "2019-12-31"],
++            key=lambda r: (r["publication_date"], r["source_url"]))
++        observed = actual[sid]
++        assert historical == observed["pre2020_title_evidence"], sid
++        pre += bool(historical)
++        expected = []
++        for source in historical:
++            stripped = source["title"]
++            for generic in GENERIC:
++                stripped = stripped.replace(generic, "")
++            matches = [word for word in WORDS if word.lower() in stripped.lower()]
++            if matches:
++                expected.append(dict(source, stripped_title=stripped, matched_keywords=matches))
++        assert expected == observed["keyword_evidence"], sid
++        hits += bool(expected)
++        assert (observed["status"] == "OUTSIDE_FIXED_ARCHIVAL_SAMPLE") == (not expected)
++        assert observed["future_returns_used"] is False and observed["future_survival_used"] is False
++    assert pre == 920 and hits == 220
++    counts = Counter(row["status"] for row in actual.values())
++    assert dict(counts) == candidate["counts"]
++    registry_path = "reports/m8_rotation/EXPERIMENT_REGISTRY.json"
++    registered = json.loads(git_bytes(PREREG, registry_path))
++    expected_grid = set(product(("development", "validation"), ("E0", "R0", "E1", "R1"),
++        ("base", "cost_2x", "cost_3x", "delay_1_session")))
++    grid = {(r["period"], r["variant"], r["path"]) for r in registered["trials"]}
++    assert len(registered["trials"]) == 32 and grid == expected_grid
++    assert registered["primary"] == "validation 100000 base R0-E0"
++    assert registered["periods"] == {"development": ["2020-01-01", "2021-12-31"], "validation": ["2022-01-01", "2024-12-31"]}
++    for trial in registered["trials"]:
++        assert trial["initial_cash"] == 100000 and trial["risk_scaling"] is False
++        assert trial["annual_incremental_cost"] is None and trial["actual_run_id"] is None
++        assert trial["statutory_tax_multiplier"] == 1 and trial["signal_release_delay"] == 1
++        multiplier = {"base": 1, "cost_2x": 2, "cost_3x": 3, "delay_1_session": 1}[trial["path"]]
++        assert trial["cost_multiplier"] == trial["slippage_multiplier"] == multiplier
++        assert trial["execution_delay"] == (2 if trial["path"] == "delay_1_session" else 1)
++    # Source-plan byte oracle is mathematical LF -> CRLF, with no hash substitution.
++    path = "reports/m7_cohort/SOURCE_PLAN.json"
++    old = git_bytes(BASE, path)
++    expected_crlf = old.replace(b"\n", b"\r\n")
++    assert len(old) == 4024 and b"\r" not in old
++    assert digest(old) == "90db1e4dd79690f5e7352b27d673cded6700d9e89086e4eb24133d6a4fb84ca5"
++    assert len(expected_crlf) == 4132
++    assert digest(expected_crlf) == "e1790dad608c0b1f081a9595305e1d2c4980c6dc32d4b6eb48e4894da9ffc48c"
++    assert (ROOT / path).read_bytes() == expected_crlf
++    result = dict(status="PASS_CLOSED_FRAME_AND_REGISTRATION_ONLY", preregistration=PREREG,
++        source_frame_sha256=digest(raw), frame_count=1970, pre2020_identity_count=pre,
++        closed_keyword_hits=hits, counts=dict(counts), candidate_sha256=receipt["sha256"],
++        candidate_frozen_at=receipt["frozen_at"], trials=32,
++        m7_byte_oracle=dict(old_bytes=4024, restored_bytes=4132, exact_crlf_restoration=True),
++        limitations=["Keyword and registration checks do not admit product identities or formation ranking.",
++            "203 original-product reviews remain subject to separate original-document audit.",
++            "Source collection timestamps and post2019 sequence admission require subsequent audit."])
++    target = ROOT / "reports/m8_review/independent_registration.json"
++    target.write_text(json.dumps(result, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
++    print(json.dumps(result, ensure_ascii=True))
++
++
++if __name__ == "__main__":
++    run()
+diff --git a/review_code/m8/independent_signals.py b/review_code/m8/independent_signals.py
+new file mode 100644
+index 0000000..edb7653
+--- /dev/null
++++ b/review_code/m8/independent_signals.py
+@@ -0,0 +1,107 @@
++"""Recompute all monthly decisions directly from independently admitted tables."""
++import argparse
++from bisect import bisect_left
++from collections import defaultdict
++from decimal import Decimal
++import json
++from pathlib import Path
++from independent_accounts import ROOT, read, sha, load_stage, close
++
++D = Decimal
++
++
++def calculate(source,selection,variant,delay,start,end):
++    days = [day for day in source["calendar"] if day <= end]
++    bars = {(r["date"],r["instrument_id"]):r for r in source["bars"]}
++    benchmark = {r["date"]:r for r in source["benchmark"]}
++    masters = defaultdict(list)
++    for row in source["instruments"]: masters[row["instrument_id"]].append(row)
++    result = []
++    for i,anchor in enumerate(days):
++        if i+1+delay >= len(days) or anchor[:7] == days[i+1][:7]: continue
++        release,execution = days[i+1],days[i+1+delay]
++        if execution < start: continue
++        release_clock = release+"T21:00:00+08:00"
++        anchor_clock = anchor+"T21:00:00+08:00"
++        eligible,score,weights = [],{},{}
++        trend = None
++        if anchor_clock < selection["cohort_available_at"]:
++            status = "CASH_COHORT_NOT_YET_KNOWN"
++            count = None
++        else:
++            for sid in sorted(selection["selected_instruments"]):
++                states = [r for r in masters[sid] if r["available_at"] <= anchor_clock]
++                assert states, (anchor,sid,"unknown identity")
++                meta = max(states,key=lambda r:r["available_at"])
++                assert meta["status"] in ("NORMAL","ACTIVE","SUSPENDED","ECONOMIC_IDENTITY_CHANGED","RETIRED")
++                assert isinstance(meta["account_verified"],bool)
++                if not meta["account_verified"]: assert meta["account_permission_status"] == "DENIED"
++                age = len([day for day in days[:i+1] if day >= meta["listed_on"]])
++                if meta["listed_on"] > anchor or meta.get("delisted_on") or meta["status"] not in ("NORMAL","ACTIVE") or not meta["account_verified"] or age < 252: continue
++                window = [bars[day,sid] for day in days[i-19:i+1]]
++                assert len(window) == 20 and all(r["available_at"] <= release_clock for r in window)
++                values = sorted(D(str(r["amount"])) for r in window)
++                assert all(v.is_finite() and v >= 0 for v in values)
++                assert all(isinstance(r["suspended"],bool) and (not r["suspended"] or r["amount"] == 0) for r in window)
++                if not window[-1]["suspended"] and (values[9]+values[10])/2 >= 20000000: eligible.append(sid)
++            count = len(eligible)
++            if count >= 3:
++                for sid in eligible:
++                    numerator,denominator = bars[days[i-21],sid],bars[days[i-126],sid]
++                    assert all(r["available_at"] <= release_clock and r.get("total_return_available_at",r["available_at"]) <= release_clock for r in (numerator,denominator))
++                    value = D(str(numerator["total_return_index"]))/D(str(denominator["total_return_index"]))
++                    score[sid] = value.ln()
++            window = [benchmark[day] for day in days[i-199:i+1]]
++            assert len(window) == 200 and all(r["available_at"] <= release_clock for r in window)
++            values = [D(str(r["total_return_index"])) for r in window]
++            assert all(v.is_finite() and v > 0 for v in values)
++            trend = values[-1] > sum(values)/200
++            ordered = sorted(score,key=lambda sid:(-score[sid],sid))
++            status = "CASH_INSUFFICIENT_PRODUCTS" if count < 3 else "OK"
++            if count >= 3:
++                chosen = ordered[:3] if variant in ("R0","R1") else eligible
++                weights = {sid:D(1)/len(chosen) for sid in sorted(chosen)}
++                if variant in ("E1","R1") and not trend: status,weights = "CASH_TREND_OFF",{}
++        result.append(dict(anchor=anchor,release=release,execution=execution,status=status,eligible=eligible,
++            eligible_count=count,momentum=score,trend=trend,weights=weights))
++    return result
++
++
++def main():
++    parser = argparse.ArgumentParser()
++    parser.add_argument("--stage",type=Path,required=True)
++    parser.add_argument("--phase",choices=["base","all"],required=True)
++    args = parser.parse_args()
++    source = load_stage(args.stage)
++    selection = read(ROOT/"reports/m8_rotation/COHORT_SELECTION.json")
++    records = read(ROOT/"reports/m8_rotation/ACCOUNT_PATHS.json")
++    summaries = []
++    for record in records:
++        if args.phase == "base" and record["path"] != "base": continue
++        start,end = ("2020-01-01","2021-12-31") if record["period"] == "development" else ("2022-01-01","2024-12-31")
++        expected = calculate(source,selection,record["variant"],record["execution_delay"],start,end)
++        actual = read(ROOT/record["artifact_directory"]/"decisions.json")
++        assert len(actual) == len(expected)
++        for a,e in zip(actual,expected):
++            assert a["decision_at"][:10] == e["release"] and a["execution_date"] == e["execution"]
++            assert a["status"] == e["status"]
++            info = a["diagnostics"]
++            assert info["signal_anchor_date"] == e["anchor"] and info["eligible"] == e["eligible"]
++            assert info["eligible_count"] == e["eligible_count"] and info["trend"] == e["trend"]
++            assert set(a["weights"]) == set(e["weights"])
++            for sid,w in e["weights"].items(): close(a["weights"][sid],w,"independent target weight",D("1e-14"))
++            assert set(info["momentum"]) == set(e["momentum"])
++            for sid,value in e["momentum"].items(): close(info["momentum"][sid],value,"independent momentum",D("1e-12"))
++            assert a["ranks"] == {sid:i for i,sid in enumerate(sorted(e["weights"]),1)}
++        summaries.append(dict(trial_id=record["trial_id"],decisions=len(expected),
++            qualified_ranking_months=sum(len(e["eligible"])>=4 for e in expected),
++            active_target_months=sum(bool(e["weights"]) for e in expected)))
++    assert len(summaries) == (8 if args.phase == "base" else 32)
++    out = dict(decision="PASS_INDEPENDENT_MONTHLY_SIGNALS",phase=args.phase,accounts=summaries,
++        stage_manifest_sha256=sha(args.stage/"manifest.json"),
++        method="Independent Decimal medians/126-to21 TR log ratio/200-session strict trend; all eligible losing competitors included; calendar age252 and D/D+1/D+2 orD+3 clocks; canonical identity priorities.")
++    (ROOT/"reports/m8_review"/("independent_signals_"+args.phase+".json")).write_text(json.dumps(out,indent=2)+"\n",encoding="utf-8")
++    print(out["decision"],len(summaries))
++
++
++if __name__ == "__main__": main()
+diff --git a/review_code/m8/test_independent_budget_replace.py b/review_code/m8/test_independent_budget_replace.py
+new file mode 100644
+index 0000000..b2fcce3
+--- /dev/null
++++ b/review_code/m8/test_independent_budget_replace.py
+@@ -0,0 +1,42 @@
++"""Independent failure boundaries for the narrow Windows atomic rename repair."""
++import json
++from pathlib import Path
++import pytest
++from quant_research import budget
++
++
++@pytest.mark.parametrize("code", [5,32,33])
++def test_same_fsynced_bytes_are_retried_without_mutating_old_file(tmp_path,monkeypatch,code):
++    destination = tmp_path/"snapshot.json"
++    destination.write_text('{"old":true}',encoding="utf-8")
++    before = destination.read_bytes()
++    replace = budget.os.replace
++    attempts = []
++    def once(source,target):
++        attempts.append((Path(source).read_bytes(),str(source)))
++        if len(attempts) == 1:
++            assert destination.read_bytes() == before
++            error = PermissionError("independent simulated rename conflict")
++            error.winerror = code
++            raise error
++        return replace(source,target)
++    monkeypatch.setattr(budget.os,"replace",once)
++    monkeypatch.setattr(budget.time,"sleep",lambda _:None)
++    budget.atomic_json(destination,{"new":[1,2,3]})
++    assert len(attempts) == 2 and attempts[0] == attempts[1]
++    assert json.loads(destination.read_bytes()) == {"new":[1,2,3]}
++    assert not list(tmp_path.glob("*.tmp"))
++
++
++def test_unrelated_permission_error_has_no_retry_or_old_snapshot_loss(tmp_path,monkeypatch):
++    destination = tmp_path/"snapshot.json"
++    destination.write_text("old",encoding="utf-8")
++    calls = []
++    def fail(*args):
++        calls.append(args)
++        raise PermissionError("not a recognized Windows sharing code")
++    monkeypatch.setattr(budget.os,"replace",fail)
++    monkeypatch.setattr(budget.time,"sleep",lambda _:pytest.fail("unexpected retry"))
++    with pytest.raises(PermissionError): budget.atomic_json(destination,{"x":1})
++    assert len(calls) == 1 and destination.read_text() == "old"
++    assert not list(tmp_path.glob("*.tmp"))
+diff --git a/review_code/m8/test_independent_liquid_scope.py b/review_code/m8/test_independent_liquid_scope.py
+new file mode 100644
+index 0000000..58e3fd8
+--- /dev/null
++++ b/review_code/m8/test_independent_liquid_scope.py
+@@ -0,0 +1,148 @@
++"""Reviewer-owned synthetic scope, clock, competitor and ledger checks."""
++from copy import deepcopy
++from decimal import Decimal, ROUND_CEILING, ROUND_HALF_UP
++from types import SimpleNamespace
++
++import numpy as np
++import pandas as pd
++import pytest
++
++from quant_research.liquid_cohort import generate_liquid_targets, liquid_dependencies
++from quant_research.execution import run_backtest
++from quant_research.strategy import StrategyBlockedError
++
++SCOPE = "R1I_HISTORICAL_LIQUID_V1"
++IDS = ["SYNTH_" + letter for letter in "ABCDEF"]
++
++
++def fixture(eligible=4):
++    # Synthetic older sessions; the Jan/Feb2020 clock explicitly models the
++    # documented last January session and February reopening, no market returns.
++    days = pd.bdate_range("2018-01-02", "2020-02-05").strftime("%Y-%m-%d").tolist()
++    days = [d for d in days if d != "2020-01-01" and not "2020-01-24" <= d <= "2020-01-31"]
++    masters, bars = [], []
++    for j, sid in enumerate(IDS):
++        masters.append(dict(instrument_id=sid, asset_type="ETF", board="ETF", listed_on=days[0],
++            delisted_on=None, available_at="2018-01-01T21:00:00+08:00", account_verified=True,
++            status="NORMAL", benchmark_id="INDEX_" + sid, strategy_universe=SCOPE,
++            lot_size=100, tick_size=.001, t_plus=1, revision_id=sid, supersedes_id=None))
++        for i, day in enumerate(days):
++            bars.append(dict(instrument_id=sid, date=day, open=5., close=5., high=5.1, low=4.9,
++                upper_limit=5.5, lower_limit=4.5, volume=10000000, amount=50000000 if j < eligible else 10000000,
++                suspended=False, total_return_index=100 * np.exp(-(6-j) * .0001 * i),
++                available_at=day + "T16:00:00+08:00"))
++    return SimpleNamespace(calendar=days, instruments=pd.DataFrame(masters), bars=pd.DataFrame(bars),
++        actions=pd.DataFrame(), benchmark=pd.DataFrame(dict(date=days,
++            total_return_index=100 + np.arange(len(days)), available_at=[d+"T16:00:00+08:00" for d in days])),
++        manifest=dict(research_scope=SCOPE, synthetic=True, cohort_selection=dict(status="FORMED",
++            scope=SCOPE, sampling_frame_sha256="55b7b554d5e785b91a743960dec5f84f45bfdac13c70f191fd5f71c308e58b7a",
++            formation_date="2019-12-31", cohort_available_at="2020-01-02T21:00:00+08:00", selected_instruments=IDS)))
++
++
++def first(data, variant="R0", delay=1):
++    return next(t for t in generate_liquid_targets(data, variant, delay)
++                if t.diagnostics["signal_anchor_date"] == "2020-01-23")
++
++
++def test_formation_and_first_month_clock_negative_momentum_and_delay():
++    data = fixture()
++    all_targets = generate_liquid_targets(data, "R0")
++    assert all(t.weights == {} for t in all_targets if t.diagnostics["signal_anchor_date"] < "2020-01-23")
++    t = first(data)
++    assert t.decision_date == "2020-02-03" and t.execution_date == "2020-02-04"
++    assert list(t.weights) == IDS[1:4]
++    assert t.diagnostics["momentum"][IDS[0]] == pytest.approx(-6*.0001*105)
++    assert all(v < 0 for v in t.diagnostics["momentum"].values())
++    late = first(data, delay=2)
++    assert late.execution_date == "2020-02-05" and late.weights == t.weights
++    assert late.diagnostics["momentum"] == t.diagnostics["momentum"]
++    changed = deepcopy(data)
++    mask = changed.bars.date.eq("2020-02-03")
++    changed.bars.loc[mask, "close"] = 7
++    changed.bars.loc[mask, "total_return_index"] = 1e30
++    assert first(changed).weights == t.weights
++    assert first(changed).diagnostics["momentum"] == t.diagnostics["momentum"]
++    assert set(first(changed).reference_prices.values()) == {7.}
++
++
++@pytest.mark.parametrize("field", ["missing_competitor_TR", "late_competitor_TR", "missing_amount", "unknown_permission", "unknown_status"])
++def test_missing_competitor_never_becomes_low_rank_or_cash(field):
++    data = fixture()
++    mask = data.bars.instrument_id.eq(IDS[0])
++    if field == "missing_competitor_TR":
++        data.bars.loc[mask, "total_return_index"] = np.nan
++    elif field == "late_competitor_TR":
++        data.bars["total_return_available_at"] = data.bars.available_at
++        data.bars.loc[mask, "total_return_available_at"] = "2020-02-04T21:00:00+08:00"
++    elif field == "missing_amount":
++        data.bars.loc[mask & data.bars.date.eq("2020-01-22"), "amount"] = np.nan
++    elif field == "unknown_permission":
++        data.instruments.loc[0, "account_verified"] = False
++    else:
++        data.instruments.loc[0, "status"] = "UNKNOWN"
++    # SYNTH_A loses the momentum ranking, but E0 and R0 must both block.
++    for variant in ("E0", "R0"):
++        with pytest.raises(StrategyBlockedError):
++            generate_liquid_targets(data, variant)
++
++
++def test_formation_sixty_sessions_does_not_allow_trading_before252():
++    data = fixture(6)
++    # At formation product F has exactly60 synthetic sessions, January has77.
++    formation = data.calendar.index("2019-12-31")
++    data.instruments.loc[5, "listed_on"] = data.calendar[formation-59]
++    dependency = next(r for r in liquid_dependencies(data)["schedule"] if r["anchor_date"] == "2020-01-23")
++    assert dependency["eligible_count"] == 5
++    assert dependency["exclusions"][IDS[5]] == "LISTED_LESS_THAN_252_SESSIONS"
++    assert IDS[5] not in first(data, "E0").weights
++
++
++@pytest.mark.parametrize("mutation", ["old_seven", "early_clock", "five_products", "missing_status", "holdout"])
++def test_new_scope_requires_frozen_new_selection_and_locked_calendar(mutation):
++    data = fixture()
++    if mutation == "old_seven":
++        data.manifest["cohort_selection"]["selected_instruments"] = ["sz."+s for s in ("159936","159938","159939","159940","159944","159945","159946")]
++    elif mutation == "early_clock":
++        data.manifest["cohort_selection"]["cohort_available_at"] = "2019-12-31T21:00:00+08:00"
++    elif mutation == "five_products":
++        data.manifest["cohort_selection"]["selected_instruments"] = IDS[:5]
++    elif mutation == "missing_status":
++        data.manifest["cohort_selection"].pop("status")
++    else:
++        data.calendar += ["2025-01-02"]
++    with pytest.raises(StrategyBlockedError):
++        generate_liquid_targets(data)
++
++
++@pytest.mark.parametrize("cost", [1,2,3])
++def test_three_products_same_orders_and_decimal_account(cost):
++    data = fixture(3)
++    e = generate_liquid_targets(data, "E0")
++    r = generate_liquid_targets(data, "R0")
++    assert e[-1].weights == r[-1].weights == dict.fromkeys(IDS[:3], 1/3)
++    assert e[-1].ranks == r[-1].ranks
++    results = [run_backtest(data, targets, 100000, cost_multiplier=cost,
++        slippage_multiplier=cost, start_date="2020-01-01") for targets in (e,r)]
++    for name in ("orders", "fills", "positions", "nav"):
++        pd.testing.assert_frame_equal(results[0][name], results[1][name])
++    q = 6600
++    price = (Decimal(5)*(1+Decimal(".0003")*cost)/Decimal(".001")).to_integral_value(rounding=ROUND_CEILING)*Decimal(".001")
++    notional = (q*price).quantize(Decimal(".01"), rounding=ROUND_HALF_UP)
++    fee = (max(Decimal(5),notional*Decimal(".0003"))*cost).quantize(Decimal(".01"), rounding=ROUND_HALF_UP)
++    cash = Decimal(100000)-3*(notional+fee)
++    assert list(results[0]["fills"].quantity) == [q,q,q]
++    for row in results[0]["nav"].to_dict("records"):
++        expect_cash = Decimal(100000) if row["date"] < "2020-02-04" else cash
++        expect_holdings = Decimal(0) if row["date"] < "2020-02-04" else Decimal(3*q*5)
++        assert row["cash_total"] == pytest.approx(float(expect_cash), abs=1e-7)
++        assert row["nav"] == pytest.approx(float(expect_cash+expect_holdings), abs=1e-7)
++
++
++def test_n2_cash_proof_preserves_unknown_and_strict_trend_equality():
++    data = fixture(2)
++    data.bars["total_return_index"] = np.nan
++    assert liquid_dependencies(data)["required_full_history_instruments"] == []
++    assert all(t.weights == {} for t in generate_liquid_targets(data))
++    data = fixture()
++    data.benchmark["total_return_index"] = 100.
++    assert first(data, "E1").weights == first(data, "R1").weights == {}

@@ -150,3 +150,8 @@ D044—D047共同决定：当前R1配置归档、ETF参数搜索停止，本轮�
 |D075|必要数据限定准入|七只15,225原始量额、完整存续交易日和1,541公告标题保留。独立原响应/Decimal证明107月N最多2，159946零合格月；未补全TR/清算但这些字段对本组无排名/持仓依赖，不能以假TR或删除退市替代。普通ETF权限仅明确研究模型，原件/agent核验不称私人券商或human签核。56HTTP/15SDK/9,842,572bytes后停止扩采。|
 |D076|32账户完成，有限识别结论|8base通过独立会计后自动完成24压力，全部使用679e808；34,992日账、0失败/未运行，现金100%、净增量0、无订单或成交。验证与开发分开；年度产品1,008行、账户144年均含零对账。结论LIMITED_IDENTIFICATION，不称排名无效或成本稳健，不改阈值/组别/时期补选择机会。|
 |D077|统计与复现闭环|未知固定费保留null经济门槛但不再删非退化描述性CI，独立HAC/bootstrap验证通过；真实常数差另判INCONCLUSIVE_DEGENERATE，不造区间或p值。保留原失败反例、来源精度微差及CI浅克隆测试故障；CI修正仅reviewer固定历史hash并纠正旧summary文件名，实际账户源码不改。R1B/M6档案、留出和实盘边界保持；股票旁线无新工作。|
+
+
+## 2026-11-16 M8 publication and persistent delivery requirement
+
+User requires a GitHub push after each completed task. Publish the reviewed M8 derived results and code patches from the existing public baseline on codex/m8-public-results. Keep private source evidence and the complete local M8 commit chain local; do not rewrite history or rerun research. See docs/DELIVERY_POLICY.md and docs/M8_PUBLIC_DELIVERY.md.
