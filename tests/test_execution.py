@@ -86,7 +86,7 @@ def test_unexecutable_buys_expire_without_retry(problem, reason):
     assert result["nav"].iloc[-1].nav == 100000
 
 
-def test_historical_capacity_partial_fills_does_not_use_current_volume():
+def test_historical_capacity_partial_fills_with_sufficient_realized_liquidity():
     data = fixture()
     data["bars"].loc[data["bars"].instrument_id == "ETF_A", "amount"] = 250000.
     d = decision(data)

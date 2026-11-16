@@ -124,6 +124,9 @@ def run_backtest(dataset, decisions, initial_cash, cost_multiplier=1,
     Each desired quantity is fixed at the decision; a gap can only reduce a
     fill. Actual sales precede new-buy risk checks. Buy remainders expire;
     sell remainders retry at most five actual daily orders including the first.
+    Matching shares one daily budget per instrument across buys and sells:
+    1% known historical ADV, 1% actual day amount, and 1% actual day shares.
+    Realized day liquidity constrains matching only, never order intentions.
 
     Optional stock tax_rules must explicitly specify effective_from,
     effective_to, stamp_duty_sell, transfer_fee_both, verified=True and
@@ -787,7 +790,18 @@ def run_backtest(dataset, decisions, initial_cash, cost_multiplier=1,
                 marks[sid] = float(row["open"])
         delayed_retries = []
         daily = sorted(queues.pop(day, []), key=lambda o: (o["side"] != "SELL", o["order_id"]))
-        capacity_used = defaultdict(float)
+        # All queued intentions were fixed before this session. The smallest
+        # valid known ADV sets a common conservative budget even when orders
+        # came from different decision days; later orders cannot replenish it.
+        historical_limits = {}
+        for order in daily:
+            if _valid(order["adv20"], True):
+                sid = order["instrument_id"]
+                limit = Decimal("0.01") * Decimal(str(order["adv20"]))
+                historical_limits[sid] = min(historical_limits.get(sid, limit), limit)
+        capacity_used = defaultdict(Decimal)
+        amount_used = defaultdict(Decimal)
+        shares_used = defaultdict(int)
         for order in daily:
             sid, buy = order["instrument_id"], order["side"] == "BUY"
             meta, row = master(sid, _cutoff(day, "09:30:00")), bar(sid, day)
@@ -831,10 +845,26 @@ def run_backtest(dataset, decisions, initial_cash, cost_multiplier=1,
                 reject(order, day, "SLIPPAGE_PRICE_OUTSIDE_VALID_RANGE")
                 delayed_retries.append((order, qty))
                 continue
-            cap_left = max(0., .01 * float(order["adv20"]) - capacity_used[sid])
-            capacity_qty = int(cap_left / max(price, float(order["reference_price"])))
+            price_decimal = Decimal(str(price))
+            conservative_price = max(price_decimal, Decimal(str(order["reference_price"])))
+            amount_limit = Decimal("0.01") * Decimal(str(row["amount"]))
+            shares_limit = Decimal("0.01") * Decimal(str(row["volume"]))
+            cap_left = max(Decimal(0), historical_limits[sid] - capacity_used[sid])
+            amount_left = max(Decimal(0), amount_limit - amount_used[sid])
+            shares_left = max(Decimal(0), shares_limit - shares_used[sid])
+            capacity_bounds = [
+                (int(cap_left / conservative_price), "HISTORICAL_ADV_CAPACITY"),
+                (int(amount_left / price_decimal), "ACTUAL_DAY_AMOUNT_CAPACITY"),
+                (int(shares_left), "ACTUAL_DAY_VOLUME_CAPACITY"),
+            ]
+            capacity_qty, limit_reason = min(capacity_bounds, key=lambda item: item[0])
+            # Odd-lot disposal can round notional up to a cent. Both the exact
+            # price product and the reported cash notional must fit the cap.
+            while capacity_qty > 0 and Decimal(str(_product_money(capacity_qty, price))) > amount_left:
+                capacity_qty -= 1
+                limit_reason = "ACTUAL_DAY_AMOUNT_CAPACITY"
             fill_qty = min(qty, capacity_qty)
-            limit_reason = "HISTORICAL_ADV_CAPACITY"
+            capacity_reason = limit_reason
             reserved = 0.
             if buy:
                 reserve_price = _tick(Decimal(str(order["reference_price"])) * (1 + slip), tick, True)
@@ -884,7 +914,7 @@ def run_backtest(dataset, decisions, initial_cash, cost_multiplier=1,
                 while fill_qty > 0 and _product_money(fill_qty, price) + sum(charges(_product_money(fill_qty, price), True, statutory)) > reserved + 1e-9:
                     fill_qty -= 100
                     limit_reason = "REFERENCE_RESERVATION_GAP"
-                if reserve_qty == 0:
+                if reserve_qty == 0 and capacity_qty >= 100:
                     limit_reason = "INSUFFICIENT_CASH_OR_RISK_BUDGET"
             else:
                 sellable = sum(lot["quantity"] for lot in lots[sid] if lot["sellable_index"] <= index)
@@ -934,7 +964,9 @@ def run_backtest(dataset, decisions, initial_cash, cost_multiplier=1,
                             lot["quantity"] -= removed
                             remaining -= removed
                     lots[sid] = [lot for lot in lots[sid] if lot["quantity"]]
-                capacity_used[sid] += fill_qty * max(price, float(order["reference_price"]))
+                capacity_used[sid] += fill_qty * conservative_price
+                amount_used[sid] += max(fill_qty * price_decimal, Decimal(str(notional)))
+                shares_used[sid] += fill_qty
                 slippage_cost = _product_money(fill_qty, abs(Decimal(str(price)) - Decimal(str(row["open"]))))
                 output["fills"].append({"date": day, "order_id": order["order_id"], "instrument_id": sid,
                     "side": order["side"], "quantity": fill_qty, "price": price, "notional": notional,
@@ -945,6 +977,16 @@ def run_backtest(dataset, decisions, initial_cash, cost_multiplier=1,
                     "total_cost": total_fees, "slippage_cost": slippage_cost})
                 output["cash_events"].append({"date": day, "event": "BUY" if buy else "SELL",
                     "order_id": order["order_id"], "amount": -notional - total_fees if buy else notional - total_fees})
+            output["order_events"].append({"date": day, "order_id": order["order_id"],
+                "instrument_id": sid, "event": "DAILY_CAPACITY", "side": order["side"],
+                "quantity_requested": qty, "capacity_quantity": capacity_qty,
+                "quantity_filled": fill_qty, "capacity_reason": capacity_reason,
+                "historical_limit": float(historical_limits[sid]),
+                "historical_consumed": float(capacity_used[sid]),
+                "actual_amount_limit": float(amount_limit),
+                "actual_amount_consumed": float(amount_used[sid]),
+                "actual_shares_limit": float(shares_limit),
+                "actual_shares_consumed": shares_used[sid]})
             if buy:
                 output["order_events"].append({"date": day, "order_id": order["order_id"], "event": "RELEASE_RESERVATION", "cash_reserved": 0., "cash_total": cash, "cash_available": cash})
             if fill_qty < qty:
@@ -1214,6 +1256,7 @@ def run_backtest(dataset, decisions, initial_cash, cost_multiplier=1,
     result["performance_evidence"] = False
     result["rule_based_settlement"] = rule_based_settlement
     result["cash_delay_sessions"] = cash_delay_sessions
+    result["capacity_model"] = "SHARED_DAILY_1PCT_ADV_AMOUNT_SHARES"
     result["accounting_timing_eligible"] = not bool(result["nav"]["valuation_uncertainty"].any())
     result["confirmation_eligible"] = False  # Daily screening never verifies executable confirmation.
     result["limitations"] = ["Daily bars do not establish opening queue liquidity.",

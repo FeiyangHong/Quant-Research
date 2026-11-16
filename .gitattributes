@@ -70,3 +70,4 @@ docs/M8_INDEPENDENT_REVIEW_AND_M9_HANDOFF_2026-11-16.md -text whitespace=cr-at-e
 reports/m9_risk/** -text whitespace=cr-at-eol
 reports/m9_review/** -text whitespace=cr-at-eol,-blank-at-eol,-blank-at-eof
 review_code/m9/** -text whitespace=cr-at-eol
+reports/m8_public/** -text whitespace=cr-at-eol

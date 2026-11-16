@@ -22,7 +22,17 @@ def atomic_json(path, obj):
             json.dump(obj, stream, ensure_ascii=False, indent=2)
             stream.flush()
             os.fsync(stream.fileno())
-        os.replace(temporary, path)
+        # Windows readers/antivirus can briefly deny replacement even after
+        # this writer has fsynced the complete snapshot. Retry the same bytes,
+        # never the request or its accounting transaction, for at most1second.
+        for attempt in range(21):
+            try:
+                os.replace(temporary, path)
+                break
+            except PermissionError as exc:
+                if getattr(exc, 'winerror', None) not in (5, 32, 33) or attempt == 20:
+                    raise
+                time.sleep(.05)
     finally:
         temporary.unlink(missing_ok=True)
 

@@ -1,0 +1,24 @@
+{
+  "decision": "PASS_INDEPENDENT_INITIALIZER_AND_SOURCE_IDENTITY",
+  "author_role": "INDEPENDENT_REVIEWER",
+  "initializer_sha256": "6d46b60ebbe541aad53843adde1856a5b205cf6b45befe2487c2f6e2b221bad5",
+  "binding_sha256": "c0a85d0f6b06325b9e4a5eff30b443b2ff5a667cb7d0528a29b8a06c1af50b44",
+  "original_file_hash_checks": 558,
+  "first_anchor": "2020-01-23",
+  "release": "2020-02-03",
+  "first_base_execution": "2020-02-04",
+  "unscaled_weights": {
+    "sh.512660": "0.25",
+    "sh.512800": "0.25",
+    "sh.512880": "0.25",
+    "sz.159939": "0.25"
+  },
+  "independent_sigma": "0.1588554638039089476185262575101775831642",
+  "independent_c": "0.6295030564604307020794710567878518204699",
+  "complete_count": 60,
+  "window_start": "2019-10-31",
+  "empty_precohort_anchor_does_not_initialize": true,
+  "post_anchor_tr_perturbation_leaves_c_unchanged": true,
+  "source_scope": "Byte identity for reused local M8 originals. No new acquisition or independent confirmation of historical vendor accuracy.",
+  "performance_evidence": false
+}
