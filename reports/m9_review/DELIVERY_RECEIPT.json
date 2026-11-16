@@ -1,0 +1,80 @@
+{
+  "created_utc": "2026-11-16T06:11:59.667448+00:00",
+  "scope": "M9_ETF_RISK_BUDGET_V1",
+  "status": "RESEARCH_COMPLETE_PENDING_FINAL_RESULT_PUSH",
+  "public_branch": "codex/m9-risk-budget",
+  "review_base_commit": "540fdf3a1946dfb12fe54698a22584446cbcf91a",
+  "preregistration_commit": "a696c13dc2f6bf7aba4820fc1ee16ed55dd19ad5",
+  "account_execution_commit": "a2fbb04e76c6e80c262eb86ab621e2dc49f29635",
+  "source_hash": "dc4e7a79f6f5373d5af15d71def409d54e7209d3ae927c818c72d31d5a96e6a3",
+  "source_files_verified": 157,
+  "code_content_equals_public_execution_commit": true,
+  "actual_paths": 24,
+  "failed_paths": 0,
+  "not_run_paths": 0,
+  "verified_counts": {
+    "public_account_files": 192,
+    "private_account_files": 552
+  },
+  "results_summary_sha256": "d4a309b82c868b33b1636c560147afd9551601d1f4f4f60a2833c8e018cb44b3",
+  "utility_evaluation_sha256": "baa1ed9504afdcfadb5c6a825aed0f92ad9b5441b43e13a2a5de30af712734df",
+  "account_paths_sha256": "2d5c09ba07c10af9921b9b391e3712bab60d7ea9334a02b77b7596ff7c33e7e5",
+  "data_binding_sha256": "c0a85d0f6b06325b9e4a5eff30b443b2ff5a667cb7d0528a29b8a06c1af50b44",
+  "initializer_sha256": "6d46b60ebbe541aad53843adde1856a5b205cf6b45befe2487c2f6e2b221bad5",
+  "registration_sha256": "0f5da9f0fd2d906008739dddf894957498b947b876a621bad6513ee32143ef51",
+  "rule_hash": "24081897ca5bb1d07cd8843843ca8aa4572b4b89804d223a667ef44e8b14a713",
+  "data_hashes": {
+    "development": "ca047a986bd5312a35bb787eaa9d7a14a645a153342e8b9bfd1426c80d365f4b",
+    "validation": "3bc3addb293330bc0354cce2a1799c38099de399c18f6779d8db689ca1fa1e8c"
+  },
+  "fixed_c": 0.6295030564604313,
+  "conclusion": "INCONCLUSIVE",
+  "robustness_sign_check": "ROBUSTNESS_SIGN_CHECK_PASSED",
+  "economic_confirmation": "BLOCKED_HURDLE",
+  "unknown_fixed_fee": null,
+  "market_requests_actual": 0,
+  "market_requests_limit": 0,
+  "old_accounts_rerun": 0,
+  "source_evidence_hashes_verified": 558,
+  "old_frozen_hashes_rechecked": {
+    "reports/real_data_phase3/results_summary.json": "c238b235722bc73468ef1cc3af29f083c160a92d0ff18edead6c36d3b129aebb",
+    "reports/m8_rotation/RESULTS_SUMMARY.json": "2a3f1ef14aef915cdba72aaec0900ec11253297fb8b83f8629244197c4763fff",
+    "data/raw_m8/budget.json": "1076c6f800285e35563233e8504f9bc3285f72d0e7e2eb99e9374cdd25d797b2"
+  },
+  "artifact_manifest_sha256": "41f624bad91414a0216e89deafc048d14fbd6badab7c0fe0a09016d3448cd717",
+  "local_tests": {
+    "passed": 895,
+    "skipped": 10,
+    "warnings": 1,
+    "receipt": "reports/m9_review/pre_account_tests.json"
+  },
+  "implementation_ci": {
+    "source_commit": "a2fbb04e76c6e80c262eb86ab621e2dc49f29635",
+    "run_id": 43812326361,
+    "job_id": 133116525543,
+    "tested_merge_commit": "7faaadf6f862708c30967b9a8f6d4ba5009a7fd7",
+    "result": "SUCCESS",
+    "passed": 893,
+    "skipped": 12,
+    "test_warnings": 1,
+    "pytest_seconds": 62.24,
+    "url": "https://github.com/FeiyangHong/Quant-Research/actions/runs/43812326361",
+    "log": "reports/m9_review/implementation_ci.txt",
+    "log_sha256": "67efa845f54c9e1685d769919690281c28b13b7bac247287f17b5dec76aa586a",
+    "log_encoding": "UTF-8; line endings normalized to LF from connector decoded log",
+    "scope": "Actual restored M8 and M9 production source; synthetic/portable tests; no licensed original-data or account rerun. Two additional source-dependent skips relative to local safe checkout."
+  },
+  "session_budget": {
+    "common_start_utc": "2026-11-16T05:19:00+00:00",
+    "receipt_checkpoint_utc": "2026-11-16T06:11:59.667448+00:00",
+    "slots_charged": 4,
+    "aggregate_upper_bound_hours": 3.532963831111111,
+    "limit_hours": 8,
+    "method": "All4 slots charged whole observable interval including waiting/idle/completed agents; conservative upper bound, not human/CPU hours. Final publication receipt records later checkpoint."
+  },
+  "final_result_commit": "See subsequent PUBLICATION_RECEIPT.json and Git commit containing results; self commit hash not invented.",
+  "full_local_accounts": "runs/m9_real",
+  "original_evidence_root": "F:\\QuantTrade\\Quant-Research",
+  "publication_limits": "Restricted raw market data, long source text and complete trades remain local; public NAV/derived risks/config/code/tests/hash receipts are available.",
+  "no_automatic_merge_or_followup_experiment": true
+}

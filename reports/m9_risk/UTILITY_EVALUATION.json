@@ -1,0 +1,692 @@
+{
+  "auxiliary": [
+    {
+      "inference": "DESCRIPTIVE_ONLY_NO_AUXILIARY_CI",
+      "mean_net_return_difference": -9.724049690785418e-05,
+      "pair": "VR-VE",
+      "path": "base",
+      "period": "development"
+    },
+    {
+      "inference": "DESCRIPTIVE_ONLY_NO_AUXILIARY_CI",
+      "mean_net_return_difference": -9.292042570485705e-05,
+      "pair": "VR-VE",
+      "path": "cost_2x",
+      "period": "development"
+    },
+    {
+      "inference": "DESCRIPTIVE_ONLY_NO_AUXILIARY_CI",
+      "mean_net_return_difference": -8.869610778060008e-05,
+      "pair": "VR-VE",
+      "path": "cost_3x",
+      "period": "development"
+    },
+    {
+      "inference": "DESCRIPTIVE_ONLY_NO_AUXILIARY_CI",
+      "mean_net_return_difference": -0.00014023129556135777,
+      "pair": "VR-VE",
+      "path": "delay_1_session",
+      "period": "development"
+    },
+    {
+      "inference": "DESCRIPTIVE_ONLY_NO_AUXILIARY_CI",
+      "mean_net_return_difference": 0.00011717313716342612,
+      "pair": "VR-VE",
+      "path": "base",
+      "period": "validation"
+    },
+    {
+      "inference": "DESCRIPTIVE_ONLY_NO_AUXILIARY_CI",
+      "mean_net_return_difference": 0.00011758998934543307,
+      "pair": "VR-VE",
+      "path": "cost_2x",
+      "period": "validation"
+    },
+    {
+      "inference": "DESCRIPTIVE_ONLY_NO_AUXILIARY_CI",
+      "mean_net_return_difference": 9.606533393027838e-05,
+      "pair": "VR-VE",
+      "path": "cost_3x",
+      "period": "validation"
+    },
+    {
+      "inference": "DESCRIPTIVE_ONLY_NO_AUXILIARY_CI",
+      "mean_net_return_difference": 0.000123780324025382,
+      "pair": "VR-VE",
+      "path": "delay_1_session",
+      "period": "validation"
+    }
+  ],
+  "economic_confirmation": "BLOCKED_HURDLE",
+  "gamma": 5,
+  "pairs": [
+    {
+      "absolute_mean_utility": {
+        "CE": 0.0002942230003304445,
+        "VE": 0.0003756454601775574,
+        "VR": 0.0002850999404004646,
+        "cash": 0.0
+      },
+      "annualized_utility_score_difference": 0.0205184598814724,
+      "economic_confirmation": "BLOCKED_HURDLE",
+      "mean_net_return_difference": -8.756803523496735e-06,
+      "mean_utility_difference": 8.142245984711271e-05,
+      "n_dates": 486,
+      "net_return_intervals": [
+        {
+          "annual_incremental_cost": null,
+          "block_length": 60,
+          "caveat": "Approximate under weak stationarity; short/nonstationary histories need caution.",
+          "ci95": [
+            -0.00021130566632259387,
+            0.00022721096575905426
+          ],
+          "daily_hurdle": null,
+          "descriptive_status": "DESCRIPTIVE_INFERENCE",
+          "economic_status": "BLOCKED_HURDLE",
+          "hac_lag": 5,
+          "hac_se": 0.0001287395375406529,
+          "interval_type": "marginal_95_percent",
+          "mean_net_increment": -8.756803523496735e-06,
+          "method": "circular_block_bootstrap_t_HAC",
+          "minimum_detectable_daily_effect_80pct": 0.0003201076236503689,
+          "n_dates": 486,
+          "p_hac": null,
+          "p_net": null,
+          "repetitions": 5000,
+          "seed": 20261114,
+          "status": "BLOCKED_HURDLE"
+        },
+        {
+          "annual_incremental_cost": null,
+          "block_length": 20,
+          "caveat": "Approximate under weak stationarity; short/nonstationary histories need caution.",
+          "ci95": [
+            -0.00023857403418544248,
+            0.00024589177166763683
+          ],
+          "daily_hurdle": null,
+          "descriptive_status": "DESCRIPTIVE_INFERENCE",
+          "economic_status": "BLOCKED_HURDLE",
+          "hac_lag": 5,
+          "hac_se": 0.0001287395375406529,
+          "interval_type": "marginal_95_percent",
+          "mean_net_increment": -8.756803523496735e-06,
+          "method": "circular_block_bootstrap_t_HAC",
+          "minimum_detectable_daily_effect_80pct": 0.0003201076236503689,
+          "n_dates": 486,
+          "p_hac": null,
+          "p_net": null,
+          "repetitions": 5000,
+          "seed": 20261114,
+          "status": "BLOCKED_HURDLE"
+        },
+        {
+          "annual_incremental_cost": null,
+          "block_length": 120,
+          "caveat": "Approximate under weak stationarity; short/nonstationary histories need caution.",
+          "ci95": [
+            -0.00014298372404157513,
+            0.00010575952173037886
+          ],
+          "daily_hurdle": null,
+          "descriptive_status": "DESCRIPTIVE_INFERENCE",
+          "economic_status": "BLOCKED_HURDLE",
+          "hac_lag": 5,
+          "hac_se": 0.0001287395375406529,
+          "interval_type": "marginal_95_percent",
+          "mean_net_increment": -8.756803523496735e-06,
+          "method": "circular_block_bootstrap_t_HAC",
+          "minimum_detectable_daily_effect_80pct": 0.0003201076236503689,
+          "n_dates": 486,
+          "p_hac": null,
+          "p_net": null,
+          "repetitions": 5000,
+          "seed": 20261114,
+          "status": "BLOCKED_HURDLE"
+        }
+      ],
+      "pair": "VE-CE",
+      "path": "base",
+      "period": "development",
+      "unknown_annual_incremental_fixed_cost": null,
+      "utility_intervals": [
+        {
+          "annualized_score_multiplier": 252,
+          "block_length": 60,
+          "caveat": "Approximate under weak stationarity; short/nonstationary histories need caution.",
+          "descriptive_status": "DESCRIPTIVE_INFERENCE",
+          "gamma": 5,
+          "hac_lag": 5,
+          "hac_se": 0.00013125054527482748,
+          "interval_type": "marginal_95_percent",
+          "mean_utility_difference": 8.142245984711271e-05,
+          "method": "circular_block_bootstrap_t_HAC",
+          "monetary_interpretation": false,
+          "n_dates": 486,
+          "repetitions": 5000,
+          "seed": 20261114,
+          "unit": "UTILITY_SCORE_PER_DAY",
+          "utility_ci": [
+            -0.00012264245686995567,
+            0.0003382847345934095
+          ]
+        },
+        {
+          "annualized_score_multiplier": 252,
+          "block_length": 20,
+          "caveat": "Approximate under weak stationarity; short/nonstationary histories need caution.",
+          "descriptive_status": "DESCRIPTIVE_INFERENCE",
+          "gamma": 5,
+          "hac_lag": 5,
+          "hac_se": 0.00013125054527482748,
+          "interval_type": "marginal_95_percent",
+          "mean_utility_difference": 8.142245984711271e-05,
+          "method": "circular_block_bootstrap_t_HAC",
+          "monetary_interpretation": false,
+          "n_dates": 486,
+          "repetitions": 5000,
+          "seed": 20261114,
+          "unit": "UTILITY_SCORE_PER_DAY",
+          "utility_ci": [
+            -0.00015296649270449383,
+            0.00035814493464792217
+          ]
+        },
+        {
+          "annualized_score_multiplier": 252,
+          "block_length": 120,
+          "caveat": "Approximate under weak stationarity; short/nonstationary histories need caution.",
+          "descriptive_status": "DESCRIPTIVE_INFERENCE",
+          "gamma": 5,
+          "hac_lag": 5,
+          "hac_se": 0.00013125054527482748,
+          "interval_type": "marginal_95_percent",
+          "mean_utility_difference": 8.142245984711271e-05,
+          "method": "circular_block_bootstrap_t_HAC",
+          "monetary_interpretation": false,
+          "n_dates": 486,
+          "repetitions": 5000,
+          "seed": 20261114,
+          "unit": "UTILITY_SCORE_PER_DAY",
+          "utility_ci": [
+            -3.4953475628153076e-05,
+            0.00020965398872521235
+          ]
+        }
+      ]
+    },
+    {
+      "absolute_mean_utility": {
+        "CE": 0.0002794247576535509,
+        "VE": 0.0003617163648651627,
+        "VR": 0.0002753400739311106,
+        "cash": 0.0
+      },
+      "annualized_utility_score_difference": 0.02073748501732618,
+      "economic_confirmation": "BLOCKED_HURDLE",
+      "mean_net_return_difference": -7.797974199729633e-06,
+      "mean_utility_difference": 8.229160721161182e-05,
+      "n_dates": 486,
+      "pair": "VE-CE",
+      "path": "cost_2x",
+      "period": "development",
+      "unknown_annual_incremental_fixed_cost": null
+    },
+    {
+      "absolute_mean_utility": {
+        "CE": 0.00026989721729563646,
+        "VE": 0.000352927543565726,
+        "VR": 0.0002706457270324298,
+        "cash": 0.0
+      },
+      "annualized_utility_score_difference": 0.020923642220062554,
+      "economic_confirmation": "BLOCKED_HURDLE",
+      "mean_net_return_difference": -7.910768667292686e-06,
+      "mean_utility_difference": 8.30303262700895e-05,
+      "n_dates": 486,
+      "pair": "VE-CE",
+      "path": "cost_3x",
+      "period": "development",
+      "unknown_annual_incremental_fixed_cost": null
+    },
+    {
+      "absolute_mean_utility": {
+        "CE": 0.0002556478052790326,
+        "VE": 0.00032147210631677667,
+        "VR": 0.00018697897248297725,
+        "cash": 0.0
+      },
+      "annualized_utility_score_difference": 0.016587723861511486,
+      "economic_confirmation": "BLOCKED_HURDLE",
+      "mean_net_return_difference": -2.483439927475693e-05,
+      "mean_utility_difference": 6.5824301037744e-05,
+      "n_dates": 486,
+      "pair": "VE-CE",
+      "path": "delay_1_session",
+      "period": "development",
+      "unknown_annual_incremental_fixed_cost": null
+    },
+    {
+      "absolute_mean_utility": {
+        "CE": -0.00027502290162525583,
+        "VE": -0.00024194368104863459,
+        "VR": -0.00010949203342144141,
+        "cash": 0.0
+      },
+      "annualized_utility_score_difference": 0.008335963585308566,
+      "economic_confirmation": "BLOCKED_HURDLE",
+      "mean_net_return_difference": -4.134436694520587e-05,
+      "mean_utility_difference": 3.307922057662129e-05,
+      "n_dates": 726,
+      "net_return_intervals": [
+        {
+          "annual_incremental_cost": null,
+          "block_length": 60,
+          "caveat": "Approximate under weak stationarity; short/nonstationary histories need caution.",
+          "ci95": [
+            -0.00019507016067849922,
+            6.772911077724904e-05
+          ],
+          "daily_hurdle": null,
+          "descriptive_status": "DESCRIPTIVE_INFERENCE",
+          "economic_status": "BLOCKED_HURDLE",
+          "hac_lag": 6,
+          "hac_se": 9.65653288630728e-05,
+          "interval_type": "marginal_95_percent",
+          "mean_net_increment": -4.134436694520587e-05,
+          "method": "circular_block_bootstrap_t_HAC",
+          "minimum_detectable_daily_effect_80pct": 0.0002401072626163004,
+          "n_dates": 726,
+          "p_hac": null,
+          "p_net": null,
+          "repetitions": 5000,
+          "seed": 20261114,
+          "status": "BLOCKED_HURDLE"
+        },
+        {
+          "annual_incremental_cost": null,
+          "block_length": 20,
+          "caveat": "Approximate under weak stationarity; short/nonstationary histories need caution.",
+          "ci95": [
+            -0.00021117378619440062,
+            0.00011493743025445312
+          ],
+          "daily_hurdle": null,
+          "descriptive_status": "DESCRIPTIVE_INFERENCE",
+          "economic_status": "BLOCKED_HURDLE",
+          "hac_lag": 6,
+          "hac_se": 9.65653288630728e-05,
+          "interval_type": "marginal_95_percent",
+          "mean_net_increment": -4.134436694520587e-05,
+          "method": "circular_block_bootstrap_t_HAC",
+          "minimum_detectable_daily_effect_80pct": 0.0002401072626163004,
+          "n_dates": 726,
+          "p_hac": null,
+          "p_net": null,
+          "repetitions": 5000,
+          "seed": 20261114,
+          "status": "BLOCKED_HURDLE"
+        },
+        {
+          "annual_incremental_cost": null,
+          "block_length": 120,
+          "caveat": "Approximate under weak stationarity; short/nonstationary histories need caution.",
+          "ci95": [
+            -0.0001535286916733354,
+            3.221774301034503e-05
+          ],
+          "daily_hurdle": null,
+          "descriptive_status": "DESCRIPTIVE_INFERENCE",
+          "economic_status": "BLOCKED_HURDLE",
+          "hac_lag": 6,
+          "hac_se": 9.65653288630728e-05,
+          "interval_type": "marginal_95_percent",
+          "mean_net_increment": -4.134436694520587e-05,
+          "method": "circular_block_bootstrap_t_HAC",
+          "minimum_detectable_daily_effect_80pct": 0.0002401072626163004,
+          "n_dates": 726,
+          "p_hac": null,
+          "p_net": null,
+          "repetitions": 5000,
+          "seed": 20261114,
+          "status": "BLOCKED_HURDLE"
+        }
+      ],
+      "pair": "VE-CE",
+      "path": "base",
+      "period": "validation",
+      "unknown_annual_incremental_fixed_cost": null,
+      "utility_intervals": [
+        {
+          "annualized_score_multiplier": 252,
+          "block_length": 60,
+          "caveat": "Approximate under weak stationarity; short/nonstationary histories need caution.",
+          "descriptive_status": "DESCRIPTIVE_INFERENCE",
+          "gamma": 5,
+          "hac_lag": 6,
+          "hac_se": 9.685085816002288e-05,
+          "interval_type": "marginal_95_percent",
+          "mean_utility_difference": 3.307922057662129e-05,
+          "method": "circular_block_bootstrap_t_HAC",
+          "monetary_interpretation": false,
+          "n_dates": 726,
+          "repetitions": 5000,
+          "seed": 20261114,
+          "unit": "UTILITY_SCORE_PER_DAY",
+          "utility_ci": [
+            -9.348244808277955e-05,
+            0.00015221804699175952
+          ]
+        },
+        {
+          "annualized_score_multiplier": 252,
+          "block_length": 20,
+          "caveat": "Approximate under weak stationarity; short/nonstationary histories need caution.",
+          "descriptive_status": "DESCRIPTIVE_INFERENCE",
+          "gamma": 5,
+          "hac_lag": 6,
+          "hac_se": 9.685085816002288e-05,
+          "interval_type": "marginal_95_percent",
+          "mean_utility_difference": 3.307922057662129e-05,
+          "method": "circular_block_bootstrap_t_HAC",
+          "monetary_interpretation": false,
+          "n_dates": 726,
+          "repetitions": 5000,
+          "seed": 20261114,
+          "unit": "UTILITY_SCORE_PER_DAY",
+          "utility_ci": [
+            -0.0001226783346376732,
+            0.00019497663792367805
+          ]
+        },
+        {
+          "annualized_score_multiplier": 252,
+          "block_length": 120,
+          "caveat": "Approximate under weak stationarity; short/nonstationary histories need caution.",
+          "descriptive_status": "DESCRIPTIVE_INFERENCE",
+          "gamma": 5,
+          "hac_lag": 6,
+          "hac_se": 9.685085816002288e-05,
+          "interval_type": "marginal_95_percent",
+          "mean_utility_difference": 3.307922057662129e-05,
+          "method": "circular_block_bootstrap_t_HAC",
+          "monetary_interpretation": false,
+          "n_dates": 726,
+          "repetitions": 5000,
+          "seed": 20261114,
+          "unit": "UTILITY_SCORE_PER_DAY",
+          "utility_ci": [
+            -5.2710602049230844e-05,
+            0.00011489709479829661
+          ]
+        }
+      ]
+    },
+    {
+      "absolute_mean_utility": {
+        "CE": -0.0002861629402835481,
+        "VE": -0.00025120459071156364,
+        "VR": -0.00011959705478824149,
+        "cash": 0.0
+      },
+      "annualized_utility_score_difference": 0.008809504092140088,
+      "economic_confirmation": "BLOCKED_HURDLE",
+      "mean_net_return_difference": -3.970069108187143e-05,
+      "mean_utility_difference": 3.495834957198448e-05,
+      "n_dates": 726,
+      "pair": "VE-CE",
+      "path": "cost_2x",
+      "period": "validation",
+      "unknown_annual_incremental_fixed_cost": null
+    },
+    {
+      "absolute_mean_utility": {
+        "CE": -0.00026384386517107035,
+        "VE": -0.0002384645006598869,
+        "VR": -0.00012982475628198542,
+        "cash": 0.0
+      },
+      "annualized_utility_score_difference": 0.006395599856818226,
+      "economic_confirmation": "BLOCKED_HURDLE",
+      "mean_net_return_difference": -4.728247929504889e-05,
+      "mean_utility_difference": 2.5379364511183436e-05,
+      "n_dates": 726,
+      "pair": "VE-CE",
+      "path": "cost_3x",
+      "period": "validation",
+      "unknown_annual_incremental_fixed_cost": null
+    },
+    {
+      "absolute_mean_utility": {
+        "CE": -0.00022815001395432737,
+        "VE": -0.00019795834956717548,
+        "VR": -7.064307267192762e-05,
+        "cash": 0.0
+      },
+      "annualized_utility_score_difference": 0.007608299425562304,
+      "economic_confirmation": "BLOCKED_HURDLE",
+      "mean_net_return_difference": -4.3699665957256784e-05,
+      "mean_utility_difference": 3.0191664387152e-05,
+      "n_dates": 726,
+      "pair": "VE-CE",
+      "path": "delay_1_session",
+      "period": "validation",
+      "unknown_annual_incremental_fixed_cost": null
+    }
+  ],
+  "primary_statistical_state": "INCONCLUSIVE",
+  "robustness_inputs": [
+    {
+      "absolute_mean_utility": {
+        "CE": 0.0002942230003304445,
+        "VE": 0.0003756454601775574,
+        "VR": 0.0002850999404004646,
+        "cash": 0.0
+      },
+      "annualized_utility_score_difference": 0.0205184598814724,
+      "economic_confirmation": "BLOCKED_HURDLE",
+      "mean_net_return_difference": -8.756803523496735e-06,
+      "mean_utility_difference": 8.142245984711271e-05,
+      "n_dates": 486,
+      "net_return_intervals": [
+        {
+          "annual_incremental_cost": null,
+          "block_length": 60,
+          "caveat": "Approximate under weak stationarity; short/nonstationary histories need caution.",
+          "ci95": [
+            -0.00021130566632259387,
+            0.00022721096575905426
+          ],
+          "daily_hurdle": null,
+          "descriptive_status": "DESCRIPTIVE_INFERENCE",
+          "economic_status": "BLOCKED_HURDLE",
+          "hac_lag": 5,
+          "hac_se": 0.0001287395375406529,
+          "interval_type": "marginal_95_percent",
+          "mean_net_increment": -8.756803523496735e-06,
+          "method": "circular_block_bootstrap_t_HAC",
+          "minimum_detectable_daily_effect_80pct": 0.0003201076236503689,
+          "n_dates": 486,
+          "p_hac": null,
+          "p_net": null,
+          "repetitions": 5000,
+          "seed": 20261114,
+          "status": "BLOCKED_HURDLE"
+        },
+        {
+          "annual_incremental_cost": null,
+          "block_length": 20,
+          "caveat": "Approximate under weak stationarity; short/nonstationary histories need caution.",
+          "ci95": [
+            -0.00023857403418544248,
+            0.00024589177166763683
+          ],
+          "daily_hurdle": null,
+          "descriptive_status": "DESCRIPTIVE_INFERENCE",
+          "economic_status": "BLOCKED_HURDLE",
+          "hac_lag": 5,
+          "hac_se": 0.0001287395375406529,
+          "interval_type": "marginal_95_percent",
+          "mean_net_increment": -8.756803523496735e-06,
+          "method": "circular_block_bootstrap_t_HAC",
+          "minimum_detectable_daily_effect_80pct": 0.0003201076236503689,
+          "n_dates": 486,
+          "p_hac": null,
+          "p_net": null,
+          "repetitions": 5000,
+          "seed": 20261114,
+          "status": "BLOCKED_HURDLE"
+        },
+        {
+          "annual_incremental_cost": null,
+          "block_length": 120,
+          "caveat": "Approximate under weak stationarity; short/nonstationary histories need caution.",
+          "ci95": [
+            -0.00014298372404157513,
+            0.00010575952173037886
+          ],
+          "daily_hurdle": null,
+          "descriptive_status": "DESCRIPTIVE_INFERENCE",
+          "economic_status": "BLOCKED_HURDLE",
+          "hac_lag": 5,
+          "hac_se": 0.0001287395375406529,
+          "interval_type": "marginal_95_percent",
+          "mean_net_increment": -8.756803523496735e-06,
+          "method": "circular_block_bootstrap_t_HAC",
+          "minimum_detectable_daily_effect_80pct": 0.0003201076236503689,
+          "n_dates": 486,
+          "p_hac": null,
+          "p_net": null,
+          "repetitions": 5000,
+          "seed": 20261114,
+          "status": "BLOCKED_HURDLE"
+        }
+      ],
+      "pair": "VE-CE",
+      "path": "base",
+      "period": "development",
+      "unknown_annual_incremental_fixed_cost": null,
+      "utility_intervals": [
+        {
+          "annualized_score_multiplier": 252,
+          "block_length": 60,
+          "caveat": "Approximate under weak stationarity; short/nonstationary histories need caution.",
+          "descriptive_status": "DESCRIPTIVE_INFERENCE",
+          "gamma": 5,
+          "hac_lag": 5,
+          "hac_se": 0.00013125054527482748,
+          "interval_type": "marginal_95_percent",
+          "mean_utility_difference": 8.142245984711271e-05,
+          "method": "circular_block_bootstrap_t_HAC",
+          "monetary_interpretation": false,
+          "n_dates": 486,
+          "repetitions": 5000,
+          "seed": 20261114,
+          "unit": "UTILITY_SCORE_PER_DAY",
+          "utility_ci": [
+            -0.00012264245686995567,
+            0.0003382847345934095
+          ]
+        },
+        {
+          "annualized_score_multiplier": 252,
+          "block_length": 20,
+          "caveat": "Approximate under weak stationarity; short/nonstationary histories need caution.",
+          "descriptive_status": "DESCRIPTIVE_INFERENCE",
+          "gamma": 5,
+          "hac_lag": 5,
+          "hac_se": 0.00013125054527482748,
+          "interval_type": "marginal_95_percent",
+          "mean_utility_difference": 8.142245984711271e-05,
+          "method": "circular_block_bootstrap_t_HAC",
+          "monetary_interpretation": false,
+          "n_dates": 486,
+          "repetitions": 5000,
+          "seed": 20261114,
+          "unit": "UTILITY_SCORE_PER_DAY",
+          "utility_ci": [
+            -0.00015296649270449383,
+            0.00035814493464792217
+          ]
+        },
+        {
+          "annualized_score_multiplier": 252,
+          "block_length": 120,
+          "caveat": "Approximate under weak stationarity; short/nonstationary histories need caution.",
+          "descriptive_status": "DESCRIPTIVE_INFERENCE",
+          "gamma": 5,
+          "hac_lag": 5,
+          "hac_se": 0.00013125054527482748,
+          "interval_type": "marginal_95_percent",
+          "mean_utility_difference": 8.142245984711271e-05,
+          "method": "circular_block_bootstrap_t_HAC",
+          "monetary_interpretation": false,
+          "n_dates": 486,
+          "repetitions": 5000,
+          "seed": 20261114,
+          "unit": "UTILITY_SCORE_PER_DAY",
+          "utility_ci": [
+            -3.4953475628153076e-05,
+            0.00020965398872521235
+          ]
+        }
+      ]
+    },
+    {
+      "absolute_mean_utility": {
+        "CE": -0.0002861629402835481,
+        "VE": -0.00025120459071156364,
+        "VR": -0.00011959705478824149,
+        "cash": 0.0
+      },
+      "annualized_utility_score_difference": 0.008809504092140088,
+      "economic_confirmation": "BLOCKED_HURDLE",
+      "mean_net_return_difference": -3.970069108187143e-05,
+      "mean_utility_difference": 3.495834957198448e-05,
+      "n_dates": 726,
+      "pair": "VE-CE",
+      "path": "cost_2x",
+      "period": "validation",
+      "unknown_annual_incremental_fixed_cost": null
+    },
+    {
+      "absolute_mean_utility": {
+        "CE": -0.00026384386517107035,
+        "VE": -0.0002384645006598869,
+        "VR": -0.00012982475628198542,
+        "cash": 0.0
+      },
+      "annualized_utility_score_difference": 0.006395599856818226,
+      "economic_confirmation": "BLOCKED_HURDLE",
+      "mean_net_return_difference": -4.728247929504889e-05,
+      "mean_utility_difference": 2.5379364511183436e-05,
+      "n_dates": 726,
+      "pair": "VE-CE",
+      "path": "cost_3x",
+      "period": "validation",
+      "unknown_annual_incremental_fixed_cost": null
+    },
+    {
+      "absolute_mean_utility": {
+        "CE": -0.00022815001395432737,
+        "VE": -0.00019795834956717548,
+        "VR": -7.064307267192762e-05,
+        "cash": 0.0
+      },
+      "annualized_utility_score_difference": 0.007608299425562304,
+      "economic_confirmation": "BLOCKED_HURDLE",
+      "mean_net_return_difference": -4.3699665957256784e-05,
+      "mean_utility_difference": 3.0191664387152e-05,
+      "n_dates": 726,
+      "pair": "VE-CE",
+      "path": "delay_1_session",
+      "period": "validation",
+      "unknown_annual_incremental_fixed_cost": null
+    }
+  ],
+  "robustness_sign_check": "ROBUSTNESS_SIGN_CHECK_PASSED",
+  "score_is_not_return_alpha_or_cash_profit": true,
+  "unit": "UTILITY_SCORE_PER_DAY",
+  "unknown_fixed_fee": null
+}

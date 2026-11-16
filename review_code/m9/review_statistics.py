@@ -206,6 +206,18 @@ def main():
                 close(value,D(str(expected['rolling60_quantiles'][key])),'realized risk quantiles',D('1e-11'))
             for field in ('mean_cash_weight','transaction_fees_cny','embedded_slippage_cny','traded_notional_over_mean_nav'):
                 close(row[field],D(expected[field]),field,D('1e-8'))
+    divergences=read(ROOT/'reports/m9_risk/EXECUTION_DIVERGENCES.json')
+    assert len(divergences)==18
+    for row in divergences:
+        key=row['period'],row['variant']
+        base=ledgers[key[0],'base',key[1]];other=ledgers[key[0],row['path'],key[1]]
+        differing=[(a,b) for a,b in zip(base,other) if abs(D(a['nav'])-D(b['nav']))>D('1e-9')]
+        positions=[(a,b) for a,b in zip(base,other) if a['positions']!=b['positions']]
+        assert row['first_nav_divergence']==(differing[0][0]['date'] if differing else None)
+        assert row['first_position_divergence']==(positions[0][0]['date'] if positions else None)
+        assert row['unchanged_anchor_targets'] is True
+        if differing:
+            close(row['first_day_nav_difference_cny'],D(differing[0][1]['nav'])-D(differing[0][0]['nav']),'first divergence',D('1e-6'))
     out=dict(decision='PASS_INDEPENDENT_STATISTICS',author_role='INDEPENDENT_REVIEWER',
         reviewer_code_sha256={name:sha(Path(__file__).parent/name) for name in
             ('independent_accounts.py','independent_statistics.py','review_statistics.py')},
@@ -213,6 +225,7 @@ def main():
         primary_statistical_state=state,robustness_all_four_points_positive=robust,
         independent_daily_product_accounting_checks=product_daily,utility_evaluation_sha256=sha(ROOT/'reports/m9_risk/UTILITY_EVALUATION.json'),
         annual_and_paired_product_buckets=product_bucket_checks,paired_month_checks=monthly_checks,annual_account_checks=annual_checks,
+        first_execution_divergence_checks=len(divergences),
         all_account_review_sha256=sha(ROOT/'reports/m9_review/ALL_ACCOUNT_INDEPENDENT_REVIEW.json'),
         limits=['12 registered marginal CIs only; no stress significance grid.',
                 'Utility score is not raw return, certainty equivalent, Alpha, or currency fee capacity.',

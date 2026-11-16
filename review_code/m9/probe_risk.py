@@ -92,7 +92,8 @@ def main():
                 'legal zero sigma gives alpha1','None/NaN/infinity/zero/negative TR blocked',
                 'starting endpoint availability'],invalid_exceptions=invalid_results,
         production_file_sha256=sha(ROOT/'src/quant_research/risk_budget.py'),
-        reviewer_code_sha256={p.name:sha(p) for p in Path(__file__).parent.glob('*.py')},
+        reviewer_code_sha256={name:sha(Path(__file__).parent/name) for name in
+            ('independent_accounts.py','independent_risk.py','probe_risk.py')},
         observation_scope='Synthetic probes contain no market observations or strategy returns.')
     (ROOT/'reports/m9_review/RISK_PROBES.json').write_text(json.dumps(out,indent=2)+'\n')
     print(out['decision'],len(out['probes']))

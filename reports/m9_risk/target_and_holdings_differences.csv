@@ -1,0 +1,17 @@
+period,path,pair,monthly_decisions,target_vector_difference,actual_position_day_difference
+development,base,VE-CE,24,22,449
+development,base,VR-VE,24,23,469
+development,cost_2x,VE-CE,24,22,449
+development,cost_2x,VR-VE,24,23,469
+development,cost_3x,VE-CE,24,22,449
+development,cost_3x,VR-VE,24,23,469
+development,delay_1_session,VE-CE,24,22,448
+development,delay_1_session,VR-VE,24,23,468
+validation,base,VE-CE,36,36,725
+validation,base,VR-VE,36,36,725
+validation,cost_2x,VE-CE,36,36,725
+validation,cost_2x,VR-VE,36,36,725
+validation,cost_3x,VE-CE,36,36,725
+validation,cost_3x,VR-VE,36,36,725
+validation,delay_1_session,VE-CE,36,36,724
+validation,delay_1_session,VR-VE,36,36,724

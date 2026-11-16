@@ -1,0 +1,16 @@
+{
+  "annual_volatility": 0.10874862765443058,
+  "cagr": 0.11484077236479773,
+  "claim_type": "RISK_ALLOCATION_EXPLORATION",
+  "economic_confirmation": "BLOCKED_HURDLE",
+  "max_drawdown": -0.08285076491887411,
+  "max_drawdown_duration_sessions": 132,
+  "n_sessions": 486,
+  "research_scope": "M9_ETF_RISK_BUDGET_V1",
+  "run_id": "M9_development_VE_100000_cost_3x",
+  "sharpe_zero_cash": 1.0904235754066816,
+  "status": "DAILY_SCREEN_ONLY",
+  "total_return": 0.24268500000000004,
+  "warning": "Historical or synthetic simulation only; not realized account profit.",
+  "worst_day": -0.03648352042946068
+}
