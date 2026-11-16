@@ -1,0 +1,968 @@
+{
+  "status": "PASS_FINITE_EXECUTION_DIVERGENCE_REVIEW",
+  "author_role": "IMPLEMENTATION_AGENT_SEPARATE_LEDGER_RECHECK",
+  "author_note": "Reviewer implemented M9 risk adapter. This separate bounded calculation does not replace the independent full24-account review.",
+  "reviewed_at": "2026-11-16T06:02:20.871009+00:00",
+  "source_hash": "dc4e7a79f6f5373d5af15d71def409d54e7209d3ae927c818c72d31d5a96e6a3",
+  "summary_hash": "25c226c7e2c76dde4dfa7d2159ea57c3d65a0b11a0f74fb4780b6f20ea429bf0",
+  "private_detail_hash": "15739c0089b3b87fd3e34cd43164943dad79ca95d1d22a1b969526c11c24b8df",
+  "private_account_table_hashes": {
+    "M9_development_VE_100000_base": {
+      "nav.json": "16a742e67506c94798883002e6d3246bc2d75b75d232aa655f3b5e3120eaae64",
+      "positions.json": "613f02852238d75cb48d62d499104df258e513fe6fbb0526b2d83830a0ecfe48",
+      "fills.json": "e99ce19d5b1fe45dd7edaf32392758f0fe5a533200216aa29afead29db5394bb",
+      "orders.json": "3057cb6ce5dc50becd0abeb04ea406df345f5c8b1f4159335cb151d523a52cec",
+      "rejected_orders.json": "aa9766f6b8a73a88674bbe3c427da0dfa6ac7d19ed60c823ae07cc5cf16d02c0",
+      "decisions.json": "9a3b4f0b76b49085fee3eab55159f193659951f4f7f15112c35f0071ae472f8a",
+      "provenance.json": "68acc5ea00959dc646de42efe7c6116a152f9c359a07d25fd64169a0bbee0cfd"
+    },
+    "M9_development_CE_100000_base": {
+      "nav.json": "fbf37eebeaa55202b8db00770a1a10aa0a7e78ee96a159096b5e309676ca31ab",
+      "positions.json": "1ef94aa5035862914f63bda3f3c249841a00248fc64c31c1a561de79cd837a1d",
+      "fills.json": "c4e52d468f59145c0a63b2ea9f4c5d36edd397903d6d5e4c23e7421d87116127",
+      "orders.json": "fd569a6399857f16538e652e79f2a00e665fefb92b3440ada4f7399a5f12db0a",
+      "rejected_orders.json": "7279048ea4cd723eb088033ef08f700d6844240a8afb6ee95d0a576ed66ac7b9",
+      "decisions.json": "768609b455c662c7120d2616c5c55fba9a303f7b2a5174ef4b9c0620c080e6d9",
+      "provenance.json": "df7c4c93105eb23dcc69580c78041d0c3d216c5da4fe97a3de6f3ac4e8532d99"
+    },
+    "M9_development_VR_100000_base": {
+      "nav.json": "f004638e8943a2b27625768333cfccc0207fd12b372761cd36bc0ab9a413b571",
+      "positions.json": "f1678574029d95ddf25c56fedbd6341ad340ae183779c9f2cfc41a47abb06844",
+      "fills.json": "4242a0c0de1af40d8edd59657b241998eccd37faf47f69cf8a218c4f1801a872",
+      "orders.json": "04e4894475b2a55a0111f5c3784b17b2eab7806bc6e8a191678a47dcf32fb1f8",
+      "rejected_orders.json": "0ed6d94135eb6a826d79d80409c48ceb27df20188d059377ecfb4309e5165451",
+      "decisions.json": "ac6e395d812c497a03ef3ab9ece226aa1083078adb27a5501a70a4ade9f7c2f5",
+      "provenance.json": "f98df1f66450fdfed5d8083c32659abccda42682008b18da39ea5f30a95832dd"
+    },
+    "M9_validation_VE_100000_base": {
+      "nav.json": "007f37d4f4c3bdb9faa22f07d829d11d92ceff297a53f6cf2cb57aba28e72fe4",
+      "positions.json": "4646aee816cd65f8058d6dbc8db0c245e4d5392637c4968cc327607274dea56d",
+      "fills.json": "164428efd15f11db97dc3c9966fcdd51b530ec96b2ce08603a59aa6d070ce2dd",
+      "orders.json": "9548beb9355def984ad470278ed43bd81402e8d329aad7ad16f01724743fc9f6",
+      "rejected_orders.json": "9b83eccdde15994a768de0504b53d22a2b86d4634046098856e0f66dc296b542",
+      "decisions.json": "971a3781699e1c0fa5c9c054c5e7c1b31ae32e94c42bcdf4ea64d857576cb34e",
+      "provenance.json": "3280889edc036842546f64258d7f9a87b2939159fd2eb7d5a18a72c4387c88be"
+    },
+    "M9_validation_CE_100000_base": {
+      "nav.json": "09a0148a5dc0269373b0a7cbb4cd2b6c295e278e5a437a57c3b2bfd8296389cc",
+      "positions.json": "480e46e4670735e14f08454899af664de045354f1b61826f151850e0bb2ab910",
+      "fills.json": "a374cbae99762976fba927cfaf33cb97b90d35b0f853c380bb929a5cd2e0538e",
+      "orders.json": "113518c52693e384dfb764a29ce7b42434872cbece59bd9da2564b3dbe69ce77",
+      "rejected_orders.json": "f6e76ed69e3ae95fcca9921ba8480101f3c69ec9ddff4fdfee4087858390adac",
+      "decisions.json": "2534e8aa69936a1bdf4bc03fdbc085a902cbc87c098edf2a4f41ef7c3a2d371e",
+      "provenance.json": "d32fe0ef13186e6ec3cede094f0797c4fb44e673911d4b18c9c6f7c90e4e1cd6"
+    },
+    "M9_validation_VR_100000_base": {
+      "nav.json": "1db27e3f895e2f620edd1936e2b1f6821be0c226fdc98e801900edc52a603346",
+      "positions.json": "a7727ec15096ef0324371788a3d728552bac95e782c14537cd1e8e272196885b",
+      "fills.json": "f77dd1293ebb78dfbcb733b1deb014def7f0fff6c2713ec0e8f7592d5a784a33",
+      "orders.json": "cb0176f747f2d6ef1242908107f498de4637022279604ccad4ccb6e784af44d9",
+      "rejected_orders.json": "7a141f36ed57ac5e887f33c0cd3a80e0d671be714a31dc0df1d415dd71b939d0",
+      "decisions.json": "f9ee246d5a413f7d573fe25bc34475b66bbf4c16016995eb821bbfbd2644a2f7",
+      "provenance.json": "92af7cb993621e20473f2d0121e31b78ef56101aea15b71c604ffdcb37f7fce7"
+    },
+    "M9_development_VE_100000_cost_2x": {
+      "nav.json": "4548d7d4f428b5e77bf434f371d725268492ad433a831437dee7589b8a3c6437",
+      "positions.json": "a70df7b88d1a52d30ba1c874bbdbc1e5ec6a62314590ec82014746e15d0395be",
+      "fills.json": "7fc43d77ed147be7925708c354142850a1a253bdf131bfd0fbd9d2f453534741",
+      "orders.json": "c1e2911cbca38c74beacc822292568ee9d252255bb90c2d97c2081443394fb3f",
+      "rejected_orders.json": "eb110bd6b481235231c997d5867b5f1ff59bc207f9d3f713729d2fe19afe9696",
+      "decisions.json": "9a3b4f0b76b49085fee3eab55159f193659951f4f7f15112c35f0071ae472f8a",
+      "provenance.json": "2b3fee9e606e22fee2af2e2503f54344c09d676b2eff30bb746bc07e6d4790ab"
+    },
+    "M9_development_VE_100000_cost_3x": {
+      "nav.json": "ac101bb3259dca4b5b13dd611c01c4ed85cdb309a7b3d182491e709c3dd25883",
+      "positions.json": "28a8256df8ee2a3fd557f1f784d5e54ab2c61e6efc23c9daa7ece9d225bdfeda",
+      "fills.json": "d159740d99f596acb77e19e7bf38f0b080350139e9833919f84ddfc3e859ffc3",
+      "orders.json": "f3ad717e34fec6d59cce61d41eaac25ada2d427006a046522a5eb6b7331508e0",
+      "rejected_orders.json": "be33a916af94dc5ddff2845390261caa4a243f35a701d187ead97405cdc35bd5",
+      "decisions.json": "9a3b4f0b76b49085fee3eab55159f193659951f4f7f15112c35f0071ae472f8a",
+      "provenance.json": "3a415b7c478c1f5363c1db17c85be4974155ee1ff31b0bc1687a57fe2f9ad3d2"
+    },
+    "M9_development_VE_100000_delay_1_session": {
+      "nav.json": "5b2e61f3df471b984ab70265bf6c3766bc41238a870b3a031653dd5a175a11ef",
+      "positions.json": "1d0268186485155ecda13c75ca2f42ed763c282770a2d2cb0498fbf5d777529b",
+      "fills.json": "f53f3d32678f66bb769e3d4e941d2bf26a41dc044117ebfc6f9f4a0dc6b50977",
+      "orders.json": "113b1424df543737a5b83ec1d0eeac212daa0fc4b3c4320953b3fb1a31f719a6",
+      "rejected_orders.json": "d379ba71ccb91686851f256ddaf8daf192b3b965670456e73fa4343b669e58ad",
+      "decisions.json": "92827c8497bd786e737c2739427174019d1b1277375ddeb414023b01fe4dd263",
+      "provenance.json": "69a84d4d5a5da31ee85a3aace2be3ae63df79a9a17ce3ea5a7e1ce826ac1be9f"
+    },
+    "M9_development_CE_100000_cost_2x": {
+      "nav.json": "cfb3ec0fba526b26ef0534c73c4df0a9a29bda976e88d6a4157485146a20ebdb",
+      "positions.json": "b11d08bb428eae6557c77de8bfc0c3c599514333d69fe6ae48796adee18f5546",
+      "fills.json": "01ba2520dc323c06cc4eb5856c7016d14ba072485b2ac3c9af310a1f91832cfd",
+      "orders.json": "bac8f62b286e5cc536fa0a57a283147278d4a936c2f349c4c3ae722c8b059aa8",
+      "rejected_orders.json": "80d9f344f72ac441fe33a5afed4312b40e32b570e6036502cf27e2b9f34aee6e",
+      "decisions.json": "768609b455c662c7120d2616c5c55fba9a303f7b2a5174ef4b9c0620c080e6d9",
+      "provenance.json": "f3a611ea33e232b7df30ba2f712f95217d7ad33fee76905b71dece84ed006965"
+    },
+    "M9_development_CE_100000_cost_3x": {
+      "nav.json": "4840764a0055351c01aa9f6bb597c35c828d1c8de5c0332cb724ebe8c230fdc5",
+      "positions.json": "725c937a555b72db90788ec5ef10372fa3ce7ccd0d3427c88ce7897cdc6a9928",
+      "fills.json": "7ddb6631828ee1d707e349a2ccef955806b32595ea65b9ff00d05ad04513c52b",
+      "orders.json": "8c45fc0d280fad54f3f346f7f960ee65e75e26e1a2828db9de5743bfda95fe05",
+      "rejected_orders.json": "d561f4f87c12fcef616a2e1b88a61f846dcf614f2771f19a4376c373462c8c0e",
+      "decisions.json": "768609b455c662c7120d2616c5c55fba9a303f7b2a5174ef4b9c0620c080e6d9",
+      "provenance.json": "4b1e4ccc4fe538382df65d08abcfcd8dd850bbeddca7be6230a6891d9d0c011b"
+    },
+    "M9_development_CE_100000_delay_1_session": {
+      "nav.json": "e68093f5982c8a2faefc80a33f38349155f2a07bee7910b647fa4d1916c6b496",
+      "positions.json": "13527c4b22555c9de8202d7ce475d8d91a644a2902c63e5610b8127aea7cafec",
+      "fills.json": "5344097ece126f9a2ca99f942838174c43320e05f8d2d50b8b93520c4ca72ff1",
+      "orders.json": "6601f94c39e3edebbed0e2aa33117e1996370befa8cc9b4db11af1f1acc33dfa",
+      "rejected_orders.json": "4d848505e7909cf559aa396a455178ffe3e1298a3468694cef51b0206cfa9a77",
+      "decisions.json": "a4a6b0d784526ac20fbf2431be1e6ce4e1a748f3a69488f788c9470063cc9d1f",
+      "provenance.json": "f181613b1ee6e9e9e06999cd142be263277e7e125d94bf9495dad5a0d74d5804"
+    },
+    "M9_development_VR_100000_cost_2x": {
+      "nav.json": "7b891bf38f0ec9c34aeb8869713a7f01492c566d04f2b02ad9503893845c1ad6",
+      "positions.json": "d8f86913ac29d0388a172cf860dedbc680f65103258b2ac437dad429f563f017",
+      "fills.json": "6939c6cc1e3f301be9db30c36fc468e1fec699afd8cc4c5374b8f222ff30db2f",
+      "orders.json": "3d03c60d8be0b22d09729f047c6dc0145e4531851a732219c30bb347feed1328",
+      "rejected_orders.json": "f990e937d7f4c7cc6ccd32e9dd4de5d1650169d334266e2477e4cff5c6d2516e",
+      "decisions.json": "ac6e395d812c497a03ef3ab9ece226aa1083078adb27a5501a70a4ade9f7c2f5",
+      "provenance.json": "171b55bbf72c46b2724be0190923404d33cfd630ff4d79d53cbd73c88110c6a5"
+    },
+    "M9_development_VR_100000_cost_3x": {
+      "nav.json": "0cf2e7bb7c0c90a9dc2d0e1460412ce818b23a7774125227317459447d63f0fe",
+      "positions.json": "51b9616f068af229d39e0cc3fdde8de38639cc2feebad71b1e988095606894f4",
+      "fills.json": "dfb8fb5a5014c47e01242512f691fc892d2189fc131aab9abc36c463a8d0d154",
+      "orders.json": "7441fc57d31cc9c555532f295836db29f5d3a380380f83c33a6c7d65e217c89a",
+      "rejected_orders.json": "5a17d997230231d1749da55d4732d703bc205a3b9b1d84533f2b32884885c787",
+      "decisions.json": "ac6e395d812c497a03ef3ab9ece226aa1083078adb27a5501a70a4ade9f7c2f5",
+      "provenance.json": "45b0a6a1b68bdaea6235d993be0688cc2c7219f1724b235ce5d123f0cfe16c9d"
+    },
+    "M9_development_VR_100000_delay_1_session": {
+      "nav.json": "0527666fe729678e5957144dbd4b49874257e903a782519629198f9bc2c9ab81",
+      "positions.json": "859c0da9dc3e9a56ef1f6d22b6a9d86f802d6df376a0357d48f4476a1ff3656d",
+      "fills.json": "e456d4a147941bf626f11e6f8baeff995fdd879cc66ab8eeffd6a7025b82cc9f",
+      "orders.json": "6f3a490a9b4fd8d9d6c5a180bae47a20e066588659ce95dda4816fcc303bb662",
+      "rejected_orders.json": "267646680678689213412069ce8e01489035eabb5e2902d39361578dafdcd75a",
+      "decisions.json": "ec69dee560904a405bf6b1f883a0316278e56208189bb8a690869ff83af60bca",
+      "provenance.json": "2631065c55f809e7e0c3a81980991317c5ad76c1376cd1bb400689b87ff4e391"
+    },
+    "M9_validation_VE_100000_cost_2x": {
+      "nav.json": "be5cc90a84d1509d6bb50013f1eda7c6f1b88efce61962c110d6167c3e35eb81",
+      "positions.json": "6dfd6b7a468b4aa2e217774df92a2b91cda2d23618b7f38456315de700169d08",
+      "fills.json": "1617d2ea764f1f8b0bb2ca30786ec6a3339de752e3b096e17b8716d5a27b1ad0",
+      "orders.json": "4d1f98a4bbed9177ec654cd69254782505f7b3e1d75eaeffb2c909f6255eead0",
+      "rejected_orders.json": "c2a697429f8885286b5b5dd8501690c71edb61f3e334f2eed12d2bdf8c8ed6f1",
+      "decisions.json": "971a3781699e1c0fa5c9c054c5e7c1b31ae32e94c42bcdf4ea64d857576cb34e",
+      "provenance.json": "b0e0f92b664032637c904060c0664e0fff26a7fd04ba5b1c2a57511ecfbc57eb"
+    },
+    "M9_validation_VE_100000_cost_3x": {
+      "nav.json": "94682fd46f6684c82fb4f4e4bb3bccc49c537ea9ce04d6e19e93bde56bbd2dcc",
+      "positions.json": "f20f02b2a98154b7184c1f773239a3ebb025fdd08c1fca9c9528c309f244eb4f",
+      "fills.json": "346c905b3cdaac756ed2102a70ac07ae2cbbab2beb5ff8ee3bee2e73392c83f8",
+      "orders.json": "03d4dab8db0859641b1738533b33e48308ba033d666c465d8ce502fc6ad8e944",
+      "rejected_orders.json": "ece5825da203a57c898dea9d12370f5c5f2d82cd3191a3752a420c823a59303b",
+      "decisions.json": "971a3781699e1c0fa5c9c054c5e7c1b31ae32e94c42bcdf4ea64d857576cb34e",
+      "provenance.json": "711b38b34a0e6de0f9b96c41a73456415371d6d7a751d4bbaec5ff585b7bd45d"
+    },
+    "M9_validation_VE_100000_delay_1_session": {
+      "nav.json": "39637e783135857d258bdd8934cdfe516f110e3ce1dba218b1836fe8cad59e59",
+      "positions.json": "1df6ffa0d1ced27e5c819c4837798823371c07638180ccdaabb8cdab9c0b5f00",
+      "fills.json": "d338c397dda2395d70f6fd23649ebe95e4e04acd372431ce848c0214d86b7d90",
+      "orders.json": "c6519fe6a10f062e68c7b7397aaa42a2491003c11c9faf9519d40ead8baad25f",
+      "rejected_orders.json": "1a53eee0b9fa2321ac1424848060398954b820129801a6b41d4884b49f395dba",
+      "decisions.json": "fcefbd042eec26086ba1441ba7ab644b414b1fa3d192465c8283cf51bdd33cda",
+      "provenance.json": "2bd05fcec7cd7d0e361dbbedc08b59a5be40f1f9e88cb3f22d4357afdf934cae"
+    },
+    "M9_validation_CE_100000_cost_2x": {
+      "nav.json": "447ef65228d717c8b631ef57303c565330a5c716594fc5f066276ded5360cef3",
+      "positions.json": "ebc95ddaf981ed371ee2a693159e5261fc5964a582efee9e449ee76e81c73c0d",
+      "fills.json": "f7f4301d8abbc6ca0cc194ef7dd9dbd82a72118d6475ab8fd2491e5264642ce3",
+      "orders.json": "7f717842e15991d2b0f33eed9b521b875d687303de527fb4f09f498f64521bc9",
+      "rejected_orders.json": "c4c7cc3dc7b5c140d78ffb266cd468ca804adba9ab8c1b72c30304b028a51b8e",
+      "decisions.json": "2534e8aa69936a1bdf4bc03fdbc085a902cbc87c098edf2a4f41ef7c3a2d371e",
+      "provenance.json": "2292aee9b393146e2f4e77d765ddb2ae0ab8fe7399d41ff40ce16f2d862bfbf3"
+    },
+    "M9_validation_CE_100000_cost_3x": {
+      "nav.json": "85f37ae3e9d7966d7e772718add738599357b29c63d2ce6035aa66a198a3749d",
+      "positions.json": "c3e64b3803791892408ddf5c61eec7a82e30e3b9f2f447128fa23ecd44f0c80e",
+      "fills.json": "a53bf2e5741d4e1d6cb84d9915da001580aca1448476c5c964924aaf6ea535e1",
+      "orders.json": "ab622814e250d1a364bd8c7e8ee06d01e7d0505a0e0fb31358f6f601b75fbb6c",
+      "rejected_orders.json": "256fe63d4703cbbc7457750084628f86f33b2d7d610a4efb42217ce9e6351102",
+      "decisions.json": "2534e8aa69936a1bdf4bc03fdbc085a902cbc87c098edf2a4f41ef7c3a2d371e",
+      "provenance.json": "2e860c8e60304cca6144fb0b846d3b45d655c0ffb5db24b16c240aaaba900e32"
+    },
+    "M9_validation_CE_100000_delay_1_session": {
+      "nav.json": "8df268c9942bd3741ddb3a223ee483cf03b21386bed8970f53d53b607f3c22cf",
+      "positions.json": "d35d9652498eafffa63dc502aa9b2c7307c86c334ef9d079327880ba68dffcd3",
+      "fills.json": "abe4a3cbe139701b862b6a22aa2e1e71a8fdd23264801b93cf87555eaa251581",
+      "orders.json": "503a312c07e9e8bbd2805e06ebe414ade4273c9fe7bae3d03f8acd66031b9cf4",
+      "rejected_orders.json": "dd98edd20123c384523fabcb6d6808a33fa453993ae346f2db9699d0c92522ed",
+      "decisions.json": "1a5e27cde23bf12cfca03e1bae587dc672a44b5ee838453b8929e5428b2b5db9",
+      "provenance.json": "a91488787f3c1f9135e0f26b1634634bf2b08b5eee7e5f28bf6955aa161aa319"
+    },
+    "M9_validation_VR_100000_cost_2x": {
+      "nav.json": "c732eb9f44701efdbff113fec9f4e2affda32cf24120166f01f99d4f3af878ce",
+      "positions.json": "0b0bdf701bf0dddec5c5d2eed05dade30570517c4e0fd398633c6e79c0bd9ed0",
+      "fills.json": "1eed650c633b13704c5b84a759f981aad2c6d7c968b1d0d776941d55bd4b14bf",
+      "orders.json": "57b1b617b8597632a01e3eba70331cd93a605909c0d37aefcce74b0876702f5e",
+      "rejected_orders.json": "62aeba403f66a858725b28e173a50066643df39c83c4f1540ddaf93860af9872",
+      "decisions.json": "f9ee246d5a413f7d573fe25bc34475b66bbf4c16016995eb821bbfbd2644a2f7",
+      "provenance.json": "4df3d3302b1ad6a4063c2fac52b0ad786902d89a61d17b3643a7f13ccc7bfe49"
+    },
+    "M9_validation_VR_100000_cost_3x": {
+      "nav.json": "5afbb25343af7a5a8943916f1bfba35380bbd8d7e13210a215e1e44ac0d26bc0",
+      "positions.json": "ce73550dadc1c4af08b53f47bf6faa08d86c692c9d1f8ca7d889fb9e8aa9d0c8",
+      "fills.json": "4d2283fa2316a8db7dc044edf76817298fd8b103a8993314a41ed62858a976e3",
+      "orders.json": "47dcfb6dce089f346ebf201f07632681607c4fb2ec30161d602ca275146f2542",
+      "rejected_orders.json": "dd1612b1dac6ab6aa38cedb02ff0a070a15b161e8f1cb3fbb82b97f480c1d1ab",
+      "decisions.json": "f9ee246d5a413f7d573fe25bc34475b66bbf4c16016995eb821bbfbd2644a2f7",
+      "provenance.json": "488e7b9300e54022fff85ec40583036318e1b73fc525de279e58d20d72f97e78"
+    },
+    "M9_validation_VR_100000_delay_1_session": {
+      "nav.json": "3d89266aeef71f77a304cb85327e86d436845007e758c07186fbc6e64ea0538d",
+      "positions.json": "346e47735a16f97a207451ab29dce60b6ab22e19325f417f88fd0d0fb82b34f3",
+      "fills.json": "43aaef233227d71abec524532ad2cad304263c041a2d8e74752ff1286b59ebd2",
+      "orders.json": "c3f931e76249beaaa673f0aa959bdd47a7ecff1aa5847daaee0b263b219c561a",
+      "rejected_orders.json": "675cb074f182a6da78e888098493055494f8efd772f139543b0912b2096536ab",
+      "decisions.json": "9afc732dad277ca3d1819cee9e203b879114222eecdd0dfbc8cf513483ee86fd",
+      "provenance.json": "989d011d42a1eceda92d91204471902090f045670f81a096215431ca7707626d"
+    }
+  },
+  "counts": {
+    "COMMISSION_ONLY_SAME_HOLDINGS": 4,
+    "LOWER_EQUITY_CHANGES_ROUND_LOT_ORDER": 5,
+    "COMMISSION_AND_SLIPPAGE_SAME_HOLDINGS": 4,
+    "ADDITIONAL_SLIPPAGE_RANGE_REJECTION_SAME_ORDERS": 6,
+    "EXECUTION_DELAY": 6,
+    "SAME_SIGNAL_EXECUTION_ONE_SESSION_LATER": 6,
+    "FILLS_ALREADY_DIFFER": 4,
+    "LOT_ROUNDING_AND_SLIPPAGE_RANGE_REJECTION": 1
+  },
+  "findings": [
+    {
+      "period": "development",
+      "variant": "VE",
+      "path": "cost_2x",
+      "first_nav_divergence": "2020-02-04",
+      "first_position_divergence": "2020-06-02",
+      "first_nav_mechanism": "COMMISSION_ONLY_SAME_HOLDINGS",
+      "first_nav_difference_cny": -20.0,
+      "first_nav_fee_difference_cny": 20.0,
+      "first_nav_slippage_difference_cny": 0.0,
+      "first_nav_cash_difference_cny": -20.0,
+      "first_nav_holdings_value_difference_cny": 0.0,
+      "first_nav_component_residual_cny": 0.0,
+      "first_position_mechanism": "LOWER_EQUITY_CHANGES_ROUND_LOT_ORDER",
+      "position_quantity_deltas": [
+        {
+          "instrument_id": "sh.512800",
+          "pressure_minus_base_quantity": -100
+        }
+      ],
+      "round_lot_checks": [
+        {
+          "instrument_id": "sh.512800",
+          "side": "BUY",
+          "quantity_difference": -100,
+          "release_date": "2020-06-01",
+          "release_equity_difference_cny": -80.0,
+          "base_retry_depth": 0,
+          "pressure_retry_depth": 0,
+          "formula_verified": true
+        }
+      ],
+      "additional_rejections": [],
+      "unchanged_anchor_target_risk_c": true,
+      "delay_sessions_verified": 0
+    },
+    {
+      "period": "development",
+      "variant": "VE",
+      "path": "cost_3x",
+      "first_nav_divergence": "2020-02-04",
+      "first_position_divergence": "2020-04-02",
+      "first_nav_mechanism": "COMMISSION_AND_SLIPPAGE_SAME_HOLDINGS",
+      "first_nav_difference_cny": -53.5,
+      "first_nav_fee_difference_cny": 40.0,
+      "first_nav_slippage_difference_cny": 13.5,
+      "first_nav_cash_difference_cny": -53.5,
+      "first_nav_holdings_value_difference_cny": 0.0,
+      "first_nav_component_residual_cny": 0.0,
+      "first_position_mechanism": "ADDITIONAL_SLIPPAGE_RANGE_REJECTION_SAME_ORDERS",
+      "position_quantity_deltas": [
+        {
+          "instrument_id": "sz.159939",
+          "pressure_minus_base_quantity": 200
+        }
+      ],
+      "round_lot_checks": [],
+      "additional_rejections": [
+        {
+          "instrument_id": "sz.159939",
+          "side": "SELL",
+          "reason": "SLIPPAGE_PRICE_OUTSIDE_VALID_RANGE",
+          "raw_band_and_tick_recomputed": true
+        }
+      ],
+      "unchanged_anchor_target_risk_c": true,
+      "delay_sessions_verified": 0
+    },
+    {
+      "period": "development",
+      "variant": "VE",
+      "path": "delay_1_session",
+      "first_nav_divergence": "2020-02-04",
+      "first_position_divergence": "2020-02-04",
+      "first_nav_mechanism": "EXECUTION_DELAY",
+      "first_nav_difference_cny": -1342.2,
+      "first_nav_fee_difference_cny": -20.0,
+      "first_nav_slippage_difference_cny": -68.7,
+      "first_nav_cash_difference_cny": 62253.9,
+      "first_nav_holdings_value_difference_cny": -63596.1,
+      "first_nav_component_residual_cny": 0.0,
+      "first_position_mechanism": "SAME_SIGNAL_EXECUTION_ONE_SESSION_LATER",
+      "position_quantity_deltas": [
+        {
+          "instrument_id": "sh.512660",
+          "pressure_minus_base_quantity": -22100
+        },
+        {
+          "instrument_id": "sh.512800",
+          "pressure_minus_base_quantity": -15600
+        },
+        {
+          "instrument_id": "sh.512880",
+          "pressure_minus_base_quantity": -17500
+        },
+        {
+          "instrument_id": "sz.159939",
+          "pressure_minus_base_quantity": -13500
+        }
+      ],
+      "round_lot_checks": [],
+      "additional_rejections": [],
+      "unchanged_anchor_target_risk_c": true,
+      "delay_sessions_verified": 1
+    },
+    {
+      "period": "development",
+      "variant": "CE",
+      "path": "cost_2x",
+      "first_nav_divergence": "2020-02-04",
+      "first_position_divergence": "2020-05-07",
+      "first_nav_mechanism": "COMMISSION_ONLY_SAME_HOLDINGS",
+      "first_nav_difference_cny": -20.0,
+      "first_nav_fee_difference_cny": 20.0,
+      "first_nav_slippage_difference_cny": 0.0,
+      "first_nav_cash_difference_cny": -20.0,
+      "first_nav_holdings_value_difference_cny": 0.0,
+      "first_nav_component_residual_cny": 0.0,
+      "first_position_mechanism": "LOWER_EQUITY_CHANGES_ROUND_LOT_ORDER",
+      "position_quantity_deltas": [
+        {
+          "instrument_id": "sh.512880",
+          "pressure_minus_base_quantity": -100
+        }
+      ],
+      "round_lot_checks": [
+        {
+          "instrument_id": "sh.512880",
+          "side": "BUY",
+          "quantity_difference": -100,
+          "release_date": "2020-05-06",
+          "release_equity_difference_cny": -55.0,
+          "base_retry_depth": 0,
+          "pressure_retry_depth": 0,
+          "formula_verified": true
+        }
+      ],
+      "additional_rejections": [],
+      "unchanged_anchor_target_risk_c": true,
+      "delay_sessions_verified": 0
+    },
+    {
+      "period": "development",
+      "variant": "CE",
+      "path": "cost_3x",
+      "first_nav_divergence": "2020-02-04",
+      "first_position_divergence": "2020-05-07",
+      "first_nav_mechanism": "COMMISSION_AND_SLIPPAGE_SAME_HOLDINGS",
+      "first_nav_difference_cny": -53.5,
+      "first_nav_fee_difference_cny": 40.0,
+      "first_nav_slippage_difference_cny": 13.5,
+      "first_nav_cash_difference_cny": -53.5,
+      "first_nav_holdings_value_difference_cny": 0.0,
+      "first_nav_component_residual_cny": 0.0,
+      "first_position_mechanism": "LOWER_EQUITY_CHANGES_ROUND_LOT_ORDER",
+      "position_quantity_deltas": [
+        {
+          "instrument_id": "sh.512660",
+          "pressure_minus_base_quantity": -100
+        },
+        {
+          "instrument_id": "sh.512880",
+          "pressure_minus_base_quantity": -100
+        }
+      ],
+      "round_lot_checks": [
+        {
+          "instrument_id": "sh.512660",
+          "side": "SELL",
+          "quantity_difference": 100,
+          "release_date": "2020-05-06",
+          "release_equity_difference_cny": -126.3,
+          "base_retry_depth": 0,
+          "pressure_retry_depth": 0,
+          "formula_verified": true
+        },
+        {
+          "instrument_id": "sh.512880",
+          "side": "BUY",
+          "quantity_difference": -100,
+          "release_date": "2020-05-06",
+          "release_equity_difference_cny": -126.3,
+          "base_retry_depth": 0,
+          "pressure_retry_depth": 0,
+          "formula_verified": true
+        }
+      ],
+      "additional_rejections": [],
+      "unchanged_anchor_target_risk_c": true,
+      "delay_sessions_verified": 0
+    },
+    {
+      "period": "development",
+      "variant": "CE",
+      "path": "delay_1_session",
+      "first_nav_divergence": "2020-02-04",
+      "first_position_divergence": "2020-02-04",
+      "first_nav_mechanism": "EXECUTION_DELAY",
+      "first_nav_difference_cny": -1342.2,
+      "first_nav_fee_difference_cny": -20.0,
+      "first_nav_slippage_difference_cny": -68.7,
+      "first_nav_cash_difference_cny": 62253.9,
+      "first_nav_holdings_value_difference_cny": -63596.1,
+      "first_nav_component_residual_cny": 0.0,
+      "first_position_mechanism": "SAME_SIGNAL_EXECUTION_ONE_SESSION_LATER",
+      "position_quantity_deltas": [
+        {
+          "instrument_id": "sh.512660",
+          "pressure_minus_base_quantity": -22100
+        },
+        {
+          "instrument_id": "sh.512800",
+          "pressure_minus_base_quantity": -15600
+        },
+        {
+          "instrument_id": "sh.512880",
+          "pressure_minus_base_quantity": -17500
+        },
+        {
+          "instrument_id": "sz.159939",
+          "pressure_minus_base_quantity": -13500
+        }
+      ],
+      "round_lot_checks": [],
+      "additional_rejections": [],
+      "unchanged_anchor_target_risk_c": true,
+      "delay_sessions_verified": 1
+    },
+    {
+      "period": "development",
+      "variant": "VR",
+      "path": "cost_2x",
+      "first_nav_divergence": "2020-02-04",
+      "first_position_divergence": "2020-10-13",
+      "first_nav_mechanism": "COMMISSION_ONLY_SAME_HOLDINGS",
+      "first_nav_difference_cny": -16.79,
+      "first_nav_fee_difference_cny": 16.79,
+      "first_nav_slippage_difference_cny": 0.0,
+      "first_nav_cash_difference_cny": -16.79,
+      "first_nav_holdings_value_difference_cny": 0.0,
+      "first_nav_component_residual_cny": -0.0,
+      "first_position_mechanism": "LOWER_EQUITY_CHANGES_ROUND_LOT_ORDER",
+      "position_quantity_deltas": [
+        {
+          "instrument_id": "sh.512290",
+          "pressure_minus_base_quantity": -100
+        }
+      ],
+      "round_lot_checks": [
+        {
+          "instrument_id": "sh.512290",
+          "side": "SELL",
+          "quantity_difference": 100,
+          "release_date": "2020-10-09",
+          "release_equity_difference_cny": -156.73,
+          "base_retry_depth": 1,
+          "pressure_retry_depth": 1,
+          "formula_verified": true
+        }
+      ],
+      "additional_rejections": [],
+      "unchanged_anchor_target_risk_c": true,
+      "delay_sessions_verified": 0
+    },
+    {
+      "period": "development",
+      "variant": "VR",
+      "path": "cost_3x",
+      "first_nav_divergence": "2020-02-04",
+      "first_position_divergence": "2020-04-02",
+      "first_nav_mechanism": "COMMISSION_AND_SLIPPAGE_SAME_HOLDINGS",
+      "first_nav_difference_cny": -49.8,
+      "first_nav_fee_difference_cny": 33.6,
+      "first_nav_slippage_difference_cny": 16.2,
+      "first_nav_cash_difference_cny": -49.8,
+      "first_nav_holdings_value_difference_cny": 0.0,
+      "first_nav_component_residual_cny": 0.0,
+      "first_position_mechanism": "ADDITIONAL_SLIPPAGE_RANGE_REJECTION_SAME_ORDERS",
+      "position_quantity_deltas": [
+        {
+          "instrument_id": "sz.159939",
+          "pressure_minus_base_quantity": 1200
+        }
+      ],
+      "round_lot_checks": [],
+      "additional_rejections": [
+        {
+          "instrument_id": "sz.159939",
+          "side": "SELL",
+          "reason": "SLIPPAGE_PRICE_OUTSIDE_VALID_RANGE",
+          "raw_band_and_tick_recomputed": true
+        }
+      ],
+      "unchanged_anchor_target_risk_c": true,
+      "delay_sessions_verified": 0
+    },
+    {
+      "period": "development",
+      "variant": "VR",
+      "path": "delay_1_session",
+      "first_nav_divergence": "2020-02-04",
+      "first_position_divergence": "2020-02-04",
+      "first_nav_mechanism": "EXECUTION_DELAY",
+      "first_nav_difference_cny": -1084.81,
+      "first_nav_fee_difference_cny": -16.79,
+      "first_nav_slippage_difference_cny": -55.8,
+      "first_nav_cash_difference_cny": 55985.99,
+      "first_nav_holdings_value_difference_cny": -57070.8,
+      "first_nav_component_residual_cny": 0.0,
+      "first_position_mechanism": "SAME_SIGNAL_EXECUTION_ONE_SESSION_LATER",
+      "position_quantity_deltas": [
+        {
+          "instrument_id": "sh.512800",
+          "pressure_minus_base_quantity": -18600
+        },
+        {
+          "instrument_id": "sh.512880",
+          "pressure_minus_base_quantity": -21000
+        },
+        {
+          "instrument_id": "sz.159939",
+          "pressure_minus_base_quantity": -16200
+        }
+      ],
+      "round_lot_checks": [],
+      "additional_rejections": [],
+      "unchanged_anchor_target_risk_c": true,
+      "delay_sessions_verified": 1
+    },
+    {
+      "period": "validation",
+      "variant": "VE",
+      "path": "cost_2x",
+      "first_nav_divergence": "2022-01-05",
+      "first_position_divergence": "2022-01-05",
+      "first_nav_mechanism": "FILLS_ALREADY_DIFFER",
+      "first_nav_difference_cny": 144.4,
+      "first_nav_fee_difference_cny": 35.0,
+      "first_nav_slippage_difference_cny": -4.6,
+      "first_nav_cash_difference_cny": 8061.0,
+      "first_nav_holdings_value_difference_cny": -7916.6,
+      "first_nav_component_residual_cny": 0.0,
+      "first_position_mechanism": "ADDITIONAL_SLIPPAGE_RANGE_REJECTION_SAME_ORDERS",
+      "position_quantity_deltas": [
+        {
+          "instrument_id": "sh.515000",
+          "pressure_minus_base_quantity": -4600
+        }
+      ],
+      "round_lot_checks": [],
+      "additional_rejections": [
+        {
+          "instrument_id": "sh.515000",
+          "side": "BUY",
+          "reason": "SLIPPAGE_PRICE_OUTSIDE_VALID_RANGE",
+          "raw_band_and_tick_recomputed": true
+        }
+      ],
+      "unchanged_anchor_target_risk_c": true,
+      "delay_sessions_verified": 0
+    },
+    {
+      "period": "validation",
+      "variant": "VE",
+      "path": "cost_3x",
+      "first_nav_divergence": "2022-01-05",
+      "first_position_divergence": "2022-01-05",
+      "first_nav_mechanism": "FILLS_ALREADY_DIFFER",
+      "first_nav_difference_cny": 139.2,
+      "first_nav_fee_difference_cny": 60.0,
+      "first_nav_slippage_difference_cny": 28.6,
+      "first_nav_cash_difference_cny": 16239.0,
+      "first_nav_holdings_value_difference_cny": -16099.8,
+      "first_nav_component_residual_cny": 0.0,
+      "first_position_mechanism": "ADDITIONAL_SLIPPAGE_RANGE_REJECTION_SAME_ORDERS",
+      "position_quantity_deltas": [
+        {
+          "instrument_id": "sh.512290",
+          "pressure_minus_base_quantity": -5300
+        },
+        {
+          "instrument_id": "sh.515000",
+          "pressure_minus_base_quantity": -4600
+        }
+      ],
+      "round_lot_checks": [],
+      "additional_rejections": [
+        {
+          "instrument_id": "sh.512290",
+          "side": "BUY",
+          "reason": "SLIPPAGE_PRICE_OUTSIDE_VALID_RANGE",
+          "raw_band_and_tick_recomputed": true
+        },
+        {
+          "instrument_id": "sh.515000",
+          "side": "BUY",
+          "reason": "SLIPPAGE_PRICE_OUTSIDE_VALID_RANGE",
+          "raw_band_and_tick_recomputed": true
+        }
+      ],
+      "unchanged_anchor_target_risk_c": true,
+      "delay_sessions_verified": 0
+    },
+    {
+      "period": "validation",
+      "variant": "VE",
+      "path": "delay_1_session",
+      "first_nav_divergence": "2022-01-05",
+      "first_position_divergence": "2022-01-05",
+      "first_nav_mechanism": "EXECUTION_DELAY",
+      "first_nav_difference_cny": 1598.7,
+      "first_nav_fee_difference_cny": -45.0,
+      "first_nav_slippage_difference_cny": -56.5,
+      "first_nav_cash_difference_cny": 74028.1,
+      "first_nav_holdings_value_difference_cny": -72429.4,
+      "first_nav_component_residual_cny": 0.0,
+      "first_position_mechanism": "SAME_SIGNAL_EXECUTION_ONE_SESSION_LATER",
+      "position_quantity_deltas": [
+        {
+          "instrument_id": "sh.512290",
+          "pressure_minus_base_quantity": -5300
+        },
+        {
+          "instrument_id": "sh.512660",
+          "pressure_minus_base_quantity": -5700
+        },
+        {
+          "instrument_id": "sh.512710",
+          "pressure_minus_base_quantity": -8100
+        },
+        {
+          "instrument_id": "sh.512720",
+          "pressure_minus_base_quantity": -5700
+        },
+        {
+          "instrument_id": "sh.512760",
+          "pressure_minus_base_quantity": -5500
+        },
+        {
+          "instrument_id": "sh.512800",
+          "pressure_minus_base_quantity": -7300
+        },
+        {
+          "instrument_id": "sh.512880",
+          "pressure_minus_base_quantity": -7100
+        },
+        {
+          "instrument_id": "sh.515000",
+          "pressure_minus_base_quantity": -4600
+        },
+        {
+          "instrument_id": "sh.515880",
+          "pressure_minus_base_quantity": -7200
+        }
+      ],
+      "round_lot_checks": [],
+      "additional_rejections": [],
+      "unchanged_anchor_target_risk_c": true,
+      "delay_sessions_verified": 1
+    },
+    {
+      "period": "validation",
+      "variant": "CE",
+      "path": "cost_2x",
+      "first_nav_divergence": "2022-01-05",
+      "first_position_divergence": "2022-01-05",
+      "first_nav_mechanism": "FILLS_ALREADY_DIFFER",
+      "first_nav_difference_cny": 113.2,
+      "first_nav_fee_difference_cny": 35.0,
+      "first_nav_slippage_difference_cny": -3.8,
+      "first_nav_cash_difference_cny": 6653.0,
+      "first_nav_holdings_value_difference_cny": -6539.8,
+      "first_nav_component_residual_cny": 0.0,
+      "first_position_mechanism": "ADDITIONAL_SLIPPAGE_RANGE_REJECTION_SAME_ORDERS",
+      "position_quantity_deltas": [
+        {
+          "instrument_id": "sh.515000",
+          "pressure_minus_base_quantity": -3800
+        }
+      ],
+      "round_lot_checks": [],
+      "additional_rejections": [
+        {
+          "instrument_id": "sh.515000",
+          "side": "BUY",
+          "reason": "SLIPPAGE_PRICE_OUTSIDE_VALID_RANGE",
+          "raw_band_and_tick_recomputed": true
+        }
+      ],
+      "unchanged_anchor_target_risk_c": true,
+      "delay_sessions_verified": 0
+    },
+    {
+      "period": "validation",
+      "variant": "CE",
+      "path": "cost_3x",
+      "first_nav_divergence": "2022-01-05",
+      "first_position_divergence": "2022-01-05",
+      "first_nav_mechanism": "FILLS_ALREADY_DIFFER",
+      "first_nav_difference_cny": 105.5,
+      "first_nav_fee_difference_cny": 60.0,
+      "first_nav_slippage_difference_cny": 23.9,
+      "first_nav_cash_difference_cny": 13593.3,
+      "first_nav_holdings_value_difference_cny": -13487.8,
+      "first_nav_component_residual_cny": 0.0,
+      "first_position_mechanism": "ADDITIONAL_SLIPPAGE_RANGE_REJECTION_SAME_ORDERS",
+      "position_quantity_deltas": [
+        {
+          "instrument_id": "sh.512290",
+          "pressure_minus_base_quantity": -4500
+        },
+        {
+          "instrument_id": "sh.515000",
+          "pressure_minus_base_quantity": -3800
+        }
+      ],
+      "round_lot_checks": [],
+      "additional_rejections": [
+        {
+          "instrument_id": "sh.512290",
+          "side": "BUY",
+          "reason": "SLIPPAGE_PRICE_OUTSIDE_VALID_RANGE",
+          "raw_band_and_tick_recomputed": true
+        },
+        {
+          "instrument_id": "sh.515000",
+          "side": "BUY",
+          "reason": "SLIPPAGE_PRICE_OUTSIDE_VALID_RANGE",
+          "raw_band_and_tick_recomputed": true
+        }
+      ],
+      "unchanged_anchor_target_risk_c": true,
+      "delay_sessions_verified": 0
+    },
+    {
+      "period": "validation",
+      "variant": "CE",
+      "path": "delay_1_session",
+      "first_nav_divergence": "2022-01-05",
+      "first_position_divergence": "2022-01-05",
+      "first_nav_mechanism": "EXECUTION_DELAY",
+      "first_nav_difference_cny": 1347.1,
+      "first_nav_fee_difference_cny": -45.0,
+      "first_nav_slippage_difference_cny": -47.3,
+      "first_nav_cash_difference_cny": 61957.3,
+      "first_nav_holdings_value_difference_cny": -60610.2,
+      "first_nav_component_residual_cny": 0.0,
+      "first_position_mechanism": "SAME_SIGNAL_EXECUTION_ONE_SESSION_LATER",
+      "position_quantity_deltas": [
+        {
+          "instrument_id": "sh.512290",
+          "pressure_minus_base_quantity": -4500
+        },
+        {
+          "instrument_id": "sh.512660",
+          "pressure_minus_base_quantity": -4800
+        },
+        {
+          "instrument_id": "sh.512710",
+          "pressure_minus_base_quantity": -6800
+        },
+        {
+          "instrument_id": "sh.512720",
+          "pressure_minus_base_quantity": -4700
+        },
+        {
+          "instrument_id": "sh.512760",
+          "pressure_minus_base_quantity": -4600
+        },
+        {
+          "instrument_id": "sh.512800",
+          "pressure_minus_base_quantity": -6100
+        },
+        {
+          "instrument_id": "sh.512880",
+          "pressure_minus_base_quantity": -5900
+        },
+        {
+          "instrument_id": "sh.515000",
+          "pressure_minus_base_quantity": -3800
+        },
+        {
+          "instrument_id": "sh.515880",
+          "pressure_minus_base_quantity": -6100
+        }
+      ],
+      "round_lot_checks": [],
+      "additional_rejections": [],
+      "unchanged_anchor_target_risk_c": true,
+      "delay_sessions_verified": 1
+    },
+    {
+      "period": "validation",
+      "variant": "VR",
+      "path": "cost_2x",
+      "first_nav_divergence": "2022-01-05",
+      "first_position_divergence": "2022-04-06",
+      "first_nav_mechanism": "COMMISSION_ONLY_SAME_HOLDINGS",
+      "first_nav_difference_cny": -15.0,
+      "first_nav_fee_difference_cny": 15.0,
+      "first_nav_slippage_difference_cny": 0.0,
+      "first_nav_cash_difference_cny": -15.0,
+      "first_nav_holdings_value_difference_cny": 0.0,
+      "first_nav_component_residual_cny": 0.0,
+      "first_position_mechanism": "LOWER_EQUITY_CHANGES_ROUND_LOT_ORDER",
+      "position_quantity_deltas": [
+        {
+          "instrument_id": "sh.512800",
+          "pressure_minus_base_quantity": -100
+        }
+      ],
+      "round_lot_checks": [
+        {
+          "instrument_id": "sh.512800",
+          "side": "SELL",
+          "quantity_difference": 100,
+          "release_date": "2022-04-01",
+          "release_equity_difference_cny": -58.07,
+          "base_retry_depth": 0,
+          "pressure_retry_depth": 0,
+          "formula_verified": true
+        }
+      ],
+      "additional_rejections": [],
+      "unchanged_anchor_target_risk_c": true,
+      "delay_sessions_verified": 0
+    },
+    {
+      "period": "validation",
+      "variant": "VR",
+      "path": "cost_3x",
+      "first_nav_divergence": "2022-01-05",
+      "first_position_divergence": "2022-04-06",
+      "first_nav_mechanism": "COMMISSION_AND_SLIPPAGE_SAME_HOLDINGS",
+      "first_nav_difference_cny": -49.4,
+      "first_nav_fee_difference_cny": 30.0,
+      "first_nav_slippage_difference_cny": 19.4,
+      "first_nav_cash_difference_cny": -49.4,
+      "first_nav_holdings_value_difference_cny": 0.0,
+      "first_nav_component_residual_cny": 0.0,
+      "first_position_mechanism": "LOT_ROUNDING_AND_SLIPPAGE_RANGE_REJECTION",
+      "position_quantity_deltas": [
+        {
+          "instrument_id": "sh.512660",
+          "pressure_minus_base_quantity": -12500
+        },
+        {
+          "instrument_id": "sh.512800",
+          "pressure_minus_base_quantity": -100
+        }
+      ],
+      "round_lot_checks": [
+        {
+          "instrument_id": "sh.512800",
+          "side": "SELL",
+          "quantity_difference": 100,
+          "release_date": "2022-04-01",
+          "release_equity_difference_cny": -175.85,
+          "base_retry_depth": 0,
+          "pressure_retry_depth": 0,
+          "formula_verified": true
+        }
+      ],
+      "additional_rejections": [
+        {
+          "instrument_id": "sh.512660",
+          "side": "BUY",
+          "reason": "SLIPPAGE_PRICE_OUTSIDE_VALID_RANGE",
+          "raw_band_and_tick_recomputed": true
+        }
+      ],
+      "unchanged_anchor_target_risk_c": true,
+      "delay_sessions_verified": 0
+    },
+    {
+      "period": "validation",
+      "variant": "VR",
+      "path": "delay_1_session",
+      "first_nav_divergence": "2022-01-05",
+      "first_position_divergence": "2022-01-05",
+      "first_nav_mechanism": "EXECUTION_DELAY",
+      "first_nav_difference_cny": 1898.5,
+      "first_nav_fee_difference_cny": -15.0,
+      "first_nav_slippage_difference_cny": -33.4,
+      "first_nav_cash_difference_cny": 42828.6,
+      "first_nav_holdings_value_difference_cny": -40930.1,
+      "first_nav_component_residual_cny": -0.0,
+      "first_position_mechanism": "SAME_SIGNAL_EXECUTION_ONE_SESSION_LATER",
+      "position_quantity_deltas": [
+        {
+          "instrument_id": "sh.512660",
+          "pressure_minus_base_quantity": -9900
+        },
+        {
+          "instrument_id": "sh.512710",
+          "pressure_minus_base_quantity": -14000
+        },
+        {
+          "instrument_id": "sh.512760",
+          "pressure_minus_base_quantity": -9500
+        }
+      ],
+      "round_lot_checks": [],
+      "additional_rejections": [],
+      "unchanged_anchor_target_risk_c": true,
+      "delay_sessions_verified": 1
+    }
+  ],
+  "interpretation_zh": [
+    "首次净值不同与首次持仓不同必须分开。12条成本路径中，8条先在持仓相同的情况下出现费用或滑点差，其中4条当日仅佣金不同；另4条验证VE/CE成本路径首日成交已不同。",
+    "验证VE/CE在2022-01-05的2倍路径拒绝sh.515000买单，3倍路径还拒绝sh.512290买单：按相同日线及最小价格单位独立复算，滑点后的报价超出当天合法价格区间。压力账户当天净值高于base来自成交和持仓路径改变，不能解释为提高交易成本改善了收益。",
+    "开发VE的2倍路径到2020-06-02才出现持仓差异：此前费用降低释放日权益，在相同权重与参考价下，银行ETF买单减少一手100份。原账权益和整手目标公式复算一致。开发VR的2倍路径直到2020-10-13的卖单重试才实际体现此前已形成的一手目标差异；报告沿父订单追溯到原释放日核算。",
+    "首次持仓分叉中，5条路径仅涉及权益差触发整手订单差；6条仅涉及额外滑点区间拒单；验证VR的3倍路径在2022-04-06同时涉及两者。开发VE/VR的3倍路径在2020-04-02额外拒绝信息技术ETF卖单。不能把这些差异一概归因于现金不足或整手取整。",
+    "6条延迟路径保留全部原锚点、释放时间、风险输入和目标，仅把执行后移一个实际交易日。开发2020-02-04及验证2022-01-05首次分叉时，延迟账户仍为10万元现金。因此延迟路径的后续收益差不能由固定手续费差解释。",
+    "报价按最小价格单位取整，因此滑点倍数变化不保证每笔实际滑点金额同比例变化。以上为既有DAILY_SCREEN_ONLY执行规则的有限实例核对，不证明真实开盘成交，也没有修改模型或重跑账户。"
+  ],
+  "no_new_accounts": true,
+  "no_new_market_requests": true,
+  "no_source_changes": true,
+  "public_redaction": "Dates, derived quantity differences, aggregate cash/fee deltas and hashes only; no raw prices or full fills.",
+  "raw_daily_band_evidence_hashes": {
+    "development": {
+      "bars.json": "df1735c92c1b6aceba0d344c2c1da16a2db9a1d53abe8528b50eb37d04f1f9e5",
+      "instruments.json": "2188a6089c3e38e9b799d082570ba765993aeefbc39c5c485eaf5a60607732a9"
+    },
+    "validation": {
+      "bars.json": "f53c9ebb364848fa850d7f196f55ba8a2434a799ab011b2d11692b812cc4931a",
+      "instruments.json": "2188a6089c3e38e9b799d082570ba765993aeefbc39c5c485eaf5a60607732a9"
+    }
+  }
+}

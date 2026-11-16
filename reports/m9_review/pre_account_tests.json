@@ -1,0 +1,18 @@
+{
+  "command": [
+    "F:/QuantTrade/Quant-Research/.venv/Scripts/python.exe",
+    "-m",
+    "pytest",
+    "-q",
+    "-rs",
+    "tests",
+    "review_code"
+  ],
+  "started_utc": "2026-11-16T05:41:00.377297+00:00",
+  "completed_utc": "2026-11-16T05:42:07.102816+00:00",
+  "wall_seconds": 66.725519,
+  "returncode": 0,
+  "log": "reports/m9_review/pre_account_tests.txt",
+  "log_sha256": "8cc85da215404435924dee6de827dec7f3181ed6b87cde2d6f790f9ed468c351",
+  "scope": "Local safe checkout without copied originals; two older tests find external archived absolute paths; not clean remote CI."
+}

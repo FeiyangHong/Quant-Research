@@ -1,4 +1,14 @@
-# Current delivery: M8 public results
+# 当前M9：24条风险预算账户完成并停止
+
+**INCONCLUSIVE / ROBUSTNESS_SIGN_CHECK_PASSED。** 24/24完成、0失败、0未运行；未知固定费用null，经济确认BLOCKED_HURDLE。先读[M9投资结果](../reports/m9_risk/RESULTS.md)、[集中审查](../reports/m9_review/REVIEW_PACKET.md)、[独立复核](../reports/m9_review/INDEPENDENT_REVIEW.md)。
+
+冻结c=0.6295030564604313，来源为2020-01-23合法开发锚点；十只/数据/资格/时期/时钟/执行不变，市场新请求0。6base独立会计通过后自动18压力，共14,544账户日、4,453成交、720目标及12个预定区间均独立复算。验证VE−CE评分差+0.0000330792/日，主CI跨零；VE波动11.69%低于CE14.55%，但累计−9.23%低于−7.46%，MDD27.11%略差于26.99%。更多现金与平均风险变化没有被分离成纯择时技巧。
+
+保留直接篮子风险测量、固定初始化和账户工程以及CE研究基准，归档本轮动态政策确认性主张及VR兼容实验，停止搜索。三臂验证绝对平均效用均负；10%预测预算不是实现风险或回撤保证。旧M8动量/趋势仍归档，R2/R3、留出、paper/live和采购关闭。
+
+公开安全工作目录F:/QuantTrade/Quant-Research-M9，分支`codex/m9-risk-budget`，基准540fdf3；登记a696c13，全部账户源码a2fbb04、内容hash `dc4e7a79f6f5373d5af15d71def409d54e7209d3ae927c818c72d31d5a96e6a3`。src/scripts/tests已恢复实际M8/M9，公开实现CI893通过/12原件依赖跳过；本机895通过/10跳过。完整原件仍外置在F:/QuantTrade/Quant-Research，公开NAV/风险/统计可核，完整交易账留本机runs。最终交付SHA、CI与预算见审查目录发布收据和PR，不引用M7旧CI替代。
+
+## 历史M8公开补丁交付状态
 
 M8 completed all 32 accounts; conclusion INCONCLUSIVE. Read [M8 publication scope](M8_PUBLIC_DELIVERY.md), [results](../reports/m8_public/SUMMARY.md), and [persistent push requirement](DELIVERY_POLICY.md). This public branch contains the independently checked derived package and code patches. Complete local source evidence and private commit ancestors are not published. Existing source CI on this branch is not an M8 account replay.
 

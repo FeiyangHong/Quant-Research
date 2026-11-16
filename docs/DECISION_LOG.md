@@ -155,3 +155,14 @@ D044—D047共同决定：当前R1配置归档、ETF参数搜索停止，本轮�
 ## 2026-11-16 M8 publication and persistent delivery requirement
 
 User requires a GitHub push after each completed task. Publish the reviewed M8 derived results and code patches from the existing public baseline on codex/m8-public-results. Keep private source evidence and the complete local M8 commit chain local; do not rewrite history or rerun research. See docs/DELIVERY_POLICY.md and docs/M8_PUBLIC_DELIVERY.md.
+
+## M9：研究问题改变，事前登记（2026-11-16）
+
+- D090：接受M8公开可核的32条有仓实证，维持INCONCLUSIVE并归档动量/共同趋势配置。新授权仅为`M9_ETF_RISK_BUDGET_V1`：相同十只、资格、2020—21/2022—24、费用和执行，研究VE动态风险预算相对CE启动固定缩放的二次效用价值；VR仅兼容辅助。新市场请求0，8累计并行会话小时，不重跑旧M8，不开股票/留出/paper/live。
+- D091：在任何新账户收益前冻结M9_PLAN、24格、首个合法开发非空锚点固定c、60日/至少45同步收益的当前未缩放篮子样本std、10%预算、gamma5与验证base VE−CE主评分及60/20/120固定区间规则。直接篮子std为避免重复经济暴露拆分假降险，不按收益选估计器。评分不是收益/Alpha/现金利润，未知固定费仍null。
+- D092：公开HEAD540fdf3无新增量，完整私有HEAD8d8796c为已完成M8及交付记录，保留不动。安全克隆分支`codex/m9-risk-budget`恢复实际M8源码并实现M9，引用外置冻结证据，公开CI与运行内容hash对应。附件原字节保存docs。预登记先提交/推送，6base独立核验后自动18压力，固定范围完成即停止；公开原件许可边界不降低研究正确性要求。
+- D093：a696c13先行公开冻结登记；复用558原件/证据指针和14准入表文件，M8数据/形成/行为/准入哈希不变。固定初始化来自2020-01-23，60同步日、sigma15.8855%、c0.6295030564604313，独立Decimal差<10⁻¹²，跨期及压力不重估。新市场请求0。
+- D094：a2fbb04恢复实际M8源码并冻结M9薄风险/账户/统计实现；24条共同源码hash dc4e7a79f6f5373d5af15d71def409d54e7209d3ae927c818c72d31d5a96e6a3。原公开包检出CRLF仅从Git原字节恢复、固定-text，未改旧manifest/结果。公开实现CI893通过/12原件缺失跳过，不再用M7代码CI冒充新实现。
+- D095：6base通过独立目标/账簿及公开私有表哈希门控后自动18压力，24/24完成、0失败。14,544账户日、4,453成交、720目标、12预定区间、60账户年、1,000产品汇总和480月份通过非作者核验。代码/数据/规则在路径间没有修改，未重跑M8。
+- D096：验证VE−CE日效用差+0.0000330792，主95%CI[-0.0000934824,+0.0001522180]；结论INCONCLUSIVE，既定跨期/压力符号检查PASS不能替代主区间。验证VE降波动但累计收益少1.77pp且MDD略差，三臂绝对平均效用均负，固定费仍null。保留风险工程及CE研究参考，归档当前风险策略确认性主张与VR兼容实验，固定范围结束，不自动搜索/开留出/实盘。
+- D097：完整源/交易账留在原许可本地位置，公开实际src/scripts/tests、登记、风险/初始化派生、192账户文件与统计/独立收据。按持续交付要求推送安全分支并核验远端SHA及真实CI，不自动合并main。最后交付提交只补充报告和收据，不改变已冻结执行源。

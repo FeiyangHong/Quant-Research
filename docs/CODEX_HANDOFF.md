@@ -1,4 +1,16 @@
-# Current delivery: M8 public results
+# 当前恢复入口：M9已完成，固定矩阵结束
+
+本轮24条真实输入风险预算模拟与独立核验均已完成，不因收益、CI跨零或剩余预算重启账户/采集。按[M9_PLAN](M9_PLAN.md)、[原任务第7节](M8_INDEPENDENT_REVIEW_AND_M9_HANDOFF_2026-11-16.md)、[结果](../reports/m9_risk/RESULTS.md)、[审查](../reports/m9_review/REVIEW_PACKET.md)、[独立验证](../reports/m9_review/VERIFICATION.md)恢复事实，不依赖聊天记忆。
+
+工作目录F:/QuantTrade/Quant-Research-M9，分支`codex/m9-risk-budget`，来自公开540fdf3，原完整本地M8分支/数据在F:/QuantTrade/Quant-Research保留不动。附件、24格和判定规则先在a696c13推送，实际M8/M9源码于a2fbb04冻结并公开；所有账户源码hash `dc4e7a79f6f5373d5af15d71def409d54e7209d3ae927c818c72d31d5a96e6a3`。后续交付提交只追加结果/审查/交接，不能重新算c或修改源后冒称原运行。
+
+`M9_ETF_RISK_BUDGET_V1`复用原M8数据scope与两期数据hash，不改M8准入。c=0.6295030564604313、锚点2020-01-23/释放2020-02-03，跨期/压力冻结。VE/CE/VR共24路径，先6base后18压力，ACCOUNT_PATHS与SOURCE/PRIVATE表哈希保存。完整账在runs/m9_real；公开账户8文件/条，缺原件不能宣称公共全数据回放。执行差异报告解释了滑点合法价格拒单、整手/现金和延迟，未新增收益诊断。
+
+主结论INCONCLUSIVE；符号检查PASS只是点估计约束，不等于正主CI。验证VE较CE降波动但累计收益更低、回撤略差；评分不能叫收益/Alpha/费用空间。保留风险工程和固定政策参考，停止本配置研究；M8动量/共同趋势归档不变。没有授权新风险目标/窗口/gamma、股票R2/R3、新闻/ML、2025以后留出、采购、paper/live或合并main。
+
+持续按[DELIVERY_POLICY](DELIVERY_POLICY.md)提交并推送，报告真实远端SHA/CI。受限原件和完整源祖先不进公开链。本轮公开CI已真正跑实际实现893通过/12跳过，最终结果提交的状态以发布收据及GitHub检查为准；不把旧M8仅补丁CI当本轮实现证明。
+
+## 历史M8公开补丁交付状态
 
 M8 completed all 32 accounts; conclusion INCONCLUSIVE. Read [M8 publication scope](M8_PUBLIC_DELIVERY.md), [results](../reports/m8_public/SUMMARY.md), and [persistent push requirement](DELIVERY_POLICY.md). This public branch contains the independently checked derived package and code patches. Complete local source evidence and private commit ancestors are not published. Existing source CI on this branch is not an M8 account replay.
 

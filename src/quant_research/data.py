@@ -320,15 +320,20 @@ def audit_dataset(dataset: Dataset) -> dict[str, Any]:
         selection_only = pd.Series(False, index=bars.index)
         if "usage_scope" in bars:
             cohort_scope = manifest.get("research_scope") == "R1I_FIXED_COHORT_V1"
+            liquid_scope = manifest.get("research_scope") == "R1I_HISTORICAL_LIQUID_V1"
             scope = "COHORT_ELIGIBILITY_ONLY" if cohort_scope else "REPRESENTATIVE_SELECTION_ONLY"
-            if not bars.usage_scope.isin(["FULL_STRATEGY", scope]).all():
+            allowed_scopes = ["FULL_STRATEGY"] if liquid_scope else ["FULL_STRATEGY", scope]
+            if not bars.usage_scope.isin(allowed_scopes).all():
                 errors.append("bars: unknown dependency usage scope")
             selection_only = bars.usage_scope.eq(scope)
             if manifest.get("schema_version") != SCHEMA_VERSION:
                 errors.append("bars: dependency scopes require schema r1-offline-1.2")
             try:
                 from .dependencies import representative_dependencies, required_tr_start
-                if cohort_scope:
+                if liquid_scope:
+                    from .liquid_cohort import liquid_dependencies
+                    dependencies = liquid_dependencies(dataset)
+                elif cohort_scope:
                     from .cohort import cohort_dependencies
                     dependencies = cohort_dependencies(dataset)
                 else:
@@ -337,13 +342,13 @@ def audit_dataset(dataset: Dataset) -> dict[str, Any]:
                 # A fixed pre-account warmup boundary is not a fund exclusion.
                 # Keep its raw selection/age inputs even when TR is not needed.
                 start = manifest.get("tr_coverage_start", calendar[0])
-                if not cohort_scope and (_date_errors(pd.Series([start])) or start > required_tr_start(calendar)):
+                if not (cohort_scope or liquid_scope) and (_date_errors(pd.Series([start])) or start > required_tr_start(calendar)):
                     blockers.append("dependency: TR starts after the registered account warmup requires it")
                 scoped = set(bars.loc[selection_only if cohort_scope else selection_only & bars.date.ge(start), "instrument_id"])
                 if required & scoped:
                     label = "cohort ranking/holding product" if cohort_scope else "selected representative"
                     blockers.append("dependency: " + label + " lacks full TR/event coverage: " + str(sorted(required & scoped)))
-                dependency_key = "cohort_dependencies" if cohort_scope else "representative_dependencies"
+                dependency_key = "liquid_dependencies" if liquid_scope else "cohort_dependencies" if cohort_scope else "representative_dependencies"
                 if manifest.get(dependency_key) != dependencies:
                     blockers.append("dependency: declared amount-only selection does not match independent recomputation")
             except (ValueError, TypeError, KeyError, AttributeError) as exc:
@@ -364,9 +369,10 @@ def audit_dataset(dataset: Dataset) -> dict[str, Any]:
         checked_numeric.loc[selection_only & numeric.total_return_index.isna(), "total_return_index"] = 1.
         unused_limits = pd.Series(False, index=bars.index)
         if "usage_scope" in bars and not synthetic:
-            if manifest.get("account_start") != "2016-01-01":
-                blockers.append("dependency: scoped real data must preserve registered 2016 account start")
-            unused_limits = selection_only | bars.date.lt("2016-01-01")
+            registered_start = "2020-01-01" if manifest.get("research_scope") == "R1I_HISTORICAL_LIQUID_V1" else "2016-01-01"
+            if manifest.get("account_start") != registered_start:
+                blockers.append("dependency: scoped real data must preserve registered " + registered_start + " account start")
+            unused_limits = selection_only | bars.date.lt(registered_start)
             for column in ("upper_limit", "lower_limit"):
                 checked_numeric.loc[unused_limits & numeric[column].isna(), column] = 0.
         if not np.isfinite(checked_numeric.to_numpy()).all():
@@ -482,9 +488,21 @@ def audit_dataset(dataset: Dataset) -> dict[str, Any]:
         coverage["suspended_observations"] = int(unique_bars["suspended"].eq(True).sum())
         coverage["missing_sessions_by_instrument"] = {}
         if instruments is not None and not any("invalid" in error or "timezone" in error for error in errors):
+            # The M8 calendar also proves listing age; it is not a request for
+            # pre-2019 prices. The fixed2019 start covers formation and every
+            # registered2020 signal warmup. It cannot slide forward over gaps.
+            market_start = None
+            if manifest.get("research_scope") == "R1I_HISTORICAL_LIQUID_V1":
+                market_start = "2019-01-01"
+                if manifest.get("market_history_start") != market_start:
+                    blockers.append("coverage: M8 requires fixed2019 market history start")
+                coverage["market_history_start"] = market_start
+                coverage["earlier_calendar_purpose"] = "LISTING_AGE_ONLY"
             latest = instruments.sort_values("available_at").drop_duplicates("instrument_id", keep="last")
             for _, row in latest.iterrows():
-                expected = {day for day in calendar if day >= row["listed_on"] and (pd.isna(row["delisted_on"]) or day < row["delisted_on"])}
+                expected = {day for day in calendar if day >= row["listed_on"]
+                            and (market_start is None or day >= market_start)
+                            and (pd.isna(row["delisted_on"]) or day < row["delisted_on"])}
                 observed = set(unique_bars.loc[unique_bars["instrument_id"] == row["instrument_id"], "date"])
                 missing_count = len(expected - observed)
                 coverage["missing_sessions_by_instrument"][row["instrument_id"]] = missing_count

@@ -1,0 +1,17 @@
+{
+  "result_commit": "d4fb43dd835009b08786726418c18f67fbf3667a",
+  "source_execution_commit": "a2fbb04e76c6e80c262eb86ab621e2dc49f29635",
+  "run_id": 43817095072,
+  "job_id": 133131515754,
+  "tested_merge_commit": "0edc1c7caf93e473c2e2c1571a5202c0e0c80c52",
+  "result": "SUCCESS",
+  "passed": 893,
+  "skipped": 12,
+  "warnings": 1,
+  "pytest_seconds": 55.42,
+  "url": "https://github.com/FeiyangHong/Quant-Research/actions/runs/43817095072",
+  "log": "reports/m9_review/results_ci.txt",
+  "log_sha256": "234bdc3edd698dcdfd1198a03bc8fa9c28a9fbd47dd24a909a3b2d074b05e5de",
+  "log_encoding": "UTF-8; connector decoded log normalized to LF",
+  "skip_scope": "Existing M5/M6 archived original-data dependencies; no M9 logic test skipped. Local safe checkout has 895 passed / 10 skipped because two old M6 tests can discover external archived sources."
+}

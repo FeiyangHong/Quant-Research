@@ -1,0 +1,29 @@
+{
+  "decision": "PASS_INDEPENDENT_RISK_PROBES",
+  "author_role": "INDEPENDENT_REVIEWER",
+  "probes": [
+    "raw scalar ddof1 variance",
+    "duplicate split invariance",
+    "diagonal shrinkage .75 counterexample",
+    "post-anchor prefix invariance",
+    "45 synchronized observations accepted",
+    "44 blocked",
+    "legal zero sigma gives alpha1",
+    "None/NaN/infinity/zero/negative TR blocked",
+    "starting endpoint availability"
+  ],
+  "invalid_exceptions": [
+    "RiskBlockedError",
+    "RiskBlockedError",
+    "RiskBlockedError",
+    "RiskBlockedError",
+    "RiskBlockedError"
+  ],
+  "production_file_sha256": "4a749937685c4cf32a3adba0a8a9a97fc2ae863ee0e30265c32735979333e85a",
+  "reviewer_code_sha256": {
+    "independent_accounts.py": "0c94b1672d6aa819dca3b463b3a0589d24e182681a6f6f2a6ac9d7231113e9df",
+    "independent_risk.py": "0edc5f760902af5d5bec4bbc15a3894908cc1fb0a6f15a3345b960e2bc5b7ea0",
+    "probe_risk.py": "f2b3de6d2022562abadab8e24d2b7ce4bb8e25aa1b975b3bae636a27c9f23be3"
+  },
+  "observation_scope": "Synthetic probes contain no market observations or strategy returns."
+}

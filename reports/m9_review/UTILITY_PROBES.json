@@ -1,0 +1,13 @@
+{
+  "decision": "PASS_INDEPENDENT_UTILITY_PROBES",
+  "author_role": "INDEPENDENT_REVIEWER",
+  "checks": [
+    "u(a)-u(b), not u(a-b)",
+    "gamma5 arithmetic",
+    "degenerate CI remains null/INCONCLUSIVE",
+    "utility fields exclude return and currency-hurdle labels",
+    "registered CI boundary states",
+    "nonfinite returns rejected"
+  ],
+  "production_file_sha256": "22b76444561331e0f2c8d863514e9234ce6bcef41ba6494f02f4b08a63608730"
+}

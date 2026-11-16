@@ -1,0 +1,16 @@
+{
+  "source_commit": "a2fbb04e76c6e80c262eb86ab621e2dc49f29635",
+  "run_id": 43812326361,
+  "job_id": 133116525543,
+  "tested_merge_commit": "7faaadf6f862708c30967b9a8f6d4ba5009a7fd7",
+  "result": "SUCCESS",
+  "passed": 893,
+  "skipped": 12,
+  "test_warnings": 1,
+  "pytest_seconds": 62.24,
+  "url": "https://github.com/FeiyangHong/Quant-Research/actions/runs/43812326361",
+  "log": "reports/m9_review/implementation_ci.txt",
+  "log_sha256": "67efa845f54c9e1685d769919690281c28b13b7bac247287f17b5dec76aa586a",
+  "log_encoding": "UTF-8; line endings normalized to LF from connector decoded log",
+  "scope": "Actual restored M8 and M9 production source; synthetic/portable tests; no licensed original-data or account rerun. Two additional source-dependent skips relative to local safe checkout."
+}

@@ -1,0 +1,170 @@
+{
+  "actual_accounts": 24,
+  "conclusion": "INCONCLUSIVE",
+  "failed": 0,
+  "fixed_c": 0.6295030564604313,
+  "max_attribution_error_cny": 4.3655745685100555e-11,
+  "no_holdout_access": true,
+  "no_strategy_or_parameter_search": true,
+  "not_run": 0,
+  "primary": {
+    "absolute_mean_utility": {
+      "CE": -0.00027502290162525583,
+      "VE": -0.00024194368104863459,
+      "VR": -0.00010949203342144141,
+      "cash": 0.0
+    },
+    "annualized_utility_score_difference": 0.008335963585308566,
+    "economic_confirmation": "BLOCKED_HURDLE",
+    "mean_net_return_difference": -4.134436694520587e-05,
+    "mean_utility_difference": 3.307922057662129e-05,
+    "n_dates": 726,
+    "net_return_intervals": [
+      {
+        "annual_incremental_cost": null,
+        "block_length": 60,
+        "caveat": "Approximate under weak stationarity; short/nonstationary histories need caution.",
+        "ci95": [
+          -0.00019507016067849922,
+          6.772911077724904e-05
+        ],
+        "daily_hurdle": null,
+        "descriptive_status": "DESCRIPTIVE_INFERENCE",
+        "economic_status": "BLOCKED_HURDLE",
+        "hac_lag": 6,
+        "hac_se": 9.65653288630728e-05,
+        "interval_type": "marginal_95_percent",
+        "mean_net_increment": -4.134436694520587e-05,
+        "method": "circular_block_bootstrap_t_HAC",
+        "minimum_detectable_daily_effect_80pct": 0.0002401072626163004,
+        "n_dates": 726,
+        "p_hac": null,
+        "p_net": null,
+        "repetitions": 5000,
+        "seed": 20261114,
+        "status": "BLOCKED_HURDLE"
+      },
+      {
+        "annual_incremental_cost": null,
+        "block_length": 20,
+        "caveat": "Approximate under weak stationarity; short/nonstationary histories need caution.",
+        "ci95": [
+          -0.00021117378619440062,
+          0.00011493743025445312
+        ],
+        "daily_hurdle": null,
+        "descriptive_status": "DESCRIPTIVE_INFERENCE",
+        "economic_status": "BLOCKED_HURDLE",
+        "hac_lag": 6,
+        "hac_se": 9.65653288630728e-05,
+        "interval_type": "marginal_95_percent",
+        "mean_net_increment": -4.134436694520587e-05,
+        "method": "circular_block_bootstrap_t_HAC",
+        "minimum_detectable_daily_effect_80pct": 0.0002401072626163004,
+        "n_dates": 726,
+        "p_hac": null,
+        "p_net": null,
+        "repetitions": 5000,
+        "seed": 20261114,
+        "status": "BLOCKED_HURDLE"
+      },
+      {
+        "annual_incremental_cost": null,
+        "block_length": 120,
+        "caveat": "Approximate under weak stationarity; short/nonstationary histories need caution.",
+        "ci95": [
+          -0.0001535286916733354,
+          3.221774301034503e-05
+        ],
+        "daily_hurdle": null,
+        "descriptive_status": "DESCRIPTIVE_INFERENCE",
+        "economic_status": "BLOCKED_HURDLE",
+        "hac_lag": 6,
+        "hac_se": 9.65653288630728e-05,
+        "interval_type": "marginal_95_percent",
+        "mean_net_increment": -4.134436694520587e-05,
+        "method": "circular_block_bootstrap_t_HAC",
+        "minimum_detectable_daily_effect_80pct": 0.0002401072626163004,
+        "n_dates": 726,
+        "p_hac": null,
+        "p_net": null,
+        "repetitions": 5000,
+        "seed": 20261114,
+        "status": "BLOCKED_HURDLE"
+      }
+    ],
+    "pair": "VE-CE",
+    "path": "base",
+    "period": "validation",
+    "unknown_annual_incremental_fixed_cost": null,
+    "utility_intervals": [
+      {
+        "annualized_score_multiplier": 252,
+        "block_length": 60,
+        "caveat": "Approximate under weak stationarity; short/nonstationary histories need caution.",
+        "descriptive_status": "DESCRIPTIVE_INFERENCE",
+        "gamma": 5,
+        "hac_lag": 6,
+        "hac_se": 9.685085816002288e-05,
+        "interval_type": "marginal_95_percent",
+        "mean_utility_difference": 3.307922057662129e-05,
+        "method": "circular_block_bootstrap_t_HAC",
+        "monetary_interpretation": false,
+        "n_dates": 726,
+        "repetitions": 5000,
+        "seed": 20261114,
+        "unit": "UTILITY_SCORE_PER_DAY",
+        "utility_ci": [
+          -9.348244808277955e-05,
+          0.00015221804699175952
+        ]
+      },
+      {
+        "annualized_score_multiplier": 252,
+        "block_length": 20,
+        "caveat": "Approximate under weak stationarity; short/nonstationary histories need caution.",
+        "descriptive_status": "DESCRIPTIVE_INFERENCE",
+        "gamma": 5,
+        "hac_lag": 6,
+        "hac_se": 9.685085816002288e-05,
+        "interval_type": "marginal_95_percent",
+        "mean_utility_difference": 3.307922057662129e-05,
+        "method": "circular_block_bootstrap_t_HAC",
+        "monetary_interpretation": false,
+        "n_dates": 726,
+        "repetitions": 5000,
+        "seed": 20261114,
+        "unit": "UTILITY_SCORE_PER_DAY",
+        "utility_ci": [
+          -0.0001226783346376732,
+          0.00019497663792367805
+        ]
+      },
+      {
+        "annualized_score_multiplier": 252,
+        "block_length": 120,
+        "caveat": "Approximate under weak stationarity; short/nonstationary histories need caution.",
+        "descriptive_status": "DESCRIPTIVE_INFERENCE",
+        "gamma": 5,
+        "hac_lag": 6,
+        "hac_se": 9.685085816002288e-05,
+        "interval_type": "marginal_95_percent",
+        "mean_utility_difference": 3.307922057662129e-05,
+        "method": "circular_block_bootstrap_t_HAC",
+        "monetary_interpretation": false,
+        "n_dates": 726,
+        "repetitions": 5000,
+        "seed": 20261114,
+        "unit": "UTILITY_SCORE_PER_DAY",
+        "utility_ci": [
+          -5.2710602049230844e-05,
+          0.00011489709479829661
+        ]
+      }
+    ]
+  },
+  "robustness_sign_check": "ROBUSTNESS_SIGN_CHECK_PASSED",
+  "source_collection_requests": 0,
+  "total_account_sessions": 14544,
+  "total_fills": 4453
+}

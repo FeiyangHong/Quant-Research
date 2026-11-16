@@ -1,0 +1,17 @@
+{
+  "annual_incremental_cost": null,
+  "claim_type": "RISK_ALLOCATION_EXPLORATION",
+  "cost_multiplier": 3,
+  "execution_delay": 1,
+  "initial_cash": 100000,
+  "live_enabled": false,
+  "primary_capital_confirmed": true,
+  "protocol_version": "phase2-mvp-0.1",
+  "risk_scaling": true,
+  "sample": "validation",
+  "seed": 20261114,
+  "signal_release_delay": 1,
+  "slippage_multiplier": 3,
+  "universe": "M9_ETF_RISK_BUDGET_V1",
+  "variant": "VR"
+}

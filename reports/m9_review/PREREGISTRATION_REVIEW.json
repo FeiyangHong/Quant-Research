@@ -1,0 +1,21 @@
+{
+  "decision": "PASS_INDEPENDENT_PREREGISTRATION",
+  "author_role": "INDEPENDENT_REVIEWER",
+  "reviewed_at": "2026-11-16T05:28:10.584046+00:00",
+  "commit": "a696c13dc2f6bf7aba4820fc1ee16ed55dd19ad5",
+  "committed_file_sha256": {
+    "reports/m9_risk/EXPERIMENT_REGISTRY.json": "0f5da9f0fd2d906008739dddf894957498b947b876a621bad6513ee32143ef51",
+    "docs/M9_PLAN.md": "7e7880ec21e73376238ed43985d35db1ce1d83ca8ecddae6738960e53912e6c2"
+  },
+  "fixed_trials": 24,
+  "new_accounts_present": false,
+  "profitability_is_not_a_gate": true,
+  "boundaries": [
+    "No new market collection",
+    "Independent periods",
+    "Single gamma5",
+    "Only base paired CIs",
+    "Shared first legal development anchor c",
+    "Unknown fixed cost remains null"
+  ]
+}

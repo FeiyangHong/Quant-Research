@@ -1,0 +1,1859 @@
+{
+  "status": "PASS_FINAL_GENERATED_CONTENT_AT_AUDIT",
+  "reviewed_at": "2026-11-16T05:57:49.150508+00:00",
+  "execution_commit": "a2fbb04e76c6e80c262eb86ab621e2dc49f29635",
+  "source_hash": "dc4e7a79f6f5373d5af15d71def409d54e7209d3ae927c818c72d31d5a96e6a3",
+  "source_file_count": 157,
+  "working_source_files_match_execution_and_all_accounts": true,
+  "private_source_snapshot_hash_checks": 3768,
+  "accounts": 24,
+  "public_files_per_account": 8,
+  "public_export_hash_checks": 192,
+  "private_ledger_hash_checks": 552,
+  "original_source_pointer_hash_checks": 558,
+  "original_dataset_file_hash_checks": 14,
+  "original_scope_manifest_and_ledgers_unchanged": true,
+  "ignored_private_ledger_files_verified": 48,
+  "tracked_runs_or_data_paths": 0,
+  "public_account_file_allowlist": [
+    "config.json",
+    "decisions.json",
+    "execution_assumptions.json",
+    "metrics.json",
+    "nav.json",
+    "provenance.json",
+    "risk_signals.json",
+    "table_hashes.json"
+  ],
+  "public_content_scan": {
+    "json_files": 212,
+    "csv_files": 8,
+    "raw_market_field_findings": 0,
+    "long_json_source_strings": 0,
+    "excluded_raw_field_names": [
+      "adv20",
+      "amount",
+      "basket_returns",
+      "cash_per_share",
+      "close",
+      "endpoints",
+      "high",
+      "low",
+      "open",
+      "opening_source_text",
+      "price",
+      "reference_price",
+      "reference_prices",
+      "snippet",
+      "source_reference_price",
+      "source_text",
+      "total_return_index",
+      "tr",
+      "volume",
+      "window_observations"
+    ],
+    "semantic_exceptions": [
+      {
+        "path": "reports/m9_review/ALL_ACCOUNT_INDEPENDENT_REVIEW.json",
+        "json_pointer": "/accounts/0/maximum_participation/amount",
+        "meaning": "DIMENSIONLESS_MAXIMUM_EXECUTED_NOTIONAL_DIVIDED_BY_DAILY_MARKET_AMOUNT"
+      },
+      {
+        "path": "reports/m9_review/ALL_ACCOUNT_INDEPENDENT_REVIEW.json",
+        "json_pointer": "/accounts/1/maximum_participation/amount",
+        "meaning": "DIMENSIONLESS_MAXIMUM_EXECUTED_NOTIONAL_DIVIDED_BY_DAILY_MARKET_AMOUNT"
+      },
+      {
+        "path": "reports/m9_review/ALL_ACCOUNT_INDEPENDENT_REVIEW.json",
+        "json_pointer": "/accounts/2/maximum_participation/amount",
+        "meaning": "DIMENSIONLESS_MAXIMUM_EXECUTED_NOTIONAL_DIVIDED_BY_DAILY_MARKET_AMOUNT"
+      },
+      {
+        "path": "reports/m9_review/ALL_ACCOUNT_INDEPENDENT_REVIEW.json",
+        "json_pointer": "/accounts/3/maximum_participation/amount",
+        "meaning": "DIMENSIONLESS_MAXIMUM_EXECUTED_NOTIONAL_DIVIDED_BY_DAILY_MARKET_AMOUNT"
+      },
+      {
+        "path": "reports/m9_review/ALL_ACCOUNT_INDEPENDENT_REVIEW.json",
+        "json_pointer": "/accounts/4/maximum_participation/amount",
+        "meaning": "DIMENSIONLESS_MAXIMUM_EXECUTED_NOTIONAL_DIVIDED_BY_DAILY_MARKET_AMOUNT"
+      },
+      {
+        "path": "reports/m9_review/ALL_ACCOUNT_INDEPENDENT_REVIEW.json",
+        "json_pointer": "/accounts/5/maximum_participation/amount",
+        "meaning": "DIMENSIONLESS_MAXIMUM_EXECUTED_NOTIONAL_DIVIDED_BY_DAILY_MARKET_AMOUNT"
+      },
+      {
+        "path": "reports/m9_review/ALL_ACCOUNT_INDEPENDENT_REVIEW.json",
+        "json_pointer": "/accounts/6/maximum_participation/amount",
+        "meaning": "DIMENSIONLESS_MAXIMUM_EXECUTED_NOTIONAL_DIVIDED_BY_DAILY_MARKET_AMOUNT"
+      },
+      {
+        "path": "reports/m9_review/ALL_ACCOUNT_INDEPENDENT_REVIEW.json",
+        "json_pointer": "/accounts/7/maximum_participation/amount",
+        "meaning": "DIMENSIONLESS_MAXIMUM_EXECUTED_NOTIONAL_DIVIDED_BY_DAILY_MARKET_AMOUNT"
+      },
+      {
+        "path": "reports/m9_review/ALL_ACCOUNT_INDEPENDENT_REVIEW.json",
+        "json_pointer": "/accounts/8/maximum_participation/amount",
+        "meaning": "DIMENSIONLESS_MAXIMUM_EXECUTED_NOTIONAL_DIVIDED_BY_DAILY_MARKET_AMOUNT"
+      },
+      {
+        "path": "reports/m9_review/ALL_ACCOUNT_INDEPENDENT_REVIEW.json",
+        "json_pointer": "/accounts/9/maximum_participation/amount",
+        "meaning": "DIMENSIONLESS_MAXIMUM_EXECUTED_NOTIONAL_DIVIDED_BY_DAILY_MARKET_AMOUNT"
+      },
+      {
+        "path": "reports/m9_review/ALL_ACCOUNT_INDEPENDENT_REVIEW.json",
+        "json_pointer": "/accounts/10/maximum_participation/amount",
+        "meaning": "DIMENSIONLESS_MAXIMUM_EXECUTED_NOTIONAL_DIVIDED_BY_DAILY_MARKET_AMOUNT"
+      },
+      {
+        "path": "reports/m9_review/ALL_ACCOUNT_INDEPENDENT_REVIEW.json",
+        "json_pointer": "/accounts/11/maximum_participation/amount",
+        "meaning": "DIMENSIONLESS_MAXIMUM_EXECUTED_NOTIONAL_DIVIDED_BY_DAILY_MARKET_AMOUNT"
+      },
+      {
+        "path": "reports/m9_review/ALL_ACCOUNT_INDEPENDENT_REVIEW.json",
+        "json_pointer": "/accounts/12/maximum_participation/amount",
+        "meaning": "DIMENSIONLESS_MAXIMUM_EXECUTED_NOTIONAL_DIVIDED_BY_DAILY_MARKET_AMOUNT"
+      },
+      {
+        "path": "reports/m9_review/ALL_ACCOUNT_INDEPENDENT_REVIEW.json",
+        "json_pointer": "/accounts/13/maximum_participation/amount",
+        "meaning": "DIMENSIONLESS_MAXIMUM_EXECUTED_NOTIONAL_DIVIDED_BY_DAILY_MARKET_AMOUNT"
+      },
+      {
+        "path": "reports/m9_review/ALL_ACCOUNT_INDEPENDENT_REVIEW.json",
+        "json_pointer": "/accounts/14/maximum_participation/amount",
+        "meaning": "DIMENSIONLESS_MAXIMUM_EXECUTED_NOTIONAL_DIVIDED_BY_DAILY_MARKET_AMOUNT"
+      },
+      {
+        "path": "reports/m9_review/ALL_ACCOUNT_INDEPENDENT_REVIEW.json",
+        "json_pointer": "/accounts/15/maximum_participation/amount",
+        "meaning": "DIMENSIONLESS_MAXIMUM_EXECUTED_NOTIONAL_DIVIDED_BY_DAILY_MARKET_AMOUNT"
+      },
+      {
+        "path": "reports/m9_review/ALL_ACCOUNT_INDEPENDENT_REVIEW.json",
+        "json_pointer": "/accounts/16/maximum_participation/amount",
+        "meaning": "DIMENSIONLESS_MAXIMUM_EXECUTED_NOTIONAL_DIVIDED_BY_DAILY_MARKET_AMOUNT"
+      },
+      {
+        "path": "reports/m9_review/ALL_ACCOUNT_INDEPENDENT_REVIEW.json",
+        "json_pointer": "/accounts/17/maximum_participation/amount",
+        "meaning": "DIMENSIONLESS_MAXIMUM_EXECUTED_NOTIONAL_DIVIDED_BY_DAILY_MARKET_AMOUNT"
+      },
+      {
+        "path": "reports/m9_review/ALL_ACCOUNT_INDEPENDENT_REVIEW.json",
+        "json_pointer": "/accounts/18/maximum_participation/amount",
+        "meaning": "DIMENSIONLESS_MAXIMUM_EXECUTED_NOTIONAL_DIVIDED_BY_DAILY_MARKET_AMOUNT"
+      },
+      {
+        "path": "reports/m9_review/ALL_ACCOUNT_INDEPENDENT_REVIEW.json",
+        "json_pointer": "/accounts/19/maximum_participation/amount",
+        "meaning": "DIMENSIONLESS_MAXIMUM_EXECUTED_NOTIONAL_DIVIDED_BY_DAILY_MARKET_AMOUNT"
+      },
+      {
+        "path": "reports/m9_review/ALL_ACCOUNT_INDEPENDENT_REVIEW.json",
+        "json_pointer": "/accounts/20/maximum_participation/amount",
+        "meaning": "DIMENSIONLESS_MAXIMUM_EXECUTED_NOTIONAL_DIVIDED_BY_DAILY_MARKET_AMOUNT"
+      },
+      {
+        "path": "reports/m9_review/ALL_ACCOUNT_INDEPENDENT_REVIEW.json",
+        "json_pointer": "/accounts/21/maximum_participation/amount",
+        "meaning": "DIMENSIONLESS_MAXIMUM_EXECUTED_NOTIONAL_DIVIDED_BY_DAILY_MARKET_AMOUNT"
+      },
+      {
+        "path": "reports/m9_review/ALL_ACCOUNT_INDEPENDENT_REVIEW.json",
+        "json_pointer": "/accounts/22/maximum_participation/amount",
+        "meaning": "DIMENSIONLESS_MAXIMUM_EXECUTED_NOTIONAL_DIVIDED_BY_DAILY_MARKET_AMOUNT"
+      },
+      {
+        "path": "reports/m9_review/ALL_ACCOUNT_INDEPENDENT_REVIEW.json",
+        "json_pointer": "/accounts/23/maximum_participation/amount",
+        "meaning": "DIMENSIONLESS_MAXIMUM_EXECUTED_NOTIONAL_DIVIDED_BY_DAILY_MARKET_AMOUNT"
+      },
+      {
+        "path": "reports/m9_review/BASE_INDEPENDENT_REVIEW.json",
+        "json_pointer": "/accounts/0/maximum_participation/amount",
+        "meaning": "DIMENSIONLESS_MAXIMUM_EXECUTED_NOTIONAL_DIVIDED_BY_DAILY_MARKET_AMOUNT"
+      },
+      {
+        "path": "reports/m9_review/BASE_INDEPENDENT_REVIEW.json",
+        "json_pointer": "/accounts/1/maximum_participation/amount",
+        "meaning": "DIMENSIONLESS_MAXIMUM_EXECUTED_NOTIONAL_DIVIDED_BY_DAILY_MARKET_AMOUNT"
+      },
+      {
+        "path": "reports/m9_review/BASE_INDEPENDENT_REVIEW.json",
+        "json_pointer": "/accounts/2/maximum_participation/amount",
+        "meaning": "DIMENSIONLESS_MAXIMUM_EXECUTED_NOTIONAL_DIVIDED_BY_DAILY_MARKET_AMOUNT"
+      },
+      {
+        "path": "reports/m9_review/BASE_INDEPENDENT_REVIEW.json",
+        "json_pointer": "/accounts/3/maximum_participation/amount",
+        "meaning": "DIMENSIONLESS_MAXIMUM_EXECUTED_NOTIONAL_DIVIDED_BY_DAILY_MARKET_AMOUNT"
+      },
+      {
+        "path": "reports/m9_review/BASE_INDEPENDENT_REVIEW.json",
+        "json_pointer": "/accounts/4/maximum_participation/amount",
+        "meaning": "DIMENSIONLESS_MAXIMUM_EXECUTED_NOTIONAL_DIVIDED_BY_DAILY_MARKET_AMOUNT"
+      },
+      {
+        "path": "reports/m9_review/BASE_INDEPENDENT_REVIEW.json",
+        "json_pointer": "/accounts/5/maximum_participation/amount",
+        "meaning": "DIMENSIONLESS_MAXIMUM_EXECUTED_NOTIONAL_DIVIDED_BY_DAILY_MARKET_AMOUNT"
+      }
+    ],
+    "exception_explanation": "30 amount keys are 6+24 aggregate dimensionless participation ratios, not raw currency/market amount observations. No raw fields occur in account-derived JSON."
+  },
+  "inspected_file_sha256": [
+    {
+      "path": "reports/m9_risk/account_metrics.csv",
+      "sha256": "e2f347cf0f105ae74f3a17a88b213e5a37307fd6c72c7ed9dca3bd827d7aa609",
+      "bytes": 17668
+    },
+    {
+      "path": "reports/m9_risk/ACCOUNT_PATHS.json",
+      "sha256": "2d5c09ba07c10af9921b9b391e3712bab60d7ea9334a02b77b7596ff7c33e7e5",
+      "bytes": 122329
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_development_CE_100000_base/config.json",
+      "sha256": "13c3d9301e9244d9daf69461b8aa558f01bad3183abd33a194add99e1014c0e9",
+      "bytes": 464
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_development_CE_100000_base/decisions.json",
+      "sha256": "1d6fb9522c3a8a3ce7a2bf4eee8e82834ddec6f515da6941fff10102ed017ffc",
+      "bytes": 197970
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_development_CE_100000_base/execution_assumptions.json",
+      "sha256": "9538647d9b4673013126fc6ecd0dc769bedc163d523f69d913eabf74da7b4aba",
+      "bytes": 842
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_development_CE_100000_base/metrics.json",
+      "sha256": "9664b0b8c3a0310e6737a293cdf7d8916bb4ca8c3aa23fce7e47bd7ba6dfcc03",
+      "bytes": 605
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_development_CE_100000_base/nav.json",
+      "sha256": "fbf37eebeaa55202b8db00770a1a10aa0a7e78ee96a159096b5e309676ca31ab",
+      "bytes": 249709
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_development_CE_100000_base/provenance.json",
+      "sha256": "df7c4c93105eb23dcc69580c78041d0c3d216c5da4fe97a3de6f3ac4e8532d99",
+      "bytes": 18031
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_development_CE_100000_base/risk_signals.json",
+      "sha256": "650764bffb75f7be5a976425cdec89aec47bca3b50e7c20193f1d4e6e71aa219",
+      "bytes": 169604
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_development_CE_100000_base/table_hashes.json",
+      "sha256": "8e4d9193756945e6fd38953e6ccce2c581e3a31d5c326882d0533e35e8b50eca",
+      "bytes": 1273
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_development_CE_100000_cost_2x/config.json",
+      "sha256": "003e6f8339398fdcf79953534894fb0bf7e84c18269add3f0bcd30978382bf68",
+      "bytes": 464
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_development_CE_100000_cost_2x/decisions.json",
+      "sha256": "1d6fb9522c3a8a3ce7a2bf4eee8e82834ddec6f515da6941fff10102ed017ffc",
+      "bytes": 197970
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_development_CE_100000_cost_2x/execution_assumptions.json",
+      "sha256": "9538647d9b4673013126fc6ecd0dc769bedc163d523f69d913eabf74da7b4aba",
+      "bytes": 842
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_development_CE_100000_cost_2x/metrics.json",
+      "sha256": "c4b67fdad6afe515f44de2839a1163611d9055e5c6470fd71e0b2a4d111ad33b",
+      "bytes": 618
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_development_CE_100000_cost_2x/nav.json",
+      "sha256": "cfb3ec0fba526b26ef0534c73c4df0a9a29bda976e88d6a4157485146a20ebdb",
+      "bytes": 249583
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_development_CE_100000_cost_2x/provenance.json",
+      "sha256": "f3a611ea33e232b7df30ba2f712f95217d7ad33fee76905b71dece84ed006965",
+      "bytes": 18096
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_development_CE_100000_cost_2x/risk_signals.json",
+      "sha256": "650764bffb75f7be5a976425cdec89aec47bca3b50e7c20193f1d4e6e71aa219",
+      "bytes": 169604
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_development_CE_100000_cost_2x/table_hashes.json",
+      "sha256": "0d03f3c68fe0355a0f140598812345fc1c8538b57609ec3976540dbc4950ab03",
+      "bytes": 1273
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_development_CE_100000_cost_3x/config.json",
+      "sha256": "711e018c2791d20c7d32f6ae90e865e71f7533d2084fe1c550f4b5ba578a7fd9",
+      "bytes": 464
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_development_CE_100000_cost_3x/decisions.json",
+      "sha256": "1d6fb9522c3a8a3ce7a2bf4eee8e82834ddec6f515da6941fff10102ed017ffc",
+      "bytes": 197970
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_development_CE_100000_cost_3x/execution_assumptions.json",
+      "sha256": "9538647d9b4673013126fc6ecd0dc769bedc163d523f69d913eabf74da7b4aba",
+      "bytes": 842
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_development_CE_100000_cost_3x/metrics.json",
+      "sha256": "253109c547cc6fc81b6c3c6d4131157b797ae2df0bef0e8ab90f986f30361593",
+      "bytes": 618
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_development_CE_100000_cost_3x/nav.json",
+      "sha256": "4840764a0055351c01aa9f6bb597c35c828d1c8de5c0332cb724ebe8c230fdc5",
+      "bytes": 248654
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_development_CE_100000_cost_3x/provenance.json",
+      "sha256": "4b1e4ccc4fe538382df65d08abcfcd8dd850bbeddca7be6230a6891d9d0c011b",
+      "bytes": 18096
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_development_CE_100000_cost_3x/risk_signals.json",
+      "sha256": "650764bffb75f7be5a976425cdec89aec47bca3b50e7c20193f1d4e6e71aa219",
+      "bytes": 169604
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_development_CE_100000_cost_3x/table_hashes.json",
+      "sha256": "d833b962ffaf98ae7fbc83b9ed1b76b341b4c5689fabd7108fb35a96dd95ede1",
+      "bytes": 1273
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_development_CE_100000_delay_1_session/config.json",
+      "sha256": "13e7e3309a1597ae6274e06d3dbd1e7827ac2188be358446482af18fb84eba6b",
+      "bytes": 464
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_development_CE_100000_delay_1_session/decisions.json",
+      "sha256": "4545dda827e156132f11c2ae34ddb8e335aadc596ac0a2c20e651a4dd7aac723",
+      "bytes": 197970
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_development_CE_100000_delay_1_session/execution_assumptions.json",
+      "sha256": "9538647d9b4673013126fc6ecd0dc769bedc163d523f69d913eabf74da7b4aba",
+      "bytes": 842
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_development_CE_100000_delay_1_session/metrics.json",
+      "sha256": "f5bba7b02905717f8d4db220602744063b10c7b07915fe3ecb506927c78456e9",
+      "bytes": 624
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_development_CE_100000_delay_1_session/nav.json",
+      "sha256": "e68093f5982c8a2faefc80a33f38349155f2a07bee7910b647fa4d1916c6b496",
+      "bytes": 246351
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_development_CE_100000_delay_1_session/provenance.json",
+      "sha256": "f181613b1ee6e9e9e06999cd142be263277e7e125d94bf9495dad5a0d74d5804",
+      "bytes": 18104
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_development_CE_100000_delay_1_session/risk_signals.json",
+      "sha256": "ca533ecf14c2d58c90b72da86badd0c95ebbdde50e3b0fd3b9b7b8316184e0af",
+      "bytes": 169604
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_development_CE_100000_delay_1_session/table_hashes.json",
+      "sha256": "6310643a16963875ef1ddd1c6610b4061a271bf57f2801e99288c75b7ea077b2",
+      "bytes": 1273
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_development_VE_100000_base/config.json",
+      "sha256": "adb0b1ff1b52f553c943809b5c26e74fd5a99781285142e8f2ade8282f330abf",
+      "bytes": 464
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_development_VE_100000_base/decisions.json",
+      "sha256": "1c2abecc8f473bc1339c936ae9dbd95a9a01fc4238e41cce9eaab01e60264ce2",
+      "bytes": 197997
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_development_VE_100000_base/execution_assumptions.json",
+      "sha256": "9538647d9b4673013126fc6ecd0dc769bedc163d523f69d913eabf74da7b4aba",
+      "bytes": 842
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_development_VE_100000_base/metrics.json",
+      "sha256": "d44bd3bb9bcf3da4a919917783b5b51d63cf84fe893fae180409ee7b8a3f4b2d",
+      "bytes": 615
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_development_VE_100000_base/nav.json",
+      "sha256": "16a742e67506c94798883002e6d3246bc2d75b75d232aa655f3b5e3120eaae64",
+      "bytes": 250590
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_development_VE_100000_base/provenance.json",
+      "sha256": "68acc5ea00959dc646de42efe7c6116a152f9c359a07d25fd64169a0bbee0cfd",
+      "bytes": 18031
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_development_VE_100000_base/risk_signals.json",
+      "sha256": "3423847d30563da11327e9e8da1b90509407849dd7b893eb773472c132eef465",
+      "bytes": 169619
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_development_VE_100000_base/table_hashes.json",
+      "sha256": "9d4d7de63794acf977ac62194d9fabb8c312a613f6ea1082730ccb8efdce73c9",
+      "bytes": 1273
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_development_VE_100000_cost_2x/config.json",
+      "sha256": "220f4cc0599b5f77988e269fb941c870ca9bab8f6f7c19e5d6df5da5967b3593",
+      "bytes": 464
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_development_VE_100000_cost_2x/decisions.json",
+      "sha256": "1c2abecc8f473bc1339c936ae9dbd95a9a01fc4238e41cce9eaab01e60264ce2",
+      "bytes": 197997
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_development_VE_100000_cost_2x/execution_assumptions.json",
+      "sha256": "9538647d9b4673013126fc6ecd0dc769bedc163d523f69d913eabf74da7b4aba",
+      "bytes": 842
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_development_VE_100000_cost_2x/metrics.json",
+      "sha256": "5aa2bca4565312652101da75ad399f51f96b4d544aed6d9019d099ea7cf8a13f",
+      "bytes": 617
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_development_VE_100000_cost_2x/nav.json",
+      "sha256": "4548d7d4f428b5e77bf434f371d725268492ad433a831437dee7589b8a3c6437",
+      "bytes": 250563
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_development_VE_100000_cost_2x/provenance.json",
+      "sha256": "2b3fee9e606e22fee2af2e2503f54344c09d676b2eff30bb746bc07e6d4790ab",
+      "bytes": 18096
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_development_VE_100000_cost_2x/risk_signals.json",
+      "sha256": "3423847d30563da11327e9e8da1b90509407849dd7b893eb773472c132eef465",
+      "bytes": 169619
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_development_VE_100000_cost_2x/table_hashes.json",
+      "sha256": "9b61099691b7b4b93975131710bd6454fc9f0aabc905363182e5abf6d1624838",
+      "bytes": 1273
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_development_VE_100000_cost_3x/config.json",
+      "sha256": "0dc343758242bb47f992d3f3ed240c143d4a62a86b8463a92478fadf959571a9",
+      "bytes": 464
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_development_VE_100000_cost_3x/decisions.json",
+      "sha256": "1c2abecc8f473bc1339c936ae9dbd95a9a01fc4238e41cce9eaab01e60264ce2",
+      "bytes": 197997
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_development_VE_100000_cost_3x/execution_assumptions.json",
+      "sha256": "9538647d9b4673013126fc6ecd0dc769bedc163d523f69d913eabf74da7b4aba",
+      "bytes": 842
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_development_VE_100000_cost_3x/metrics.json",
+      "sha256": "9769a457d8d0fa2043a928a88e18e68d16b186aeac7ee3b5007c82528d6c130b",
+      "bytes": 618
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_development_VE_100000_cost_3x/nav.json",
+      "sha256": "ac101bb3259dca4b5b13dd611c01c4ed85cdb309a7b3d182491e709c3dd25883",
+      "bytes": 249093
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_development_VE_100000_cost_3x/provenance.json",
+      "sha256": "3a415b7c478c1f5363c1db17c85be4974155ee1ff31b0bc1687a57fe2f9ad3d2",
+      "bytes": 18096
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_development_VE_100000_cost_3x/risk_signals.json",
+      "sha256": "3423847d30563da11327e9e8da1b90509407849dd7b893eb773472c132eef465",
+      "bytes": 169619
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_development_VE_100000_cost_3x/table_hashes.json",
+      "sha256": "3fab7826377ab2223395a046ca5d8a6d537dfc143f9295307408dd7cde844f69",
+      "bytes": 1273
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_development_VE_100000_delay_1_session/config.json",
+      "sha256": "eb859996e632fa24d8585992fd23a12b88027478f5e889f628794264d8c89779",
+      "bytes": 464
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_development_VE_100000_delay_1_session/decisions.json",
+      "sha256": "fc5b86671617a31423a80928cbc49c62871326d384a918ef49688c05bc912827",
+      "bytes": 197997
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_development_VE_100000_delay_1_session/execution_assumptions.json",
+      "sha256": "9538647d9b4673013126fc6ecd0dc769bedc163d523f69d913eabf74da7b4aba",
+      "bytes": 842
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_development_VE_100000_delay_1_session/metrics.json",
+      "sha256": "d0b5e93dffcdefd918febca48aea5a677bd8246f1770fbdb52a3e094c9119f05",
+      "bytes": 624
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_development_VE_100000_delay_1_session/nav.json",
+      "sha256": "5b2e61f3df471b984ab70265bf6c3766bc41238a870b3a031653dd5a175a11ef",
+      "bytes": 247638
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_development_VE_100000_delay_1_session/provenance.json",
+      "sha256": "69a84d4d5a5da31ee85a3aace2be3ae63df79a9a17ce3ea5a7e1ce826ac1be9f",
+      "bytes": 18104
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_development_VE_100000_delay_1_session/risk_signals.json",
+      "sha256": "742dbdedab15974479c9fd1c0c2b265a4067899de9cae96859f415eadb2690e3",
+      "bytes": 169619
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_development_VE_100000_delay_1_session/table_hashes.json",
+      "sha256": "d7e79bd8757ee3692222690871e0b18c26c785e84ecff43fed98736fac4f851c",
+      "bytes": 1273
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_development_VR_100000_base/config.json",
+      "sha256": "31df12f583a9f1668e1a2185822694458090df3002883616e211d4e99f229953",
+      "bytes": 464
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_development_VR_100000_base/decisions.json",
+      "sha256": "22469a124e04fdcd4ba987e634bbbfe51db76f7503d84c099f881518ff643a55",
+      "bytes": 183778
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_development_VR_100000_base/execution_assumptions.json",
+      "sha256": "9538647d9b4673013126fc6ecd0dc769bedc163d523f69d913eabf74da7b4aba",
+      "bytes": 842
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_development_VR_100000_base/metrics.json",
+      "sha256": "2af1f5dc9b4d3a32906ef748cd03ac29981b2c721a3737ba59dc6ce7ae515b25",
+      "bytes": 605
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_development_VR_100000_base/nav.json",
+      "sha256": "f004638e8943a2b27625768333cfccc0207fd12b372761cd36bc0ab9a413b571",
+      "bytes": 250093
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_development_VR_100000_base/provenance.json",
+      "sha256": "f98df1f66450fdfed5d8083c32659abccda42682008b18da39ea5f30a95832dd",
+      "bytes": 18031
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_development_VR_100000_base/risk_signals.json",
+      "sha256": "8ea9008040a88266e8139568f685082ef1066a597eb6afe3bf991c6ee3991f20",
+      "bytes": 163159
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_development_VR_100000_base/table_hashes.json",
+      "sha256": "5ee6c3c754303e3c04723ddda0040fb0d778904dac4f794f3ec91d77333949f4",
+      "bytes": 1273
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_development_VR_100000_cost_2x/config.json",
+      "sha256": "08e98d3271fdca3afc602633ee34f760b5cba802ce8f25fddfafb621fa5c79be",
+      "bytes": 464
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_development_VR_100000_cost_2x/decisions.json",
+      "sha256": "22469a124e04fdcd4ba987e634bbbfe51db76f7503d84c099f881518ff643a55",
+      "bytes": 183778
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_development_VR_100000_cost_2x/execution_assumptions.json",
+      "sha256": "9538647d9b4673013126fc6ecd0dc769bedc163d523f69d913eabf74da7b4aba",
+      "bytes": 842
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_development_VR_100000_cost_2x/metrics.json",
+      "sha256": "673a337d1374dd64b6b2caa58820a2e91b438c0d75895595038c85936fa720ac",
+      "bytes": 617
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_development_VR_100000_cost_2x/nav.json",
+      "sha256": "7b891bf38f0ec9c34aeb8869713a7f01492c566d04f2b02ad9503893845c1ad6",
+      "bytes": 250385
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_development_VR_100000_cost_2x/provenance.json",
+      "sha256": "171b55bbf72c46b2724be0190923404d33cfd630ff4d79d53cbd73c88110c6a5",
+      "bytes": 18096
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_development_VR_100000_cost_2x/risk_signals.json",
+      "sha256": "8ea9008040a88266e8139568f685082ef1066a597eb6afe3bf991c6ee3991f20",
+      "bytes": 163159
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_development_VR_100000_cost_2x/table_hashes.json",
+      "sha256": "9767e033209a190a7129b3cb03f5114669343a83702523bad237c42ea40c60c1",
+      "bytes": 1273
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_development_VR_100000_cost_3x/config.json",
+      "sha256": "a640ae493724fe663d18d1d3e3d5bea09f429871ccffbcbf677aabb633ad1991",
+      "bytes": 464
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_development_VR_100000_cost_3x/decisions.json",
+      "sha256": "22469a124e04fdcd4ba987e634bbbfe51db76f7503d84c099f881518ff643a55",
+      "bytes": 183778
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_development_VR_100000_cost_3x/execution_assumptions.json",
+      "sha256": "9538647d9b4673013126fc6ecd0dc769bedc163d523f69d913eabf74da7b4aba",
+      "bytes": 842
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_development_VR_100000_cost_3x/metrics.json",
+      "sha256": "eaf97c53fb7853ea818a04ec27c31b9f84aebb1964633ec31ac961720a59e6b2",
+      "bytes": 617
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_development_VR_100000_cost_3x/nav.json",
+      "sha256": "0cf2e7bb7c0c90a9dc2d0e1460412ce818b23a7774125227317459447d63f0fe",
+      "bytes": 250069
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_development_VR_100000_cost_3x/provenance.json",
+      "sha256": "45b0a6a1b68bdaea6235d993be0688cc2c7219f1724b235ce5d123f0cfe16c9d",
+      "bytes": 18096
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_development_VR_100000_cost_3x/risk_signals.json",
+      "sha256": "8ea9008040a88266e8139568f685082ef1066a597eb6afe3bf991c6ee3991f20",
+      "bytes": 163159
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_development_VR_100000_cost_3x/table_hashes.json",
+      "sha256": "2fcfb87ea88500b21dc16725fded200e030b4cb4eeefdd0a1b2baa944cd04b26",
+      "bytes": 1273
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_development_VR_100000_delay_1_session/config.json",
+      "sha256": "8332e3011d37994e8789346054bfb71e91632cb46ddb80f5968d032fc44d307f",
+      "bytes": 464
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_development_VR_100000_delay_1_session/decisions.json",
+      "sha256": "5e3af56422223ac3e8c1b655fd1c4dd69e1ada22158ffc128e0ce5e0c326d63e",
+      "bytes": 183778
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_development_VR_100000_delay_1_session/execution_assumptions.json",
+      "sha256": "9538647d9b4673013126fc6ecd0dc769bedc163d523f69d913eabf74da7b4aba",
+      "bytes": 842
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_development_VR_100000_delay_1_session/metrics.json",
+      "sha256": "3bc6766877ca7ebfaa2607d8f74ea6341f4fd2b74b14e8afc53ade36da526ae7",
+      "bytes": 614
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_development_VR_100000_delay_1_session/nav.json",
+      "sha256": "0527666fe729678e5957144dbd4b49874257e903a782519629198f9bc2c9ab81",
+      "bytes": 250014
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_development_VR_100000_delay_1_session/provenance.json",
+      "sha256": "2631065c55f809e7e0c3a81980991317c5ad76c1376cd1bb400689b87ff4e391",
+      "bytes": 18104
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_development_VR_100000_delay_1_session/risk_signals.json",
+      "sha256": "601934b336b73c63decda9433259dc4f3f45c1b22569f443b568b055b0d493e1",
+      "bytes": 163159
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_development_VR_100000_delay_1_session/table_hashes.json",
+      "sha256": "0e52c8d4226c545431cf24985aa02dd66481f3650d69e168789c3af085138d8f",
+      "bytes": 1273
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_validation_CE_100000_base/config.json",
+      "sha256": "7389e700cba4143f90f2c83b423fe38e6c985ad3ecc58322e25f404a3f6f8560",
+      "bytes": 463
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_validation_CE_100000_base/decisions.json",
+      "sha256": "31ad675299139709dca38fe96e30f63e916a46198f30d4b476143a669224862b",
+      "bytes": 319652
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_validation_CE_100000_base/execution_assumptions.json",
+      "sha256": "b6014e54bce38c57205ddd9474c37fdef2785363db5cf9a591614b8d603ee97d",
+      "bytes": 841
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_validation_CE_100000_base/metrics.json",
+      "sha256": "a38701933562009184f8fe5245f187484b78f3d12579fc270a2f6dce605ffd9b",
+      "bytes": 616
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_validation_CE_100000_base/nav.json",
+      "sha256": "09a0148a5dc0269373b0a7cbb4cd2b6c295e278e5a437a57c3b2bfd8296389cc",
+      "bytes": 368675
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_validation_CE_100000_base/provenance.json",
+      "sha256": "d32fe0ef13186e6ec3cede094f0797c4fb44e673911d4b18c9c6f7c90e4e1cd6",
+      "bytes": 18030
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_validation_CE_100000_base/risk_signals.json",
+      "sha256": "66d90a9c4d7b764c22a7eb84533537bd09dc100f1c7ae7cd63565499eb92b53d",
+      "bytes": 271182
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_validation_CE_100000_base/table_hashes.json",
+      "sha256": "bbb6efa2f04694c3f8a8a8dca08946e6aaae6390aa788db29e4a6cdb0f6562aa",
+      "bytes": 1273
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_validation_CE_100000_cost_2x/config.json",
+      "sha256": "42b9e50c8ba29a19cb1ab0bbcd293ece7c7560a5d0c55a19aa61c81d5184e060",
+      "bytes": 463
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_validation_CE_100000_cost_2x/decisions.json",
+      "sha256": "31ad675299139709dca38fe96e30f63e916a46198f30d4b476143a669224862b",
+      "bytes": 319652
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_validation_CE_100000_cost_2x/execution_assumptions.json",
+      "sha256": "b6014e54bce38c57205ddd9474c37fdef2785363db5cf9a591614b8d603ee97d",
+      "bytes": 841
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_validation_CE_100000_cost_2x/metrics.json",
+      "sha256": "e2277d07a5535e78483dc6ea1c7fa2af5f3843a2d70e66cf206b6c516457f1da",
+      "bytes": 621
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_validation_CE_100000_cost_2x/nav.json",
+      "sha256": "447ef65228d717c8b631ef57303c565330a5c716594fc5f066276ded5360cef3",
+      "bytes": 373385
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_validation_CE_100000_cost_2x/provenance.json",
+      "sha256": "2292aee9b393146e2f4e77d765ddb2ae0ab8fe7399d41ff40ce16f2d862bfbf3",
+      "bytes": 18095
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_validation_CE_100000_cost_2x/risk_signals.json",
+      "sha256": "66d90a9c4d7b764c22a7eb84533537bd09dc100f1c7ae7cd63565499eb92b53d",
+      "bytes": 271182
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_validation_CE_100000_cost_2x/table_hashes.json",
+      "sha256": "e32c0ccacf2a5e393c4a06fa2ba233fe9d14168dd1deaad2ed573a945db50f07",
+      "bytes": 1273
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_validation_CE_100000_cost_3x/config.json",
+      "sha256": "3e99b016fa9668a8c521e9e48f99c4363c61a9afe7c33fce61f109a074b05189",
+      "bytes": 463
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_validation_CE_100000_cost_3x/decisions.json",
+      "sha256": "31ad675299139709dca38fe96e30f63e916a46198f30d4b476143a669224862b",
+      "bytes": 319652
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_validation_CE_100000_cost_3x/execution_assumptions.json",
+      "sha256": "b6014e54bce38c57205ddd9474c37fdef2785363db5cf9a591614b8d603ee97d",
+      "bytes": 841
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_validation_CE_100000_cost_3x/metrics.json",
+      "sha256": "ced326d8a4474570f971625af72e9f22ae6e803c1585a4dba465e4f7b7887254",
+      "bytes": 622
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_validation_CE_100000_cost_3x/nav.json",
+      "sha256": "85f37ae3e9d7966d7e772718add738599357b29c63d2ce6035aa66a198a3749d",
+      "bytes": 371118
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_validation_CE_100000_cost_3x/provenance.json",
+      "sha256": "2e860c8e60304cca6144fb0b846d3b45d655c0ffb5db24b16c240aaaba900e32",
+      "bytes": 18095
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_validation_CE_100000_cost_3x/risk_signals.json",
+      "sha256": "66d90a9c4d7b764c22a7eb84533537bd09dc100f1c7ae7cd63565499eb92b53d",
+      "bytes": 271182
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_validation_CE_100000_cost_3x/table_hashes.json",
+      "sha256": "27dcaef85d78c49068b65702235bb363aa3d1749f521d231597fa00f18b8760f",
+      "bytes": 1273
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_validation_CE_100000_delay_1_session/config.json",
+      "sha256": "3d55e6c0da4d5dd15c77f3112092d7a7f217317cbc5dc238146f20b9c0a7addd",
+      "bytes": 463
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_validation_CE_100000_delay_1_session/decisions.json",
+      "sha256": "59e5f189d52730ec59f93b93c244d07055b64d2b52fc08ef4eca4ef792b370e8",
+      "bytes": 319652
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_validation_CE_100000_delay_1_session/execution_assumptions.json",
+      "sha256": "b6014e54bce38c57205ddd9474c37fdef2785363db5cf9a591614b8d603ee97d",
+      "bytes": 841
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_validation_CE_100000_delay_1_session/metrics.json",
+      "sha256": "48348f361b963e9d3913b952cc2ba2137d87e5db98ad4be848a89d01bb555363",
+      "bytes": 630
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_validation_CE_100000_delay_1_session/nav.json",
+      "sha256": "8df268c9942bd3741ddb3a223ee483cf03b21386bed8970f53d53b607f3c22cf",
+      "bytes": 375360
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_validation_CE_100000_delay_1_session/provenance.json",
+      "sha256": "a91488787f3c1f9135e0f26b1634634bf2b08b5eee7e5f28bf6955aa161aa319",
+      "bytes": 18103
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_validation_CE_100000_delay_1_session/risk_signals.json",
+      "sha256": "3214ad789a69b90a2f54d3b8791fcca876834c73f0da99e23a641042c3b8db4f",
+      "bytes": 271182
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_validation_CE_100000_delay_1_session/table_hashes.json",
+      "sha256": "e181c7ecc7c88b39879ff7f2ca63d908fcb2e927f19b54f3f5093caaf66d40d3",
+      "bytes": 1273
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_validation_VE_100000_base/config.json",
+      "sha256": "09d00847cc68dd9c413f8e6c1f483fb951690d017a3c51912ff550901ffdeb02",
+      "bytes": 463
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_validation_VE_100000_base/decisions.json",
+      "sha256": "3563b118511b8b1268016e931961d90a8362885547c1bdf0bb5902b9be3f9cf3",
+      "bytes": 319664
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_validation_VE_100000_base/execution_assumptions.json",
+      "sha256": "b6014e54bce38c57205ddd9474c37fdef2785363db5cf9a591614b8d603ee97d",
+      "bytes": 841
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_validation_VE_100000_base/metrics.json",
+      "sha256": "177e09bade2016e828159ae1679b7f6d603112fa0460a03f5757af8d983c9ad5",
+      "bytes": 618
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_validation_VE_100000_base/nav.json",
+      "sha256": "007f37d4f4c3bdb9faa22f07d829d11d92ceff297a53f6cf2cb57aba28e72fe4",
+      "bytes": 371488
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_validation_VE_100000_base/provenance.json",
+      "sha256": "3280889edc036842546f64258d7f9a87b2939159fd2eb7d5a18a72c4387c88be",
+      "bytes": 18030
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_validation_VE_100000_base/risk_signals.json",
+      "sha256": "233adc63962f7e4119bcfa29dfaade84f230e8dd597af609b2a7e4789a1b3ae6",
+      "bytes": 271176
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_validation_VE_100000_base/table_hashes.json",
+      "sha256": "1f0f44b4c1f635c6a68e582355854ec59dae816c46da168f0215d7ca773a7f74",
+      "bytes": 1273
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_validation_VE_100000_cost_2x/config.json",
+      "sha256": "b2172b34db914fd38dc840cb9f2835f092c6155e69d817c7056a510930578e28",
+      "bytes": 463
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_validation_VE_100000_cost_2x/decisions.json",
+      "sha256": "3563b118511b8b1268016e931961d90a8362885547c1bdf0bb5902b9be3f9cf3",
+      "bytes": 319664
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_validation_VE_100000_cost_2x/execution_assumptions.json",
+      "sha256": "b6014e54bce38c57205ddd9474c37fdef2785363db5cf9a591614b8d603ee97d",
+      "bytes": 841
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_validation_VE_100000_cost_2x/metrics.json",
+      "sha256": "e94f12bb66f5f4ac3e3276f1a4b40c4df265a49d615dd00b15be4986911cad8e",
+      "bytes": 621
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_validation_VE_100000_cost_2x/nav.json",
+      "sha256": "be5cc90a84d1509d6bb50013f1eda7c6f1b88efce61962c110d6167c3e35eb81",
+      "bytes": 370074
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_validation_VE_100000_cost_2x/provenance.json",
+      "sha256": "b0e0f92b664032637c904060c0664e0fff26a7fd04ba5b1c2a57511ecfbc57eb",
+      "bytes": 18095
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_validation_VE_100000_cost_2x/risk_signals.json",
+      "sha256": "233adc63962f7e4119bcfa29dfaade84f230e8dd597af609b2a7e4789a1b3ae6",
+      "bytes": 271176
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_validation_VE_100000_cost_2x/table_hashes.json",
+      "sha256": "d41bcacc13f5adadae19d81590e04d43dbb50dc45e2a2c2a747456e4fb9e04ca",
+      "bytes": 1273
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_validation_VE_100000_cost_3x/config.json",
+      "sha256": "acc459098b7c3af0efc93d313001abe86f93b3998c69bfbe04ad4a0127d21c8b",
+      "bytes": 463
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_validation_VE_100000_cost_3x/decisions.json",
+      "sha256": "3563b118511b8b1268016e931961d90a8362885547c1bdf0bb5902b9be3f9cf3",
+      "bytes": 319664
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_validation_VE_100000_cost_3x/execution_assumptions.json",
+      "sha256": "b6014e54bce38c57205ddd9474c37fdef2785363db5cf9a591614b8d603ee97d",
+      "bytes": 841
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_validation_VE_100000_cost_3x/metrics.json",
+      "sha256": "f4f97de7e9ef0346b92f9e1bdda96c990a0bb1c9f89d994a198cd22dd2642b8b",
+      "bytes": 620
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_validation_VE_100000_cost_3x/nav.json",
+      "sha256": "94682fd46f6684c82fb4f4e4bb3bccc49c537ea9ce04d6e19e93bde56bbd2dcc",
+      "bytes": 373222
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_validation_VE_100000_cost_3x/provenance.json",
+      "sha256": "711b38b34a0e6de0f9b96c41a73456415371d6d7a751d4bbaec5ff585b7bd45d",
+      "bytes": 18095
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_validation_VE_100000_cost_3x/risk_signals.json",
+      "sha256": "233adc63962f7e4119bcfa29dfaade84f230e8dd597af609b2a7e4789a1b3ae6",
+      "bytes": 271176
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_validation_VE_100000_cost_3x/table_hashes.json",
+      "sha256": "10d3208431964c722a2faad06ad2bbdd842e1f5ba1c257b36b70abb13e9c05b7",
+      "bytes": 1273
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_validation_VE_100000_delay_1_session/config.json",
+      "sha256": "a94d54b8a02358c816a9b8a0bedac1957a8a6d099dd97a3197571d4a2c0ceb22",
+      "bytes": 463
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_validation_VE_100000_delay_1_session/decisions.json",
+      "sha256": "dc6cd81eb3051891ab58d7b95e537b5fe3904daa875e0fffecdfd10ed26e6884",
+      "bytes": 319664
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_validation_VE_100000_delay_1_session/execution_assumptions.json",
+      "sha256": "b6014e54bce38c57205ddd9474c37fdef2785363db5cf9a591614b8d603ee97d",
+      "bytes": 841
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_validation_VE_100000_delay_1_session/metrics.json",
+      "sha256": "211f61013bd6ebca103a779b30b0e6c97d73a5139a635f0c22c698b9eb5f5907",
+      "bytes": 630
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_validation_VE_100000_delay_1_session/nav.json",
+      "sha256": "39637e783135857d258bdd8934cdfe516f110e3ce1dba218b1836fe8cad59e59",
+      "bytes": 370790
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_validation_VE_100000_delay_1_session/provenance.json",
+      "sha256": "2bd05fcec7cd7d0e361dbbedc08b59a5be40f1f9e88cb3f22d4357afdf934cae",
+      "bytes": 18103
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_validation_VE_100000_delay_1_session/risk_signals.json",
+      "sha256": "fb09e8a1e3fdc01857432843f05a9309671e95e1c0bca3e3c791a62aac2e33b5",
+      "bytes": 271176
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_validation_VE_100000_delay_1_session/table_hashes.json",
+      "sha256": "52a769707f3288ae73ebb4d22480a1f4455b16f3b999d09df1c6e3c5dc0fbca1",
+      "bytes": 1273
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_validation_VR_100000_base/config.json",
+      "sha256": "7c37bb8bc26138605e184864d35e0d38ed707c0fb07e0ec60178f235fc7175a0",
+      "bytes": 463
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_validation_VR_100000_base/decisions.json",
+      "sha256": "d7a103981593ccddf819763419766566449b7d3e5850101db7cb575907c907ac",
+      "bytes": 290525
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_validation_VR_100000_base/execution_assumptions.json",
+      "sha256": "9538647d9b4673013126fc6ecd0dc769bedc163d523f69d913eabf74da7b4aba",
+      "bytes": 842
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_validation_VR_100000_base/metrics.json",
+      "sha256": "4b7059eb75f06a488d4c397dfd5dd8d4f59e403800d7fdd4d80d7e8ea30a4abb",
+      "bytes": 620
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_validation_VR_100000_base/nav.json",
+      "sha256": "1db27e3f895e2f620edd1936e2b1f6821be0c226fdc98e801900edc52a603346",
+      "bytes": 373440
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_validation_VR_100000_base/provenance.json",
+      "sha256": "92af7cb993621e20473f2d0121e31b78ef56101aea15b71c604ffdcb37f7fce7",
+      "bytes": 18030
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_validation_VR_100000_base/risk_signals.json",
+      "sha256": "81fccf0809e9e53d92c532053768c7b292b8e8c04ff157dfa2b469b363786f68",
+      "bytes": 258297
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_validation_VR_100000_base/table_hashes.json",
+      "sha256": "8407be6601d11b343ac04bbd124d075fa24fa27c69341d636908bbf7302ac73a",
+      "bytes": 1273
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_validation_VR_100000_cost_2x/config.json",
+      "sha256": "5def9f35e20804c18f884168876be065f99d0a05f64b8e50691ae0d11f10967d",
+      "bytes": 463
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_validation_VR_100000_cost_2x/decisions.json",
+      "sha256": "d7a103981593ccddf819763419766566449b7d3e5850101db7cb575907c907ac",
+      "bytes": 290525
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_validation_VR_100000_cost_2x/execution_assumptions.json",
+      "sha256": "9538647d9b4673013126fc6ecd0dc769bedc163d523f69d913eabf74da7b4aba",
+      "bytes": 842
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_validation_VR_100000_cost_2x/metrics.json",
+      "sha256": "fb741bec68d8ad065bf4f43f5961501ae19ab38a9ef27430777555033ba09162",
+      "bytes": 623
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_validation_VR_100000_cost_2x/nav.json",
+      "sha256": "c732eb9f44701efdbff113fec9f4e2affda32cf24120166f01f99d4f3af878ce",
+      "bytes": 373973
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_validation_VR_100000_cost_2x/provenance.json",
+      "sha256": "4df3d3302b1ad6a4063c2fac52b0ad786902d89a61d17b3643a7f13ccc7bfe49",
+      "bytes": 18095
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_validation_VR_100000_cost_2x/risk_signals.json",
+      "sha256": "81fccf0809e9e53d92c532053768c7b292b8e8c04ff157dfa2b469b363786f68",
+      "bytes": 258297
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_validation_VR_100000_cost_2x/table_hashes.json",
+      "sha256": "9a3f7565bee9c16c8305857206f727af014216e42d25ba08c5368785c8bf83b0",
+      "bytes": 1273
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_validation_VR_100000_cost_3x/config.json",
+      "sha256": "fa9b2b0efeb7832246ebb31004ec8b9c8cebd6639a3297760fed2d4f3a5e8c22",
+      "bytes": 463
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_validation_VR_100000_cost_3x/decisions.json",
+      "sha256": "d7a103981593ccddf819763419766566449b7d3e5850101db7cb575907c907ac",
+      "bytes": 290525
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_validation_VR_100000_cost_3x/execution_assumptions.json",
+      "sha256": "9538647d9b4673013126fc6ecd0dc769bedc163d523f69d913eabf74da7b4aba",
+      "bytes": 842
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_validation_VR_100000_cost_3x/metrics.json",
+      "sha256": "3f04842af0b022f98d8982b020e941cb30ef99530bce852b8c8e09843fd187e1",
+      "bytes": 623
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_validation_VR_100000_cost_3x/nav.json",
+      "sha256": "5afbb25343af7a5a8943916f1bfba35380bbd8d7e13210a215e1e44ac0d26bc0",
+      "bytes": 370734
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_validation_VR_100000_cost_3x/provenance.json",
+      "sha256": "488e7b9300e54022fff85ec40583036318e1b73fc525de279e58d20d72f97e78",
+      "bytes": 18095
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_validation_VR_100000_cost_3x/risk_signals.json",
+      "sha256": "81fccf0809e9e53d92c532053768c7b292b8e8c04ff157dfa2b469b363786f68",
+      "bytes": 258297
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_validation_VR_100000_cost_3x/table_hashes.json",
+      "sha256": "7fe34f78dd519275f158a0dba9c2fd157d2947ad1fc26fab32a7a780d7db1f7a",
+      "bytes": 1273
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_validation_VR_100000_delay_1_session/config.json",
+      "sha256": "082276e0b1a27949663c7826abd8a8069e4f3c40e75d86126f08f69767ec547c",
+      "bytes": 463
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_validation_VR_100000_delay_1_session/decisions.json",
+      "sha256": "4539ee0745d92e3f0e6a9a5e2a75f84d659002f6bd2304db0cf30f6a41e549ae",
+      "bytes": 290525
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_validation_VR_100000_delay_1_session/execution_assumptions.json",
+      "sha256": "9538647d9b4673013126fc6ecd0dc769bedc163d523f69d913eabf74da7b4aba",
+      "bytes": 842
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_validation_VR_100000_delay_1_session/metrics.json",
+      "sha256": "c997b3003a0977e139c6f5e16ccc97e0ea515a53114fd13fe9705f94612a7c49",
+      "bytes": 628
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_validation_VR_100000_delay_1_session/nav.json",
+      "sha256": "3d89266aeef71f77a304cb85327e86d436845007e758c07186fbc6e64ea0538d",
+      "bytes": 373172
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_validation_VR_100000_delay_1_session/provenance.json",
+      "sha256": "989d011d42a1eceda92d91204471902090f045670f81a096215431ca7707626d",
+      "bytes": 18103
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_validation_VR_100000_delay_1_session/risk_signals.json",
+      "sha256": "2e57de8cb754a6e437a8f65b0e74a480b9dd5a68a962c6834288a39a25cbf60d",
+      "bytes": 258297
+    },
+    {
+      "path": "reports/m9_risk/accounts/M9_validation_VR_100000_delay_1_session/table_hashes.json",
+      "sha256": "1c97f6a79ff3e98e66bd85c915efd649634cab4ba1099891514f885a4398976f",
+      "bytes": 1273
+    },
+    {
+      "path": "reports/m9_risk/ALPHA_DISTRIBUTIONS.json",
+      "sha256": "d428b6f1a6ab949dc265f69b6464d1cf42cf5452bdbbc2d06fddecc35b2a3727",
+      "bytes": 2185
+    },
+    {
+      "path": "reports/m9_risk/annual_account_reconciliation.csv",
+      "sha256": "04995f390c5df0a0e49a65f3878ffa87072988f24421bd6006036d075dfb537e",
+      "bytes": 38953
+    },
+    {
+      "path": "reports/m9_risk/annual_product_pnl.csv",
+      "sha256": "022776b31709b51e0dc39313e3312aa06dc6ca312a94c7f77c413893a81981a9",
+      "bytes": 76779
+    },
+    {
+      "path": "reports/m9_risk/base_nav.png",
+      "sha256": "4489ca2ba0bd543adbcadfefa0ec1328d6e90275a8eee47755b4c25e108daa53",
+      "bytes": 280208
+    },
+    {
+      "path": "reports/m9_risk/daily_account_returns.csv",
+      "sha256": "10ec9c9c4bfda5d41d9a1d2564252b156edb0403e2df2f78209befaccf3f6da3",
+      "bytes": 2607411
+    },
+    {
+      "path": "reports/m9_risk/DATA_BINDING.json",
+      "sha256": "c0a85d0f6b06325b9e4a5eff30b443b2ff5a667cb7d0528a29b8a06c1af50b44",
+      "bytes": 136348
+    },
+    {
+      "path": "reports/m9_risk/EXECUTION_DIVERGENCES.json",
+      "sha256": "25c226c7e2c76dde4dfa7d2159ea57c3d65a0b11a0f74fb4780b6f20ea429bf0",
+      "bytes": 8014
+    },
+    {
+      "path": "reports/m9_risk/EXPERIMENT_REGISTRY.json",
+      "sha256": "0f5da9f0fd2d906008739dddf894957498b947b876a621bad6513ee32143ef51",
+      "bytes": 13997
+    },
+    {
+      "path": "reports/m9_risk/INITIAL_RISK_ANCHOR.json",
+      "sha256": "6d46b60ebbe541aad53843adde1856a5b205cf6b45befe2487c2f6e2b221bad5",
+      "bytes": 4055
+    },
+    {
+      "path": "reports/m9_risk/paired_month_contributions.csv",
+      "sha256": "4dabbd781689f826cbc7bb527ba9e7fac000b8bfe051edadbb9a6a8667bff18d",
+      "bytes": 49220
+    },
+    {
+      "path": "reports/m9_risk/paired_product_contributions.csv",
+      "sha256": "8ed6a43544f8a05844d9b39059e3f2d7c2b7c6d42c38531006abca42c9b42151",
+      "bytes": 55630
+    },
+    {
+      "path": "reports/m9_risk/realized_rolling60_risk.csv",
+      "sha256": "7a73d661ccf4f1e0d3ca861f3617a31911988f54fd8fe64d36a0fa644d9a77d6",
+      "bytes": 1669168
+    },
+    {
+      "path": "reports/m9_risk/RESULTS_SUMMARY.json",
+      "sha256": "d4a309b82c868b33b1636c560147afd9551601d1f4f4f60a2833c8e018cb44b3",
+      "bytes": 6031
+    },
+    {
+      "path": "reports/m9_risk/RISK_SIGNALS.json",
+      "sha256": "6a924cc6c59433d966a01a66eb1acebbde9d82a958af13e243732c89e2d98bbc",
+      "bytes": 3337718
+    },
+    {
+      "path": "reports/m9_risk/target_and_holdings_differences.csv",
+      "sha256": "de88029494949cf98e3dfd34b3d9dcd04e6833a9e7290e634bfca8caae4c5131",
+      "bytes": 679
+    },
+    {
+      "path": "reports/m9_risk/UTILITY_EVALUATION.json",
+      "sha256": "baa1ed9504afdcfadb5c6a825aed0f92ad9b5441b43e13a2a5de30af712734df",
+      "bytes": 25163
+    },
+    {
+      "path": "reports/m9_review/ALL_ACCOUNT_INDEPENDENT_REVIEW.json",
+      "sha256": "a6ef36b5ab9fa22cd72e5888e1d40f44e99689a49b1e391130a604ac9329704d",
+      "bytes": 118508
+    },
+    {
+      "path": "reports/m9_review/BASE_INDEPENDENT_REVIEW.json",
+      "sha256": "186842f97314b55ec3b36d0c2b186c370589cd63759adba85bdc0f8c924ff5fd",
+      "bytes": 46399
+    },
+    {
+      "path": "reports/m9_review/DATA_REUSE_REVIEW.md",
+      "sha256": "b5829db79f8242f33b6070749713d86cd364bdae004ccc9ae614ba986bb68443",
+      "bytes": 7177
+    },
+    {
+      "path": "reports/m9_review/implementation_ci.json",
+      "sha256": "62f4b88a15599ffdf9859daef26783637fae26eebc68e8e78806b3b1b3af8ceb",
+      "bytes": 796
+    },
+    {
+      "path": "reports/m9_review/implementation_ci.txt",
+      "sha256": "67efa845f54c9e1685d769919690281c28b13b7bac247287f17b5dec76aa586a",
+      "bytes": 28555
+    },
+    {
+      "path": "reports/m9_review/INDEPENDENT_REVIEW.md",
+      "sha256": "f4ed9388c3aed588f7c0f1e973d93e1efaa42028bf4ae9b407aed94c29a2d1f2",
+      "bytes": 4657
+    },
+    {
+      "path": "reports/m9_review/INDEPENDENT_STATISTICS.json",
+      "sha256": "3123d1148ebc20a58a5077ed41667c068293db6a8e1c8de707d678aed10dc957",
+      "bytes": 50307
+    },
+    {
+      "path": "reports/m9_review/INITIALIZER_REVIEW.json",
+      "sha256": "73bafad5370b905539028f0ee09414ce512ed90497be2d249c28e8fba6c625aa",
+      "bytes": 1056
+    },
+    {
+      "path": "reports/m9_review/pre_account_tests.json",
+      "sha256": "7d1b1ec7ff11a472e8141e4be59e29ae895f72e551cceb437197736da2ccce5d",
+      "bytes": 588
+    },
+    {
+      "path": "reports/m9_review/pre_account_tests.txt",
+      "sha256": "8cc85da215404435924dee6de827dec7f3181ed6b87cde2d6f790f9ed468c351",
+      "bytes": 3545
+    },
+    {
+      "path": "reports/m9_review/PREREGISTRATION_REVIEW.json",
+      "sha256": "57366d9a1045b52b3740cd60317325a40903f3efd72a5aa96fd1f2a477b3dbf5",
+      "bytes": 774
+    },
+    {
+      "path": "reports/m9_review/PUBLICATION_SCOPE.json",
+      "sha256": "a23f978ee7cb2f33c24a14e5f3f0e560b914c1a17f46022e4a246cd71c382843",
+      "bytes": 11805
+    },
+    {
+      "path": "reports/m9_review/RISK_PROBES.json",
+      "sha256": "0d465bdb2d8f97363df904482c7e759f72e5e3d836f738cdb012edc8c122396b",
+      "bytes": 1130
+    },
+    {
+      "path": "reports/m9_review/SOURCE_RESTORATION.json",
+      "sha256": "47822671e872c589c33075b3a69a78ea70eaa19b2e3392a4510bcb2371fb173e",
+      "bytes": 41375
+    },
+    {
+      "path": "reports/m9_review/UTILITY_PROBES.json",
+      "sha256": "7c1b2c481726dc5dea4183d825f561a2358ff3689c630847d82eae0acf0a39ff",
+      "bytes": 456
+    },
+    {
+      "path": "reports/m9_review/VERIFICATION.md",
+      "sha256": "4dece4bdf06df97fe5963c6d4298ccb459416123abf9b8dc0efd5ea64bec15bc",
+      "bytes": 3160
+    },
+    {
+      "path": "review_code/m9/independent_accounts.py",
+      "sha256": "0c94b1672d6aa819dca3b463b3a0589d24e182681a6f6f2a6ac9d7231113e9df",
+      "bytes": 15286
+    },
+    {
+      "path": "review_code/m9/independent_risk.py",
+      "sha256": "0edc5f760902af5d5bec4bbc15a3894908cc1fb0a6f15a3345b960e2bc5b7ea0",
+      "bytes": 3294
+    },
+    {
+      "path": "review_code/m9/independent_statistics.py",
+      "sha256": "c15afe06e4b6e5c04c2abf291ca6f54bf6fb76793c170c11a84599dab34cbc21",
+      "bytes": 2330
+    },
+    {
+      "path": "review_code/m9/independent_unscaled.py",
+      "sha256": "0f0a920f6d7d9a3c6fadb216daa46682551952f26f5a0aa162f1244cb644bb9a",
+      "bytes": 4105
+    },
+    {
+      "path": "review_code/m9/probe_risk.py",
+      "sha256": "f2b3de6d2022562abadab8e24d2b7ce4bb8e25aa1b975b3bae636a27c9f23be3",
+      "bytes": 4917
+    },
+    {
+      "path": "review_code/m9/probe_statistics.py",
+      "sha256": "0de260b1879941185af3a8ff987dff9c7db5b7db16350140ea78479eb99edea1",
+      "bytes": 2073
+    },
+    {
+      "path": "review_code/m9/registration_review.py",
+      "sha256": "f7f3ddfb77c3888309e3a4effd21ca36451fca4306074165b6822ad3d3127967",
+      "bytes": 3067
+    },
+    {
+      "path": "review_code/m9/review_accounts.py",
+      "sha256": "88876c7a886e315ed3850dec5ec10e6999080eb55d21458719ac39f42ce6fd78",
+      "bytes": 7148
+    },
+    {
+      "path": "review_code/m9/review_initializer.py",
+      "sha256": "922cee56322cb022ef6955900147bede532ade80de2537a989bfd9c53e3dc96d",
+      "bytes": 3393
+    },
+    {
+      "path": "review_code/m9/review_statistics.py",
+      "sha256": "b23ece4a3364b8dc5e16f2930b25b6448a715042f56a5eec138febe9224a9c01",
+      "bytes": 15368
+    },
+    {
+      "path": "review_code/m9/write_review.py",
+      "sha256": "c4a6704133570bccc9a04d3e98a794439b0abfe19205abcc888fe072a9e69deb",
+      "bytes": 9760
+    }
+  ],
+  "exact_delta_from_execution": {
+    "modified_paths": [
+      "reports/m9_review/RISK_PROBES.json",
+      "review_code/m9/probe_risk.py",
+      "review_code/m9/review_statistics.py"
+    ],
+    "new_paths": [
+      "reports/m9_review/ALL_ACCOUNT_INDEPENDENT_REVIEW.json",
+      "reports/m9_review/BASE_INDEPENDENT_REVIEW.json",
+      "reports/m9_review/FINAL_PUBLICATION_SCOPE.json",
+      "reports/m9_review/INDEPENDENT_REVIEW.md",
+      "reports/m9_review/INDEPENDENT_STATISTICS.json",
+      "reports/m9_review/VERIFICATION.md",
+      "reports/m9_review/implementation_ci.json",
+      "reports/m9_review/implementation_ci.txt",
+      "reports/m9_risk/ACCOUNT_PATHS.json",
+      "reports/m9_risk/ALPHA_DISTRIBUTIONS.json",
+      "reports/m9_risk/EXECUTION_DIVERGENCES.json",
+      "reports/m9_risk/RESULTS_SUMMARY.json",
+      "reports/m9_risk/RISK_SIGNALS.json",
+      "reports/m9_risk/UTILITY_EVALUATION.json",
+      "reports/m9_risk/account_metrics.csv",
+      "reports/m9_risk/accounts/M9_development_CE_100000_base/config.json",
+      "reports/m9_risk/accounts/M9_development_CE_100000_base/decisions.json",
+      "reports/m9_risk/accounts/M9_development_CE_100000_base/execution_assumptions.json",
+      "reports/m9_risk/accounts/M9_development_CE_100000_base/metrics.json",
+      "reports/m9_risk/accounts/M9_development_CE_100000_base/nav.json",
+      "reports/m9_risk/accounts/M9_development_CE_100000_base/provenance.json",
+      "reports/m9_risk/accounts/M9_development_CE_100000_base/risk_signals.json",
+      "reports/m9_risk/accounts/M9_development_CE_100000_base/table_hashes.json",
+      "reports/m9_risk/accounts/M9_development_CE_100000_cost_2x/config.json",
+      "reports/m9_risk/accounts/M9_development_CE_100000_cost_2x/decisions.json",
+      "reports/m9_risk/accounts/M9_development_CE_100000_cost_2x/execution_assumptions.json",
+      "reports/m9_risk/accounts/M9_development_CE_100000_cost_2x/metrics.json",
+      "reports/m9_risk/accounts/M9_development_CE_100000_cost_2x/nav.json",
+      "reports/m9_risk/accounts/M9_development_CE_100000_cost_2x/provenance.json",
+      "reports/m9_risk/accounts/M9_development_CE_100000_cost_2x/risk_signals.json",
+      "reports/m9_risk/accounts/M9_development_CE_100000_cost_2x/table_hashes.json",
+      "reports/m9_risk/accounts/M9_development_CE_100000_cost_3x/config.json",
+      "reports/m9_risk/accounts/M9_development_CE_100000_cost_3x/decisions.json",
+      "reports/m9_risk/accounts/M9_development_CE_100000_cost_3x/execution_assumptions.json",
+      "reports/m9_risk/accounts/M9_development_CE_100000_cost_3x/metrics.json",
+      "reports/m9_risk/accounts/M9_development_CE_100000_cost_3x/nav.json",
+      "reports/m9_risk/accounts/M9_development_CE_100000_cost_3x/provenance.json",
+      "reports/m9_risk/accounts/M9_development_CE_100000_cost_3x/risk_signals.json",
+      "reports/m9_risk/accounts/M9_development_CE_100000_cost_3x/table_hashes.json",
+      "reports/m9_risk/accounts/M9_development_CE_100000_delay_1_session/config.json",
+      "reports/m9_risk/accounts/M9_development_CE_100000_delay_1_session/decisions.json",
+      "reports/m9_risk/accounts/M9_development_CE_100000_delay_1_session/execution_assumptions.json",
+      "reports/m9_risk/accounts/M9_development_CE_100000_delay_1_session/metrics.json",
+      "reports/m9_risk/accounts/M9_development_CE_100000_delay_1_session/nav.json",
+      "reports/m9_risk/accounts/M9_development_CE_100000_delay_1_session/provenance.json",
+      "reports/m9_risk/accounts/M9_development_CE_100000_delay_1_session/risk_signals.json",
+      "reports/m9_risk/accounts/M9_development_CE_100000_delay_1_session/table_hashes.json",
+      "reports/m9_risk/accounts/M9_development_VE_100000_base/config.json",
+      "reports/m9_risk/accounts/M9_development_VE_100000_base/decisions.json",
+      "reports/m9_risk/accounts/M9_development_VE_100000_base/execution_assumptions.json",
+      "reports/m9_risk/accounts/M9_development_VE_100000_base/metrics.json",
+      "reports/m9_risk/accounts/M9_development_VE_100000_base/nav.json",
+      "reports/m9_risk/accounts/M9_development_VE_100000_base/provenance.json",
+      "reports/m9_risk/accounts/M9_development_VE_100000_base/risk_signals.json",
+      "reports/m9_risk/accounts/M9_development_VE_100000_base/table_hashes.json",
+      "reports/m9_risk/accounts/M9_development_VE_100000_cost_2x/config.json",
+      "reports/m9_risk/accounts/M9_development_VE_100000_cost_2x/decisions.json",
+      "reports/m9_risk/accounts/M9_development_VE_100000_cost_2x/execution_assumptions.json",
+      "reports/m9_risk/accounts/M9_development_VE_100000_cost_2x/metrics.json",
+      "reports/m9_risk/accounts/M9_development_VE_100000_cost_2x/nav.json",
+      "reports/m9_risk/accounts/M9_development_VE_100000_cost_2x/provenance.json",
+      "reports/m9_risk/accounts/M9_development_VE_100000_cost_2x/risk_signals.json",
+      "reports/m9_risk/accounts/M9_development_VE_100000_cost_2x/table_hashes.json",
+      "reports/m9_risk/accounts/M9_development_VE_100000_cost_3x/config.json",
+      "reports/m9_risk/accounts/M9_development_VE_100000_cost_3x/decisions.json",
+      "reports/m9_risk/accounts/M9_development_VE_100000_cost_3x/execution_assumptions.json",
+      "reports/m9_risk/accounts/M9_development_VE_100000_cost_3x/metrics.json",
+      "reports/m9_risk/accounts/M9_development_VE_100000_cost_3x/nav.json",
+      "reports/m9_risk/accounts/M9_development_VE_100000_cost_3x/provenance.json",
+      "reports/m9_risk/accounts/M9_development_VE_100000_cost_3x/risk_signals.json",
+      "reports/m9_risk/accounts/M9_development_VE_100000_cost_3x/table_hashes.json",
+      "reports/m9_risk/accounts/M9_development_VE_100000_delay_1_session/config.json",
+      "reports/m9_risk/accounts/M9_development_VE_100000_delay_1_session/decisions.json",
+      "reports/m9_risk/accounts/M9_development_VE_100000_delay_1_session/execution_assumptions.json",
+      "reports/m9_risk/accounts/M9_development_VE_100000_delay_1_session/metrics.json",
+      "reports/m9_risk/accounts/M9_development_VE_100000_delay_1_session/nav.json",
+      "reports/m9_risk/accounts/M9_development_VE_100000_delay_1_session/provenance.json",
+      "reports/m9_risk/accounts/M9_development_VE_100000_delay_1_session/risk_signals.json",
+      "reports/m9_risk/accounts/M9_development_VE_100000_delay_1_session/table_hashes.json",
+      "reports/m9_risk/accounts/M9_development_VR_100000_base/config.json",
+      "reports/m9_risk/accounts/M9_development_VR_100000_base/decisions.json",
+      "reports/m9_risk/accounts/M9_development_VR_100000_base/execution_assumptions.json",
+      "reports/m9_risk/accounts/M9_development_VR_100000_base/metrics.json",
+      "reports/m9_risk/accounts/M9_development_VR_100000_base/nav.json",
+      "reports/m9_risk/accounts/M9_development_VR_100000_base/provenance.json",
+      "reports/m9_risk/accounts/M9_development_VR_100000_base/risk_signals.json",
+      "reports/m9_risk/accounts/M9_development_VR_100000_base/table_hashes.json",
+      "reports/m9_risk/accounts/M9_development_VR_100000_cost_2x/config.json",
+      "reports/m9_risk/accounts/M9_development_VR_100000_cost_2x/decisions.json",
+      "reports/m9_risk/accounts/M9_development_VR_100000_cost_2x/execution_assumptions.json",
+      "reports/m9_risk/accounts/M9_development_VR_100000_cost_2x/metrics.json",
+      "reports/m9_risk/accounts/M9_development_VR_100000_cost_2x/nav.json",
+      "reports/m9_risk/accounts/M9_development_VR_100000_cost_2x/provenance.json",
+      "reports/m9_risk/accounts/M9_development_VR_100000_cost_2x/risk_signals.json",
+      "reports/m9_risk/accounts/M9_development_VR_100000_cost_2x/table_hashes.json",
+      "reports/m9_risk/accounts/M9_development_VR_100000_cost_3x/config.json",
+      "reports/m9_risk/accounts/M9_development_VR_100000_cost_3x/decisions.json",
+      "reports/m9_risk/accounts/M9_development_VR_100000_cost_3x/execution_assumptions.json",
+      "reports/m9_risk/accounts/M9_development_VR_100000_cost_3x/metrics.json",
+      "reports/m9_risk/accounts/M9_development_VR_100000_cost_3x/nav.json",
+      "reports/m9_risk/accounts/M9_development_VR_100000_cost_3x/provenance.json",
+      "reports/m9_risk/accounts/M9_development_VR_100000_cost_3x/risk_signals.json",
+      "reports/m9_risk/accounts/M9_development_VR_100000_cost_3x/table_hashes.json",
+      "reports/m9_risk/accounts/M9_development_VR_100000_delay_1_session/config.json",
+      "reports/m9_risk/accounts/M9_development_VR_100000_delay_1_session/decisions.json",
+      "reports/m9_risk/accounts/M9_development_VR_100000_delay_1_session/execution_assumptions.json",
+      "reports/m9_risk/accounts/M9_development_VR_100000_delay_1_session/metrics.json",
+      "reports/m9_risk/accounts/M9_development_VR_100000_delay_1_session/nav.json",
+      "reports/m9_risk/accounts/M9_development_VR_100000_delay_1_session/provenance.json",
+      "reports/m9_risk/accounts/M9_development_VR_100000_delay_1_session/risk_signals.json",
+      "reports/m9_risk/accounts/M9_development_VR_100000_delay_1_session/table_hashes.json",
+      "reports/m9_risk/accounts/M9_validation_CE_100000_base/config.json",
+      "reports/m9_risk/accounts/M9_validation_CE_100000_base/decisions.json",
+      "reports/m9_risk/accounts/M9_validation_CE_100000_base/execution_assumptions.json",
+      "reports/m9_risk/accounts/M9_validation_CE_100000_base/metrics.json",
+      "reports/m9_risk/accounts/M9_validation_CE_100000_base/nav.json",
+      "reports/m9_risk/accounts/M9_validation_CE_100000_base/provenance.json",
+      "reports/m9_risk/accounts/M9_validation_CE_100000_base/risk_signals.json",
+      "reports/m9_risk/accounts/M9_validation_CE_100000_base/table_hashes.json",
+      "reports/m9_risk/accounts/M9_validation_CE_100000_cost_2x/config.json",
+      "reports/m9_risk/accounts/M9_validation_CE_100000_cost_2x/decisions.json",
+      "reports/m9_risk/accounts/M9_validation_CE_100000_cost_2x/execution_assumptions.json",
+      "reports/m9_risk/accounts/M9_validation_CE_100000_cost_2x/metrics.json",
+      "reports/m9_risk/accounts/M9_validation_CE_100000_cost_2x/nav.json",
+      "reports/m9_risk/accounts/M9_validation_CE_100000_cost_2x/provenance.json",
+      "reports/m9_risk/accounts/M9_validation_CE_100000_cost_2x/risk_signals.json",
+      "reports/m9_risk/accounts/M9_validation_CE_100000_cost_2x/table_hashes.json",
+      "reports/m9_risk/accounts/M9_validation_CE_100000_cost_3x/config.json",
+      "reports/m9_risk/accounts/M9_validation_CE_100000_cost_3x/decisions.json",
+      "reports/m9_risk/accounts/M9_validation_CE_100000_cost_3x/execution_assumptions.json",
+      "reports/m9_risk/accounts/M9_validation_CE_100000_cost_3x/metrics.json",
+      "reports/m9_risk/accounts/M9_validation_CE_100000_cost_3x/nav.json",
+      "reports/m9_risk/accounts/M9_validation_CE_100000_cost_3x/provenance.json",
+      "reports/m9_risk/accounts/M9_validation_CE_100000_cost_3x/risk_signals.json",
+      "reports/m9_risk/accounts/M9_validation_CE_100000_cost_3x/table_hashes.json",
+      "reports/m9_risk/accounts/M9_validation_CE_100000_delay_1_session/config.json",
+      "reports/m9_risk/accounts/M9_validation_CE_100000_delay_1_session/decisions.json",
+      "reports/m9_risk/accounts/M9_validation_CE_100000_delay_1_session/execution_assumptions.json",
+      "reports/m9_risk/accounts/M9_validation_CE_100000_delay_1_session/metrics.json",
+      "reports/m9_risk/accounts/M9_validation_CE_100000_delay_1_session/nav.json",
+      "reports/m9_risk/accounts/M9_validation_CE_100000_delay_1_session/provenance.json",
+      "reports/m9_risk/accounts/M9_validation_CE_100000_delay_1_session/risk_signals.json",
+      "reports/m9_risk/accounts/M9_validation_CE_100000_delay_1_session/table_hashes.json",
+      "reports/m9_risk/accounts/M9_validation_VE_100000_base/config.json",
+      "reports/m9_risk/accounts/M9_validation_VE_100000_base/decisions.json",
+      "reports/m9_risk/accounts/M9_validation_VE_100000_base/execution_assumptions.json",
+      "reports/m9_risk/accounts/M9_validation_VE_100000_base/metrics.json",
+      "reports/m9_risk/accounts/M9_validation_VE_100000_base/nav.json",
+      "reports/m9_risk/accounts/M9_validation_VE_100000_base/provenance.json",
+      "reports/m9_risk/accounts/M9_validation_VE_100000_base/risk_signals.json",
+      "reports/m9_risk/accounts/M9_validation_VE_100000_base/table_hashes.json",
+      "reports/m9_risk/accounts/M9_validation_VE_100000_cost_2x/config.json",
+      "reports/m9_risk/accounts/M9_validation_VE_100000_cost_2x/decisions.json",
+      "reports/m9_risk/accounts/M9_validation_VE_100000_cost_2x/execution_assumptions.json",
+      "reports/m9_risk/accounts/M9_validation_VE_100000_cost_2x/metrics.json",
+      "reports/m9_risk/accounts/M9_validation_VE_100000_cost_2x/nav.json",
+      "reports/m9_risk/accounts/M9_validation_VE_100000_cost_2x/provenance.json",
+      "reports/m9_risk/accounts/M9_validation_VE_100000_cost_2x/risk_signals.json",
+      "reports/m9_risk/accounts/M9_validation_VE_100000_cost_2x/table_hashes.json",
+      "reports/m9_risk/accounts/M9_validation_VE_100000_cost_3x/config.json",
+      "reports/m9_risk/accounts/M9_validation_VE_100000_cost_3x/decisions.json",
+      "reports/m9_risk/accounts/M9_validation_VE_100000_cost_3x/execution_assumptions.json",
+      "reports/m9_risk/accounts/M9_validation_VE_100000_cost_3x/metrics.json",
+      "reports/m9_risk/accounts/M9_validation_VE_100000_cost_3x/nav.json",
+      "reports/m9_risk/accounts/M9_validation_VE_100000_cost_3x/provenance.json",
+      "reports/m9_risk/accounts/M9_validation_VE_100000_cost_3x/risk_signals.json",
+      "reports/m9_risk/accounts/M9_validation_VE_100000_cost_3x/table_hashes.json",
+      "reports/m9_risk/accounts/M9_validation_VE_100000_delay_1_session/config.json",
+      "reports/m9_risk/accounts/M9_validation_VE_100000_delay_1_session/decisions.json",
+      "reports/m9_risk/accounts/M9_validation_VE_100000_delay_1_session/execution_assumptions.json",
+      "reports/m9_risk/accounts/M9_validation_VE_100000_delay_1_session/metrics.json",
+      "reports/m9_risk/accounts/M9_validation_VE_100000_delay_1_session/nav.json",
+      "reports/m9_risk/accounts/M9_validation_VE_100000_delay_1_session/provenance.json",
+      "reports/m9_risk/accounts/M9_validation_VE_100000_delay_1_session/risk_signals.json",
+      "reports/m9_risk/accounts/M9_validation_VE_100000_delay_1_session/table_hashes.json",
+      "reports/m9_risk/accounts/M9_validation_VR_100000_base/config.json",
+      "reports/m9_risk/accounts/M9_validation_VR_100000_base/decisions.json",
+      "reports/m9_risk/accounts/M9_validation_VR_100000_base/execution_assumptions.json",
+      "reports/m9_risk/accounts/M9_validation_VR_100000_base/metrics.json",
+      "reports/m9_risk/accounts/M9_validation_VR_100000_base/nav.json",
+      "reports/m9_risk/accounts/M9_validation_VR_100000_base/provenance.json",
+      "reports/m9_risk/accounts/M9_validation_VR_100000_base/risk_signals.json",
+      "reports/m9_risk/accounts/M9_validation_VR_100000_base/table_hashes.json",
+      "reports/m9_risk/accounts/M9_validation_VR_100000_cost_2x/config.json",
+      "reports/m9_risk/accounts/M9_validation_VR_100000_cost_2x/decisions.json",
+      "reports/m9_risk/accounts/M9_validation_VR_100000_cost_2x/execution_assumptions.json",
+      "reports/m9_risk/accounts/M9_validation_VR_100000_cost_2x/metrics.json",
+      "reports/m9_risk/accounts/M9_validation_VR_100000_cost_2x/nav.json",
+      "reports/m9_risk/accounts/M9_validation_VR_100000_cost_2x/provenance.json",
+      "reports/m9_risk/accounts/M9_validation_VR_100000_cost_2x/risk_signals.json",
+      "reports/m9_risk/accounts/M9_validation_VR_100000_cost_2x/table_hashes.json",
+      "reports/m9_risk/accounts/M9_validation_VR_100000_cost_3x/config.json",
+      "reports/m9_risk/accounts/M9_validation_VR_100000_cost_3x/decisions.json",
+      "reports/m9_risk/accounts/M9_validation_VR_100000_cost_3x/execution_assumptions.json",
+      "reports/m9_risk/accounts/M9_validation_VR_100000_cost_3x/metrics.json",
+      "reports/m9_risk/accounts/M9_validation_VR_100000_cost_3x/nav.json",
+      "reports/m9_risk/accounts/M9_validation_VR_100000_cost_3x/provenance.json",
+      "reports/m9_risk/accounts/M9_validation_VR_100000_cost_3x/risk_signals.json",
+      "reports/m9_risk/accounts/M9_validation_VR_100000_cost_3x/table_hashes.json",
+      "reports/m9_risk/accounts/M9_validation_VR_100000_delay_1_session/config.json",
+      "reports/m9_risk/accounts/M9_validation_VR_100000_delay_1_session/decisions.json",
+      "reports/m9_risk/accounts/M9_validation_VR_100000_delay_1_session/execution_assumptions.json",
+      "reports/m9_risk/accounts/M9_validation_VR_100000_delay_1_session/metrics.json",
+      "reports/m9_risk/accounts/M9_validation_VR_100000_delay_1_session/nav.json",
+      "reports/m9_risk/accounts/M9_validation_VR_100000_delay_1_session/provenance.json",
+      "reports/m9_risk/accounts/M9_validation_VR_100000_delay_1_session/risk_signals.json",
+      "reports/m9_risk/accounts/M9_validation_VR_100000_delay_1_session/table_hashes.json",
+      "reports/m9_risk/annual_account_reconciliation.csv",
+      "reports/m9_risk/annual_product_pnl.csv",
+      "reports/m9_risk/base_nav.png",
+      "reports/m9_risk/daily_account_returns.csv",
+      "reports/m9_risk/paired_month_contributions.csv",
+      "reports/m9_risk/paired_product_contributions.csv",
+      "reports/m9_risk/realized_rolling60_risk.csv",
+      "reports/m9_risk/target_and_holdings_differences.csv",
+      "review_code/m9/write_review.py"
+    ],
+    "reviewed_scope_allowlist": [
+      "reports/m9_review/ALL_ACCOUNT_INDEPENDENT_REVIEW.json",
+      "reports/m9_review/BASE_INDEPENDENT_REVIEW.json",
+      "reports/m9_review/FINAL_PUBLICATION_SCOPE.json",
+      "reports/m9_review/INDEPENDENT_REVIEW.md",
+      "reports/m9_review/INDEPENDENT_STATISTICS.json",
+      "reports/m9_review/RISK_PROBES.json",
+      "reports/m9_review/VERIFICATION.md",
+      "reports/m9_review/implementation_ci.json",
+      "reports/m9_review/implementation_ci.txt",
+      "reports/m9_risk/ACCOUNT_PATHS.json",
+      "reports/m9_risk/ALPHA_DISTRIBUTIONS.json",
+      "reports/m9_risk/EXECUTION_DIVERGENCES.json",
+      "reports/m9_risk/RESULTS_SUMMARY.json",
+      "reports/m9_risk/RISK_SIGNALS.json",
+      "reports/m9_risk/UTILITY_EVALUATION.json",
+      "reports/m9_risk/account_metrics.csv",
+      "reports/m9_risk/accounts/M9_development_CE_100000_base/config.json",
+      "reports/m9_risk/accounts/M9_development_CE_100000_base/decisions.json",
+      "reports/m9_risk/accounts/M9_development_CE_100000_base/execution_assumptions.json",
+      "reports/m9_risk/accounts/M9_development_CE_100000_base/metrics.json",
+      "reports/m9_risk/accounts/M9_development_CE_100000_base/nav.json",
+      "reports/m9_risk/accounts/M9_development_CE_100000_base/provenance.json",
+      "reports/m9_risk/accounts/M9_development_CE_100000_base/risk_signals.json",
+      "reports/m9_risk/accounts/M9_development_CE_100000_base/table_hashes.json",
+      "reports/m9_risk/accounts/M9_development_CE_100000_cost_2x/config.json",
+      "reports/m9_risk/accounts/M9_development_CE_100000_cost_2x/decisions.json",
+      "reports/m9_risk/accounts/M9_development_CE_100000_cost_2x/execution_assumptions.json",
+      "reports/m9_risk/accounts/M9_development_CE_100000_cost_2x/metrics.json",
+      "reports/m9_risk/accounts/M9_development_CE_100000_cost_2x/nav.json",
+      "reports/m9_risk/accounts/M9_development_CE_100000_cost_2x/provenance.json",
+      "reports/m9_risk/accounts/M9_development_CE_100000_cost_2x/risk_signals.json",
+      "reports/m9_risk/accounts/M9_development_CE_100000_cost_2x/table_hashes.json",
+      "reports/m9_risk/accounts/M9_development_CE_100000_cost_3x/config.json",
+      "reports/m9_risk/accounts/M9_development_CE_100000_cost_3x/decisions.json",
+      "reports/m9_risk/accounts/M9_development_CE_100000_cost_3x/execution_assumptions.json",
+      "reports/m9_risk/accounts/M9_development_CE_100000_cost_3x/metrics.json",
+      "reports/m9_risk/accounts/M9_development_CE_100000_cost_3x/nav.json",
+      "reports/m9_risk/accounts/M9_development_CE_100000_cost_3x/provenance.json",
+      "reports/m9_risk/accounts/M9_development_CE_100000_cost_3x/risk_signals.json",
+      "reports/m9_risk/accounts/M9_development_CE_100000_cost_3x/table_hashes.json",
+      "reports/m9_risk/accounts/M9_development_CE_100000_delay_1_session/config.json",
+      "reports/m9_risk/accounts/M9_development_CE_100000_delay_1_session/decisions.json",
+      "reports/m9_risk/accounts/M9_development_CE_100000_delay_1_session/execution_assumptions.json",
+      "reports/m9_risk/accounts/M9_development_CE_100000_delay_1_session/metrics.json",
+      "reports/m9_risk/accounts/M9_development_CE_100000_delay_1_session/nav.json",
+      "reports/m9_risk/accounts/M9_development_CE_100000_delay_1_session/provenance.json",
+      "reports/m9_risk/accounts/M9_development_CE_100000_delay_1_session/risk_signals.json",
+      "reports/m9_risk/accounts/M9_development_CE_100000_delay_1_session/table_hashes.json",
+      "reports/m9_risk/accounts/M9_development_VE_100000_base/config.json",
+      "reports/m9_risk/accounts/M9_development_VE_100000_base/decisions.json",
+      "reports/m9_risk/accounts/M9_development_VE_100000_base/execution_assumptions.json",
+      "reports/m9_risk/accounts/M9_development_VE_100000_base/metrics.json",
+      "reports/m9_risk/accounts/M9_development_VE_100000_base/nav.json",
+      "reports/m9_risk/accounts/M9_development_VE_100000_base/provenance.json",
+      "reports/m9_risk/accounts/M9_development_VE_100000_base/risk_signals.json",
+      "reports/m9_risk/accounts/M9_development_VE_100000_base/table_hashes.json",
+      "reports/m9_risk/accounts/M9_development_VE_100000_cost_2x/config.json",
+      "reports/m9_risk/accounts/M9_development_VE_100000_cost_2x/decisions.json",
+      "reports/m9_risk/accounts/M9_development_VE_100000_cost_2x/execution_assumptions.json",
+      "reports/m9_risk/accounts/M9_development_VE_100000_cost_2x/metrics.json",
+      "reports/m9_risk/accounts/M9_development_VE_100000_cost_2x/nav.json",
+      "reports/m9_risk/accounts/M9_development_VE_100000_cost_2x/provenance.json",
+      "reports/m9_risk/accounts/M9_development_VE_100000_cost_2x/risk_signals.json",
+      "reports/m9_risk/accounts/M9_development_VE_100000_cost_2x/table_hashes.json",
+      "reports/m9_risk/accounts/M9_development_VE_100000_cost_3x/config.json",
+      "reports/m9_risk/accounts/M9_development_VE_100000_cost_3x/decisions.json",
+      "reports/m9_risk/accounts/M9_development_VE_100000_cost_3x/execution_assumptions.json",
+      "reports/m9_risk/accounts/M9_development_VE_100000_cost_3x/metrics.json",
+      "reports/m9_risk/accounts/M9_development_VE_100000_cost_3x/nav.json",
+      "reports/m9_risk/accounts/M9_development_VE_100000_cost_3x/provenance.json",
+      "reports/m9_risk/accounts/M9_development_VE_100000_cost_3x/risk_signals.json",
+      "reports/m9_risk/accounts/M9_development_VE_100000_cost_3x/table_hashes.json",
+      "reports/m9_risk/accounts/M9_development_VE_100000_delay_1_session/config.json",
+      "reports/m9_risk/accounts/M9_development_VE_100000_delay_1_session/decisions.json",
+      "reports/m9_risk/accounts/M9_development_VE_100000_delay_1_session/execution_assumptions.json",
+      "reports/m9_risk/accounts/M9_development_VE_100000_delay_1_session/metrics.json",
+      "reports/m9_risk/accounts/M9_development_VE_100000_delay_1_session/nav.json",
+      "reports/m9_risk/accounts/M9_development_VE_100000_delay_1_session/provenance.json",
+      "reports/m9_risk/accounts/M9_development_VE_100000_delay_1_session/risk_signals.json",
+      "reports/m9_risk/accounts/M9_development_VE_100000_delay_1_session/table_hashes.json",
+      "reports/m9_risk/accounts/M9_development_VR_100000_base/config.json",
+      "reports/m9_risk/accounts/M9_development_VR_100000_base/decisions.json",
+      "reports/m9_risk/accounts/M9_development_VR_100000_base/execution_assumptions.json",
+      "reports/m9_risk/accounts/M9_development_VR_100000_base/metrics.json",
+      "reports/m9_risk/accounts/M9_development_VR_100000_base/nav.json",
+      "reports/m9_risk/accounts/M9_development_VR_100000_base/provenance.json",
+      "reports/m9_risk/accounts/M9_development_VR_100000_base/risk_signals.json",
+      "reports/m9_risk/accounts/M9_development_VR_100000_base/table_hashes.json",
+      "reports/m9_risk/accounts/M9_development_VR_100000_cost_2x/config.json",
+      "reports/m9_risk/accounts/M9_development_VR_100000_cost_2x/decisions.json",
+      "reports/m9_risk/accounts/M9_development_VR_100000_cost_2x/execution_assumptions.json",
+      "reports/m9_risk/accounts/M9_development_VR_100000_cost_2x/metrics.json",
+      "reports/m9_risk/accounts/M9_development_VR_100000_cost_2x/nav.json",
+      "reports/m9_risk/accounts/M9_development_VR_100000_cost_2x/provenance.json",
+      "reports/m9_risk/accounts/M9_development_VR_100000_cost_2x/risk_signals.json",
+      "reports/m9_risk/accounts/M9_development_VR_100000_cost_2x/table_hashes.json",
+      "reports/m9_risk/accounts/M9_development_VR_100000_cost_3x/config.json",
+      "reports/m9_risk/accounts/M9_development_VR_100000_cost_3x/decisions.json",
+      "reports/m9_risk/accounts/M9_development_VR_100000_cost_3x/execution_assumptions.json",
+      "reports/m9_risk/accounts/M9_development_VR_100000_cost_3x/metrics.json",
+      "reports/m9_risk/accounts/M9_development_VR_100000_cost_3x/nav.json",
+      "reports/m9_risk/accounts/M9_development_VR_100000_cost_3x/provenance.json",
+      "reports/m9_risk/accounts/M9_development_VR_100000_cost_3x/risk_signals.json",
+      "reports/m9_risk/accounts/M9_development_VR_100000_cost_3x/table_hashes.json",
+      "reports/m9_risk/accounts/M9_development_VR_100000_delay_1_session/config.json",
+      "reports/m9_risk/accounts/M9_development_VR_100000_delay_1_session/decisions.json",
+      "reports/m9_risk/accounts/M9_development_VR_100000_delay_1_session/execution_assumptions.json",
+      "reports/m9_risk/accounts/M9_development_VR_100000_delay_1_session/metrics.json",
+      "reports/m9_risk/accounts/M9_development_VR_100000_delay_1_session/nav.json",
+      "reports/m9_risk/accounts/M9_development_VR_100000_delay_1_session/provenance.json",
+      "reports/m9_risk/accounts/M9_development_VR_100000_delay_1_session/risk_signals.json",
+      "reports/m9_risk/accounts/M9_development_VR_100000_delay_1_session/table_hashes.json",
+      "reports/m9_risk/accounts/M9_validation_CE_100000_base/config.json",
+      "reports/m9_risk/accounts/M9_validation_CE_100000_base/decisions.json",
+      "reports/m9_risk/accounts/M9_validation_CE_100000_base/execution_assumptions.json",
+      "reports/m9_risk/accounts/M9_validation_CE_100000_base/metrics.json",
+      "reports/m9_risk/accounts/M9_validation_CE_100000_base/nav.json",
+      "reports/m9_risk/accounts/M9_validation_CE_100000_base/provenance.json",
+      "reports/m9_risk/accounts/M9_validation_CE_100000_base/risk_signals.json",
+      "reports/m9_risk/accounts/M9_validation_CE_100000_base/table_hashes.json",
+      "reports/m9_risk/accounts/M9_validation_CE_100000_cost_2x/config.json",
+      "reports/m9_risk/accounts/M9_validation_CE_100000_cost_2x/decisions.json",
+      "reports/m9_risk/accounts/M9_validation_CE_100000_cost_2x/execution_assumptions.json",
+      "reports/m9_risk/accounts/M9_validation_CE_100000_cost_2x/metrics.json",
+      "reports/m9_risk/accounts/M9_validation_CE_100000_cost_2x/nav.json",
+      "reports/m9_risk/accounts/M9_validation_CE_100000_cost_2x/provenance.json",
+      "reports/m9_risk/accounts/M9_validation_CE_100000_cost_2x/risk_signals.json",
+      "reports/m9_risk/accounts/M9_validation_CE_100000_cost_2x/table_hashes.json",
+      "reports/m9_risk/accounts/M9_validation_CE_100000_cost_3x/config.json",
+      "reports/m9_risk/accounts/M9_validation_CE_100000_cost_3x/decisions.json",
+      "reports/m9_risk/accounts/M9_validation_CE_100000_cost_3x/execution_assumptions.json",
+      "reports/m9_risk/accounts/M9_validation_CE_100000_cost_3x/metrics.json",
+      "reports/m9_risk/accounts/M9_validation_CE_100000_cost_3x/nav.json",
+      "reports/m9_risk/accounts/M9_validation_CE_100000_cost_3x/provenance.json",
+      "reports/m9_risk/accounts/M9_validation_CE_100000_cost_3x/risk_signals.json",
+      "reports/m9_risk/accounts/M9_validation_CE_100000_cost_3x/table_hashes.json",
+      "reports/m9_risk/accounts/M9_validation_CE_100000_delay_1_session/config.json",
+      "reports/m9_risk/accounts/M9_validation_CE_100000_delay_1_session/decisions.json",
+      "reports/m9_risk/accounts/M9_validation_CE_100000_delay_1_session/execution_assumptions.json",
+      "reports/m9_risk/accounts/M9_validation_CE_100000_delay_1_session/metrics.json",
+      "reports/m9_risk/accounts/M9_validation_CE_100000_delay_1_session/nav.json",
+      "reports/m9_risk/accounts/M9_validation_CE_100000_delay_1_session/provenance.json",
+      "reports/m9_risk/accounts/M9_validation_CE_100000_delay_1_session/risk_signals.json",
+      "reports/m9_risk/accounts/M9_validation_CE_100000_delay_1_session/table_hashes.json",
+      "reports/m9_risk/accounts/M9_validation_VE_100000_base/config.json",
+      "reports/m9_risk/accounts/M9_validation_VE_100000_base/decisions.json",
+      "reports/m9_risk/accounts/M9_validation_VE_100000_base/execution_assumptions.json",
+      "reports/m9_risk/accounts/M9_validation_VE_100000_base/metrics.json",
+      "reports/m9_risk/accounts/M9_validation_VE_100000_base/nav.json",
+      "reports/m9_risk/accounts/M9_validation_VE_100000_base/provenance.json",
+      "reports/m9_risk/accounts/M9_validation_VE_100000_base/risk_signals.json",
+      "reports/m9_risk/accounts/M9_validation_VE_100000_base/table_hashes.json",
+      "reports/m9_risk/accounts/M9_validation_VE_100000_cost_2x/config.json",
+      "reports/m9_risk/accounts/M9_validation_VE_100000_cost_2x/decisions.json",
+      "reports/m9_risk/accounts/M9_validation_VE_100000_cost_2x/execution_assumptions.json",
+      "reports/m9_risk/accounts/M9_validation_VE_100000_cost_2x/metrics.json",
+      "reports/m9_risk/accounts/M9_validation_VE_100000_cost_2x/nav.json",
+      "reports/m9_risk/accounts/M9_validation_VE_100000_cost_2x/provenance.json",
+      "reports/m9_risk/accounts/M9_validation_VE_100000_cost_2x/risk_signals.json",
+      "reports/m9_risk/accounts/M9_validation_VE_100000_cost_2x/table_hashes.json",
+      "reports/m9_risk/accounts/M9_validation_VE_100000_cost_3x/config.json",
+      "reports/m9_risk/accounts/M9_validation_VE_100000_cost_3x/decisions.json",
+      "reports/m9_risk/accounts/M9_validation_VE_100000_cost_3x/execution_assumptions.json",
+      "reports/m9_risk/accounts/M9_validation_VE_100000_cost_3x/metrics.json",
+      "reports/m9_risk/accounts/M9_validation_VE_100000_cost_3x/nav.json",
+      "reports/m9_risk/accounts/M9_validation_VE_100000_cost_3x/provenance.json",
+      "reports/m9_risk/accounts/M9_validation_VE_100000_cost_3x/risk_signals.json",
+      "reports/m9_risk/accounts/M9_validation_VE_100000_cost_3x/table_hashes.json",
+      "reports/m9_risk/accounts/M9_validation_VE_100000_delay_1_session/config.json",
+      "reports/m9_risk/accounts/M9_validation_VE_100000_delay_1_session/decisions.json",
+      "reports/m9_risk/accounts/M9_validation_VE_100000_delay_1_session/execution_assumptions.json",
+      "reports/m9_risk/accounts/M9_validation_VE_100000_delay_1_session/metrics.json",
+      "reports/m9_risk/accounts/M9_validation_VE_100000_delay_1_session/nav.json",
+      "reports/m9_risk/accounts/M9_validation_VE_100000_delay_1_session/provenance.json",
+      "reports/m9_risk/accounts/M9_validation_VE_100000_delay_1_session/risk_signals.json",
+      "reports/m9_risk/accounts/M9_validation_VE_100000_delay_1_session/table_hashes.json",
+      "reports/m9_risk/accounts/M9_validation_VR_100000_base/config.json",
+      "reports/m9_risk/accounts/M9_validation_VR_100000_base/decisions.json",
+      "reports/m9_risk/accounts/M9_validation_VR_100000_base/execution_assumptions.json",
+      "reports/m9_risk/accounts/M9_validation_VR_100000_base/metrics.json",
+      "reports/m9_risk/accounts/M9_validation_VR_100000_base/nav.json",
+      "reports/m9_risk/accounts/M9_validation_VR_100000_base/provenance.json",
+      "reports/m9_risk/accounts/M9_validation_VR_100000_base/risk_signals.json",
+      "reports/m9_risk/accounts/M9_validation_VR_100000_base/table_hashes.json",
+      "reports/m9_risk/accounts/M9_validation_VR_100000_cost_2x/config.json",
+      "reports/m9_risk/accounts/M9_validation_VR_100000_cost_2x/decisions.json",
+      "reports/m9_risk/accounts/M9_validation_VR_100000_cost_2x/execution_assumptions.json",
+      "reports/m9_risk/accounts/M9_validation_VR_100000_cost_2x/metrics.json",
+      "reports/m9_risk/accounts/M9_validation_VR_100000_cost_2x/nav.json",
+      "reports/m9_risk/accounts/M9_validation_VR_100000_cost_2x/provenance.json",
+      "reports/m9_risk/accounts/M9_validation_VR_100000_cost_2x/risk_signals.json",
+      "reports/m9_risk/accounts/M9_validation_VR_100000_cost_2x/table_hashes.json",
+      "reports/m9_risk/accounts/M9_validation_VR_100000_cost_3x/config.json",
+      "reports/m9_risk/accounts/M9_validation_VR_100000_cost_3x/decisions.json",
+      "reports/m9_risk/accounts/M9_validation_VR_100000_cost_3x/execution_assumptions.json",
+      "reports/m9_risk/accounts/M9_validation_VR_100000_cost_3x/metrics.json",
+      "reports/m9_risk/accounts/M9_validation_VR_100000_cost_3x/nav.json",
+      "reports/m9_risk/accounts/M9_validation_VR_100000_cost_3x/provenance.json",
+      "reports/m9_risk/accounts/M9_validation_VR_100000_cost_3x/risk_signals.json",
+      "reports/m9_risk/accounts/M9_validation_VR_100000_cost_3x/table_hashes.json",
+      "reports/m9_risk/accounts/M9_validation_VR_100000_delay_1_session/config.json",
+      "reports/m9_risk/accounts/M9_validation_VR_100000_delay_1_session/decisions.json",
+      "reports/m9_risk/accounts/M9_validation_VR_100000_delay_1_session/execution_assumptions.json",
+      "reports/m9_risk/accounts/M9_validation_VR_100000_delay_1_session/metrics.json",
+      "reports/m9_risk/accounts/M9_validation_VR_100000_delay_1_session/nav.json",
+      "reports/m9_risk/accounts/M9_validation_VR_100000_delay_1_session/provenance.json",
+      "reports/m9_risk/accounts/M9_validation_VR_100000_delay_1_session/risk_signals.json",
+      "reports/m9_risk/accounts/M9_validation_VR_100000_delay_1_session/table_hashes.json",
+      "reports/m9_risk/annual_account_reconciliation.csv",
+      "reports/m9_risk/annual_product_pnl.csv",
+      "reports/m9_risk/base_nav.png",
+      "reports/m9_risk/daily_account_returns.csv",
+      "reports/m9_risk/paired_month_contributions.csv",
+      "reports/m9_risk/paired_product_contributions.csv",
+      "reports/m9_risk/realized_rolling60_risk.csv",
+      "reports/m9_risk/target_and_holdings_differences.csv",
+      "review_code/m9/probe_risk.py",
+      "review_code/m9/review_statistics.py",
+      "review_code/m9/write_review.py"
+    ],
+    "outside_scope_paths": [],
+    "note": "Exact snapshot; do not blanket-stage later files. Later RESULTS/governance writing and publication receipt are outside this completed scan."
+  },
+  "reviewer_code_delta": {
+    "paths": [
+      "review_code/m9/probe_risk.py",
+      "review_code/m9/review_statistics.py",
+      "review_code/m9/write_review.py"
+    ],
+    "summary": "Narrow probe source binding, additional divergence checks, authored report rendering. These are independent-review changes, not execution source changes."
+  },
+  "publication_limits": [
+    "Public account export contains no full order/fill/position table.",
+    "Monthly median_amount20 is an inherited derived qualification summary, not raw daily observations.",
+    "Private paths and SHA256 pointers do not distribute private payloads.",
+    "No tests, accounts, data collection, source edits, or bound-output rewrites were performed by this audit.",
+    "Later source/document modifications must retain the execution commit mapping; this record only attests the bytes inspected here."
+  ]
+}

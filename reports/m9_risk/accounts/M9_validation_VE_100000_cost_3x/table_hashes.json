@@ -1,0 +1,17 @@
+{
+  "cash_events": "afaac5491299b311d305510b4102650dc65a72e9dee8e59a20cdc8a163ba37f7",
+  "costs": "947a3e2e4c16a0508f3108dd8a31a99aba2d81dc667d1dc32f5f281cbcf36dbd",
+  "dividend_entitlements": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+  "exposure": "2cc3e29714c27c3a93c9046691ac2dafbc15dce8f12b785a7f0631c47f2dee9f",
+  "fills": "346c905b3cdaac756ed2102a70ac07ae2cbbab2beb5ff8ee3bee2e73392c83f8",
+  "nav": "94682fd46f6684c82fb4f4e4bb3bccc49c537ea9ce04d6e19e93bde56bbd2dcc",
+  "order_events": "e22fc6ad04e10fa13a2079092b14af980166d58416edeac56884277690f09a6b",
+  "orders": "03d4dab8db0859641b1738533b33e48308ba033d666c465d8ce502fc6ad8e944",
+  "positions": "f20f02b2a98154b7184c1f773239a3ebb025fdd08c1fca9c9528c309f244eb4f",
+  "rejected_orders": "ece5825da203a57c898dea9d12370f5c5f2d82cd3191a3752a420c823a59303b",
+  "rights": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+  "share_events": "d7d06f2336f9f51e5f4a42af1ea3dbb418ac2083c657347e81daefaf7bf19bac",
+  "tax_balances": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+  "tax_events": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+  "tax_lots": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+}

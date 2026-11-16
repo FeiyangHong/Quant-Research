@@ -1,0 +1,200 @@
+[
+  {
+    "first_day_nav_difference_cny": -20.0,
+    "first_nav_divergence": "2020-02-04",
+    "first_position_divergence": "2020-06-02",
+    "full_account_details": "LOCAL_ONLY runs/m9_analysis/FIRST_DIVERGENCE_DETAIL.json",
+    "mechanism": "COMMISSION_MINIMUM_AND_SLIPPAGE_CHANGED; rounding/cash can change subsequent shares",
+    "path": "cost_2x",
+    "period": "development",
+    "unchanged_anchor_targets": true,
+    "variant": "VE"
+  },
+  {
+    "first_day_nav_difference_cny": -53.5,
+    "first_nav_divergence": "2020-02-04",
+    "first_position_divergence": "2020-04-02",
+    "full_account_details": "LOCAL_ONLY runs/m9_analysis/FIRST_DIVERGENCE_DETAIL.json",
+    "mechanism": "COMMISSION_MINIMUM_AND_SLIPPAGE_CHANGED; rounding/cash can change subsequent shares",
+    "path": "cost_3x",
+    "period": "development",
+    "unchanged_anchor_targets": true,
+    "variant": "VE"
+  },
+  {
+    "first_day_nav_difference_cny": -1342.1999999999825,
+    "first_nav_divergence": "2020-02-04",
+    "first_position_divergence": "2020-02-04",
+    "full_account_details": "LOCAL_ONLY runs/m9_analysis/FIRST_DIVERGENCE_DETAIL.json",
+    "mechanism": "EXECUTION_DATE_MOVED_ONLY",
+    "path": "delay_1_session",
+    "period": "development",
+    "unchanged_anchor_targets": true,
+    "variant": "VE"
+  },
+  {
+    "first_day_nav_difference_cny": -20.0,
+    "first_nav_divergence": "2020-02-04",
+    "first_position_divergence": "2020-05-07",
+    "full_account_details": "LOCAL_ONLY runs/m9_analysis/FIRST_DIVERGENCE_DETAIL.json",
+    "mechanism": "COMMISSION_MINIMUM_AND_SLIPPAGE_CHANGED; rounding/cash can change subsequent shares",
+    "path": "cost_2x",
+    "period": "development",
+    "unchanged_anchor_targets": true,
+    "variant": "CE"
+  },
+  {
+    "first_day_nav_difference_cny": -53.5,
+    "first_nav_divergence": "2020-02-04",
+    "first_position_divergence": "2020-05-07",
+    "full_account_details": "LOCAL_ONLY runs/m9_analysis/FIRST_DIVERGENCE_DETAIL.json",
+    "mechanism": "COMMISSION_MINIMUM_AND_SLIPPAGE_CHANGED; rounding/cash can change subsequent shares",
+    "path": "cost_3x",
+    "period": "development",
+    "unchanged_anchor_targets": true,
+    "variant": "CE"
+  },
+  {
+    "first_day_nav_difference_cny": -1342.1999999999825,
+    "first_nav_divergence": "2020-02-04",
+    "first_position_divergence": "2020-02-04",
+    "full_account_details": "LOCAL_ONLY runs/m9_analysis/FIRST_DIVERGENCE_DETAIL.json",
+    "mechanism": "EXECUTION_DATE_MOVED_ONLY",
+    "path": "delay_1_session",
+    "period": "development",
+    "unchanged_anchor_targets": true,
+    "variant": "CE"
+  },
+  {
+    "first_day_nav_difference_cny": -16.79000000000815,
+    "first_nav_divergence": "2020-02-04",
+    "first_position_divergence": "2020-10-13",
+    "full_account_details": "LOCAL_ONLY runs/m9_analysis/FIRST_DIVERGENCE_DETAIL.json",
+    "mechanism": "COMMISSION_MINIMUM_AND_SLIPPAGE_CHANGED; rounding/cash can change subsequent shares",
+    "path": "cost_2x",
+    "period": "development",
+    "unchanged_anchor_targets": true,
+    "variant": "VR"
+  },
+  {
+    "first_day_nav_difference_cny": -49.79999999998836,
+    "first_nav_divergence": "2020-02-04",
+    "first_position_divergence": "2020-04-02",
+    "full_account_details": "LOCAL_ONLY runs/m9_analysis/FIRST_DIVERGENCE_DETAIL.json",
+    "mechanism": "COMMISSION_MINIMUM_AND_SLIPPAGE_CHANGED; rounding/cash can change subsequent shares",
+    "path": "cost_3x",
+    "period": "development",
+    "unchanged_anchor_targets": true,
+    "variant": "VR"
+  },
+  {
+    "first_day_nav_difference_cny": -1084.8099999999977,
+    "first_nav_divergence": "2020-02-04",
+    "first_position_divergence": "2020-02-04",
+    "full_account_details": "LOCAL_ONLY runs/m9_analysis/FIRST_DIVERGENCE_DETAIL.json",
+    "mechanism": "EXECUTION_DATE_MOVED_ONLY",
+    "path": "delay_1_session",
+    "period": "development",
+    "unchanged_anchor_targets": true,
+    "variant": "VR"
+  },
+  {
+    "first_day_nav_difference_cny": 144.40000000000873,
+    "first_nav_divergence": "2022-01-05",
+    "first_position_divergence": "2022-01-05",
+    "full_account_details": "LOCAL_ONLY runs/m9_analysis/FIRST_DIVERGENCE_DETAIL.json",
+    "mechanism": "COMMISSION_MINIMUM_AND_SLIPPAGE_CHANGED; rounding/cash can change subsequent shares",
+    "path": "cost_2x",
+    "period": "validation",
+    "unchanged_anchor_targets": true,
+    "variant": "VE"
+  },
+  {
+    "first_day_nav_difference_cny": 139.2000000000262,
+    "first_nav_divergence": "2022-01-05",
+    "first_position_divergence": "2022-01-05",
+    "full_account_details": "LOCAL_ONLY runs/m9_analysis/FIRST_DIVERGENCE_DETAIL.json",
+    "mechanism": "COMMISSION_MINIMUM_AND_SLIPPAGE_CHANGED; rounding/cash can change subsequent shares",
+    "path": "cost_3x",
+    "period": "validation",
+    "unchanged_anchor_targets": true,
+    "variant": "VE"
+  },
+  {
+    "first_day_nav_difference_cny": 1598.7000000000116,
+    "first_nav_divergence": "2022-01-05",
+    "first_position_divergence": "2022-01-05",
+    "full_account_details": "LOCAL_ONLY runs/m9_analysis/FIRST_DIVERGENCE_DETAIL.json",
+    "mechanism": "EXECUTION_DATE_MOVED_ONLY",
+    "path": "delay_1_session",
+    "period": "validation",
+    "unchanged_anchor_targets": true,
+    "variant": "VE"
+  },
+  {
+    "first_day_nav_difference_cny": 113.20000000001164,
+    "first_nav_divergence": "2022-01-05",
+    "first_position_divergence": "2022-01-05",
+    "full_account_details": "LOCAL_ONLY runs/m9_analysis/FIRST_DIVERGENCE_DETAIL.json",
+    "mechanism": "COMMISSION_MINIMUM_AND_SLIPPAGE_CHANGED; rounding/cash can change subsequent shares",
+    "path": "cost_2x",
+    "period": "validation",
+    "unchanged_anchor_targets": true,
+    "variant": "CE"
+  },
+  {
+    "first_day_nav_difference_cny": 105.5,
+    "first_nav_divergence": "2022-01-05",
+    "first_position_divergence": "2022-01-05",
+    "full_account_details": "LOCAL_ONLY runs/m9_analysis/FIRST_DIVERGENCE_DETAIL.json",
+    "mechanism": "COMMISSION_MINIMUM_AND_SLIPPAGE_CHANGED; rounding/cash can change subsequent shares",
+    "path": "cost_3x",
+    "period": "validation",
+    "unchanged_anchor_targets": true,
+    "variant": "CE"
+  },
+  {
+    "first_day_nav_difference_cny": 1347.1000000000058,
+    "first_nav_divergence": "2022-01-05",
+    "first_position_divergence": "2022-01-05",
+    "full_account_details": "LOCAL_ONLY runs/m9_analysis/FIRST_DIVERGENCE_DETAIL.json",
+    "mechanism": "EXECUTION_DATE_MOVED_ONLY",
+    "path": "delay_1_session",
+    "period": "validation",
+    "unchanged_anchor_targets": true,
+    "variant": "CE"
+  },
+  {
+    "first_day_nav_difference_cny": -15.0,
+    "first_nav_divergence": "2022-01-05",
+    "first_position_divergence": "2022-04-06",
+    "full_account_details": "LOCAL_ONLY runs/m9_analysis/FIRST_DIVERGENCE_DETAIL.json",
+    "mechanism": "COMMISSION_MINIMUM_AND_SLIPPAGE_CHANGED; rounding/cash can change subsequent shares",
+    "path": "cost_2x",
+    "period": "validation",
+    "unchanged_anchor_targets": true,
+    "variant": "VR"
+  },
+  {
+    "first_day_nav_difference_cny": -49.39999999999418,
+    "first_nav_divergence": "2022-01-05",
+    "first_position_divergence": "2022-04-06",
+    "full_account_details": "LOCAL_ONLY runs/m9_analysis/FIRST_DIVERGENCE_DETAIL.json",
+    "mechanism": "COMMISSION_MINIMUM_AND_SLIPPAGE_CHANGED; rounding/cash can change subsequent shares",
+    "path": "cost_3x",
+    "period": "validation",
+    "unchanged_anchor_targets": true,
+    "variant": "VR"
+  },
+  {
+    "first_day_nav_difference_cny": 1898.5,
+    "first_nav_divergence": "2022-01-05",
+    "first_position_divergence": "2022-01-05",
+    "full_account_details": "LOCAL_ONLY runs/m9_analysis/FIRST_DIVERGENCE_DETAIL.json",
+    "mechanism": "EXECUTION_DATE_MOVED_ONLY",
+    "path": "delay_1_session",
+    "period": "validation",
+    "unchanged_anchor_targets": true,
+    "variant": "VR"
+  }
+]

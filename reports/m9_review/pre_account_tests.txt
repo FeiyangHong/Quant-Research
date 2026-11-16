@@ -1,0 +1,31 @@
+........................................................................ [  7%]
+........................................................................ [ 15%]
+........................................................................ [ 23%]
+........................................................................ [ 31%]
+........................................................................ [ 39%]
+........................................................................ [ 47%]
+........................................................................ [ 55%]
+........................................................................ [ 63%]
+........................................................................ [ 71%]
+........................................................................ [ 79%]
+.............s.................ssssss.....................s........s..s. [ 87%]
+........................................................................ [ 95%]
+.........................................                                [100%]
+============================== warnings summary ===============================
+review_code/m4/test_external_independent.py::test_current_unknown_exit_rule_cannot_fill_and_shares_remain[tick]
+  F:\QuantTrade\Quant-Research-M9\review_code\m4\test_external_independent.py:136: FutureWarning: The behavior of DataFrame concatenation with empty or all-NA entries is deprecated. In a future version, this will no longer exclude empty or all-NA columns when determining the result dtypes. To retain the old behavior, exclude the relevant entries before the concat operation.
+    data["instruments"] = pd.concat([data["instruments"], pd.DataFrame([successor])], ignore_index=True)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+SKIPPED [1] review_code\m5\test_external_accounting.py:248: Archived real-source builder integration unavailable; mechanism and conditional arithmetic tests still run: F:\QuantTrade\Quant-Research-M9\data\admitted_r1\phase2_v1\development\calendar.json
+SKIPPED [1] review_code\m5\test_external_financial.py:83: Archived original PDF unavailable; portable transcription and factor tests still run: 15b3b15df2df
+SKIPPED [1] review_code\m5\test_external_financial.py:83: Archived original PDF unavailable; portable transcription and factor tests still run: 9f47aa0dc0a8
+SKIPPED [1] review_code\m5\test_external_financial.py:83: Archived original PDF unavailable; portable transcription and factor tests still run: 9b57ae1e21bc
+SKIPPED [1] review_code\m5\test_external_financial.py:83: Archived original PDF unavailable; portable transcription and factor tests still run: 41d9370fd96d
+SKIPPED [1] review_code\m5\test_external_financial.py:83: Archived original PDF unavailable; portable transcription and factor tests still run: 7028b0a1c7b8
+SKIPPED [1] review_code\m5\test_external_financial.py:83: Archived original PDF unavailable; portable transcription and factor tests still run: 3ae8304f34e4
+SKIPPED [1] review_code\m5\test_external_market_cap.py:38: Archived original provider bytes absent in this checkout
+SKIPPED [1] review_code\m6\test_independent_collector_lease.py:94: Original incident/shared collection ledger unavailable; no real-incident PASS
+SKIPPED [1] review_code\m6\test_independent_data_gate.py:57: Archived original bytes unavailable; missing 175 files; no real-source PASS
+895 passed, 10 skipped, 1 warning in 65.99s (0:01:05)
