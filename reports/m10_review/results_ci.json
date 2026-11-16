@@ -1,0 +1,17 @@
+{
+  "result_commit": "493f6cb8bdb755540a096cff3f23c4fe75ccb8d3",
+  "run_id": 43828439520,
+  "job_id": 133167677376,
+  "tested_merge_commit": "6c08e8c46691108dcfc0c5935af8da946d70211e",
+  "status": "SUCCESS",
+  "passed": 944,
+  "skipped": 12,
+  "warnings": 1,
+  "pytest_seconds": 86.79,
+  "url": "https://github.com/FeiyangHong/Quant-Research/actions/runs/43828439520",
+  "log": "reports/m10_review/results_ci.txt",
+  "log_sha256": "613c144341c0c401c19eb7d4b9ce2c685cd66429d774570c0bdada4e4f9dd4c6",
+  "log_encoding": "UTF-8 connector log, normalized LF",
+  "scope": "Actual M10 source and offline tests; no raw-data strategy/account replay",
+  "skip_scope": "Twelve old M5/M6 original-data dependencies, including two extra M6 cases compared with local archive-access environment; no M10 logic test skip"
+}
