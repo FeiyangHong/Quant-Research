@@ -1,4 +1,16 @@
-# 当前M9：24条风险预算账户完成并停止
+# 当前M10：R2数据能力阻断，真实股票绩效未运行
+
+**BLOCKED_DATA_CAPABILITY / NOT_RUN。** 真实R2注册0、账户0，固定24格仅DRAFT_NOT_AUTHORIZED，绩效/CI为null。先读[M10结果](../reports/m10_r2/RESULTS.md)、[来源决定](../reports/m10_r2/ACCESS_DECISION.md)、[集中审查](../reports/m10_review/REVIEW_PACKET.md)、[独立核验](../reports/m10_review/INDEPENDENT_REVIEW.md)。本轮不是READY_FOR_HUMAN_REVIEW：数据、执行、运行入口与人验同时缺失。
+
+实际复用265/265原始档案hash通过；271总引用有1条历史采集代码漂移单列，不改旧档。2020-07-31的3,779身份仅诊断截面，108月全池均未准入；完整市值/行业/状态/行为及财务版本链缺失。20固定更正候选不换：4配对+3冲突+13未配原稿，另加原康美配对共5文档对；完整M10卡0、human签核0。康美有限ST工程PASS，茅台两分红案继续来源BLOCKED。
+
+本轮新增显式全普通股估值合同，A股价格×全部已发行普通股与旧默认分离，时钟/字段/单位/源hash均检查但不自动证明真实性。原评分/30与45缓冲复用；离线草案检查永不授权运行。普通股票FIFO、必要公司行为、全池绑定和R2 runner尚缺，逐项见[工程就绪表](../reports/m10_r2/ENGINEERING_READINESS.md)。没有造供应商适配器、DATA_BINDING、收益或20张假通过卡。
+
+阶段A止于6文档请求等价、0 SDK/新市场请求、52,441保存工具响应字节及0.8965累计会话小时上界，后台wire量未知。下一项外部输入是已有授权PIT主源/冻结导出的名称、范围及本地位置；未提供前停止扩采，不采购或联系供应商。代码/测试/总预算/远端SHA和真实CI见M10审查收据。
+
+当前安全检出仍为F:/QuantTrade/Quant-Research-M9，分支`codex/m10-r2-data-and-screen`，基准3e19797，计划提交5d3b4e；原F:/QuantTrade/Quant-Research只读。M9保持INCONCLUSIVE并归档，十ETF搜索结束；R3、2025以后留出、paper/live和采购继续关闭。
+
+## 历史M9：24条风险预算账户完成并停止
 
 **INCONCLUSIVE / ROBUSTNESS_SIGN_CHECK_PASSED。** 24/24完成、0失败、0未运行；未知固定费用null，经济确认BLOCKED_HURDLE。先读[M9投资结果](../reports/m9_risk/RESULTS.md)、[集中审查](../reports/m9_review/REVIEW_PACKET.md)、[独立复核](../reports/m9_review/INDEPENDENT_REVIEW.md)。
 

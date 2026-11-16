@@ -1,0 +1,616 @@
+{
+  "registry_version": "M10_R2_DRAFT_24_V1",
+  "status": "DRAFT_NOT_AUTHORIZED",
+  "scope": "M10_R2_DATA_AND_FIRST_SCREEN_V1",
+  "created_at": "2026-11-16T07:43:18.575145+00:00",
+  "review_base": "3e19797ecaa88ce5c7c7f9f138b7dabfac4ea30a",
+  "claim_type": "POST_VALIDATION_EXPLORATORY",
+  "performance_scope": "DAILY_SCREEN_ONLY",
+  "governing_task": {
+    "path": "docs/M9_INDEPENDENT_REVIEW_AND_M10_HANDOFF_2026-11-16.md",
+    "section": "7",
+    "sha256": "01723c04baeb292d08380f98efc77b68b0f547f52c3e2019667319cf0cf65f70"
+  },
+  "definition_sources": {
+    "docs/EQUITY_RESEARCH_PROTOCOL.md": "4a5f38c2dc70d1229d6cdc141ae284160f6410ab2c937108bb6cd2875ea01316",
+    "docs/STRATEGY_SPEC.md": "952aa28e9db90fb042be0e9113455600a7213fd29dfa4dd8920aa2ae4c09b023"
+  },
+  "authorization": {
+    "strategy_runs_permitted": false,
+    "data_admission": false,
+    "execution_admission": false,
+    "minimum_complete_nonduplicate_human_cases": 20,
+    "human_approvals_verified": 0,
+    "whole_pool_period_version_chain_verified": false,
+    "human_approval_must_bind_case_hash": true,
+    "agent_review_is_not_human_review": true,
+    "actual_run_registration": null,
+    "actual_code_hash": null,
+    "actual_data_hash": null,
+    "actual_rules_hash": null
+  },
+  "scope_limits": {
+    "only_strategy": "R2",
+    "other_strategies_enabled": false,
+    "final_holdout_start": "2025-01-01",
+    "final_holdout": "LOCKED",
+    "live_enabled": false,
+    "paper_enabled": false,
+    "new_purchase_budget_cny": 0,
+    "no_m9_rerun": true,
+    "stop_after_fixed_24": true
+  },
+  "periods": {
+    "development": [
+      "2016-01-01",
+      "2021-12-31"
+    ],
+    "validation": [
+      "2022-01-01",
+      "2024-12-31"
+    ]
+  },
+  "account": {
+    "initial_cash_cny": 100000,
+    "each_period_recapitalized": true,
+    "cash_return": 0,
+    "warmup_only_before_funded_period": true,
+    "do_not_shorten_missing_coverage": true,
+    "do_not_concatenate_periods": true,
+    "validation_is_already_observed": true,
+    "terminal_forced_liquidation": false,
+    "terminal_unsettled_rights": "REPORT_SEPARATELY_WITHOUT_FUTURE_SETTLEMENT",
+    "post_2024_labels_or_trades": "DO_NOT_EXTEND"
+  },
+  "valuation": {
+    "name": "A_PRICE_ALL_ISSUED_ORDINARY_SHARES_V1",
+    "formula": "unadjusted_A_close(D) * total_issued_ordinary_shares_visible_at_cutoff(D)",
+    "ordinary_classes_included": [
+      "A",
+      "B",
+      "H"
+    ],
+    "exclude_nonordinary_shares_including_preferred": true,
+    "interpretation": "A-share-reference-price proxy for all ordinary shares; not summed exchange market values or free-float cap",
+    "used_identically_for": [
+      "F01",
+      "bottom_30_percent_size_filter",
+      "log_size_control"
+    ],
+    "retain_separate_fields": [
+      "a_shares",
+      "total_ordinary_shares",
+      "source_field_mapping",
+      "units",
+      "preferred_share_treatment",
+      "treasury_share_treatment",
+      "published_at",
+      "effective_at",
+      "available_at",
+      "retrieved_at"
+    ],
+    "source_semantics_verified": false,
+    "unproven_class_semantics": "BLOCK_DEPENDENCY_DO_NOT_SUBSTITUTE_FLOAT_OR_DROP_AH_ISSUERS",
+    "profit_numerator": "net_profit_attributable_to_parent_TTM",
+    "latest_provider_PE_inversion": false,
+    "engineering_contract": {
+      "module": "quant_research.equity_features",
+      "entry": "r2_factors",
+      "keyword": "valuation_convention",
+      "value": "A_PRICE_ALL_ISSUED_ORDINARY_SHARES_V1",
+      "market_cap_scope": "A_PRICE_ALL_ISSUED_ORDINARY_PROXY",
+      "semantics": "VALIDATED_INPUT_ARITHMETIC_ONLY_NOT_SOURCE_OR_ADMISSION_PASS",
+      "source_payload_hash_fields": [
+        "price_source_sha256",
+        "shares_source_sha256"
+      ],
+      "filing_document_hash_not_inferred": true
+    }
+  },
+  "pool": {
+    "boards": [
+      "MAIN",
+      "CHINEXT_VERIFIED"
+    ],
+    "new_buys_exclude_boards": [
+      "STAR",
+      "BSE"
+    ],
+    "minimum_listed_trading_sessions": 252,
+    "exclude_financials": true,
+    "non_ST_and_non_delisting_risk": true,
+    "historical_state_and_account_permission_required": true,
+    "liquidity_lookback_sessions": 60,
+    "minimum_median_raw_turnover_cny": 30000000,
+    "size_bottom_fraction_excluded": 0.3,
+    "size_denominator": "ALL_IDENTITIES_LISTED_AT_ANCHOR_ON_MAIN_OR_CHINEXT_AND_NON_ST_AT_ANCHOR_BEFORE_FINANCIAL_OR_LIQUIDITY_SCREEN",
+    "denominator_includes_later_delisted_or_inactive_identities": true,
+    "denominator_excludes_not_yet_listed": true,
+    "common_to_all_arms": [
+      "F01_valid",
+      "F02_valid",
+      "F03_valid",
+      "legal_historical_industry",
+      "same_historical_eligibility"
+    ],
+    "unknown_required_facts": "BLOCK_NOT_FALSE_INELIGIBILITY",
+    "ineligible_or_blocked_old_holdings": "RETAIN_LEDGER_AND_LOSSES_UNTIL_ACTUAL_LEGAL_EXIT",
+    "monthly_coverage_outputs": [
+      "full_identity_count",
+      "each_eligibility_step_count",
+      "unknown_reason_counts",
+      "financial_calculability_count",
+      "final_common_pool"
+    ],
+    "size_cutoff_tie_implementation": null
+  },
+  "financial_facts": {
+    "F01": "parent_net_profit_TTM / valuation_cap",
+    "F02": "parent_net_profit_TTM / average_total_assets",
+    "F03": "operating_cashflow_TTM / average_total_assets",
+    "average_total_assets": "(latest_visible_quarter_assets + same_quarter_one_year_earlier_assets) / 2",
+    "flow_TTM": "current_year_YTD + previous_year_FY - previous_year_same_quarter_YTD; FY uses FY directly",
+    "all_legs": "AS_OF_QUERY_VISIBLE_VERSIONS",
+    "same_latest_public_quarter_for_all_three": true,
+    "latest_public_incomplete": "BLOCK_NEVER_FALL_BACK_TO_OLDER_COMPLETE_QUARTER",
+    "negative_profit": "PRESERVE",
+    "invalid_denominator": "BLOCK",
+    "filing_freshness_policy": null,
+    "freshness_policy_requirement": "Historical disclosure obligation and known delay events; distinguish not disclosed from missed public filing; no arbitrary 90/180-day expiry search",
+    "source_types_separate": [
+      "OFFICIAL_FILING",
+      "PROVIDER_PIT_IF_ACTUALLY_VERIFIED"
+    ],
+    "provider_payload_hash_is_not_filing_document_hash": true,
+    "unknown_filing_document_hash": null,
+    "latest_revised_provider_is_not_PIT": true
+  },
+  "normalization": {
+    "common_sample_for_three_factors": true,
+    "sequence": [
+      "winsorize_linear_quantiles_0.01_0.99",
+      "zscore_ddof_0",
+      "OLS_residual_intercept_PIT_industry_dummies_log_valuation_cap",
+      "zscore_residual_ddof_0"
+    ],
+    "neutralization_passes": 1,
+    "residual_std_at_most_1e_12": "ZERO_SCORE",
+    "small_group_threshold": 10,
+    "small_group_fallback": "Whole cross-section uses known parent only if all parent groups have >=10 members; otherwise WHOLE_POOL intercept+size",
+    "fallback_reporting_required": true,
+    "WHOLE_POOL_is_not_industry_neutral": true,
+    "portfolio_quota_industry": "ORIGINAL_PIT_FIRST_LEVEL_INDUSTRY_NOT_FALLBACK_GROUP",
+    "score_tie_break": "security_id_ascending"
+  },
+  "arms": {
+    "VALUE": "Z1",
+    "QUALITY": "(Z2+Z3)/2",
+    "COMBINED": "0.50*Z1+0.25*Z2+0.25*Z3"
+  },
+  "Z_definition": "Final scores after exactly one full registered normalization sequence, not raw factor z-scores",
+  "portfolio": {
+    "frequency": "MONTH_END",
+    "target_count": 30,
+    "target_weight": "1/30",
+    "single_stock_target_cap": 0.05,
+    "original_PIT_first_level_industry_max_stocks": 6,
+    "industry_target_cap": 0.2,
+    "retention_rank_at_most": 45,
+    "selection": "Retain still-eligible held names with current rank<=45 in score order subject to slots; then ranked new names until 30",
+    "held_rank_over_45_cannot_reenter_as_new": true,
+    "unfilled_slots": "CASH",
+    "blocked_exit_does_not_release_cash": true,
+    "extra_timing_stop_loss_volatility_scaling_optimizer": false
+  },
+  "clock": {
+    "anchor": "LAST_TRADING_DAY_OF_MONTH_D",
+    "default_decision_at": "D21:00:00+08:00",
+    "inputs_available_at_no_later_than_decision": true,
+    "date_only_filing": "FIRST_TRADING_DAY_AFTER_PUBLICATION_DATE_AT_21:00_ASIA_SHANGHAI",
+    "default_earliest_execution": "NEXT_TRADING_SESSION_AFTER_DECISION",
+    "source_release_delay_sessions": null,
+    "effective_base_execution_offset_sessions": null,
+    "unresolved_delay_reason": "Requires actual source clock evidence before fixed common release/execution delay can be selected",
+    "economic_observation_window_ends_at_anchor": true,
+    "late_inputs": "NEXT_LEGAL_ANCHOR_NO_BACKFILL",
+    "copy_ETF_D_D1_D2_without_evidence": false
+  },
+  "execution": {
+    "model": "NEXT_ELIGIBLE_OPEN_WITH_ADVERSE_SLIPPAGE_DAILY_SCREEN_ONLY",
+    "stock_slippage_bp_each_side": 10,
+    "commission_bp_each_side": 3,
+    "minimum_commission_cny": 5,
+    "commission_status": "REGISTERED_RESEARCH_ASSUMPTION_NOT_PRIVATE_BROKER_RATE",
+    "statutory_rates": "HISTORICAL_EFFECTIVE_DATE_AND_SOURCE_REQUIRED",
+    "statutory_rate_stress_multiplier": 1,
+    "T_plus_sessions": 1,
+    "buy_lot_shares": 100,
+    "odd_lot_sales": "LEGAL_RULE_ONLY",
+    "historical_limits_suspensions_and_legal_prices_required": true,
+    "invalid_stressed_price": "REJECT_AND_REPORT_NOT_CLIP_TO_LIMIT",
+    "cash_reservation_required": true,
+    "planned_sale_proceeds_spendable": false,
+    "dividend_tax": "FIFO_REAL_ENTITLEMENTS_RECEIVABLES_PAYMENTS_AND_TAX_LIABILITIES",
+    "capacity": "SHARED_PER_SECURITY_PER_DAY_1_PERCENT_HISTORICAL_ADV20_AMOUNT_ACTUAL_DAY_AMOUNT_AND_ACTUAL_DAY_SHARES_ABSOLUTE_BUYS_PLUS_SELLS",
+    "max_sell_attempts": 5,
+    "exhausted_exit": "RETAIN_POSITION_ESCALATE_EXCEPTION",
+    "unknown_exit_rights": "RETAIN_REPORT_AND_BLOCK_NOT_ZERO_RECOVERY",
+    "governance_8_12_percent_alerts_are_historical_stops": false
+  },
+  "paths": {
+    "base": {
+      "nonstatutory_commission_multiplier": 1,
+      "minimum_commission_multiplier": 1,
+      "slippage_multiplier": 1,
+      "additional_execution_delay_sessions": 0
+    },
+    "cost_2x": {
+      "nonstatutory_commission_multiplier": 2,
+      "minimum_commission_multiplier": 2,
+      "slippage_multiplier": 2,
+      "additional_execution_delay_sessions": 0
+    },
+    "cost_3x": {
+      "nonstatutory_commission_multiplier": 3,
+      "minimum_commission_multiplier": 3,
+      "slippage_multiplier": 3,
+      "additional_execution_delay_sessions": 0
+    },
+    "delay_1_session": {
+      "nonstatutory_commission_multiplier": 1,
+      "minimum_commission_multiplier": 1,
+      "slippage_multiplier": 1,
+      "additional_execution_delay_sessions": 1
+    }
+  },
+  "run_order": {
+    "first": "6_BASE_ACCOUNTS_WITH_INDEPENDENT_SIGNAL_AND_LEDGER_CHECKS",
+    "then": "18_FIXED_STRESS_ACCOUNTS_AUTOMATICALLY_IF_CHECKS_PASS",
+    "profitability_condition": false
+  },
+  "primary": {
+    "period": "validation",
+    "path": "base",
+    "candidate": "COMBINED",
+    "baseline": "VALUE",
+    "measure": "mean_net_daily_return_difference",
+    "formula": "d[t]=r_COMBINED_net[t]-r_VALUE_net[t]",
+    "calendar": "FULL_PAIRED_SAME_DAY_ACCOUNT_CALENDAR_INCLUDING_CASH_DAYS",
+    "M9_quadratic_utility": false,
+    "interpretation": "Increment of registered ranking policy; changes value and quality exposure; not identified pure quality alpha"
+  },
+  "bootstrap": {
+    "method": "PAIRED_CIRCULAR_BLOCK_BOOTSTRAP_T_HAC",
+    "main_block": 60,
+    "sensitivity_blocks": [
+      20,
+      120
+    ],
+    "repetitions": 5000,
+    "seed": 20261114,
+    "confidence_level": 0.95,
+    "base_periods_separate": true,
+    "comparisons": [
+      "COMBINED_MINUS_VALUE_NET_DAILY_RETURNS"
+    ],
+    "predefined_interval_count": 6,
+    "stress_CI": false,
+    "QUALITY_CI": false,
+    "degenerate": "INCONCLUSIVE",
+    "select_best_block": false
+  },
+  "decision_rules": {
+    "validation_base_main_CI_lower_gt_zero": "EXPLORATORY_INCREMENT_SUPPORT",
+    "validation_base_main_CI_upper_le_zero": "NOT_SUPPORTED_CURRENT_QUALITY_INCREMENT",
+    "otherwise_or_degenerate": "INCONCLUSIVE",
+    "direction_check": "development/base and validation/cost_2x,cost_3x,delay_1_session mean differences must ALL be strictly >0",
+    "support_is_not_deployment_or_independent_alpha_confirmation": true
+  },
+  "reporting": {
+    "all_arms_and_paths_required": true,
+    "measures": [
+      "net_CAGR",
+      "cumulative_net_return",
+      "Sharpe",
+      "MDD",
+      "underwater_duration",
+      "tails",
+      "costs",
+      "minimum_commission_drag",
+      "turnover",
+      "actual_holdings_count",
+      "cash",
+      "annual_monthly_stock_contribution_concentration",
+      "unfilled_orders",
+      "lower_limit_lockup",
+      "delisting_rights",
+      "industry_size_value_exposure",
+      "common_pool_coverage"
+    ],
+    "annual_incremental_fixed_cost": null,
+    "economic_confirmation": "BLOCKED_HURDLE",
+    "descriptive_CI_retained_despite_unknown_fixed_cost": true,
+    "equal_weight_common_pool": "OPTIONAL_THEORETICAL_GROSS_NONTRADABLE_BACKGROUND_ONLY",
+    "broad_TR_benchmark": "PREREGISTERED_BACKGROUND_ONLY",
+    "executable_industry_size_matched_control": "NOT_BUILT_DEFERRED_NO_ATTRIBUTION_CLAIM",
+    "deferred": [
+      "other_capitals",
+      "other_size_thresholds",
+      "other_weights",
+      "raw_or_industry_only_sensitivities",
+      "Ridge",
+      "tree_models",
+      "original_full_R2_sensitivity_and_matching_suite"
+    ]
+  },
+  "experiments": [
+    {
+      "experiment_id": "M10_development_VALUE_base",
+      "status": "DRAFT_NOT_AUTHORIZED",
+      "period": "development",
+      "arm": "VALUE",
+      "path": "base",
+      "initial_cash_cny": 100000,
+      "actual_run_id": null,
+      "performance_metrics": null
+    },
+    {
+      "experiment_id": "M10_development_VALUE_cost_2x",
+      "status": "DRAFT_NOT_AUTHORIZED",
+      "period": "development",
+      "arm": "VALUE",
+      "path": "cost_2x",
+      "initial_cash_cny": 100000,
+      "actual_run_id": null,
+      "performance_metrics": null
+    },
+    {
+      "experiment_id": "M10_development_VALUE_cost_3x",
+      "status": "DRAFT_NOT_AUTHORIZED",
+      "period": "development",
+      "arm": "VALUE",
+      "path": "cost_3x",
+      "initial_cash_cny": 100000,
+      "actual_run_id": null,
+      "performance_metrics": null
+    },
+    {
+      "experiment_id": "M10_development_VALUE_delay_1_session",
+      "status": "DRAFT_NOT_AUTHORIZED",
+      "period": "development",
+      "arm": "VALUE",
+      "path": "delay_1_session",
+      "initial_cash_cny": 100000,
+      "actual_run_id": null,
+      "performance_metrics": null
+    },
+    {
+      "experiment_id": "M10_development_QUALITY_base",
+      "status": "DRAFT_NOT_AUTHORIZED",
+      "period": "development",
+      "arm": "QUALITY",
+      "path": "base",
+      "initial_cash_cny": 100000,
+      "actual_run_id": null,
+      "performance_metrics": null
+    },
+    {
+      "experiment_id": "M10_development_QUALITY_cost_2x",
+      "status": "DRAFT_NOT_AUTHORIZED",
+      "period": "development",
+      "arm": "QUALITY",
+      "path": "cost_2x",
+      "initial_cash_cny": 100000,
+      "actual_run_id": null,
+      "performance_metrics": null
+    },
+    {
+      "experiment_id": "M10_development_QUALITY_cost_3x",
+      "status": "DRAFT_NOT_AUTHORIZED",
+      "period": "development",
+      "arm": "QUALITY",
+      "path": "cost_3x",
+      "initial_cash_cny": 100000,
+      "actual_run_id": null,
+      "performance_metrics": null
+    },
+    {
+      "experiment_id": "M10_development_QUALITY_delay_1_session",
+      "status": "DRAFT_NOT_AUTHORIZED",
+      "period": "development",
+      "arm": "QUALITY",
+      "path": "delay_1_session",
+      "initial_cash_cny": 100000,
+      "actual_run_id": null,
+      "performance_metrics": null
+    },
+    {
+      "experiment_id": "M10_development_COMBINED_base",
+      "status": "DRAFT_NOT_AUTHORIZED",
+      "period": "development",
+      "arm": "COMBINED",
+      "path": "base",
+      "initial_cash_cny": 100000,
+      "actual_run_id": null,
+      "performance_metrics": null
+    },
+    {
+      "experiment_id": "M10_development_COMBINED_cost_2x",
+      "status": "DRAFT_NOT_AUTHORIZED",
+      "period": "development",
+      "arm": "COMBINED",
+      "path": "cost_2x",
+      "initial_cash_cny": 100000,
+      "actual_run_id": null,
+      "performance_metrics": null
+    },
+    {
+      "experiment_id": "M10_development_COMBINED_cost_3x",
+      "status": "DRAFT_NOT_AUTHORIZED",
+      "period": "development",
+      "arm": "COMBINED",
+      "path": "cost_3x",
+      "initial_cash_cny": 100000,
+      "actual_run_id": null,
+      "performance_metrics": null
+    },
+    {
+      "experiment_id": "M10_development_COMBINED_delay_1_session",
+      "status": "DRAFT_NOT_AUTHORIZED",
+      "period": "development",
+      "arm": "COMBINED",
+      "path": "delay_1_session",
+      "initial_cash_cny": 100000,
+      "actual_run_id": null,
+      "performance_metrics": null
+    },
+    {
+      "experiment_id": "M10_validation_VALUE_base",
+      "status": "DRAFT_NOT_AUTHORIZED",
+      "period": "validation",
+      "arm": "VALUE",
+      "path": "base",
+      "initial_cash_cny": 100000,
+      "actual_run_id": null,
+      "performance_metrics": null
+    },
+    {
+      "experiment_id": "M10_validation_VALUE_cost_2x",
+      "status": "DRAFT_NOT_AUTHORIZED",
+      "period": "validation",
+      "arm": "VALUE",
+      "path": "cost_2x",
+      "initial_cash_cny": 100000,
+      "actual_run_id": null,
+      "performance_metrics": null
+    },
+    {
+      "experiment_id": "M10_validation_VALUE_cost_3x",
+      "status": "DRAFT_NOT_AUTHORIZED",
+      "period": "validation",
+      "arm": "VALUE",
+      "path": "cost_3x",
+      "initial_cash_cny": 100000,
+      "actual_run_id": null,
+      "performance_metrics": null
+    },
+    {
+      "experiment_id": "M10_validation_VALUE_delay_1_session",
+      "status": "DRAFT_NOT_AUTHORIZED",
+      "period": "validation",
+      "arm": "VALUE",
+      "path": "delay_1_session",
+      "initial_cash_cny": 100000,
+      "actual_run_id": null,
+      "performance_metrics": null
+    },
+    {
+      "experiment_id": "M10_validation_QUALITY_base",
+      "status": "DRAFT_NOT_AUTHORIZED",
+      "period": "validation",
+      "arm": "QUALITY",
+      "path": "base",
+      "initial_cash_cny": 100000,
+      "actual_run_id": null,
+      "performance_metrics": null
+    },
+    {
+      "experiment_id": "M10_validation_QUALITY_cost_2x",
+      "status": "DRAFT_NOT_AUTHORIZED",
+      "period": "validation",
+      "arm": "QUALITY",
+      "path": "cost_2x",
+      "initial_cash_cny": 100000,
+      "actual_run_id": null,
+      "performance_metrics": null
+    },
+    {
+      "experiment_id": "M10_validation_QUALITY_cost_3x",
+      "status": "DRAFT_NOT_AUTHORIZED",
+      "period": "validation",
+      "arm": "QUALITY",
+      "path": "cost_3x",
+      "initial_cash_cny": 100000,
+      "actual_run_id": null,
+      "performance_metrics": null
+    },
+    {
+      "experiment_id": "M10_validation_QUALITY_delay_1_session",
+      "status": "DRAFT_NOT_AUTHORIZED",
+      "period": "validation",
+      "arm": "QUALITY",
+      "path": "delay_1_session",
+      "initial_cash_cny": 100000,
+      "actual_run_id": null,
+      "performance_metrics": null
+    },
+    {
+      "experiment_id": "M10_validation_COMBINED_base",
+      "status": "DRAFT_NOT_AUTHORIZED",
+      "period": "validation",
+      "arm": "COMBINED",
+      "path": "base",
+      "initial_cash_cny": 100000,
+      "actual_run_id": null,
+      "performance_metrics": null
+    },
+    {
+      "experiment_id": "M10_validation_COMBINED_cost_2x",
+      "status": "DRAFT_NOT_AUTHORIZED",
+      "period": "validation",
+      "arm": "COMBINED",
+      "path": "cost_2x",
+      "initial_cash_cny": 100000,
+      "actual_run_id": null,
+      "performance_metrics": null
+    },
+    {
+      "experiment_id": "M10_validation_COMBINED_cost_3x",
+      "status": "DRAFT_NOT_AUTHORIZED",
+      "period": "validation",
+      "arm": "COMBINED",
+      "path": "cost_3x",
+      "initial_cash_cny": 100000,
+      "actual_run_id": null,
+      "performance_metrics": null
+    },
+    {
+      "experiment_id": "M10_validation_COMBINED_delay_1_session",
+      "status": "DRAFT_NOT_AUTHORIZED",
+      "period": "validation",
+      "arm": "COMBINED",
+      "path": "delay_1_session",
+      "initial_cash_cny": 100000,
+      "actual_run_id": null,
+      "performance_metrics": null
+    }
+  ],
+  "real_experiments_registered": 0,
+  "real_experiments_run": 0,
+  "performance_metrics": null,
+  "unresolved_before_actual_registration": [
+    "authorized_source_and_license",
+    "complete_2016_2024_data_and_legal_warmup",
+    "whole_pool_version_chain",
+    "at_least_20_complete_human_approved_cases",
+    "historical_industry_scheme_and_version_clock",
+    "valuation_source_field_mapping_and_share_class_semantics",
+    "historical_disclosure_freshness_policy",
+    "size_cutoff_tie_implementation",
+    "source_release_delay_and_execution_clock",
+    "R2_data_and_execution_admission",
+    "R2_runner_and_required_corporate_action_accounting",
+    "independent_real_event_reconciliation",
+    "exact_code_data_rules_hashes",
+    "immutable_actual_registration_after_gates"
+  ],
+  "draft_binding_update": {
+    "updated_at": "2026-11-16T07:52:58.366485+00:00",
+    "reason": "M10 current-context governance prefixes clarified before any R2 performance; economic task definitions unchanged",
+    "previous_definition_sources": {
+      "docs/EQUITY_RESEARCH_PROTOCOL.md": "a831dd822095cda8359155c34f23e97600c37805fa4646ff3fd5ab2de800777c",
+      "docs/STRATEGY_SPEC.md": "cf6deb4c271bf2753de5017d44a73ae28953246637f249e16dc535d77b174ba3"
+    },
+    "actual_runs_at_update": 0
+  }
+}

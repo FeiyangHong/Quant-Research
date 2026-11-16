@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import math
 import re
+from decimal import Decimal, InvalidOperation
 from typing import Iterable
 
 import numpy as np
@@ -18,6 +19,7 @@ from .data import DataValidationError, asof_records, date_only_available_at
 
 FIELDS = ("net_profit_parent_ytd", "operating_cashflow_ytd", "total_assets")
 FACT_KEYS = ["instrument_id", "field", "period_end", "report_scope", "currency"]
+M10_VALUATION_CONVENTION = "A_PRICE_ALL_ISSUED_ORDINARY_SHARES_V1"
 
 
 def _at(value):
@@ -113,11 +115,96 @@ def financial_asof(facts: pd.DataFrame, cutoff, calendar: Iterable[str]):
     return asof_records(visible, at, FACT_KEYS)
 
 
+def _m10_valuation_cap(row, at, calendar):
+    """Validate a supplied M10 observation, not its external authenticity.
+
+    All quantities are canonical shares and CNY. Source payload hashes are
+    not official filing hashes. Collection time may be after the historical
+    cutoff; publication and availability may not. No provider adapter or
+    financial/data admission is implied by this arithmetic contract.
+    """
+    def reject(reason):
+        raise DataValidationError("INVALID_M10_VALUATION:" + reason)
+
+    def number(key, integral=False):
+        value = row.get(key)
+        if isinstance(value, (bool, np.bool_)):
+            reject(key)
+        try:
+            result = Decimal(str(value))
+            if not result.is_finite() or result <= 0 or (integral and result != result.to_integral_value()):
+                reject(key)
+        except (InvalidOperation, ValueError, TypeError):
+            reject(key)
+        return result
+
+    def stamp(key):
+        try:
+            result = pd.Timestamp(row.get(key))
+            if pd.isna(result) or result.tzinfo is None:
+                reject(key)
+        except (TypeError, ValueError):
+            reject(key)
+        return result
+
+    if (row.get("market_cap_scope") != "A_PRICE_ALL_ISSUED_ORDINARY_PROXY"
+            or row.get("valuation_convention") != M10_VALUATION_CONVENTION
+            or row.get("price_share_class") != "A_ORDINARY"
+            or row.get("price_adjustment") != "UNADJUSTED"
+            or row.get("price_currency") != "CNY"
+            or row.get("shares_unit") != "SHARES"
+            or row.get("ordinary_share_scope") != "ALL_ISSUED_ORDINARY_A_B_H_EX_PREFERRED"
+            or row.get("ordinary_share_scope_verified") is not True
+            or row.get("preferred_shares_excluded") is not True
+            or row.get("treasury_share_treatment") not in ("INCLUDED_IF_ISSUED", "NO_TREASURY_SHARES")):
+        reject("SCOPE_UNITS_OR_SEMANTICS")
+    if row.get("price_date") != at.date().isoformat():
+        reject("PRICE_DATE")
+    for source in ("price", "shares"):
+        mapping = row.get(source + "_source_field")
+        if not isinstance(mapping, str) or not mapping.strip():
+            reject(source + "_SOURCE_FIELD")
+        if not re.fullmatch(r"[0-9a-f]{64}", str(row.get(source + "_source_sha256", ""))):
+            reject(source + "_SOURCE_HASH")
+        published = stamp(source + "_published_at")
+        available = stamp(source + "_available_at")
+        retrieved = stamp(source + "_retrieved_at")
+        precision = row.get(source + "_publication_precision")
+        if precision == "date_only":
+            lower = pd.Timestamp(date_only_available_at(published.tz_convert("Asia/Shanghai").date().isoformat(), calendar))
+        elif precision in ("second", "minute"):
+            lower = published
+        else:
+            reject(source + "_PUBLICATION_PRECISION")
+        if available < lower or available > at or retrieved < published or available > stamp("available_at"):
+            reject(source + "_CLOCK")
+    price_published = stamp("price_published_at").tz_convert("Asia/Shanghai")
+    if price_published < at.normalize() + pd.Timedelta(hours=15):
+        reject("CLOSE_BEFORE_SESSION_CLOSE")
+    if stamp("shares_effective_at") > at:
+        reject("SHARES_NOT_EFFECTIVE")
+    price = number("unadjusted_A_close")
+    a_shares = number("a_shares", integral=True)
+    ordinary = number("total_ordinary_shares", integral=True)
+    if a_shares > ordinary:
+        reject("A_EXCEEDS_ALL_ORDINARY")
+    computed = price * ordinary
+    if computed != number("market_cap"):
+        reject("SUPPLIED_CAP_DIFFERS_FROM_PRICE_TIMES_ORDINARY_SHARES")
+    if not math.isfinite(float(computed)) or float(computed) <= 0:
+        reject("NONFINITE_CAP")
+    return float(computed)
+
+
 def r2_factors(facts: pd.DataFrame, market: pd.DataFrame, cutoff, calendar: Iterable[str],
-               universe_ids: Iterable[str], *, report_coverage: pd.DataFrame = None):
+               universe_ids: Iterable[str], *, report_coverage: pd.DataFrame = None,
+               valuation_convention="LEGACY_TOTAL_EQUITY"):
     """Compute F01-F03 without filling a missing vintage or a bad denominator.
 
-    `market` supplies same-date, audited total-equity market capitalization.
+    Legacy `market` supplies same-date, audited total-equity capitalization.
+    Explicit M10 mode instead validates A-price times all issued ordinary
+    shares, including A/B/H, excluding preferred shares, with separate
+    source/clock/units fields. Neither mode grants source authenticity.
     The stock-pool gate, historical shares/share-class consistency and source
     authenticity are separate admission responsibilities. Optional report_coverage
     binds an issuer's latest visible report period to this exact cutoff, including
@@ -126,6 +213,8 @@ def r2_factors(facts: pd.DataFrame, market: pd.DataFrame, cutoff, calendar: Iter
     coverage can establish a newer known report, but cannot prove completeness.
     Without a registered freshness policy these outputs never grant admission.
     """
+    if valuation_convention not in ("LEGACY_TOTAL_EQUITY", M10_VALUATION_CONVENTION):
+        raise DataValidationError("Unregistered valuation convention")
     at = _signal_at(cutoff)
     visible = financial_asof(facts, at, calendar)
     needed = {"instrument_id", "date", "available_at", "market_cap", "market_cap_scope"}
@@ -166,6 +255,8 @@ def r2_factors(facts: pd.DataFrame, market: pd.DataFrame, cutoff, calendar: Iter
                   "freshness_status": "UNASSESSED_NO_REGISTERED_POLICY", "freshness_policy": None,
                   "report_age_days": None, "formal_eligible": False,
                   "formal_blockers": ["KERNEL_NOT_DATA_ADMISSION", "FRESHNESS_POLICY_UNREGISTERED"]}
+        if valuation_convention == M10_VALUATION_CONVENTION:
+            record.update(valuation_convention=valuation_convention, valuation_cap=None)
         contract = coverage.get(identity)
         if contract is not None:
             record["report_coverage_status"] = contract["coverage_status"]
@@ -206,8 +297,19 @@ def r2_factors(facts: pd.DataFrame, market: pd.DataFrame, cutoff, calendar: Iter
         if average is None:
             record["missing_reasons"].append("INVALID_AVERAGE_ASSETS")
         capitalization = cap["market_cap"] if cap is not None else None
+        m10_cap = None
+        if valuation_convention == M10_VALUATION_CONVENTION:
+            if cap is not None:
+                try:
+                    m10_cap = _m10_valuation_cap(cap, at, calendar)
+                    record["valuation_cap"] = m10_cap
+                except DataValidationError as exc:
+                    record["missing_reasons"].append(str(exc))
         if cap is None:
             pass
+        elif valuation_convention == M10_VALUATION_CONVENTION:
+            if m10_cap is not None and profit is not None:
+                record["F01"] = profit / m10_cap
         elif cap["market_cap_scope"] != "TOTAL_EQUITY" or pd.isna(capitalization) or not math.isfinite(float(capitalization)) or capitalization <= 0:
             record["missing_reasons"].append("INVALID_TOTAL_EQUITY_MARKET_CAP")
         elif (report_coverage is not None or "share_class_consistent" in cap) and not (

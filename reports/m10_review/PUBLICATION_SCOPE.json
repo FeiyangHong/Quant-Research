@@ -1,0 +1,12 @@
+{
+  "checked_files": 28,
+  "no_new_raw_documents_or_market_payloads": true,
+  "secret_pattern_findings": 0,
+  "old_frozen_checks": {
+    "F:/QuantTrade/Quant-Research/reports/real_data_phase3/results_summary.json": "c238b235722bc73468ef1cc3af29f083c160a92d0ff18edead6c36d3b129aebb",
+    "reports/m9_risk/RESULTS_SUMMARY.json": "d4a309b82c868b33b1636c560147afd9551601d1f4f4f60a2833c8e018cb44b3"
+  },
+  "new_public_scope": "Code, draft, summaries, source hashes and independently checked derived evidence only; raw PDFs/provider responses/tool page bodies stay private/ignored",
+  "preparation_source_hash": "ea8afb1c3329ab0a332c3bbc8fab1341b66951351368e264e26e2d0eea237370",
+  "utc": "2026-11-16T08:01:25.056499+00:00"
+}

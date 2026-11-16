@@ -1,4 +1,16 @@
-# 当前恢复入口：M9已完成，固定矩阵结束
+# 当前恢复入口：M10已停止于具体R2数据能力决定
+
+当前范围`M10_R2_DATA_AND_FIRST_SCREEN_V1`，状态BLOCKED_DATA_CAPABILITY；R2真实注册/运行0，24格为未授权草案、收益/CI为null。恢复时先读[M10_PLAN](M10_PLAN.md)、[原任务第7节](M9_INDEPENDENT_REVIEW_AND_M10_HANDOFF_2026-11-16.md)、[结果](../reports/m10_r2/RESULTS.md)、[来源决定](../reports/m10_r2/ACCESS_DECISION.md)、[独立审查](../reports/m10_review/INDEPENDENT_REVIEW.md)与[工程缺项](../reports/m10_r2/ENGINEERING_READINESS.md)，不要依旧M9入口重跑或重启采集。
+
+安全工作目录继续F:/QuantTrade/Quant-Research-M9，当前分支`codex/m10-r2-data-and-screen`；来自公开3e19797，先行计划5d3b4e。原目录F:/QuantTrade/Quant-Research是只读私有原件根，不切换/改写原私有祖先。公开代码可检出，原始响应/PDF全文和完整交易账不追加进公开提交链。
+
+Stage A 已有充分证据后停止；源能力、技术与人工门槛同时缺，不是仅待人审。固定20队列仍4配对/3冲突/13未配，康美另1，共5文档配对，完整M10卡0、human0；265原档hash全匹配，1旧采集代码漂移单列。新全普通股估值模式仅合成语义工程通过，不证明真实全池F01；旧默认不改。M10 preflight只能检查草案，永远不授权账户，不存在已完成R2 runner。
+
+下一外部输入应为已有合法主源的服务/权限/配置或冻结导出目录。先核实历史版本/全池状态行业股本/行为/许可，再按真实响应薄接线、补齐主账及20完整卡；仅余真实human签核时集中请求，全部门槛过后才实际注册6base→18压力。不能先跑绩效补签，不自动取消人验、不把原件缺失假称当年未披露。当前预算结束不自动续开同源pilot。
+
+主问题COMBINED−VALUE净日收益，两期2016—2021/2022—2024、100000元、三臂四路径；全普通股估值、10bp股票滑点、6固定CI及30/45/6约束已登记。未知行业方案/披露时效/源释放延迟/全规模分母仍待验收。无M9效用、ETF风险预算、ML或新方向。M9 INCONCLUSIVE、十ETF搜索结束、R3/2025以后留出/采购/paper/live关闭；不合并main。按DELIVERY_POLICY安全推送并核验实际HEAD与新CI。
+
+## 历史恢复入口：M9已完成，固定矩阵结束
 
 本轮24条真实输入风险预算模拟与独立核验均已完成，不因收益、CI跨零或剩余预算重启账户/采集。按[M9_PLAN](M9_PLAN.md)、[原任务第7节](M8_INDEPENDENT_REVIEW_AND_M9_HANDOFF_2026-11-16.md)、[结果](../reports/m9_risk/RESULTS.md)、[审查](../reports/m9_review/REVIEW_PACKET.md)、[独立验证](../reports/m9_review/VERIFICATION.md)恢复事实，不依赖聊天记忆。
 

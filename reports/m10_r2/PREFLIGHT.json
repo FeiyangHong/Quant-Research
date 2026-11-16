@@ -1,0 +1,28 @@
+{
+  "purpose": "OFFLINE_DRAFT_INSPECTION_NOT_ADMISSION",
+  "status": "NOT_RUN_BLOCKED_ADMISSION",
+  "draft_valid": true,
+  "strategy_runs_permitted": false,
+  "real_accounts_run": 0,
+  "performance_metrics": null,
+  "errors": [],
+  "unresolved_before_actual_registration": [
+    "authorized_source_and_license",
+    "complete_2016_2024_data_and_legal_warmup",
+    "whole_pool_version_chain",
+    "at_least_20_complete_human_approved_cases",
+    "historical_industry_scheme_and_version_clock",
+    "valuation_source_field_mapping_and_share_class_semantics",
+    "historical_disclosure_freshness_policy",
+    "size_cutoff_tie_implementation",
+    "source_release_delay_and_execution_clock",
+    "R2_data_and_execution_admission",
+    "R2_runner_and_required_corporate_action_accounting",
+    "independent_real_event_reconciliation",
+    "exact_code_data_rules_hashes",
+    "immutable_actual_registration_after_gates"
+  ],
+  "limitation": "Selected draft guards only, not exhaustive specification validation. Draft consistency does not establish data, license, human approval, execution or runner readiness. This tool cannot authorize a run.",
+  "registry_sha256": "01c6627c813b536d0b304128d0252f28d390518d0aaaaabb97f55d2009f5197c",
+  "checks_source_sha256": "f0f356629863af94267692583deb7f5fcf73a0da54834c6655a124496c2800da"
+}

@@ -1,0 +1,62 @@
+{
+  "scope": "M10_R2_DATA_AND_FIRST_SCREEN_V1",
+  "status": "BLOCKED_DATA_CAPABILITY",
+  "research_level": "POST_VALIDATION_EXPLORATORY",
+  "strategy_returns_exist": false,
+  "real_experiments_registered": 0,
+  "real_accounts_run": 0,
+  "draft_slots": 24,
+  "draft_status": "DRAFT_NOT_AUTHORIZED",
+  "not_run_draft_slots": 24,
+  "performance_metrics": null,
+  "paired_net_return_difference": null,
+  "descriptive_ci": null,
+  "statistical_status": "NOT_RUN",
+  "economic_status": "BLOCKED_HURDLE",
+  "unknown_annual_incremental_fixed_fee": null,
+  "human_review": {
+    "candidate_correction_documents": 20,
+    "queue_documentary_pairs": 4,
+    "queue_quarantines": 3,
+    "queue_unpaired": 13,
+    "supplemental_existing_pairs": 1,
+    "total_documentary_pairs": 5,
+    "complete_m10_cards": 0,
+    "human_acceptances": 0,
+    "required_complete_human_acceptances": 20
+  },
+  "data": {
+    "raw_archive_objects_hash_verified": 265,
+    "raw_archive_objects_missing": 0,
+    "referenced_path_hash_pairs": 271,
+    "matching_pairs": 270,
+    "historical_code_mismatch_pairs": 1,
+    "requested_months": 108,
+    "admitted_month_end_common_pools": 0,
+    "monthly_eligible_counts": null,
+    "full_historical_denominator": null,
+    "single_date_diagnostic_ids": 3779,
+    "complete_share_cap_chains_admitted_in_diagnostic_set": 0
+  },
+  "event_status": {
+    "KANGMEI_ST": "PASS_ENGINEERING_ONLY",
+    "MOUTAI_ORDINARY": "BLOCKED_TRANSFER_FEE_SOURCE",
+    "MOUTAI_SPECIAL": "BLOCKED_TRANSFER_FEE_SOURCE",
+    "broker_ledger_verification": "UNVERIFIED"
+  },
+  "implementation": {
+    "explicit_all_ordinary_reference_price_contract": "IMPLEMENTED_ENGINEERING_NOT_ADMISSION",
+    "legacy_default_preserved": true,
+    "r2_scores_and_portfolio_reused": true,
+    "real_R2_runner": "NOT_IMPLEMENTED",
+    "provider_PIT_adapter": "NOT_IMPLEMENTED_NO_ACTUAL_MAIN_SOURCE",
+    "data_binding": null,
+    "freshness_and_industry_versions": "NOT_ADMITTED"
+  },
+  "next_external_input": "An already legally authorized historical service and entitled coverage/configuration path, or a frozen licensed export directory; if none, a separate data-source/resource decision. No passwords/tokens in chat.",
+  "not_only_waiting_for_humans": true,
+  "no_new_market_requests": true,
+  "no_M9_rerun": true,
+  "holdout_locked": true,
+  "paper_live_closed": true
+}

@@ -76,3 +76,4 @@ docs/M9_INDEPENDENT_REVIEW_AND_M10_HANDOFF_2026-11-16.md -text whitespace=cr-at-
 reports/m10_r2/** -text whitespace=cr-at-eol
 reports/m10_review/** -text whitespace=cr-at-eol,-blank-at-eol,-blank-at-eof
 review_code/m10/** -text whitespace=cr-at-eol
+docs/ACTIVE_RESEARCH_CHECKOUT.md -text whitespace=cr-at-eol
