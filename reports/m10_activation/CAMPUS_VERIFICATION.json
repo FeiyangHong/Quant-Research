@@ -1,0 +1,114 @@
+{
+  "python": "3.11.15",
+  "sdk_packages": {
+    "brotli": "1.2.1",
+    "msgpack": "1.1.2",
+    "orjson": "3.11.5",
+    "python-rapidjson": "1.23",
+    "rqdatac": "3.8.2",
+    "win-inet-pton": "1.1.0"
+  },
+  "project_locked": {
+    "numpy": "1.26.4",
+    "pandas": "2.2.3",
+    "scipy": "1.13.1",
+    "python-dateutil": "2.9.0.post0",
+    "pytz": "2025.2",
+    "tzdata": "2025.2",
+    "six": "1.17.0",
+    "pytest": "8.3.5",
+    "colorama": "0.4.6",
+    "exceptiongroup": "1.2.2",
+    "iniconfig": "2.1.0",
+    "packaging": "24.2",
+    "pluggy": "1.5.0",
+    "tomli": "2.2.1",
+    "typing_extensions": "4.12.2",
+    "setuptools": "75.8.2",
+    "wheel": "0.45.1"
+  },
+  "probe_sha256": "4a8459b779668695dbf2bb9b50ddc8418f03770be41af4f20358acec1be8026b",
+  "requirements_lock_sha256": "c1b6ea2e01384d9949a1e8eafa51996ff94ffbf8bfbc5f0412f5ed973c3abf71",
+  "probe_02_sha256": "596400e17332bf25fd77aa8f1cd1e7cdcd6a48cac25524bfd145a1deb1be4cac",
+  "probe_03_sha256": "1822ec4211a981f51f808abeb4b37afa4fd800ba05fb56fcd836232a4e68ce21",
+  "installation": {
+    "interpreter": "fresh venv from installed Python 3.11.15, not copied venv",
+    "python_312_download": "cancelled before install after compatible local interpreter found",
+    "default_pypi_install": "cancelled due slow download; no packages installed by that attempt",
+    "locked_packages": "17 installed by uv using command-scoped Tsinghua PyPI mirror",
+    "project": "pip editable no-deps no-build-isolation",
+    "sdk": "6 pinned packages isolated with --no-deps; no optional news/fund extensions",
+    "lockfile_changed": false,
+    "software_network_requests": null,
+    "software_wire_bytes": null
+  },
+  "tests": {
+    "initial_targeted": {
+      "passed": 34,
+      "skipped": 0,
+      "seconds": 7.72
+    },
+    "after_quota_fix": {
+      "passed": 53,
+      "skipped": 0,
+      "seconds": 1.21
+    },
+    "after_sample_tests": {
+      "passed": 57,
+      "skipped": 0,
+      "seconds": 1.15
+    },
+    "complete_local_regression": {
+      "command": "python -m pytest -q tests review_code -ra",
+      "passed": 990,
+      "skipped": 6,
+      "warnings": 2,
+      "seconds": 54.49,
+      "skips": [
+        "M5 real-source builder: archived development calendar missing",
+        "M5 market-cap original provider bytes absent",
+        "M6 shared incident collection ledger absent",
+        "M6 archived data gate: 175 originals missing",
+        "M6 real-account manifest originals absent",
+        "M6 raw stock-source probe absent"
+      ],
+      "warning_scope": "Existing pandas chained assignment and empty-frame concatenation warnings; not source admission."
+    }
+  },
+  "final_sources_sha256": {
+    "scripts/m10_rqdata_access.py": "1822ec4211a981f51f808abeb4b37afa4fd800ba05fb56fcd836232a4e68ce21",
+    "scripts/m10_rqdata_sample.py": "534c465bf47124e6e669b35e1d0ebbd5d12d926ee292c3580a5e1d5ed17f8826",
+    "scripts/m10_rqdata_sample_audit.py": "8826fadfe51fde053b630b90ea12bb6812f1adc84f6953c4d9e309a82cdb1d1d",
+    "review_code/m10_activation/check_campus_local_evidence.py": "a7709a3b62aa88ff50b698a46ea2ea3e9ee3f962fd3d90924fb6364933df874e"
+  },
+  "independent_local_evidence": "CAMPUS_INDEPENDENT_CHECKS.json",
+  "ci": "Current release HEAD CI recorded in PR #3 and final delivery; old CI is not current proof.",
+  "local_vs_public_reproduction": "Six source-dependent tests run locally with the 13 reacquired originals; public CI may skip them because originals are not published. No skipped source check is a PASS.",
+  "frozen_artifacts": {
+    "reports/m10_r2/EXPERIMENT_REGISTRY.json": {
+      "unchanged": true,
+      "sha256": "01c6627c813b536d0b304128d0252f28d390518d0aaaaabb97f55d2009f5197c"
+    },
+    "reports/m10_r2/case_inventory.json": {
+      "unchanged": true,
+      "sha256": "914d7f280ae9f60b4cfbbb3bad0263edbdc7bc2ebb230270dada92d496f05690"
+    },
+    "reports/m9_risk/RESULTS_SUMMARY.json": {
+      "unchanged": true,
+      "sha256": "d4a309b82c868b33b1636c560147afd9551601d1f4f4f60a2833c8e018cb44b3"
+    },
+    "requirements.lock": {
+      "unchanged": true,
+      "sha256": "c1b6ea2e01384d9949a1e8eafa51996ff94ffbf8bfbc5f0412f5ed973c3abf71"
+    }
+  },
+  "publication_screen": {
+    "actual_credential_occurrences_in_candidate_files": 0,
+    "raw_payload_or_pdf_paths_in_candidate_files": false,
+    "credential_ignored": true,
+    "original_receipts_preserved": true,
+    "frozen_artifacts_unchanged": true,
+    "candidate_file_count_at_screen": 33,
+    "scope": "Exact loaded credential screened in memory only; no credential or credential hash recorded. Raw paths may appear as provenance; raw file contents excluded."
+  }
+}

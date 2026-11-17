@@ -1,0 +1,471 @@
+{
+  "purpose": "Fixed SAMPLE_PLAN implementation; no new experiment or sample substitution",
+  "base_commit": "21f279fe0a73375cd26c3fb044e58c955874646f",
+  "planned_api_calls": 26,
+  "rpc_execute_cap": 33,
+  "saved_response_cap_bytes": 10485760,
+  "remaining_known_equivalent_headroom_before_samples": 47,
+  "exact_remaining_request_budget": null,
+  "scope": "User-owned EDU; on this campus host only for personal noncommercial learning/research; raw responses not sent to chat, AI reviewers, GitHub or another host; no permanent retention promise; original accepted contract not independently held",
+  "terms_source_sha256": "ea3866286edcd233ca4653f777a8a035702d8ba39347de5bc44596edd38a555d",
+  "terms_publication_date": "2021-05-20",
+  "requests": [
+    {
+      "id": "600518_before",
+      "endpoint": "get_pit_financials_ex",
+      "params": {
+        "order_book_ids": [
+          "600518.XSHG"
+        ],
+        "fields": [
+          "net_profit_parent_company",
+          "cash_flow_from_operating_activities",
+          "total_assets"
+        ],
+        "start_quarter": "2017q4",
+        "end_quarter": "2017q4",
+        "date": "2018-04-25",
+        "statements": "all",
+        "market": "cn"
+      }
+    },
+    {
+      "id": "600518_original",
+      "endpoint": "get_pit_financials_ex",
+      "params": {
+        "order_book_ids": [
+          "600518.XSHG"
+        ],
+        "fields": [
+          "net_profit_parent_company",
+          "cash_flow_from_operating_activities",
+          "total_assets"
+        ],
+        "start_quarter": "2017q4",
+        "end_quarter": "2017q4",
+        "date": "2018-04-27",
+        "statements": "all",
+        "market": "cn"
+      }
+    },
+    {
+      "id": "600518_corrected",
+      "endpoint": "get_pit_financials_ex",
+      "params": {
+        "order_book_ids": [
+          "600518.XSHG"
+        ],
+        "fields": [
+          "net_profit_parent_company",
+          "cash_flow_from_operating_activities",
+          "total_assets"
+        ],
+        "start_quarter": "2017q4",
+        "end_quarter": "2017q4",
+        "date": "2019-05-06",
+        "statements": "all",
+        "market": "cn"
+      }
+    },
+    {
+      "id": "600518_repeat_original",
+      "endpoint": "get_pit_financials_ex",
+      "params": {
+        "order_book_ids": [
+          "600518.XSHG"
+        ],
+        "fields": [
+          "net_profit_parent_company",
+          "cash_flow_from_operating_activities",
+          "total_assets"
+        ],
+        "start_quarter": "2017q4",
+        "end_quarter": "2017q4",
+        "date": "2018-04-27",
+        "statements": "all",
+        "market": "cn"
+      }
+    },
+    {
+      "id": "002857_before",
+      "endpoint": "get_pit_financials_ex",
+      "params": {
+        "order_book_ids": [
+          "002857.XSHE"
+        ],
+        "fields": [
+          "net_profit_parent_company",
+          "cash_flow_from_operating_activities",
+          "total_assets"
+        ],
+        "start_quarter": "2023q3",
+        "end_quarter": "2023q3",
+        "date": "2023-10-25",
+        "statements": "all",
+        "market": "cn"
+      }
+    },
+    {
+      "id": "002857_original",
+      "endpoint": "get_pit_financials_ex",
+      "params": {
+        "order_book_ids": [
+          "002857.XSHE"
+        ],
+        "fields": [
+          "net_profit_parent_company",
+          "cash_flow_from_operating_activities",
+          "total_assets"
+        ],
+        "start_quarter": "2023q3",
+        "end_quarter": "2023q3",
+        "date": "2023-10-27",
+        "statements": "all",
+        "market": "cn"
+      }
+    },
+    {
+      "id": "002857_corrected",
+      "endpoint": "get_pit_financials_ex",
+      "params": {
+        "order_book_ids": [
+          "002857.XSHE"
+        ],
+        "fields": [
+          "net_profit_parent_company",
+          "cash_flow_from_operating_activities",
+          "total_assets"
+        ],
+        "start_quarter": "2023q3",
+        "end_quarter": "2023q3",
+        "date": "2024-12-26",
+        "statements": "all",
+        "market": "cn"
+      }
+    },
+    {
+      "id": "002857_repeat_original",
+      "endpoint": "get_pit_financials_ex",
+      "params": {
+        "order_book_ids": [
+          "002857.XSHE"
+        ],
+        "fields": [
+          "net_profit_parent_company",
+          "cash_flow_from_operating_activities",
+          "total_assets"
+        ],
+        "start_quarter": "2023q3",
+        "end_quarter": "2023q3",
+        "date": "2023-10-27",
+        "statements": "all",
+        "market": "cn"
+      }
+    },
+    {
+      "id": "002729_before",
+      "endpoint": "get_pit_financials_ex",
+      "params": {
+        "order_book_ids": [
+          "002729.XSHE"
+        ],
+        "fields": [
+          "net_profit_parent_company",
+          "cash_flow_from_operating_activities",
+          "total_assets"
+        ],
+        "start_quarter": "2022q3",
+        "end_quarter": "2022q3",
+        "date": "2022-10-28",
+        "statements": "all",
+        "market": "cn"
+      }
+    },
+    {
+      "id": "002729_original",
+      "endpoint": "get_pit_financials_ex",
+      "params": {
+        "order_book_ids": [
+          "002729.XSHE"
+        ],
+        "fields": [
+          "net_profit_parent_company",
+          "cash_flow_from_operating_activities",
+          "total_assets"
+        ],
+        "start_quarter": "2022q3",
+        "end_quarter": "2022q3",
+        "date": "2022-11-01",
+        "statements": "all",
+        "market": "cn"
+      }
+    },
+    {
+      "id": "002729_corrected",
+      "endpoint": "get_pit_financials_ex",
+      "params": {
+        "order_book_ids": [
+          "002729.XSHE"
+        ],
+        "fields": [
+          "net_profit_parent_company",
+          "cash_flow_from_operating_activities",
+          "total_assets"
+        ],
+        "start_quarter": "2022q3",
+        "end_quarter": "2022q3",
+        "date": "2024-12-12",
+        "statements": "all",
+        "market": "cn"
+      }
+    },
+    {
+      "id": "002729_repeat_original",
+      "endpoint": "get_pit_financials_ex",
+      "params": {
+        "order_book_ids": [
+          "002729.XSHE"
+        ],
+        "fields": [
+          "net_profit_parent_company",
+          "cash_flow_from_operating_activities",
+          "total_assets"
+        ],
+        "start_quarter": "2022q3",
+        "end_quarter": "2022q3",
+        "date": "2022-11-01",
+        "statements": "all",
+        "market": "cn"
+      }
+    },
+    {
+      "id": "300632_before",
+      "endpoint": "get_pit_financials_ex",
+      "params": {
+        "order_book_ids": [
+          "300632.XSHE"
+        ],
+        "fields": [
+          "net_profit_parent_company",
+          "cash_flow_from_operating_activities",
+          "total_assets"
+        ],
+        "start_quarter": "2022q4",
+        "end_quarter": "2022q4",
+        "date": "2023-04-21",
+        "statements": "all",
+        "market": "cn"
+      }
+    },
+    {
+      "id": "300632_original",
+      "endpoint": "get_pit_financials_ex",
+      "params": {
+        "order_book_ids": [
+          "300632.XSHE"
+        ],
+        "fields": [
+          "net_profit_parent_company",
+          "cash_flow_from_operating_activities",
+          "total_assets"
+        ],
+        "start_quarter": "2022q4",
+        "end_quarter": "2022q4",
+        "date": "2023-04-24",
+        "statements": "all",
+        "market": "cn"
+      }
+    },
+    {
+      "id": "300632_corrected",
+      "endpoint": "get_pit_financials_ex",
+      "params": {
+        "order_book_ids": [
+          "300632.XSHE"
+        ],
+        "fields": [
+          "net_profit_parent_company",
+          "cash_flow_from_operating_activities",
+          "total_assets"
+        ],
+        "start_quarter": "2022q4",
+        "end_quarter": "2022q4",
+        "date": "2024-12-24",
+        "statements": "all",
+        "market": "cn"
+      }
+    },
+    {
+      "id": "300632_repeat_original",
+      "endpoint": "get_pit_financials_ex",
+      "params": {
+        "order_book_ids": [
+          "300632.XSHE"
+        ],
+        "fields": [
+          "net_profit_parent_company",
+          "cash_flow_from_operating_activities",
+          "total_assets"
+        ],
+        "start_quarter": "2022q4",
+        "end_quarter": "2022q4",
+        "date": "2023-04-24",
+        "statements": "all",
+        "market": "cn"
+      }
+    },
+    {
+      "id": "600518_warmup",
+      "endpoint": "get_pit_financials_ex",
+      "params": {
+        "order_book_ids": [
+          "600518.XSHG"
+        ],
+        "fields": [
+          "net_profit_parent_company",
+          "cash_flow_from_operating_activities",
+          "total_assets"
+        ],
+        "start_quarter": "2016q4",
+        "end_quarter": "2017q4",
+        "date": "2018-04-27",
+        "statements": "all",
+        "market": "cn"
+      }
+    },
+    {
+      "id": "002857_warmup",
+      "endpoint": "get_pit_financials_ex",
+      "params": {
+        "order_book_ids": [
+          "002857.XSHE"
+        ],
+        "fields": [
+          "net_profit_parent_company",
+          "cash_flow_from_operating_activities",
+          "total_assets"
+        ],
+        "start_quarter": "2022q3",
+        "end_quarter": "2023q3",
+        "date": "2023-10-27",
+        "statements": "all",
+        "market": "cn"
+      }
+    },
+    {
+      "id": "identity_2020-07-31",
+      "endpoint": "all_instruments",
+      "params": {
+        "type": "CS",
+        "date": "2020-07-31",
+        "market": "cn"
+      }
+    },
+    {
+      "id": "identity_2015-12-30",
+      "endpoint": "all_instruments",
+      "params": {
+        "type": "CS",
+        "date": "2015-12-30",
+        "market": "cn"
+      }
+    },
+    {
+      "id": "shares_2020",
+      "endpoint": "get_shares",
+      "params": {
+        "order_book_ids": [
+          "000002.XSHE",
+          "600028.XSHG",
+          "000725.XSHE",
+          "600519.XSHG",
+          "002857.XSHE"
+        ],
+        "start_date": "2020-07-31",
+        "end_date": "2020-07-31",
+        "fields": [
+          "total",
+          "total_a",
+          "preferred_shares"
+        ],
+        "expect_df": true,
+        "market": "cn"
+      }
+    },
+    {
+      "id": "industry_2016-01-04",
+      "endpoint": "get_instrument_industry",
+      "params": {
+        "order_book_ids": [
+          "000002.XSHE",
+          "600028.XSHG",
+          "000725.XSHE",
+          "600519.XSHG",
+          "002857.XSHE"
+        ],
+        "source": "citics",
+        "level": 1,
+        "date": "2016-01-04",
+        "market": "cn"
+      }
+    },
+    {
+      "id": "industry_2020-07-31",
+      "endpoint": "get_instrument_industry",
+      "params": {
+        "order_book_ids": [
+          "000002.XSHE",
+          "600028.XSHG",
+          "000725.XSHE",
+          "600519.XSHG",
+          "002857.XSHE"
+        ],
+        "source": "citics",
+        "level": 1,
+        "date": "2020-07-31",
+        "market": "cn"
+      }
+    },
+    {
+      "id": "is_st_stock_kangmei",
+      "endpoint": "is_st_stock",
+      "params": {
+        "order_book_ids": [
+          "600518.XSHG"
+        ],
+        "start_date": "2019-05-13",
+        "end_date": "2019-05-31",
+        "market": "cn"
+      }
+    },
+    {
+      "id": "is_suspended_kangmei",
+      "endpoint": "is_suspended",
+      "params": {
+        "order_book_ids": [
+          "600518.XSHG"
+        ],
+        "start_date": "2019-05-13",
+        "end_date": "2019-05-31",
+        "market": "cn"
+      }
+    },
+    {
+      "id": "moutai_dividends_2022",
+      "endpoint": "get_dividend",
+      "params": {
+        "order_book_ids": [
+          "600519.XSHG"
+        ],
+        "start_date": "2022-01-01",
+        "end_date": "2022-12-31",
+        "adjusted": false,
+        "expect_df": true,
+        "market": "cn"
+      }
+    }
+  ],
+  "limits": "All dates explicit <=2024-12-31; identity endpoint uses current instrument attributes filtered by historic existence per SDK, not admitted historic names/boards; citics legacy source explicit, taxonomy history still pending; rice_create_tm is ingestion metadata not historic availability",
+  "originals": "13 indexed files absent; they will be fetched only if sample calls justify further semantic audit; Kangmei2016 comparison context still to verify within original2017 report",
+  "status": "PREREQUEST_FIXED"
+}

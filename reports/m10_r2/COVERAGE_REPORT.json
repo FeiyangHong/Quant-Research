@@ -2678,5 +2678,15 @@
     "historical_capability": "NOT_TESTED",
     "receipt": "../m10_activation/ACCESS_RECEIPT.json",
     "prior_coverage_unchanged": true
+  },
+  "historical_inventory_scope": "Original host inventory retained below; not campus filesystem availability.",
+  "campus_observation": {
+    "date": "2026-11-18",
+    "originals_verified": 13,
+    "sdk_serialized_responses_verified": 26,
+    "access_metadata": "PASSED",
+    "full_pool_admission": false,
+    "source": "../m10_activation/CAMPUS_SAMPLE_AUDIT.json",
+    "mapping": "../m10_activation/CAMPUS_MINIMUM_ORIGINALS.json"
   }
 }

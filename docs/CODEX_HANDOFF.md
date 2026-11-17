@@ -1,4 +1,14 @@
-# 当前M10来源恢复：教育网访问阻断
+# 当前校园网恢复：访问通过，结构数据合同未准入
+
+2026-11-18，M10_SOURCE_ACTIVATION_V1；恢复公开基线 `21f279fe0a73375cd26c3fb044e58c955874646f`，当前本机 `F:/Quant_Trade/Quant-Research`，分支 `codex/m10-r2-data-and-screen`。最终认证/额度元数据通过，EDU、200 MiB/日、查询时剩余286天；完成固定18财务+8结构调用，四公司原稿/修订三字段及两组既定算术有限核对通过，13必要官方原件重新取得且hash匹配。
+
+当前 **BLOCKED_DATA_CAPABILITY**：所查股本和行业数据尚不能建立所需历史公开/可得/版本链及全普通股语义，不将返回的日期或SDK补零当合同。完整样本未通过，不扩全池、生产适配或账户运行。数据、执行、完整卡及human门槛均未全过；完整卡0、human0、真实R2注册/运行0，24格仍DRAFT_NOT_AUTHORIZED，收益/CI为null。不是仅等人审，也不是供应商所有产品都不支持的结论。
+
+先读[校园实际结果](../reports/m10_activation/CAMPUS_RESULTS.md)、[样本实证](../reports/m10_activation/CAMPUS_SAMPLE_AUDIT.json)、[独立审查](../reports/m10_activation/CAMPUS_INDEPENDENT_REVIEW.md)、[累计预算](../reports/m10_activation/CAMPUS_RESOURCE_LEDGER.json)，再按原完整任务第7节恢复。下一必要输入是现有合法服务内具体的股本事件/公开/生效/版本及普通股类合同、行业归属/分类历史公开时钟的接口说明或受许冻结导出；不是新许可证、盲签或新研究。来源请求已停止，跨机器预算不清零。ETF结果、困难样本/冲突、2025以后留出、R3、采购、paper/live及不自动合并main均保持。
+
+以下记录属旧主机/先前阶段，不能当成本机仍访问失败或已具备旧机全部原件。
+
+# 历史M10来源恢复：旧网络访问阻断
 
 2026-11-17，M10_SOURCE_ACTIVATION_V1。本人RQData教育license已由用户提供；在当前网络的一次真实SDK初始化返回教育网限制。**BLOCKED_ACCESS_OR_LICENSE**，额度/有效期及历史能力未验证。0次行情/财务请求、0真实R2账户，收益/CI为null；完整卡0、human0，全池/执行/runner依赖未解决。没有供应商能力失败或价值/质量收益结论。
 

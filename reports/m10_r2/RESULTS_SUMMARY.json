@@ -25,19 +25,6 @@
     "human_acceptances": 0,
     "required_complete_human_acceptances": 20
   },
-  "data": {
-    "raw_archive_objects_hash_verified": 265,
-    "raw_archive_objects_missing": 0,
-    "referenced_path_hash_pairs": 271,
-    "matching_pairs": 270,
-    "historical_code_mismatch_pairs": 1,
-    "requested_months": 108,
-    "admitted_month_end_common_pools": 0,
-    "monthly_eligible_counts": null,
-    "full_historical_denominator": null,
-    "single_date_diagnostic_ids": 3779,
-    "complete_share_cap_chains_admitted_in_diagnostic_set": 0
-  },
   "event_status": {
     "KANGMEI_ST": "PASS_ENGINEERING_ONLY",
     "MOUTAI_ORDINARY": "BLOCKED_TRANSFER_FEE_SOURCE",
@@ -49,14 +36,46 @@
     "legacy_default_preserved": true,
     "r2_scores_and_portfolio_reused": true,
     "real_R2_runner": "NOT_IMPLEMENTED",
-    "provider_PIT_adapter": "NOT_IMPLEMENTED_NO_ACTUAL_MAIN_SOURCE",
+    "provider_PIT_adapter": "NOT_IMPLEMENTED_COMBINED_CAPABILITY_SAMPLE_NOT_ADMITTED",
     "data_binding": null,
     "freshness_and_industry_versions": "NOT_ADMITTED"
   },
-  "next_external_input": "An already legally authorized historical service and entitled coverage/configuration path, or a frozen licensed export directory; if none, a separate data-source/resource decision. No passwords/tokens in chat.",
+  "next_external_input": "Concrete permitted interface/export plus documented share publication/effective/version clocks and ordinary-share semantics, and industry assignment/taxonomy publication/version clocks within the existing authorized service. No new credential or blind human signature.",
   "not_only_waiting_for_humans": true,
-  "no_new_market_requests": true,
+  "no_new_market_requests": false,
   "no_M9_rerun": true,
   "holdout_locked": true,
-  "paper_live_closed": true
+  "paper_live_closed": true,
+  "previous_stage_data_inventory": {
+    "raw_archive_objects_hash_verified": 265,
+    "raw_archive_objects_missing": 0,
+    "referenced_path_hash_pairs": 271,
+    "matching_pairs": 270,
+    "historical_code_mismatch_pairs": 1,
+    "requested_months": 108,
+    "admitted_month_end_common_pools": 0,
+    "monthly_eligible_counts": null,
+    "full_historical_denominator": null,
+    "single_date_diagnostic_ids": 3779,
+    "complete_share_cap_chains_admitted_in_diagnostic_set": 0,
+    "scope_warning": "Prior host audit; not a claim that 265 originals exist on campus host."
+  },
+  "data": {
+    "campus_fixed_originals_hash_verified": 13,
+    "campus_financial_calls": 18,
+    "campus_structural_calls": 8,
+    "requested_months": 108,
+    "admitted_month_end_common_pools": 0,
+    "monthly_eligible_counts": null,
+    "full_historical_denominator": null,
+    "complete_share_cap_chains_admitted_in_diagnostic_set": 0
+  },
+  "campus_activation": {
+    "task": "M10_SOURCE_ACTIVATION_V1",
+    "access": "PASSED_METADATA_ONLY",
+    "capability": "BLOCKED_DATA_CAPABILITY",
+    "result": "../m10_activation/CAMPUS_RESULTS.md",
+    "fixed_financial_comparisons": "PASS_LIMITED_THREE_FIELDS_AND_CLOCKS",
+    "full_data_execution_cards_human": "NOT_PASSED"
+  }
 }
