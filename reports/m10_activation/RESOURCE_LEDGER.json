@@ -1,0 +1,55 @@
+{
+  "task": "M10_SOURCE_ACTIVATION_V1",
+  "observed_at": "2026-11-17T10:23:24.198537+00:00",
+  "source_probe_stopped_at": "2026-11-17T10:17:04.277197+00:00",
+  "stop_reason": "EDUCATION_NETWORK_REQUIRED_NOT_BUDGET_EXHAUSTION",
+  "prior_m10": {
+    "source_request_equivalents": 6,
+    "saved_tool_response_bytes": 52441,
+    "aggregate_agent_hours_upper_bound": 3.178888888888889,
+    "basis": "Prior final observation and PR3 publication closeout; old resource ledger not reset"
+  },
+  "activation": {
+    "public_document_request_equivalents": 2,
+    "public_document_successes": 1,
+    "public_document_failures": 1,
+    "sdk_init_attempts": 1,
+    "explicit_quota_attempts": 0,
+    "known_top_level_source_equivalents": 3,
+    "sdk_internal_requests": null,
+    "backend_web_requests": null,
+    "wire_bytes": null,
+    "market_financial_requests": 0,
+    "saved_raw_source_response_bytes": 0,
+    "saved_derived_receipt_bytes": 646,
+    "conservative_session_start": "2026-11-17T10:10:00+00:00",
+    "charged_slots_upper_bound": 2,
+    "aggregate_agent_hours_upper_bound": 0.44677696499999997,
+    "waiting_policy": "Whole interval charged while root works, including tool waits; no user-only waiting interval; inactive reviewer conservatively included"
+  },
+  "cumulative": {
+    "known_top_level_source_equivalents": 9,
+    "source_request_count_exact": null,
+    "saved_source_bytes": 52441,
+    "aggregate_agent_hours_upper_bound": 3.625665853888889
+  },
+  "limits": {
+    "activation_request_equivalents": 64,
+    "activation_saved_response_bytes": 268435456,
+    "activation_aggregate_hours": 2,
+    "original_request_equivalents": 4096,
+    "original_saved_response_bytes": 8589934592,
+    "original_aggregate_hours": 24,
+    "cash_purchase": 0
+  },
+  "software_setup_separate": {
+    "pip_invocations": 2,
+    "packages_installed": 6,
+    "target": "ignored work/m10_activation/sdk",
+    "http_attempts": null,
+    "download_wire_bytes": null,
+    "changed_research_lockfile": false
+  },
+  "publication": "Git/CI transport separate from source sampling; final later observation will be in PR and user delivery without recursive commit",
+  "real_r2_accounts": 0
+}

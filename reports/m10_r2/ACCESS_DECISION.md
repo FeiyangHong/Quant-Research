@@ -1,5 +1,10 @@
 # M10 source decision — BLOCKED_DATA_CAPABILITY
 
+## 2026-11-17：M10_SOURCE_ACTIVATION_V1 当前状态
+
+**BLOCKED_ACCESS_OR_LICENSE / EDUCATION_NETWORK_REQUIRED。** 用户已提供本人RQData教育license并保存配置；实际SDK初始化被教育网限制拒绝。已停止请求：1次初始化、0显式quota、0行情/财务、0真实R2账户，SDK内部请求/字节未知。历史能力未测试，不判断密钥无效或供应商无PIT。下一步是执行电脑使用许可证认可的校园网络，再恢复[固定样本计划](../m10_activation/SAMPLE_PLAN.md)。[本次结果与去敏证据](../m10_activation/RESULTS.md)。数据/执行缺项、完整卡0、human0和原24格未授权状态不变。以下2026-11-16内容保留为历史来源裁决。
+
+
 Decision date: 2026-11-16, Asia/Shanghai. No real R2 strategy account has been run. Existing free-source archives are accessible and reusable, but none is an admitted main source for the full 2016–2024 stock universe, financial versions, historical status/industry/share chains and company actions. Stop Stage A data probing at this evidence boundary; do not start a 20-company web reconstruction or a new provider adapter.
 
 The primary status is **BLOCKED_DATA_CAPABILITY**, because actual archived access exists but the necessary historical capabilities have not passed. A separate access condition remains **ACCESS_NOT_VERIFIED** for any adequate full-PIT subscription or export: none is configured or verified in the inspected project scope. This does not assert that the user has no external subscription or that free reconstruction is impossible. Official API documentation describes candidate capability, not account entitlement, complete returned versions or a license.

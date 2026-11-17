@@ -1,5 +1,10 @@
 # M10 human review index — NOT READY FOR HUMAN REVIEW
 
+## 2026-11-17：M10_SOURCE_ACTIVATION_V1 当前状态
+
+**BLOCKED_ACCESS_OR_LICENSE / EDUCATION_NETWORK_REQUIRED。** 用户已提供本人RQData教育license并保存配置；实际SDK初始化被教育网限制拒绝。已停止请求：1次初始化、0显式quota、0行情/财务、0真实R2账户，SDK内部请求/字节未知。历史能力未测试，不判断密钥无效或供应商无PIT。下一步是执行电脑使用许可证认可的校园网络，再恢复[固定样本计划](../m10_activation/SAMPLE_PLAN.md)。[本次结果与去敏证据](../m10_activation/RESULTS.md)。数据/执行缺项、完整卡0、human0和原24格未授权状态不变。以下2026-11-16内容保留为历史来源裁决。
+
+
 2026-11-16. Prepared by an independent AI reviewer, not a human reviewer. **Verified human acceptances: 0; complete M10 review cards: 0.** No signature, date or acceptance was entered on anyone's behalf. There is no R2 performance authorization.
 
 The existing [five M5 cards](../m5_financial/human_review/README.md) contain five documentary original/correction pairs, with all human name/date/decision/signature fields blank. They retain useful sources, values and clocks, but exhaustive version coverage, complete factor impacts and M10 comparisons remain missing. The two M5 factor cases overlap these pairs and cannot be added to the count. Both F01 values remain null. [Machine-readable inventory](case_inventory.json) records source hashes, case clocks, all conflicts, per-case completion gaps and the exact original queue identity.

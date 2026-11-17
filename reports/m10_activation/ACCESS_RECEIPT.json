@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "purpose": "ACCESS_METADATA_ONLY",
+  "data_origin": "REAL",
+  "started_at": "2026-11-17T10:17:00.528423+00:00",
+  "status": "BLOCKED_ACCESS_OR_LICENSE",
+  "sdk_init_attempts": 1,
+  "explicit_quota_attempts": 0,
+  "sdk_internal_requests": null,
+  "wire_bytes": null,
+  "market_financial_requests": 0,
+  "actual_r2_accounts": 0,
+  "historical_capability": "NOT_TESTED",
+  "applicable_use": "NOT_VERIFIED",
+  "performance_metrics": null,
+  "sdk_version": "3.8.2",
+  "failure_code": "EDUCATION_NETWORK_REQUIRED",
+  "authentication": "NOT_VERIFIED",
+  "finished_at": "2026-11-17T10:17:04.277197+00:00"
+}

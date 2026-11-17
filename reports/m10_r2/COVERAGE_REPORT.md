@@ -1,5 +1,10 @@
 # M10 local coverage inventory
 
+## 2026-11-17：M10_SOURCE_ACTIVATION_V1 当前状态
+
+**BLOCKED_ACCESS_OR_LICENSE / EDUCATION_NETWORK_REQUIRED。** 用户已提供本人RQData教育license并保存配置；实际SDK初始化被教育网限制拒绝。已停止请求：1次初始化、0显式quota、0行情/财务、0真实R2账户，SDK内部请求/字节未知。历史能力未测试，不判断密钥无效或供应商无PIT。下一步是执行电脑使用许可证认可的校园网络，再恢复[固定样本计划](../m10_activation/SAMPLE_PLAN.md)。[本次结果与去敏证据](../m10_activation/RESULTS.md)。数据/执行缺项、完整卡0、human0和原24格未授权状态不变。以下2026-11-16内容保留为历史来源裁决。
+
+
 **BLOCKED_DATA_CAPABILITY. Real R2 performance: NOT_RUN.** The counts below describe reused source evidence, not coverage percentages for the 2016–2024 strategy dataset. No new source request was made. No 2016–2024 month-end common pool is verified: **0 of 108 requested monthly anchors**. The historical universe denominator is unknown; it is not 3,779 for every month.
 
 ## What is actually retained

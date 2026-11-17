@@ -2668,5 +2668,15 @@
     "cash_spend": 0
   },
   "strategy_performance_run": false,
-  "market_factor_strategy_holdout_opened": false
+  "market_factor_strategy_holdout_opened": false,
+  "source_activation_2026_11_17": {
+    "status": "BLOCKED_ACCESS_OR_LICENSE",
+    "reason": "EDUCATION_NETWORK_REQUIRED",
+    "actual_sdk_init_attempts": 1,
+    "explicit_quota_attempts": 0,
+    "historical_market_financial_requests": 0,
+    "historical_capability": "NOT_TESTED",
+    "receipt": "../m10_activation/ACCESS_RECEIPT.json",
+    "prior_coverage_unchanged": true
+  }
 }

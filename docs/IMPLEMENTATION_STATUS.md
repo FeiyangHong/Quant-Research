@@ -1,4 +1,12 @@
-# 当前M10：R2数据能力阻断，真实股票绩效未运行
+# 当前M10来源恢复：教育网访问阻断
+
+2026-11-17，M10_SOURCE_ACTIVATION_V1。本人RQData教育license已由用户提供；在当前网络的一次真实SDK初始化返回教育网限制。**BLOCKED_ACCESS_OR_LICENSE**，额度/有效期及历史能力未验证。0次行情/财务请求、0真实R2账户，收益/CI为null；完整卡0、human0，全池/执行/runner依赖未解决。没有供应商能力失败或价值/质量收益结论。
+
+先读[恢复任务](M10_INDEPENDENT_REVIEW_AND_DATA_ACTIVATION_HANDOFF_2026-11-16.md)、[样本计划](../reports/m10_activation/SAMPLE_PLAN.md)、[实际结果](../reports/m10_activation/RESULTS.md)及[去敏收据](../reports/m10_activation/ACCESS_RECEIPT.json)。下一有效输入是许可证认可的校园网执行环境；访问成功后继续同一有限样本，不重启旧Stage A，不清零预算。不得绕网络限制，密钥不进Git/日志，原24账户仍须全部门槛通过。
+
+安全检出F:/QuantTrade/Quant-Research-M9，分支codex/m10-r2-data-and-screen，恢复基线d54bdc897c56163caef7507ac159c7cc50ef92f7，计划dff161b先行推送。旧M9/R1B/R1I结果不改，2025以后留出、R3、采购及paper/live关闭。以下为历史M10准备记录，不代表新入口仍未提供。
+
+# 历史M10：R2数据能力阻断，真实股票绩效未运行
 
 **BLOCKED_DATA_CAPABILITY / NOT_RUN。** 真实R2注册0、账户0，固定24格仅DRAFT_NOT_AUTHORIZED，绩效/CI为null。先读[M10结果](../reports/m10_r2/RESULTS.md)、[来源决定](../reports/m10_r2/ACCESS_DECISION.md)、[集中审查](../reports/m10_review/REVIEW_PACKET.md)、[独立核验](../reports/m10_review/INDEPENDENT_REVIEW.md)。本轮不是READY_FOR_HUMAN_REVIEW：数据、执行、运行入口与人验同时缺失。
 
