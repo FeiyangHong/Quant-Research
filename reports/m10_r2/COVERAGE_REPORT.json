@@ -1,0 +1,2705 @@
+{
+  "schema_version": "m10-local-source-inventory-1",
+  "purpose": "REUSED_ARCHIVE_COUNTS_AND_HASHES_NOT_NEW_DATA_ADMISSION",
+  "primary_status": "BLOCKED_DATA_CAPABILITY",
+  "required_period": [
+    "2016-01-01",
+    "2024-12-31"
+  ],
+  "complete_2016_2024_monthly_common_pools_verified": 0,
+  "requested_monthly_anchors": 108,
+  "coverage_denominator_warning": "3779 is the one-date provider main/ChiNext snapshot, not the 2016--2024 universe or a qualified universe.",
+  "project_configuration": {
+    "scopes": [
+      "configs/*.json",
+      "pyproject.toml",
+      "src/**/*.py",
+      "scripts/*.py"
+    ],
+    "configuration_files": [
+      {
+        "path": "configs/equity_preparation.json",
+        "sha256": "258d550e6479ea86ab7db9a7364c9e79ef7dd396ee695fcb94d4660380c5292f"
+      },
+      {
+        "path": "configs/r1_build_policy.json",
+        "sha256": "be5c0acb71ab795ff8b425ea33b96620c69174c085635ad865030ef048696e29"
+      },
+      {
+        "path": "configs/r1b.json",
+        "sha256": "1adce8334613c7d77d9b004e6568117b519402e4799473e478b612e0627a9d2b"
+      },
+      {
+        "path": "configs/r1b_real_development.json",
+        "sha256": "adbb196ecb6c26c056a92b2be10a06502fbb7325360c9affa278955b75b2c770"
+      },
+      {
+        "path": "configs/r1b_real_validation.json",
+        "sha256": "cdd4e4b0f2fa510ba6e491989b65851df19b387728048ba8ae73b88ed096b633"
+      },
+      {
+        "path": "configs/r1b_scope.json",
+        "sha256": "1b8af197f5446f4bcb5dda816499b9eb4cc1cae322dd903cd79a8e6acf912f4c"
+      },
+      {
+        "path": "pyproject.toml",
+        "sha256": "234b7bfb332f60e0ad5fb560941d622662943d50a5a1837408df75c1ae45044a"
+      }
+    ],
+    "inspected_python_file_count": 89,
+    "inspected_python_content_manifest_sha256": "3fdfc580dfe6381bdba60d20cc1ddc3bd0eba89e5ec61835f28d6e9885151bb1",
+    "declared_environment_presence": [],
+    "environment_values_printed": false,
+    "credential_directories_scanned": false,
+    "implemented_source_entrypoints": [
+      {
+        "provider": "baostock",
+        "path": "src/quant_research/providers/equity_audit.py",
+        "sha256": "d0f80f3fe5bb9c0860e01392543844e472a7404e6fda5b3659ced40ba8ce48c9"
+      },
+      {
+        "provider": "eastmoney_historical_shares",
+        "path": "scripts/m6_stock_source.py",
+        "sha256": "8eeaa5944abaddf80b33dd9534a9a547bc570aa5a457d63523288fe9c47d2184"
+      },
+      {
+        "provider": "official_documents",
+        "path": "scripts/m5_sources.py",
+        "sha256": "f26b3c53cea2ee20992cce1d7fbaf7dbb53a76224ab06d5580b271170a33264d"
+      }
+    ],
+    "full_pit_subscription_or_export": "NOT_CONFIGURED_OR_VERIFIED_WITHIN_INSPECTED_PROJECT_SCOPE",
+    "limitation": "No claim about accounts, exports or permissions outside the explicit project scope; literal Python environment declarations only."
+  },
+  "snapshot_2020_07_31": {
+    "snapshot_date": "2020-07-31",
+    "all_security_response_rows": 4810,
+    "all_A_daily_rows": 3923,
+    "main_chinext_denominator": 3779,
+    "boards": {
+      "MAIN": 2946,
+      "CHINEXT": 833
+    },
+    "vendor_st_counts": {
+      "0": 3567,
+      "1": 212
+    },
+    "trade_status_counts": {
+      "1": 3751,
+      "0": 28
+    },
+    "coverage": {
+      "historical_membership": {
+        "observed": 3779,
+        "denominator": 3779,
+        "percent": 100.0
+      },
+      "trading_status": {
+        "observed": 3779,
+        "denominator": 3779,
+        "percent": 100.0
+      },
+      "raw_close": {
+        "observed": 3779,
+        "denominator": 3779,
+        "percent": 100.0
+      },
+      "raw_volume": {
+        "observed": 3779,
+        "denominator": 3779,
+        "percent": 100.0
+      },
+      "raw_amount": {
+        "observed": 3779,
+        "denominator": 3779,
+        "percent": 100.0
+      },
+      "vendor_daily_isST": {
+        "observed": 3779,
+        "denominator": 3779,
+        "percent": 100.0
+      },
+      "complete_risk_state": {
+        "observed": 0,
+        "denominator": 3779,
+        "percent": 0.0
+      },
+      "historical_vendor_industry": {
+        "observed": 3772,
+        "denominator": 3779,
+        "percent": 99.8148
+      },
+      "official_2020Q2_industry_public_by_snapshot": {
+        "observed": 3749,
+        "denominator": 3779,
+        "percent": 99.2061
+      },
+      "historical_total_shares": {
+        "observed": 0,
+        "denominator": 3779,
+        "percent": 0.0
+      },
+      "market_cap": {
+        "observed": 0,
+        "denominator": 3779,
+        "percent": 0.0
+      },
+      "listing_age_252_sessions": {
+        "observed": 0,
+        "denominator": 3779,
+        "percent": 0.0
+      },
+      "median_amount_60_sessions": {
+        "observed": 0,
+        "denominator": 3779,
+        "percent": 0.0
+      },
+      "corporate_actions_complete": {
+        "observed": 0,
+        "denominator": 3779,
+        "percent": 0.0
+      },
+      "financial_vintage_complete": {
+        "observed": 0,
+        "denominator": 3779,
+        "percent": 0.0
+      },
+      "r2_qualification_known": {
+        "observed": 0,
+        "denominator": 3779,
+        "percent": 0.0
+      },
+      "r3_qualification_known": {
+        "observed": 0,
+        "denominator": 3779,
+        "percent": 0.0
+      }
+    },
+    "nonST_size_percentile_denominator": null
+  },
+  "financial_archive": {
+    "m3_correction_pdf_candidates": 20,
+    "attempted_issuer_period_cases": 8,
+    "complete_documentary_pairs": 5,
+    "quarantined_cases": 3,
+    "human_review_card_count": 5,
+    "human_accepted": 0,
+    "human_signatures_present": 0,
+    "required_human_accepted": 20,
+    "canonical_field_version_rows": 22,
+    "canonical_source_pdf_hashes": 6,
+    "numerical_engineering_factor_cases": 2,
+    "partial_report_coverage_contracts": 4,
+    "full_pool_version_chain": "UNKNOWN_NOT_ADMITTED",
+    "freshness_policy": null
+  },
+  "shares_archive": {
+    "structural_document_crosschecks": 5,
+    "broad_batch_event_rows": 1000,
+    "broad_batch_unique_ids": 498,
+    "fixed_snapshot_ids_observed_in_broad_batch": 330,
+    "five_id_batch_event_rows": 122,
+    "formal_pit_share_count_non_null": 0,
+    "formal_market_cap_non_null": 0,
+    "source_revision_chain_available": false,
+    "historical_data_license_verified": false,
+    "prior_full_provider_pagination_estimate": {
+      "requests": 389,
+      "bytes": 398879433,
+      "scope": "Two 500-row pages; all provider markets and pre-IPO identities, not the 3779 target-only cost; not executed",
+      "new_requests_authorized": false
+    }
+  },
+  "engineering_event_cases": [
+    {
+      "case": "moutai_ordinary",
+      "status": "BLOCKED",
+      "source_gate_passed": false,
+      "daily_rows": 34,
+      "actual_fill_count": 0,
+      "has_actual_event_position": false,
+      "missing_components": [
+        "transfer_fee"
+      ],
+      "broker_ledger_verification": "UNVERIFIED"
+    },
+    {
+      "case": "moutai_special",
+      "status": "BLOCKED",
+      "source_gate_passed": false,
+      "daily_rows": 35,
+      "actual_fill_count": 0,
+      "has_actual_event_position": false,
+      "missing_components": [
+        "transfer_fee"
+      ],
+      "broker_ledger_verification": "UNVERIFIED"
+    },
+    {
+      "case": "kangmei_st",
+      "status": "PASS",
+      "source_gate_passed": true,
+      "daily_rows": 41,
+      "actual_fill_count": 2,
+      "has_actual_event_position": true,
+      "missing_components": [],
+      "broker_ledger_verification": "UNVERIFIED"
+    }
+  ],
+  "evidence_files": [
+    {
+      "path": "reports/m3_equity_admission/source_manifest.json",
+      "sha256": "13d6a9b4204533614848ad600ffd251f5816db7a5169da249b22cb1e5ba63497",
+      "bytes": 77215
+    },
+    {
+      "path": "reports/m3_equity_admission/revision_candidate_queue.json",
+      "sha256": "29ca0f72d97687db801ce51250007b0e5aaecc55cd666b5bdec0ea0fc505d52d",
+      "bytes": 25929
+    },
+    {
+      "path": "reports/m3_equity_admission/DATA_AUDIT.md",
+      "sha256": "a562426f6f2932cd0a6e4604107ee4d16d8e2560ead35a6f775bfabe7d9197cf",
+      "bytes": 12913
+    },
+    {
+      "path": "reports/m4_data/source_manifest.json",
+      "sha256": "58eb4c6bf9e70a68990b336ffdf978d968040914601bccb9d512f5a32e0b859c",
+      "bytes": 24661
+    },
+    {
+      "path": "reports/m4_data/coverage_summary.json",
+      "sha256": "64362b2c840a4ce34fb76346ce9f964b3790eb4b64af04c970d5bc9f171cd8f7",
+      "bytes": 7475
+    },
+    {
+      "path": "reports/m4_data/financial_vintage_cases.json",
+      "sha256": "134f43b506fdca59bb54ccd05e63781510a5eb461b787772a31155af0b645fb5",
+      "bytes": 40713
+    },
+    {
+      "path": "reports/m4_data/normalized_events.json",
+      "sha256": "ca2cfc97d9a1c5118d7979df15f229a6b367e46d13f89bb79fde1095a6302e10",
+      "bytes": 13574
+    },
+    {
+      "path": "reports/m5_financial/manifest.json",
+      "sha256": "3dfa977f5aba636bd0a5c14569910f94afb8188c4c0c8aedadb4cb9bc9e0b372",
+      "bytes": 1467
+    },
+    {
+      "path": "reports/m5_financial/collection_manifest.json",
+      "sha256": "d9870d1c97e7ebf83c192efd93168a7f4565813c59d2276b7b51fa635c47da5b",
+      "bytes": 8974
+    },
+    {
+      "path": "reports/m5_financial/canonical_facts.json",
+      "sha256": "749c658004e006bd4edc8f9cdaabf70ce2a1430b9ffa28768814b34b99e4c9d2",
+      "bytes": 32056
+    },
+    {
+      "path": "reports/m5_financial/report_coverage.json",
+      "sha256": "17d960d9490c84636eb4ed0cc93d1987faf7e76b4fe7a5aa75b3a60767b41ef3",
+      "bytes": 16001
+    },
+    {
+      "path": "reports/m5_market_cap/source_manifest.json",
+      "sha256": "4f52ae91c4488b0551bc7888e5e38ad03890f72b21889fa9428c023e951d8edc",
+      "bytes": 17725
+    },
+    {
+      "path": "reports/m5_market_cap/coverage_summary.json",
+      "sha256": "ee4c5d24caabb12dc67b3b40230d8de618f00da661f12f246bcfbdaee1c29f36",
+      "bytes": 45074
+    },
+    {
+      "path": "reports/m6_stock_source/request_manifest.json",
+      "sha256": "d826ef789b5d99f5dfe19c3869875456e4eccf94ddb0dcf972f7d647c082936c",
+      "bytes": 3340
+    },
+    {
+      "path": "reports/m6_stock_source/source_contract_decision.json",
+      "sha256": "7c477c6adf87bc6a4d71f32b04958b688286c8364300a7a8e8735285582ce4c1",
+      "bytes": 28159
+    },
+    {
+      "path": "reports/m6_stock_source/batch_observations.json",
+      "sha256": "43afe10eb94673f023bed5a579344ad62c1fc565b00c5e5667d991d9dbf24cae",
+      "bytes": 12292
+    },
+    {
+      "path": "reports/m6_stock_source/fixed_denominator_coverage.json",
+      "sha256": "e98993bd9991450677c6599b3394a4116320819295b5bf19f3315023b5ad9f5f",
+      "bytes": 1817390
+    },
+    {
+      "path": "reports/m6_stock_execution/local_evidence_index.json",
+      "sha256": "04d89fc92af3c08e376635e1c6324ad1417cb7a4a0c0196cdc130bc30aeb9627",
+      "bytes": 6999
+    },
+    {
+      "path": "reports/m6_stock_execution/results.json",
+      "sha256": "929eb28264127bd74d5de66b82fd3836dd25a34b1f33467bdfec3958b6603c73",
+      "bytes": 2409
+    },
+    {
+      "path": "reports/m5_financial/human_review/KANGMEI_2017_ORIGINAL_TO_2019_RESTATEMENT.json",
+      "sha256": "8891b63adbae177fd748e374247a4a4007d299debfcea94be0dd5460dd35bebf",
+      "bytes": 4793
+    },
+    {
+      "path": "reports/m5_financial/human_review/sz.002528_2019-12-31.json",
+      "sha256": "636a49956ae53c34c0d9c8ec7ebd3a27f0e2166cecc48954fb9784845bd4560c",
+      "bytes": 5407
+    },
+    {
+      "path": "reports/m5_financial/human_review/sz.002729_2022-09-30.json",
+      "sha256": "93c628b81fe6b90a373bc5000d739c9f39af665b38a5810f18887c66252ecb49",
+      "bytes": 5272
+    },
+    {
+      "path": "reports/m5_financial/human_review/sz.002857_2023-09-30.json",
+      "sha256": "dea5e913fcda3eea2c9355575e948b6ed6084a2f8720f8389c6b3519d656cbb9",
+      "bytes": 5413
+    },
+    {
+      "path": "reports/m5_financial/human_review/sz.300632_2022-12-31.json",
+      "sha256": "a3248f44ff541c0b95e05fa811d9818b3b5f5285a05a9abfe87f46b58ce29a52",
+      "bytes": 5456
+    }
+  ],
+  "archive_reference_groups": [
+    {
+      "evidence": "reports/m3_equity_admission/source_manifest.json",
+      "reference_occurrences": 227,
+      "distinct_path_hash_pairs": 178,
+      "matched_distinct_pairs": 178
+    },
+    {
+      "evidence": "reports/m3_equity_admission/revision_candidate_queue.json",
+      "reference_occurrences": 23,
+      "distinct_path_hash_pairs": 23,
+      "matched_distinct_pairs": 23
+    },
+    {
+      "evidence": "reports/m4_data/source_manifest.json",
+      "reference_occurrences": 60,
+      "distinct_path_hash_pairs": 60,
+      "matched_distinct_pairs": 59
+    },
+    {
+      "evidence": "reports/m4_data/coverage_summary.json",
+      "reference_occurrences": 2,
+      "distinct_path_hash_pairs": 2,
+      "matched_distinct_pairs": 2
+    },
+    {
+      "evidence": "reports/m4_data/financial_vintage_cases.json",
+      "reference_occurrences": 24,
+      "distinct_path_hash_pairs": 22,
+      "matched_distinct_pairs": 22
+    },
+    {
+      "evidence": "reports/m4_data/normalized_events.json",
+      "reference_occurrences": 7,
+      "distinct_path_hash_pairs": 7,
+      "matched_distinct_pairs": 7
+    },
+    {
+      "evidence": "reports/m5_financial/manifest.json",
+      "reference_occurrences": 0,
+      "distinct_path_hash_pairs": 0,
+      "matched_distinct_pairs": 0
+    },
+    {
+      "evidence": "reports/m5_financial/collection_manifest.json",
+      "reference_occurrences": 9,
+      "distinct_path_hash_pairs": 8,
+      "matched_distinct_pairs": 8
+    },
+    {
+      "evidence": "reports/m5_financial/canonical_facts.json",
+      "reference_occurrences": 22,
+      "distinct_path_hash_pairs": 6,
+      "matched_distinct_pairs": 6
+    },
+    {
+      "evidence": "reports/m5_financial/report_coverage.json",
+      "reference_occurrences": 0,
+      "distinct_path_hash_pairs": 0,
+      "matched_distinct_pairs": 0
+    },
+    {
+      "evidence": "reports/m5_market_cap/source_manifest.json",
+      "reference_occurrences": 18,
+      "distinct_path_hash_pairs": 18,
+      "matched_distinct_pairs": 18
+    },
+    {
+      "evidence": "reports/m5_market_cap/coverage_summary.json",
+      "reference_occurrences": 17,
+      "distinct_path_hash_pairs": 17,
+      "matched_distinct_pairs": 17
+    },
+    {
+      "evidence": "reports/m6_stock_source/request_manifest.json",
+      "reference_occurrences": 3,
+      "distinct_path_hash_pairs": 3,
+      "matched_distinct_pairs": 3
+    },
+    {
+      "evidence": "reports/m6_stock_source/source_contract_decision.json",
+      "reference_occurrences": 8,
+      "distinct_path_hash_pairs": 8,
+      "matched_distinct_pairs": 8
+    },
+    {
+      "evidence": "reports/m6_stock_source/batch_observations.json",
+      "reference_occurrences": 4,
+      "distinct_path_hash_pairs": 4,
+      "matched_distinct_pairs": 4
+    },
+    {
+      "evidence": "reports/m6_stock_source/fixed_denominator_coverage.json",
+      "reference_occurrences": 0,
+      "distinct_path_hash_pairs": 0,
+      "matched_distinct_pairs": 0
+    },
+    {
+      "evidence": "reports/m6_stock_execution/local_evidence_index.json",
+      "reference_occurrences": 17,
+      "distinct_path_hash_pairs": 17,
+      "matched_distinct_pairs": 17
+    },
+    {
+      "evidence": "reports/m6_stock_execution/results.json",
+      "reference_occurrences": 0,
+      "distinct_path_hash_pairs": 0,
+      "matched_distinct_pairs": 0
+    }
+  ],
+  "archive_hash_check": {
+    "distinct_path_hash_pairs": 271,
+    "matched": 270,
+    "missing": 0,
+    "mismatched": 1,
+    "raw_archive_objects": 265,
+    "raw_archive_objects_matched": 265,
+    "historical_code_drift": [
+      "scripts/m4_data_feasibility.py"
+    ],
+    "distinct_content_hashes": 271,
+    "local_reused_bytes_by_distinct_path": 101060224,
+    "byte_semantics": "Existing local bytes read for hashes; not new source responses or network acquisition bytes.",
+    "objects": [
+      {
+        "path": "data/admitted_r1/phase2_v1/development/calendar.json",
+        "kind": "REUSED_DERIVED_OR_CALENDAR",
+        "expected_sha256": "8200cca2c04cc847ebddf43c0783ff1b8d15b28a9d11e48a3b3f51661c4e52ae",
+        "actual_sha256": "8200cca2c04cc847ebddf43c0783ff1b8d15b28a9d11e48a3b3f51661c4e52ae",
+        "bytes": 37922,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/calendars/manifests/2ec486eb478dc28a_c74157c54f.json",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "4fa6e6dd271981fee7eac214c00d742557f8437e26c7440d40eae3a6a72fdab2",
+        "actual_sha256": "4fa6e6dd271981fee7eac214c00d742557f8437e26c7440d40eae3a6a72fdab2",
+        "bytes": 928,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/calendars/manifests/d7169ce77f92d08d_3cf1ed5102.json",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "f0056b9ebc14e9ef25c615034b2d5f4c3c1a25a7d1074fee614435eecf4691af",
+        "actual_sha256": "f0056b9ebc14e9ef25c615034b2d5f4c3c1a25a7d1074fee614435eecf4691af",
+        "bytes": 928,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/calendars/raw/2ec486eb478dc28a_c74157c54f_a0_641f8bc4b84dedd9eab39bffec879dd4ca17c2b9f89fcbbe43e463d783195f72.json",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "641f8bc4b84dedd9eab39bffec879dd4ca17c2b9f89fcbbe43e463d783195f72",
+        "actual_sha256": "641f8bc4b84dedd9eab39bffec879dd4ca17c2b9f89fcbbe43e463d783195f72",
+        "bytes": 905,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/calendars/raw/d7169ce77f92d08d_3cf1ed5102_a0_2ae64b8f47a6059e615b5f13488b4ad26449da6747ee7da0b5237ca167c33062.json",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "2ae64b8f47a6059e615b5f13488b4ad26449da6747ee7da0b5237ca167c33062",
+        "actual_sha256": "2ae64b8f47a6059e615b5f13488b4ad26449da6747ee7da0b5237ca167c33062",
+        "bytes": 905,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/calendars/summary.json",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "d7d10d87f59c183b31d8bbbd5762753a4cdab445b05280669d170e4fb2120b9a",
+        "actual_sha256": "d7d10d87f59c183b31d8bbbd5762753a4cdab445b05280669d170e4fb2120b9a",
+        "bytes": 961,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/http/baostock_doc_StockBasicInfoAPI_036b450c6dfe080b62ac0d88f3d8dc926c0de2e3a9a5b1859b7d2893042ba894.bin",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "036b450c6dfe080b62ac0d88f3d8dc926c0de2e3a9a5b1859b7d2893042ba894",
+        "actual_sha256": "036b450c6dfe080b62ac0d88f3d8dc926c0de2e3a9a5b1859b7d2893042ba894",
+        "bytes": 3770,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/http/baostock_doc_dataExplain_bcea92bddcafbf3aaadbf0483a9631433b9efbcb1c84b22c2cf30e53cfa58751.bin",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "bcea92bddcafbf3aaadbf0483a9631433b9efbcb1c84b22c2cf30e53cfa58751",
+        "actual_sha256": "bcea92bddcafbf3aaadbf0483a9631433b9efbcb1c84b22c2cf30e53cfa58751",
+        "bytes": 181371,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/http/baostock_doc_dividInfo_07c4f25117e84a231e932b0a1c9a8b47a65d3e2d57661cdfbca8d1d6aea700d5.bin",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "07c4f25117e84a231e932b0a1c9a8b47a65d3e2d57661cdfbca8d1d6aea700d5",
+        "actual_sha256": "07c4f25117e84a231e932b0a1c9a8b47a65d3e2d57661cdfbca8d1d6aea700d5",
+        "bytes": 4764,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/http/baostock_doc_factorInfo_22c9eaa086be48508c06d76a499040a92e5f30a4ba509bd8adc843e235ebb85f.bin",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "22c9eaa086be48508c06d76a499040a92e5f30a4ba509bd8adc843e235ebb85f",
+        "actual_sha256": "22c9eaa086be48508c06d76a499040a92e5f30a4ba509bd8adc843e235ebb85f",
+        "bytes": 3596,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/http/baostock_doc_home_650853bc35ac9d3a4f51a3944b2a57bbce5262a8cb520b178879d5f463d275f5.bin",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "650853bc35ac9d3a4f51a3944b2a57bbce5262a8cb520b178879d5f463d275f5",
+        "actual_sha256": "650853bc35ac9d3a4f51a3944b2a57bbce5262a8cb520b178879d5f463d275f5",
+        "bytes": 10247,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/http/baostock_doc_seasonBalance_45281e737ffa27f13f5a1d7f223843eb93669cee3b4126869d2c6b5737beabe5.bin",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "45281e737ffa27f13f5a1d7f223843eb93669cee3b4126869d2c6b5737beabe5",
+        "actual_sha256": "45281e737ffa27f13f5a1d7f223843eb93669cee3b4126869d2c6b5737beabe5",
+        "bytes": 3232,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/http/baostock_doc_seasonCashFlow_7e5a05cbfccfcd69ed55e97aa4fa935c9844098853f8c98f09ebc694fbc89f3f.bin",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "7e5a05cbfccfcd69ed55e97aa4fa935c9844098853f8c98f09ebc694fbc89f3f",
+        "actual_sha256": "7e5a05cbfccfcd69ed55e97aa4fa935c9844098853f8c98f09ebc694fbc89f3f",
+        "bytes": 3378,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/http/baostock_doc_seasonProfit_83c42dc6dac98a559083725561ababb00c46b0bdfa9c1a79740a5124052bd265.bin",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "83c42dc6dac98a559083725561ababb00c46b0bdfa9c1a79740a5124052bd265",
+        "actual_sha256": "83c42dc6dac98a559083725561ababb00c46b0bdfa9c1a79740a5124052bd265",
+        "bytes": 3406,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/http/baostock_doc_stockIndustry_a3dbc5207deaf59f1512601b066a0cd42fae92199d1eec63734e27edca4749bf.bin",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "a3dbc5207deaf59f1512601b066a0cd42fae92199d1eec63734e27edca4749bf",
+        "actual_sha256": "a3dbc5207deaf59f1512601b066a0cd42fae92199d1eec63734e27edca4749bf",
+        "bytes": 2525,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/http/baostock_doc_stockKData_2cdd9a72c54b18e5c7152ddce008d4e0af3e9cba53a5cd69577fc7c3e759ffd0.bin",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "2cdd9a72c54b18e5c7152ddce008d4e0af3e9cba53a5cd69577fc7c3e759ffd0",
+        "actual_sha256": "2cdd9a72c54b18e5c7152ddce008d4e0af3e9cba53a5cd69577fc7c3e759ffd0",
+        "bytes": 16292,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/http/cninfo_revision_candidates_100_ab0c68b820bb246cfbe26761dbdaf1a5433e4cbd8ee4258ec58354f21c5d017c.bin",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "ab0c68b820bb246cfbe26761dbdaf1a5433e4cbd8ee4258ec58354f21c5d017c",
+        "actual_sha256": "ab0c68b820bb246cfbe26761dbdaf1a5433e4cbd8ee4258ec58354f21c5d017c",
+        "bytes": 21310,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/http/cninfo_revision_candidates_older_partition_9913af69f99a6b891ab5ebdc862eb958edd88cf061d2a480e4814481dac4bc71.bin",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "9913af69f99a6b891ab5ebdc862eb958edd88cf061d2a480e4814481dac4bc71",
+        "actual_sha256": "9913af69f99a6b891ab5ebdc862eb958edd88cf061d2a480e4814481dac4bc71",
+        "bytes": 22057,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/http/cninfo_revision_candidates_page2_295e02de34b81b90d179a6f48c1c142f5d68a5f1b6fa4e888828c39e81e87a8a.bin",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "295e02de34b81b90d179a6f48c1c142f5d68a5f1b6fa4e888828c39e81e87a8a",
+        "actual_sha256": "295e02de34b81b90d179a6f48c1c142f5d68a5f1b6fa4e888828c39e81e87a8a",
+        "bytes": 21310,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/http/cninfo_revision_discovery_2016_2024_8ac4992344ccdecb9a9ba5279cd6ae474e8a2234224510621b3b66fd0a89aa60.bin",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "8ac4992344ccdecb9a9ba5279cd6ae474e8a2234224510621b3b66fd0a89aa60",
+        "actual_sha256": "8ac4992344ccdecb9a9ba5279cd6ae474e8a2234224510621b3b66fd0a89aa60",
+        "bytes": 14335,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/http/csrc_industry_2020q2_84e1e0382561a4627c6ad7076a57b1d3b51e88192f19b898db0bccaaed10a546.bin",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "84e1e0382561a4627c6ad7076a57b1d3b51e88192f19b898db0bccaaed10a546",
+        "actual_sha256": "84e1e0382561a4627c6ad7076a57b1d3b51e88192f19b898db0bccaaed10a546",
+        "bytes": 731889,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/http/csrc_industry_2020q2_page_92d6dad6659f5bdd78045c2ae294321374bfacffd58789d6d6244cdc4248bab7.bin",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "92d6dad6659f5bdd78045c2ae294321374bfacffd58789d6d6244cdc4248bab7",
+        "actual_sha256": "92d6dad6659f5bdd78045c2ae294321374bfacffd58789d6d6244cdc4248bab7",
+        "bytes": 11421,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/http/kangmei_2018_first_9f47aa0dc0a8838ffd21e600d7eca194052d91cf867d8e22a4ba56dee2b9f60a.bin",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "9f47aa0dc0a8838ffd21e600d7eca194052d91cf867d8e22a4ba56dee2b9f60a",
+        "actual_sha256": "9f47aa0dc0a8838ffd21e600d7eca194052d91cf867d8e22a4ba56dee2b9f60a",
+        "bytes": 4252218,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/http/kangmei_original_2017_15b3b15df2dfd3310cc16e1e345e8950e8a9cb047bdad38d1263e2b55cfd2985.bin",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "15b3b15df2dfd3310cc16e1e345e8950e8a9cb047bdad38d1263e2b55cfd2985",
+        "actual_sha256": "15b3b15df2dfd3310cc16e1e345e8950e8a9cb047bdad38d1263e2b55cfd2985",
+        "bytes": 3886671,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/http/kangmei_revision_2019_ca22aa1858f56e2cd9181d15c88fde83312afb94701898a2de74c378c7c41bab.bin",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "ca22aa1858f56e2cd9181d15c88fde83312afb94701898a2de74c378c7c41bab",
+        "actual_sha256": "ca22aa1858f56e2cd9181d15c88fde83312afb94701898a2de74c378c7c41bab",
+        "bytes": 4526309,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/http/kangmei_revision_2020_a8a338058a97c1784e64067a43023a896a7ef607643cd920c1ebebc642271404.bin",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "a8a338058a97c1784e64067a43023a896a7ef607643cd920c1ebebc642271404",
+        "actual_sha256": "a8a338058a97c1784e64067a43023a896a7ef607643cd920c1ebebc642271404",
+        "bytes": 4538808,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/http/kangmei_st_notice_20190518_467458a85d18d57f3fc0db093e815ce676d2dd7ff1bab4ae0f7758875a7f42b5.bin",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "467458a85d18d57f3fc0db093e815ce676d2dd7ff1bab4ae0f7758875a7f42b5",
+        "actual_sha256": "467458a85d18d57f3fc0db093e815ce676d2dd7ff1bab4ae0f7758875a7f42b5",
+        "bytes": 3872,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/http/leshi_delisting_20200514_f09a96cf4e79178e6c7be17ca89e6c135549103ed7cf207a78b7ab5027493fb5.bin",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "f09a96cf4e79178e6c7be17ca89e6c135549103ed7cf207a78b7ab5027493fb5",
+        "actual_sha256": "f09a96cf4e79178e6c7be17ca89e6c135549103ed7cf207a78b7ab5027493fb5",
+        "bytes": 202244,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/http/leshi_distribution_20150506_ca91619ed6bf7ab7b98cd57cf6037075f9fd6f4fba98362e2f93d9c28b6b50c7.bin",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "ca91619ed6bf7ab7b98cd57cf6037075f9fd6f4fba98362e2f93d9c28b6b50c7",
+        "actual_sha256": "ca91619ed6bf7ab7b98cd57cf6037075f9fd6f4fba98362e2f93d9c28b6b50c7",
+        "bytes": 153176,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/http/leshi_registration_end_20200724_967f67bd2891228a5c0d9961e7f44f486cc665a80306a425cab41b3cc23747b1.bin",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "967f67bd2891228a5c0d9961e7f44f486cc665a80306a425cab41b3cc23747b1",
+        "actual_sha256": "967f67bd2891228a5c0d9961e7f44f486cc665a80306a425cab41b3cc23747b1",
+        "bytes": 15135,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/http/maotai_dividend_20230626_a4c07cb17a1ca6e1fd5e49a2324aa71a4900347da51810781f1457df4940978f.bin",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "a4c07cb17a1ca6e1fd5e49a2324aa71a4900347da51810781f1457df4940978f",
+        "actual_sha256": "a4c07cb17a1ca6e1fd5e49a2324aa71a4900347da51810781f1457df4940978f",
+        "bytes": 339457,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/http/maotai_special_20231214_6d17512b6f5a0000d53d8053201ef8a3f934714fdca31e8220ef6f1a9bb67f14.bin",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "6d17512b6f5a0000d53d8053201ef8a3f934714fdca31e8220ef6f1a9bb67f14",
+        "actual_sha256": "6d17512b6f5a0000d53d8053201ef8a3f934714fdca31e8220ef6f1a9bb67f14",
+        "bytes": 712213,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/http/maotai_special_original_20231214_42b90060ad3fb579172f60f1c5b43f35f5a4e052b8e7c6b1ebd4ceba72b015f1.bin",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "42b90060ad3fb579172f60f1c5b43f35f5a4e052b8e7c6b1ebd4ceba72b015f1",
+        "actual_sha256": "42b90060ad3fb579172f60f1c5b43f35f5a4e052b8e7c6b1ebd4ceba72b015f1",
+        "bytes": 3872,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/http/revision_candidate_000506_1221855320_34313202fbd1638194f59f930e0144ee823193b52d5c7ceb846907d324aba1d2.bin",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "34313202fbd1638194f59f930e0144ee823193b52d5c7ceb846907d324aba1d2",
+        "actual_sha256": "34313202fbd1638194f59f930e0144ee823193b52d5c7ceb846907d324aba1d2",
+        "bytes": 857033,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/http/revision_candidate_000595_1221576370_76c35f264c37abca3a103ea5aa776249d7d142e17fce131680504dbdc738694e.bin",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "76c35f264c37abca3a103ea5aa776249d7d142e17fce131680504dbdc738694e",
+        "actual_sha256": "76c35f264c37abca3a103ea5aa776249d7d142e17fce131680504dbdc738694e",
+        "bytes": 564707,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/http/revision_candidate_000615_1221768718_88fe80142d8189751ec1bf3c8b0bfaa02a9a40250f83d1b44cbc318997de9150.bin",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "88fe80142d8189751ec1bf3c8b0bfaa02a9a40250f83d1b44cbc318997de9150",
+        "actual_sha256": "88fe80142d8189751ec1bf3c8b0bfaa02a9a40250f83d1b44cbc318997de9150",
+        "bytes": 797343,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/http/revision_candidate_000908_1222181632_1d8f0a4e533ab4b59fe4decc94f02dbe89ac2eaeda85610a72de270b6a835673.bin",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "1d8f0a4e533ab4b59fe4decc94f02dbe89ac2eaeda85610a72de270b6a835673",
+        "actual_sha256": "1d8f0a4e533ab4b59fe4decc94f02dbe89ac2eaeda85610a72de270b6a835673",
+        "bytes": 248899,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/http/revision_candidate_002097_1221570435_386bf413f68f2d3fb85342c700353ab765af329a61a346072d2ac0529ed98e15.bin",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "386bf413f68f2d3fb85342c700353ab765af329a61a346072d2ac0529ed98e15",
+        "actual_sha256": "386bf413f68f2d3fb85342c700353ab765af329a61a346072d2ac0529ed98e15",
+        "bytes": 236399,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/http/revision_candidate_002413_1221489977_5af44ffb556a774622f8f86509abb7d156e6a2df42275260707fdc79cf754753.bin",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "5af44ffb556a774622f8f86509abb7d156e6a2df42275260707fdc79cf754753",
+        "actual_sha256": "5af44ffb556a774622f8f86509abb7d156e6a2df42275260707fdc79cf754753",
+        "bytes": 397729,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/http/revision_candidate_002425_1221557670_ca242327ca50303c469a7e87c65c4234f1cccaccfc137d395e1cf01ef82efddf.bin",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "ca242327ca50303c469a7e87c65c4234f1cccaccfc137d395e1cf01ef82efddf",
+        "actual_sha256": "ca242327ca50303c469a7e87c65c4234f1cccaccfc137d395e1cf01ef82efddf",
+        "bytes": 401716,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/http/revision_candidate_002528_1222184404_329a767cc7cdbdc81cc7def0a90671aec58f0d0bfaead3acb9544ad8107aec58.bin",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "329a767cc7cdbdc81cc7def0a90671aec58f0d0bfaead3acb9544ad8107aec58",
+        "actual_sha256": "329a767cc7cdbdc81cc7def0a90671aec58f0d0bfaead3acb9544ad8107aec58",
+        "bytes": 637369,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/http/revision_candidate_002729_1221981063_8702724777371322f3d277a926fe265ecc216bb41cb4ab9e255026536cff2f70.bin",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "8702724777371322f3d277a926fe265ecc216bb41cb4ab9e255026536cff2f70",
+        "actual_sha256": "8702724777371322f3d277a926fe265ecc216bb41cb4ab9e255026536cff2f70",
+        "bytes": 550084,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/http/revision_candidate_002857_1222127532_41d9370fd96d1860152079264f7a05448a6db7cc2c47b5e9dcda410037288e98.bin",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "41d9370fd96d1860152079264f7a05448a6db7cc2c47b5e9dcda410037288e98",
+        "actual_sha256": "41d9370fd96d1860152079264f7a05448a6db7cc2c47b5e9dcda410037288e98",
+        "bytes": 384675,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/http/revision_candidate_300149_1221433951_a00b43c68a6d0918a51d5e77aee4b2041578c224b28ce70c0676f46c9d83ddec.bin",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "a00b43c68a6d0918a51d5e77aee4b2041578c224b28ce70c0676f46c9d83ddec",
+        "actual_sha256": "a00b43c68a6d0918a51d5e77aee4b2041578c224b28ce70c0676f46c9d83ddec",
+        "bytes": 356424,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/http/revision_candidate_300417_1221541060_5fcb3167276a5a698ddcbf9c04c73fd3b4b35e211f5dd896aaa444c4f3f63fc0.bin",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "5fcb3167276a5a698ddcbf9c04c73fd3b4b35e211f5dd896aaa444c4f3f63fc0",
+        "actual_sha256": "5fcb3167276a5a698ddcbf9c04c73fd3b4b35e211f5dd896aaa444c4f3f63fc0",
+        "bytes": 568032,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/http/revision_candidate_300600_1221490301_d62e466e80024e36bc1f5655ec3dcafa54cb74738a9f175c587fbe4b305538b1.bin",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "d62e466e80024e36bc1f5655ec3dcafa54cb74738a9f175c587fbe4b305538b1",
+        "actual_sha256": "d62e466e80024e36bc1f5655ec3dcafa54cb74738a9f175c587fbe4b305538b1",
+        "bytes": 337189,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/http/revision_candidate_300617_1222007360_26b2b13898fb2ec7f05cabc41c5d632c67af9f051e954cb3cf86f13b5f93f7e0.bin",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "26b2b13898fb2ec7f05cabc41c5d632c67af9f051e954cb3cf86f13b5f93f7e0",
+        "actual_sha256": "26b2b13898fb2ec7f05cabc41c5d632c67af9f051e954cb3cf86f13b5f93f7e0",
+        "bytes": 509619,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/http/revision_candidate_300632_1222115085_a30b2b7fa2f1494f1dc19eb32939a571ac5469babba16940d4a8c9c1c240fec3.bin",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "a30b2b7fa2f1494f1dc19eb32939a571ac5469babba16940d4a8c9c1c240fec3",
+        "actual_sha256": "a30b2b7fa2f1494f1dc19eb32939a571ac5469babba16940d4a8c9c1c240fec3",
+        "bytes": 152083,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/http/revision_candidate_300732_1221574187_34b51c757b545c75b5c3c5d4cf0fa5873f344006c1f40ba76bdb92a3dda5dc70.bin",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "34b51c757b545c75b5c3c5d4cf0fa5873f344006c1f40ba76bdb92a3dda5dc70",
+        "actual_sha256": "34b51c757b545c75b5c3c5d4cf0fa5873f344006c1f40ba76bdb92a3dda5dc70",
+        "bytes": 444964,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/http/revision_candidate_600165_1222168010_1c92b2c73af2538b4785961e06ef2ac74da2bc9a5e67ca5aef863f4b66faf035.bin",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "1c92b2c73af2538b4785961e06ef2ac74da2bc9a5e67ca5aef863f4b66faf035",
+        "actual_sha256": "1c92b2c73af2538b4785961e06ef2ac74da2bc9a5e67ca5aef863f4b66faf035",
+        "bytes": 635727,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/http/revision_candidate_600462_1221577367_8ae6b9eb4e398f1ace87be518ed7dfee2f201c761f0f41066cfaa68079748574.bin",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "8ae6b9eb4e398f1ace87be518ed7dfee2f201c761f0f41066cfaa68079748574",
+        "actual_sha256": "8ae6b9eb4e398f1ace87be518ed7dfee2f201c761f0f41066cfaa68079748574",
+        "bytes": 226534,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/http/revision_candidate_600590_1221661959_7fc58f37f772e75d961b8b368d56d736abbd7aa383072a3e5f9b234b1aab32fc.bin",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "7fc58f37f772e75d961b8b368d56d736abbd7aa383072a3e5f9b234b1aab32fc",
+        "actual_sha256": "7fc58f37f772e75d961b8b368d56d736abbd7aa383072a3e5f9b234b1aab32fc",
+        "bytes": 933180,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/http/revision_candidate_603003_1221434630_a898bb83df9555a5bf1932fc8e28f31cbfd2c80ce584693ce3190601508e62c6.bin",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "a898bb83df9555a5bf1932fc8e28f31cbfd2c80ce584693ce3190601508e62c6",
+        "actual_sha256": "a898bb83df9555a5bf1932fc8e28f31cbfd2c80ce584693ce3190601508e62c6",
+        "bytes": 524515,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/http/shijia_industry_change_20200717_c244c96f1adb03f5646a6393674926c632dcf420e7dbc8dd1238d8a4b9bf7d7c.bin",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "c244c96f1adb03f5646a6393674926c632dcf420e7dbc8dd1238d8a4b9bf7d7c",
+        "actual_sha256": "c244c96f1adb03f5646a6393674926c632dcf420e7dbc8dd1238d8a4b9bf7d7c",
+        "bytes": 138916,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/http/zhonghong_delisting_20181228_6ad69710152c6d8e8f8d7bba9cba01508b0a662ec549798451486de959e8592e.bin",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "6ad69710152c6d8e8f8d7bba9cba01508b0a662ec549798451486de959e8592e",
+        "actual_sha256": "6ad69710152c6d8e8f8d7bba9cba01508b0a662ec549798451486de959e8592e",
+        "bytes": 110909,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/http_extra_manifest.json",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "a360cbd4a44e9760656afcb8b34590d2260c89a5e8e95056d039e47782699414",
+        "actual_sha256": "a360cbd4a44e9760656afcb8b34590d2260c89a5e8e95056d039e47782699414",
+        "bytes": 1418,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/http_final_manifest.json",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "6fac11a802893c5fb8c9373eccc2899add3a93ac234f113baf176e9e0f7f38d3",
+        "actual_sha256": "6fac11a802893c5fb8c9373eccc2899add3a93ac234f113baf176e9e0f7f38d3",
+        "bytes": 2452,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/http_manifests/baostock_doc_StockBasicInfoAPI_e0ba91516ab09aba3bb793241eee54d4822b43b0a4184cc4967dd0ea85018443.json",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "e0ba91516ab09aba3bb793241eee54d4822b43b0a4184cc4967dd0ea85018443",
+        "actual_sha256": "e0ba91516ab09aba3bb793241eee54d4822b43b0a4184cc4967dd0ea85018443",
+        "bytes": 725,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/http_manifests/baostock_doc_dataExplain_c0820618b8a13eb664b20845c82d21a77d5f1c28d63fdf245c202339431cd8ec.json",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "c0820618b8a13eb664b20845c82d21a77d5f1c28d63fdf245c202339431cd8ec",
+        "actual_sha256": "c0820618b8a13eb664b20845c82d21a77d5f1c28d63fdf245c202339431cd8ec",
+        "bytes": 709,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/http_manifests/baostock_doc_dividInfo_2add8b2d6eee51fd293d4bbbaf8dd12495d9e1ab302535207c3338caa37df922.json",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "2add8b2d6eee51fd293d4bbbaf8dd12495d9e1ab302535207c3338caa37df922",
+        "actual_sha256": "2add8b2d6eee51fd293d4bbbaf8dd12495d9e1ab302535207c3338caa37df922",
+        "bytes": 701,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/http_manifests/baostock_doc_factorInfo_0b7db5fd2863e743f906ffbfbdc1466dec0dd9eaf85c2a9b64f457af8d5556dd.json",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "0b7db5fd2863e743f906ffbfbdc1466dec0dd9eaf85c2a9b64f457af8d5556dd",
+        "actual_sha256": "0b7db5fd2863e743f906ffbfbdc1466dec0dd9eaf85c2a9b64f457af8d5556dd",
+        "bytes": 704,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/http_manifests/baostock_doc_home_273f721b5c2f87d5f5f3533a7221ddca321d1715ca0a5d8cc9c79ef631ff5a4c.json",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "273f721b5c2f87d5f5f3533a7221ddca321d1715ca0a5d8cc9c79ef631ff5a4c",
+        "actual_sha256": "273f721b5c2f87d5f5f3533a7221ddca321d1715ca0a5d8cc9c79ef631ff5a4c",
+        "bytes": 687,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/http_manifests/baostock_doc_seasonBalance_27fc912bd8d546aa16c2ef8c916ce29ce502d3b42c4fdda890291e8cefd7636e.json",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "27fc912bd8d546aa16c2ef8c916ce29ce502d3b42c4fdda890291e8cefd7636e",
+        "actual_sha256": "27fc912bd8d546aa16c2ef8c916ce29ce502d3b42c4fdda890291e8cefd7636e",
+        "bytes": 713,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/http_manifests/baostock_doc_seasonCashFlow_cd43f56f04621054d0909d2e58c34d445c445745dbc294cfa0ace6ab68b53cc5.json",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "cd43f56f04621054d0909d2e58c34d445c445745dbc294cfa0ace6ab68b53cc5",
+        "actual_sha256": "cd43f56f04621054d0909d2e58c34d445c445745dbc294cfa0ace6ab68b53cc5",
+        "bytes": 716,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/http_manifests/baostock_doc_seasonProfit_381cc80c30a983c8dda20550110a7042820370c17ba085ed707e3d3b57654022.json",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "381cc80c30a983c8dda20550110a7042820370c17ba085ed707e3d3b57654022",
+        "actual_sha256": "381cc80c30a983c8dda20550110a7042820370c17ba085ed707e3d3b57654022",
+        "bytes": 710,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/http_manifests/baostock_doc_stockIndustry_4c347134595abb96bfc933e485c4fd1cc6a415b5cb74f961ff2ffda6537aa1df.json",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "4c347134595abb96bfc933e485c4fd1cc6a415b5cb74f961ff2ffda6537aa1df",
+        "actual_sha256": "4c347134595abb96bfc933e485c4fd1cc6a415b5cb74f961ff2ffda6537aa1df",
+        "bytes": 713,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/http_manifests/baostock_doc_stockKData_4250204b653afd8fd6981e2295959deb1886e21ac798e0e689160fd77c648284.json",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "4250204b653afd8fd6981e2295959deb1886e21ac798e0e689160fd77c648284",
+        "actual_sha256": "4250204b653afd8fd6981e2295959deb1886e21ac798e0e689160fd77c648284",
+        "bytes": 705,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/http_manifests/cninfo_revision_candidates_100_ecec30ac171d3bb04b4b24ede338a354ff30c57c2eb53d9f113795ed89985f8f.json",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "ecec30ac171d3bb04b4b24ede338a354ff30c57c2eb53d9f113795ed89985f8f",
+        "actual_sha256": "ecec30ac171d3bb04b4b24ede338a354ff30c57c2eb53d9f113795ed89985f8f",
+        "bytes": 942,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/http_manifests/cninfo_revision_candidates_older_partition_e11a2db014877d086c1e33a10a93ebd0a27430149d33e28fbbbd68880cbba6a8.json",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "e11a2db014877d086c1e33a10a93ebd0a27430149d33e28fbbbd68880cbba6a8",
+        "actual_sha256": "e11a2db014877d086c1e33a10a93ebd0a27430149d33e28fbbbd68880cbba6a8",
+        "bytes": 966,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/http_manifests/cninfo_revision_candidates_page2_f27ab2ac8cce7e91158fade34892bae83cee4212f7fd5018a0394288e7667447.json",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "f27ab2ac8cce7e91158fade34892bae83cee4212f7fd5018a0394288e7667447",
+        "actual_sha256": "f27ab2ac8cce7e91158fade34892bae83cee4212f7fd5018a0394288e7667447",
+        "bytes": 946,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/http_manifests/cninfo_revision_discovery_2016_2024_55e3ba34a98d1e9d94250250fc53ed09d95dbfd5c3c7c02809a04b2d1584cb49.json",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "55e3ba34a98d1e9d94250250fc53ed09d95dbfd5c3c7c02809a04b2d1584cb49",
+        "actual_sha256": "55e3ba34a98d1e9d94250250fc53ed09d95dbfd5c3c7c02809a04b2d1584cb49",
+        "bytes": 951,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/http_manifests/csrc_industry_2020q2_0d9680be2f86a253e0c9b04b809a2b20dc4239bdbb004e126dfdddf2c8794391.json",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "0d9680be2f86a253e0c9b04b809a2b20dc4239bdbb004e126dfdddf2c8794391",
+        "actual_sha256": "0d9680be2f86a253e0c9b04b809a2b20dc4239bdbb004e126dfdddf2c8794391",
+        "bytes": 718,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/http_manifests/csrc_industry_2020q2_page_f7879b2f903bc633432011367ce84a165cb889ad0b659df3636425088dcfc919.json",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "f7879b2f903bc633432011367ce84a165cb889ad0b659df3636425088dcfc919",
+        "actual_sha256": "f7879b2f903bc633432011367ce84a165cb889ad0b659df3636425088dcfc919",
+        "bytes": 697,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/http_manifests/eastmoney_maotai_d8cf6ecc671f940d92a3861db1404234c1f992534d123f6fc83a42546ac7fa1d.json",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "d8cf6ecc671f940d92a3861db1404234c1f992534d123f6fc83a42546ac7fa1d",
+        "actual_sha256": "d8cf6ecc671f940d92a3861db1404234c1f992534d123f6fc83a42546ac7fa1d",
+        "bytes": 614,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/http_manifests/eastmoney_zhonghong_3387fbae63402f70adf08ccfe36a5d6a39b942470c92293ff2069cbb3f976e84.json",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "3387fbae63402f70adf08ccfe36a5d6a39b942470c92293ff2069cbb3f976e84",
+        "actual_sha256": "3387fbae63402f70adf08ccfe36a5d6a39b942470c92293ff2069cbb3f976e84",
+        "bytes": 617,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/http_manifests/kangmei_2018_first_5160eb9441b281d409d96a562edfbb1a37415c6a34cfcd60513362ee45a631e9.json",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "5160eb9441b281d409d96a562edfbb1a37415c6a34cfcd60513362ee45a631e9",
+        "actual_sha256": "5160eb9441b281d409d96a562edfbb1a37415c6a34cfcd60513362ee45a631e9",
+        "bytes": 674,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/http_manifests/kangmei_original_2017_b164d27f5f5c33e429c0dea46d2361a8d4fa43f5016405fa65e1ba69a1738690.json",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "b164d27f5f5c33e429c0dea46d2361a8d4fa43f5016405fa65e1ba69a1738690",
+        "actual_sha256": "b164d27f5f5c33e429c0dea46d2361a8d4fa43f5016405fa65e1ba69a1738690",
+        "bytes": 702,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/http_manifests/kangmei_revision_2019_2596f8ecb464d10c09d60681af69688c47460cfc292d7509b69123ba749a252a.json",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "2596f8ecb464d10c09d60681af69688c47460cfc292d7509b69123ba749a252a",
+        "actual_sha256": "2596f8ecb464d10c09d60681af69688c47460cfc292d7509b69123ba749a252a",
+        "bytes": 702,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/http_manifests/kangmei_revision_2020_67148435614be6ad79f8bde54528d7004ffd65f1deb372b9c69fbe92619ca07a.json",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "67148435614be6ad79f8bde54528d7004ffd65f1deb372b9c69fbe92619ca07a",
+        "actual_sha256": "67148435614be6ad79f8bde54528d7004ffd65f1deb372b9c69fbe92619ca07a",
+        "bytes": 702,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/http_manifests/kangmei_st_notice_20190518_32452ceef6a904bded3b42004390011d99b38b83c3e9de22e223ac040983b1d3.json",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "32452ceef6a904bded3b42004390011d99b38b83c3e9de22e223ac040983b1d3",
+        "actual_sha256": "32452ceef6a904bded3b42004390011d99b38b83c3e9de22e223ac040983b1d3",
+        "bytes": 749,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/http_manifests/leshi_delisting_20200514_f42ca7448215be960cf514027fa4de5a4f173fd3f9d24f92bdbc44cd6750fe7f.json",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "f42ca7448215be960cf514027fa4de5a4f173fd3f9d24f92bdbc44cd6750fe7f",
+        "actual_sha256": "f42ca7448215be960cf514027fa4de5a4f173fd3f9d24f92bdbc44cd6750fe7f",
+        "bytes": 753,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/http_manifests/leshi_distribution_20150506_63f62c47243eb20f9b1c6e638eaa1cc260d1bb7bdfb9750ab644d2471dffc059.json",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "63f62c47243eb20f9b1c6e638eaa1cc260d1bb7bdfb9750ab644d2471dffc059",
+        "actual_sha256": "63f62c47243eb20f9b1c6e638eaa1cc260d1bb7bdfb9750ab644d2471dffc059",
+        "bytes": 691,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/http_manifests/leshi_registration_end_20200724_568986aa71824f9e4cc1e8214140fd6964dd170cf507ded2a8709fd52f1c6396.json",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "568986aa71824f9e4cc1e8214140fd6964dd170cf507ded2a8709fd52f1c6396",
+        "actual_sha256": "568986aa71824f9e4cc1e8214140fd6964dd170cf507ded2a8709fd52f1c6396",
+        "bytes": 709,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/http_manifests/maotai_dividend_20230626_0602d54d8766d735e5e810bd6bbf1f47f91e9904d97f66ee1a1c1fcf4d07869f.json",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "0602d54d8766d735e5e810bd6bbf1f47f91e9904d97f66ee1a1c1fcf4d07869f",
+        "actual_sha256": "0602d54d8766d735e5e810bd6bbf1f47f91e9904d97f66ee1a1c1fcf4d07869f",
+        "bytes": 724,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/http_manifests/maotai_special_20231214_67dc46dc231b282f579be6b08b73aa8f48fef544a5c18da5c2419d89f8340058.json",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "67dc46dc231b282f579be6b08b73aa8f48fef544a5c18da5c2419d89f8340058",
+        "actual_sha256": "67dc46dc231b282f579be6b08b73aa8f48fef544a5c18da5c2419d89f8340058",
+        "bytes": 691,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/http_manifests/maotai_special_original_20231214_f1d5a866c26525d98af95e22f9d0d42acc8c13e161a0c726b25b1f6b924dfd2e.json",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "f1d5a866c26525d98af95e22f9d0d42acc8c13e161a0c726b25b1f6b924dfd2e",
+        "actual_sha256": "f1d5a866c26525d98af95e22f9d0d42acc8c13e161a0c726b25b1f6b924dfd2e",
+        "bytes": 743,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/http_manifests/revision_candidate_000506_1221855320_ca5872adf66ba4933c4dbb58c40323285e91ae3ec9a6deebadb610e4042b5f18.json",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "ca5872adf66ba4933c4dbb58c40323285e91ae3ec9a6deebadb610e4042b5f18",
+        "actual_sha256": "ca5872adf66ba4933c4dbb58c40323285e91ae3ec9a6deebadb610e4042b5f18",
+        "bytes": 709,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/http_manifests/revision_candidate_000595_1221576370_aa090ca34037af344f86c83191a6ff3c13b41d6478810e87c965659b342a46d1.json",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "aa090ca34037af344f86c83191a6ff3c13b41d6478810e87c965659b342a46d1",
+        "actual_sha256": "aa090ca34037af344f86c83191a6ff3c13b41d6478810e87c965659b342a46d1",
+        "bytes": 709,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/http_manifests/revision_candidate_000615_1221768718_99d69f715e2aff66d5b1e801368149548002c16269ba9d218fda7d3c2d0d2d72.json",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "99d69f715e2aff66d5b1e801368149548002c16269ba9d218fda7d3c2d0d2d72",
+        "actual_sha256": "99d69f715e2aff66d5b1e801368149548002c16269ba9d218fda7d3c2d0d2d72",
+        "bytes": 709,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/http_manifests/revision_candidate_000908_1222181632_9fe15564326719ba0a671284cb4d33d2e8565b6b02c94fdfc37cf0d849cdd797.json",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "9fe15564326719ba0a671284cb4d33d2e8565b6b02c94fdfc37cf0d849cdd797",
+        "actual_sha256": "9fe15564326719ba0a671284cb4d33d2e8565b6b02c94fdfc37cf0d849cdd797",
+        "bytes": 709,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/http_manifests/revision_candidate_002097_1221570435_6fce4b7a2308d5494aa5d09d7ac3dbdccc35b52ddfbcc42c4910597abb3cb140.json",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "6fce4b7a2308d5494aa5d09d7ac3dbdccc35b52ddfbcc42c4910597abb3cb140",
+        "actual_sha256": "6fce4b7a2308d5494aa5d09d7ac3dbdccc35b52ddfbcc42c4910597abb3cb140",
+        "bytes": 709,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/http_manifests/revision_candidate_002413_1221489977_d0d184adc0b3d3c67d772ab9e0c7899305097450cd480637f901b68bb1e99397.json",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "d0d184adc0b3d3c67d772ab9e0c7899305097450cd480637f901b68bb1e99397",
+        "actual_sha256": "d0d184adc0b3d3c67d772ab9e0c7899305097450cd480637f901b68bb1e99397",
+        "bytes": 709,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/http_manifests/revision_candidate_002425_1221557670_f3a6a2b30bdd9d64edfb91a8c2c3c0d76338feba39623a14f2539100a78e3b72.json",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "f3a6a2b30bdd9d64edfb91a8c2c3c0d76338feba39623a14f2539100a78e3b72",
+        "actual_sha256": "f3a6a2b30bdd9d64edfb91a8c2c3c0d76338feba39623a14f2539100a78e3b72",
+        "bytes": 709,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/http_manifests/revision_candidate_002528_1222184404_64270ec422a499f88b9ceb693cf592e2f1cef0bb9ea189c4f9f910bb52350861.json",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "64270ec422a499f88b9ceb693cf592e2f1cef0bb9ea189c4f9f910bb52350861",
+        "actual_sha256": "64270ec422a499f88b9ceb693cf592e2f1cef0bb9ea189c4f9f910bb52350861",
+        "bytes": 709,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/http_manifests/revision_candidate_002729_1221981063_48789b48ac58c0dcb5ffec15b3c81dc6a27737a7dbb6469595bff836ee0ff6b9.json",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "48789b48ac58c0dcb5ffec15b3c81dc6a27737a7dbb6469595bff836ee0ff6b9",
+        "actual_sha256": "48789b48ac58c0dcb5ffec15b3c81dc6a27737a7dbb6469595bff836ee0ff6b9",
+        "bytes": 709,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/http_manifests/revision_candidate_002857_1222127532_a58da61589acef37af3346f38421e0120e981bcd2fabb63da182eb15fe53fe26.json",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "a58da61589acef37af3346f38421e0120e981bcd2fabb63da182eb15fe53fe26",
+        "actual_sha256": "a58da61589acef37af3346f38421e0120e981bcd2fabb63da182eb15fe53fe26",
+        "bytes": 709,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/http_manifests/revision_candidate_300149_1221433951_531eaa6415229b3fc3e39a0bd2dac965bc71dba5650390262fbb91ba141176b6.json",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "531eaa6415229b3fc3e39a0bd2dac965bc71dba5650390262fbb91ba141176b6",
+        "actual_sha256": "531eaa6415229b3fc3e39a0bd2dac965bc71dba5650390262fbb91ba141176b6",
+        "bytes": 709,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/http_manifests/revision_candidate_300417_1221541060_4dd8385cc2903a7ecb4183a72a863998ba3396701feabcd3f26806539b3de1c5.json",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "4dd8385cc2903a7ecb4183a72a863998ba3396701feabcd3f26806539b3de1c5",
+        "actual_sha256": "4dd8385cc2903a7ecb4183a72a863998ba3396701feabcd3f26806539b3de1c5",
+        "bytes": 709,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/http_manifests/revision_candidate_300600_1221490301_101ccae8fe37cb087587304d6feacbeb9413bae06649168a2df5e29e2676346f.json",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "101ccae8fe37cb087587304d6feacbeb9413bae06649168a2df5e29e2676346f",
+        "actual_sha256": "101ccae8fe37cb087587304d6feacbeb9413bae06649168a2df5e29e2676346f",
+        "bytes": 709,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/http_manifests/revision_candidate_300617_1222007360_94fce78a118373f6bfe2d285958d9fa59c373723832a73cd05bd6c2c46bf205a.json",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "94fce78a118373f6bfe2d285958d9fa59c373723832a73cd05bd6c2c46bf205a",
+        "actual_sha256": "94fce78a118373f6bfe2d285958d9fa59c373723832a73cd05bd6c2c46bf205a",
+        "bytes": 709,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/http_manifests/revision_candidate_300632_1222115085_95776e670063c8b5331c7f7f650987577a536ace54fb5787afb1b4c2c38b801e.json",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "95776e670063c8b5331c7f7f650987577a536ace54fb5787afb1b4c2c38b801e",
+        "actual_sha256": "95776e670063c8b5331c7f7f650987577a536ace54fb5787afb1b4c2c38b801e",
+        "bytes": 709,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/http_manifests/revision_candidate_300732_1221574187_2e30021275db2251eb3b452935044b55834e0836bfaab6ebbf0b1fa4d38c5186.json",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "2e30021275db2251eb3b452935044b55834e0836bfaab6ebbf0b1fa4d38c5186",
+        "actual_sha256": "2e30021275db2251eb3b452935044b55834e0836bfaab6ebbf0b1fa4d38c5186",
+        "bytes": 709,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/http_manifests/revision_candidate_600165_1222168010_aa72d940501682288f07caca2ec3774c8d2c443e3bd9c65bb22617810dae0b08.json",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "aa72d940501682288f07caca2ec3774c8d2c443e3bd9c65bb22617810dae0b08",
+        "actual_sha256": "aa72d940501682288f07caca2ec3774c8d2c443e3bd9c65bb22617810dae0b08",
+        "bytes": 709,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/http_manifests/revision_candidate_600462_1221577367_937b9f8ec10b900e5c19a5a8f1daa4a7ef16c081bf6e67b0152a21b18315e424.json",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "937b9f8ec10b900e5c19a5a8f1daa4a7ef16c081bf6e67b0152a21b18315e424",
+        "actual_sha256": "937b9f8ec10b900e5c19a5a8f1daa4a7ef16c081bf6e67b0152a21b18315e424",
+        "bytes": 709,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/http_manifests/revision_candidate_600590_1221661959_9befa1dd9be4abf9328dc1f724f464ff0622fa7f390dd58df604bbcae9d755e3.json",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "9befa1dd9be4abf9328dc1f724f464ff0622fa7f390dd58df604bbcae9d755e3",
+        "actual_sha256": "9befa1dd9be4abf9328dc1f724f464ff0622fa7f390dd58df604bbcae9d755e3",
+        "bytes": 709,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/http_manifests/revision_candidate_603003_1221434630_70d5779bc47a025410bf2a8c8f83989bf42ab5d83112e05bcd2f4ead92eb73b6.json",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "70d5779bc47a025410bf2a8c8f83989bf42ab5d83112e05bcd2f4ead92eb73b6",
+        "actual_sha256": "70d5779bc47a025410bf2a8c8f83989bf42ab5d83112e05bcd2f4ead92eb73b6",
+        "bytes": 709,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/http_manifests/shijia_industry_change_20200717_d6e9fd56c96dfbfdaf9c8c0b4ab9127f7d3a539d5f67890f9a382658085893c7.json",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "d6e9fd56c96dfbfdaf9c8c0b4ab9127f7d3a539d5f67890f9a382658085893c7",
+        "actual_sha256": "d6e9fd56c96dfbfdaf9c8c0b4ab9127f7d3a539d5f67890f9a382658085893c7",
+        "bytes": 721,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/http_manifests/zhonghong_delisting_20181228_ec12a6d67721b2e5581af77b21be2e57607c5d34076bf2e2618c49137fe518e9.json",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "ec12a6d67721b2e5581af77b21be2e57607c5d34076bf2e2618c49137fe518e9",
+        "actual_sha256": "ec12a6d67721b2e5581af77b21be2e57607c5d34076bf2e2618c49137fe518e9",
+        "bytes": 739,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/http_more_manifest.json",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "02457937634b194a150522830d9313477f5624b8279bf6bcb1cf74da46b313b8",
+        "actual_sha256": "02457937634b194a150522830d9313477f5624b8279bf6bcb1cf74da46b313b8",
+        "bytes": 2320,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/http_probe_manifest.json",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "3b032e708fcbe4857876e200c2ac727e31b263ac2391c0b06fd2b14a493fba4c",
+        "actual_sha256": "3b032e708fcbe4857876e200c2ac727e31b263ac2391c0b06fd2b14a493fba4c",
+        "bytes": 14789,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/query_manifests/1f0a57e1fc1ed6ada919.json",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "a1351d6c446ab6bc42041f95fab7321f8d46ab9a2afc63978489f30d4004b805",
+        "actual_sha256": "a1351d6c446ab6bc42041f95fab7321f8d46ab9a2afc63978489f30d4004b805",
+        "bytes": 340,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/query_manifests/21d266ab8083367249bc.json",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "d5d6136870f642e592c90bda3ec9e59600039aa6c9cf6e2cf7c7dbd2809d1d57",
+        "actual_sha256": "d5d6136870f642e592c90bda3ec9e59600039aa6c9cf6e2cf7c7dbd2809d1d57",
+        "bytes": 370,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/query_manifests/280d2610ff459126a00a.json",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "74da94bcb69915de527043a7c993fb065dcd767f7ba8914f7d394a1a13710338",
+        "actual_sha256": "74da94bcb69915de527043a7c993fb065dcd767f7ba8914f7d394a1a13710338",
+        "bytes": 370,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/query_manifests/371691074e7c2fe5a055.json",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "610058c0a12d2d2fc7bd915a60c444bb8c9e5077ccef74c815adc240955616de",
+        "actual_sha256": "610058c0a12d2d2fc7bd915a60c444bb8c9e5077ccef74c815adc240955616de",
+        "bytes": 371,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/query_manifests/3d7edd8d66542f12b2fd.json",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "69ec29cccb5a0426d526dc17164456cd28ac4f3ed6aef516f69f20cf549c0abc",
+        "actual_sha256": "69ec29cccb5a0426d526dc17164456cd28ac4f3ed6aef516f69f20cf549c0abc",
+        "bytes": 340,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/query_manifests/41727a0400ca06d65c33.json",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "6c94d17d63089722d56e62edc7d335bd08726e358de7d71543c274e465662ba6",
+        "actual_sha256": "6c94d17d63089722d56e62edc7d335bd08726e358de7d71543c274e465662ba6",
+        "bytes": 353,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/query_manifests/42a83311f26e26f9c987.json",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "46ef5a5f60c53af3003dc27ac770c417e0bda3e9ebac36c258d4722e6626fb41",
+        "actual_sha256": "46ef5a5f60c53af3003dc27ac770c417e0bda3e9ebac36c258d4722e6626fb41",
+        "bytes": 323,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/query_manifests/4c3cf32a17663d478f39.json",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "cca3deea8e28ac3f29c4f4a2d67fa4b2753fdf8415f4fb86e0a69c960f735a7b",
+        "actual_sha256": "cca3deea8e28ac3f29c4f4a2d67fa4b2753fdf8415f4fb86e0a69c960f735a7b",
+        "bytes": 340,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/query_manifests/5dc9c347523ecade4f3f.json",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "53e5164fc06e3d5b5fd853369f7a2ece6d91c3318074c3ce9bba67c1e313896d",
+        "actual_sha256": "53e5164fc06e3d5b5fd853369f7a2ece6d91c3318074c3ce9bba67c1e313896d",
+        "bytes": 370,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/query_manifests/60c1cd65e6008e386848.json",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "ca6fb30e992bdd7d8832296cfde7691d11755bd1038fb56547b96301c26a5661",
+        "actual_sha256": "ca6fb30e992bdd7d8832296cfde7691d11755bd1038fb56547b96301c26a5661",
+        "bytes": 340,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/query_manifests/754deffc861bae57dade.json",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "ca37301d0117354425de41930f7e1dbf0f2d33053ce4dfb840137ae4e64e4e7e",
+        "actual_sha256": "ca37301d0117354425de41930f7e1dbf0f2d33053ce4dfb840137ae4e64e4e7e",
+        "bytes": 340,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/query_manifests/75503236646e70a2b836.json",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "f9ea71ce669fd1a56ce20893cf73f8a7a84804dc2ddf6fe1754216974c5f49c8",
+        "actual_sha256": "f9ea71ce669fd1a56ce20893cf73f8a7a84804dc2ddf6fe1754216974c5f49c8",
+        "bytes": 340,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/query_manifests/7a541f50374ebb5e1eb7.json",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "3622d811e15f30de85a493fab45a8c0c801e34f5a8e2260a1c02e1ba1d491d84",
+        "actual_sha256": "3622d811e15f30de85a493fab45a8c0c801e34f5a8e2260a1c02e1ba1d491d84",
+        "bytes": 342,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/query_manifests/88934f7ff8914ed6c685.json",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "b37337a2d3e459215799ff5ad38468a24ad3f6d0f0b0ffd159ae3f6ee35fe22d",
+        "actual_sha256": "b37337a2d3e459215799ff5ad38468a24ad3f6d0f0b0ffd159ae3f6ee35fe22d",
+        "bytes": 320,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/query_manifests/992307c98fec6305626e.json",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "b25ae2cda503c38c6b1a96a3ba4e3325e6cee87d0aca5afbccf233a6f6faed96",
+        "actual_sha256": "b25ae2cda503c38c6b1a96a3ba4e3325e6cee87d0aca5afbccf233a6f6faed96",
+        "bytes": 340,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/query_manifests/a4a49a0a0af534a00c01.json",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "793c09405c9c7245da9ea93b0231d9cda1cd583f6b09026ef4b0d2ff2acfee06",
+        "actual_sha256": "793c09405c9c7245da9ea93b0231d9cda1cd583f6b09026ef4b0d2ff2acfee06",
+        "bytes": 342,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/query_manifests/b5314d7d91e39f508ef0.json",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "587dceda7dc004388a2846fdadace0d9112a28e67dfa0bf87713b7d9093b8026",
+        "actual_sha256": "587dceda7dc004388a2846fdadace0d9112a28e67dfa0bf87713b7d9093b8026",
+        "bytes": 368,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/query_manifests/bb997c253b6bd46aa9f2.json",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "d956817dfd4d995d16b9dc560e79243f733d426c268c63542aa4814c0da07b25",
+        "actual_sha256": "d956817dfd4d995d16b9dc560e79243f733d426c268c63542aa4814c0da07b25",
+        "bytes": 340,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/query_manifests/bbe918ce7ba38bad630a.json",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "a3921b1410a17178a389fbbfd3a5fa563e6654efd772f9bd4b92fbbfd2e75185",
+        "actual_sha256": "a3921b1410a17178a389fbbfd3a5fa563e6654efd772f9bd4b92fbbfd2e75185",
+        "bytes": 340,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/query_manifests/c0ae9857a965873993e2.json",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "5449738c9d59b058a7bca2590fa38f225e45b354416402df3ee5fb76f10adae7",
+        "actual_sha256": "5449738c9d59b058a7bca2590fa38f225e45b354416402df3ee5fb76f10adae7",
+        "bytes": 370,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/query_manifests/c2981dc40adebb65b1fa.json",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "8169ab3c8bf1f39175fd420687cf9ec689f79f85c1a6e87b1d0e8176249be182",
+        "actual_sha256": "8169ab3c8bf1f39175fd420687cf9ec689f79f85c1a6e87b1d0e8176249be182",
+        "bytes": 368,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/query_manifests/c48670dd5a9e1e8ed915.json",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "a1df3ccd19627afb14259488dd75b4d446b5e97b2dc66e074874167255910e9b",
+        "actual_sha256": "a1df3ccd19627afb14259488dd75b4d446b5e97b2dc66e074874167255910e9b",
+        "bytes": 343,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/query_manifests/c6becb6dd5772a69cb0b.json",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "01d341b9de6292e12489c8af4e38c75b51ba7ba52ba3150d06357ef5225de802",
+        "actual_sha256": "01d341b9de6292e12489c8af4e38c75b51ba7ba52ba3150d06357ef5225de802",
+        "bytes": 344,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/query_manifests/d462af8d735615189a2d.json",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "2ac5b84b1dc23aa2cdf03c47973f2d7c2809fa9bf0fb6ee88d772fbbfe04c733",
+        "actual_sha256": "2ac5b84b1dc23aa2cdf03c47973f2d7c2809fa9bf0fb6ee88d772fbbfe04c733",
+        "bytes": 344,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/query_manifests/e7e8dadaa92b74b548bb.json",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "e7f2dedb560232ae9f1a2ee7845c8417624e9d8122ecffee105f1e65a642da2e",
+        "actual_sha256": "e7f2dedb560232ae9f1a2ee7845c8417624e9d8122ecffee105f1e65a642da2e",
+        "bytes": 323,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/query_manifests/eaa8c09544105b63fa1d.json",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "0fe424f3c412feb9e50cf44e54a839076e4dc08a70d45c608367dddf579a7905",
+        "actual_sha256": "0fe424f3c412feb9e50cf44e54a839076e4dc08a70d45c608367dddf579a7905",
+        "bytes": 353,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/query_manifests/ebbad8bf8f96eca433a8.json",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "fda0f9741421e9faba35f40fb5146b3422446330f52111331207324492291ea9",
+        "actual_sha256": "fda0f9741421e9faba35f40fb5146b3422446330f52111331207324492291ea9",
+        "bytes": 370,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/query_manifests/f4f947993b6c82035cf6.json",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "c2bcaca3d480c76074443f102ada45fcdecaa25bad40a9cae4d6065d34b0bea0",
+        "actual_sha256": "c2bcaca3d480c76074443f102ada45fcdecaa25bad40a9cae4d6065d34b0bea0",
+        "bytes": 323,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/query_manifests/fb2b35ab79e3fbc53df4.json",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "d4dcf9755123bd333c8a3269df6c03b1a99f1147bd526b6f5ce462069e238514",
+        "actual_sha256": "d4dcf9755123bd333c8a3269df6c03b1a99f1147bd526b6f5ce462069e238514",
+        "bytes": 343,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/raw/1f0a57e1fc1ed6ada919_febc92af393494f728809aa3c0ee62cd1577148b374263a164de59df2367df23.json",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "febc92af393494f728809aa3c0ee62cd1577148b374263a164de59df2367df23",
+        "actual_sha256": "febc92af393494f728809aa3c0ee62cd1577148b374263a164de59df2367df23",
+        "bytes": 793,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/raw/21d266ab8083367249bc_564b7db3c29907c67ee4e389aa6cca661a9b1d016a098ba989fa09c6664fd868.json",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "564b7db3c29907c67ee4e389aa6cca661a9b1d016a098ba989fa09c6664fd868",
+        "actual_sha256": "564b7db3c29907c67ee4e389aa6cca661a9b1d016a098ba989fa09c6664fd868",
+        "bytes": 5312,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/raw/280d2610ff459126a00a_2482b43ed74e2238e3e006bba67410e9a60acb77993bd102e5b79adcfba63fe6.json",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "2482b43ed74e2238e3e006bba67410e9a60acb77993bd102e5b79adcfba63fe6",
+        "actual_sha256": "2482b43ed74e2238e3e006bba67410e9a60acb77993bd102e5b79adcfba63fe6",
+        "bytes": 2201,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/raw/371691074e7c2fe5a055_ef96d6accdad32e5e1b40eb916c9678c047f88f20999d18aecc17a28640ee38a.json",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "ef96d6accdad32e5e1b40eb916c9678c047f88f20999d18aecc17a28640ee38a",
+        "actual_sha256": "ef96d6accdad32e5e1b40eb916c9678c047f88f20999d18aecc17a28640ee38a",
+        "bytes": 25630,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/raw/3d7edd8d66542f12b2fd_3262603f47ecb10a18898e81b022f6ce332c0b2ed496283c5469fdd50861e415.json",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "3262603f47ecb10a18898e81b022f6ce332c0b2ed496283c5469fdd50861e415",
+        "actual_sha256": "3262603f47ecb10a18898e81b022f6ce332c0b2ed496283c5469fdd50861e415",
+        "bytes": 799,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/raw/41727a0400ca06d65c33_ac4327ab180b57a3cd6443d9998ea5d94cbeba2d7e5bc906e11a90825f459df6.json",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "ac4327ab180b57a3cd6443d9998ea5d94cbeba2d7e5bc906e11a90825f459df6",
+        "actual_sha256": "ac4327ab180b57a3cd6443d9998ea5d94cbeba2d7e5bc906e11a90825f459df6",
+        "bytes": 1111,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/raw/42a83311f26e26f9c987_44624951fcdcf214d3f7989c277744d4e3a185536156eff9c31c11fa92a5e162.json",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "44624951fcdcf214d3f7989c277744d4e3a185536156eff9c31c11fa92a5e162",
+        "actual_sha256": "44624951fcdcf214d3f7989c277744d4e3a185536156eff9c31c11fa92a5e162",
+        "bytes": 147805,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/raw/4c3cf32a17663d478f39_ce7885519d47d9b6e7eecbbf6eee3d38de36a700516ebea4cf294c50f0bb845d.json",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "ce7885519d47d9b6e7eecbbf6eee3d38de36a700516ebea4cf294c50f0bb845d",
+        "actual_sha256": "ce7885519d47d9b6e7eecbbf6eee3d38de36a700516ebea4cf294c50f0bb845d",
+        "bytes": 784,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/raw/5dc9c347523ecade4f3f_038d650da87009d771b032702c0f1ee046da407b68689d5943cc0a02da70d52f.json",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "038d650da87009d771b032702c0f1ee046da407b68689d5943cc0a02da70d52f",
+        "actual_sha256": "038d650da87009d771b032702c0f1ee046da407b68689d5943cc0a02da70d52f",
+        "bytes": 2580,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/raw/60c1cd65e6008e386848_de4674c7d79d87837b56eb8a86eb63e111db8b7faa48ce8f993a3009b7525612.json",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "de4674c7d79d87837b56eb8a86eb63e111db8b7faa48ce8f993a3009b7525612",
+        "actual_sha256": "de4674c7d79d87837b56eb8a86eb63e111db8b7faa48ce8f993a3009b7525612",
+        "bytes": 790,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/raw/754deffc861bae57dade_3c26dba8f32dd5203dd09d4e3e14807c462cc4ccdfa7dfe8ca3ac7b6efe7329e.json",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "3c26dba8f32dd5203dd09d4e3e14807c462cc4ccdfa7dfe8ca3ac7b6efe7329e",
+        "actual_sha256": "3c26dba8f32dd5203dd09d4e3e14807c462cc4ccdfa7dfe8ca3ac7b6efe7329e",
+        "bytes": 790,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/raw/75503236646e70a2b836_239b231d31bcb174400f46e746ebb1b9d81ed674bb243865141398c0e73cb23e.json",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "239b231d31bcb174400f46e746ebb1b9d81ed674bb243865141398c0e73cb23e",
+        "actual_sha256": "239b231d31bcb174400f46e746ebb1b9d81ed674bb243865141398c0e73cb23e",
+        "bytes": 784,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/raw/7a541f50374ebb5e1eb7_96f2c2017223ec106031a40aedbba88f3cf41a2cbeacda19379036f638be3808.json",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "96f2c2017223ec106031a40aedbba88f3cf41a2cbeacda19379036f638be3808",
+        "actual_sha256": "96f2c2017223ec106031a40aedbba88f3cf41a2cbeacda19379036f638be3808",
+        "bytes": 911,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/raw/88934f7ff8914ed6c685_ac2383ed84d8a14b80af4e846b2159f61dd372efb784358a3053a821c80b550f.json",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "ac2383ed84d8a14b80af4e846b2159f61dd372efb784358a3053a821c80b550f",
+        "actual_sha256": "ac2383ed84d8a14b80af4e846b2159f61dd372efb784358a3053a821c80b550f",
+        "bytes": 360,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/raw/992307c98fec6305626e_1ad0bb6ca5ee54da7433f55561e85791f1b5be01bfe7e24295f2103ec7fc6f5d.json",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "1ad0bb6ca5ee54da7433f55561e85791f1b5be01bfe7e24295f2103ec7fc6f5d",
+        "actual_sha256": "1ad0bb6ca5ee54da7433f55561e85791f1b5be01bfe7e24295f2103ec7fc6f5d",
+        "bytes": 793,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/raw/a4a49a0a0af534a00c01_7386712fee2e01f0fb369514c775dcccd6135de23cf818138c3c2f46b261112a.json",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "7386712fee2e01f0fb369514c775dcccd6135de23cf818138c3c2f46b261112a",
+        "actual_sha256": "7386712fee2e01f0fb369514c775dcccd6135de23cf818138c3c2f46b261112a",
+        "bytes": 911,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/raw/b5314d7d91e39f508ef0_373b0e7054d9d19b7b11cb4243e7cbaf84f6afc08e2f77dfea79e62d5b4bafc8.json",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "373b0e7054d9d19b7b11cb4243e7cbaf84f6afc08e2f77dfea79e62d5b4bafc8",
+        "actual_sha256": "373b0e7054d9d19b7b11cb4243e7cbaf84f6afc08e2f77dfea79e62d5b4bafc8",
+        "bytes": 922,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/raw/bb997c253b6bd46aa9f2_d30f22d5eda77f2b1b18df9e6edcde3f7a2fc769957d7875396bc1aafbe84de2.json",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "d30f22d5eda77f2b1b18df9e6edcde3f7a2fc769957d7875396bc1aafbe84de2",
+        "actual_sha256": "d30f22d5eda77f2b1b18df9e6edcde3f7a2fc769957d7875396bc1aafbe84de2",
+        "bytes": 787,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/raw/bbe918ce7ba38bad630a_2efcf24166a9d541df0b8e66a180cda3a46248021e6728c06d8ab2f2d2743f10.json",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "2efcf24166a9d541df0b8e66a180cda3a46248021e6728c06d8ab2f2d2743f10",
+        "actual_sha256": "2efcf24166a9d541df0b8e66a180cda3a46248021e6728c06d8ab2f2d2743f10",
+        "bytes": 786,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/raw/c0ae9857a965873993e2_8da8f89541774af8a9a7c0429538caacf789448916f97dfa6c6377dc0acbea70.json",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "8da8f89541774af8a9a7c0429538caacf789448916f97dfa6c6377dc0acbea70",
+        "actual_sha256": "8da8f89541774af8a9a7c0429538caacf789448916f97dfa6c6377dc0acbea70",
+        "bytes": 10791,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/raw/c2981dc40adebb65b1fa_2a9fd8110f097ae8c20d4f19c231fd271988948eee73d7801c93d2c0b6bc8d3e.json",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "2a9fd8110f097ae8c20d4f19c231fd271988948eee73d7801c93d2c0b6bc8d3e",
+        "actual_sha256": "2a9fd8110f097ae8c20d4f19c231fd271988948eee73d7801c93d2c0b6bc8d3e",
+        "bytes": 928,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/raw/c48670dd5a9e1e8ed915_98c476e019114185d7e7ae2f8d10a1758abb2ebd73b8b793ab79133bf9a10159.json",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "98c476e019114185d7e7ae2f8d10a1758abb2ebd73b8b793ab79133bf9a10159",
+        "actual_sha256": "98c476e019114185d7e7ae2f8d10a1758abb2ebd73b8b793ab79133bf9a10159",
+        "bytes": 862,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/raw/c6becb6dd5772a69cb0b_09046bd4169af4b0c8ddf601a8f412362b37e71415db155992892b972311004d.json",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "09046bd4169af4b0c8ddf601a8f412362b37e71415db155992892b972311004d",
+        "actual_sha256": "09046bd4169af4b0c8ddf601a8f412362b37e71415db155992892b972311004d",
+        "bytes": 882,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/raw/d462af8d735615189a2d_554fd22ddeecb4ce20012f020941c3d2e550b30b6b904d0b8dd23934e22692b2.json",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "554fd22ddeecb4ce20012f020941c3d2e550b30b6b904d0b8dd23934e22692b2",
+        "actual_sha256": "554fd22ddeecb4ce20012f020941c3d2e550b30b6b904d0b8dd23934e22692b2",
+        "bytes": 879,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/raw/e7e8dadaa92b74b548bb_7aa174fed5b952d666536cb8e7945516d3254e405b59962221c2e810e8e8a2c9.json",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "7aa174fed5b952d666536cb8e7945516d3254e405b59962221c2e810e8e8a2c9",
+        "actual_sha256": "7aa174fed5b952d666536cb8e7945516d3254e405b59962221c2e810e8e8a2c9",
+        "bytes": 164828,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/raw/eaa8c09544105b63fa1d_86f3c4243d068239ab506d00ff6e69dc15c254192b6ac804e8682c175ecd1cb7.json",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "86f3c4243d068239ab506d00ff6e69dc15c254192b6ac804e8682c175ecd1cb7",
+        "actual_sha256": "86f3c4243d068239ab506d00ff6e69dc15c254192b6ac804e8682c175ecd1cb7",
+        "bytes": 1102,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/raw/ebbad8bf8f96eca433a8_ff8832cb673a8f38f2d289e45e0f7c3f323b37b11f64da1e7fc83e319c2e0fa7.json",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "ff8832cb673a8f38f2d289e45e0f7c3f323b37b11f64da1e7fc83e319c2e0fa7",
+        "actual_sha256": "ff8832cb673a8f38f2d289e45e0f7c3f323b37b11f64da1e7fc83e319c2e0fa7",
+        "bytes": 2103,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/raw/extra_10aafaa5f2d90fa841c9ebeb55ae96d11064770ec719e2f076ef88cf0fbed474.json",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "10aafaa5f2d90fa841c9ebeb55ae96d11064770ec719e2f076ef88cf0fbed474",
+        "actual_sha256": "10aafaa5f2d90fa841c9ebeb55ae96d11064770ec719e2f076ef88cf0fbed474",
+        "bytes": 242137,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/raw/extra_13125d84d407b8c74f801ece3963c6a54535b93acf76f2dd97192ddb554c1387.json",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "13125d84d407b8c74f801ece3963c6a54535b93acf76f2dd97192ddb554c1387",
+        "actual_sha256": "13125d84d407b8c74f801ece3963c6a54535b93acf76f2dd97192ddb554c1387",
+        "bytes": 749,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/raw/extra_42db7f9043e4a3eb03fd82e3601e6ed2be7f00c54f30dc7aa10962599508a527.json",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "42db7f9043e4a3eb03fd82e3601e6ed2be7f00c54f30dc7aa10962599508a527",
+        "actual_sha256": "42db7f9043e4a3eb03fd82e3601e6ed2be7f00c54f30dc7aa10962599508a527",
+        "bytes": 1098,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/raw/extra_a9fd3ddbc2c5f731282147e62f4237048342374baae82bb46079e6eeebd3ce5b.json",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "a9fd3ddbc2c5f731282147e62f4237048342374baae82bb46079e6eeebd3ce5b",
+        "actual_sha256": "a9fd3ddbc2c5f731282147e62f4237048342374baae82bb46079e6eeebd3ce5b",
+        "bytes": 782,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/raw/extra_b13a78348e1fcdd208edda9b96800e566c691fcfa9bf26aa39c9efb305646366.json",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "b13a78348e1fcdd208edda9b96800e566c691fcfa9bf26aa39c9efb305646366",
+        "actual_sha256": "b13a78348e1fcdd208edda9b96800e566c691fcfa9bf26aa39c9efb305646366",
+        "bytes": 749,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/raw/extra_d3e4fdd719b80954c6b094f5f944fec4028ef65e183b1fd8e3ab61c657b7879e.json",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "d3e4fdd719b80954c6b094f5f944fec4028ef65e183b1fd8e3ab61c657b7879e",
+        "actual_sha256": "d3e4fdd719b80954c6b094f5f944fec4028ef65e183b1fd8e3ab61c657b7879e",
+        "bytes": 663,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/raw/f4f947993b6c82035cf6_8f6b832add6bc67256acb36cddb8b0e591cfeba450184679e9944a33a6c8fcd5.json",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "8f6b832add6bc67256acb36cddb8b0e591cfeba450184679e9944a33a6c8fcd5",
+        "actual_sha256": "8f6b832add6bc67256acb36cddb8b0e591cfeba450184679e9944a33a6c8fcd5",
+        "bytes": 121395,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/raw/fb2b35ab79e3fbc53df4_86b5fdd2f4d142091554007147420fb0f380c4c68b5fa5ac68d461faefbcde63.json",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "86b5fdd2f4d142091554007147420fb0f380c4c68b5fa5ac68d461faefbcde63",
+        "actual_sha256": "86b5fdd2f4d142091554007147420fb0f380c4c68b5fa5ac68d461faefbcde63",
+        "bytes": 862,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/revision_candidate_queue.json",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "f483ee1a83188d268661513acad2f2b45d232c7032e6f450e8ca432cde36c86c",
+        "actual_sha256": "f483ee1a83188d268661513acad2f2b45d232c7032e6f450e8ca432cde36c86c",
+        "bytes": 17183,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/revision_candidate_queue_v2.json",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "6b80abf74adaa2738b163b7330aefe602e18a4a0e07569fbfdd6c7311be066e6",
+        "actual_sha256": "6b80abf74adaa2738b163b7330aefe602e18a4a0e07569fbfdd6c7311be066e6",
+        "bytes": 18136,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/revision_candidate_queue_v3.json",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "29ca0f72d97687db801ce51250007b0e5aaecc55cd666b5bdec0ea0fc505d52d",
+        "actual_sha256": "29ca0f72d97687db801ce51250007b0e5aaecc55cd666b5bdec0ea0fc505d52d",
+        "bytes": 25929,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/sdk_extra_manifest.json",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "ddbe794a2e71cafeb5cd172f3cc529e2601c81829bf6e5ed93a47977e1b7dcf4",
+        "actual_sha256": "ddbe794a2e71cafeb5cd172f3cc529e2601c81829bf6e5ed93a47977e1b7dcf4",
+        "bytes": 1965,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_equity_admission/sdk_probe_manifest.json",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "d70fde2f3fca3b7622b40b2d8828616cdc704828c43b369a9bbcd8eff7c8b4af",
+        "actual_sha256": "d70fde2f3fca3b7622b40b2d8828616cdc704828c43b369a9bbcd8eff7c8b4af",
+        "bytes": 10248,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_m4_equity/baostock/full_daily_20200731.json",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "3221ea348ffecf3e57a49ef7146d110f85e9d6e42bd74c70823be9c35700417a",
+        "actual_sha256": "3221ea348ffecf3e57a49ef7146d110f85e9d6e42bd74c70823be9c35700417a",
+        "bytes": 1331623,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_m4_equity/baostock/full_industry_20200731.json",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "0583f642a9a57947fe1d2509f9dd5af9f25c6072b01c101adf75499f127a51d4",
+        "actual_sha256": "0583f642a9a57947fe1d2509f9dd5af9f25c6072b01c101adf75499f127a51d4",
+        "bytes": 600618,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_m4_equity/baostock/full_universe_20200731.json",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "b6b75e3564c4b601d8c4511b151009ee603ec5d5a73f9eba1e6da38a4d4fd78d",
+        "actual_sha256": "b6b75e3564c4b601d8c4511b151009ee603ec5d5a73f9eba1e6da38a4d4fd78d",
+        "bytes": 338374,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_m4_equity/baostock/login.json",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "161e931a2ffb36bf5a235c355f6e54f3c86c27f3ea6256a60b4ca1b3960a7e15",
+        "actual_sha256": "161e931a2ffb36bf5a235c355f6e54f3c86c27f3ea6256a60b4ca1b3960a7e15",
+        "bytes": 226,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_m4_equity/objects/0308a6eac3872bfb2d16abec315c9247a474bd0f4b712d0faf0b7777d3fb4b1c.bin",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "0308a6eac3872bfb2d16abec315c9247a474bd0f4b712d0faf0b7777d3fb4b1c",
+        "actual_sha256": "0308a6eac3872bfb2d16abec315c9247a474bd0f4b712d0faf0b7777d3fb4b1c",
+        "bytes": 435241,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_m4_equity/objects/057c7ecd4c8ed30b76305fc474163d414ccec75efc5d7b6c290a4e9346510d53.bin",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "057c7ecd4c8ed30b76305fc474163d414ccec75efc5d7b6c290a4e9346510d53",
+        "actual_sha256": "057c7ecd4c8ed30b76305fc474163d414ccec75efc5d7b6c290a4e9346510d53",
+        "bytes": 4213,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_m4_equity/objects/0799feb8e1eb55f3f1109aa4267c39cb7fface459ff2fe9ba6b227e1600a32a6.bin",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "0799feb8e1eb55f3f1109aa4267c39cb7fface459ff2fe9ba6b227e1600a32a6",
+        "actual_sha256": "0799feb8e1eb55f3f1109aa4267c39cb7fface459ff2fe9ba6b227e1600a32a6",
+        "bytes": 4367,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_m4_equity/objects/095c0e06dc4b0b1b034efe36c182a04894c9c48f0a0be1355a2e05d4a12f5b65.bin",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "095c0e06dc4b0b1b034efe36c182a04894c9c48f0a0be1355a2e05d4a12f5b65",
+        "actual_sha256": "095c0e06dc4b0b1b034efe36c182a04894c9c48f0a0be1355a2e05d4a12f5b65",
+        "bytes": 8538712,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_m4_equity/objects/0dbe732b03eb90ba8cd5dabc9757b42700f774d2ad6fb9195777119a249f8172.bin",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "0dbe732b03eb90ba8cd5dabc9757b42700f774d2ad6fb9195777119a249f8172",
+        "actual_sha256": "0dbe732b03eb90ba8cd5dabc9757b42700f774d2ad6fb9195777119a249f8172",
+        "bytes": 151878,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_m4_equity/objects/1917d81733338c4fd9301349c25e448e070e8366a55b2a0e507a7f83dc13c791.bin",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "1917d81733338c4fd9301349c25e448e070e8366a55b2a0e507a7f83dc13c791",
+        "actual_sha256": "1917d81733338c4fd9301349c25e448e070e8366a55b2a0e507a7f83dc13c791",
+        "bytes": 20700,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_m4_equity/objects/1e6ad6b816e085723719c37b8c3fce1eb47f0dbca6a9ec57ff8829b913ef14d1.bin",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "1e6ad6b816e085723719c37b8c3fce1eb47f0dbca6a9ec57ff8829b913ef14d1",
+        "actual_sha256": "1e6ad6b816e085723719c37b8c3fce1eb47f0dbca6a9ec57ff8829b913ef14d1",
+        "bytes": 3481297,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_m4_equity/objects/38854296e87ba2d9df93a771122cdabbfb50eab51357eb6e64cac8d9ba0508f8.bin",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "38854296e87ba2d9df93a771122cdabbfb50eab51357eb6e64cac8d9ba0508f8",
+        "actual_sha256": "38854296e87ba2d9df93a771122cdabbfb50eab51357eb6e64cac8d9ba0508f8",
+        "bytes": 3172808,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_m4_equity/objects/3d91afcccceb1c23a2e1225a689f4a86f96bf859059522cfdb8680dd1af3d544.bin",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "3d91afcccceb1c23a2e1225a689f4a86f96bf859059522cfdb8680dd1af3d544",
+        "actual_sha256": "3d91afcccceb1c23a2e1225a689f4a86f96bf859059522cfdb8680dd1af3d544",
+        "bytes": 821,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_m4_equity/objects/4948bd533b0bff889e2aaba9843f7dff3d871d6ae26fa7308342411b0639a699.bin",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "4948bd533b0bff889e2aaba9843f7dff3d871d6ae26fa7308342411b0639a699",
+        "actual_sha256": "4948bd533b0bff889e2aaba9843f7dff3d871d6ae26fa7308342411b0639a699",
+        "bytes": 65529,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_m4_equity/objects/5a0d760214073f096d3c702c940a396e8d676c9d4284196c1ab96b5f8fca7049.bin",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "5a0d760214073f096d3c702c940a396e8d676c9d4284196c1ab96b5f8fca7049",
+        "actual_sha256": "5a0d760214073f096d3c702c940a396e8d676c9d4284196c1ab96b5f8fca7049",
+        "bytes": 5642438,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_m4_equity/objects/6d3759ac47e4586336ffc827da7eb869186176597d583df15eefe802e4b057a6.bin",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "6d3759ac47e4586336ffc827da7eb869186176597d583df15eefe802e4b057a6",
+        "actual_sha256": "6d3759ac47e4586336ffc827da7eb869186176597d583df15eefe802e4b057a6",
+        "bytes": 546670,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_m4_equity/objects/6f70056ad59a798f89b0ef314b65414cfb20e9431ec210eb457234a4399228b5.bin",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "6f70056ad59a798f89b0ef314b65414cfb20e9431ec210eb457234a4399228b5",
+        "actual_sha256": "6f70056ad59a798f89b0ef314b65414cfb20e9431ec210eb457234a4399228b5",
+        "bytes": 9045,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_m4_equity/objects/750245bdc8a48065b7174da8cd1a99f7f467df0c629c9191f1dfc1b3d91041b3.bin",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "750245bdc8a48065b7174da8cd1a99f7f467df0c629c9191f1dfc1b3d91041b3",
+        "actual_sha256": "750245bdc8a48065b7174da8cd1a99f7f467df0c629c9191f1dfc1b3d91041b3",
+        "bytes": 3242,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_m4_equity/objects/7ef1caecca41c58473ebb3a6acb2db5dd2662c97f7d3e16eb9a7a9bd8fbe6efd.bin",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "7ef1caecca41c58473ebb3a6acb2db5dd2662c97f7d3e16eb9a7a9bd8fbe6efd",
+        "actual_sha256": "7ef1caecca41c58473ebb3a6acb2db5dd2662c97f7d3e16eb9a7a9bd8fbe6efd",
+        "bytes": 21366,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_m4_equity/objects/84b3cf3766795090c7821d5cdafb80ac8e38081472ae7be5919e434bf42df30c.bin",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "84b3cf3766795090c7821d5cdafb80ac8e38081472ae7be5919e434bf42df30c",
+        "actual_sha256": "84b3cf3766795090c7821d5cdafb80ac8e38081472ae7be5919e434bf42df30c",
+        "bytes": 190574,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_m4_equity/objects/8892da6df0b5a67edcbb45dfd12c51c8c01ec45bf598e5b0cfb67e1ed968988b.bin",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "8892da6df0b5a67edcbb45dfd12c51c8c01ec45bf598e5b0cfb67e1ed968988b",
+        "actual_sha256": "8892da6df0b5a67edcbb45dfd12c51c8c01ec45bf598e5b0cfb67e1ed968988b",
+        "bytes": 3721565,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_m4_equity/objects/8e782880963f8ee7c7ba19e162089c0460d9df62f66f9f118e64d5df88707718.bin",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "8e782880963f8ee7c7ba19e162089c0460d9df62f66f9f118e64d5df88707718",
+        "actual_sha256": "8e782880963f8ee7c7ba19e162089c0460d9df62f66f9f118e64d5df88707718",
+        "bytes": 4651,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_m4_equity/objects/8fcce72f393aff69afed4eb8c22a850b3cd529a897b5fd12919002e36e619240.bin",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "8fcce72f393aff69afed4eb8c22a850b3cd529a897b5fd12919002e36e619240",
+        "actual_sha256": "8fcce72f393aff69afed4eb8c22a850b3cd529a897b5fd12919002e36e619240",
+        "bytes": 22651,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_m4_equity/objects/955734539f4e29b84551ec6e977789660b8645f81dc48c07ad7e9c0a1dbadcdc.bin",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "955734539f4e29b84551ec6e977789660b8645f81dc48c07ad7e9c0a1dbadcdc",
+        "actual_sha256": "955734539f4e29b84551ec6e977789660b8645f81dc48c07ad7e9c0a1dbadcdc",
+        "bytes": 88,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_m4_equity/objects/9b57ae1e21bc1246d7acb7e044f7dca033ba93ba5055f92ad9b53951ed39da1d.bin",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "9b57ae1e21bc1246d7acb7e044f7dca033ba93ba5055f92ad9b53951ed39da1d",
+        "actual_sha256": "9b57ae1e21bc1246d7acb7e044f7dca033ba93ba5055f92ad9b53951ed39da1d",
+        "bytes": 382343,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_m4_equity/objects/9cf2e78f03160284afbc4484afc1add9a412410b8c1360abaf6679c6fb0cd7b3.bin",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "9cf2e78f03160284afbc4484afc1add9a412410b8c1360abaf6679c6fb0cd7b3",
+        "actual_sha256": "9cf2e78f03160284afbc4484afc1add9a412410b8c1360abaf6679c6fb0cd7b3",
+        "bytes": 3620327,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_m4_equity/objects/a05f255d53514d4e1e404583ba8ac1cdb0da18729a54ad6159781e93afdf7635.bin",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "a05f255d53514d4e1e404583ba8ac1cdb0da18729a54ad6159781e93afdf7635",
+        "actual_sha256": "a05f255d53514d4e1e404583ba8ac1cdb0da18729a54ad6159781e93afdf7635",
+        "bytes": 845897,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_m4_equity/objects/ad6b59d24f2f132b694c9af4c58255425c963153a1402b86c0f289d6e7347dab.bin",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "ad6b59d24f2f132b694c9af4c58255425c963153a1402b86c0f289d6e7347dab",
+        "actual_sha256": "ad6b59d24f2f132b694c9af4c58255425c963153a1402b86c0f289d6e7347dab",
+        "bytes": 3599,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_m4_equity/objects/b9edf23cb4c7a3de240987ba2dea03f5a9121893b555c0ffa9e5553a6c475059.bin",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "b9edf23cb4c7a3de240987ba2dea03f5a9121893b555c0ffa9e5553a6c475059",
+        "actual_sha256": "b9edf23cb4c7a3de240987ba2dea03f5a9121893b555c0ffa9e5553a6c475059",
+        "bytes": 69266,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_m4_equity/objects/bb3e11910fb404d087ff91a7297759919383c86a9b5389293486e3aea80dadb1.bin",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "bb3e11910fb404d087ff91a7297759919383c86a9b5389293486e3aea80dadb1",
+        "actual_sha256": "bb3e11910fb404d087ff91a7297759919383c86a9b5389293486e3aea80dadb1",
+        "bytes": 5905605,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_m4_equity/objects/c21951b02835a5d90ddfb165d148c149cd1b95f8f4baa2f425a07259b9a2c948.bin",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "c21951b02835a5d90ddfb165d148c149cd1b95f8f4baa2f425a07259b9a2c948",
+        "actual_sha256": "c21951b02835a5d90ddfb165d148c149cd1b95f8f4baa2f425a07259b9a2c948",
+        "bytes": 2784,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_m4_equity/objects/c2a890bbf3a6a53ab02ddc6c1794bf1c72ba45799fe9f59dcc5ba2cc18467114.bin",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "c2a890bbf3a6a53ab02ddc6c1794bf1c72ba45799fe9f59dcc5ba2cc18467114",
+        "actual_sha256": "c2a890bbf3a6a53ab02ddc6c1794bf1c72ba45799fe9f59dcc5ba2cc18467114",
+        "bytes": 165,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_m4_equity/objects/c5b9fbe12e2b6f661647902298d013048056cc2627d06de617fb138b3bd925b4.bin",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "c5b9fbe12e2b6f661647902298d013048056cc2627d06de617fb138b3bd925b4",
+        "actual_sha256": "c5b9fbe12e2b6f661647902298d013048056cc2627d06de617fb138b3bd925b4",
+        "bytes": 2186,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_m4_equity/objects/c8b2bc3ef504e609ecfc5d995d58bef1ebf94a36816da0d0bf24d286e96679a3.bin",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "c8b2bc3ef504e609ecfc5d995d58bef1ebf94a36816da0d0bf24d286e96679a3",
+        "actual_sha256": "c8b2bc3ef504e609ecfc5d995d58bef1ebf94a36816da0d0bf24d286e96679a3",
+        "bytes": 904,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_m4_equity/objects/cbd4ae01327fff0ce2d94fabef9060c2ea3edd8fe6b8366c689831738b631f12.bin",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "cbd4ae01327fff0ce2d94fabef9060c2ea3edd8fe6b8366c689831738b631f12",
+        "actual_sha256": "cbd4ae01327fff0ce2d94fabef9060c2ea3edd8fe6b8366c689831738b631f12",
+        "bytes": 8400,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_m4_equity/objects/cf52638806662a0bdc7dc9d1417112b4d070609ea31ec4f4e4595c7c28bef394.bin",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "cf52638806662a0bdc7dc9d1417112b4d070609ea31ec4f4e4595c7c28bef394",
+        "actual_sha256": "cf52638806662a0bdc7dc9d1417112b4d070609ea31ec4f4e4595c7c28bef394",
+        "bytes": 1503,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_m4_equity/objects/d29b3706c03b37a3f96ee2444e3a938d1227b4eab1b397bdee846748074fbfb6.bin",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "d29b3706c03b37a3f96ee2444e3a938d1227b4eab1b397bdee846748074fbfb6",
+        "actual_sha256": "d29b3706c03b37a3f96ee2444e3a938d1227b4eab1b397bdee846748074fbfb6",
+        "bytes": 30534,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_m4_equity/objects/dd135a6c9e17df15134772e6873b9e38ec6e553d8803934e27832fb6584c4e2d.bin",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "dd135a6c9e17df15134772e6873b9e38ec6e553d8803934e27832fb6584c4e2d",
+        "actual_sha256": "dd135a6c9e17df15134772e6873b9e38ec6e553d8803934e27832fb6584c4e2d",
+        "bytes": 197431,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_m4_equity/objects/df6177bea51fc85c84d43380966f944af853cd9a1a57cbf361cd8720b6cff697.bin",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "df6177bea51fc85c84d43380966f944af853cd9a1a57cbf361cd8720b6cff697",
+        "actual_sha256": "df6177bea51fc85c84d43380966f944af853cd9a1a57cbf361cd8720b6cff697",
+        "bytes": 7749,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_m4_equity/objects/f7342a7364bc932f82b44f785ff0be72f505600135e0d1d969a75c7589873475.bin",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "f7342a7364bc932f82b44f785ff0be72f505600135e0d1d969a75c7589873475",
+        "actual_sha256": "f7342a7364bc932f82b44f785ff0be72f505600135e0d1d969a75c7589873475",
+        "bytes": 2834550,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_m4_equity/objects/fd3b7e500e062765aca29ff962a1196197266afc2a28651500a954aa853a9d68.bin",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "fd3b7e500e062765aca29ff962a1196197266afc2a28651500a954aa853a9d68",
+        "actual_sha256": "fd3b7e500e062765aca29ff962a1196197266afc2a28651500a954aa853a9d68",
+        "bytes": 719327,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_m5_equity/objects/0b5f491b48f52f42c133ef36513c4231fc0a15850bfa878ea54ec1b6d6290fc7.bin",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "0b5f491b48f52f42c133ef36513c4231fc0a15850bfa878ea54ec1b6d6290fc7",
+        "actual_sha256": "0b5f491b48f52f42c133ef36513c4231fc0a15850bfa878ea54ec1b6d6290fc7",
+        "bytes": 48771,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_m5_equity/objects/0f478720a47fb845b0c36f57e7a082652561194661b56f2546d5586d90678886.bin",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "0f478720a47fb845b0c36f57e7a082652561194661b56f2546d5586d90678886",
+        "actual_sha256": "0f478720a47fb845b0c36f57e7a082652561194661b56f2546d5586d90678886",
+        "bytes": 27005,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_m5_equity/objects/146740855276706ee41e89d163103a7e59bfbcb9f3402240ae3dae676386c11c.bin",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "146740855276706ee41e89d163103a7e59bfbcb9f3402240ae3dae676386c11c",
+        "actual_sha256": "146740855276706ee41e89d163103a7e59bfbcb9f3402240ae3dae676386c11c",
+        "bytes": 2898,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_m5_equity/objects/2204b07e4b757fdade8524b5d7d9be7a673ab86459e4fd154f80472e44957592.bin",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "2204b07e4b757fdade8524b5d7d9be7a673ab86459e4fd154f80472e44957592",
+        "actual_sha256": "2204b07e4b757fdade8524b5d7d9be7a673ab86459e4fd154f80472e44957592",
+        "bytes": 61071,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_m5_equity/objects/2a2b384ab09a7bc295fd2e33b999acdf4212340b0141031c991060dea2fad03d.bin",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "2a2b384ab09a7bc295fd2e33b999acdf4212340b0141031c991060dea2fad03d",
+        "actual_sha256": "2a2b384ab09a7bc295fd2e33b999acdf4212340b0141031c991060dea2fad03d",
+        "bytes": 2272239,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_m5_equity/objects/3ae8304f34e46bdf8ea211d669055c01b676a78c76c679c3f0c1b3b7948b76af.bin",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "3ae8304f34e46bdf8ea211d669055c01b676a78c76c679c3f0c1b3b7948b76af",
+        "actual_sha256": "3ae8304f34e46bdf8ea211d669055c01b676a78c76c679c3f0c1b3b7948b76af",
+        "bytes": 1070698,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_m5_equity/objects/4508d4a8490e810ca97ff53fd9f13d7019bde6efaf9e37a537ae953cfa9b6208.bin",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "4508d4a8490e810ca97ff53fd9f13d7019bde6efaf9e37a537ae953cfa9b6208",
+        "actual_sha256": "4508d4a8490e810ca97ff53fd9f13d7019bde6efaf9e37a537ae953cfa9b6208",
+        "bytes": 6801455,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_m5_equity/objects/4a9a350bb6c0f4709fe41d378f2b7ecb90eea6a62ed782eefa2a3697d0286f7b.bin",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "4a9a350bb6c0f4709fe41d378f2b7ecb90eea6a62ed782eefa2a3697d0286f7b",
+        "actual_sha256": "4a9a350bb6c0f4709fe41d378f2b7ecb90eea6a62ed782eefa2a3697d0286f7b",
+        "bytes": 6281835,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_m5_equity/objects/4aa491b616b9c09dce490a611ff783b31f03c0549c818d61f2bb5260bc3199e9.bin",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "4aa491b616b9c09dce490a611ff783b31f03c0549c818d61f2bb5260bc3199e9",
+        "actual_sha256": "4aa491b616b9c09dce490a611ff783b31f03c0549c818d61f2bb5260bc3199e9",
+        "bytes": 88025,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_m5_equity/objects/5568139044b9b5539fa1fa66c1fe54bf984d9aafd06b694305cd3006d412573f.bin",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "5568139044b9b5539fa1fa66c1fe54bf984d9aafd06b694305cd3006d412573f",
+        "actual_sha256": "5568139044b9b5539fa1fa66c1fe54bf984d9aafd06b694305cd3006d412573f",
+        "bytes": 90761,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_m5_equity/objects/682d34ad3c143a928420b935ba5f3b9b4090c7e6b83fb7dd7cd4454bc05a1ad4.bin",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "682d34ad3c143a928420b935ba5f3b9b4090c7e6b83fb7dd7cd4454bc05a1ad4",
+        "actual_sha256": "682d34ad3c143a928420b935ba5f3b9b4090c7e6b83fb7dd7cd4454bc05a1ad4",
+        "bytes": 840,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_m5_equity/objects/7028b0a1c7b89e2e5eb7fb4469e75eee983dbcb39c770e1428611067f0dd8338.bin",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "7028b0a1c7b89e2e5eb7fb4469e75eee983dbcb39c770e1428611067f0dd8338",
+        "actual_sha256": "7028b0a1c7b89e2e5eb7fb4469e75eee983dbcb39c770e1428611067f0dd8338",
+        "bytes": 308406,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_m5_equity/objects/71659a5ba08dc1c815d6ce02bc40249c6d39525684a058cf351ffe24ed948fe5.bin",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "71659a5ba08dc1c815d6ce02bc40249c6d39525684a058cf351ffe24ed948fe5",
+        "actual_sha256": "71659a5ba08dc1c815d6ce02bc40249c6d39525684a058cf351ffe24ed948fe5",
+        "bytes": 1399,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_m5_equity/objects/77663922fa2de4a7b9f90547015985198af706017af5b23263b8e7f79c9be0f8.bin",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "77663922fa2de4a7b9f90547015985198af706017af5b23263b8e7f79c9be0f8",
+        "actual_sha256": "77663922fa2de4a7b9f90547015985198af706017af5b23263b8e7f79c9be0f8",
+        "bytes": 91393,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_m5_equity/objects/7efccf1ac978529bce2cbab46c65fe89a64493f5351eb088aaa2fefeb264f1fb.bin",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "7efccf1ac978529bce2cbab46c65fe89a64493f5351eb088aaa2fefeb264f1fb",
+        "actual_sha256": "7efccf1ac978529bce2cbab46c65fe89a64493f5351eb088aaa2fefeb264f1fb",
+        "bytes": 14760,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_m5_equity/objects/83857c4201cd32185bbf13c179de7a9bebc8fe5930fac1d37d1e6fa3d8928726.bin",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "83857c4201cd32185bbf13c179de7a9bebc8fe5930fac1d37d1e6fa3d8928726",
+        "actual_sha256": "83857c4201cd32185bbf13c179de7a9bebc8fe5930fac1d37d1e6fa3d8928726",
+        "bytes": 106265,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_m5_equity/objects/96f254eb7574777a24eab152103dadd1be1381ddb3a31ececf0dfd35fd0b202c.bin",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "96f254eb7574777a24eab152103dadd1be1381ddb3a31ececf0dfd35fd0b202c",
+        "actual_sha256": "96f254eb7574777a24eab152103dadd1be1381ddb3a31ececf0dfd35fd0b202c",
+        "bytes": 787,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_m5_equity/objects/97064ffbd9a29c058e13419b1d19a65493fdebad43fa05136330fcf13aee845b.bin",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "97064ffbd9a29c058e13419b1d19a65493fdebad43fa05136330fcf13aee845b",
+        "actual_sha256": "97064ffbd9a29c058e13419b1d19a65493fdebad43fa05136330fcf13aee845b",
+        "bytes": 17463,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_m5_equity/objects/9c38979b26153a324796b2a5312d74d1cfd415ab6bed5bef3991ebeb4d712afe.bin",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "9c38979b26153a324796b2a5312d74d1cfd415ab6bed5bef3991ebeb4d712afe",
+        "actual_sha256": "9c38979b26153a324796b2a5312d74d1cfd415ab6bed5bef3991ebeb4d712afe",
+        "bytes": 11565,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_m5_equity/objects/b9f95dfd013563080f0cb562f750a7800a1a5a20236d65fb40b323c8736959e7.bin",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "b9f95dfd013563080f0cb562f750a7800a1a5a20236d65fb40b323c8736959e7",
+        "actual_sha256": "b9f95dfd013563080f0cb562f750a7800a1a5a20236d65fb40b323c8736959e7",
+        "bytes": 1711,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_m5_equity/objects/bb5864ae9a9b3963d3d49b9049baa7b95511d217e5243bff474ab8b59b116565.bin",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "bb5864ae9a9b3963d3d49b9049baa7b95511d217e5243bff474ab8b59b116565",
+        "actual_sha256": "bb5864ae9a9b3963d3d49b9049baa7b95511d217e5243bff474ab8b59b116565",
+        "bytes": 20134,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_m5_equity/objects/d91f5b75a6713d3a4d2078451642c1ed1d5f4377bf3297a3ef1d14201992a875.bin",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "d91f5b75a6713d3a4d2078451642c1ed1d5f4377bf3297a3ef1d14201992a875",
+        "actual_sha256": "d91f5b75a6713d3a4d2078451642c1ed1d5f4377bf3297a3ef1d14201992a875",
+        "bytes": 2850,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_m5_equity/objects/e47572d8e053a912018f63682b08e2feef7b0b455d783544dd6cc3d113067bcb.bin",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "e47572d8e053a912018f63682b08e2feef7b0b455d783544dd6cc3d113067bcb",
+        "actual_sha256": "e47572d8e053a912018f63682b08e2feef7b0b455d783544dd6cc3d113067bcb",
+        "bytes": 12594,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_m5_equity/objects/ed76b91447611e193d3e7a912379b6b9a47e9b99a0852a32eca4fb0ec3f9fe96.bin",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "ed76b91447611e193d3e7a912379b6b9a47e9b99a0852a32eca4fb0ec3f9fe96",
+        "actual_sha256": "ed76b91447611e193d3e7a912379b6b9a47e9b99a0852a32eca4fb0ec3f9fe96",
+        "bytes": 1524,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_m5_equity/objects/fab0a650f09ef49ece8f1146c1c87f7319086001a07916f69ed56e96eada860c.bin",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "fab0a650f09ef49ece8f1146c1c87f7319086001a07916f69ed56e96eada860c",
+        "actual_sha256": "fab0a650f09ef49ece8f1146c1c87f7319086001a07916f69ed56e96eada860c",
+        "bytes": 2599513,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_m5_equity/objects/fba48610ff1e5653c0420358f38a7f81606dae1b1bdd37ab0bf1028b41326e09.bin",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "fba48610ff1e5653c0420358f38a7f81606dae1b1bdd37ab0bf1028b41326e09",
+        "actual_sha256": "fba48610ff1e5653c0420358f38a7f81606dae1b1bdd37ab0bf1028b41326e09",
+        "bytes": 12190,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_m6/evidence_extracts/stock_execution/discovery_14.json",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "9e86e5abf6fd7c422f281e96881feaa4cadfc6f09753ab56ca326bf0a066b2ff",
+        "actual_sha256": "9e86e5abf6fd7c422f281e96881feaa4cadfc6f09753ab56ca326bf0a066b2ff",
+        "bytes": 28999,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_m6/evidence_extracts/stock_execution/discovery_19.json",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "106bc3600ca7c8ef3579f2e9de835ffa3c8b36f8f80eef98fa9cda6d2b60b51b",
+        "actual_sha256": "106bc3600ca7c8ef3579f2e9de835ffa3c8b36f8f80eef98fa9cda6d2b60b51b",
+        "bytes": 27454,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_m6/evidence_extracts/stock_execution/discovery_23.json",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "3fcf0d40a0ae7afbf940459ced775989542095da66332ca52182f423c2b6dba0",
+        "actual_sha256": "3fcf0d40a0ae7afbf940459ced775989542095da66332ca52182f423c2b6dba0",
+        "bytes": 30598,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_m6/evidence_extracts/stock_execution/discovery_67.json",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "d8fede5644e334c61dee1d1bd3251d400a1be9bb03976fd9bdd8a18c77f3da85",
+        "actual_sha256": "d8fede5644e334c61dee1d1bd3251d400a1be9bb03976fd9bdd8a18c77f3da85",
+        "bytes": 31031,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_m6/evidence_extracts/stock_execution/discovery_7.json",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "7a2f2bb13f254049e94f135f38746aa228abcdbeab9d1f59b092d2075c798ddb",
+        "actual_sha256": "7a2f2bb13f254049e94f135f38746aa228abcdbeab9d1f59b092d2075c798ddb",
+        "bytes": 27803,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_m6/evidence_extracts/stock_execution/guangdong_2023_stamp_law_text.txt",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "f4a02d41020609002c19950fb1748e112a46bb9a194e3ac9abd6f60723fdf563",
+        "actual_sha256": "f4a02d41020609002c19950fb1748e112a46bb9a194e3ac9abd6f60723fdf563",
+        "bytes": 7034,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_m6/evidence_extracts/stock_execution/mof_2008_stamp_text.txt",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "bb2be2055066f62696ecdc867fff9d69ad70d487c5dfb37eff34c24c9f9e9d0e",
+        "actual_sha256": "bb2be2055066f62696ecdc867fff9d69ad70d487c5dfb37eff34c24c9f9e9d0e",
+        "bytes": 2100,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_m6/evidence_extracts/stock_execution/shanghai_official_fee_republication_text.txt",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "bbe2abf4f5834df905e44d66a421807784ae78de14e00bb7ca42abb5b8bc7086",
+        "actual_sha256": "bbe2abf4f5834df905e44d66a421807784ae78de14e00bb7ca42abb5b8bc7086",
+        "bytes": 2277,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_m6/evidence_extracts/stock_execution/sse_2015_joint_fees_text.txt",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "612eac7fc0f8bb39f9484c26590339af7ba71b7d3251b007ec51a1de0e4556c7",
+        "actual_sha256": "612eac7fc0f8bb39f9484c26590339af7ba71b7d3251b007ec51a1de0e4556c7",
+        "bytes": 3541,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_m6/evidence_extracts/stock_execution/sse_2019_trading_mechanism_qa_text.txt",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "8360e63cca5bf82905088739c5c971327605fe0624b2951e2858fe09db60477e",
+        "actual_sha256": "8360e63cca5bf82905088739c5c971327605fe0624b2951e2858fe09db60477e",
+        "bytes": 17386,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_m6/evidence_extracts/stock_execution/sse_2023_first_listing_text.txt",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "2c6158e9a7df2ad2dde00aa9eefb9810e84df8348ddd8aa7ed5f1e986dedaee1",
+        "actual_sha256": "2c6158e9a7df2ad2dde00aa9eefb9810e84df8348ddd8aa7ed5f1e986dedaee1",
+        "bytes": 3075,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_m6/evidence_extracts/stock_execution/sse_2023_rules_deferred_text.txt",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "adbbce4a662ee4380a0a44bead7107edb82dc632600b290b513660e4e30bb39a",
+        "actual_sha256": "adbbce4a662ee4380a0a44bead7107edb82dc632600b290b513660e4e30bb39a",
+        "bytes": 3257,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_m6/evidence_extracts/stock_execution/sse_2023_rules_full_text.txt",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "c10fb1d61495b9502e4e005fec35df5c4bc1496f31b2e605fc674d2a93fc846b",
+        "actual_sha256": "c10fb1d61495b9502e4e005fec35df5c4bc1496f31b2e605fc674d2a93fc846b",
+        "bytes": 57672,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_m6/evidence_extracts/stock_execution/sse_2023_rules_migrated_text.txt",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "945157aa8fdd69bd1d0c4021aba1d9f176f28e1379c834165fa034091aa09531",
+        "actual_sha256": "945157aa8fdd69bd1d0c4021aba1d9f176f28e1379c834165fa034091aa09531",
+        "bytes": 4615,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_m6/evidence_extracts/stock_execution/sse_2023_rules_repeal_text.txt",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "5e870c710f6b275cebcf8e9bf90e0e295b762294c0a938e87cf4f00ec4a29cae",
+        "actual_sha256": "5e870c710f6b275cebcf8e9bf90e0e295b762294c0a938e87cf4f00ec4a29cae",
+        "bytes": 1471,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_m6/evidence_extracts/stock_execution/tianjin_2022_stamp_text.txt",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "716824f5feaf34d69f8753324ebf1017d77e09cd2f0dd1ddb46f6592f3ab023c",
+        "actual_sha256": "716824f5feaf34d69f8753324ebf1017d77e09cd2f0dd1ddb46f6592f3ab023c",
+        "bytes": 1365,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_m6/evidence_extracts/stock_execution/wuhan_official_fee_republication_text.txt",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "877cd2d1716b840084db5dca2adc0f4990add46bb5acd28e73de2794709c90fc",
+        "actual_sha256": "877cd2d1716b840084db5dca2adc0f4990add46bb5acd28e73de2794709c90fc",
+        "bytes": 3296,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_m6/objects/381227429ad8d4285421131b3289acf2598d2c277b50a2b1f660e533aaa6b9cf.bin",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "381227429ad8d4285421131b3289acf2598d2c277b50a2b1f660e533aaa6b9cf",
+        "actual_sha256": "381227429ad8d4285421131b3289acf2598d2c277b50a2b1f660e533aaa6b9cf",
+        "bytes": 239928,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_m6/objects/80f5f5ededde12f3039a6fd0beb3c16b099abc8c2f0f9ad48aab07efac11b95b.bin",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "80f5f5ededde12f3039a6fd0beb3c16b099abc8c2f0f9ad48aab07efac11b95b",
+        "actual_sha256": "80f5f5ededde12f3039a6fd0beb3c16b099abc8c2f0f9ad48aab07efac11b95b",
+        "bytes": 1024748,
+        "status": "MATCH"
+      },
+      {
+        "path": "data/raw_m6/objects/b7f39bdc5fe431af4ee78a97f85f6625ac91e31669b878332aea9f407766d382.bin",
+        "kind": "RAW_ARCHIVE",
+        "expected_sha256": "b7f39bdc5fe431af4ee78a97f85f6625ac91e31669b878332aea9f407766d382",
+        "actual_sha256": "b7f39bdc5fe431af4ee78a97f85f6625ac91e31669b878332aea9f407766d382",
+        "bytes": 1026046,
+        "status": "MATCH"
+      },
+      {
+        "path": "reports/m4_data/baostock_request_summary.json",
+        "kind": "REUSED_DERIVED_OR_CALENDAR",
+        "expected_sha256": "5877534920d0fa5b3e6d442b9c62792cff17b008545c6439cb124eca6c800cf6",
+        "actual_sha256": "5877534920d0fa5b3e6d442b9c62792cff17b008545c6439cb124eca6c800cf6",
+        "bytes": 1554,
+        "status": "MATCH"
+      },
+      {
+        "path": "reports/m4_data/full_pool_2020-07-31.json",
+        "kind": "REUSED_DERIVED_OR_CALENDAR",
+        "expected_sha256": "0c19086243b883545fd0e7d4411530c475d996e580392a57a339eb998d1a7480",
+        "actual_sha256": "0c19086243b883545fd0e7d4411530c475d996e580392a57a339eb998d1a7480",
+        "bytes": 4917972,
+        "status": "MATCH"
+      },
+      {
+        "path": "reports/m5_market_cap/coverage_summary.json",
+        "kind": "REUSED_DERIVED_OR_CALENDAR",
+        "expected_sha256": "ee4c5d24caabb12dc67b3b40230d8de618f00da661f12f246bcfbdaee1c29f36",
+        "actual_sha256": "ee4c5d24caabb12dc67b3b40230d8de618f00da661f12f246bcfbdaee1c29f36",
+        "bytes": 45074,
+        "status": "MATCH"
+      },
+      {
+        "path": "scripts/m4_data_build.py",
+        "kind": "HISTORICAL_CODE",
+        "expected_sha256": "14af2964794788bfc23931b2a3e120f8ad67bc84a6cfd7412fc3fd32378f7ba0",
+        "actual_sha256": "14af2964794788bfc23931b2a3e120f8ad67bc84a6cfd7412fc3fd32378f7ba0",
+        "bytes": 21773,
+        "status": "MATCH"
+      },
+      {
+        "path": "scripts/m4_data_feasibility.py",
+        "kind": "HISTORICAL_CODE",
+        "expected_sha256": "87f2a965204b5a62923643e8c056f5525cb5d7ef979f52325b47efea5646fe70",
+        "actual_sha256": "aa518913cee7f57a179b9887a244df9cc869d96904d5e92a5829d4a3a4632e8a",
+        "bytes": 8080,
+        "status": "MISMATCH"
+      }
+    ]
+  },
+  "new_acquisition_by_this_inventory": {
+    "external_requests": 0,
+    "source_response_bytes": 0,
+    "cash_spend": 0
+  },
+  "strategy_performance_run": false,
+  "market_factor_strategy_holdout_opened": false,
+  "source_activation_2026_11_17": {
+    "status": "BLOCKED_ACCESS_OR_LICENSE",
+    "reason": "EDUCATION_NETWORK_REQUIRED",
+    "actual_sdk_init_attempts": 1,
+    "explicit_quota_attempts": 0,
+    "historical_market_financial_requests": 0,
+    "historical_capability": "NOT_TESTED",
+    "receipt": "../m10_activation/ACCESS_RECEIPT.json",
+    "prior_coverage_unchanged": true
+  },
+  "historical_inventory_scope": "Original host inventory retained below; not campus filesystem availability.",
+  "campus_observation": {
+    "date": "2026-11-18",
+    "originals_verified": 13,
+    "sdk_serialized_responses_verified": 26,
+    "access_metadata": "PASSED",
+    "full_pool_admission": false,
+    "source": "../m10_activation/CAMPUS_SAMPLE_AUDIT.json",
+    "mapping": "../m10_activation/CAMPUS_MINIMUM_ORIGINALS.json"
+  },
+  "campus_followup_observation": {
+    "scope": "PIT_SHARE_ANCHOR_ALTERNATIVE_NOT_FULL_POOL",
+    "date": "2026-11-18",
+    "additional_originals_verified": 1,
+    "additional_financial_calls": 1,
+    "five_fixed_id_rows": 15,
+    "total_a_and_total_share_non_null_rows_each": 10,
+    "moutai_2019q4_original_match": true,
+    "full_pool_admission": false,
+    "source_wide_incapability_proven": false,
+    "activation_known_equivalents": 64,
+    "source": "../m10_activation/OFFLINE_ALTERNATIVES_SHARE_CHECKS.json"
+  }
+}

@@ -1,4 +1,42 @@
-# 当前恢复入口：M9已完成，固定矩阵结束
+# 当前恢复入口：替代接口部分实证，64请求子预算已用满
+
+2026-11-18后续复核：已离线检查SDK的24个相关接口，不能从get_shares或一份行业响应缺字段推断整个RQData能力不足。随后按预登记剩余额度查询原五身份的PIT股本字段，真实返回15行，total_shares/total_a_shares各10行非空；茅台2019q4股本锚点与按旧manifest补取的官方原件一致。原四困难财务案例、冲突和研究定义不改。
+
+当前是 **ALTERNATIVES_PARTIALLY_VERIFIED / SOURCE_REQUEST_BUDGET_EXHAUSTED**。完整数据仍未准入；股本事件组合和行业公开/版本链有具体未验证路线，不再把外部接口/导出当作唯一下步。来源已知等价累计64/64，原M10累计70/4096，底层和wire未知；不得自动续取。继续联网需在原总预算内明确下一段有限核验额度，不重置既有消费。
+
+先读[替代路径实证及更正](../reports/m10_activation/OFFLINE_ALTERNATIVES_RESULTS.md)、[本地股本比对](../reports/m10_activation/OFFLINE_ALTERNATIVES_SHARE_CHECKS.json)、[离线独立审查](../reports/m10_activation/OFFLINE_ALTERNATIVES_INDEPENDENT_REVIEW.md)及[本轮资源/核验](../reports/m10_activation/OFFLINE_ALTERNATIVES_VERIFICATION.json)。完整卡0、human0、R2实际注册/账户0，24格仍DRAFT_NOT_AUTHORIZED，收益/CI null。尚未通过完整样本，不开全池/生产runner或绩效。以下保留前轮观察，涉及“下一输入只能外部补充”的描述由本段更正。
+
+# 前轮校园网恢复：访问通过，结构数据合同未准入
+
+2026-11-18，M10_SOURCE_ACTIVATION_V1；恢复公开基线 `21f279fe0a73375cd26c3fb044e58c955874646f`，当前本机 `F:/Quant_Trade/Quant-Research`，分支 `codex/m10-r2-data-and-screen`。最终认证/额度元数据通过，EDU、200 MiB/日、查询时剩余286天；完成固定18财务+8结构调用，四公司原稿/修订三字段及两组既定算术有限核对通过，13必要官方原件重新取得且hash匹配。
+
+当前 **BLOCKED_DATA_CAPABILITY**：所查股本和行业数据尚不能建立所需历史公开/可得/版本链及全普通股语义，不将返回的日期或SDK补零当合同。完整样本未通过，不扩全池、生产适配或账户运行。数据、执行、完整卡及human门槛均未全过；完整卡0、human0、真实R2注册/运行0，24格仍DRAFT_NOT_AUTHORIZED，收益/CI为null。不是仅等人审，也不是供应商所有产品都不支持的结论。
+
+先读[校园实际结果](../reports/m10_activation/CAMPUS_RESULTS.md)、[样本实证](../reports/m10_activation/CAMPUS_SAMPLE_AUDIT.json)、[独立审查](../reports/m10_activation/CAMPUS_INDEPENDENT_REVIEW.md)、[累计预算](../reports/m10_activation/CAMPUS_RESOURCE_LEDGER.json)，再按原完整任务第7节恢复。下一必要输入是现有合法服务内具体的股本事件/公开/生效/版本及普通股类合同、行业归属/分类历史公开时钟的接口说明或受许冻结导出；不是新许可证、盲签或新研究。来源请求已停止，跨机器预算不清零。ETF结果、困难样本/冲突、2025以后留出、R3、采购、paper/live及不自动合并main均保持。
+
+以下记录属旧主机/先前阶段，不能当成本机仍访问失败或已具备旧机全部原件。
+
+# 历史M10来源恢复：旧网络访问阻断
+
+2026-11-17，M10_SOURCE_ACTIVATION_V1。本人RQData教育license已由用户提供；在当前网络的一次真实SDK初始化返回教育网限制。**BLOCKED_ACCESS_OR_LICENSE**，额度/有效期及历史能力未验证。0次行情/财务请求、0真实R2账户，收益/CI为null；完整卡0、human0，全池/执行/runner依赖未解决。没有供应商能力失败或价值/质量收益结论。
+
+先读[恢复任务](M10_INDEPENDENT_REVIEW_AND_DATA_ACTIVATION_HANDOFF_2026-11-16.md)、[样本计划](../reports/m10_activation/SAMPLE_PLAN.md)、[实际结果](../reports/m10_activation/RESULTS.md)及[去敏收据](../reports/m10_activation/ACCESS_RECEIPT.json)。下一有效输入是许可证认可的校园网执行环境；访问成功后继续同一有限样本，不重启旧Stage A，不清零预算。不得绕网络限制，密钥不进Git/日志，原24账户仍须全部门槛通过。
+
+安全检出F:/QuantTrade/Quant-Research-M9，分支codex/m10-r2-data-and-screen，恢复基线d54bdc897c56163caef7507ac159c7cc50ef92f7，计划dff161b先行推送。旧M9/R1B/R1I结果不改，2025以后留出、R3、采购及paper/live关闭。以下为历史M10准备记录，不代表新入口仍未提供。
+
+# 历史恢复入口：M10已停止于具体R2数据能力决定
+
+当前范围`M10_R2_DATA_AND_FIRST_SCREEN_V1`，状态BLOCKED_DATA_CAPABILITY；R2真实注册/运行0，24格为未授权草案、收益/CI为null。恢复时先读[M10_PLAN](M10_PLAN.md)、[原任务第7节](M9_INDEPENDENT_REVIEW_AND_M10_HANDOFF_2026-11-16.md)、[结果](../reports/m10_r2/RESULTS.md)、[来源决定](../reports/m10_r2/ACCESS_DECISION.md)、[独立审查](../reports/m10_review/INDEPENDENT_REVIEW.md)与[工程缺项](../reports/m10_r2/ENGINEERING_READINESS.md)，不要依旧M9入口重跑或重启采集。
+
+安全工作目录继续F:/QuantTrade/Quant-Research-M9，当前分支`codex/m10-r2-data-and-screen`；来自公开3e19797，先行计划5d3b4e。原目录F:/QuantTrade/Quant-Research是只读私有原件根，不切换/改写原私有祖先。公开代码可检出，原始响应/PDF全文和完整交易账不追加进公开提交链。
+
+Stage A 已有充分证据后停止；源能力、技术与人工门槛同时缺，不是仅待人审。固定20队列仍4配对/3冲突/13未配，康美另1，共5文档配对，完整M10卡0、human0；265原档hash全匹配，1旧采集代码漂移单列。新全普通股估值模式仅合成语义工程通过，不证明真实全池F01；旧默认不改。M10 preflight只能检查草案，永远不授权账户，不存在已完成R2 runner。
+
+下一外部输入应为已有合法主源的服务/权限/配置或冻结导出目录。先核实历史版本/全池状态行业股本/行为/许可，再按真实响应薄接线、补齐主账及20完整卡；仅余真实human签核时集中请求，全部门槛过后才实际注册6base→18压力。不能先跑绩效补签，不自动取消人验、不把原件缺失假称当年未披露。当前预算结束不自动续开同源pilot。
+
+主问题COMBINED−VALUE净日收益，两期2016—2021/2022—2024、100000元、三臂四路径；全普通股估值、10bp股票滑点、6固定CI及30/45/6约束已登记。未知行业方案/披露时效/源释放延迟/全规模分母仍待验收。无M9效用、ETF风险预算、ML或新方向。M9 INCONCLUSIVE、十ETF搜索结束、R3/2025以后留出/采购/paper/live关闭；不合并main。按DELIVERY_POLICY安全推送并核验实际HEAD与新CI。
+
+## 历史恢复入口：M9已完成，固定矩阵结束
 
 本轮24条真实输入风险预算模拟与独立核验均已完成，不因收益、CI跨零或剩余预算重启账户/采集。按[M9_PLAN](M9_PLAN.md)、[原任务第7节](M8_INDEPENDENT_REVIEW_AND_M9_HANDOFF_2026-11-16.md)、[结果](../reports/m9_risk/RESULTS.md)、[审查](../reports/m9_review/REVIEW_PACKET.md)、[独立验证](../reports/m9_review/VERIFICATION.md)恢复事实，不依赖聊天记忆。
 

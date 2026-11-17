@@ -1,0 +1,44 @@
+{
+  "scope": "M10_R2_DATA_AND_FIRST_SCREEN_V1",
+  "common_start_utc": "2026-11-16T07:34:00+00:00",
+  "session_measurement": "All four slots charged across full elapsed interval including idle/waits as conservative upper bound; not human labor",
+  "stage_a": {
+    "status": "STOPPED_SUFFICIENT_EVIDENCE",
+    "closed_utc": "2026-11-16T07:47:26.848905+00:00",
+    "requests_equivalent_actual": 6,
+    "limit_requests_equivalent": 48,
+    "sdk_calls": 0,
+    "new_market_data_requests": 0,
+    "saved_observable_tool_response_bytes": 52441,
+    "wire_bytes": null,
+    "backend_http_count": null,
+    "byte_measurement": "Saved UTF8 browser-tool extracts/errors; original response/network bytes not observable",
+    "session_hours_upper_bound": 0.8964987833333333,
+    "session_hour_limit": 2,
+    "conclusion": "BLOCKED_DATA_CAPABILITY; no configured verified complete main-source subscription/export; existing free archives incomplete; human acceptance 0",
+    "no_further_source_probe": true
+  },
+  "total_limits": {
+    "external_request_equivalents": 4096,
+    "saved_source_response_bytes": 8589934592,
+    "aggregate_session_hours": 24,
+    "new_cash_purchase": 0
+  },
+  "requests_manifest": "reports/m10_r2/OFFICIAL_CAPABILITY_CHECK.json",
+  "old_ledgers_reset": false,
+  "subsequent_work": "Only fixed draft, local existing-evidence review, explicit valuation-contract engineering, tests, docs and safe publication; no automatic new source pilot",
+  "git_and_ci_activity": "Permitted delivery traffic tracked separately from market/source acquisition; first plan push not confirmed, bounded retry succeeded 5d3b4e; no strategy effects",
+  "final_checkpoint_utc": "2026-11-16T08:01:25.056499+00:00",
+  "final_aggregate_session_hours_upper_bound": 1.8278405544444445,
+  "total_actual": {
+    "external_source_request_equivalents": 6,
+    "new_market_requests": 0,
+    "sdk_calls": 0,
+    "saved_observable_source_response_bytes": 52441,
+    "wire_bytes": null,
+    "new_cash_purchase": 0,
+    "real_R2_accounts": 0,
+    "M9_accounts_rerun": 0
+  },
+  "final_checkpoint_scope": "Research/implementation/test completion; publication wait continues and is recorded in subsequent publication receipt."
+}

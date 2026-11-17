@@ -1,0 +1,641 @@
+{
+  "purpose": "FIXED_CAPABILITY_SAMPLE_NOT_STRATEGY",
+  "started_at": "2026-11-17T16:17:19.151545+00:00",
+  "status": "SAMPLE_RETURNED_PENDING_SEMANTIC_VALIDATION",
+  "actual_r2_accounts": 0,
+  "market_financial_attempts": 26,
+  "sdk_init_attempts": 1,
+  "explicit_quota_attempts": 2,
+  "rpc_execute_attempts": 30,
+  "wire_requests": null,
+  "wire_bytes": null,
+  "saved_response_bytes": 2715883,
+  "request_results": [
+    {
+      "id": "600518_before",
+      "endpoint": "get_pit_financials_ex",
+      "params": {
+        "order_book_ids": [
+          "600518.XSHG"
+        ],
+        "fields": [
+          "net_profit_parent_company",
+          "cash_flow_from_operating_activities",
+          "total_assets"
+        ],
+        "start_quarter": "2017q4",
+        "end_quarter": "2017q4",
+        "date": "2018-04-25",
+        "statements": "all",
+        "market": "cn"
+      },
+      "status": "RETURNED",
+      "source_payload_hash": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+      "filing_document_hash": null,
+      "rows": 0,
+      "saved_bytes": 4,
+      "serialization": "SDK_DATAFRAME_JSON_SPLIT_NOT_WIRE_PAYLOAD"
+    },
+    {
+      "id": "600518_original",
+      "endpoint": "get_pit_financials_ex",
+      "params": {
+        "order_book_ids": [
+          "600518.XSHG"
+        ],
+        "fields": [
+          "net_profit_parent_company",
+          "cash_flow_from_operating_activities",
+          "total_assets"
+        ],
+        "start_quarter": "2017q4",
+        "end_quarter": "2017q4",
+        "date": "2018-04-27",
+        "statements": "all",
+        "market": "cn"
+      },
+      "status": "RETURNED",
+      "source_payload_hash": "4e65424043b72a9680151cc381764f4b6cdb54550d01e209f8ff752ac312dbcb",
+      "filing_document_hash": null,
+      "rows": 1,
+      "saved_bytes": 319,
+      "serialization": "SDK_DATAFRAME_JSON_SPLIT_NOT_WIRE_PAYLOAD"
+    },
+    {
+      "id": "600518_corrected",
+      "endpoint": "get_pit_financials_ex",
+      "params": {
+        "order_book_ids": [
+          "600518.XSHG"
+        ],
+        "fields": [
+          "net_profit_parent_company",
+          "cash_flow_from_operating_activities",
+          "total_assets"
+        ],
+        "start_quarter": "2017q4",
+        "end_quarter": "2017q4",
+        "date": "2019-05-06",
+        "statements": "all",
+        "market": "cn"
+      },
+      "status": "RETURNED",
+      "source_payload_hash": "8608ac7be57074d7eca21039bcd58d660b5a71f67324869d0749f2867781f7da",
+      "filing_document_hash": null,
+      "rows": 5,
+      "saved_bytes": 972,
+      "serialization": "SDK_DATAFRAME_JSON_SPLIT_NOT_WIRE_PAYLOAD"
+    },
+    {
+      "id": "600518_repeat_original",
+      "endpoint": "get_pit_financials_ex",
+      "params": {
+        "order_book_ids": [
+          "600518.XSHG"
+        ],
+        "fields": [
+          "net_profit_parent_company",
+          "cash_flow_from_operating_activities",
+          "total_assets"
+        ],
+        "start_quarter": "2017q4",
+        "end_quarter": "2017q4",
+        "date": "2018-04-27",
+        "statements": "all",
+        "market": "cn"
+      },
+      "status": "RETURNED",
+      "source_payload_hash": "4e65424043b72a9680151cc381764f4b6cdb54550d01e209f8ff752ac312dbcb",
+      "filing_document_hash": null,
+      "rows": 1,
+      "saved_bytes": 319,
+      "serialization": "SDK_DATAFRAME_JSON_SPLIT_NOT_WIRE_PAYLOAD"
+    },
+    {
+      "id": "002857_before",
+      "endpoint": "get_pit_financials_ex",
+      "params": {
+        "order_book_ids": [
+          "002857.XSHE"
+        ],
+        "fields": [
+          "net_profit_parent_company",
+          "cash_flow_from_operating_activities",
+          "total_assets"
+        ],
+        "start_quarter": "2023q3",
+        "end_quarter": "2023q3",
+        "date": "2023-10-25",
+        "statements": "all",
+        "market": "cn"
+      },
+      "status": "RETURNED",
+      "source_payload_hash": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+      "filing_document_hash": null,
+      "rows": 0,
+      "saved_bytes": 4,
+      "serialization": "SDK_DATAFRAME_JSON_SPLIT_NOT_WIRE_PAYLOAD"
+    },
+    {
+      "id": "002857_original",
+      "endpoint": "get_pit_financials_ex",
+      "params": {
+        "order_book_ids": [
+          "002857.XSHE"
+        ],
+        "fields": [
+          "net_profit_parent_company",
+          "cash_flow_from_operating_activities",
+          "total_assets"
+        ],
+        "start_quarter": "2023q3",
+        "end_quarter": "2023q3",
+        "date": "2023-10-27",
+        "statements": "all",
+        "market": "cn"
+      },
+      "status": "RETURNED",
+      "source_payload_hash": "3a5ec3d6136fad92c55745ec47728e4c1fc55028baceb91ce42162be2981581f",
+      "filing_document_hash": null,
+      "rows": 1,
+      "saved_bytes": 300,
+      "serialization": "SDK_DATAFRAME_JSON_SPLIT_NOT_WIRE_PAYLOAD"
+    },
+    {
+      "id": "002857_corrected",
+      "endpoint": "get_pit_financials_ex",
+      "params": {
+        "order_book_ids": [
+          "002857.XSHE"
+        ],
+        "fields": [
+          "net_profit_parent_company",
+          "cash_flow_from_operating_activities",
+          "total_assets"
+        ],
+        "start_quarter": "2023q3",
+        "end_quarter": "2023q3",
+        "date": "2024-12-26",
+        "statements": "all",
+        "market": "cn"
+      },
+      "status": "RETURNED",
+      "source_payload_hash": "7909f7ed1566aac6293fa494c99bb4e33766ec886edf26b5ec9151f396d5c91e",
+      "filing_document_hash": null,
+      "rows": 3,
+      "saved_bytes": 588,
+      "serialization": "SDK_DATAFRAME_JSON_SPLIT_NOT_WIRE_PAYLOAD"
+    },
+    {
+      "id": "002857_repeat_original",
+      "endpoint": "get_pit_financials_ex",
+      "params": {
+        "order_book_ids": [
+          "002857.XSHE"
+        ],
+        "fields": [
+          "net_profit_parent_company",
+          "cash_flow_from_operating_activities",
+          "total_assets"
+        ],
+        "start_quarter": "2023q3",
+        "end_quarter": "2023q3",
+        "date": "2023-10-27",
+        "statements": "all",
+        "market": "cn"
+      },
+      "status": "RETURNED",
+      "source_payload_hash": "3a5ec3d6136fad92c55745ec47728e4c1fc55028baceb91ce42162be2981581f",
+      "filing_document_hash": null,
+      "rows": 1,
+      "saved_bytes": 300,
+      "serialization": "SDK_DATAFRAME_JSON_SPLIT_NOT_WIRE_PAYLOAD"
+    },
+    {
+      "id": "002729_before",
+      "endpoint": "get_pit_financials_ex",
+      "params": {
+        "order_book_ids": [
+          "002729.XSHE"
+        ],
+        "fields": [
+          "net_profit_parent_company",
+          "cash_flow_from_operating_activities",
+          "total_assets"
+        ],
+        "start_quarter": "2022q3",
+        "end_quarter": "2022q3",
+        "date": "2022-10-28",
+        "statements": "all",
+        "market": "cn"
+      },
+      "status": "RETURNED",
+      "source_payload_hash": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+      "filing_document_hash": null,
+      "rows": 0,
+      "saved_bytes": 4,
+      "serialization": "SDK_DATAFRAME_JSON_SPLIT_NOT_WIRE_PAYLOAD"
+    },
+    {
+      "id": "002729_original",
+      "endpoint": "get_pit_financials_ex",
+      "params": {
+        "order_book_ids": [
+          "002729.XSHE"
+        ],
+        "fields": [
+          "net_profit_parent_company",
+          "cash_flow_from_operating_activities",
+          "total_assets"
+        ],
+        "start_quarter": "2022q3",
+        "end_quarter": "2022q3",
+        "date": "2022-11-01",
+        "statements": "all",
+        "market": "cn"
+      },
+      "status": "RETURNED",
+      "source_payload_hash": "70fd49ed367fbc26494628e6d276c8765a8f7b25a741a8fe49490fd915d0ffb6",
+      "filing_document_hash": null,
+      "rows": 1,
+      "saved_bytes": 312,
+      "serialization": "SDK_DATAFRAME_JSON_SPLIT_NOT_WIRE_PAYLOAD"
+    },
+    {
+      "id": "002729_corrected",
+      "endpoint": "get_pit_financials_ex",
+      "params": {
+        "order_book_ids": [
+          "002729.XSHE"
+        ],
+        "fields": [
+          "net_profit_parent_company",
+          "cash_flow_from_operating_activities",
+          "total_assets"
+        ],
+        "start_quarter": "2022q3",
+        "end_quarter": "2022q3",
+        "date": "2024-12-12",
+        "statements": "all",
+        "market": "cn"
+      },
+      "status": "RETURNED",
+      "source_payload_hash": "fc0938985d8c0a99620d809679bfe7ec42289243d5f3f802e814cc2d2c7d588a",
+      "filing_document_hash": null,
+      "rows": 3,
+      "saved_bytes": 623,
+      "serialization": "SDK_DATAFRAME_JSON_SPLIT_NOT_WIRE_PAYLOAD"
+    },
+    {
+      "id": "002729_repeat_original",
+      "endpoint": "get_pit_financials_ex",
+      "params": {
+        "order_book_ids": [
+          "002729.XSHE"
+        ],
+        "fields": [
+          "net_profit_parent_company",
+          "cash_flow_from_operating_activities",
+          "total_assets"
+        ],
+        "start_quarter": "2022q3",
+        "end_quarter": "2022q3",
+        "date": "2022-11-01",
+        "statements": "all",
+        "market": "cn"
+      },
+      "status": "RETURNED",
+      "source_payload_hash": "70fd49ed367fbc26494628e6d276c8765a8f7b25a741a8fe49490fd915d0ffb6",
+      "filing_document_hash": null,
+      "rows": 1,
+      "saved_bytes": 312,
+      "serialization": "SDK_DATAFRAME_JSON_SPLIT_NOT_WIRE_PAYLOAD"
+    },
+    {
+      "id": "300632_before",
+      "endpoint": "get_pit_financials_ex",
+      "params": {
+        "order_book_ids": [
+          "300632.XSHE"
+        ],
+        "fields": [
+          "net_profit_parent_company",
+          "cash_flow_from_operating_activities",
+          "total_assets"
+        ],
+        "start_quarter": "2022q4",
+        "end_quarter": "2022q4",
+        "date": "2023-04-21",
+        "statements": "all",
+        "market": "cn"
+      },
+      "status": "RETURNED",
+      "source_payload_hash": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+      "filing_document_hash": null,
+      "rows": 0,
+      "saved_bytes": 4,
+      "serialization": "SDK_DATAFRAME_JSON_SPLIT_NOT_WIRE_PAYLOAD"
+    },
+    {
+      "id": "300632_original",
+      "endpoint": "get_pit_financials_ex",
+      "params": {
+        "order_book_ids": [
+          "300632.XSHE"
+        ],
+        "fields": [
+          "net_profit_parent_company",
+          "cash_flow_from_operating_activities",
+          "total_assets"
+        ],
+        "start_quarter": "2022q4",
+        "end_quarter": "2022q4",
+        "date": "2023-04-24",
+        "statements": "all",
+        "market": "cn"
+      },
+      "status": "RETURNED",
+      "source_payload_hash": "3d1153c356681341e0ad6e04652acc227a5095489ea9947a89969f040b17dd77",
+      "filing_document_hash": null,
+      "rows": 1,
+      "saved_bytes": 314,
+      "serialization": "SDK_DATAFRAME_JSON_SPLIT_NOT_WIRE_PAYLOAD"
+    },
+    {
+      "id": "300632_corrected",
+      "endpoint": "get_pit_financials_ex",
+      "params": {
+        "order_book_ids": [
+          "300632.XSHE"
+        ],
+        "fields": [
+          "net_profit_parent_company",
+          "cash_flow_from_operating_activities",
+          "total_assets"
+        ],
+        "start_quarter": "2022q4",
+        "end_quarter": "2022q4",
+        "date": "2024-12-24",
+        "statements": "all",
+        "market": "cn"
+      },
+      "status": "RETURNED",
+      "source_payload_hash": "6ecb8377a06241397d391d258a3bf4ec8f27db349d08b4986a171097c55c425d",
+      "filing_document_hash": null,
+      "rows": 6,
+      "saved_bytes": 1104,
+      "serialization": "SDK_DATAFRAME_JSON_SPLIT_NOT_WIRE_PAYLOAD"
+    },
+    {
+      "id": "300632_repeat_original",
+      "endpoint": "get_pit_financials_ex",
+      "params": {
+        "order_book_ids": [
+          "300632.XSHE"
+        ],
+        "fields": [
+          "net_profit_parent_company",
+          "cash_flow_from_operating_activities",
+          "total_assets"
+        ],
+        "start_quarter": "2022q4",
+        "end_quarter": "2022q4",
+        "date": "2023-04-24",
+        "statements": "all",
+        "market": "cn"
+      },
+      "status": "RETURNED",
+      "source_payload_hash": "3d1153c356681341e0ad6e04652acc227a5095489ea9947a89969f040b17dd77",
+      "filing_document_hash": null,
+      "rows": 1,
+      "saved_bytes": 314,
+      "serialization": "SDK_DATAFRAME_JSON_SPLIT_NOT_WIRE_PAYLOAD"
+    },
+    {
+      "id": "600518_warmup",
+      "endpoint": "get_pit_financials_ex",
+      "params": {
+        "order_book_ids": [
+          "600518.XSHG"
+        ],
+        "fields": [
+          "net_profit_parent_company",
+          "cash_flow_from_operating_activities",
+          "total_assets"
+        ],
+        "start_quarter": "2016q4",
+        "end_quarter": "2017q4",
+        "date": "2018-04-27",
+        "statements": "all",
+        "market": "cn"
+      },
+      "status": "RETURNED",
+      "source_payload_hash": "8fad33f03b0e4bce628975879f887dd64d39e8ad1812b2bb7f7d753203e629a5",
+      "filing_document_hash": null,
+      "rows": 10,
+      "saved_bytes": 1780,
+      "serialization": "SDK_DATAFRAME_JSON_SPLIT_NOT_WIRE_PAYLOAD"
+    },
+    {
+      "id": "002857_warmup",
+      "endpoint": "get_pit_financials_ex",
+      "params": {
+        "order_book_ids": [
+          "002857.XSHE"
+        ],
+        "fields": [
+          "net_profit_parent_company",
+          "cash_flow_from_operating_activities",
+          "total_assets"
+        ],
+        "start_quarter": "2022q3",
+        "end_quarter": "2023q3",
+        "date": "2023-10-27",
+        "statements": "all",
+        "market": "cn"
+      },
+      "status": "RETURNED",
+      "source_payload_hash": "051fbb5f20ed99dde9d0582d36b85bd234ddfc213051d0c6f0f195d61df6c7c6",
+      "filing_document_hash": null,
+      "rows": 8,
+      "saved_bytes": 1384,
+      "serialization": "SDK_DATAFRAME_JSON_SPLIT_NOT_WIRE_PAYLOAD"
+    },
+    {
+      "id": "identity_2020-07-31",
+      "endpoint": "all_instruments",
+      "params": {
+        "type": "CS",
+        "date": "2020-07-31",
+        "market": "cn"
+      },
+      "status": "RETURNED",
+      "source_payload_hash": "5590ba719d18f35776f29a0719b8674bf4c2a46d739d91c9350ab2e1ae652d24",
+      "filing_document_hash": null,
+      "rows": 3923,
+      "saved_bytes": 1580643,
+      "serialization": "SDK_DATAFRAME_JSON_SPLIT_NOT_WIRE_PAYLOAD"
+    },
+    {
+      "id": "identity_2015-12-30",
+      "endpoint": "all_instruments",
+      "params": {
+        "type": "CS",
+        "date": "2015-12-30",
+        "market": "cn"
+      },
+      "status": "RETURNED",
+      "source_payload_hash": "0bf07cb5184b82d71168cab75a415ec6c171e134ea7d449dd582d36627448f79",
+      "filing_document_hash": null,
+      "rows": 2805,
+      "saved_bytes": 1123484,
+      "serialization": "SDK_DATAFRAME_JSON_SPLIT_NOT_WIRE_PAYLOAD"
+    },
+    {
+      "id": "shares_2020",
+      "endpoint": "get_shares",
+      "params": {
+        "order_book_ids": [
+          "000002.XSHE",
+          "600028.XSHG",
+          "000725.XSHE",
+          "600519.XSHG",
+          "002857.XSHE"
+        ],
+        "start_date": "2020-07-31",
+        "end_date": "2020-07-31",
+        "fields": [
+          "total",
+          "total_a",
+          "preferred_shares"
+        ],
+        "expect_df": true,
+        "market": "cn"
+      },
+      "status": "RETURNED",
+      "source_payload_hash": "3e4958c19931721fa6994c0ce9d306c536b0c982255645b282a51f2dc8209ced",
+      "filing_document_hash": null,
+      "rows": 5,
+      "saved_bytes": 560,
+      "serialization": "SDK_DATAFRAME_JSON_SPLIT_NOT_WIRE_PAYLOAD"
+    },
+    {
+      "id": "industry_2016-01-04",
+      "endpoint": "get_instrument_industry",
+      "params": {
+        "order_book_ids": [
+          "000002.XSHE",
+          "600028.XSHG",
+          "000725.XSHE",
+          "600519.XSHG",
+          "002857.XSHE"
+        ],
+        "source": "citics",
+        "level": 1,
+        "date": "2016-01-04",
+        "market": "cn"
+      },
+      "status": "RETURNED",
+      "source_payload_hash": "5bd87122234173daaccec52a878fc96d72b426f28075bd2373c010d9f87203a0",
+      "filing_document_hash": null,
+      "rows": 4,
+      "saved_bytes": 268,
+      "serialization": "SDK_DATAFRAME_JSON_SPLIT_NOT_WIRE_PAYLOAD"
+    },
+    {
+      "id": "industry_2020-07-31",
+      "endpoint": "get_instrument_industry",
+      "params": {
+        "order_book_ids": [
+          "000002.XSHE",
+          "600028.XSHG",
+          "000725.XSHE",
+          "600519.XSHG",
+          "002857.XSHE"
+        ],
+        "source": "citics",
+        "level": 1,
+        "date": "2020-07-31",
+        "market": "cn"
+      },
+      "status": "RETURNED",
+      "source_payload_hash": "2962e8b1fe4291d8af1f1bac886870a7aac5cefc350ea0706b902f42b85dc7ef",
+      "filing_document_hash": null,
+      "rows": 5,
+      "saved_bytes": 304,
+      "serialization": "SDK_DATAFRAME_JSON_SPLIT_NOT_WIRE_PAYLOAD"
+    },
+    {
+      "id": "is_st_stock_kangmei",
+      "endpoint": "is_st_stock",
+      "params": {
+        "order_book_ids": [
+          "600518.XSHG"
+        ],
+        "start_date": "2019-05-13",
+        "end_date": "2019-05-31",
+        "market": "cn"
+      },
+      "status": "RETURNED",
+      "source_payload_hash": "6d0d9f5e8e7d7b087aedc420e57f0032a4febe0cec62b7437c45677d62c5c6e6",
+      "filing_document_hash": null,
+      "rows": 15,
+      "saved_bytes": 546,
+      "serialization": "SDK_DATAFRAME_JSON_SPLIT_NOT_WIRE_PAYLOAD"
+    },
+    {
+      "id": "is_suspended_kangmei",
+      "endpoint": "is_suspended",
+      "params": {
+        "order_book_ids": [
+          "600518.XSHG"
+        ],
+        "start_date": "2019-05-13",
+        "end_date": "2019-05-31",
+        "market": "cn"
+      },
+      "status": "RETURNED",
+      "source_payload_hash": "7b7b0ef2f665a94fac9cda9b10f0909f72c65d3d47be84cd2fc1b39df3c02d95",
+      "filing_document_hash": null,
+      "rows": 15,
+      "saved_bytes": 555,
+      "serialization": "SDK_DATAFRAME_JSON_SPLIT_NOT_WIRE_PAYLOAD"
+    },
+    {
+      "id": "moutai_dividends_2022",
+      "endpoint": "get_dividend",
+      "params": {
+        "order_book_ids": [
+          "600519.XSHG"
+        ],
+        "start_date": "2022-01-01",
+        "end_date": "2022-12-31",
+        "adjusted": false,
+        "expect_df": true,
+        "market": "cn"
+      },
+      "status": "RETURNED",
+      "source_payload_hash": "816260cd16d45f798665c9245901e1b56c6f66aaecf5784cd0cd868f83444b03",
+      "filing_document_hash": null,
+      "rows": 2,
+      "saved_bytes": 566,
+      "serialization": "SDK_DATAFRAME_JSON_SPLIT_NOT_WIRE_PAYLOAD"
+    }
+  ],
+  "performance_metrics": null,
+  "human_acceptances": 0,
+  "authentication": "PASSED",
+  "quota_before": {
+    "bytes_limit": 209715200,
+    "bytes_used": 0,
+    "remaining_days": 286,
+    "license_type": "EDU"
+  },
+  "quota_after": {
+    "bytes_limit": 209715200,
+    "bytes_used": 16,
+    "remaining_days": 286,
+    "license_type": "EDU"
+  },
+  "finished_at": "2026-11-17T16:17:22.818100+00:00"
+}

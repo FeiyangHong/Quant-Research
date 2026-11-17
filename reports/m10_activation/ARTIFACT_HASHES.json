@@ -1,0 +1,33 @@
+{
+  "base_commit": "d54bdc897c56163caef7507ac159c7cc50ef92f7",
+  "files": {
+    ".gitattributes": "04a75e7d63c1005903c3ec245c3cefa860f1cd9e4bf50b82758531b9a5461b9b",
+    ".gitignore": "6e620664820df8510dd46d772f06c5e62ca04cda2f7d16b454c9d536a38932aa",
+    "docs/CODEX_HANDOFF.md": "7e481ee42e84b9310754ff1c8c34ee3273daea7d8758156194beea151e05fb65",
+    "docs/DECISION_LOG.md": "300a617a5511f5130ab8fc2d090b9b5fb1409be2ec640186defcf1cdbc191011",
+    "docs/IMPLEMENTATION_STATUS.md": "1bb40d111800050a8b4a3bf5375ac69e2ed129883bda1eb2a59764d9f091ec77",
+    "docs/M10_INDEPENDENT_REVIEW_AND_DATA_ACTIVATION_HANDOFF_2026-11-16.md": "55584c141f33f33b6e8860da3109e5c79e5e4a2fbd8cd0b3570df0c994ad8df1",
+    "docs/M10_PLAN.md": "028c507df91e1ce0f1f7ad319e38a5558ee3512cc3ab391cf7a4f10d07e2aab4",
+    "reports/m10_activation/ACCESS_RECEIPT.json": "192a13f665c0d3fed829c0006b972b2e3aaa31d32779e0f050333dc14e271de8",
+    "reports/m10_activation/INDEPENDENT_REVIEW.md": "9d9f78a1cbc9e33cb9dd494459b5e9084672f32d33266026590af2f21018f8dd",
+    "reports/m10_activation/RESOURCE_LEDGER.json": "149c80f075875c4bdeedf3dba3dcb3446e960b58fc9b41c7f377ea3b151fea04",
+    "reports/m10_activation/RESULTS.md": "6c93ffb289e74afe2755576dcdfd4d1f7439a68ee9fe44e0cec5c68898ba50d6",
+    "reports/m10_activation/SAMPLE_PLAN.md": "19e1d7725e695d41d0e1b03e102ed64320d793e036090027acde40e6c69b28bc",
+    "reports/m10_activation/VERIFICATION.json": "05c4019c4a10ef75ca71a3d2f81f6e925f0b430ebbf2dc75aea19aabb2095636",
+    "reports/m10_r2/ACCESS_DECISION.md": "a9fdd79ac58974ec6f7fa0c4308bc8e240ee18fd5c38671f9cf1998efe27ab24",
+    "reports/m10_r2/COVERAGE_REPORT.json": "080564340a466fc9992305890b33ef5b7e5208bd002eeb3ad9c01de02a0d0680",
+    "reports/m10_r2/COVERAGE_REPORT.md": "48344567d8439af2c2c6ca1ccff2515e1a0a3af4c4818f8ae394927ed0818bb1",
+    "reports/m10_r2/DATA_CONTRACT_ADDENDUM.md": "8f5a31a8554785388d8c2752e44413c1687b4dd3ebd75a6a8384c818ea89c039",
+    "reports/m10_r2/ENGINEERING_READINESS.md": "2913f8ac03e033eb54b4b63836f075270a1abdf2df8c8292922d80d45872254e",
+    "reports/m10_r2/HUMAN_REVIEW_INDEX.md": "d158b2901ce7ce1d87fa72c9fe855a11d45d38d4524e5a8c140cd89ae015bf22",
+    "reports/m10_r2/RESULTS.md": "00f2a16bfc1d6d08e366d0da15291e590e599c87cc294f5f23056f59d29d0b5d",
+    "review_code/m10_activation/test_access_independent.py": "4b8043a337a2eb39c531626f14cb3753574aebde52310271a9c8977d2404fd52",
+    "scripts/m10_rqdata_access.py": "4a8459b779668695dbf2bb9b50ddc8418f03770be41af4f20358acec1be8026b"
+  },
+  "unchanged_frozen_objects": {
+    "reports/m10_r2/EXPERIMENT_REGISTRY.json": "01c6627c813b536d0b304128d0252f28d390518d0aaaaabb97f55d2009f5197c",
+    "reports/m9_risk/RESULTS_SUMMARY.json": "d4a309b82c868b33b1636c560147afd9551601d1f4f4f60a2833c8e018cb44b3"
+  },
+  "credential_scan": "Exact actual license absent from every new/changed public artifact; value and hash not recorded",
+  "scope": "Public artifacts only; raw credential, third-party SDK and private ancestors excluded"
+}

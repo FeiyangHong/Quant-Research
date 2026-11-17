@@ -1,0 +1,67 @@
+{
+  "scope": "M10_STAGE_A_OFFICIAL_CAPABILITY_DOCUMENTS_ONLY",
+  "retrieved_at": "2026-11-16T07:46:16.192092+00:00",
+  "requests_equivalent": 6,
+  "sdk_calls": 0,
+  "market_data_requests": 0,
+  "attempts": [
+    {
+      "url": "https://www.ricequant.com/doc/rqdata/python/stock-mod",
+      "attempts": 2,
+      "result": "TOOL_TIMEOUT_BOTH_NO_MORE_RETRY"
+    },
+    {
+      "url": "https://tushare.pro/document/2?doc_id=33",
+      "attempts": 2,
+      "result": "SUCCESS_DOCUMENT_AND_TARGET_SECTION_VIEW"
+    },
+    {
+      "url": "https://tushare.pro/document/2?doc_id=122",
+      "attempts": 2,
+      "result": "SUCCESS_DOCUMENT_AND_TARGET_SECTION_VIEW"
+    }
+  ],
+  "files": [
+    {
+      "path": "work/m10_sources/official_docs_details.txt",
+      "sha256": "0208f31647ac370b64c0ab025da3d33b4ce6323d9a87eab03c9b0806584f2b64",
+      "saved_bytes": 26175,
+      "content_type": "WEB_TOOL_EXTRACTED_RESPONSE_NOT_ORIGIN_HTTP_BODY"
+    },
+    {
+      "path": "work/m10_sources/official_docs_initial.txt",
+      "sha256": "fdae77956dbc255b5db0ec20741050ef582b25fba098c0717aa758c097dd747d",
+      "saved_bytes": 26016,
+      "content_type": "WEB_TOOL_EXTRACTED_RESPONSE_NOT_ORIGIN_HTTP_BODY"
+    },
+    {
+      "path": "work/m10_sources/rq_document_retry.txt",
+      "sha256": "13fed0b10b381047422bbfbdc96b6748d64325cda7afeada609a39a61c4b47cf",
+      "saved_bytes": 250,
+      "content_type": "WEB_TOOL_EXTRACTED_RESPONSE_NOT_ORIGIN_HTTP_BODY"
+    }
+  ],
+  "saved_observable_tool_response_bytes": 52441,
+  "wire_http_requests": null,
+  "wire_response_bytes": null,
+  "measurement_limit": "Each explicit open counts one request-equivalent including section view; hidden redirects/cache/backend fetches are not observable. Saved decoded tool-response UTF8 bytes are measured, not origin body/network bytes.",
+  "official_findings": [
+    {
+      "provider": "Tushare",
+      "claim": "income documents ann_date/f_ann_date/end_date/report_type/update_flag; FAQ describes initial/revised flags. These do not prove complete revision chains or access entitlements.",
+      "documentation_access": true,
+      "authenticated_data_access": false,
+      "license_scope": "UNVERIFIED; FAQ source attribution is not full storage/redistribution permission"
+    },
+    {
+      "provider": "RQData",
+      "claim": "Attachment identifies PIT/history API candidate; current page fetch failed twice, so current documented coverage not independently verified in M10.",
+      "documentation_access": false,
+      "authenticated_data_access": false,
+      "license_scope": "UNVERIFIED"
+    }
+  ],
+  "full_acquisition_price": "UNKNOWN",
+  "full_acquisition_quota": "UNKNOWN",
+  "no_auto_signup_purchase_contact": true
+}

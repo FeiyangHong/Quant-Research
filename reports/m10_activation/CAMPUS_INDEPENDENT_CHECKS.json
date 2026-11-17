@@ -1,0 +1,58 @@
+{
+  "reviewer": "NON_AUTHOR_AI_NOT_HUMAN",
+  "source_values_emitted": false,
+  "source_hash_checks": {
+    "13_official_original_hashes_match": true,
+    "26_response_hashes_match": true
+  },
+  "four_fixed_case_checks": {
+    "600518": {
+      "two_versions_match_exact_cents_and_identity": true,
+      "before_publication_empty": true,
+      "repeat_all_fields_identical": true,
+      "append_preserves_old_fields_excluding_ingestion": true
+    },
+    "002729": {
+      "two_versions_match_exact_cents_and_identity": true,
+      "before_publication_empty": true,
+      "repeat_all_fields_identical": true,
+      "append_preserves_old_fields_excluding_ingestion": true
+    },
+    "002857": {
+      "two_versions_match_exact_cents_and_identity": true,
+      "before_publication_empty": true,
+      "repeat_all_fields_identical": true,
+      "append_preserves_old_fields_excluding_ingestion": true
+    },
+    "300632": {
+      "two_versions_match_exact_cents_and_identity": true,
+      "before_publication_empty": true,
+      "repeat_all_fields_identical": true,
+      "append_preserves_old_fields_excluding_ingestion": true
+    }
+  },
+  "two_local_arithmetic_checks": {
+    "600518": {
+      "profit_ttm_exact_cents": true,
+      "cfo_ttm_exact_cents": true,
+      "average_assets_exact": true,
+      "F02_matches_1e12": true,
+      "F03_matches_1e12": true
+    },
+    "002857": {
+      "profit_ttm_exact_cents": true,
+      "cfo_ttm_exact_cents": true,
+      "average_assets_exact": true,
+      "F02_matches_1e12": true,
+      "F03_matches_1e12": true
+    }
+  },
+  "not_verified": [
+    "full_pool_PIT",
+    "production_adapter",
+    "F01",
+    "human_acceptance",
+    "PDF_table_row_semantics_independent_visual_review",
+    "actual_vendor_wire_payload"
+  ]
+}

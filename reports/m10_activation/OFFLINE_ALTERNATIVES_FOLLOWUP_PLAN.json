@@ -1,0 +1,60 @@
+{
+  "task": "M10_SOURCE_ACTIVATION_V1",
+  "registered_at": "2026-11-17T17:01:04.676313+00:00",
+  "prior_head": "87f553d804e3d78c1ceb17027b41ed5dccb61996",
+  "offline_completed": "OFFLINE_ALTERNATIVES_AUDIT.json",
+  "reason": "PIT share fields discovered; verify this concrete same-source alternative instead of source-wide incapability inference",
+  "prior_activation_known_equivalents": 60,
+  "new_known_equivalent_cap": 4,
+  "allocation": {
+    "official_old_manifest_pdf_attempts": 1,
+    "observed_sdk_rpc_cap_including_init_quota": 3
+  },
+  "exact_underlying_requests": null,
+  "prior_activation_hours_upper_bound": 1.5258850972222222,
+  "prior_m10_hours_upper_bound": 4.704773097222223,
+  "followup_conservative_start": "2026-11-17T16:54:00+00:00",
+  "sample_ids": [
+    "000002.XSHE",
+    "600028.XSHG",
+    "000725.XSHE",
+    "600519.XSHG",
+    "002857.XSHE"
+  ],
+  "financial_request": {
+    "endpoint": "get_pit_financials_ex",
+    "start_quarter": "2019q4",
+    "end_quarter": "2020q2",
+    "date": "2020-07-31",
+    "statements": "all",
+    "fields": [
+      "total_shares",
+      "total_a_shares",
+      "paid_in_capital",
+      "equity_preferred_stock",
+      "treasury_stock"
+    ]
+  },
+  "official_original": {
+    "url": "https://static.cninfo.com.cn/finalpage/2020-04-22/1207552562.PDF",
+    "expected_sha256": "2a2b384ab09a7bc295fd2e33b999acdf4212340b0141031c991060dea2fad03d",
+    "old_path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m5_equity\\objects\\2a2b384ab09a7bc295fd2e33b999acdf4212340b0141031c991060dea2fad03d.bin",
+    "role": "Existing 600519 2019 annual share anchor, not new sample or full chain",
+    "physical_pages": [
+      2,
+      5,
+      34
+    ]
+  },
+  "sample_script_sha256": "0b4bbaec641ef642e5e47677d9fdbb738a7f073f37cb1c865f5350e1eb58f413",
+  "stop_conditions": [
+    "Stop on authentication/permission denial without retry",
+    "Hard stop before fourth observed SDK RPC; no request after 64 cumulative known equivalents",
+    "No event/industry endpoint query in this cap; no hidden use of unrestricted latest histories",
+    "No strategy or complete sample PASS from anchor success",
+    "If comparison cannot establish fields/clock, retain UNVERIFIED; do not infer source-wide failure"
+  ],
+  "new_saved_source_cap_bytes": 16777216,
+  "new_raw_restricted_to_local": true,
+  "post2024_market_factor_strategy_requests": 0
+}

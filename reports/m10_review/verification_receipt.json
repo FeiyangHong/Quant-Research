@@ -1,0 +1,44 @@
+{
+  "reviewer": "independent AI agent; not human acceptance",
+  "started_at": "2026-11-16T07:55:30.819697+00:00",
+  "finished_at": "2026-11-16T07:55:33.481440+00:00",
+  "content_sha256": {
+    "src/quant_research/equity_features.py": "30454f38f215d62c898e7ab980bc17bfa5f0432081bd4fb5526e2ab8b3a2262a",
+    "scripts/m10_preflight.py": "f0f356629863af94267692583deb7f5fcf73a0da54834c6655a124496c2800da",
+    "reports/m10_r2/EXPERIMENT_REGISTRY.json": "01c6627c813b536d0b304128d0252f28d390518d0aaaaabb97f55d2009f5197c",
+    "reports/m10_r2/case_inventory.json": "914d7f280ae9f60b4cfbbb3bad0263edbdc7bc2ebb230270dada92d496f05690",
+    "reports/m10_review/archive_hash_review.json": "abba502afb5e806407f7ee896278a93ec355c80eb12f9c2c2c02fb778eb7ce80",
+    "review_code/m10/test_independent_m10.py": "e47eb47e980b23d7dae2e0f948fa90d3bd698a8bd577f8ac16e17a2fba4cd421",
+    "docs/EQUITY_RESEARCH_PROTOCOL.md": "4a5f38c2dc70d1229d6cdc141ae284160f6410ab2c937108bb6cd2875ea01316",
+    "docs/STRATEGY_SPEC.md": "952aa28e9db90fb042be0e9113455600a7213fd29dfa4dd8920aa2ae4c09b023",
+    "docs/M9_INDEPENDENT_REVIEW_AND_M10_HANDOFF_2026-11-16.md": "01723c04baeb292d08380f98efc77b68b0f547f52c3e2019667319cf0cf65f70"
+  },
+  "inputs_unchanged_during_checks": true,
+  "runs": [
+    {
+      "argv": [
+        "F:\\QuantTrade\\Quant-Research\\.venv\\Scripts\\python.exe",
+        "-m",
+        "pytest",
+        "review_code/m10/test_independent_m10.py",
+        "-q"
+      ],
+      "exit_code": 0,
+      "stdout": "..................................                                       [100%]\n34 passed in 1.86s\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "F:\\QuantTrade\\Quant-Research\\.venv\\Scripts\\python.exe",
+        "scripts/m10_preflight.py"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"purpose\": \"OFFLINE_DRAFT_INSPECTION_NOT_ADMISSION\",\n  \"status\": \"NOT_RUN_BLOCKED_ADMISSION\",\n  \"draft_valid\": true,\n  \"strategy_runs_permitted\": false,\n  \"real_accounts_run\": 0,\n  \"performance_metrics\": null,\n  \"errors\": [],\n  \"unresolved_before_actual_registration\": [\n    \"authorized_source_and_license\",\n    \"complete_2016_2024_data_and_legal_warmup\",\n    \"whole_pool_version_chain\",\n    \"at_least_20_complete_human_approved_cases\",\n    \"historical_industry_scheme_and_version_clock\",\n    \"valuation_source_field_mapping_and_share_class_semantics\",\n    \"historical_disclosure_freshness_policy\",\n    \"size_cutoff_tie_implementation\",\n    \"source_release_delay_and_execution_clock\",\n    \"R2_data_and_execution_admission\",\n    \"R2_runner_and_required_corporate_action_accounting\",\n    \"independent_real_event_reconciliation\",\n    \"exact_code_data_rules_hashes\",\n    \"immutable_actual_registration_after_gates\"\n  ],\n  \"limitation\": \"Selected draft guards only, not exhaustive specification validation. Draft consistency does not establish data, license, human approval, execution or runner readiness. This tool cannot authorize a run.\",\n  \"registry_sha256\": \"01c6627c813b536d0b304128d0252f28d390518d0aaaaabb97f55d2009f5197c\"\n}\n",
+      "stderr": ""
+    }
+  ],
+  "strategy_accounts_run": 0,
+  "performance_metrics": null,
+  "human_acceptances": 0,
+  "source_requests": 0
+}

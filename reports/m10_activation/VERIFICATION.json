@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "base_commit": "d54bdc897c56163caef7507ac159c7cc50ef92f7",
+  "preregistration_commit": "dff161b3554760b765a22c121a107f64802482ea",
+  "access_attempt_source_sha256": "2a5520151d0b790bddea7e6a5b6532306a276eace1b8c453b0a66ef4c028e0bd",
+  "attempt_source_hash_method": "Reconstructed from exact authored pre-review source by reversing only safe_quota addition and call substitution; not measured before execution",
+  "attempt_source_local_path": "work/m10_activation/access_attempt_v1.py",
+  "reviewed_source_sha256": "4a8459b779668695dbf2bb9b50ddc8418f03770be41af4f20358acec1be8026b",
+  "real_authentication_replayed_after_review": false,
+  "receipt_sha256": "192a13f665c0d3fed829c0006b972b2e3aaa31d32779e0f050333dc14e271de8",
+  "source_payload_hash": null,
+  "reason_no_payload_hash": "No raw authentication payload saved; sanitized receipt is a derived observation",
+  "sdk_version": "3.8.2",
+  "sdk_client_sha256": "dd364d9b05b6ca6eabebe8422eba713c0cebf0f70460b82a7b2350a4c459376f",
+  "sdk_packages": {
+    "rqdatac": "3.8.2",
+    "brotli": "1.2.1",
+    "msgpack": "1.1.2",
+    "win_inet_pton": "1.1.0",
+    "orjson": "3.11.5",
+    "python-rapidjson": "1.23"
+  },
+  "runtime": "Python3.9.19 with project existing locked dependencies; SDK only in ignored target",
+  "independent_tests": {
+    "passed": 17,
+    "skipped": 0,
+    "kind": "OFFLINE_SYNTHETIC_NOT_HUMAN_NOT_PROVIDER"
+  },
+  "root_targeted_tests": {
+    "passed": 34,
+    "skipped": 0,
+    "elapsed_seconds": 5.38,
+    "command": "python -m pytest -q review_code/m10_activation tests/test_m10_preflight.py"
+  },
+  "actual_registered_accounts": 0,
+  "actual_run_accounts": 0,
+  "performance_metrics": null,
+  "CI": "PENDING_CURRENT_COMMIT_PUBLICATION"
+}

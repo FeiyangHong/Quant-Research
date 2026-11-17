@@ -1,0 +1,89 @@
+{
+  "task": "M10_SOURCE_ACTIVATION_V1",
+  "scope": "CROSS_HOST_CUMULATIVE_NO_BUDGET_RESET",
+  "observed_at": "2026-11-17T16:34:53.643315+00:00",
+  "source_requests_stopped": true,
+  "stop_reason": "FIXED_STRUCTURAL_CONTRACT_NOT_ADMITTED_NOT_BUDGET_EXHAUSTION",
+  "previous_final_pr3": {
+    "activation_known_equivalents": 3,
+    "m10_known_equivalents": 9,
+    "activation_agent_hours_upper_bound": 0.610556,
+    "m10_agent_hours_upper_bound": 3.789444,
+    "saved_source_bytes": 52441,
+    "basis": "PR #3 final closeout at 21f279fe0a73375cd26c3fb044e58c955874646f; supersedes older lower in-tree observation"
+  },
+  "campus": {
+    "access_init_attempts": 3,
+    "access_explicit_quota_attempts": 3,
+    "official_document_attempt_equivalents": 8,
+    "official_document_attempt_breakdown": {
+      "manual_open": 1,
+      "education_pdf_web_timeout": 1,
+      "terms_search_queries": 2,
+      "education_pdf_direct_download": 1,
+      "stock_manual_open": 1,
+      "stock_manual_find": 1,
+      "cashflow_field_find": 1
+    },
+    "fixed_sample_top_level_calls_including_init_and_quota": 29,
+    "fixed_sample_observed_sdk_execute_attempts": 30,
+    "financial_calls": 18,
+    "structural_calls": 8,
+    "official_original_pdf_requests": 13,
+    "known_top_level_equivalents": 56,
+    "charged_known_equivalents": 57,
+    "sdk_observed_internal_increment_over_top_level": 1,
+    "exact_underlying_requests": null,
+    "wire_bytes": null,
+    "saved_sdk_serializations_bytes": 2715883,
+    "saved_public_terms_pdf_bytes": 205031,
+    "saved_official_original_pdf_bytes": 25873038,
+    "saved_source_bytes": 28793952,
+    "public_document_tool_response_saved_bytes": 0,
+    "tool_response_byte_count": "Not exported as separate local source files; backend/wire bytes unknown, not zero",
+    "root_conservative_start": "2026-11-17T15:54:00+00:00",
+    "root_seconds_including_tool_waits": 2453.643315,
+    "reviewer_seconds_upper_bound": 490,
+    "reviewer_intervals_utc": [
+      "16:01:13/16:01:50",
+      "16:08:48/16:11:25",
+      "16:15:31/16:17:17",
+      "16:24:03/16:27:13"
+    ],
+    "aggregate_agent_hours_upper_bound": 0.8176786986111111
+  },
+  "cumulative": {
+    "activation_charged_known_equivalents": 60,
+    "original_m10_charged_known_equivalents": 66,
+    "activation_top_level_equivalents": 59,
+    "original_m10_top_level_equivalents": 65,
+    "source_request_count_exact": null,
+    "activation_known_request_headroom": 4,
+    "exact_remaining_request_allowance": null,
+    "activation_saved_source_bytes": 28793952,
+    "original_m10_saved_source_bytes": 28846393,
+    "activation_agent_hours_upper_bound": 1.428234698611111,
+    "original_m10_agent_hours_upper_bound": 4.607122698611111
+  },
+  "limits": {
+    "activation_request_equivalents": 64,
+    "activation_saved_response_bytes": 268435456,
+    "activation_agent_hours": 2,
+    "original_m10_request_equivalents": 4096,
+    "original_m10_saved_response_bytes": 8589934592,
+    "original_m10_agent_hours": 24,
+    "cash_purchase": 0
+  },
+  "separate_operations": {
+    "software_installation_http_requests": null,
+    "software_installation_wire_bytes": null,
+    "git_and_ci": "Delivery traffic separately classified; no source acquisition or account runs",
+    "local_derived_report_bytes": "Not counted as downloaded source responses"
+  },
+  "accounting_limitations": [
+    "Known observed equivalence only; hidden handshake/backend/retry counts unknown. No claim exact request cap compliance.",
+    "Prior cross-host hours are rounded conservative final closeout figures.",
+    "Root whole interval and reviewer active callbacks charged; inactive finished reviewer not charged.",
+    "Final push/CI wait time will extend this observation and is recorded in PR3 final closeout; no additional source requests authorized automatically."
+  ]
+}

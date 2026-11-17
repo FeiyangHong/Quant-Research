@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "purpose": "ACCESS_METADATA_ONLY",
+  "data_origin": "REAL",
+  "started_at": "2026-11-17T16:11:41.092985+00:00",
+  "status": "ACCESS_METADATA_PASSED_NOT_DATA_ADMISSION",
+  "sdk_init_attempts": 1,
+  "explicit_quota_attempts": 1,
+  "sdk_internal_requests": null,
+  "wire_bytes": null,
+  "market_financial_requests": 0,
+  "actual_r2_accounts": 0,
+  "historical_capability": "NOT_TESTED",
+  "applicable_use": "NOT_VERIFIED",
+  "performance_metrics": null,
+  "sdk_version": "3.8.2",
+  "authentication": "PASSED",
+  "quota_metadata_shape": {
+    "bytes_limit": {
+      "kind": "FLOAT",
+      "finite": true,
+      "integral": true,
+      "numeric_value": 209715200.0
+    },
+    "bytes_used": {
+      "kind": "INT",
+      "numeric_value": 0
+    },
+    "remaining_days": {
+      "kind": "INT",
+      "numeric_value": 286
+    }
+  },
+  "quota": {
+    "bytes_limit": 209715200,
+    "bytes_used": 0,
+    "remaining_days": 286,
+    "license_type": "EDU"
+  },
+  "finished_at": "2026-11-17T16:11:42.001726+00:00"
+}

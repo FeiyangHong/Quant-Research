@@ -1,0 +1,55 @@
+{
+  "task": "M10_SOURCE_ACTIVATION_V1",
+  "purpose": "FIXED_FIVE_ID_PIT_SHARE_ANCHOR_ONLY",
+  "started_at": "2026-11-17T17:02:32.718556+00:00",
+  "status": "RETURNED_NOT_ADMITTED",
+  "rpc_execute_attempts": 3,
+  "rpc_attempt_cap": 3,
+  "financial_attempts": 1,
+  "request": {
+    "order_book_ids": [
+      "000002.XSHE",
+      "600028.XSHG",
+      "000725.XSHE",
+      "600519.XSHG",
+      "002857.XSHE"
+    ],
+    "fields": [
+      "total_shares",
+      "total_a_shares",
+      "paid_in_capital",
+      "equity_preferred_stock",
+      "treasury_stock"
+    ],
+    "start_quarter": "2019q4",
+    "end_quarter": "2020q2",
+    "date": "2020-07-31",
+    "statements": "all"
+  },
+  "source_request_count_exact": null,
+  "wire_bytes": null,
+  "actual_r2_accounts": 0,
+  "full_sample_admission": false,
+  "authentication": "PASSED",
+  "quota_before": {
+    "bytes_limit": 209715200,
+    "bytes_used": 3199853,
+    "remaining_days": 286,
+    "license_type": "EDU"
+  },
+  "rows": 15,
+  "columns": [
+    "info_date",
+    "if_adjusted",
+    "paid_in_capital",
+    "treasury_stock",
+    "total_a_shares",
+    "equity_preferred_stock",
+    "rice_create_tm",
+    "total_shares"
+  ],
+  "source_payload_hash": "d80b31f0a26dd928a8432eda5f01c80d0ce4be09e326d254ce22673e20361238",
+  "saved_bytes": 2050,
+  "serialization": "SDK_DATAFRAME_JSON_SPLIT_NOT_WIRE_PAYLOAD",
+  "finished_at": "2026-11-17T17:02:33.594342+00:00"
+}

@@ -1,0 +1,137 @@
+{
+  "purpose": "22 existing public canonical facts checked against reacquired matched originals; not human or complete coverage",
+  "checks": [
+    {
+      "revision_id": "KM2017_AS_PUBLISHED_20180426:net_profit_parent_ytd",
+      "source_document_hash": "15b3b15df2dfd3310cc16e1e345e8950e8a9cb047bdad38d1263e2b55cfd2985",
+      "page": 6,
+      "token_present": true
+    },
+    {
+      "revision_id": "KM2017_AS_PUBLISHED_20180426:operating_cashflow_ytd",
+      "source_document_hash": "15b3b15df2dfd3310cc16e1e345e8950e8a9cb047bdad38d1263e2b55cfd2985",
+      "page": 6,
+      "token_present": true
+    },
+    {
+      "revision_id": "KM2017_AS_PUBLISHED_20180426:total_assets",
+      "source_document_hash": "15b3b15df2dfd3310cc16e1e345e8950e8a9cb047bdad38d1263e2b55cfd2985",
+      "page": 7,
+      "token_present": true
+    },
+    {
+      "revision_id": "KM2017_RESTATED_20190430:net_profit_parent_ytd",
+      "source_document_hash": "9f47aa0dc0a8838ffd21e600d7eca194052d91cf867d8e22a4ba56dee2b9f60a",
+      "page": 6,
+      "token_present": true
+    },
+    {
+      "revision_id": "KM2017_RESTATED_20190430:operating_cashflow_ytd",
+      "source_document_hash": "9f47aa0dc0a8838ffd21e600d7eca194052d91cf867d8e22a4ba56dee2b9f60a",
+      "page": 6,
+      "token_present": true
+    },
+    {
+      "revision_id": "KM2017_RESTATED_20190430:total_assets",
+      "source_document_hash": "9f47aa0dc0a8838ffd21e600d7eca194052d91cf867d8e22a4ba56dee2b9f60a",
+      "page": 6,
+      "token_present": true
+    },
+    {
+      "revision_id": "KM2016_ASSET_COMPARATIVE_FIRST_OBSERVED_20180426",
+      "source_document_hash": "15b3b15df2dfd3310cc16e1e345e8950e8a9cb047bdad38d1263e2b55cfd2985",
+      "page": 7,
+      "token_present": true
+    },
+    {
+      "revision_id": "KM2016_ASSET_RESTATED_20190430",
+      "source_document_hash": "9f47aa0dc0a8838ffd21e600d7eca194052d91cf867d8e22a4ba56dee2b9f60a",
+      "page": 6,
+      "token_present": true
+    },
+    {
+      "revision_id": "KM2018_ORIGINAL:net_profit_parent_ytd",
+      "source_document_hash": "9f47aa0dc0a8838ffd21e600d7eca194052d91cf867d8e22a4ba56dee2b9f60a",
+      "page": 6,
+      "token_present": true
+    },
+    {
+      "revision_id": "KM2018_ORIGINAL:operating_cashflow_ytd",
+      "source_document_hash": "9f47aa0dc0a8838ffd21e600d7eca194052d91cf867d8e22a4ba56dee2b9f60a",
+      "page": 6,
+      "token_present": true
+    },
+    {
+      "revision_id": "KM2018_ORIGINAL:total_assets",
+      "source_document_hash": "9f47aa0dc0a8838ffd21e600d7eca194052d91cf867d8e22a4ba56dee2b9f60a",
+      "page": 6,
+      "token_present": true
+    },
+    {
+      "revision_id": "sz.002857_2023-09-30_original:net_profit_parent_ytd",
+      "source_document_hash": "9b57ae1e21bc1246d7acb7e044f7dca033ba93ba5055f92ad9b53951ed39da1d",
+      "page": 2,
+      "token_present": true
+    },
+    {
+      "revision_id": "sz.002857_2023-09-30_original:operating_cashflow_ytd",
+      "source_document_hash": "9b57ae1e21bc1246d7acb7e044f7dca033ba93ba5055f92ad9b53951ed39da1d",
+      "page": 2,
+      "token_present": true
+    },
+    {
+      "revision_id": "sz.002857_2023-09-30_original:total_assets",
+      "source_document_hash": "9b57ae1e21bc1246d7acb7e044f7dca033ba93ba5055f92ad9b53951ed39da1d",
+      "page": 2,
+      "token_present": true
+    },
+    {
+      "revision_id": "sz.002857_2023-09-30_revision_2024-12-25:net_profit_parent_ytd",
+      "source_document_hash": "41d9370fd96d1860152079264f7a05448a6db7cc2c47b5e9dcda410037288e98",
+      "page": 3,
+      "token_present": true
+    },
+    {
+      "revision_id": "sz.002857_2023-09-30_revision_2024-12-25:operating_cashflow_ytd",
+      "source_document_hash": "41d9370fd96d1860152079264f7a05448a6db7cc2c47b5e9dcda410037288e98",
+      "page": 4,
+      "token_present": true
+    },
+    {
+      "revision_id": "sz.002857_2023-09-30_revision_2024-12-25:total_assets",
+      "source_document_hash": "41d9370fd96d1860152079264f7a05448a6db7cc2c47b5e9dcda410037288e98",
+      "page": 4,
+      "token_present": true
+    },
+    {
+      "revision_id": "sanhui_2022q3:net_profit_parent_ytd",
+      "source_document_hash": "7028b0a1c7b89e2e5eb7fb4469e75eee983dbcb39c770e1428611067f0dd8338",
+      "page": 1,
+      "token_present": true
+    },
+    {
+      "revision_id": "sanhui_2022q3:operating_cashflow_ytd",
+      "source_document_hash": "7028b0a1c7b89e2e5eb7fb4469e75eee983dbcb39c770e1428611067f0dd8338",
+      "page": 1,
+      "token_present": true
+    },
+    {
+      "revision_id": "sanhui_2022q3:total_assets",
+      "source_document_hash": "7028b0a1c7b89e2e5eb7fb4469e75eee983dbcb39c770e1428611067f0dd8338",
+      "page": 1,
+      "token_present": true
+    },
+    {
+      "revision_id": "sanhui_2022fy:net_profit_parent_ytd",
+      "source_document_hash": "3ae8304f34e46bdf8ea211d669055c01b676a78c76c679c3f0c1b3b7948b76af",
+      "page": 8,
+      "token_present": true
+    },
+    {
+      "revision_id": "sanhui_2022fy:operating_cashflow_ytd",
+      "source_document_hash": "3ae8304f34e46bdf8ea211d669055c01b676a78c76c679c3f0c1b3b7948b76af",
+      "page": 8,
+      "token_present": true
+    }
+  ]
+}

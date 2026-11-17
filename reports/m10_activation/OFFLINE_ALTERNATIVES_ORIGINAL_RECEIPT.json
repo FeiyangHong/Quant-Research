@@ -1,0 +1,14 @@
+{
+  "purpose": "REACQUIRE_EXISTING_MANIFEST_ORIGINAL",
+  "started_at": "2026-11-17T17:02:19.089483+00:00",
+  "source_attempts": 1,
+  "url": "https://static.cninfo.com.cn/finalpage/2020-04-22/1207552562.PDF",
+  "expected_sha256": "2a2b384ab09a7bc295fd2e33b999acdf4212340b0141031c991060dea2fad03d",
+  "local_path": "F:\\Quant_Trade\\Quant-Research\\work\\m10_activation\\alternative_moutai_original_01.pdf",
+  "status": "FETCHED",
+  "wire_bytes": null,
+  "saved_bytes": 2272239,
+  "sha256": "2a2b384ab09a7bc295fd2e33b999acdf4212340b0141031c991060dea2fad03d",
+  "expected_hash_matches": true,
+  "finished_at": "2026-11-17T17:02:19.317517+00:00"
+}

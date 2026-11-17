@@ -15,6 +15,7 @@ tmp/
 .env.*
 !.env.example
 *.key
+*.env
 *.pem
 secrets/
 
