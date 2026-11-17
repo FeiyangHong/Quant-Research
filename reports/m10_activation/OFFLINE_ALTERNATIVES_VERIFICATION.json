@@ -1,0 +1,99 @@
+{
+  "scope": "OFFLINE_REASSESSMENT_THEN_REGISTERED_FOUR_EQUIVALENT_FOLLOWUP",
+  "baseline": "87f553d804e3d78c1ceb17027b41ed5dccb61996",
+  "observed_at": "2026-11-17T17:08:38.782832+00:00",
+  "sdk_version": "3.8.2",
+  "offline": {
+    "api_inventory_entries": 24,
+    "client_synthetic_checks": 4,
+    "direct_source_calls": 0,
+    "independent_review": "OFFLINE_ALTERNATIVES_INDEPENDENT_REVIEW.md",
+    "old_originals_inspected_for_presence": 8,
+    "old_originals_present_at_offline_start": 0,
+    "subsequently_reacquired": 1
+  },
+  "live_followup": {
+    "plan": "OFFLINE_ALTERNATIVES_FOLLOWUP_PLAN.json",
+    "official_pdf_attempts": 1,
+    "observed_sdk_rpc_attempts": 3,
+    "financial_calls": 1,
+    "new_known_equivalents": 4,
+    "saved_pdf_bytes": 2272239,
+    "saved_sdk_serialization_bytes": 2050,
+    "sdk_rows": 15,
+    "source_requests_stopped": true,
+    "source_request_count_exact": null,
+    "wire_bytes": null,
+    "no_other_source_request": true
+  },
+  "tests": {
+    "budget_and_secret_guard_before_live": {
+      "passed": 3,
+      "skipped": 0,
+      "seconds": 0.47
+    },
+    "full_local": {
+      "passed": 993,
+      "skipped": 6,
+      "warnings": 2,
+      "seconds": 44.25,
+      "command": "python -m pytest -q tests review_code -ra"
+    },
+    "skip_scope": [
+      "M5 archived builder calendar",
+      "M5 original market-cap provider bytes",
+      "M6 incident ledger",
+      "M6 full original archive",
+      "M6 real-manifest original replay",
+      "M6 stock-source raw response"
+    ],
+    "warning_scope": "Two pre-existing pandas warnings; no failed tests",
+    "harness_debug": "First offline fake-transport attempt omitted BUY_BACK_FIELDS in its stub namespace; added the static stub and reran successfully, no SDK/network/credential involved"
+  },
+  "budget": {
+    "prior_final_activation_hours_upper_bound": 1.5258850972222222,
+    "prior_final_m10_hours_upper_bound": 4.704773097222223,
+    "root_conservative_start": "2026-11-17T16:54:00+00:00",
+    "root_seconds_including_tool_waits": 878.782832,
+    "reviewer_active_start": "2026-11-17T16:56:28.8971695Z",
+    "reviewer_final_observation": "2026-11-17T16:58:43.3648543Z",
+    "reviewer_seconds_upper_bound_including_handoff": 150,
+    "incremental_agent_hours_upper_bound": 0.28577300888888885,
+    "cumulative_activation_agent_hours_upper_bound": 1.811658106111111,
+    "cumulative_original_m10_agent_hours_upper_bound": 4.990546106111111,
+    "activation_known_equivalents": 64,
+    "activation_limit": 64,
+    "original_m10_known_equivalents": 70,
+    "original_m10_limit": 4096,
+    "exact_remaining_network_allowance": null,
+    "new_source_requests_permitted_in_current_sublimit": false,
+    "activation_saved_source_bytes": 31068241,
+    "original_m10_saved_source_bytes": 31120682,
+    "activation_time_limit_hours": 2,
+    "original_time_limit_hours": 24,
+    "cash_spent": 0,
+    "software_downloads_this_followup": 0,
+    "git_ci_separate_from_source": true,
+    "final_time_closeout": "PR3 final actual HEAD closeout extends this in-tree observation; no reset or implicit reallocation"
+  },
+  "frozen_artifacts_unchanged_sha256": {
+    "requirements.lock": "c1b6ea2e01384d9949a1e8eafa51996ff94ffbf8bfbc5f0412f5ed973c3abf71",
+    "reports/m10_r2/EXPERIMENT_REGISTRY.json": "01c6627c813b536d0b304128d0252f28d390518d0aaaaabb97f55d2009f5197c",
+    "reports/m10_r2/case_inventory.json": "914d7f280ae9f60b4cfbbb3bad0263edbdc7bc2ebb230270dada92d496f05690",
+    "reports/m9_risk/RESULTS_SUMMARY.json": "d4a309b82c868b33b1636c560147afd9551601d1f4f4f60a2833c8e018cb44b3"
+  },
+  "publication": {
+    "actual_credential_screen_passed": true,
+    "credential_or_credential_hash_recorded": false,
+    "raw_vendor_data_or_official_pdf_in_commit": false,
+    "prior_receipts_preserved": true,
+    "new_public_files_only": "Code, parameters, schema/count/boolean evidence and review; original/raw remain local"
+  },
+  "source_code_sha256": {
+    "scripts/m10_rqdata_share_anchor_probe.py": "0b4bbaec641ef642e5e47677d9fdbb738a7f073f37cb1c865f5350e1eb58f413",
+    "review_code/m10_activation/audit_rqdata_structural_alternatives.py": "df26c5a4a93539402acd481432364f7d16265f27bd81b8f60d3b4ba6c5180244",
+    "review_code/m10_activation/check_share_anchor_local.py": "2c940bd37ede7b754b2f7e5758ee53ca97a8794e0b0207be796b4d5bad503c4b",
+    "review_code/m10_activation/test_share_anchor_guard.py": "9aa9123ae3e90c084ad18f599af7fb20754fc0b3befc78bc3bb9a965e00637c0"
+  },
+  "ci": "Current final HEAD CI will be read and recorded in PR3; prior HEAD CI is not current proof."
+}

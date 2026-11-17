@@ -1,0 +1,32 @@
+{
+  "baseline": "87f553d804e3d78c1ceb17027b41ed5dccb61996",
+  "scope": "This followup public files, self excluded; prior CAMPUS hash files retain prior-stage bindings",
+  "files": {
+    "docs/CODEX_HANDOFF.md": "3c105308c8f0a159a4d3d8e3f6f1d37198e6e751998c0bd78d8da800e300c981",
+    "docs/DECISION_LOG.md": "56f6bb5c547ef8bbb295d7b8e60a8d4a3d36befa09fb3f23392fa88600d7b125",
+    "docs/IMPLEMENTATION_STATUS.md": "ca67fb84e4929987da1d44f202212b8dea87de56055b657973155e0740f044da",
+    "docs/M10_PLAN.md": "64d9364bc1fb50f1a8897d0cf8dca7699074f79444235259908f88d2f210e4ab",
+    "reports/m10_activation/CAMPUS_RESULTS.md": "7d0e29853ec2c9522d413f5c0200c879ca9712da074da99bab933fddc3e70b28",
+    "reports/m10_activation/OFFLINE_ALTERNATIVES_AUDIT.json": "e59738d63cedac0acd5c4857c38df34e9c69cd260fe4449922d76ab948b96bf2",
+    "reports/m10_activation/OFFLINE_ALTERNATIVES_FOLLOWUP_PLAN.json": "e8349d972047fa70abf7f7a27309e235079de23e066d5cd338515a3c61b7a573",
+    "reports/m10_activation/OFFLINE_ALTERNATIVES_INDEPENDENT_REVIEW.md": "10dc178758fd81b57315103ecbc1d96936799a0247f603886a71f2e078cf2ab6",
+    "reports/m10_activation/OFFLINE_ALTERNATIVES_ORIGINAL_RECEIPT.json": "1ddda3ac9a6b88ccf7309cb5062ebc12b78519b0accb00907e4bb9c441e67700",
+    "reports/m10_activation/OFFLINE_ALTERNATIVES_RESULTS.md": "4c6c1f8520266ee6b83498d478c07c521b143088c23fc94ee11452cb26a500e0",
+    "reports/m10_activation/OFFLINE_ALTERNATIVES_SHARE_CHECKS.json": "d59586bf76f1bfc6305531bb0824f1a57f7d639a9cf6c8aa69729594baecaeab",
+    "reports/m10_activation/OFFLINE_ALTERNATIVES_SHARE_RECEIPT.json": "131356e58d1c9a7be5a409e4a75d957de8c81d861666ffe66f095410b2b43988",
+    "reports/m10_activation/OFFLINE_ALTERNATIVES_VERIFICATION.json": "52c22646077f1847e4c9a4c8e438d1f190f07864907548ea8ed318ab0f87683f",
+    "reports/m10_activation/RESULTS.md": "042feb0e1288f3f6aada8a802d14febd212b261ee0b00f816ca42359bdb75342",
+    "reports/m10_r2/ACCESS_DECISION.md": "a2affe36d869fb46bbb4a52366453f92d7f4fcf512eb3fc9206c70fbc4c80304",
+    "reports/m10_r2/COVERAGE_REPORT.json": "10c0aaa6612da7981cf651202e3863a6e9038a3507e83c1c80cd37cda339b402",
+    "reports/m10_r2/COVERAGE_REPORT.md": "3aa1a4de60fdab20bef6df6f371143f86584ea95898fc2b54340c9e265bf67b9",
+    "reports/m10_r2/DATA_CONTRACT_ADDENDUM.md": "d2bac914531459ffbbddc5c4af4c9d58396469398167dd3972edf65ccea4cfac",
+    "reports/m10_r2/ENGINEERING_READINESS.md": "81ee1ca385ac05097518e6336dfddc07369a13db5f56c9716262685f6c5195c5",
+    "reports/m10_r2/HUMAN_REVIEW_INDEX.md": "30c6b5bb09dd30b8af868398c20ab77ba2f3ddde66da1e147a5498f784641135",
+    "reports/m10_r2/RESULTS.md": "b2b642db589fb82e89f8169df45672cfaeca992a58404079bc49df50d55d21f9",
+    "reports/m10_r2/RESULTS_SUMMARY.json": "015dbd53aab0b405cfc52b8a8bce928d51c6275002c3025c5afa923517bfdb79",
+    "review_code/m10_activation/audit_rqdata_structural_alternatives.py": "df26c5a4a93539402acd481432364f7d16265f27bd81b8f60d3b4ba6c5180244",
+    "review_code/m10_activation/check_share_anchor_local.py": "2c940bd37ede7b754b2f7e5758ee53ca97a8794e0b0207be796b4d5bad503c4b",
+    "review_code/m10_activation/test_share_anchor_guard.py": "9aa9123ae3e90c084ad18f599af7fb20754fc0b3befc78bc3bb9a965e00637c0",
+    "scripts/m10_rqdata_share_anchor_probe.py": "0b4bbaec641ef642e5e47677d9fdbb738a7f073f37cb1c865f5350e1eb58f413"
+  }
+}

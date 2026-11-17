@@ -1,0 +1,156 @@
+{
+  "scope": "LIMITED_PIT_SHARE_ANCHOR_NOT_DAILY_EVENT_CHAIN",
+  "response_hash_match": true,
+  "official_pdf_hash_match": true,
+  "rows": 15,
+  "security_count": 5,
+  "all_info_dates_within_explicit_cutoff": true,
+  "field_non_null_counts": {
+    "info_date": 15,
+    "if_adjusted": 15,
+    "paid_in_capital": 15,
+    "treasury_stock": 2,
+    "total_a_shares": 10,
+    "equity_preferred_stock": 2,
+    "rice_create_tm": 15,
+    "total_shares": 10
+  },
+  "row_coverage": [
+    {
+      "security": "000002.XSHE",
+      "quarter": "2019q4",
+      "info_date": "2020-03-18",
+      "total_shares_present": true,
+      "total_a_shares_present": true
+    },
+    {
+      "security": "000002.XSHE",
+      "quarter": "2019q4",
+      "info_date": "2020-04-28",
+      "total_shares_present": true,
+      "total_a_shares_present": true
+    },
+    {
+      "security": "000002.XSHE",
+      "quarter": "2020q1",
+      "info_date": "2020-04-28",
+      "total_shares_present": false,
+      "total_a_shares_present": false
+    },
+    {
+      "security": "000725.XSHE",
+      "quarter": "2019q4",
+      "info_date": "2020-04-28",
+      "total_shares_present": true,
+      "total_a_shares_present": true
+    },
+    {
+      "security": "000725.XSHE",
+      "quarter": "2020q1",
+      "info_date": "2020-04-28",
+      "total_shares_present": false,
+      "total_a_shares_present": false
+    },
+    {
+      "security": "002857.XSHE",
+      "quarter": "2019q4",
+      "info_date": "2020-04-22",
+      "total_shares_present": true,
+      "total_a_shares_present": true
+    },
+    {
+      "security": "002857.XSHE",
+      "quarter": "2020q1",
+      "info_date": "2020-04-22",
+      "total_shares_present": false,
+      "total_a_shares_present": false
+    },
+    {
+      "security": "600028.XSHG",
+      "quarter": "2019q4",
+      "info_date": "2020-03-30",
+      "total_shares_present": true,
+      "total_a_shares_present": true
+    },
+    {
+      "security": "600028.XSHG",
+      "quarter": "2019q4",
+      "info_date": "2020-04-30",
+      "total_shares_present": true,
+      "total_a_shares_present": true
+    },
+    {
+      "security": "600028.XSHG",
+      "quarter": "2020q1",
+      "info_date": "2020-04-30",
+      "total_shares_present": false,
+      "total_a_shares_present": false
+    },
+    {
+      "security": "600519.XSHG",
+      "quarter": "2019q4",
+      "info_date": "2020-04-22",
+      "total_shares_present": true,
+      "total_a_shares_present": true
+    },
+    {
+      "security": "600519.XSHG",
+      "quarter": "2019q4",
+      "info_date": "2020-04-28",
+      "total_shares_present": true,
+      "total_a_shares_present": true
+    },
+    {
+      "security": "600519.XSHG",
+      "quarter": "2019q4",
+      "info_date": "2020-07-29",
+      "total_shares_present": true,
+      "total_a_shares_present": true
+    },
+    {
+      "security": "600519.XSHG",
+      "quarter": "2020q1",
+      "info_date": "2020-04-28",
+      "total_shares_present": false,
+      "total_a_shares_present": false
+    },
+    {
+      "security": "600519.XSHG",
+      "quarter": "2020q2",
+      "info_date": "2020-07-29",
+      "total_shares_present": true,
+      "total_a_shares_present": true
+    }
+  ],
+  "moutai_2019q4": {
+    "original_info_date": "2020-04-22",
+    "total_shares_matches_original": true,
+    "a_shares_matches_original": true,
+    "original_page2_share_unit_token_matches": true,
+    "original_page34_ordinary_shares_no_change_in_2019": true,
+    "author_visually_checked_physical_pages": [
+      2,
+      5,
+      34
+    ],
+    "source_publication_basis": "Prior recorded official publication metadata; this turn rechecks PDF identity/contents, not publication page",
+    "availability_basis": "Existing date-only rule yields 2020-04-23T21:00:00+08:00; not vendor-first-seen evidence"
+  },
+  "alternative_path": "PIT_SHARE_ANCHOR_ACTUALLY_RETURNED_AND_ONE_ORIGINAL_MATCHED",
+  "unverified": [
+    "other four issuers share-class/unit originals",
+    "all preferred/treasury treatment and quantities",
+    "all necessary share-changing events between anchors",
+    "historical per-field revision and event prefix invariance",
+    "full-pool share chain",
+    "industry publication and classification transitions"
+  ],
+  "no_null_filled_with_zero": true,
+  "quarterly_missing_shares_not_filled": true,
+  "raw_vendor_values_published": false,
+  "full_sample_admission": false,
+  "complete_cards": 0,
+  "human_acceptances": 0,
+  "actual_r2_accounts": 0,
+  "performance_metrics": null
+}

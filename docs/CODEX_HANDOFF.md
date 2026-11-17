@@ -1,4 +1,12 @@
-# 当前校园网恢复：访问通过，结构数据合同未准入
+# 当前恢复入口：替代接口部分实证，64请求子预算已用满
+
+2026-11-18后续复核：已离线检查SDK的24个相关接口，不能从get_shares或一份行业响应缺字段推断整个RQData能力不足。随后按预登记剩余额度查询原五身份的PIT股本字段，真实返回15行，total_shares/total_a_shares各10行非空；茅台2019q4股本锚点与按旧manifest补取的官方原件一致。原四困难财务案例、冲突和研究定义不改。
+
+当前是 **ALTERNATIVES_PARTIALLY_VERIFIED / SOURCE_REQUEST_BUDGET_EXHAUSTED**。完整数据仍未准入；股本事件组合和行业公开/版本链有具体未验证路线，不再把外部接口/导出当作唯一下步。来源已知等价累计64/64，原M10累计70/4096，底层和wire未知；不得自动续取。继续联网需在原总预算内明确下一段有限核验额度，不重置既有消费。
+
+先读[替代路径实证及更正](../reports/m10_activation/OFFLINE_ALTERNATIVES_RESULTS.md)、[本地股本比对](../reports/m10_activation/OFFLINE_ALTERNATIVES_SHARE_CHECKS.json)、[离线独立审查](../reports/m10_activation/OFFLINE_ALTERNATIVES_INDEPENDENT_REVIEW.md)及[本轮资源/核验](../reports/m10_activation/OFFLINE_ALTERNATIVES_VERIFICATION.json)。完整卡0、human0、R2实际注册/账户0，24格仍DRAFT_NOT_AUTHORIZED，收益/CI null。尚未通过完整样本，不开全池/生产runner或绩效。以下保留前轮观察，涉及“下一输入只能外部补充”的描述由本段更正。
+
+# 前轮校园网恢复：访问通过，结构数据合同未准入
 
 2026-11-18，M10_SOURCE_ACTIVATION_V1；恢复公开基线 `21f279fe0a73375cd26c3fb044e58c955874646f`，当前本机 `F:/Quant_Trade/Quant-Research`，分支 `codex/m10-r2-data-and-screen`。最终认证/额度元数据通过，EDU、200 MiB/日、查询时剩余286天；完成固定18财务+8结构调用，四公司原稿/修订三字段及两组既定算术有限核对通过，13必要官方原件重新取得且hash匹配。
 

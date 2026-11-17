@@ -1,3 +1,5 @@
+> 当前增量见 [OFFLINE_ALTERNATIVES_RESULTS](../reports/m10_activation/OFFLINE_ALTERNATIVES_RESULTS.md)：原来源替代路径部分实证，未证明整个来源不支持；64/64子预算已用满，研究和准入门槛不变。
+
 > 2026-11-18同任务校园恢复增量：访问通过，固定26调用与13原件完成，因股本/行业历史时钟合同停于BLOCKED_DATA_CAPABILITY。原计划、样本、研究及准入门槛不变，累计资源不重置。当前恢复入口见 [CODEX_HANDOFF](CODEX_HANDOFF.md) 和 [CAMPUS_RESULTS](../reports/m10_activation/CAMPUS_RESULTS.md)。
 
 # M10：R2 数据与首次固定初筛执行计划

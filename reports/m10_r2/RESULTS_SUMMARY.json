@@ -40,7 +40,7 @@
     "data_binding": null,
     "freshness_and_industry_versions": "NOT_ADMITTED"
   },
-  "next_external_input": "Concrete permitted interface/export plus documented share publication/effective/version clocks and ordinary-share semantics, and industry assignment/taxonomy publication/version clocks within the existing authorized service. No new credential or blind human signature.",
+  "next_external_input": "No new account required. Concrete PIT share-anchor/event and industry-contract alternatives remain. New source requests require explicit next bounded allocation within original overall budget; current 64-equivalent activation sublimit exhausted. Existing lawful local originals can support offline checks.",
   "not_only_waiting_for_humans": true,
   "no_new_market_requests": false,
   "no_M9_rerun": true,
@@ -61,8 +61,8 @@
     "scope_warning": "Prior host audit; not a claim that 265 originals exist on campus host."
   },
   "data": {
-    "campus_fixed_originals_hash_verified": 13,
-    "campus_financial_calls": 18,
+    "campus_fixed_originals_hash_verified": 14,
+    "campus_financial_calls": 19,
     "campus_structural_calls": 8,
     "requested_months": 108,
     "admitted_month_end_common_pools": 0,
@@ -76,6 +76,10 @@
     "capability": "BLOCKED_DATA_CAPABILITY",
     "result": "../m10_activation/CAMPUS_RESULTS.md",
     "fixed_financial_comparisons": "PASS_LIMITED_THREE_FIELDS_AND_CLOCKS",
-    "full_data_execution_cards_human": "NOT_PASSED"
-  }
+    "full_data_execution_cards_human": "NOT_PASSED",
+    "followup_result": "../m10_activation/OFFLINE_ALTERNATIVES_RESULTS.md",
+    "pit_share_anchor": "15 rows/5 fixed identities, 10 non-null total/A share rows, one official original comparison passes; not daily-chain admission"
+  },
+  "status_semantics": "Data contract unresolved; NOT a provider-wide capability failure.",
+  "source_verification_substatus": "ALTERNATIVES_PARTIALLY_VERIFIED_SOURCE_REQUEST_BUDGET_EXHAUSTED"
 }

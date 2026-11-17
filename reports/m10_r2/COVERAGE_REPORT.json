@@ -2688,5 +2688,18 @@
     "full_pool_admission": false,
     "source": "../m10_activation/CAMPUS_SAMPLE_AUDIT.json",
     "mapping": "../m10_activation/CAMPUS_MINIMUM_ORIGINALS.json"
+  },
+  "campus_followup_observation": {
+    "scope": "PIT_SHARE_ANCHOR_ALTERNATIVE_NOT_FULL_POOL",
+    "date": "2026-11-18",
+    "additional_originals_verified": 1,
+    "additional_financial_calls": 1,
+    "five_fixed_id_rows": 15,
+    "total_a_and_total_share_non_null_rows_each": 10,
+    "moutai_2019q4_original_match": true,
+    "full_pool_admission": false,
+    "source_wide_incapability_proven": false,
+    "activation_known_equivalents": 64,
+    "source": "../m10_activation/OFFLINE_ALTERNATIVES_SHARE_CHECKS.json"
   }
 }

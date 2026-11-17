@@ -1,0 +1,579 @@
+{
+  "task": "M10_SOURCE_ACTIVATION_V1",
+  "observed_at": "2026-11-17T16:58:10.474844+00:00",
+  "scope": "OFFLINE_ALTERNATIVE_PATH_REVIEW_NOT_SOURCE_ADMISSION",
+  "source_requests": 0,
+  "credentials_read": false,
+  "sdk_imported": false,
+  "actual_vendor_payload_read": false,
+  "api_inventory": [
+    {
+      "file": "services/stock_status.py",
+      "file_sha256": "6e7f50b549e7af2e08fe8b213afd74585669c64a5e5bcafe7052c9fb3f1fd127",
+      "api": "get_shares",
+      "line": 728,
+      "end_line": 880,
+      "parameters": [
+        "order_book_ids",
+        "start_date",
+        "end_date",
+        "fields",
+        "expect_df",
+        "market"
+      ],
+      "documented_clock_tokens": [
+        "start_date",
+        "入库"
+      ],
+      "has_explicit_date_parameter": true,
+      "note": "Client/docstring evidence only; returned server schema, permission and vintage not inferred."
+    },
+    {
+      "file": "services/stock_status.py",
+      "file_sha256": "6e7f50b549e7af2e08fe8b213afd74585669c64a5e5bcafe7052c9fb3f1fd127",
+      "api": "get_allotment",
+      "line": 896,
+      "end_line": 961,
+      "parameters": [
+        "order_book_ids",
+        "start_date",
+        "end_date",
+        "fields",
+        "market"
+      ],
+      "documented_clock_tokens": [
+        "declaration_announcement_date",
+        "start_date",
+        "发布日期",
+        "入库"
+      ],
+      "has_explicit_date_parameter": true,
+      "note": "Client/docstring evidence only; returned server schema, permission and vintage not inferred."
+    },
+    {
+      "file": "services/stock_status.py",
+      "file_sha256": "6e7f50b549e7af2e08fe8b213afd74585669c64a5e5bcafe7052c9fb3f1fd127",
+      "api": "get_incentive_plan",
+      "line": 1042,
+      "end_line": 1092,
+      "parameters": [
+        "order_book_ids",
+        "start_date",
+        "end_date",
+        "market"
+      ],
+      "documented_clock_tokens": [
+        "info_date",
+        "first_info_date",
+        "effective_date",
+        "start_date",
+        "公告",
+        "发布日期"
+      ],
+      "has_explicit_date_parameter": true,
+      "note": "Client/docstring evidence only; returned server schema, permission and vintage not inferred."
+    },
+    {
+      "file": "services/stock_status.py",
+      "file_sha256": "6e7f50b549e7af2e08fe8b213afd74585669c64a5e5bcafe7052c9fb3f1fd127",
+      "api": "get_announcement",
+      "line": 1231,
+      "end_line": 1288,
+      "parameters": [
+        "order_book_ids",
+        "start_date",
+        "end_date",
+        "fields",
+        "market"
+      ],
+      "documented_clock_tokens": [
+        "info_date",
+        "start_date",
+        "公告",
+        "发布日期",
+        "入库"
+      ],
+      "has_explicit_date_parameter": true,
+      "note": "Client/docstring evidence only; returned server schema, permission and vintage not inferred."
+    },
+    {
+      "file": "services/stock_status.py",
+      "file_sha256": "6e7f50b549e7af2e08fe8b213afd74585669c64a5e5bcafe7052c9fb3f1fd127",
+      "api": "get_restricted_shares",
+      "line": 1414,
+      "end_line": 1466,
+      "parameters": [
+        "order_book_ids",
+        "start_date",
+        "end_date",
+        "market"
+      ],
+      "documented_clock_tokens": [
+        "info_date",
+        "start_date",
+        "发布日期",
+        "入库"
+      ],
+      "has_explicit_date_parameter": true,
+      "note": "Client/docstring evidence only; returned server schema, permission and vintage not inferred."
+    },
+    {
+      "file": "services/stock_status.py",
+      "file_sha256": "6e7f50b549e7af2e08fe8b213afd74585669c64a5e5bcafe7052c9fb3f1fd127",
+      "api": "get_special_treatment_info",
+      "line": 996,
+      "end_line": 1038,
+      "parameters": [
+        "order_book_ids",
+        "market"
+      ],
+      "documented_clock_tokens": [
+        "info_date",
+        "发布日期",
+        "入库"
+      ],
+      "has_explicit_date_parameter": false,
+      "note": "Client/docstring evidence only; returned server schema, permission and vintage not inferred."
+    },
+    {
+      "file": "services/stock_status.py",
+      "file_sha256": "6e7f50b549e7af2e08fe8b213afd74585669c64a5e5bcafe7052c9fb3f1fd127",
+      "api": "get_symbol_change_info",
+      "line": 965,
+      "end_line": 992,
+      "parameters": [
+        "order_book_ids",
+        "market"
+      ],
+      "documented_clock_tokens": [
+        "入库"
+      ],
+      "has_explicit_date_parameter": false,
+      "note": "Client/docstring evidence only; returned server schema, permission and vintage not inferred."
+    },
+    {
+      "file": "services/basic.py",
+      "file_sha256": "5a3b655a9db0038dd10e3ff85e420b84d501089f73b2801303d32185e734460e",
+      "api": "get_private_placement",
+      "line": 2423,
+      "end_line": 2474,
+      "parameters": [
+        "order_book_ids",
+        "start_date",
+        "end_date",
+        "progress",
+        "issue_type",
+        "market"
+      ],
+      "documented_clock_tokens": [
+        "start_date",
+        "公告"
+      ],
+      "has_explicit_date_parameter": true,
+      "note": "Client/docstring evidence only; returned server schema, permission and vintage not inferred."
+    },
+    {
+      "file": "services/basic.py",
+      "file_sha256": "5a3b655a9db0038dd10e3ff85e420b84d501089f73b2801303d32185e734460e",
+      "api": "get_share_transformation",
+      "line": 2479,
+      "end_line": 2526,
+      "parameters": [
+        "predecessor",
+        "market"
+      ],
+      "documented_clock_tokens": [
+        "effective_date",
+        "入库"
+      ],
+      "has_explicit_date_parameter": false,
+      "note": "Client/docstring evidence only; returned server schema, permission and vintage not inferred."
+    },
+    {
+      "file": "services/basic.py",
+      "file_sha256": "5a3b655a9db0038dd10e3ff85e420b84d501089f73b2801303d32185e734460e",
+      "api": "jy_instrument_industry",
+      "line": 1852,
+      "end_line": 1888,
+      "parameters": [
+        "order_book_ids",
+        "date",
+        "level",
+        "expect_df",
+        "market"
+      ],
+      "documented_clock_tokens": [],
+      "has_explicit_date_parameter": true,
+      "note": "Client/docstring evidence only; returned server schema, permission and vintage not inferred."
+    },
+    {
+      "file": "services/market_data.py",
+      "file_sha256": "410f5f9f61a2257d9509f2e6aea8ff1a587f799a958831f559389ba2b8c87fe0",
+      "api": "get_buy_back",
+      "line": 1083,
+      "end_line": 1162,
+      "parameters": [
+        "order_book_ids",
+        "start_date",
+        "end_date",
+        "fields",
+        "market"
+      ],
+      "documented_clock_tokens": [
+        "info_date",
+        "complete_info_date",
+        "write_off_date",
+        "procedure_change_date",
+        "start_date",
+        "公告"
+      ],
+      "has_explicit_date_parameter": true,
+      "note": "Client/docstring evidence only; returned server schema, permission and vintage not inferred."
+    },
+    {
+      "file": "services/financial.py",
+      "file_sha256": "562f93201b00f696e9d0eca8b741b3f46020e1aded8cba3df44cbdbc5ed29e0a",
+      "api": "get_pit_financials_ex",
+      "line": 99,
+      "end_line": 199,
+      "parameters": [
+        "order_book_ids",
+        "fields",
+        "start_quarter",
+        "end_quarter",
+        "date",
+        "statements",
+        "market"
+      ],
+      "documented_clock_tokens": [
+        "info_date",
+        "公告"
+      ],
+      "has_explicit_date_parameter": true,
+      "note": "Client/docstring evidence only; returned server schema, permission and vintage not inferred."
+    },
+    {
+      "file": "services/financial.py",
+      "file_sha256": "562f93201b00f696e9d0eca8b741b3f46020e1aded8cba3df44cbdbc5ed29e0a",
+      "api": "current_performance",
+      "line": 204,
+      "end_line": 316,
+      "parameters": [
+        "order_book_ids",
+        "info_date",
+        "quarter",
+        "interval",
+        "fields",
+        "market"
+      ],
+      "documented_clock_tokens": [
+        "info_date",
+        "公告"
+      ],
+      "has_explicit_date_parameter": true,
+      "note": "Client/docstring evidence only; returned server schema, permission and vintage not inferred."
+    },
+    {
+      "file": "services/shenwan.py",
+      "file_sha256": "c25b53be2fb3efeb0244457ce0a6090768e6dda1ff421f042778e8c77ed10f3f",
+      "api": "get_industry",
+      "line": 192,
+      "end_line": 278,
+      "parameters": [
+        "industry",
+        "source",
+        "date",
+        "market"
+      ],
+      "documented_clock_tokens": [],
+      "has_explicit_date_parameter": true,
+      "note": "Client/docstring evidence only; returned server schema, permission and vintage not inferred."
+    },
+    {
+      "file": "services/shenwan.py",
+      "file_sha256": "c25b53be2fb3efeb0244457ce0a6090768e6dda1ff421f042778e8c77ed10f3f",
+      "api": "get_instrument_industry",
+      "line": 349,
+      "end_line": 426,
+      "parameters": [
+        "order_book_ids",
+        "source",
+        "level",
+        "date",
+        "market"
+      ],
+      "documented_clock_tokens": [],
+      "has_explicit_date_parameter": true,
+      "note": "Client/docstring evidence only; returned server schema, permission and vintage not inferred."
+    },
+    {
+      "file": "services/shenwan.py",
+      "file_sha256": "c25b53be2fb3efeb0244457ce0a6090768e6dda1ff421f042778e8c77ed10f3f",
+      "api": "get_industry_change",
+      "line": 283,
+      "end_line": 344,
+      "parameters": [
+        "industry",
+        "source",
+        "level",
+        "market"
+      ],
+      "documented_clock_tokens": [
+        "start_date",
+        "cancel_date"
+      ],
+      "has_explicit_date_parameter": false,
+      "note": "Client/docstring evidence only; returned server schema, permission and vintage not inferred."
+    },
+    {
+      "file": "services/shenwan.py",
+      "file_sha256": "c25b53be2fb3efeb0244457ce0a6090768e6dda1ff421f042778e8c77ed10f3f",
+      "api": "get_industry_mapping",
+      "line": 449,
+      "end_line": 508,
+      "parameters": [
+        "source",
+        "date",
+        "market"
+      ],
+      "documented_clock_tokens": [],
+      "has_explicit_date_parameter": true,
+      "note": "Client/docstring evidence only; returned server schema, permission and vintage not inferred."
+    },
+    {
+      "file": "services/shenwan.py",
+      "file_sha256": "c25b53be2fb3efeb0244457ce0a6090768e6dda1ff421f042778e8c77ed10f3f",
+      "api": "shenwan_industry",
+      "line": 29,
+      "end_line": 44,
+      "parameters": [
+        "index_name",
+        "date",
+        "market"
+      ],
+      "documented_clock_tokens": [],
+      "has_explicit_date_parameter": true,
+      "note": "Client/docstring evidence only; returned server schema, permission and vintage not inferred."
+    },
+    {
+      "file": "services/shenwan.py",
+      "file_sha256": "c25b53be2fb3efeb0244457ce0a6090768e6dda1ff421f042778e8c77ed10f3f",
+      "api": "shenwan_instrument_industry",
+      "line": 56,
+      "end_line": 108,
+      "parameters": [
+        "order_book_ids",
+        "date",
+        "level",
+        "expect_df",
+        "market"
+      ],
+      "documented_clock_tokens": [],
+      "has_explicit_date_parameter": true,
+      "note": "Client/docstring evidence only; returned server schema, permission and vintage not inferred."
+    },
+    {
+      "file": "services/shenwan.py",
+      "file_sha256": "c25b53be2fb3efeb0244457ce0a6090768e6dda1ff421f042778e8c77ed10f3f",
+      "api": "zx_industry",
+      "line": 114,
+      "end_line": 126,
+      "parameters": [
+        "industry_name",
+        "date"
+      ],
+      "documented_clock_tokens": [],
+      "has_explicit_date_parameter": true,
+      "note": "Client/docstring evidence only; returned server schema, permission and vintage not inferred."
+    },
+    {
+      "file": "services/shenwan.py",
+      "file_sha256": "c25b53be2fb3efeb0244457ce0a6090768e6dda1ff421f042778e8c77ed10f3f",
+      "api": "zx_instrument_industry",
+      "line": 138,
+      "end_line": 182,
+      "parameters": [
+        "order_book_ids",
+        "date",
+        "level",
+        "expect_df",
+        "market"
+      ],
+      "documented_clock_tokens": [],
+      "has_explicit_date_parameter": true,
+      "note": "Client/docstring evidence only; returned server schema, permission and vintage not inferred."
+    },
+    {
+      "file": "services/convertible.py",
+      "file_sha256": "12a560662a7a458f12f6ee026280d6ceea51948c630db26dfeeb70f2697f2a2d",
+      "api": "get_conversion_info",
+      "line": 518,
+      "end_line": 568,
+      "parameters": [
+        "order_book_ids",
+        "start_date",
+        "end_date",
+        "market"
+      ],
+      "documented_clock_tokens": [
+        "info_date",
+        "start_date"
+      ],
+      "has_explicit_date_parameter": true,
+      "note": "Client/docstring evidence only; returned server schema, permission and vintage not inferred."
+    },
+    {
+      "file": "services/factor.py",
+      "file_sha256": "77d8368db55b3070c4be299a752d99c8ef69a93702c553791c39f59f55c741db",
+      "api": "get_factor",
+      "line": 99,
+      "end_line": 228,
+      "parameters": [
+        "order_book_ids",
+        "factor",
+        "start_date",
+        "end_date",
+        "universe",
+        "expect_df",
+        "market"
+      ],
+      "documented_clock_tokens": [
+        "start_date"
+      ],
+      "has_explicit_date_parameter": true,
+      "note": "Client/docstring evidence only; returned server schema, permission and vintage not inferred."
+    },
+    {
+      "file": "services/factor.py",
+      "file_sha256": "77d8368db55b3070c4be299a752d99c8ef69a93702c553791c39f59f55c741db",
+      "api": "get_all_factor_names",
+      "line": 55,
+      "end_line": 94,
+      "parameters": [
+        "type",
+        "market"
+      ],
+      "documented_clock_tokens": [],
+      "has_explicit_date_parameter": false,
+      "note": "Client/docstring evidence only; returned server schema, permission and vintage not inferred."
+    }
+  ],
+  "pit_share_fields": {
+    "file": "services\\orm\\pit_financials_ex.py",
+    "sha256": "99bdac24048f5360c416b74eadbd3826962477e5cfc49f6c2b64a284bbbe0556",
+    "fields": {
+      "total_shares": true,
+      "total_a_shares": true,
+      "paid_in_capital": true,
+      "equity_preferred_stock": true,
+      "treasury_stock": true
+    }
+  },
+  "synthetic_client_behavior": {
+    "synthetic_not_actual_source": true,
+    "network_calls": 0,
+    "fake_transport_calls": 4,
+    "instrument_industry_preserves_additional_server_columns": true,
+    "industry_change_preserves_additional_server_columns": true,
+    "industry_mapping_projects_only_codes_names": true,
+    "buyback_client_does_not_asof_filter_later_completion_field": true
+  },
+  "previous_originals_availability": [
+    {
+      "role": "PRIOR_M5_SHARE_DOCUMENT",
+      "security": "sh.600519",
+      "path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m5_equity\\objects\\2a2b384ab09a7bc295fd2e33b999acdf4212340b0141031c991060dea2fad03d.bin",
+      "sha256": "2a2b384ab09a7bc295fd2e33b999acdf4212340b0141031c991060dea2fad03d",
+      "url": "https://static.cninfo.com.cn/finalpage/2020-04-22/1207552562.PDF",
+      "published": "2020-04-22",
+      "limited_to": "Prior registered documentary fact, not full chain or all five campus share identities",
+      "local_path": "F:\\Quant_Trade\\Quant-Research\\data\\raw_m5_equity\\objects\\2a2b384ab09a7bc295fd2e33b999acdf4212340b0141031c991060dea2fad03d.bin",
+      "exists": false,
+      "local_hash_match": null
+    },
+    {
+      "role": "PRIOR_M5_SHARE_DOCUMENT",
+      "security": "sz.002526",
+      "path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m5_equity\\objects\\5568139044b9b5539fa1fa66c1fe54bf984d9aafd06b694305cd3006d412573f.bin",
+      "sha256": "5568139044b9b5539fa1fa66c1fe54bf984d9aafd06b694305cd3006d412573f",
+      "url": "https://static.cninfo.com.cn/finalpage/2020-05-26/1207857532.PDF",
+      "published": "2020-05-26",
+      "limited_to": "Prior registered documentary fact, not full chain or all five campus share identities",
+      "local_path": "F:\\Quant_Trade\\Quant-Research\\data\\raw_m5_equity\\objects\\5568139044b9b5539fa1fa66c1fe54bf984d9aafd06b694305cd3006d412573f.bin",
+      "exists": false,
+      "local_hash_match": null
+    },
+    {
+      "role": "PRIOR_M5_SHARE_DOCUMENT",
+      "security": "sh.601398",
+      "path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m5_equity\\objects\\4508d4a8490e810ca97ff53fd9f13d7019bde6efaf9e37a537ae953cfa9b6208.bin",
+      "sha256": "4508d4a8490e810ca97ff53fd9f13d7019bde6efaf9e37a537ae953cfa9b6208",
+      "url": "https://static.cninfo.com.cn/finalpage/2020-04-25/1207611540.PDF",
+      "published": "2020-04-25",
+      "limited_to": "Prior registered documentary fact, not full chain or all five campus share identities",
+      "local_path": "F:\\Quant_Trade\\Quant-Research\\data\\raw_m5_equity\\objects\\4508d4a8490e810ca97ff53fd9f13d7019bde6efaf9e37a537ae953cfa9b6208.bin",
+      "exists": false,
+      "local_hash_match": null
+    },
+    {
+      "role": "PRIOR_M5_SHARE_DOCUMENT",
+      "security": "sh.600518",
+      "path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m5_equity\\objects\\4a9a350bb6c0f4709fe41d378f2b7ecb90eea6a62ed782eefa2a3697d0286f7b.bin",
+      "sha256": "4a9a350bb6c0f4709fe41d378f2b7ecb90eea6a62ed782eefa2a3697d0286f7b",
+      "url": "https://static.cninfo.com.cn/finalpage/2020-06-18/1207936073.PDF",
+      "published": "2020-06-18",
+      "limited_to": "Prior registered documentary fact, not full chain or all five campus share identities",
+      "local_path": "F:\\Quant_Trade\\Quant-Research\\data\\raw_m5_equity\\objects\\4a9a350bb6c0f4709fe41d378f2b7ecb90eea6a62ed782eefa2a3697d0286f7b.bin",
+      "exists": false,
+      "local_hash_match": null
+    },
+    {
+      "role": "PRIOR_M5_SHARE_DOCUMENT",
+      "security": "sz.300855",
+      "path": "F:\\QuantTrade\\Quant-Research\\data\\raw_m5_equity\\objects\\fab0a650f09ef49ece8f1146c1c87f7319086001a07916f69ed56e96eada860c.bin",
+      "sha256": "fab0a650f09ef49ece8f1146c1c87f7319086001a07916f69ed56e96eada860c",
+      "url": "https://static.cninfo.com.cn/finalpage/2020-07-22/1208056778.PDF",
+      "published": "2020-07-22",
+      "limited_to": "Prior registered documentary fact, not full chain or all five campus share identities",
+      "local_path": "F:\\Quant_Trade\\Quant-Research\\data\\raw_m5_equity\\objects\\fab0a650f09ef49ece8f1146c1c87f7319086001a07916f69ed56e96eada860c.bin",
+      "exists": false,
+      "local_hash_match": null
+    },
+    {
+      "role": "PRIOR_CSRC_INDUSTRY_NOT_CITICS",
+      "path": "data/raw_equity_admission/http/csrc_industry_2020q2_84e1e0382561a4627c6ad7076a57b1d3b51e88192f19b898db0bccaaed10a546.bin",
+      "sha256": "84e1e0382561a4627c6ad7076a57b1d3b51e88192f19b898db0bccaaed10a546",
+      "url": "https://www.csrc.gov.cn/csrc/c100103/c1451994/1451994/files/1616066674038_28028.pdf",
+      "limited_to": "CSRC2012 snapshot/publication page or single-issuer change; cannot silently replace CITICS",
+      "local_path": "F:\\Quant_Trade\\Quant-Research\\data\\raw_equity_admission\\http\\csrc_industry_2020q2_84e1e0382561a4627c6ad7076a57b1d3b51e88192f19b898db0bccaaed10a546.bin",
+      "exists": false,
+      "local_hash_match": null
+    },
+    {
+      "role": "PRIOR_CSRC_INDUSTRY_NOT_CITICS",
+      "path": "data/raw_equity_admission/http/csrc_industry_2020q2_page_92d6dad6659f5bdd78045c2ae294321374bfacffd58789d6d6244cdc4248bab7.bin",
+      "sha256": "92d6dad6659f5bdd78045c2ae294321374bfacffd58789d6d6244cdc4248bab7",
+      "url": "https://www.csrc.gov.cn/csrc/c100103/c1451994/content.shtml",
+      "limited_to": "CSRC2012 snapshot/publication page or single-issuer change; cannot silently replace CITICS",
+      "local_path": "F:\\Quant_Trade\\Quant-Research\\data\\raw_equity_admission\\http\\csrc_industry_2020q2_page_92d6dad6659f5bdd78045c2ae294321374bfacffd58789d6d6244cdc4248bab7.bin",
+      "exists": false,
+      "local_hash_match": null
+    },
+    {
+      "role": "PRIOR_CSRC_INDUSTRY_NOT_CITICS",
+      "path": "data/raw_equity_admission/http/shijia_industry_change_20200717_c244c96f1adb03f5646a6393674926c632dcf420e7dbc8dd1238d8a4b9bf7d7c.bin",
+      "sha256": "c244c96f1adb03f5646a6393674926c632dcf420e7dbc8dd1238d8a4b9bf7d7c",
+      "url": "https://static.cninfo.com.cn/finalpage/2020-07-17/1208039030.PDF",
+      "limited_to": "CSRC2012 snapshot/publication page or single-issuer change; cannot silently replace CITICS",
+      "local_path": "F:\\Quant_Trade\\Quant-Research\\data\\raw_equity_admission\\http\\shijia_industry_change_20200717_c244c96f1adb03f5646a6393674926c632dcf420e7dbc8dd1238d8a4b9bf7d7c.bin",
+      "exists": false,
+      "local_hash_match": null
+    }
+  ],
+  "previous_originals_present": 0,
+  "conclusion": "SOURCE_CAPABILITY_UNRESOLVED_WITH_CONCRETE_ALTERNATIVES_NOT_PROVIDER_WIDE_FAILURE",
+  "full_sample_passed": false,
+  "complete_cards": 0,
+  "human_acceptances": 0,
+  "actual_r2_accounts": 0
+}

@@ -189,3 +189,10 @@ User requires a GitHub push after each completed task. Publish the reviewed M8 d
 - D108：在校园网复用本人许可恢复21f279f，同分支同预算同四困难样本。新独立Python3.11环境和SDK3.8.2；三份独立收据保留，首次init已成功，额度float本地严格校验问题诊断修复后元数据通过。没有绕行账号/代理、调用info或泄漏密钥。200MiB/日、286天仅访问元数据，不是完整数据准入。
 - D109：26固定历史样本全部返回；30次观察到的SDK RPC尝试，wire未知。13必要官方原件hash匹配；四对三字段、披露前空/旧截止重复/追加版本前缀和两既定TTM算术通过有限核对，不替代完整卡。股本缺公开/可得/版本链且SDK preferred_shares缺值补0；行业缺历史公开/版本时钟。停于BLOCKED_DATA_CAPABILITY，不把当前属性过滤当历史版本，不推定全vendor不支持。
 - D110：按完整样本不通过分支停止扩采/生产接线，0真实R2、0完整卡、0human、24未授权草案及null绩效不变。下一必要输入为具体受许股本/行业版本合同或导出，先解决数据而非签不完整卡。公开只去敏代码/参数/布尔证据；原始值/PDF及密钥不入提交。独立AI复核接受限定停止，不代替human。跨机累计预算与交付见CAMPUS_RESOURCE_LEDGER/CAMPUS_VERIFICATION及PR3当前HEAD CI。
+
+
+## 2026-11-18：离线反证来源能力推断，并验证PIT股本替代路径
+
+- D111：依据用户后续要求先离线复核24个SDK接口与已有manifest。发现PIT total_shares/total_a_shares、多个事件接口公开/生效字段及保留额外行业列的客户端行为；四合成检查和独立AI复核支持收窄此前论证。来源整体能力未被否证，不以单端点缺列推出只能外部补充。
+- D112：事前登记剩余4已知等价；补取茅台旧manifest原件1GET，SDK初始化/额度/固定五身份PIT股本查询3RPC，15行中总/A股本各10行非空，所有info_date<=2020-07-31。茅台2019q4首发锚点与同hash原件一致；5个2020q1股数字段缺失不填0。仅有限锚点实证，事件/行业链和human未通过。
+- D113：来源累计64/64、原M10 70/4096，未知底层/wire不填0；停止新来源请求。未测组合标记ALTERNATIVES_PARTIALLY_VERIFIED/SOURCE_REQUEST_BUDGET_EXHAUSTED，不当作能力失败。后续原范围有限核验有明确路线，但不得自动续子额度；数据、执行、20真人门槛、24未授权草案和null绩效保持。
