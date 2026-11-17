@@ -1,5 +1,9 @@
 # M10：R2 数据与首次固定初筛执行计划
 
+## 条件恢复：M10_SOURCE_ACTIVATION_V1（2026-11-17）
+
+用户已指定本人RQData教育许可证的本地配置位置；按[完整恢复任务书](M10_INDEPENDENT_REVIEW_AND_DATA_ACTIVATION_HANDOFF_2026-11-16.md)和[新来源样本计划](../reports/m10_activation/SAMPLE_PLAN.md)恢复有限验收，原预算累计不重置。认证、许可用途、历史能力与完整策略准入分别核验；空配置或校园网拒绝不等于供应商无PIT能力。全部数据/执行/20完整human门槛保持，24格仍未授权。下面保留原M10计划与阶段历史。
+
 2026-11-16；`M10_R2_DATA_AND_FIRST_SCREEN_V1`；研究层级 `POST_VALIDATION_EXPLORATORY`。完整规范是[用户任务书第7节](M9_INDEPENDENT_REVIEW_AND_M10_HANDOFF_2026-11-16.md)，本计划不缩减其数据、执行或人工门槛。
 
 ## 基准、范围与工作位置
